@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5656ac5e4bcf63e49b484de02f06fb42, type: 3}
+  m_Name: Regrowth (HoT)
+  m_EditorClassIdentifier: 
+  name: Regrowth
+  icon: {fileID: 21300000, guid: b3dabec7c2a85c642b97f7e35cf7da5c, type: 3}
+  hidden: 0
+  description: Receive <1> <Heal> every Round.
+  isBuff: 1
+  procType: 1
+  duration: 1
+  permanent: 1
+  removeEffects: []
+  timedActions:
+  - actionType: 1
+    actionTargets: 0
+    triggersPassives: 0
+    abilitySource:
+      ignoreMultipliers: 0
+      cannotCrit: 0
+      cannotMiss: 0
+      school: 0
+      attributeType: 0
+      baseValue: 0
+      levelBase: 0
+      scaling: 0.01
+      levelScaling: 0
+      reductionType: 0
+      modifier:
+        hasModifier: 0
+        modification: 0
+        condition: 0
+        thresholdType: 0
+        conditionThreshold: 0
+        increasedAttribute: 0
+        increaseValue: 0
+        casterBased: 0
+        attributeBase: 0
+        percentageIncrease: 0
+        bonusAbilitySource:
+          ignoreMultipliers: 0
+          school: 0
+          attributeType: 0
+          baseValue: 0
+          levelBase: 0
+          scaling: 0
+          levelScaling: 0
+          reductionType: 0
+        effectOnTarget: 1
+        conditionalEffect: {fileID: 0}
+    specialEffects:
+    - {fileID: 4698229947461908415, guid: 89e9d26c5d80d7541b62c61f74ac189b, type: 3}
+    storedValue: 0

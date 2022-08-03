@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa2df5b2f409344f962fe20a2910193, type: 3}
+  m_Name: Path of the Inquisitor
+  m_EditorClassIdentifier: 
+  name: Inquisitor
+  icon: {fileID: 21300000, guid: b3ab5c9ca98078d4d90053ba927a9a5b, type: 3}
+  baseWeapons:
+  - {fileID: 11400000, guid: 638c1705c4382464b94fd5784b5d8436, type: 2}
+  - {fileID: 11400000, guid: 01661fdad787cbf4f83e3bd3fb9a983c, type: 2}
+  primaryAbility: {fileID: 11400000, guid: 15aabe11cd958a34987bb698676244b7, type: 2}
+  secondaryAbility: {fileID: 11400000, guid: bbfb46e3eb7233a4f8ef038884099383, type: 2}
+  passiveAbility: {fileID: 11400000, guid: 8e540ecb6059cb649ac25db228e07819, type: 2}
+  activeAbilities:
+  - {fileID: 11400000, guid: 15aabe11cd958a34987bb698676244b7, type: 2}
+  - {fileID: 11400000, guid: e6a3d111aef2e8849a6a43df7772cfb0, type: 2}
+  - {fileID: 11400000, guid: b8676ec6cd3eb6d44823044d4e2042f6, type: 2}
+  - {fileID: 11400000, guid: 8a4d3db9324b90b4fa09ef29aff5c037, type: 2}
+  - {fileID: 11400000, guid: 3ee1f0920ecbf1246aaf96ba0a2548dc, type: 2}
+  - {fileID: 11400000, guid: bbfb46e3eb7233a4f8ef038884099383, type: 2}
+  - {fileID: 11400000, guid: 193cc05948d967145b45d3e1bf2615a4, type: 2}
+  - {fileID: 11400000, guid: 3be584a97fd0977468e52f1f3a9a872e, type: 2}
+  - {fileID: 11400000, guid: 495bbb30e29742e4ebff687e6771f5ca, type: 2}
+  - {fileID: 11400000, guid: 4b92c7869c8bbfa49a2e87e9a9dff61e, type: 2}
+  passiveAbilities:
+  - {fileID: 11400000, guid: 1ddeab18b14a002498207d004ce3b05a, type: 2}
+  - {fileID: 11400000, guid: 43415ec33a19cfe449c2e9582c199abf, type: 2}
+  - {fileID: 11400000, guid: 987bcdf51ce67f44fa5e514488351e77, type: 2}
+  - {fileID: 11400000, guid: 713fa6b56ee36cc419f33d5348d57b2b, type: 2}
+  attributes:
+  - attributeType: 0
+    baseValue: 2
+    bonusValue: 0
+    mulitplier: 0
+  - attributeType: 2
+    baseValue: 1
+    bonusValue: 0
+    mulitplier: 0
+  - attributeType: 9
+    baseValue: 2
+    bonusValue: 0
+    mulitplier: 0
+  - attributeType: 15
+    baseValue: 2
+    bonusValue: 0
+    mulitplier: 0
+  - attributeType: 11
+    baseValue: 2
+    bonusValue: 0
+    mulitplier: 0

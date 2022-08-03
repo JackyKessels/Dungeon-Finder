@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65caad74ac8a56045ad833b616779ac4, type: 3}
+  m_Name: '[Boss] Morgarec the Devourer'
+  m_EditorClassIdentifier: 
+  name: Morgarec the Devourer
+  lastName: 
+  unitType: 1
+  icon: {fileID: 21300000, guid: 765cbd4126b95bf469415f72b5a2100d, type: 3}
+  sprite: {fileID: 21300000, guid: fb87f3f0d43fa544d91f2ec4764645c8, type: 3}
+  attackAnimation: {fileID: 0}
+  castAnimation: {fileID: 0}
+  baseHealth: 600
+  basePower: 14
+  baseWisdom: 15
+  baseArmor: -10
+  baseResistance: 20
+  baseVitality: 0
+  speed: 5
+  accuracy: 80
+  criticalHit: 0
+  healingMultiplier: 100
+  crushingMultiplier: 100
+  piercingMultiplier: 100
+  fireMultiplier: 100
+  iceMultiplier: 100
+  natureMultiplier: 100
+  arcaneMultiplier: 100
+  holyMultiplier: 100
+  shadowMultiplier: 100
+  critMultiplier: 150
+  level: 3
+  difficulty: 6
+  experienceReward: 125
+  currencyRewards:
+  - currencyType: 1
+    totalAmount: 20
+  itemDrops:
+  - itemObject: {fileID: 11400000, guid: 9551c5fc36c479540b6f46d561b21b7c, type: 2}
+    amount: 1
+    weight: 1
+  - itemObject: {fileID: 11400000, guid: 208b6673db131fb44ae31518e7c4444e, type: 2}
+    amount: 1
+    weight: 1
+  - itemObject: {fileID: 11400000, guid: f3469f88b0dc25b4484bfa50995c890b, type: 2}
+    amount: 1
+    weight: 1
+  randomAbility: 0
+  abilities:
+  - ability: {fileID: 11400000, guid: 3f726a4b3f9fcf34babb8d410b8e83fe, type: 2}
+    target: 0
+    condition: 0
+    startCooldown: 0
+    charged: 0
+  - ability: {fileID: 11400000, guid: b4ec8db9dc496f8498b6caa48ae7ec4d, type: 2}
+    target: 2
+    condition: 0
+    startCooldown: 2
+    charged: 0
+  - ability: {fileID: 11400000, guid: 234a4832156aed24e8a9f296a6dfe1d7, type: 2}
+    target: 0
+    condition: 0
+    startCooldown: 0
+    charged: 0
+  passiveAbilities:
+  - {fileID: 11400000, guid: f4bb1353487f6f74f9144891c473bc1d, type: 2}

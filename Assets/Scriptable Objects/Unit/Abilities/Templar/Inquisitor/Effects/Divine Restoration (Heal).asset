@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5656ac5e4bcf63e49b484de02f06fb42, type: 3}
+  m_Name: Divine Restoration (Heal)
+  m_EditorClassIdentifier: 
+  name: Divine Restoration
+  icon: {fileID: 21300000, guid: 46209c7722ba9a948a1083ce42c702d2, type: 3}
+  hidden: 0
+  description: Heal for <1> per Round.
+  isBuff: 1
+  procType: 1
+  duration: 4
+  permanent: 0
+  removeEffects: []
+  timedActions:
+  - actionType: 1
+    actionTargets: 0
+    abilitySource:
+      ignoreMultipliers: 0
+      school: 0
+      attributeType: 0
+      baseValue: 0
+      levelBase: 0
+      scaling: 0.1
+      levelScaling: 0.02
+      reductionType: 0
+      modifier:
+        hasModifier: 0
+        modification: 0
+        condition: 0
+        thresholdType: 0
+        conditionThreshold: 0
+        increasedAttribute: 0
+        increaseValue: 0
+        casterBased: 1
+        attributeBase: 0
+        percentageIncrease: 0
+    specialEffects:
+    - {fileID: 6423720267172585396, guid: b804b7bfc85b3e54c847f7b0fccd3ccc, type: 3}
+    storedValue: 0

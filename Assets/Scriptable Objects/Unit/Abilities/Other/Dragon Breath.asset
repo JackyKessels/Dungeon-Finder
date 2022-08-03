@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
+  m_Name: Dragon Breath
+  m_EditorClassIdentifier: 
+  name: Dragon Breath
+  quality: 2
+  description: Deal <e1> <F> damage to all enemies, and an additional <t1timAc1>
+    <F> damage per Turn for <t1d> Turns.
+  icon: {fileID: 21300000, guid: 4730016d52654ae4491f01c2253c303b, type: 3}
+  replacesAbility: {fileID: 0}
+  castTime: 0.75
+  cooldown: 3
+  endTurn: 1
+  weaponRequirement: 4
+  type: 2
+  specialEffects: []
+  allyAbilitySources: []
+  enemyAbilitySources:
+  - school: 3
+    attributeType: 2
+    baseValue: 0
+    levelBase: 0
+    scaling: 0.5
+    levelScaling: 0.01
+    reductionType: 2
+  selfEffectsPerTarget: 0
+  selfEffects: []
+  targetEffects:
+  - {fileID: 11400000, guid: 72a079a0707c967458f4ae04125efb87, type: 2}
+  instantTargets: 2

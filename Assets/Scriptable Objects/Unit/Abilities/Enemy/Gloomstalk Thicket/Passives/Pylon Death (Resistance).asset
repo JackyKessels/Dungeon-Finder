@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
+  m_Name: Pylon Death (Resistance)
+  m_EditorClassIdentifier: 
+  id: -1
+  name: New Ability
+  quality: 0
+  type: 0
+  description: 
+  icon: {fileID: 0}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  effects:
+  - {fileID: 11400000, guid: 651346d6ce9d6b74eb39854b1d608ec3, type: 2}
+  activationMoment: 3
+  targets: 1
+  healthPercentage: 0

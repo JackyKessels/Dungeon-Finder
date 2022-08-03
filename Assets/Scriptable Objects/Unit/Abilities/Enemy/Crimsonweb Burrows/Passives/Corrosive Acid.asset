@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
+  m_Name: Corrosive Acid
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Corrosive Acid
+  quality: 0
+  type: 2
+  description: 
+  icon: {fileID: 21300000, guid: 0c3a3f42ea409fa48b26bb925ba33ea4, type: 3}
+  specialEffects: []
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  triggerType: 0
+  hitType: 0
+  schoolTriggers: 01000000
+  procChance: 100
+  abilitySources: []
+  selfEffectsPerTarget: 0
+  selfEffects: []
+  targetEffects:
+  - {fileID: 11400000, guid: 65aade293d417e34cb691125b2c74a57, type: 2}

@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
+  m_Name: Valiant Strike
+  m_EditorClassIdentifier: 
+  id: 63
+  name: Valiant Strike
+  quality: 0
+  type: 2
+  description: Deal <e1> <P> and <e2> <H> damage to your target and increase your
+    <crit> by <s1modV>% for <s1d> Rounds.
+  icon: {fileID: 21300000, guid: 624e3fc45ceb2fb449f0c8808f3258f3, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 7767681858348924222, guid: d51b58a120b00a0448441daef591d431, type: 3}
+  - {fileID: 2573472640096037833, guid: b209f1ec8fb54cf4dbbe800981b8ae14, type: 3}
+  - {fileID: 8281471397819581700, guid: 06b0f4c0972891e4bad09b073174485a, type: 3}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  castTime: 1
+  cooldown: 2
+  endTurn: 1
+  resetChance: 0
+  weaponRequirement: 0
+  soundEffect: {fileID: 8300000, guid: 3cd47381abc8f05429b8d3a745b27946, type: 3}
+  animationType: 0
+  allyAbilitySources: []
+  enemyAbilitySources:
+  - ignoreMultipliers: 0
+    school: 1
+    attributeType: 1
+    baseValue: 0
+    levelBase: 0
+    scaling: 0.8
+    levelScaling: 0.16
+    reductionType: 1
+    modifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      increasedAttribute: 0
+      increaseValue: 0
+      casterBased: 1
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  - ignoreMultipliers: 0
+    school: 6
+    attributeType: 1
+    baseValue: 0
+    levelBase: 0
+    scaling: 0.8
+    levelScaling: 0.16
+    reductionType: 2
+    modifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      increasedAttribute: 0
+      increaseValue: 0
+      casterBased: 1
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: fa8c24b52aa16e24db2327a250e86b21, type: 2}
+  targetEffects: []
+  targetsAllies: 0
+  targetsEnemies: 1
+  targetTargets: 0
+  adjacentReduction: 0

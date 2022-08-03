@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51850a8b11733b04f9956814f3c60d35, type: 3}
+  m_Name: Hinterlands Charge (Trigger)
+  m_EditorClassIdentifier: 
+  name: Hinterlands Charge
+  icon: {fileID: 0}
+  hidden: 1
+  description: If the target is Crowd Controlled, deal an additional <1timAp1> <P>
+    damage.
+  isBuff: 0
+  procType: 0
+  duration: 1
+  permanent: 0
+  removeEffects: []
+  conditionalEffectType: 1
+  conditionalEffect: {fileID: 11400000, guid: 5c3728e89471c524397c82f28e0a1f65, type: 2}
+  ccTypes: 020000000100000000000000
+  specificEffects: []
+  checkTarget: 0
+  effectTarget: 0
+  consumeEffect: 0

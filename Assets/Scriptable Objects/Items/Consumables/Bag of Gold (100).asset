@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c1aa15fc93c21d41b132adbe161971e, type: 3}
+  m_Name: Bag of Gold (100)
+  m_EditorClassIdentifier: 
+  name: Bag of Gold
+  icon: {fileID: 21300000, guid: 4c7f36e0a43962c418a72e80e411594f, type: 3}
+  value: 0
+  stackable: 0
+  maxStacks: 1
+  sellable: 1
+  item:
+    name: 
+    id: 62
+    itemObject: {fileID: 0}
+    attributes: []
+  description: This bag contains some gold coins.
+  quality: 0
+  consumptionType: 1
+  currency:
+    currencyType: 0
+    totalAmount: 100

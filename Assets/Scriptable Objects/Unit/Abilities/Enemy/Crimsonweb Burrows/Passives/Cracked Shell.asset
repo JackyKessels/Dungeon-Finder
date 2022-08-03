@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
+  m_Name: Cracked Shell
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Cracked Shell
+  quality: 0
+  type: 0
+  description: Taking damage has a 25% chance to crack your shell, reducing your
+    Armor by 10 for 2 Rounds.
+  icon: {fileID: 21300000, guid: 2fb3d2612a14d8d4aba60c669a296ae8, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  isPositive: 0
+  triggerType: 0
+  hitType: 0
+  targetTrigger: 1
+  schoolTriggers: 01000000020000000300000004000000050000000600000007000000
+  triggersPassives: 0
+  procChance: 25
+  abilitySources: []
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: a9b5bcadba980cf45bf01e6099a5fc93, type: 2}
+  targetEffects: []

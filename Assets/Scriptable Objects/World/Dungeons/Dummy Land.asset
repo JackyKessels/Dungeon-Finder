@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5d8964ff6732a478daba8589bfd458, type: 3}
+  m_Name: Dummy Land
+  m_EditorClassIdentifier: 
+  name: Dummy Land
+  background: {fileID: 21300000, guid: 6fb36093dca01314db544e8991d2a6ce, type: 3}
+  backgroundSound: {fileID: 0}
+  recommendedMinimumLevel: 1
+  recommendedMaximumLevel: 99
+  nameColor: {r: 0.42091438, g: 1, b: 0.3254717, a: 1}
+  floors:
+  - columns: 3
+    rows: 5
+    startingPoints: 5
+    endPoints: 5
+    removalThreshold: 0
+    minimumLocations: 0
+    addOffset: 0
+    eliteCount: 0
+    campfireCount: 0
+    treasureCount: 0
+    mysteryCount: 0
+    spiritColumns: 
+    itemPool: []
+    trashEncounters:
+    - enemyObjects:
+      - {fileID: 11400000, guid: e43675038dff24842ba1c38e89df82a2, type: 2}
+      weight: 1
+    - enemyObjects:
+      - {fileID: 11400000, guid: e43675038dff24842ba1c38e89df82a2, type: 2}
+      - {fileID: 11400000, guid: e43675038dff24842ba1c38e89df82a2, type: 2}
+      - {fileID: 11400000, guid: e43675038dff24842ba1c38e89df82a2, type: 2}
+      weight: 1
+    eliteEncounters: []
+    bossEncounter:
+      enemyObjects:
+      - {fileID: 11400000, guid: e43675038dff24842ba1c38e89df82a2, type: 2}
+    mysteryEvents: []

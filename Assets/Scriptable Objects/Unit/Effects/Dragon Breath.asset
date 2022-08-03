@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5656ac5e4bcf63e49b484de02f06fb42, type: 3}
+  m_Name: Dragon Breath
+  m_EditorClassIdentifier: 
+  name: Dragon Breath
+  icon: {fileID: 21300000, guid: bb44dcd437c7c3745ab33d66d8318607, type: 3}
+  isBuff: 1
+  procType: 0
+  duration: 2
+  timedActions:
+  - actionType: 1
+    abilitySource:
+      school: 3
+      attributeType: 2
+      baseValue: 0
+      levelBase: 0
+      scaling: 0.3
+      levelScaling: 0.06
+      reductionType: 2

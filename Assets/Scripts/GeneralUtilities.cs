@@ -1,0 +1,289 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public static class GeneralUtilities
+{
+    public static string GetFullUnitName(UnitObject unitObject)
+    {
+        if (unitObject.lastName == "")
+            return unitObject.name;
+        else
+            return unitObject.name + " " + unitObject.lastName;
+    }
+
+    public static Unit GetCorrectUnit(TooltipObject tooltipInfo)
+    {
+        switch (tooltipInfo.state)
+        {
+            case CurrentState.Battle:
+                return BattleManager.Instance.currentHero;
+            case CurrentState.HeroInformation:
+                return HeroManager.Instance.CurrentHero();
+            case CurrentState.Reward:
+                return RewardManager.Instance.CurrentHero();
+            case CurrentState.Default:
+                return HeroManager.Instance.CurrentHero();
+            case CurrentState.Values:
+                return null;
+            default:
+                return null;
+        }
+    }
+
+    public static string GetCorrectCrowdControlText(CrowdControlType crowdControlType)
+    {
+        switch (crowdControlType)
+        {
+            case CrowdControlType.Taunt:
+                return "Taunt";
+            case CrowdControlType.Stun:
+                return "Stun";
+            case CrowdControlType.Incapacitate:
+                return "Incapacitate";
+            default:
+                return "";
+        }
+    }
+
+    public static string GetCorrectAttributeName(AttributeType attributeType)
+    {
+        switch (attributeType)
+        {
+            case AttributeType.Crit:
+                return "Critical Chance";
+            case AttributeType.HealingMultiplier:
+                return "Healing Done";
+            case AttributeType.PhysicalMultiplier:
+                return "Physical Damage";
+            case AttributeType.FireMultiplier:
+                return "Fire Damage";
+            case AttributeType.IceMultiplier:
+                return "Ice Damage";
+            case AttributeType.NatureMultiplier:
+                return "Nature Damage";
+            case AttributeType.ArcaneMultiplier:
+                return "Arcane Damage";
+            case AttributeType.HolyMultiplier:
+                return "Holy Damage";
+            case AttributeType.ShadowMultiplier:
+                return "Shadow Damage";
+            case AttributeType.CritMultiplier:
+                return "Critical Power";
+            default:
+                return attributeType.ToString();
+        }
+    }
+
+    public static Sprite GetAttributeIcon(AttributeType attributeType)
+    {
+        switch (attributeType)
+        {
+            // General Attributes
+            case AttributeType.Health:
+                return GameAssets.i.health;
+            case AttributeType.Power:
+                return GameAssets.i.power;
+            case AttributeType.Wisdom:
+                return GameAssets.i.wisdom;
+            case AttributeType.Armor:
+                return GameAssets.i.armor;
+            case AttributeType.Resistance:
+                return GameAssets.i.resistance;
+            case AttributeType.Vitality:
+                return GameAssets.i.vitality;
+            case AttributeType.Speed:
+                return GameAssets.i.speed;
+            case AttributeType.Accuracy:
+                return GameAssets.i.accuracy;
+            case AttributeType.Crit:
+                return GameAssets.i.crit;
+
+            // School Modifiers
+            case AttributeType.HealingMultiplier:
+                return GameAssets.i.healingMultiplier;
+            case AttributeType.PhysicalMultiplier:
+                return GameAssets.i.physicalMultiplier;
+            case AttributeType.FireMultiplier:
+                return GameAssets.i.fireMultiplier;
+            case AttributeType.IceMultiplier:
+                return GameAssets.i.iceMultiplier;
+            case AttributeType.NatureMultiplier:
+                return GameAssets.i.natureMultiplier;
+            case AttributeType.ArcaneMultiplier:
+                return GameAssets.i.arcaneMultiplier;
+            case AttributeType.HolyMultiplier:
+                return GameAssets.i.holyMultiplier;
+            case AttributeType.ShadowMultiplier:
+                return GameAssets.i.shadowMultiplier;
+            case AttributeType.CritMultiplier:
+                return GameAssets.i.critMultiplier;
+
+            default:
+                return null;
+        }
+    }
+
+    public static Sprite GetSchoolIcon(AbilitySchool abilitySchool)
+    {
+        switch (abilitySchool)
+        {
+            case AbilitySchool.Healing:
+                return GameAssets.i.healingMultiplier;
+            case AbilitySchool.Physical:
+                return GameAssets.i.physicalMultiplier;
+            case AbilitySchool.Fire:
+                return GameAssets.i.fireMultiplier;
+            case AbilitySchool.Ice:
+                return GameAssets.i.iceMultiplier;
+            case AbilitySchool.Nature:
+                return GameAssets.i.natureMultiplier;
+            case AbilitySchool.Arcane:
+                return GameAssets.i.arcaneMultiplier;
+            case AbilitySchool.Holy:
+                return GameAssets.i.holyMultiplier;
+            case AbilitySchool.Shadow:
+                return GameAssets.i.shadowMultiplier;
+
+            default:
+                return null;
+        }
+    }
+
+    public static int GetCorrectEquipmentslot(EquipmentSlot equipmentSlot)
+    {
+        switch (equipmentSlot)
+        {
+            case EquipmentSlot.Helmet:
+                return 0;
+            case EquipmentSlot.Armor:
+                return 1;
+            case EquipmentSlot.TwoHand:
+                return 2;
+            case EquipmentSlot.OneHand:
+                return 2;
+            case EquipmentSlot.Shield:
+                return 3;
+            case EquipmentSlot.Relic:
+                return 3;
+            case EquipmentSlot.Necklace:
+                return 4;
+            case EquipmentSlot.Ring:
+                return 5;
+            case EquipmentSlot.Trinket:
+                return 6;
+            case EquipmentSlot.Flask:
+                return 7;
+            case EquipmentSlot.Nothing:
+                return -1;
+            default:
+                return -1;
+        }
+    }
+
+    public static bool GetMappedAbilityKey(int index, bool isHeroAbility)
+    {
+        if (isHeroAbility)
+        {
+            if (index == 0 && Input.GetKeyDown(KeyCode.Q))
+                return true;
+            else if (index == 1 && Input.GetKeyDown(KeyCode.W))
+                return true;
+            else if (index == 2 && Input.GetKeyDown(KeyCode.E))
+                return true;
+            else if (index == 3 && Input.GetKeyDown(KeyCode.R))
+                return true;
+            else if (index == 4 && Input.GetKeyDown(KeyCode.F))
+                return true;
+            else
+                return false;
+        }
+        else
+        {
+            if (index == 0 && Input.GetKeyDown(KeyCode.Alpha1))
+                return true;
+            if (index == 1 && Input.GetKeyDown(KeyCode.Alpha2))
+                return true;
+            if (index == 2 && Input.GetKeyDown(KeyCode.Alpha3))
+                return true;
+            if (index == 3 && Input.GetKeyDown(KeyCode.Alpha4))
+                return true;
+            if (index == 4 && Input.GetKeyDown(KeyCode.Alpha5))
+                return true;
+            if (index == 5 && Input.GetKeyDown(KeyCode.Alpha6))
+                return true;
+            if (index == 6 && Input.GetKeyDown(KeyCode.Alpha7))
+                return true;
+            if (index == 7 && Input.GetKeyDown(KeyCode.Alpha8))
+                return true;
+        }
+
+        return false;
+    }
+
+    public static int RoundFloat(float value)
+    {
+        return (int)System.Math.Round(value, System.MidpointRounding.AwayFromZero);
+    }
+
+    public static Color ConvertString2Color(string s)
+    {
+        ColorUtility.TryParseHtmlString(s, out Color c);
+
+        return c;
+    }
+
+    public static int RandomWeighted(List<int> weights)
+    {
+        int weightTotal = 0;
+
+        foreach (int weight in weights)
+            weightTotal += weight;
+
+        int result;
+        int total = 0;
+
+        int randVal = Random.Range(0, weightTotal);
+        for (result = 0; result < weights.Count; result++)
+        {
+            total += weights[result];
+            if (total > randVal) break;
+        }
+
+        return result;
+    }
+
+    public static float DefensiveReductionValue_Linear(float amount)
+    {
+        return amount * 0.01f;
+    }
+
+    public static float DefensiveReductionValue_League_Tweaked(float amount)
+    {
+        // Positive Armor
+        if (amount >= 0)
+            return 100 / (100 + amount);
+        // Negative Armor
+        else
+        {
+            float tempAmount = -1 * amount;
+
+            return 2 - (100 / (100 + tempAmount));
+        }
+
+        // -100 -> 1.5
+        // -50  -> 1.33
+        // 0    -> 1
+        // 50   -> 0.67
+        // 100  -> 0.5
+
+    }
+
+    public static ReductionType GetReductionType(AbilitySchool abilitySchool)
+    {
+        if (abilitySchool == AbilitySchool.Physical)
+            return ReductionType.Armor;
+        else
+            return ReductionType.Resistance;
+    }
+}

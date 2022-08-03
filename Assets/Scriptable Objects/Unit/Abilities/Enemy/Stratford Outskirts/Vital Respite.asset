@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
+  m_Name: Vital Respite
+  m_EditorClassIdentifier: 
+  id: 6
+  name: Vital Respite
+  quality: 0
+  description: For <s1d> Rounds you are Stunned and have Armor reduced by <s2modV>,
+    but heal for <s1timAc1> per Round.
+  icon: {fileID: 21300000, guid: 4b06f7cb1308ac8469f508aeac378e2b, type: 3}
+  hasLevels: 1
+  replacesAbility: {fileID: 0}
+  castTime: 1
+  cooldown: 5
+  endTurn: 1
+  weaponRequirement: 4
+  type: 0
+  specialEffects: []
+  soundEffect: {fileID: 0}
+  animationType: 1
+  allyAbilitySources: []
+  enemyAbilitySources: []
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: bedbc98ff53a62742b535a59cc5ae035, type: 2}
+  - {fileID: 11400000, guid: 4e445fde853ccdd4ba80fe39d6348105, type: 2}
+  - {fileID: 11400000, guid: 86938cf45fa9d1643994a6dda7dc18a3, type: 2}
+  targetEffects: []
+  instantTargets: 0

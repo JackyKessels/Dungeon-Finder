@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
+  m_Name: Runic Balance
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Runic Balance
+  quality: 0
+  type: 3
+  description: Dealing <M> damage increases your <physicalmultiplier> by <s1modV>%
+    for <s1d> Rounds.
+  icon: {fileID: 21300000, guid: af98a1081158c134985c359dc0a01823, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  triggerType: 1
+  hitType: 0
+  targetTrigger: 0
+  abilityTypeTrigger: 0
+  typeRequirement: 0
+  schoolTriggers: 020000000300000004000000050000000600000007000000
+  triggersPassives: 0
+  procChance: 100
+  abilitySources: []
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: 6cfad2a50c429084ab06a6e6f785fb57, type: 2}
+  targetEffects: []

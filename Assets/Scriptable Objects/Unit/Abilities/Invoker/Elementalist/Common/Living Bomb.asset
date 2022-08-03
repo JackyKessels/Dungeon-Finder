@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
+  m_Name: Living Bomb
+  m_EditorClassIdentifier: 
+  id: 19
+  name: Living Bomb
+  quality: 0
+  type: 2
+  description: Deal <t1timAc1> <F> damage every Round for <t1d> Rounds. Living Bomb
+    explodes on expiration, dealing <t1timEx1> <F> damage to all enemies.
+  icon: {fileID: 21300000, guid: dde8d77fa3a2a814c88703afe4930d81, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 547383708514995629, guid: 5c04a037633197948a1f1f773adccafc, type: 3}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  castTime: 0.75
+  cooldown: 2
+  endTurn: 1
+  resetChance: 0
+  weaponRequirement: 4
+  soundEffect: {fileID: 0}
+  animationType: 0
+  allyAbilitySources: []
+  enemyAbilitySources: []
+  selfEffectsPerTarget: 0
+  selfEffects: []
+  targetEffects:
+  - {fileID: 11400000, guid: 904165af02dd5ec42b8ffd04761aaa10, type: 2}
+  targetsAllies: 0
+  targetsEnemies: 1
+  targetTargets: 0
+  adjacentReduction: 0

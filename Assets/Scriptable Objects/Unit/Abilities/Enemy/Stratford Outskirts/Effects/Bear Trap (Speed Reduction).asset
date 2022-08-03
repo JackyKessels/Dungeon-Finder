@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f61bd7798258c684cb135bcc9f1f3cfd, type: 3}
+  m_Name: Bear Trap (Speed Reduction)
+  m_EditorClassIdentifier: 
+  name: Bear Trap
+  icon: {fileID: 21300000, guid: cd997a14e03004e4ab884435f9105936, type: 3}
+  hidden: 0
+  description: Speed reduced by <1>.
+  isBuff: 0
+  procType: 1
+  duration: 5
+  permanent: 0
+  removeEffects: []
+  attributeModified: 6
+  isIncrease: 0
+  modifierSource:
+    school: 0
+    attributeType: 6
+    baseValue: 3
+    levelBase: 0
+    scaling: 0
+    levelScaling: 0
+    reductionType: 0
+  specialEffects: []

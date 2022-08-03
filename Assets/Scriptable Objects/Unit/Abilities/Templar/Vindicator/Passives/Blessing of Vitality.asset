@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
+  m_Name: Blessing of Vitality
+  m_EditorClassIdentifier: 
+  id: 146
+  name: Blessing of Vitality
+  quality: 0
+  type: 3
+  description: Increase your <vitality> by <s1modV> while below <threshold>% Health.
+  icon: {fileID: 21300000, guid: f13d9b7587c838d478a638948a45ae54, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  effects:
+  - {fileID: 11400000, guid: 3a3b4761c77368644b6aa3959dd65a49, type: 2}
+  activationMoment: 1
+  targets: 0
+  healthPercentage: 50
+  attributeType: 0
+  attributeValue: 0

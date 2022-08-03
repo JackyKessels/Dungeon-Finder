@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
+  m_Name: Faithful Warrior
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Faithful Warrior
+  quality: 0
+  type: 3
+  description: Increase your <physicalmultiplier> by <s1modV>% while above <threshold>%
+    Health.
+  icon: {fileID: 21300000, guid: adda846d3f5d817499fb2288f8e5a949, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  effects:
+  - {fileID: 11400000, guid: d76a06e40b7d8554c8dc7d25c7754fe6, type: 2}
+  activationMoment: 2
+  targets: 0
+  healthPercentage: 80

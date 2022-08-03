@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
+  m_Name: Spirit Shell
+  m_EditorClassIdentifier: 
+  id: 44
+  name: Spirit Shell
+  quality: 0
+  type: 1
+  description: 'Heal yourself for <a1> and increase your <resistance> by <s1modV>
+    for <s1d> Rounds.
+
+
+    Spirit Shell heals <a1modP>% more per <r1>% of <health>
+    you are missing.'
+  icon: {fileID: 21300000, guid: dc1b17ffd20a9404cb05a7f48cb54894, type: 3}
+  casterSpecialEffects:
+  - {fileID: 3863843617175750837, guid: 50bc75e9c1febe74ca5cf3118e9665d0, type: 3}
+  targetSpecialEffects: []
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  castTime: 0.75
+  cooldown: 3
+  endTurn: 1
+  resetChance: 0
+  weaponRequirement: 4
+  soundEffect: {fileID: 0}
+  animationType: 1
+  allyAbilitySources:
+  - ignoreMultipliers: 0
+    school: 0
+    attributeType: 0
+    baseValue: 0
+    levelBase: 0
+    scaling: 0.1
+    levelScaling: 0.02
+    reductionType: 0
+    modifier:
+      hasModifier: 1
+      modification: 2
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      increasedAttribute: 0
+      increaseValue: 0
+      casterBased: 1
+      attributeBase: 2
+      percentageIncrease: 2
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  enemyAbilitySources: []
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: 2d49dd0a3b8069a46b279782ec974722, type: 2}
+  targetEffects: []
+  instantTargets: 0

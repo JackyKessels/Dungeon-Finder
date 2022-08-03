@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7301d6b2e8e6d5f4caae063d10e60b00, type: 3}
+  m_Name: Battlemage's Paradigm
+  m_EditorClassIdentifier: 
+  id: 104
+  name: Battlemage's Paradigm
+  quality: 0
+  type: 3
+  description: Increase <power> by <1%>.
+  icon: {fileID: 21300000, guid: 2fe111456cd48894fa27a7982287a1ac, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  attributeModified: 1
+  isIncrease: 1
+  modifierType: 1
+  flatValue: 0
+  multiplierValue: 0.15

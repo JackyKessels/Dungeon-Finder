@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51850a8b11733b04f9956814f3c60d35, type: 3}
+  m_Name: Dire Bear Spirit (Trigger)
+  m_EditorClassIdentifier: 
+  name: Dire Bear Spirit
+  icon: {fileID: 0}
+  hidden: 0
+  description: Consumes <spec1name> to increase your Power by <1modV> for the duration
+    of Dire Bear Spirit.
+  isBuff: 0
+  procType: 0
+  duration: 1
+  permanent: 0
+  removeEffects: []
+  conditionalEffectType: 2
+  conditionalEffect: {fileID: 11400000, guid: d9f28fe680091614abc8b005e46c82e0, type: 2}
+  ccTypes: 
+  specificEffects:
+  - {fileID: 11400000, guid: 9a1d88bda4e0f034ba1a1e07a6b1b791, type: 2}
+  checkTarget: 1
+  effectTarget: 1
+  consumeEffect: 1

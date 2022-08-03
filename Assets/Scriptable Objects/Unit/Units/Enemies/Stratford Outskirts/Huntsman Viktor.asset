@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65caad74ac8a56045ad833b616779ac4, type: 3}
+  m_Name: Huntsman Viktor
+  m_EditorClassIdentifier: 
+  name: Huntsman Viktor
+  lastName: 
+  unitType: 0
+  icon: {fileID: 21300000, guid: 94df29176792566468e8a46720b6475d, type: 3}
+  sprite: {fileID: 21300000, guid: 16ebd457683d614429176111073d866c, type: 3}
+  attackAnimation: {fileID: 0}
+  castAnimation: {fileID: 0}
+  baseHealth: 250
+  basePower: 10
+  baseWisdom: 0
+  baseArmor: 10
+  baseResistance: 0
+  baseVitality: 0
+  speed: 4
+  accuracy: 75
+  criticalHit: 25
+  healingMultiplier: 100
+  crushingMultiplier: 100
+  piercingMultiplier: 100
+  fireMultiplier: 100
+  iceMultiplier: 100
+  natureMultiplier: 100
+  arcaneMultiplier: 100
+  holyMultiplier: 100
+  shadowMultiplier: 100
+  critMultiplier: 150
+  level: 5
+  difficulty: 5
+  experienceReward: 100
+  currencyRewards:
+  - currencyType: 0
+    totalAmount: 50
+  - currencyType: 1
+    totalAmount: 10
+  itemDrops: []
+  randomAbility: 1
+  abilities:
+  - ability: {fileID: 11400000, guid: 6ee0bef7f62d400409ce5cc7e8064131, type: 2}
+    target: 0
+    condition: 0
+    startCooldown: 0
+  passiveAbilities: []

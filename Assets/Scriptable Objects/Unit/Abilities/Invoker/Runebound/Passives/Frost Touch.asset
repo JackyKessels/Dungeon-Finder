@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
+  m_Name: Frost Touch
+  m_EditorClassIdentifier: 
+  id: 99
+  name: Frost Touch
+  quality: 0
+  type: 3
+  description: When you deal damage, you deal <1> additional <I> damage and increase
+    your <icemultiplier> by <s1modV>% for <s1d> Rounds.
+  icon: {fileID: 21300000, guid: 9ae3aa9a7f67e13429d526d77e56f4cc, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 2986240926361265739, guid: 5fdbf9484c4aa1d428788748076ba106, type: 3}
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  triggerType: 1
+  hitType: 0
+  targetTrigger: 1
+  abilityTypeTrigger: 0
+  typeRequirement: 0
+  schoolTriggers: 01000000020000000300000004000000050000000600000007000000
+  triggersPassives: 0
+  procChance: 100
+  abilitySources:
+  - ignoreMultipliers: 0
+    cannotCrit: 0
+    school: 3
+    attributeType: 2
+    baseValue: 0
+    levelBase: 0
+    scaling: 0.15
+    levelScaling: 0
+    reductionType: 2
+    modifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      increasedAttribute: 0
+      increaseValue: 0
+      casterBased: 0
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: 958552d5a845b1a48be8b5debb3bff8a, type: 2}
+  targetEffects: []

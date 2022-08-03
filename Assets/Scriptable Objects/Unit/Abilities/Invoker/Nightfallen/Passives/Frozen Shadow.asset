@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
+  m_Name: Frozen Shadow
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Frozen Shadow
+  quality: 0
+  type: 3
+  description: Dealing <S> damage increases your <icemultiplier> by <s1modV>% for
+    <s1d> Rounds.
+  icon: {fileID: 21300000, guid: 21140133a7334ba46827c9989027f587, type: 3}
+  casterSpecialEffects:
+  - {fileID: 2986240926361265739, guid: 5fdbf9484c4aa1d428788748076ba106, type: 3}
+  targetSpecialEffects: []
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  triggerType: 1
+  hitType: 0
+  targetTrigger: 0
+  abilityTypeTrigger: 0
+  typeRequirement: 0
+  schoolTriggers: 07000000
+  triggersPassives: 0
+  procChance: 100
+  abilitySources: []
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: 2d58535aafa763740b94840fd62369b4, type: 2}
+  targetEffects: []

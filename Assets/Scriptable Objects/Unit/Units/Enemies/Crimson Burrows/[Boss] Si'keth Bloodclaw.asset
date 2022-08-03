@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65caad74ac8a56045ad833b616779ac4, type: 3}
+  m_Name: '[Boss] Si''keth Bloodclaw'
+  m_EditorClassIdentifier: 
+  name: Si'keth Bloodclaw
+  lastName: 
+  unitType: 1
+  icon: {fileID: 21300000, guid: 765cbd4126b95bf469415f72b5a2100d, type: 3}
+  sprite: {fileID: 21300000, guid: b912e87dd5100d84daeb87961b011c47, type: 3}
+  attackAnimation: {fileID: 0}
+  castAnimation: {fileID: 0}
+  baseHealth: 500
+  basePower: 13
+  baseWisdom: 5
+  baseArmor: 0
+  baseResistance: 0
+  baseVitality: 0
+  speed: 5
+  accuracy: 90
+  criticalHit: 15
+  healingMultiplier: 100
+  crushingMultiplier: 100
+  piercingMultiplier: 100
+  fireMultiplier: 100
+  iceMultiplier: 100
+  natureMultiplier: 100
+  arcaneMultiplier: 100
+  holyMultiplier: 100
+  shadowMultiplier: 100
+  critMultiplier: 150
+  level: 3
+  difficulty: 5
+  experienceReward: 100
+  currencyRewards:
+  - currencyType: 1
+    totalAmount: 20
+  itemDrops:
+  - itemObject: {fileID: 11400000, guid: acdb4f3da0147e84085f2b8fdbe1bc09, type: 2}
+    amount: 1
+    weight: 1
+  - itemObject: {fileID: 11400000, guid: 2fd74b68355f617418891cd4ca276275, type: 2}
+    amount: 1
+    weight: 1
+  - itemObject: {fileID: 11400000, guid: 38c70f5c05c5d2249b579482d0845527, type: 2}
+    amount: 1
+    weight: 1
+  randomAbility: 0
+  abilities:
+  - ability: {fileID: 11400000, guid: 3c025eee828113240a4a35b9a04ac57c, type: 2}
+    target: 1
+    condition: 0
+    startCooldown: 3
+    charged: 1
+  - ability: {fileID: 11400000, guid: 5466a1c4bceeb4b4ca4687ac1765aea9, type: 2}
+    target: 2
+    condition: 0
+    startCooldown: 2
+    charged: 0
+  - ability: {fileID: 11400000, guid: 4777814b4948ca04780cbd5ae592cc43, type: 2}
+    target: 0
+    condition: 0
+    startCooldown: 1
+    charged: 0
+  - ability: {fileID: 11400000, guid: a7dba92c783b6a047906e2b007bb2f7e, type: 2}
+    target: 0
+    condition: 0
+    startCooldown: 0
+    charged: 0
+  passiveAbilities:
+  - {fileID: 11400000, guid: cc46f34b658df944db0da9b43b63817f, type: 2}
+  - {fileID: 11400000, guid: 91d5cd0b898405c4eb033cf55201d012, type: 2}

@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
+  m_Name: Bulwark of Vigilance
+  m_EditorClassIdentifier: 
+  id: 141
+  name: Bulwark of Vigilance
+  quality: 1
+  type: 1
+  description: "Deal <e1> <P> damage to your target and Taunt it for <t1d> Rounds.
+    \n\nIn addition, increase your <armor> by <s1modV> for <s1d> Rounds."
+  icon: {fileID: 21300000, guid: faa194240041eea4ba6447aa156896e3, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 8021252033173644995, guid: 2aab323fad568f4439c8ac3c30a82d1f, type: 3}
+  - {fileID: 6159370551172563889, guid: 1763c110a51076b45b5ec8c10ade8b6c, type: 3}
+  - {fileID: 8021252033173644995, guid: 8ca4e33111aa5c64c88a1e44b9bb3017, type: 3}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  castTime: 1
+  cooldown: 5
+  endTurn: 1
+  resetChance: 0
+  weaponRequirement: 2
+  soundEffect: {fileID: 0}
+  animationType: 0
+  allyAbilitySources: []
+  enemyAbilitySources:
+  - ignoreMultipliers: 0
+    cannotCrit: 0
+    school: 1
+    attributeType: 0
+    baseValue: 0
+    levelBase: 0
+    scaling: 0.3
+    levelScaling: 0.06
+    reductionType: 1
+    modifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      increasedAttribute: 0
+      increaseValue: 0
+      casterBased: 1
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: 4ca2bdc2e193e084782ad9dbee4d7bc4, type: 2}
+  targetEffects:
+  - {fileID: 11400000, guid: 024ef122bcf4b844488d88b19f698d97, type: 2}
+  targetsAllies: 0
+  targetsEnemies: 1
+  targetTargets: 0
+  adjacentReduction: 0

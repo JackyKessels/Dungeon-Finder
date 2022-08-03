@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
+  m_Name: Healing Tide
+  m_EditorClassIdentifier: 
+  id: 129
+  name: Healing Tide
+  quality: 0
+  type: 1
+  description: 'Heal all allies for <t1timAc1> every Round for <t1d> Rounds.
+
+
+    Does
+    not stack.'
+  icon: {fileID: 21300000, guid: 9ae3aa9a7f67e13429d526d77e56f4cc, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 5987393734028451523, guid: afdec4513025bc340a33a2ead0aaf4a3, type: 3}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  castTime: 0.75
+  cooldown: 0
+  endTurn: 1
+  resetChance: 0
+  weaponRequirement: 4
+  soundEffect: {fileID: 0}
+  animationType: 1
+  allyAbilitySources: []
+  enemyAbilitySources: []
+  selfEffectsPerTarget: 0
+  selfEffects: []
+  targetEffects:
+  - {fileID: 11400000, guid: 34dd2e778aad3464e88b180aada68243, type: 2}
+  instantTargets: 1

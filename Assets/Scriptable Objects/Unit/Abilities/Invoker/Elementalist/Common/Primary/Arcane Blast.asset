@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
+  m_Name: Arcane Blast
+  m_EditorClassIdentifier: 
+  id: 14
+  name: Arcane Blast
+  quality: 0
+  type: 0
+  description: Deal <e1> <A> damage to your target and reduce their <resistance>
+    by <t1modV> for <t1d> Rounds. This effect stacks.
+  icon: {fileID: 21300000, guid: fb430576c43b66841a7f98b30b77518f, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 1917784904443606005, guid: 7ef84cf8ed66cd34f94aba54fd4fc7e6, type: 3}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 11400000, guid: 1922d456d223d634895aff72db33ea1e, type: 2}
+  castTime: 0.75
+  cooldown: 0
+  endTurn: 1
+  resetChance: 0
+  weaponRequirement: 4
+  soundEffect: {fileID: 0}
+  animationType: 0
+  allyAbilitySources: []
+  enemyAbilitySources:
+  - ignoreMultipliers: 0
+    school: 5
+    attributeType: 2
+    baseValue: 0
+    levelBase: 0
+    scaling: 1
+    levelScaling: 0.2
+    reductionType: 2
+    modifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      increasedAttribute: 0
+      increaseValue: 0
+      casterBased: 1
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  selfEffectsPerTarget: 0
+  selfEffects: []
+  targetEffects:
+  - {fileID: 11400000, guid: 238a140857fe13d4484eb205cff46e16, type: 2}
+  targetsAllies: 0
+  targetsEnemies: 1
+  targetTargets: 0
+  adjacentReduction: 0

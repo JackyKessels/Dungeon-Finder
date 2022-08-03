@@ -1,0 +1,236 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3216540d9bdc93640abc978965aebc2e, type: 3}
+  m_Name: Equipment 3
+  m_EditorClassIdentifier: 
+  savePath: 
+  database: {fileID: 11400000, guid: 6b30c1c057008a844be0990de5938245, type: 2}
+  type: 0
+  container:
+    slots:
+    - allowedItems: 00000000
+      restricted: 0
+      item:
+        name: 
+        id: -1
+        itemObject: {fileID: 0}
+        attributes: []
+      amount: 0
+      foodOnly: 0
+    - allowedItems: 01000000
+      restricted: 0
+      item:
+        name: Shamanistic Hauberk
+        id: 35
+        itemObject: {fileID: 11400000, guid: 28fb4b90136cefa4e8dc2be5603c8023, type: 2}
+        attributes:
+        - attributeType: 0
+          baseValue: 9
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 1
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 2
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 3
+          baseValue: 5
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 4
+          baseValue: 5
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 5
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 6
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 7
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 8
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 9
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 10
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 11
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 12
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 13
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 14
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 15
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 16
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 17
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+      amount: 1
+      foodOnly: 0
+    - allowedItems: 0200000003000000
+      restricted: 0
+      item:
+        name: Fractured Wooden Greathammer
+        id: 45
+        itemObject: {fileID: 11400000, guid: 7adcda0a78e406c4588f792e87ac8043, type: 2}
+        attributes:
+        - attributeType: 0
+          baseValue: 6
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 1
+          baseValue: 2
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 2
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 3
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 4
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 5
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 6
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 7
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 8
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 9
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 10
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 11
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 12
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 13
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 14
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 15
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 16
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+        - attributeType: 17
+          baseValue: 0
+          bonusValue: 0
+          mulitplier: 1
+      amount: 1
+      foodOnly: 0
+    - allowedItems: 0a000000
+      restricted: 1
+      item:
+        name: 
+        id: -1
+        itemObject: {fileID: 0}
+        attributes: []
+      amount: 0
+      foodOnly: 0
+    - allowedItems: 06000000
+      restricted: 0
+      item:
+        name: 
+        id: -1
+        itemObject: {fileID: 0}
+        attributes: []
+      amount: 0
+      foodOnly: 0
+    - allowedItems: 07000000
+      restricted: 0
+      item:
+        name: 
+        id: -1
+        itemObject: {fileID: 0}
+        attributes: []
+      amount: 0
+      foodOnly: 0
+    - allowedItems: 08000000
+      restricted: 0
+      item:
+        name: 
+        id: -1
+        itemObject: {fileID: 0}
+        attributes: []
+      amount: 0
+      foodOnly: 0
+    - allowedItems: 09000000
+      restricted: 0
+      item:
+        name: 
+        id: -1
+        itemObject: {fileID: 0}
+        attributes: []
+      amount: 0
+      foodOnly: 0
+  dualWield: 1

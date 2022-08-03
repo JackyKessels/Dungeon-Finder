@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5656ac5e4bcf63e49b484de02f06fb42, type: 3}
+  m_Name: Erratic Implosion (Damage)
+  m_EditorClassIdentifier: 
+  name: Erratic Implosion
+  icon: {fileID: 0}
+  hidden: 1
+  description: 
+  isBuff: 0
+  procType: 0
+  duration: 1
+  permanent: 0
+  removeEffects: []
+  timedActions:
+  - actionType: 0
+    actionTargets: 0
+    abilitySource:
+      ignoreMultipliers: 0
+      cannotCrit: 1
+      cannotMiss: 1
+      school: 4
+      attributeType: 0
+      baseValue: 0
+      levelBase: 0
+      scaling: 1
+      levelScaling: 0
+      reductionType: 0
+      modifier:
+        hasModifier: 0
+        modification: 0
+        condition: 0
+        thresholdType: 0
+        conditionThreshold: 0
+        increasedAttribute: 0
+        increaseValue: 0
+        casterBased: 0
+        attributeBase: 0
+        percentageIncrease: 0
+        bonusAbilitySource:
+          ignoreMultipliers: 0
+          school: 0
+          attributeType: 0
+          baseValue: 0
+          levelBase: 0
+          scaling: 0
+          levelScaling: 0
+          reductionType: 0
+        effectOnTarget: 0
+        conditionalEffect: {fileID: 0}
+    specialEffects: []
+    storedValue: 0

@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5656ac5e4bcf63e49b484de02f06fb42, type: 3}
+  m_Name: Sanguine Lexicon (HoT)
+  m_EditorClassIdentifier: 
+  name: Blood Ritual
+  icon: {fileID: 21300000, guid: 93c67676a81b2d747b28ba7d8b0d6e02, type: 3}
+  hidden: 0
+  description: Receive <1> <Heal> every Round.
+  isBuff: 1
+  procType: 1
+  duration: 1
+  permanent: 1
+  removeEffects: []
+  timedActions:
+  - actionType: 1
+    actionTargets: 0
+    abilitySource:
+      ignoreMultipliers: 0
+      school: 0
+      attributeType: 0
+      baseValue: 1
+      levelBase: 0
+      scaling: 0
+      levelScaling: 0
+      reductionType: 0
+      modifier:
+        hasModifier: 0
+        modification: 0
+        condition: 0
+        thresholdType: 0
+        conditionThreshold: 0
+        increasedAttribute: 0
+        increaseValue: 0
+        casterBased: 0
+        attributeBase: 0
+        percentageIncrease: 0
+        bonusAbilitySource:
+          ignoreMultipliers: 0
+          school: 0
+          attributeType: 0
+          baseValue: 0
+          levelBase: 0
+          scaling: 0
+          levelScaling: 0
+          reductionType: 0
+    specialEffects:
+    - {fileID: 3686565400780137071, guid: 645ea75bc83af7b4281cc9af664611a4, type: 3}
+    storedValue: 0

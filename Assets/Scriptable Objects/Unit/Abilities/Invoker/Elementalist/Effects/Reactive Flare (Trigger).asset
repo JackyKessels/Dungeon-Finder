@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51850a8b11733b04f9956814f3c60d35, type: 3}
+  m_Name: Reactive Flare (Trigger)
+  m_EditorClassIdentifier: 
+  name: New Effect
+  icon: {fileID: 0}
+  hidden: 0
+  description: If the target is affected by any <F> damage over time effects, then
+    the target is also stunned for <1d> Rounds.
+  isBuff: 0
+  procType: 0
+  duration: 1
+  permanent: 0
+  removeEffects: []
+  conditionalEffectType: 2
+  conditionalEffect: {fileID: 11400000, guid: 59173b136fc97cc4c8c37d6db43b2b50, type: 2}
+  ccTypes: 
+  specificEffects:
+  - {fileID: 11400000, guid: 5ce6e82e5c94a804682d80da7996ca02, type: 2}
+  - {fileID: 11400000, guid: 904165af02dd5ec42b8ffd04761aaa10, type: 2}
+  - {fileID: 11400000, guid: e0919109a074f564e99e4942133b95e0, type: 2}
+  - {fileID: 11400000, guid: ccb5a7ef0d898cd41b236a96a89a8d30, type: 2}
+  - {fileID: 11400000, guid: 3f1e401ab38c57645a9c12b1cf86ecc5, type: 2}
+  - {fileID: 11400000, guid: 40ebb1cd52db53848af295073c4e86cd, type: 2}
+  checkTarget: 0
+  effectTarget: 0
+  consumeEffect: 0

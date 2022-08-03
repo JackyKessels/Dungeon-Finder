@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa2df5b2f409344f962fe20a2910193, type: 3}
+  m_Name: Path of the Elementalist
+  m_EditorClassIdentifier: 
+  name: Elementalist
+  icon: {fileID: 21300000, guid: a440e39c142f4564d9ba97bc568757b4, type: 3}
+  baseWeapons:
+  - {fileID: 11400000, guid: b319e2ba20701654ebc43ffe366167f6, type: 2}
+  primaryAbility: {fileID: 11400000, guid: 6e5975ba6b17c6240a43bceb1a1019b0, type: 2}
+  secondaryAbility: {fileID: 11400000, guid: 42b0fdd0eaef7a94e8b35ada198431fa, type: 2}
+  passiveAbility: {fileID: 11400000, guid: 40c8bfaf8a0a79c4fb5d24b62aba7d51, type: 2}
+  activeAbilities:
+  - {fileID: 11400000, guid: 6e5975ba6b17c6240a43bceb1a1019b0, type: 2}
+  - {fileID: 11400000, guid: d05e3ae64136ab24180a8e6730e486ce, type: 2}
+  - {fileID: 11400000, guid: 24ac787e962e1c14097d9e190662c65e, type: 2}
+  - {fileID: 11400000, guid: cb479b54546a0f44a8502b6536f27cc6, type: 2}
+  - {fileID: 11400000, guid: 42b0fdd0eaef7a94e8b35ada198431fa, type: 2}
+  - {fileID: 11400000, guid: a674a9951fece1c40894b7dda7423167, type: 2}
+  - {fileID: 11400000, guid: 05795e5251a3ed64c81e6cb07f1e9e0e, type: 2}
+  - {fileID: 11400000, guid: 4100ddbe848e0cc4fa486c62b2f28cd6, type: 2}
+  passiveAbilities:
+  - {fileID: 11400000, guid: 823124a44c7f17a49bd627576aa14d42, type: 2}
+  - {fileID: 11400000, guid: 8af798a0cf13cba4691a6b83e41c5986, type: 2}
+  - {fileID: 11400000, guid: 433fd8bfc3c582448b6b037f4351e25d, type: 2}
+  - {fileID: 11400000, guid: dc3abd4f809009c43a3ef100697a992c, type: 2}
+  attributes:
+  - attributeType: 0
+    baseValue: 2
+    bonusValue: 0
+    mulitplier: 0
+  - attributeType: 2
+    baseValue: 1
+    bonusValue: 0
+    mulitplier: 0
+  - attributeType: 11
+    baseValue: 2
+    bonusValue: 0
+    mulitplier: 0
+  - attributeType: 12
+    baseValue: 2
+    bonusValue: 0
+    mulitplier: 0
+  - attributeType: 14
+    baseValue: 2
+    bonusValue: 0
+    mulitplier: 0

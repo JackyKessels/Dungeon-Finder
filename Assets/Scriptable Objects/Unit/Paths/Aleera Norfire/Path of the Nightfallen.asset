@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa2df5b2f409344f962fe20a2910193, type: 3}
+  m_Name: Path of the Nightfallen
+  m_EditorClassIdentifier: 
+  name: Nightfallen
+  icon: {fileID: 21300000, guid: 67ddbe5f491a80c48b329a50567fc49d, type: 3}
+  baseWeapons:
+  - {fileID: 11400000, guid: c5ca182b3eae2d14abe556750bf11f9e, type: 2}
+  - {fileID: 11400000, guid: 3e4b13cf8e9b30f4ab792728a94e9fb7, type: 2}
+  primaryAbility: {fileID: 11400000, guid: caadc9f83fcd39346b8052c077b3b816, type: 2}
+  secondaryAbility: {fileID: 11400000, guid: 2512a8a315c9f4a42b0ad8644b5513ab, type: 2}
+  passiveAbility: {fileID: 11400000, guid: 98d2023bb93d8de40a169a504ed66917, type: 2}
+  activeAbilities:
+  - {fileID: 11400000, guid: 863451a5add7a2b4ab6d22775baf70cc, type: 2}
+  - {fileID: 11400000, guid: caadc9f83fcd39346b8052c077b3b816, type: 2}
+  - {fileID: 11400000, guid: 20a86b79589e73f429c0c7eef9548e80, type: 2}
+  - {fileID: 11400000, guid: 0f46e9e5fd3684f4abdcc772593744f6, type: 2}
+  - {fileID: 11400000, guid: 1b5b4dcb13021b44db66991c6b681556, type: 2}
+  - {fileID: 11400000, guid: 29a9685f4dc73a242a6bfaf21a115862, type: 2}
+  - {fileID: 11400000, guid: b9a3d4aaa433ddd4c8205eb618143d33, type: 2}
+  - {fileID: 11400000, guid: 2512a8a315c9f4a42b0ad8644b5513ab, type: 2}
+  - {fileID: 11400000, guid: 1bfbe950cf768ae46b74932b56db2fed, type: 2}
+  passiveAbilities:
+  - {fileID: 11400000, guid: 1a567e34042e7f4419e179c3c595f6b9, type: 2}
+  - {fileID: 11400000, guid: 2d68d2728137824468c938c851dbdf29, type: 2}
+  - {fileID: 11400000, guid: c00f9587577ea5542aa138726148e60a, type: 2}
+  - {fileID: 11400000, guid: f15678c9505710a4dad0c03cce210446, type: 2}
+  - {fileID: 11400000, guid: 854a2f3c8e933e548bb8d27f198c3d0e, type: 2}
+  attributes:
+  - attributeType: 0
+    baseValue: 2
+    bonusValue: 0
+    mulitplier: 0
+  - attributeType: 2
+    baseValue: 1
+    bonusValue: 0
+    mulitplier: 0
+  - attributeType: 5
+    baseValue: 1
+    bonusValue: 0
+    mulitplier: 0
+  - attributeType: 12
+    baseValue: 2
+    bonusValue: 0
+    mulitplier: 0
+  - attributeType: 16
+    baseValue: 2
+    bonusValue: 0
+    mulitplier: 0

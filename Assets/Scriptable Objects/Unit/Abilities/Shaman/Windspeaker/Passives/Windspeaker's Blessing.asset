@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
+  m_Name: Windspeaker's Blessing
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Windspeaker's Blessing
+  quality: 1
+  type: 3
+  description: Dealing damage heals your Team for <s1timAp1>.
+  icon: {fileID: 21300000, guid: 7434b6209ca803d419f81d14c664ed0c, type: 3}
+  casterSpecialEffects:
+  - {fileID: 5148553231549504688, guid: 6372131d42f0fd648a897a2751eb7dc0, type: 3}
+  targetSpecialEffects: []
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  triggerType: 1
+  hitType: 0
+  targetTrigger: 0
+  abilityTypeTrigger: 0
+  typeRequirement: 0
+  schoolTriggers: 01000000020000000300000004000000050000000600000007000000
+  triggersPassives: 1
+  procChance: 100
+  abilitySources: []
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: a2323833a8ed447459aa7f73409370bd, type: 2}
+  targetEffects: []

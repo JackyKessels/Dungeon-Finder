@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65caad74ac8a56045ad833b616779ac4, type: 3}
+  m_Name: Thorskell the Stormshaper
+  m_EditorClassIdentifier: 
+  name: Thorskell the Stormshaper
+  unitType: 0
+  icon: {fileID: 21300000, guid: 765cbd4126b95bf469415f72b5a2100d, type: 3}
+  sprite: {fileID: 21300000, guid: 6543194a24d86194f8b2f85662e69456, type: 3}
+  attackAnimation: {fileID: 0}
+  castAnimation: {fileID: 0}
+  baseHealth: 5
+  basePower: 5
+  baseWisdom: 5
+  baseArmor: 0
+  baseResistance: 0
+  baseVitality: 0
+  speed: 5
+  accuracy: 75
+  criticalHit: 0
+  healingMultiplier: 100
+  crushingMultiplier: 100
+  piercingMultiplier: 100
+  fireMultiplier: 100
+  iceMultiplier: 100
+  natureMultiplier: 100
+  arcaneMultiplier: 100
+  holyMultiplier: 100
+  shadowMultiplier: 100
+  critMultiplier: 150
+  level: 1
+  difficulty: 0
+  experienceReward: 0
+  currencyRewards: []
+  randomAbility: 1
+  abilities:
+  - ability: {fileID: 11400000, guid: 9be50d3cfbb457646847643430744cab, type: 2}
+    target: 0
+    cast: 0
+  passiveAbilities: []

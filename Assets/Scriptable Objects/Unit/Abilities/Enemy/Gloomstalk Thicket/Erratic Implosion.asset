@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
+  m_Name: Erratic Implosion
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Erratic Implosion
+  quality: 0
+  type: 2
+  description: 
+  icon: {fileID: 21300000, guid: e28a7e5ba93078744b36bfb4f5d65a07, type: 3}
+  casterSpecialEffects:
+  - {fileID: 658504684767274273, guid: 760a0fa6a28f5e946a24a578b5c877d6, type: 3}
+  targetSpecialEffects:
+  - {fileID: 8446175851869036358, guid: 8974549aa760426419c0178e9f1f001f, type: 3}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  castTime: 0.75
+  cooldown: 0
+  endTurn: 1
+  resetChance: 0
+  weaponRequirement: 4
+  soundEffect: {fileID: 8300000, guid: 9e1b8cfb60efb58489b5cf5c5a6d8dcb, type: 3}
+  animationType: 1
+  allyAbilitySources: []
+  enemyAbilitySources:
+  - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    school: 4
+    attributeType: 2
+    baseValue: 0
+    levelBase: 0
+    scaling: 1
+    levelScaling: 0
+    reductionType: 2
+    modifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      increasedAttribute: 0
+      increaseValue: 0
+      casterBased: 0
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 0
+      conditionalEffect: {fileID: 0}
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: d345f5f94b40a3d458b32bc53ec5c447, type: 2}
+  targetEffects: []
+  instantTargets: 2

@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
+  m_Name: Umbral Shatter
+  m_EditorClassIdentifier: 
+  id: 37
+  name: Umbral Shatter
+  quality: 0
+  type: 2
+  description: 'Reduce your target''s <resistance> by <t1modV> for <t1d> Rounds.
+
+
+    This
+    costs <s1timAp1> Health.'
+  icon: {fileID: 21300000, guid: 36872b7619e6d1542b25b2a36818ad82, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 1714250380615941509, guid: fda14d47687d6a34a898ec1bb005d765, type: 3}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  castTime: 1
+  cooldown: 3
+  endTurn: 0
+  resetChance: 0
+  weaponRequirement: 4
+  soundEffect: {fileID: 0}
+  animationType: 0
+  allyAbilitySources: []
+  enemyAbilitySources: []
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: 86444c3dad9cc9f4d8542214f4cec2d1, type: 2}
+  targetEffects:
+  - {fileID: 11400000, guid: 5b7927fa9c9756e43ae8381f36d62656, type: 2}
+  targetsAllies: 0
+  targetsEnemies: 1
+  targetTargets: 0
+  adjacentReduction: 0

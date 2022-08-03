@@ -1,0 +1,202 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5d8964ff6732a478daba8589bfd458, type: 3}
+  m_Name: Crimson Burrows
+  m_EditorClassIdentifier: 
+  name: Crimson Burrows
+  recommendedMinimumLevel: 1
+  recommendedMaximumLevel: 5
+  nameColor: {r: 1, g: 0.8173575, b: 0.25943398, a: 1}
+  floors:
+  - name: Crystal Caverns
+    dungeonBackground: {fileID: 21300000, guid: 1fa0130be285616419f7b0d2f082fee1,
+      type: 3}
+    battleBackground: {fileID: 21300000, guid: f730ced19bdb5d14ba784b46c6941f26, type: 3}
+    backgroundSound: {fileID: 0}
+    columns: 7
+    rows: 5
+    startingPoints: 2
+    endPoints: 1
+    removalThreshold: 2
+    minimumLocations: 12
+    addOffset: 0
+    forceBossCenter: 1
+    eliteCount: 1
+    campfireCount: 1
+    treasureCount: 1
+    mysteryCount: 3
+    spiritColumns: 
+    itemPool:
+    - itemObject: {fileID: 11400000, guid: ad4d72fbf4442d942942755c813a7c08, type: 2}
+      amount: 1
+      weight: 1
+    - itemObject: {fileID: 11400000, guid: db43b75b6180e064598310693230ca7d, type: 2}
+      amount: 1
+      weight: 1
+    - itemObject: {fileID: 11400000, guid: 313f4790924acad4cbb951955ecdf1c4, type: 2}
+      amount: 1
+      weight: 1
+    - itemObject: {fileID: 11400000, guid: 85f6f2b7c99bf55428a0033f14755e9b, type: 2}
+      amount: 3
+      weight: 2
+    - itemObject: {fileID: 11400000, guid: 74e556b20bdcb044cbda44cf45138754, type: 2}
+      amount: 1
+      weight: 2
+    trashEncounters:
+    - enemyObjects:
+      - {fileID: 11400000, guid: b79f6fd3029771744af58bab7f1a7fc5, type: 2}
+      weight: 3
+    - enemyObjects:
+      - {fileID: 11400000, guid: af177f13bfef55248883d789e5d684bb, type: 2}
+      - {fileID: 11400000, guid: b79f6fd3029771744af58bab7f1a7fc5, type: 2}
+      weight: 2
+    - enemyObjects:
+      - {fileID: 11400000, guid: 7efd0ed442718c84c8b8be1d8fab97bb, type: 2}
+      weight: 2
+    - enemyObjects:
+      - {fileID: 11400000, guid: b79f6fd3029771744af58bab7f1a7fc5, type: 2}
+      - {fileID: 11400000, guid: b79f6fd3029771744af58bab7f1a7fc5, type: 2}
+      weight: 1
+    eliteEncounters:
+    - enemyObjects:
+      - {fileID: 11400000, guid: 1e885b4f05ab13844a9521dbe3bd51c3, type: 2}
+      weight: 1
+    - enemyObjects:
+      - {fileID: 11400000, guid: 5b6ab52c59c62a449ada92c18a8900dc, type: 2}
+      weight: 1
+    bossEncounter:
+      enemyObjects:
+      - {fileID: 11400000, guid: a9200d19756006b48805609fa24ebf0a, type: 2}
+    mysteryEvents: {fileID: 11400000, guid: 2089a16aa5020c64c8e67ffe4962fabb, type: 2}
+  - name: Putrid Tunnels
+    dungeonBackground: {fileID: 21300000, guid: b67a70a02fd84bf4eaa90010212129a8,
+      type: 3}
+    battleBackground: {fileID: 21300000, guid: bb8ff09c2f651e34b864cee375f7e6a5, type: 3}
+    backgroundSound: {fileID: 0}
+    columns: 6
+    rows: 4
+    startingPoints: 3
+    endPoints: 1
+    removalThreshold: 1
+    minimumLocations: 6
+    addOffset: 0
+    forceBossCenter: 0
+    eliteCount: 1
+    campfireCount: 0
+    treasureCount: 1
+    mysteryCount: 1
+    spiritColumns: 
+    itemPool:
+    - itemObject: {fileID: 11400000, guid: edfb06ae9132ebc4c975c716d9d58b1e, type: 2}
+      amount: 1
+      weight: 1
+    - itemObject: {fileID: 11400000, guid: 61e92c3157b2fb441967761ec8664631, type: 2}
+      amount: 1
+      weight: 1
+    - itemObject: {fileID: 11400000, guid: 85f6f2b7c99bf55428a0033f14755e9b, type: 2}
+      amount: 5
+      weight: 1
+    - itemObject: {fileID: 11400000, guid: a59beb3bea1f71645bb09ef59fa873a5, type: 2}
+      amount: 3
+      weight: 1
+    - itemObject: {fileID: 11400000, guid: 74e556b20bdcb044cbda44cf45138754, type: 2}
+      amount: 1
+      weight: 1
+    trashEncounters:
+    - enemyObjects:
+      - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
+      - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
+      weight: 1
+    - enemyObjects:
+      - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
+      - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
+      weight: 1
+    - enemyObjects:
+      - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
+      - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
+      weight: 1
+    - enemyObjects:
+      - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
+      - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
+      - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
+      weight: 1
+    - enemyObjects:
+      - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
+      - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
+      - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
+      weight: 1
+    eliteEncounters:
+    - enemyObjects:
+      - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
+      - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
+      - {fileID: 11400000, guid: 4ea0468a2e1668c4faf097a9cdda25e2, type: 2}
+      weight: 2
+    - enemyObjects:
+      - {fileID: 11400000, guid: f2568653406671c48bea9b9ef4c74572, type: 2}
+      weight: 1
+    - enemyObjects:
+      - {fileID: 11400000, guid: 685ad876308ddb84abc8e5287b8bc86b, type: 2}
+      weight: 2
+    bossEncounter:
+      enemyObjects:
+      - {fileID: 11400000, guid: 81af47cd6e032b74d92ab8ef6860fe49, type: 2}
+    mysteryEvents: {fileID: 11400000, guid: 8de4c1806266c774f8e36f9432196a49, type: 2}
+  - name: Inner Ruins
+    dungeonBackground: {fileID: 21300000, guid: 8ba0458efcf896b498ee5b03415fe5c7,
+      type: 3}
+    battleBackground: {fileID: 21300000, guid: bdfa4d9161fe46944ac0ce31152b6d21, type: 3}
+    backgroundSound: {fileID: 0}
+    columns: 6
+    rows: 5
+    startingPoints: 1
+    endPoints: 1
+    removalThreshold: 2
+    minimumLocations: 12
+    addOffset: 0
+    forceBossCenter: 0
+    eliteCount: 1
+    campfireCount: 1
+    treasureCount: 1
+    mysteryCount: 0
+    spiritColumns: 
+    itemPool:
+    - itemObject: {fileID: 11400000, guid: 1b677da83272f904c9c47a92f070c498, type: 2}
+      amount: 1
+      weight: 2
+    - itemObject: {fileID: 11400000, guid: fbf6a738f3bdb6f47b54175a4bc82628, type: 2}
+      amount: 1
+      weight: 1
+    - itemObject: {fileID: 11400000, guid: 74e556b20bdcb044cbda44cf45138754, type: 2}
+      amount: 1
+      weight: 2
+    - itemObject: {fileID: 11400000, guid: 85f6f2b7c99bf55428a0033f14755e9b, type: 2}
+      amount: 3
+      weight: 3
+    trashEncounters:
+    - enemyObjects:
+      - {fileID: 11400000, guid: 0dd4bbfde238be6479975b797d721ea4, type: 2}
+      - {fileID: 11400000, guid: 0dd4bbfde238be6479975b797d721ea4, type: 2}
+      - {fileID: 11400000, guid: 0dd4bbfde238be6479975b797d721ea4, type: 2}
+      weight: 1
+    - enemyObjects:
+      - {fileID: 11400000, guid: deee5678bba001b4e981c4bc21557db9, type: 2}
+      weight: 1
+    eliteEncounters:
+    - enemyObjects:
+      - {fileID: 11400000, guid: aec1fe96cfac071458fb7d706b9d830d, type: 2}
+      weight: 1
+    bossEncounter:
+      enemyObjects:
+      - {fileID: 11400000, guid: 4b03e6418cf01c742ae0d5a5757895c9, type: 2}
+      - {fileID: 11400000, guid: 5d6b59dffbc89b5478391a22d63830c7, type: 2}
+      - {fileID: 11400000, guid: 5d6b59dffbc89b5478391a22d63830c7, type: 2}
+    mysteryEvents: {fileID: 0}

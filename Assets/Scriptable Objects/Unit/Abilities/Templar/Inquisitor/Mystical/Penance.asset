@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
+  m_Name: Penance
+  m_EditorClassIdentifier: 
+  id: 75
+  name: Penance
+  quality: 1
+  type: 1
+  description: 'Deal <e1> <H> damage to an enemy or heal an ally for <a1>.
+
+
+    Also
+    increases <healingmultiplier> by <s1modV>% for <s1d> Rounds.'
+  icon: {fileID: 21300000, guid: 29f29a0dab120b54aa44fa403aec3170, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 7194467108489163391, guid: f1230e244fc69e147929d2346d3c5cae, type: 3}
+  - {fileID: 7664374792310593192, guid: 1c5b5ce2a6515b444a24eaa4924cc099, type: 3}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  castTime: 1
+  cooldown: 4
+  endTurn: 1
+  resetChance: 0
+  weaponRequirement: 4
+  soundEffect: {fileID: 0}
+  animationType: 0
+  allyAbilitySources:
+  - ignoreMultipliers: 0
+    school: 0
+    attributeType: 2
+    baseValue: 0
+    levelBase: 0
+    scaling: 1.5
+    levelScaling: 0.3
+    reductionType: 0
+    modifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      increasedAttribute: 0
+      increaseValue: 0
+      casterBased: 1
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  enemyAbilitySources:
+  - ignoreMultipliers: 0
+    school: 6
+    attributeType: 2
+    baseValue: 0
+    levelBase: 0
+    scaling: 2
+    levelScaling: 0.4
+    reductionType: 2
+    modifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      increasedAttribute: 0
+      increaseValue: 0
+      casterBased: 1
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: 1d00497bb044858409fe5ebe66fdccf8, type: 2}
+  targetEffects: []
+  targetsAllies: 1
+  targetsEnemies: 1
+  targetTargets: 0
+  adjacentReduction: 0

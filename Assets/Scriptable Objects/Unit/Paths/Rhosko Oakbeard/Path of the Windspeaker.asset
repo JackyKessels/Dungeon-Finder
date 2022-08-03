@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa2df5b2f409344f962fe20a2910193, type: 3}
+  m_Name: Path of the Windspeaker
+  m_EditorClassIdentifier: 
+  name: Windspeaker
+  icon: {fileID: 21300000, guid: 7434b6209ca803d419f81d14c664ed0c, type: 3}
+  baseWeapons:
+  - {fileID: 11400000, guid: 42b4c394e6d30874d95a3b1e84652b7b, type: 2}
+  primaryAbility: {fileID: 11400000, guid: a0fa36ddf9f76db49ba44a42e4b02f88, type: 2}
+  secondaryAbility: {fileID: 11400000, guid: a4d0c404a25a1ae4aa2397810a436759, type: 2}
+  passiveAbility: {fileID: 11400000, guid: 377a16875b88a094580e37945cc4f542, type: 2}
+  activeAbilities:
+  - {fileID: 11400000, guid: fcec9bf08ae480e48b622dd9cb9f121b, type: 2}
+  - {fileID: 11400000, guid: a0fa36ddf9f76db49ba44a42e4b02f88, type: 2}
+  - {fileID: 11400000, guid: a4d0c404a25a1ae4aa2397810a436759, type: 2}
+  - {fileID: 11400000, guid: 83fb6513ecb559a4f876fbabaee9e04f, type: 2}
+  - {fileID: 11400000, guid: cee3051d9b2fc2648839526b4f51390d, type: 2}
+  - {fileID: 11400000, guid: a3dce11c43f31fc40b423070ee441b47, type: 2}
+  - {fileID: 11400000, guid: a9079a850b88b5d469d42e16a43d3513, type: 2}
+  - {fileID: 11400000, guid: 712383b0c4019cc4a9b040de12dca40b, type: 2}
+  - {fileID: 11400000, guid: 09b4641a7d5ff7548b8b600f034829bd, type: 2}
+  passiveAbilities:
+  - {fileID: 11400000, guid: a9574a8b8dbb09a4ba722f13177d225d, type: 2}
+  - {fileID: 11400000, guid: 2b4fdb2062a9dba4eb0bd4e4f483ab13, type: 2}
+  - {fileID: 11400000, guid: a3af8fbc446734c45b047b990f172f28, type: 2}
+  - {fileID: 11400000, guid: 36cd49c8c334f2a41acd6ec5db162f01, type: 2}
+  attributes:
+  - attributeType: 0
+    baseValue: 2
+    bonusValue: 0
+    mulitplier: 0
+  - attributeType: 2
+    baseValue: 1
+    bonusValue: 0
+    mulitplier: 0
+  - attributeType: 17
+    baseValue: 2
+    bonusValue: 0
+    mulitplier: 0
+  - attributeType: 9
+    baseValue: 2
+    bonusValue: 0
+    mulitplier: 0
+  - attributeType: 13
+    baseValue: 2
+    bonusValue: 0
+    mulitplier: 0

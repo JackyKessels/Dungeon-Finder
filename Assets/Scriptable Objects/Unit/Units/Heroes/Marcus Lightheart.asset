@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddb6098f770f01d4da56fabf10aaae2c, type: 3}
+  m_Name: Marcus Lightheart
+  m_EditorClassIdentifier: 
+  name: Marcus
+  lastName: Lightheart
+  unitType: 0
+  icon: {fileID: 21300000, guid: 18bbafd374cd8c346a11be5f998c66bc, type: 3}
+  sprite: {fileID: 21300000, guid: c4bd8ee9fca13b340ab7950d29c4dff3, type: 3}
+  attackAnimation: {fileID: 0}
+  castAnimation: {fileID: 0}
+  baseHealth: 50
+  basePower: 10
+  baseWisdom: 10
+  baseArmor: 0
+  baseResistance: 0
+  baseVitality: 0
+  speed: 5
+  accuracy: 80
+  criticalHit: 10
+  healingMultiplier: 100
+  crushingMultiplier: 100
+  piercingMultiplier: 100
+  fireMultiplier: 100
+  iceMultiplier: 100
+  natureMultiplier: 100
+  arcaneMultiplier: 100
+  holyMultiplier: 100
+  shadowMultiplier: 100
+  critMultiplier: 150
+  heroClass: 0
+  dualWield: 0
+  startingArmor: {fileID: 11400000, guid: c01d7aa4d5f094e4c9cb5e73e66520dc, type: 2}
+  startingWeapon: {fileID: 0}
+  paths:
+  - {fileID: 11400000, guid: 75922694a19dae840a423c33f717dd72, type: 2}
+  - {fileID: 11400000, guid: dbb2311e0d616ea45835083f4071922f, type: 2}
+  - {fileID: 11400000, guid: 070bd2b296d8fd34c98f3ee647365dfd, type: 2}
+  startingAbilities:
+  - {fileID: 11400000, guid: faa54ae879a4b3a429200c629d6e7edb, type: 2}

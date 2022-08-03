@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
+  m_Name: Purge
+  m_EditorClassIdentifier: 
+  id: 76
+  name: Purge
+  quality: 0
+  type: 0
+  description: 'Deal <e1> <F> and <e2> <H> damage to your target.
+
+
+    Purge deals
+    <e1modV>% increased damage when used above <e1conV>% health.
+
+
+    This costs
+    <s1timAp1> Health.'
+  icon: {fileID: 21300000, guid: ee57f12112933ce4597e39036889aa74, type: 3}
+  casterSpecialEffects:
+  - {fileID: 7194467108489163391, guid: f1230e244fc69e147929d2346d3c5cae, type: 3}
+  targetSpecialEffects:
+  - {fileID: 4803661111169982825, guid: 60888736d07807d4f9551fbd13fac8ef, type: 3}
+  - {fileID: 7194467108489163391, guid: f1230e244fc69e147929d2346d3c5cae, type: 3}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  castTime: 1.2
+  cooldown: 0
+  endTurn: 1
+  resetChance: 0
+  weaponRequirement: 4
+  soundEffect: {fileID: 0}
+  animationType: 0
+  allyAbilitySources: []
+  enemyAbilitySources:
+  - ignoreMultipliers: 0
+    school: 2
+    attributeType: 2
+    baseValue: 0
+    levelBase: 0
+    scaling: 0.6
+    levelScaling: 0.12
+    reductionType: 2
+    modifier:
+      hasModifier: 1
+      modification: 1
+      condition: 1
+      thresholdType: 1
+      conditionThreshold: 90
+      increasedAttribute: 4
+      increaseValue: 50
+      casterBased: 1
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  - ignoreMultipliers: 0
+    school: 6
+    attributeType: 2
+    baseValue: 0
+    levelBase: 0
+    scaling: 0.6
+    levelScaling: 0.12
+    reductionType: 2
+    modifier:
+      hasModifier: 1
+      modification: 1
+      condition: 1
+      thresholdType: 1
+      conditionThreshold: 90
+      increasedAttribute: 4
+      increaseValue: 100
+      casterBased: 1
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: 982110b75d0bb0342a5810cb10bcbc42, type: 2}
+  targetEffects: []
+  targetsAllies: 0
+  targetsEnemies: 1
+  targetTargets: 0
+  adjacentReduction: 0

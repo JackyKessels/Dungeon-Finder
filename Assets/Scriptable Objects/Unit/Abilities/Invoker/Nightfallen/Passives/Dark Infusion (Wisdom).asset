@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f61bd7798258c684cb135bcc9f1f3cfd, type: 3}
+  m_Name: Dark Infusion (Wisdom)
+  m_EditorClassIdentifier: 
+  name: Dark Infusion
+  icon: {fileID: 21300000, guid: 67ddbe5f491a80c48b329a50567fc49d, type: 3}
+  hidden: 0
+  description: Wisdom increased by <1>.
+  isBuff: 1
+  procType: 1
+  duration: 3
+  permanent: 0
+  removeEffects: []
+  attributeModified: 2
+  isIncrease: 1
+  modifierSource:
+    ignoreMultipliers: 1
+    school: 0
+    attributeType: 0
+    baseValue: 0
+    levelBase: 0
+    scaling: 0.02
+    levelScaling: 0
+    reductionType: 0
+    modifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      increasedAttribute: 0
+      increaseValue: 0
+      casterBased: 1
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  specialEffects: []

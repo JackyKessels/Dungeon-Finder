@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
+  m_Name: Overpower
+  m_EditorClassIdentifier: 
+  id: 83
+  name: Overpower
+  quality: 0
+  type: 3
+  description: Dealing <P> damage has a <%> chance to Stun the target for <t1d> Rounds.
+  icon: {fileID: 21300000, guid: 255e5f9d51a81e34194674709898dc01, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  triggerType: 1
+  hitType: 0
+  targetTrigger: 1
+  abilityTypeTrigger: 0
+  typeRequirement: 0
+  schoolTriggers: 01000000
+  triggersPassives: 0
+  procChance: 20
+  abilitySources: []
+  selfEffectsPerTarget: 0
+  selfEffects: []
+  targetEffects:
+  - {fileID: 11400000, guid: 96b083fd49c05044981e7157cb807663, type: 2}

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 982ab14be569b544bbb05f6528dee91a, type: 3}
+  m_Name: General Goods
+  m_EditorClassIdentifier: 
+  shopCollectionBrackets:
+  - minimumLevel: 1
+    maximumLevel: 100
+    itemObjects:
+    - {fileID: 11400000, guid: f7b924ad16667324d89a86f8476efca4, type: 2}
+    - {fileID: 11400000, guid: bf723fae6dc39b747b4966a4dd65c443, type: 2}
+    - {fileID: 11400000, guid: ea23153800fd198409a12dde4217ba2a, type: 2}

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
+  m_Name: Sanguine Lexicon (Passive)
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Blood Ritual
+  quality: 0
+  type: 3
+  description: Receive <s1timAc1> <Heal> every Round.
+  icon: {fileID: 21300000, guid: 93c67676a81b2d747b28ba7d8b0d6e02, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  effects:
+  - {fileID: 11400000, guid: ffa597d38dceb5b41986ffe4abba3d07, type: 2}
+  activationMoment: 0
+  targets: 0
+  healthPercentage: 0

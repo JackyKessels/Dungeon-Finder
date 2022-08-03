@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
+  m_Name: Death Bolt
+  m_EditorClassIdentifier: 
+  name: Death Bolt
+  quality: 0
+  description: Deal <e1> <S> damage to your target.
+  icon: {fileID: 21300000, guid: f675ab33178036d4d91b705f98400abd, type: 3}
+  replacesAbility: {fileID: 0}
+  castTime: 1.5
+  cooldown: 0
+  expendTurn: 1
+  weaponRequirement: 4
+  type: 0
+  specialEffects:
+  - {fileID: 901769199821685610, guid: e479fc38ac05c62459a1311b82f1ef3b, type: 3}
+  - {fileID: 6264804792839183063, guid: b3ef39841fc87ee4988051d30edf029e, type: 3}
+  allyAbilitySources: []
+  enemyAbilitySources:
+  - school: 8
+    attributeType: 2
+    baseValue: 0
+    levelBase: 0
+    scaling: 1
+    levelScaling: 0
+    reductionType: 2
+  selfEffectsPerTarget: 0
+  selfEffects: []
+  targetEffects: []
+  targetsAllies: 0
+  targetsEnemies: 1
+  targetTargets: 0
+  adjacentReduction: 0

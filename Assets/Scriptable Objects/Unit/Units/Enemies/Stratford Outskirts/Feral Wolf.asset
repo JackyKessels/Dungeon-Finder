@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65caad74ac8a56045ad833b616779ac4, type: 3}
+  m_Name: Feral Wolf
+  m_EditorClassIdentifier: 
+  name: Feral Wolf
+  lastName: 
+  unitType: 1
+  icon: {fileID: 21300000, guid: 2fe111456cd48894fa27a7982287a1ac, type: 3}
+  sprite: {fileID: 21300000, guid: 7c956334b1c6f1241be1a4bf0266ec74, type: 3}
+  attackAnimation: {fileID: 0}
+  castAnimation: {fileID: 0}
+  baseHealth: 85
+  basePower: 7
+  baseWisdom: 0
+  baseArmor: 0
+  baseResistance: 0
+  baseVitality: 0
+  speed: 5
+  accuracy: 75
+  criticalHit: 0
+  healingMultiplier: 100
+  crushingMultiplier: 100
+  piercingMultiplier: 100
+  fireMultiplier: 100
+  iceMultiplier: 100
+  natureMultiplier: 100
+  arcaneMultiplier: 100
+  holyMultiplier: 100
+  shadowMultiplier: 100
+  critMultiplier: 150
+  level: 1
+  difficulty: 2
+  experienceReward: 20
+  currencyRewards:
+  - currencyType: 0
+    totalAmount: 15
+  itemDrops:
+  - itemObject: {fileID: 0}
+    weight: 1
+  randomAbility: 0
+  abilities:
+  - ability: {fileID: 11400000, guid: 150facf44102d0d4e88451d17c8a112b, type: 2}
+    target: 1
+    condition: 0
+    startCooldown: 1
+    charged: 0
+  - ability: {fileID: 11400000, guid: 5818b76a894b85e46befc08d271a3888, type: 2}
+    target: 1
+    condition: 0
+    startCooldown: 0
+    charged: 0
+  passiveAbilities: []

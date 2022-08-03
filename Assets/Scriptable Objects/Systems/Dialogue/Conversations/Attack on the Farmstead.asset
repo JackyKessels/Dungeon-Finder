@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154c0e1b077d4704fb6593edf3e0bc39, type: 3}
+  m_Name: Attack on the Farmstead
+  m_EditorClassIdentifier: 
+  leftSpeaker: {fileID: 11400000, guid: e135b8ca49d147e49a0e63bcf7a8f2e4, type: 2}
+  rightSpeaker: {fileID: 11400000, guid: a177c9eb01e1da94caa2198aa29d3999, type: 2}
+  lines:
+  - speaker: {fileID: 11400000, guid: a177c9eb01e1da94caa2198aa29d3999, type: 2}
+    text: Resistance is futile, there is no one here to save you.
+  - speaker: {fileID: 11400000, guid: e135b8ca49d147e49a0e63bcf7a8f2e4, type: 2}
+    text: You're not getting in here, even if it's the last thing I do!
+  - speaker: {fileID: 11400000, guid: a177c9eb01e1da94caa2198aa29d3999, type: 2}
+    text: We'll see about that.
+  problem: {fileID: 11400000, guid: 663bd82c423522c40bbb94656a8dcfd8, type: 2}
+  nextConversation: {fileID: 0}

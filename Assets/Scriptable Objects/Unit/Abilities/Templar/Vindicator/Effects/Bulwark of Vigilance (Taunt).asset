@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6636a0f11d8a1b4aa0a66ae21358448, type: 3}
+  m_Name: Bulwark of Vigilance (Taunt)
+  m_EditorClassIdentifier: 
+  name: Bulwark of Vigilance
+  icon: {fileID: 21300000, guid: faa194240041eea4ba6447aa156896e3, type: 3}
+  hidden: 0
+  description: Taunted by <caster>.
+  isBuff: 0
+  procType: 1
+  duration: 3
+  permanent: 0
+  removeEffects: []
+  type: 0
+  addTauntImmune: 0

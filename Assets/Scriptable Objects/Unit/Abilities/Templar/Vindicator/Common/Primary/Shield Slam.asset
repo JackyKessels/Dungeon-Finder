@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
+  m_Name: Shield Slam
+  m_EditorClassIdentifier: 
+  id: 79
+  name: Shield Slam
+  quality: 0
+  type: 0
+  description: 'Deal <e1> <P> damage to your target and increase your <armor> by
+    <s1modV> for <s1d> Rounds.
+
+
+    <armor> increase does not stack.'
+  icon: {fileID: 21300000, guid: ad2389f17ee529e4aba84604a4de7a16, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 2330263339896092501, guid: aa759b8f67dcdff409933cffba2bbc9d, type: 3}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  castTime: 1
+  cooldown: 0
+  endTurn: 1
+  resetChance: 0
+  weaponRequirement: 2
+  soundEffect: {fileID: 8300000, guid: 3cd47381abc8f05429b8d3a745b27946, type: 3}
+  animationType: 0
+  allyAbilitySources: []
+  enemyAbilitySources:
+  - ignoreMultipliers: 0
+    school: 1
+    attributeType: 1
+    baseValue: 0
+    levelBase: 0
+    scaling: 1
+    levelScaling: 0.2
+    reductionType: 1
+    modifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      increasedAttribute: 0
+      increaseValue: 0
+      casterBased: 1
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: 8c09d1672c4eb6a4e8841e3a5826a560, type: 2}
+  targetEffects: []
+  targetsAllies: 0
+  targetsEnemies: 1
+  targetTargets: 0
+  adjacentReduction: 0

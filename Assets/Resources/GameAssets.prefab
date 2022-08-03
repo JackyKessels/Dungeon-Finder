@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &849150965005195328
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1122655749584369930}
+  - component: {fileID: 8236086711640418456}
+  m_Layer: 0
+  m_Name: GameAssets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1122655749584369930
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849150965005195328}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.3931522, y: -0.6341498, z: -13.996094}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8236086711640418456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849150965005195328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c67e4e3be3dee48a2e9c84a18e5758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  click: {fileID: 8300000, guid: 3a160144c547c9141b21fdd4bf8dc785, type: 3}
+  coins: {fileID: 8300000, guid: 4ccf2708d708ac241bc3995606ea1dd1, type: 3}
+  heroPrefab: {fileID: 7422715694881330666, guid: 6f1a44a04cc4b964991df0bcf3700149,
+    type: 3}
+  enemyPrefab: {fileID: 2678456513082283970, guid: 481ba11c29c136a4c9b45a79b5b36a82,
+    type: 3}
+  startBackground: {fileID: 21300000, guid: ef247e64e96ca554cb195edc2eaa845d, type: 3}
+  startBackgroundBlurred: {fileID: 21300000, guid: 92bebffd67951d14aa99d3cabb1b3ba4,
+    type: 3}
+  floatingCombatText: {fileID: 1173068425583639646, guid: c39cb2d6ad8cc3e4b9a6aeff6aa36b5d,
+    type: 3}
+  abilityCast: {fileID: 5093056020625117199, guid: 1f68410c38b2b0c4bacb174d1313233d,
+    type: 3}
+  notificationPrefab: {fileID: 9121554783208046700, guid: 78ff1c9ba0469e645bf30eacad166669,
+    type: 3}
+  rewardPrefab: {fileID: 5982826179833086594, guid: 84852cbbb2ec37543afb8e4dc93caa70,
+    type: 3}
+  shortMessage: {fileID: 3929005759642608876, guid: 4ffb158300adf5c41b80743864178477,
+    type: 3}
+  blackTransition: {fileID: 3434497701301513096, guid: 9e8abbc7c4d467242a4d8f9f052a8f30,
+    type: 3}
+  oneMember: {fileID: 21300000, guid: e518fd1e6892fcf46afbfc065e54b472, type: 3}
+  threeMembers: {fileID: 21300000, guid: 9b8e5dab7810bf4449a6d0e07d11c055, type: 3}
+  cancelIcon: {fileID: 21300000, guid: 00152f83547c6b24bb6e5bbd47abecb0, type: 3}
+  noAbility: {fileID: 21300000, guid: 3de08c1d203f40e4d9585df728817efa, type: 3}
+  genericAttackAnimation: {fileID: 21300000, guid: c45a6e9f24bde1342806ad63dc0c22a8,
+    type: 3}
+  chargeEffect: {fileID: 11400000, guid: e750d7a8e64ac404bb0d15d8f5621251, type: 2}
+  tauntImmune: {fileID: 11400000, guid: ed1774ffd2a28684eb56925991581fac, type: 2}
+  emptySlot: {fileID: 21300000, guid: 719b1b2542aac8f448ec71544fa489d8, type: 3}
+  restrictedSlot: {fileID: 21300000, guid: acf3264f0a5514746a6fd2e64a071217, type: 3}
+  inventoryPrefab: {fileID: 258239477785612986, guid: 3f7ca059d0886ad4a84e8253a1e0c4ab,
+    type: 3}
+  goldIcon: {fileID: 21300000, guid: 18089162bc3120444bd76176fd9ac837, type: 3}
+  goldIconBorderless: {fileID: 21300000, guid: bd60a183c4383a64e8af7b8cf3a2120b, type: 3}
+  spiritOrbIcon: {fileID: 21300000, guid: 3dd88adf6b8f7524aa3c3cfb235909d6, type: 3}
+  spiritOrbIconBorderless: {fileID: 21300000, guid: 780c4a5ad1a78674f8c7e11d9dd678b8,
+    type: 3}
+  experienceIcon: {fileID: 21300000, guid: 556153c1b28e1e9438d69936872cb7a9, type: 3}
+  shopItemPrefab: {fileID: 9120591279372793913, guid: caf5e69001fac2c4faa5ff201f119a69,
+    type: 3}
+  health: {fileID: 21300000, guid: 0969e0adb36468241a24e02515a44937, type: 3}
+  power: {fileID: 21300000, guid: d7c2c68306566f143a7ec9171a69f10f, type: 3}
+  wisdom: {fileID: 21300000, guid: aaeb2a718fb34ff40968d22c9e4c8140, type: 3}
+  armor: {fileID: 21300000, guid: 8836cc6da15100945b1fa598402e3acb, type: 3}
+  resistance: {fileID: 21300000, guid: eb70d92bb54531b429aa7d6971f64237, type: 3}
+  vitality: {fileID: 21300000, guid: 3f72f473e8e29e84f92ad72f4fc038f5, type: 3}
+  speed: {fileID: 21300000, guid: cd997a14e03004e4ab884435f9105936, type: 3}
+  accuracy: {fileID: 21300000, guid: cfc62a550b7942646bd6a5ad77b61a70, type: 3}
+  crit: {fileID: 21300000, guid: 8ee62b300f3ecd746842095f537cf25d, type: 3}
+  healingMultiplier: {fileID: 21300000, guid: 4b06f7cb1308ac8469f508aeac378e2b, type: 3}
+  physicalMultiplier: {fileID: 21300000, guid: c06759215da30dd43a25e75c7087c100, type: 3}
+  fireMultiplier: {fileID: 21300000, guid: 1e5493c7c4e5ce04e8fb840e4d86257d, type: 3}
+  iceMultiplier: {fileID: 21300000, guid: 8373ea38b5b98c746a18d69d5aeedaee, type: 3}
+  natureMultiplier: {fileID: 21300000, guid: 1f4c27a5208b70e4bb97f354e988a4d0, type: 3}
+  arcaneMultiplier: {fileID: 21300000, guid: 66850040104a09e43b673f0e15e25b4c, type: 3}
+  holyMultiplier: {fileID: 21300000, guid: 1b2a9a7155aad6944b3cfd4d8a8f97f5, type: 3}
+  shadowMultiplier: {fileID: 21300000, guid: 765cbd4126b95bf469415f72b5a2100d, type: 3}
+  critMultiplier: {fileID: 21300000, guid: 6700a6196b0f8754f89920cded1ca85c, type: 3}
+  fightEvent: {fileID: 21300000, guid: 730bf9db8250ad54f8b5894572ea39c1, type: 3}
+  bossEvent: {fileID: 21300000, guid: a3dfd5a8a9406104aabb0e5432d03214, type: 3}
+  mysteryEvent: {fileID: 21300000, guid: 3fe915b7c50dac54bbf8ccb7eea01213, type: 3}

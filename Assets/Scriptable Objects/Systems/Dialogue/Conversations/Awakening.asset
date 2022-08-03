@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154c0e1b077d4704fb6593edf3e0bc39, type: 3}
+  m_Name: Awakening
+  m_EditorClassIdentifier: 
+  leftSpeaker: {fileID: 11400000, guid: de4bff313bc1b06428cae4f08332f567, type: 2}
+  rightSpeaker: {fileID: 11400000, guid: e135b8ca49d147e49a0e63bcf7a8f2e4, type: 2}
+  lines:
+  - speaker: {fileID: 11400000, guid: de4bff313bc1b06428cae4f08332f567, type: 2}
+    text: What just happened?
+  - speaker: {fileID: 11400000, guid: de4bff313bc1b06428cae4f08332f567, type: 2}
+    text: Was that...? It can't be...
+  - speaker: {fileID: 11400000, guid: de4bff313bc1b06428cae4f08332f567, type: 2}
+    text: How am I still alive?
+  - speaker: {fileID: 11400000, guid: e135b8ca49d147e49a0e63bcf7a8f2e4, type: 2}
+    text: '* Loud scream in the distance! *'
+  - speaker: {fileID: 11400000, guid: de4bff313bc1b06428cae4f08332f567, type: 2}
+    text: What was that? Is anyone there?!
+  problem: {fileID: 0}
+  nextConversation: {fileID: 0}

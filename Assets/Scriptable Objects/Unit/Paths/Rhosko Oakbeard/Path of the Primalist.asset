@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa2df5b2f409344f962fe20a2910193, type: 3}
+  m_Name: Path of the Primalist
+  m_EditorClassIdentifier: 
+  name: Primalist
+  icon: {fileID: 21300000, guid: 06264afa70e582c42b72adae6b088536, type: 3}
+  baseWeapons:
+  - {fileID: 11400000, guid: c7ff259eb2100ac4b8f45c78db560063, type: 2}
+  - {fileID: 11400000, guid: c7ff259eb2100ac4b8f45c78db560063, type: 2}
+  primaryAbility: {fileID: 11400000, guid: 86c55eee60feabb42846b26bcf9ab306, type: 2}
+  secondaryAbility: {fileID: 11400000, guid: 6b9b49d4459a4534a9ecb9bdc34ce5c0, type: 2}
+  passiveAbility: {fileID: 11400000, guid: cd4f0b4ca1eaa3b4390649c6a9c32e25, type: 2}
+  activeAbilities:
+  - {fileID: 11400000, guid: a2e5a08bd127f914f9b9b2bb43c631b8, type: 2}
+  - {fileID: 11400000, guid: 6b9b49d4459a4534a9ecb9bdc34ce5c0, type: 2}
+  - {fileID: 11400000, guid: 2b3173d780b7de74da9d5c1ccd4bad5f, type: 2}
+  - {fileID: 11400000, guid: 86c55eee60feabb42846b26bcf9ab306, type: 2}
+  - {fileID: 11400000, guid: 79688840bec053f49a744390f0d7da26, type: 2}
+  - {fileID: 11400000, guid: 76c4139eb45bf184d9f84c7577afb949, type: 2}
+  - {fileID: 11400000, guid: 5249c77f3f6551543ada97a588bce604, type: 2}
+  - {fileID: 11400000, guid: b80ebac702fc4f14ca9d191a3a659c1f, type: 2}
+  - {fileID: 11400000, guid: a4a52c98162babf45b6776bba77e8ec8, type: 2}
+  passiveAbilities:
+  - {fileID: 11400000, guid: 888d8f3be6b2a424291c28690d67c016, type: 2}
+  - {fileID: 11400000, guid: bdac9670f6f3a5c47bb7095cba59b84e, type: 2}
+  - {fileID: 11400000, guid: 6822a27ceb205f647a0e39882c7471d7, type: 2}
+  - {fileID: 11400000, guid: e086828873aae4243b0876186fc8c25a, type: 2}
+  attributes:
+  - attributeType: 0
+    baseValue: 2
+    bonusValue: 0
+    mulitplier: 0
+  - attributeType: 1
+    baseValue: 2
+    bonusValue: 0
+    mulitplier: 0
+  - attributeType: 10
+    baseValue: 2
+    bonusValue: 0
+    mulitplier: 0
+  - attributeType: 17
+    baseValue: 2
+    bonusValue: 0
+    mulitplier: 0

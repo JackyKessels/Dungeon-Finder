@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55fe6204397d020478dd051dab6c629f, type: 3}
+  m_Name: Stratford
+  m_EditorClassIdentifier: 
+  name: Stratford
+  background: {fileID: 21300000, guid: 8f36f1f1eec11b74ebe364010c329d31, type: 3}
+  availableChapters:
+  - {fileID: 11400000, guid: 2fd2fc3a5e9158a4490bf3d094604fe6, type: 2}
+  - {fileID: 11400000, guid: 603ea319b08454f4b8ca3420a389a366, type: 2}
+  availableItems:
+  - {fileID: 11400000, guid: 25c3a5f31d8a1f24d81fb0212b7f4518, type: 2}
+  - {fileID: 11400000, guid: f1ad1beb74b76ed4282aa2ce87026222, type: 2}
+  - {fileID: 11400000, guid: fa45401708c0d7b45a47efb68714e1be, type: 2}
+  - {fileID: 11400000, guid: 497208338cde138499d0fe37d17587c7, type: 2}
+  - {fileID: 11400000, guid: b88e564d076d32b41b2312d3771b43ab, type: 2}
+  - {fileID: 11400000, guid: 689db7791fc96c249b8e9dbf26a37bd8, type: 2}
+  - {fileID: 11400000, guid: de0fe8bfc4603494db64c1d361a8a6fc, type: 2}
+  - {fileID: 11400000, guid: 01661fdad787cbf4f83e3bd3fb9a983c, type: 2}
+  - {fileID: 11400000, guid: b319e2ba20701654ebc43ffe366167f6, type: 2}
+  - {fileID: 11400000, guid: 688b249c6713c1446b4905ae8e0b74a2, type: 2}
+  - {fileID: 11400000, guid: 3477fa1e5e9a95e4db977bcfc58f87bd, type: 2}
+  - {fileID: 11400000, guid: 7b211fd9752c7564bbcf7e0128d18597, type: 2}

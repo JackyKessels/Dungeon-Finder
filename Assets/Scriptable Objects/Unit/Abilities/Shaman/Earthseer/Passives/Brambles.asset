@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
+  m_Name: Brambles
+  m_EditorClassIdentifier: 
+  id: 114
+  name: Brambles
+  quality: 0
+  type: 3
+  description: When you take <P> damage you deal <1> <N> damage to the attacker.
+  icon: {fileID: 21300000, guid: 0c3a3f42ea409fa48b26bb925ba33ea4, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 7330848825741698339, guid: d351e638d92756b49a3d9bc9bf540293, type: 3}
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  triggerType: 0
+  hitType: 0
+  targetTrigger: 0
+  abilityTypeTrigger: 0
+  typeRequirement: 0
+  schoolTriggers: 01000000
+  triggersPassives: 1
+  procChance: 100
+  abilitySources:
+  - ignoreMultipliers: 0
+    school: 4
+    attributeType: 0
+    baseValue: 0
+    levelBase: 0
+    scaling: 0.04
+    levelScaling: 0
+    reductionType: 2
+    modifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      increasedAttribute: 0
+      increaseValue: 0
+      casterBased: 0
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  selfEffectsPerTarget: 0
+  selfEffects: []
+  targetEffects: []

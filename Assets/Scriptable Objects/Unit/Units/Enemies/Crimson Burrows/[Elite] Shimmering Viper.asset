@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65caad74ac8a56045ad833b616779ac4, type: 3}
+  m_Name: '[Elite] Shimmering Viper'
+  m_EditorClassIdentifier: 
+  name: Shimmering Viper
+  lastName: 
+  unitType: 1
+  icon: {fileID: 21300000, guid: fb430576c43b66841a7f98b30b77518f, type: 3}
+  sprite: {fileID: 21300000, guid: 9fac28381c8a94449bb886ca167e20e9, type: 3}
+  attackAnimation: {fileID: 0}
+  castAnimation: {fileID: 0}
+  baseHealth: 300
+  basePower: 15
+  baseWisdom: 15
+  baseArmor: 0
+  baseResistance: 0
+  baseVitality: 0
+  speed: 6
+  accuracy: 100
+  criticalHit: 10
+  healingMultiplier: 100
+  crushingMultiplier: 100
+  piercingMultiplier: 100
+  fireMultiplier: 100
+  iceMultiplier: 100
+  natureMultiplier: 100
+  arcaneMultiplier: 100
+  holyMultiplier: 100
+  shadowMultiplier: 100
+  critMultiplier: 150
+  level: 3
+  difficulty: 8
+  experienceReward: 75
+  currencyRewards: []
+  itemDrops:
+  - itemObject: {fileID: 11400000, guid: 0e1a87c451710bb4b90483ac36cae661, type: 2}
+    amount: 1
+    weight: 1
+  randomAbility: 1
+  abilities:
+  - ability: {fileID: 11400000, guid: 00e9ff92e2b405f4dbae9cff3e38cffd, type: 2}
+    target: 0
+    condition: 0
+    startCooldown: 0
+    charged: 0
+  - ability: {fileID: 11400000, guid: 9dae756c25dde3b47bbc480eb0202c49, type: 2}
+    target: 0
+    condition: 0
+    startCooldown: 3
+    charged: 0
+  - ability: {fileID: 11400000, guid: 449df4d2854d4ae41b6dc63366af0dc4, type: 2}
+    target: 0
+    condition: 0
+    startCooldown: 0
+    charged: 0
+  passiveAbilities: []

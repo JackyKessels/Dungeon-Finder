@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
+  m_Name: Imposing Order
+  m_EditorClassIdentifier: 
+  id: 136
+  name: Imposing Order
+  quality: 0
+  type: 1
+  description: Taunt the target for <t1d> Rounds and increase your <armor> by <s1modV>
+    and <resistance> by <s2modV> for this Round.
+  icon: {fileID: 21300000, guid: adda846d3f5d817499fb2288f8e5a949, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 103993436552542695, guid: 3917c0c74ae2d7e4882fd1d5fa809b0e, type: 3}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  castTime: 0.5
+  cooldown: 2
+  endTurn: 0
+  resetChance: 0
+  weaponRequirement: 4
+  soundEffect: {fileID: 0}
+  animationType: 0
+  allyAbilitySources: []
+  enemyAbilitySources: []
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: 66d0b43311bb4344a96a846bcb417686, type: 2}
+  - {fileID: 11400000, guid: bbd388c0b0de9fa4994566d7faac0147, type: 2}
+  targetEffects:
+  - {fileID: 11400000, guid: d45dd711f85bf28499f940d4cb1882e7, type: 2}
+  targetsAllies: 0
+  targetsEnemies: 1
+  targetTargets: 0
+  adjacentReduction: 0

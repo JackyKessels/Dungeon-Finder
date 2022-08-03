@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65caad74ac8a56045ad833b616779ac4, type: 3}
+  m_Name: '[Elite] Bloodcrystal Titan'
+  m_EditorClassIdentifier: 
+  name: Bloodcrystal Titan
+  lastName: 
+  unitType: 4
+  icon: {fileID: 21300000, guid: 0969e0adb36468241a24e02515a44937, type: 3}
+  sprite: {fileID: 21300000, guid: 809f32e689abdbd4ca62722b43e3ab2d, type: 3}
+  attackAnimation: {fileID: 0}
+  castAnimation: {fileID: 0}
+  baseHealth: 335
+  basePower: 12
+  baseWisdom: 12
+  baseArmor: 20
+  baseResistance: -20
+  baseVitality: 0
+  speed: 4
+  accuracy: 80
+  criticalHit: 10
+  healingMultiplier: 100
+  crushingMultiplier: 100
+  piercingMultiplier: 100
+  fireMultiplier: 100
+  iceMultiplier: 100
+  natureMultiplier: 100
+  arcaneMultiplier: 100
+  holyMultiplier: 100
+  shadowMultiplier: 100
+  critMultiplier: 150
+  level: 3
+  difficulty: 8
+  experienceReward: 75
+  currencyRewards:
+  - currencyType: 1
+    totalAmount: 10
+  itemDrops:
+  - itemObject: {fileID: 0}
+    amount: 0
+    weight: 1
+  - itemObject: {fileID: 11400000, guid: ad4d72fbf4442d942942755c813a7c08, type: 2}
+    amount: 1
+    weight: 1
+  - itemObject: {fileID: 11400000, guid: 313f4790924acad4cbb951955ecdf1c4, type: 2}
+    amount: 1
+    weight: 1
+  randomAbility: 0
+  abilities:
+  - ability: {fileID: 11400000, guid: 123455b22a9f51c4b8bd87aeb35c1fdb, type: 2}
+    target: 0
+    condition: 0
+    startCooldown: 2
+    charged: 0
+  - ability: {fileID: 11400000, guid: 8650ed4b320d23b4bb9da1651bcb7de9, type: 2}
+    target: 0
+    condition: 0
+    startCooldown: 1
+    charged: 0
+  - ability: {fileID: 11400000, guid: 18cf3aebb12d38a4f800fab9a5106435, type: 2}
+    target: 0
+    condition: 0
+    startCooldown: 0
+    charged: 0
+  passiveAbilities:
+  - {fileID: 11400000, guid: 4024ddc9bf4c6394cb036c6a1f613d16, type: 2}

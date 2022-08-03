@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
+  m_Name: Rock Fist
+  m_EditorClassIdentifier: 
+  id: 40
+  name: Rock Fist
+  quality: 0
+  type: 0
+  description: 'Deal <e1> <P> damage to your target and reduce their Armor by <t1modV>
+    for <t1d> Rounds.
+
+
+    Armor reduction does not stack.'
+  icon: {fileID: 21300000, guid: 6d1615ac17ee62c41865fe209fb43fb4, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 2753320956279644232, guid: 6243bfc337aab524aa77a0dc19b26c2b, type: 3}
+  - {fileID: 2977591347156237868, guid: 4ba9c413e76264f4392893dc5137ad4a, type: 3}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 11400000, guid: 1bd033397ffa809499cf698a1d4f55a5, type: 2}
+  castTime: 0.75
+  cooldown: 0
+  endTurn: 1
+  resetChance: 0
+  weaponRequirement: 4
+  soundEffect: {fileID: 8300000, guid: 9a1599338d4a2674abf875be6d6d8374, type: 3}
+  animationType: 0
+  allyAbilitySources: []
+  enemyAbilitySources:
+  - ignoreMultipliers: 0
+    school: 1
+    attributeType: 1
+    baseValue: 0
+    levelBase: 0
+    scaling: 1
+    levelScaling: 0.2
+    reductionType: 1
+    modifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      increasedAttribute: 0
+      increaseValue: 0
+      casterBased: 1
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  selfEffectsPerTarget: 0
+  selfEffects: []
+  targetEffects:
+  - {fileID: 11400000, guid: fb0e55a3d354b104193cf2cbe007e1c7, type: 2}
+  targetsAllies: 0
+  targetsEnemies: 1
+  targetTargets: 0
+  adjacentReduction: 0
