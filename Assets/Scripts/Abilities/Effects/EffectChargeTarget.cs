@@ -9,13 +9,23 @@ public class EffectChargeTarget : EffectObject
     {
         string temp = s;
 
-        string check = "<caster>";
+        string caster = "<caster>";
+        string ability = "<ability>";
 
-        if (temp.Contains(check))
+        if (temp.Contains(caster))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.CasterColor() + ">{0}</color>");
+            temp = temp.Replace(caster, "<color=" + ColorDatabase.CasterColor() + ">{0}</color>");
 
             temp = string.Format(temp, tooltipInfo.effect.caster.name);
+        }
+
+        if (temp.Contains(ability))
+        {
+            temp = temp.Replace(ability, "<color=" + ColorDatabase.CasterColor() + ">{0}</color>");
+
+            Enemy enemy = tooltipInfo.effect.caster as Enemy;
+
+            temp = string.Format(temp, enemy.chargedAbility[0].activeAbility.name);
         }
 
         return temp;

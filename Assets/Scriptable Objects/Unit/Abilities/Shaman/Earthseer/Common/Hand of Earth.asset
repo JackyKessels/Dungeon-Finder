@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Hand of Earth
   m_EditorClassIdentifier: 
-  id: 20
+  id: 53
   name: Hand of Earth
   quality: 0
   type: 2
   description: Deal <e1> <P> damage to your target and increase your <power> by <s1modV>
     for <s1d> Rounds.
-  icon: {fileID: 21300000, guid: 6d1615ac17ee62c41865fe209fb43fb4, type: 3}
+  icon: {fileID: 21300000, guid: 3faf56886980f0f40a35b6f22ddcf143, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
   - {fileID: 2753320956279644232, guid: 6243bfc337aab524aa77a0dc19b26c2b, type: 3}
@@ -37,6 +37,8 @@ MonoBehaviour:
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
     school: 1
     attributeType: 1
     baseValue: 0

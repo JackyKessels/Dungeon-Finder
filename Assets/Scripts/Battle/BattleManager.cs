@@ -488,10 +488,10 @@ public class BattleManager : MonoBehaviour, IUserInterface
             i.TriggerAbility(active.level);
         }
 
+        castingEnemy.ResetChargedAbility();
+
         // Update HUD
         battleHUD.Refresh();
-
-        castingEnemy.ResetChargedAbility();
     }
 
 

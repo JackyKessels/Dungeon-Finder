@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65caad74ac8a56045ad833b616779ac4, type: 3}
+  m_Name: '[Boss] Elisen Fenlin'
+  m_EditorClassIdentifier: 
+  name: Elisen
+  lastName: Fenlin
+  unitType: 4
+  icon: {fileID: 21300000, guid: b3dabec7c2a85c642b97f7e35cf7da5c, type: 3}
+  sprite: {fileID: 21300000, guid: 61f3705895e82cd40b2a4818d3838512, type: 3}
+  attackAnimation: {fileID: 0}
+  castAnimation: {fileID: 0}
+  baseHealth: 500
+  basePower: 5
+  baseWisdom: 20
+  baseArmor: 0
+  baseResistance: 0
+  baseVitality: 0
+  speed: 4
+  accuracy: 80
+  criticalHit: 10
+  healingMultiplier: 100
+  crushingMultiplier: 100
+  piercingMultiplier: 100
+  fireMultiplier: 100
+  iceMultiplier: 100
+  natureMultiplier: 100
+  arcaneMultiplier: 100
+  holyMultiplier: 100
+  shadowMultiplier: 100
+  critMultiplier: 150
+  level: 6
+  difficulty: 6
+  experienceReward: 0
+  currencyRewards: []
+  itemDrops: []
+  randomAbility: 0
+  abilities:
+  - ability: {fileID: 11400000, guid: c7c6ce8ef22609542997ce18dc537633, type: 2}
+    target: 0
+    condition: 0
+    startCooldown: 4
+    charged: 1
+  - ability: {fileID: 11400000, guid: dfb7c920ae3d91343b0844886e36ee71, type: 2}
+    target: 0
+    condition: 0
+    startCooldown: 0
+    charged: 0
+  passiveAbilities:
+  - {fileID: 11400000, guid: 4bf596d2b438afc409079f4ab2f4872d, type: 2}
+  - {fileID: 11400000, guid: 84666a2b55a86be45a37a05f4fb3807f, type: 2}

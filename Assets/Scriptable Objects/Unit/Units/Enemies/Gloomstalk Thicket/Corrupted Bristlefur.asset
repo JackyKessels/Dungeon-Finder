@@ -26,7 +26,7 @@ MonoBehaviour:
   baseResistance: 0
   baseVitality: 0
   speed: 3
-  accuracy: 75
+  accuracy: 80
   criticalHit: 10
   healingMultiplier: 100
   crushingMultiplier: 100

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Crimsonweb Pendant
   icon: {fileID: 21300000, guid: 172b50a3ab707c54293d51ca76e5cef0, type: 3}
-  value: 300
+  value: 100
   stackable: 0
   maxStacks: 1
   sellable: 1

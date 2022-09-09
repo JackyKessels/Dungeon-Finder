@@ -88,17 +88,17 @@ public class TownManager : MonoBehaviour, IUserInterface
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W) && gameManager.gameState != GameState.NONE)
+        if (Input.GetKeyDown(KeyCode.W) && gameManager.gameState == GameState.TOWN)
         {
             OpenMap();
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && gameManager.gameState != GameState.NONE)
+        if (Input.GetKeyDown(KeyCode.E) && gameManager.gameState == GameState.TOWN)
         {
             OpenAbilityShop();
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && gameManager.gameState != GameState.NONE)
+        if (Input.GetKeyDown(KeyCode.R) && gameManager.gameState == GameState.TOWN)
         {
             OpenItemShop();
         }

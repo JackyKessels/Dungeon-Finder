@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65caad74ac8a56045ad833b616779ac4, type: 3}
+  m_Name: test
+  m_EditorClassIdentifier: 
+  name: chargerz
+  lastName: 
+  unitType: 4
+  icon: {fileID: 21300000, guid: b3dabec7c2a85c642b97f7e35cf7da5c, type: 3}
+  sprite: {fileID: 21300000, guid: 6db457ab8b975f04ba4670b67d511ac4, type: 3}
+  attackAnimation: {fileID: 0}
+  castAnimation: {fileID: 0}
+  baseHealth: 4444
+  basePower: 1
+  baseWisdom: 0
+  baseArmor: 0
+  baseResistance: 0
+  baseVitality: 0
+  speed: 3
+  accuracy: 80
+  criticalHit: 10
+  healingMultiplier: 100
+  crushingMultiplier: 100
+  piercingMultiplier: 100
+  fireMultiplier: 100
+  iceMultiplier: 100
+  natureMultiplier: 100
+  arcaneMultiplier: 100
+  holyMultiplier: 100
+  shadowMultiplier: 100
+  critMultiplier: 150
+  level: 5
+  difficulty: 3
+  experienceReward: 100
+  currencyRewards:
+  - currencyType: 0
+    totalAmount: 50
+  itemDrops: []
+  randomAbility: 0
+  abilities:
+  - ability: {fileID: 11400000, guid: 8dde4c32446fd8041b44ad88ea866082, type: 2}
+    target: 0
+    condition: 0
+    startCooldown: 0
+    charged: 1
+  passiveAbilities: []

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Vibrant Sinew
   icon: {fileID: 21300000, guid: 29d513fbb1b2c0340a40007fc561b544, type: 3}
-  value: 300
+  value: 80
   stackable: 0
   maxStacks: 1
   sellable: 1

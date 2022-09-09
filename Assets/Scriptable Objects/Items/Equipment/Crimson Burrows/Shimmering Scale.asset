@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Shimmering Scale
   icon: {fileID: 21300000, guid: 6f727da2dc9862642ac5f0f1fd6242e2, type: 3}
-  value: 100
+  value: 80
   stackable: 0
   maxStacks: 1
   sellable: 1

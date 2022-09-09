@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Aura of Sacrifice
   icon: {fileID: 21300000, guid: 93c67676a81b2d747b28ba7d8b0d6e02, type: 3}
   hidden: 0
-  description: Transfer 15% of damage taken to <caster>.
+  description: Transfer <1> of damage taken to <caster>.
   isBuff: 1
   procType: 0
   duration: 1

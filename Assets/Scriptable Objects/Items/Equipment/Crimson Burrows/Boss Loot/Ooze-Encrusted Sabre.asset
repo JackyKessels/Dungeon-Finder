@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Ooze-Encrusted Sabre
   icon: {fileID: 21300000, guid: 5eaf3d6855639d7419cbc12ea877158f, type: 3}
-  value: 150
+  value: 80
   stackable: 0
   maxStacks: 1
   sellable: 1

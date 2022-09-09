@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Resistant Ooze
   icon: {fileID: 21300000, guid: e6f3e6f03f046334faa260c86e763434, type: 3}
-  value: 0
+  value: 20
   stackable: 1
   maxStacks: 3
   sellable: 1

@@ -22,8 +22,8 @@ MonoBehaviour:
   baseHealth: 600
   basePower: 14
   baseWisdom: 15
-  baseArmor: -10
-  baseResistance: 20
+  baseArmor: -11
+  baseResistance: 25
   baseVitality: 0
   speed: 5
   accuracy: 80
@@ -70,6 +70,6 @@ MonoBehaviour:
     target: 0
     condition: 0
     startCooldown: 0
-    charged: 0
+    charged: 1
   passiveAbilities:
   - {fileID: 11400000, guid: f4bb1353487f6f74f9144891c473bc1d, type: 2}

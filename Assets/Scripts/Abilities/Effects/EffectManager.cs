@@ -157,6 +157,17 @@ public class EffectManager : MonoBehaviour
         }
     }
 
+    public void RemoveCharging()
+    {
+        for (int i = effectsList.Count; i-- > 0;)
+        {
+            if (effectsList[i].data is EffectChargeTarget)
+            {
+                OnExpiration(effectsList[i]);
+            }
+        }
+    }
+
     // Collect all ability multipliers and expire those that need to be
     public float ApplyMultipliers(ActiveAbility activeAbility, Unit target)
     {
@@ -221,7 +232,7 @@ public class EffectManager : MonoBehaviour
 
         for (int i = 0; i < effectsList.Count; i++)
         {
-            if (effectsList[i].data is EffectDamageTransfer)
+            if (effectsList[i].data is EffectDamageTransfer && !effectsList[i].caster.statsManager.isDead)
             {
                 list.Add(effectsList[i]);
             }

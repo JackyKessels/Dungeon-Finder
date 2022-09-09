@@ -40,7 +40,8 @@ public class GameAssets : MonoBehaviour
     public Sprite cancelIcon;
     public Sprite noAbility;
     public Sprite genericAttackAnimation;
-    public EffectObject chargeEffect;
+    public EffectObject chargeTargetEffect;
+    public EffectObject chargeInstantEffect;
     public EffectObject tauntImmune;
 
     [Header("Inventory")]

@@ -18,6 +18,6 @@ MonoBehaviour:
   description: You will be attacked by <caster>.
   isBuff: 0
   procType: 1
-  duration: 2
-  permanent: 0
+  duration: 5
+  permanent: 1
   removeEffects: []

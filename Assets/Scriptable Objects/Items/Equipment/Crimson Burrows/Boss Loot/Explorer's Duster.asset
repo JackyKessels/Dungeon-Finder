@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Explorer's Duster
   icon: {fileID: 21300000, guid: f13d7ad646317c747a1a07d5360442f7, type: 3}
-  value: 300
+  value: 160
   stackable: 0
   maxStacks: 1
   sellable: 1

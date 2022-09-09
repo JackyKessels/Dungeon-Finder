@@ -25,9 +25,9 @@ MonoBehaviour:
   isIncrease: 1
   modifierType: 0
   modifierSource:
-    ignoreMultipliers: 0
-    cannotCrit: 0
-    cannotMiss: 0
+    ignoreMultipliers: 1
+    cannotCrit: 1
+    cannotMiss: 1
     school: 0
     attributeType: 0
     baseValue: 25

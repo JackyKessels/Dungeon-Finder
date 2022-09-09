@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Zesty Fungus
   icon: {fileID: 21300000, guid: edacba401616e2b4394d3858300a13ec, type: 3}
-  value: 0
+  value: 10
   stackable: 1
   maxStacks: 15
   sellable: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hand of Earth (Power)
   m_EditorClassIdentifier: 
   name: Hand of Earth
-  icon: {fileID: 21300000, guid: 6d1615ac17ee62c41865fe209fb43fb4, type: 3}
+  icon: {fileID: 21300000, guid: 3faf56886980f0f40a35b6f22ddcf143, type: 3}
   hidden: 0
   description: Power increased by <1>.
   isBuff: 1
@@ -23,8 +23,11 @@ MonoBehaviour:
   removeEffects: []
   attributeModified: 1
   isIncrease: 1
+  modifierType: 0
   modifierSource:
     ignoreMultipliers: 1
+    cannotCrit: 0
+    cannotMiss: 0
     school: 0
     attributeType: 0
     baseValue: 0
@@ -52,5 +55,9 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  multiplier: 0
+  multiplierPerLevel: 0
   specialEffects:
   - {fileID: 5075669867941843830, guid: 6b4a929a6ad069040a4d0f975d9ffa99, type: 3}

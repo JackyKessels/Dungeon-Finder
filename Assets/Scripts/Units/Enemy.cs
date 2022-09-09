@@ -7,7 +7,7 @@ public class Enemy : Unit
 {
     [HideInInspector] public EnemyObject enemyObject;
 
-    private List<Active> chargedAbility;
+    public List<Active> chargedAbility;
     private int chargeTarget;
 
     public void UpdateUnit(EnemyObject unitObject)
@@ -77,12 +77,21 @@ public class Enemy : Unit
         chargedAbility.Add(active);
 
         if (active.activeAbility is TargetAbility t)
+        {
             chargeTarget = GetTarget(t);
 
-        Effect effect = new Effect();
-        effect.Setup(GameAssets.i.chargeEffect, this, TeamManager.Instance.heroes.GetUnit(chargeTarget), 1);
-        effect.IconOverride = active.activeAbility.icon;
-        effect.target.effectManager.OnApplication(effect);
+            Effect effect = new Effect();
+            effect.Setup(GameAssets.i.chargeTargetEffect, this, TeamManager.Instance.heroes.GetUnit(chargeTarget), 1);
+            effect.IconOverride = active.activeAbility.icon;
+            effect.target.effectManager.OnApplication(effect);
+        }
+        else
+        {
+            Effect effect = new Effect();
+            effect.Setup(GameAssets.i.chargeInstantEffect, this, this, 1);
+            effect.IconOverride = active.activeAbility.icon;
+            effect.target.effectManager.OnApplication(effect);
+        }
     }
 
     public int CheckTarget(TargetAbility t)
@@ -99,6 +108,7 @@ public class Enemy : Unit
     {
         chargedAbility.Clear();
         chargeTarget = -1;
+        effectManager.RemoveCharging();
     }
 
     private AbilityBehavior GetAbilityBehavior(Active active)

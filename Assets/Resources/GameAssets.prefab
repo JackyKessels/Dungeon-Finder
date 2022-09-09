@@ -70,7 +70,9 @@ MonoBehaviour:
   noAbility: {fileID: 21300000, guid: 3de08c1d203f40e4d9585df728817efa, type: 3}
   genericAttackAnimation: {fileID: 21300000, guid: c45a6e9f24bde1342806ad63dc0c22a8,
     type: 3}
-  chargeEffect: {fileID: 11400000, guid: e750d7a8e64ac404bb0d15d8f5621251, type: 2}
+  chargeTargetEffect: {fileID: 11400000, guid: e750d7a8e64ac404bb0d15d8f5621251, type: 2}
+  chargeInstantEffect: {fileID: 11400000, guid: 36a288f936cc22a4eb0ac771a2ade10a,
+    type: 2}
   tauntImmune: {fileID: 11400000, guid: ed1774ffd2a28684eb56925991581fac, type: 2}
   emptySlot: {fileID: 21300000, guid: 719b1b2542aac8f448ec71544fa489d8, type: 3}
   restrictedSlot: {fileID: 21300000, guid: acf3264f0a5514746a6fd2e64a071217, type: 3}

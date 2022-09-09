@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Vilefang Ripper
   icon: {fileID: 21300000, guid: d8cd803f279c9ca4ab338f1497c8286c, type: 3}
-  value: 300
+  value: 80
   stackable: 0
   maxStacks: 1
   sellable: 1

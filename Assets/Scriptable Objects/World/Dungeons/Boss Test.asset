@@ -40,15 +40,14 @@ MonoBehaviour:
       - {fileID: 11400000, guid: 5ae14ec0869089e47a5450ed7875927b, type: 2}
       weight: 1
     - enemyObjects:
-      - {fileID: 11400000, guid: 81af47cd6e032b74d92ab8ef6860fe49, type: 2}
+      - {fileID: 11400000, guid: aca16c850d16f7a4a9c1e39c728edb1c, type: 2}
       weight: 1
     - enemyObjects:
       - {fileID: 11400000, guid: 4b03e6418cf01c742ae0d5a5757895c9, type: 2}
-      - {fileID: 11400000, guid: 5d6b59dffbc89b5478391a22d63830c7, type: 2}
-      - {fileID: 11400000, guid: 5d6b59dffbc89b5478391a22d63830c7, type: 2}
       weight: 1
     - enemyObjects:
-      - {fileID: 11400000, guid: aec1fe96cfac071458fb7d706b9d830d, type: 2}
+      - {fileID: 11400000, guid: 6ce95a10a91101946b85ad2553a6e54b, type: 2}
+      - {fileID: 11400000, guid: a401d806e596eaf4bb79f1af9ae6b10f, type: 2}
       weight: 1
     - enemyObjects:
       - {fileID: 11400000, guid: 689bcd23c303b3f439c67e818508c117, type: 2}
@@ -57,6 +56,4 @@ MonoBehaviour:
     bossEncounter:
       enemyObjects:
       - {fileID: 11400000, guid: 4b03e6418cf01c742ae0d5a5757895c9, type: 2}
-      - {fileID: 11400000, guid: 5d6b59dffbc89b5478391a22d63830c7, type: 2}
-      - {fileID: 11400000, guid: 5d6b59dffbc89b5478391a22d63830c7, type: 2}
     mysteryEvents: {fileID: 0}

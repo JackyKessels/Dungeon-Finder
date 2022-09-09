@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Devourer's Carapace
   icon: {fileID: 21300000, guid: 15a2cc71b2bf6954bbd60dbb739c5e1c, type: 3}
-  value: 300
+  value: 160
   stackable: 0
   maxStacks: 1
   sellable: 1

@@ -26,7 +26,7 @@ MonoBehaviour:
   baseResistance: 0
   baseVitality: 0
   speed: 7
-  accuracy: 75
+  accuracy: 80
   criticalHit: 20
   healingMultiplier: 100
   crushingMultiplier: 100
@@ -42,7 +42,16 @@ MonoBehaviour:
   difficulty: 6
   experienceReward: 0
   currencyRewards: []
-  itemDrops: []
+  itemDrops:
+  - itemObject: {fileID: 11400000, guid: 0810c68dda8cb5e43985dafefedfe6aa, type: 2}
+    amount: 0
+    weight: 0
+  - itemObject: {fileID: 11400000, guid: aac92a78a6d3e35428bab44f80d0249e, type: 2}
+    amount: 0
+    weight: 0
+  - itemObject: {fileID: 11400000, guid: 1d94f840637e67c4887aa2c8de1f10d7, type: 2}
+    amount: 0
+    weight: 0
   randomAbility: 0
   abilities:
   - ability: {fileID: 11400000, guid: 4aac8206982e34847a04f8700bfffccf, type: 2}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Gaze of the Broodmother
   icon: {fileID: 21300000, guid: d6929ea5786754e4eaf457bda9d89c97, type: 3}
-  value: 0
+  value: 150
   stackable: 0
   maxStacks: 1
   sellable: 1

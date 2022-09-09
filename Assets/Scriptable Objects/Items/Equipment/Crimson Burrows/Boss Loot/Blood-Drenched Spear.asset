@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Blood-Drenched Spear
   icon: {fileID: 21300000, guid: 1ff50424ab88d2649beabf00de0c843c, type: 3}
-  value: 300
+  value: 160
   stackable: 0
   maxStacks: 1
   sellable: 1

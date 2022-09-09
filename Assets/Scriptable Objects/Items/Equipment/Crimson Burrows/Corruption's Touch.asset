@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Corruption's Touch
   icon: {fileID: 21300000, guid: 08ee64ea91b837742b915281ac292cc5, type: 3}
-  value: 0
+  value: 160
   stackable: 0
   maxStacks: 1
   sellable: 1

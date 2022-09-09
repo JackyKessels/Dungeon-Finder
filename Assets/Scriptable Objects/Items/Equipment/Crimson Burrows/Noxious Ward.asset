@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Noxious Ward
   icon: {fileID: 21300000, guid: 4e488c9653d37a7468f5d057c50f8b11, type: 3}
-  value: 0
+  value: 60
   stackable: 0
   maxStacks: 1
   sellable: 1
