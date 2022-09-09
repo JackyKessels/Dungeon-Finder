@@ -6,25 +6,16 @@ using UnityEngine.UI;
 
 public class PathSystem : MonoBehaviour
 {
-    public TextMeshProUGUI pathTitle;
     public GameObject pathsContainer;
 
     public TextMeshProUGUI pathPoints;
 
     public GameObject pathPrefab;
 
-    private Hero hero;
-
     public void Setup(Hero hero)
-    {
-        this.hero = hero;
-    }
-
-    public void Setup()
     {
         ObjectUtilities.ClearContainer(pathsContainer);
 
-        pathTitle.text = hero.heroClass + " Paths";
         pathPoints.text = hero.heroPathManager.points.ToString();
 
         foreach (HeroPath path in hero.heroPathManager.paths)
@@ -41,29 +32,5 @@ public class PathSystem : MonoBehaviour
 
         HeroPathGameObject heroPathPrefab = obj.GetComponentInChildren<HeroPathGameObject>();
         heroPathPrefab.Setup(path);
-    }
-
-    public void PathSystemButton()
-    {
-        if (gameObject.activeSelf)
-        {
-            ClosePathSystem();
-        }
-        else
-        {
-            OpenPathSystem();
-        }
-    }
-
-    private void OpenPathSystem()
-    {
-        gameObject.SetActive(true);
-
-        Setup();
-    }
-
-    public void ClosePathSystem()
-    {
-        gameObject.SetActive(false);
     }
 }

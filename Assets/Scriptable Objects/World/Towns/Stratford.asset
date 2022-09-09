@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Stratford
   m_EditorClassIdentifier: 
   name: Stratford
-  background: {fileID: 21300000, guid: 8f36f1f1eec11b74ebe364010c329d31, type: 3}
+  background: {fileID: 21300000, guid: 278e4e6161502eb48a6dc227193cb736, type: 3}
   availableChapters:
-  - {fileID: 11400000, guid: 2fd2fc3a5e9158a4490bf3d094604fe6, type: 2}
-  - {fileID: 11400000, guid: 603ea319b08454f4b8ca3420a389a366, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   availableItems:
   - {fileID: 11400000, guid: 25c3a5f31d8a1f24d81fb0212b7f4518, type: 2}
   - {fileID: 11400000, guid: f1ad1beb74b76ed4282aa2ce87026222, type: 2}

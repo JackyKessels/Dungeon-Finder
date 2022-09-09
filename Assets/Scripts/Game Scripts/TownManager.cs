@@ -88,10 +88,10 @@ public class TownManager : MonoBehaviour, IUserInterface
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W) && gameManager.gameState == GameState.TOWN)
-        {
-            OpenMap();
-        }
+        //if (Input.GetKeyDown(KeyCode.W) && gameManager.gameState == GameState.TOWN)
+        //{
+        //    OpenMap();
+        //}
 
         if (Input.GetKeyDown(KeyCode.E) && gameManager.gameState == GameState.TOWN)
         {
@@ -139,7 +139,7 @@ public class TownManager : MonoBehaviour, IUserInterface
 
         currencyHandler.UpdateCurrencies();
 
-        gameManager.interfaceBar.SetCorrectButton(GameState.TOWN);
+        gameManager.mapButton.UpdateButton(GameState.TOWN);
     }
 
     public void StartRun(Dungeon dungeon)
@@ -286,7 +286,7 @@ public class TownManager : MonoBehaviour, IUserInterface
 
         TutorialUI(false);
 
-        gameManager.interfaceBar.SetCorrectButton(GameState.TOWN);
+        gameManager.mapButton.UpdateButton(GameState.TOWN);
 
         //HeroManager.Instance.SetupStarterPath(teamManager.heroes.members[0] as Hero);
     }

@@ -4,6 +4,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum HeroInformationTab
+{
+    General,
+    Path
+}
+
 public class HeroManager : MonoBehaviour, IUserInterface
 {
     #region Singleton
@@ -38,6 +44,9 @@ public class HeroManager : MonoBehaviour, IUserInterface
     public TextMeshProUGUI currentHeroName;
     public Image heroIcon;
 
+    public GameObject generalTab;
+    public GameObject pathTab;
+
     [Header("[ Experience ]")]
     public Slider experienceBar;
     public TextMeshProUGUI currentLevelText;
@@ -51,6 +60,8 @@ public class HeroManager : MonoBehaviour, IUserInterface
     public Button pathButton;
     public PathSystem pathSystem;
 
+    private HeroInformationTab currentTab;
+
     private int nextHero = 0;
 
     private void Start()
@@ -59,6 +70,8 @@ public class HeroManager : MonoBehaviour, IUserInterface
         teamManager = TeamManager.Instance;
         inventoryManager = InventoryManager.Instance;
         spellbookManager = SpellbookManager.Instance;
+
+        currentTab = HeroInformationTab.General;
     }
 
     private void Update()
@@ -77,6 +90,20 @@ public class HeroManager : MonoBehaviour, IUserInterface
         {
             NextHero();
         }
+    }
+
+    public void HeroInformationGeneralButton()
+    {
+        currentTab = HeroInformationTab.General;
+
+        OpenHeroInformation();
+    }
+
+    public void HeroInformationPathButton()
+    {
+        currentTab = HeroInformationTab.Path;
+
+        OpenHeroInformation();
     }
 
     public void SetTeamName(string name)
@@ -101,16 +128,27 @@ public class HeroManager : MonoBehaviour, IUserInterface
         // Set experience bar
         UpdateCharacterExperience();
 
-        // Set spellbook
-        spellbookManager.Setup(hero);
+        if (currentTab == HeroInformationTab.General)
+        {
+            generalTab.SetActive(true);
+            pathTab.SetActive(false);
 
-        // Set equipment and inventory
-        inventoryManager.Setup(hero);
+            // Set spellbook
+            spellbookManager.Setup(hero);
 
-        // Path System
-        PathButtonStatus();
-        pathSystem.ClosePathSystem();
-        pathSystem.Setup(hero);
+            // Set equipment and inventory
+            inventoryManager.Setup(hero);
+        }
+        else
+        {
+            generalTab.SetActive(false);
+            pathTab.SetActive(true);
+
+            // Path System
+            PathButtonStatus();
+            //pathSystem.ClosePathSystem();
+            pathSystem.Setup(hero);
+        }
     }
 
     public void Refresh()
@@ -151,8 +189,19 @@ public class HeroManager : MonoBehaviour, IUserInterface
             // If open
             else
             {
-                heroInformationObject.SetActive(false);
-                pathSystem.ClosePathSystem();
+                if (generalTab.activeSelf && currentTab == HeroInformationTab.General)
+                {
+                    heroInformationObject.SetActive(false);
+                }
+                else if (pathTab.activeSelf && currentTab == HeroInformationTab.Path)
+                {
+                    heroInformationObject.SetActive(false);
+                }
+                else
+                {
+                    Setup();
+                }
+
                 TooltipHandler.Instance.HideTooltip();
             }
         }

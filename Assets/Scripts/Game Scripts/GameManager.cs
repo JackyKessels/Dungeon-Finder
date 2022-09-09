@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
     [Header("[ Main Systems ]")]
     public CameraScript cameraScript;
     public EnemyDatabase enemyDatabase;
-    public InterfaceBar interfaceBar;
+    public MapButton mapButton;
 
     [Header("[ Inventory ]")]
     public GameObject inventoryContainer;
@@ -344,7 +344,7 @@ public class GameManager : MonoBehaviour
         if (townManager.isTutorial) townManager.TutorialUI(true);
         else townManager.EnableUI(true);
 
-        interfaceBar.SetCorrectButton(gameState);
+        mapButton.UpdateButton(gameState);
     }
 
     public void GoToRun()
@@ -359,7 +359,7 @@ public class GameManager : MonoBehaviour
         cameraScript.GoToCamera(dungeonManager.cameraObject, true);
         dungeonManager.EnableUI(true);
 
-        interfaceBar.SetCorrectButton(gameState);
+        mapButton.UpdateButton(gameState);
     }
 
     public void TryAgain()
