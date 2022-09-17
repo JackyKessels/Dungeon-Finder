@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
   m_Name: Thistle Shell
   m_EditorClassIdentifier: 
-  id: 133
+  id: 57
   name: Thistle Shell
   quality: 0
-  type: 2
+  type: 1
   description: '<targetPassive1>
 
 

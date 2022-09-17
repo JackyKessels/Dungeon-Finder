@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
   m_Name: Rock Shard
   m_EditorClassIdentifier: 
-  id: 97
+  id: 65
   name: Rock Shard
   quality: 0
   type: 3
@@ -39,6 +39,8 @@ MonoBehaviour:
   procChance: 25
   abilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
     school: 1
     attributeType: 1
     baseValue: 0
@@ -56,7 +58,7 @@ MonoBehaviour:
       increaseValue: 0
       casterBased: 1
       attributeBase: 3
-      percentageIncrease: 1
+      percentageIncrease: 2
       bonusAbilitySource:
         ignoreMultipliers: 0
         school: 0

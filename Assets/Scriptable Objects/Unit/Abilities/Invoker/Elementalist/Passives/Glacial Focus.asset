@@ -10,32 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
-  m_Name: Heart of the Wild
+  m_Name: Glacial Focus
   m_EditorClassIdentifier: 
-  id: 81
-  name: Heart of the Wild
+  id: 162
+  name: Glacial Focus
   quality: 0
   type: 3
-  description: Your <critical> Assault abilities increase the damage of your Primary
-    attacks by <s1bonus> for <s1d> Rounds.
-  icon: {fileID: 21300000, guid: 43eb2a5b06d853e4a90b40d64f72f14b, type: 3}
-  casterSpecialEffects:
-  - {fileID: 2679745637704831307, guid: 17ac547be4eaab74888e4a9778168459, type: 3}
+  description: Dealing <I> damage increases your <arcanemultiplier> by <s1modV>%
+    for <s1d> Rounds.
+  icon: {fileID: 21300000, guid: 9730d2546b4ad67479ad2528145ba1ef, type: 3}
+  casterSpecialEffects: []
   targetSpecialEffects: []
   hasLevels: 0
   sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
   triggerType: 1
-  hitType: 1
+  hitType: 0
   targetTrigger: 0
-  abilityTypeTrigger: 1
-  typeRequirement: 2
-  schoolTriggers: 01000000020000000300000004000000050000000600000007000000
+  abilityTypeTrigger: 0
+  typeRequirement: 0
+  schoolTriggers: 03000000
   triggersPassives: 0
   procChance: 100
   abilitySources: []
   selfEffectsPerTarget: 0
   selfEffects:
-  - {fileID: 11400000, guid: 0e67e75e52db62348a518f38539a246f, type: 2}
+  - {fileID: 11400000, guid: 4ed972ef854e03c4786ca403939b3f21, type: 2}
   targetEffects: []

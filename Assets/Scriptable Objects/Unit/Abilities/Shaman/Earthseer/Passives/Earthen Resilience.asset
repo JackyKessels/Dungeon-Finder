@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7301d6b2e8e6d5f4caae063d10e60b00, type: 3}
   m_Name: Earthen Resilience
   m_EditorClassIdentifier: 
-  id: 110
+  id: 67
   name: Earthen Resilience
   quality: 0
   type: 3
-  description: Increase <resistance> by <1>.
+  description: Increase <health> by <1%> and <resistance> by <2%>.
   icon: {fileID: 21300000, guid: 19cc1ff462d223d4298ce315a1522077, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
@@ -24,8 +24,14 @@ MonoBehaviour:
   sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
-  attributeModified: 4
-  isIncrease: 1
-  modifierType: 0
-  flatValue: 10
-  multiplierValue: 0
+  modifications:
+  - attributeModified: 0
+    isIncrease: 1
+    modifierType: 1
+    flatValue: 0
+    multiplierValue: 0.1
+  - attributeModified: 4
+    isIncrease: 1
+    modifierType: 1
+    flatValue: 0
+    multiplierValue: 0.3

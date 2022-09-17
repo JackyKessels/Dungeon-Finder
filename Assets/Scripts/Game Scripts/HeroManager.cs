@@ -76,9 +76,14 @@ public class HeroManager : MonoBehaviour, IUserInterface
 
     private void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Q)) && gameManager.gameState != GameState.NONE)
+        if (Input.GetKeyDown(KeyCode.Q) && gameManager.gameState != GameState.NONE)
         {
-            OpenHeroInformation();
+            HeroInformationGeneralButton();
+        }
+
+        if (Input.GetKeyDown(KeyCode.W) && gameManager.gameState != GameState.NONE)
+        {
+            HeroInformationPathButton();
         }
 
         if (Input.GetKeyDown(KeyCode.A) && gameManager.gameState != GameState.NONE && heroInformationObject.activeSelf)

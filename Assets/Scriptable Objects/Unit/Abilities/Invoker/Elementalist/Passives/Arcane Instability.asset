@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
   m_Name: Arcane Instability
   m_EditorClassIdentifier: 
-  id: 444111
+  id: 15
   name: Arcane Instability
   quality: 0
   type: 3
@@ -35,6 +35,8 @@ MonoBehaviour:
   procChance: 25
   abilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
     school: 5
     attributeType: 2
     baseValue: 0

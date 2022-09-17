@@ -20,6 +20,7 @@ MonoBehaviour:
   procType: 1
   duration: 3
   permanent: 0
-  removeEffects: []
+  removeEffects:
+  - {fileID: 11400000}
   passiveAbility: {fileID: 11400000, guid: 1286ba6bfe8fe9d4eacbc20622c3e3a5, type: 2}
   specialEffects: []

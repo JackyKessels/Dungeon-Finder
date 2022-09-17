@@ -93,12 +93,12 @@ public class TownManager : MonoBehaviour, IUserInterface
         //    OpenMap();
         //}
 
-        if (Input.GetKeyDown(KeyCode.E) && gameManager.gameState == GameState.TOWN)
+        if (Input.GetKeyDown(KeyCode.R) && gameManager.gameState == GameState.TOWN)
         {
             OpenAbilityShop();
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && gameManager.gameState == GameState.TOWN)
+        if (Input.GetKeyDown(KeyCode.T) && gameManager.gameState == GameState.TOWN)
         {
             OpenItemShop();
         }

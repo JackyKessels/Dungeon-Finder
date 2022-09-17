@@ -10,22 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ada0ff3ca2662c64c891e6cc278c1157, type: 3}
-  m_Name: Heart of the Wild (Bonus Multiplier)
+  m_Name: Battlemage's Paradigm (Bonus Multiplier)
   m_EditorClassIdentifier: 
-  name: Heart of the Wild
-  icon: {fileID: 21300000, guid: 43eb2a5b06d853e4a90b40d64f72f14b, type: 3}
+  name: Battlemage's Paradigm
+  icon: {fileID: 21300000, guid: 13d7db31af5858548a2100096590fbe3, type: 3}
   hidden: 0
-  description: Your Primary attacks deal <bonus> more damage.
+  description: Your next Primary ability deals <bonus> more damage.
   isBuff: 1
   procType: 1
-  duration: 3
+  duration: 1
   permanent: 0
-  removeEffects:
-  - {fileID: 11400000}
+  removeEffects: []
   affectedAbility: 1
-  getConsumed: 0
+  getConsumed: 1
   abilityType: 0
   specificAbilities: []
-  bonusMultiplier: 0.25
+  bonusMultiplier: 0.5
   bonusPerLevel: 0
   specialEffects: []

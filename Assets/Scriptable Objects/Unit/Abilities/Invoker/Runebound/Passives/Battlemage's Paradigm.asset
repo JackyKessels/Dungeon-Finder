@@ -9,23 +9,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7301d6b2e8e6d5f4caae063d10e60b00, type: 3}
+  m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
   m_Name: Battlemage's Paradigm
   m_EditorClassIdentifier: 
-  id: 104
+  id: 161
   name: Battlemage's Paradigm
   quality: 0
   type: 3
-  description: Increase <power> by <1%>.
-  icon: {fileID: 21300000, guid: 2fe111456cd48894fa27a7982287a1ac, type: 3}
+  description: Every <cooldown> Rounds increase the damage of your next Primary ability
+    by <s1bonus>.
+  icon: {fileID: 21300000, guid: 13d7db31af5858548a2100096590fbe3, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
-  hasLevels: 0
-  sellable: 0
+  hasLevels: 1
+  sellable: 1
   replacesAbility: {fileID: 0}
   isPositive: 1
-  attributeModified: 1
-  isIncrease: 1
-  modifierType: 1
-  flatValue: 0
-  multiplierValue: 0.15
+  effects:
+  - {fileID: 11400000, guid: 4da7e069011b1fb4ca3e7a2e8b688cc3, type: 2}
+  activationMoment: 7
+  targets: 0
+  healthPercentage: 0
+  attributeType: 0
+  attributeValue: 0
+  cooldown: 2

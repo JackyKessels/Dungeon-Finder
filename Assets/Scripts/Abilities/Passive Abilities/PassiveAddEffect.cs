@@ -10,7 +10,8 @@ public enum ActivationMoment
     OnDeath,
     RoundStart,
     BelowAttributeValue,
-    AboveAttributeValue
+    AboveAttributeValue,
+    RoundCooldown
 }
 
 [CreateAssetMenu(fileName = "New Passive Ability", menuName = "Unit/Ability Object/Passive Add Effect")]
@@ -27,6 +28,9 @@ public class PassiveAddEffect : PassiveAbility
     [Header("[ Attribute ]")]
     public AttributeType attributeType;
     public int attributeValue;
+
+    [Header("[ Round Cooldown ]")]
+    public int cooldown;
 
     public override void ActivatePassive(Unit unit)
     {
@@ -50,6 +54,10 @@ public class PassiveAddEffect : PassiveAbility
             unit.OnStartBattle += CheckAttributeValue;
             unit.statsManager.OnReceiveUnitEvent += TriggerAttributeValue;
             unit.OnRoundStart += CheckAttributeValue;
+        }
+        else if (activationMoment == ActivationMoment.RoundCooldown)
+        {
+            unit.OnRoundStart += CheckCurrentRound;
         }
     }
 
@@ -75,6 +83,10 @@ public class PassiveAddEffect : PassiveAbility
             unit.OnStartBattle -= CheckAttributeValue;
             unit.statsManager.OnReceiveUnitEvent -= TriggerAttributeValue;
             unit.OnRoundStart -= CheckAttributeValue;
+        }
+        else if (activationMoment == ActivationMoment.RoundCooldown)
+        {
+            unit.OnRoundStart -= CheckCurrentRound;
         }
     }
 
@@ -164,7 +176,7 @@ public class PassiveAddEffect : PassiveAbility
                 RemoveEffect(unit);
             }
         }
-        else if (activationMoment != ActivationMoment.AboveAttributeValue)
+        else if (activationMoment == ActivationMoment.AboveAttributeValue)
         {
             if (unit.statsManager.GetAttributeValue(attributeType) >= attributeValue && !unit.effectManager.HasEffect(effects[0]))
             {
@@ -173,6 +185,17 @@ public class PassiveAddEffect : PassiveAbility
             else if (unit.statsManager.GetAttributeValue(attributeType) < attributeValue && unit.effectManager.HasEffect(effects[0]))
             {
                 RemoveEffect(unit);
+            }
+        }
+    }
+
+    private void CheckCurrentRound(Unit unit)
+    {
+        if (activationMoment == ActivationMoment.RoundCooldown)
+        {
+            if (BattleManager.Instance.round % (cooldown + 1) == 0)
+            {
+                TriggerAddEffect(unit);
             }
         }
     }
@@ -187,6 +210,8 @@ public class PassiveAddEffect : PassiveAbility
 
         temp = ThresholdParse(temp, "<threshold>");
 
+        temp = RoundCooldown(temp, "<cooldown>");
+
         return temp;
     }
 
@@ -199,6 +224,20 @@ public class PassiveAddEffect : PassiveAbility
             temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(AttributeType.Health) + ">{0}</color>");
 
             return string.Format(temp, healthPercentage);
+        }
+
+        return temp;
+    }
+
+    private string RoundCooldown(string s, string check)
+    {
+        string temp = s;
+
+        if (temp.Contains(check))
+        {
+            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>");
+
+            return string.Format(temp, cooldown + 1);
         }
 
         return temp;

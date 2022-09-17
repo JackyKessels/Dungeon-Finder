@@ -6,7 +6,7 @@ using UnityEngine;
 public class ExperienceManager
 {
     private readonly int maxLevel = 50;
-    public static readonly int pathPointLevelRequirement = 5;
+    public static readonly int pathPointLevelRequirement = 1;
 
     private static readonly float baseExperienceRequirement = 66.6666f;
     private static readonly float experienceCoefficient = 1.5f;

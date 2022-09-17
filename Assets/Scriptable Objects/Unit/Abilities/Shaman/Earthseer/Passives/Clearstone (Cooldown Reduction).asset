@@ -24,5 +24,5 @@ MonoBehaviour:
   type: 3
   roundsReduction: 1
   casterSpecialEffects:
-  - {fileID: 7333905049804575283, guid: 5a1e0da4aec563b46ad0c75a27b9d380, type: 3}
+  - {fileID: 334069255787983864, guid: 6e66bf0c3b835c8429aad0d22569f9e0, type: 3}
   abilityType: 1

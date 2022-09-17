@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7301d6b2e8e6d5f4caae063d10e60b00, type: 3}
-  m_Name: Healing Waters
+  m_Name: Warcaster
   m_EditorClassIdentifier: 
-  id: 100
-  name: Healing Waters
+  id: 51
+  name: Warcaster
   quality: 0
   type: 3
-  description: Increase <healingmultiplier> by <1>%.
-  icon: {fileID: 21300000, guid: 3023708050ff4cd40afabd9757115535, type: 3}
+  description: Increase <power> by <1%>, but decrease <wisdom> by <2%>.
+  icon: {fileID: 21300000, guid: 2fe111456cd48894fa27a7982287a1ac, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
   hasLevels: 0
@@ -25,8 +25,13 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   isPositive: 1
   modifications:
-  - attributeModified: 9
+  - attributeModified: 1
     isIncrease: 1
-    modifierType: 0
-    flatValue: 30
-    multiplierValue: 0
+    modifierType: 1
+    flatValue: 0
+    multiplierValue: 0.15
+  - attributeModified: 2
+    isIncrease: 0
+    modifierType: 1
+    flatValue: 0
+    multiplierValue: 0.15

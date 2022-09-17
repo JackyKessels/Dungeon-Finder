@@ -12,66 +12,78 @@ public enum ModifierType
 public class PassiveAttributeModifier : PassiveAbility
 {
     [Header("[ Attribute Modifier ]")]
-    public AttributeType attributeModified;
-    public bool isIncrease = true;
-    public ModifierType modifierType;
-
-    public int flatValue = 0;
-    public float multiplierValue = 0;
-
-    //public AbilitySource modifierSource;
+    public List<AttributeModification> modifications;
 
     public override void ActivatePassive(Unit unit)
     {
-        int positiveOrNegative = isIncrease ? 1 : -1;
+        foreach (AttributeModification modification in modifications)
+        {
+            int positiveOrNegative = modification.isIncrease ? 1 : -1;
 
-        if (modifierType == ModifierType.Flat)
-            unit.statsManager.GetAttribute((int)attributeModified).bonusValue += flatValue * positiveOrNegative;
-        else if (modifierType == ModifierType.Multiplier)
-            unit.statsManager.GetAttribute((int)attributeModified).mulitplier += multiplierValue * positiveOrNegative;
+            if (modification.modifierType == ModifierType.Flat)
+                unit.statsManager.GetAttribute((int)modification.attributeModified).bonusValue += modification.flatValue * positiveOrNegative;
+            else if (modification.modifierType == ModifierType.Multiplier)
+                unit.statsManager.GetAttribute((int)modification.attributeModified).mulitplier += modification.multiplierValue * positiveOrNegative;
+        }
     }
 
     public override void DeactivatePassive(Unit unit)
     {
-        int positiveOrNegative = isIncrease ? -1 : 1;
+        foreach (AttributeModification modification in modifications)
+        {
+            int positiveOrNegative = modification.isIncrease ? -1 : 1;
 
-        if (modifierType == ModifierType.Flat)
-            unit.statsManager.GetAttribute((int)attributeModified).bonusValue += flatValue * positiveOrNegative;
-        else if (modifierType == ModifierType.Multiplier)
-            unit.statsManager.GetAttribute((int)attributeModified).mulitplier += multiplierValue * positiveOrNegative;
+            if (modification.modifierType == ModifierType.Flat)
+                unit.statsManager.GetAttribute((int)modification.attributeModified).bonusValue += modification.flatValue * positiveOrNegative;
+            else if (modification.modifierType == ModifierType.Multiplier)
+                unit.statsManager.GetAttribute((int)modification.attributeModified).mulitplier += modification.multiplierValue * positiveOrNegative;
+        }
     }
 
     public override string ParseDescription(string s, TooltipObject tooltipInfo)
     {
         string temp = base.ParseDescription(s, tooltipInfo);
 
-        temp = DetermineFlatValue(temp, "<1>");
-        temp = DetermineMultiplierValue(temp, "<1%>");
-
-        return temp;
-    }
-
-    private string DetermineFlatValue(string temp, string check)
-    {
-        if (temp.Contains(check))
+        for (int i = 0; i < modifications.Count; i++)
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(attributeModified) + ">{0}</color>");
-
-            return string.Format(temp, flatValue);
+            temp = DetermineFlatValue(temp, "<" + (i + 1) + ">", i);
+            temp = DetermineMultiplierValue(temp, "<" + (i + 1) + "%>", i);
         }
 
         return temp;
     }
 
-    private string DetermineMultiplierValue(string temp, string check)
+    private string DetermineFlatValue(string temp, string check, int i)
     {
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(attributeModified) + ">{0}</color>%");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(modifications[i].attributeModified) + ">{0}</color>");
 
-            return string.Format(temp, multiplierValue * 100);
+            return string.Format(temp, modifications[i].flatValue);
         }
 
         return temp;
+    }
+
+    private string DetermineMultiplierValue(string temp, string check, int i)
+    {
+        if (temp.Contains(check))
+        {
+            temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(modifications[i].attributeModified) + ">{0}</color>%");
+
+            return string.Format(temp, modifications[i].multiplierValue * 100);
+        }
+
+        return temp;
+    }
+
+    [System.Serializable]
+    public class AttributeModification
+    {
+        public AttributeType attributeModified;
+        public bool isIncrease = true;
+        public ModifierType modifierType;
+        public int flatValue = 0;
+        public float multiplierValue = 0;
     }
 }

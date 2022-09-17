@@ -10,23 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7301d6b2e8e6d5f4caae063d10e60b00, type: 3}
-  m_Name: Healing Waters
+  m_Name: Justicar's Spirit
   m_EditorClassIdentifier: 
-  id: 100
-  name: Healing Waters
+  id: 160
+  name: Justicar's Spirit
   quality: 0
   type: 3
-  description: Increase <healingmultiplier> by <1>%.
-  icon: {fileID: 21300000, guid: 3023708050ff4cd40afabd9757115535, type: 3}
+  description: Increase your <crit> by <1>%, but decrease your <critmultiplier> by
+    <2>%.
+  icon: {fileID: 21300000, guid: 778a02bd2cb8afc4bad9437850d46e86, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
-  hasLevels: 0
-  sellable: 0
+  hasLevels: 1
+  sellable: 1
   replacesAbility: {fileID: 0}
   isPositive: 1
   modifications:
-  - attributeModified: 9
+  - attributeModified: 8
     isIncrease: 1
     modifierType: 0
-    flatValue: 30
+    flatValue: 20
+    multiplierValue: 0
+  - attributeModified: 17
+    isIncrease: 0
+    modifierType: 0
+    flatValue: 25
     multiplierValue: 0
