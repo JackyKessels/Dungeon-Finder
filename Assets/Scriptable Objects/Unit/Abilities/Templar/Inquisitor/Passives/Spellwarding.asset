@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
   m_Name: Spellwarding
   m_EditorClassIdentifier: 
-  id: 108
+  id: 129
   name: Spellwarding
   quality: 0
   type: 3
-  description: 'Healing a target has a <%> chance to increase their <resistance>
-    by <t1modV> for <t1d> Rounds.
+  description: '<Heal> a target has a <%> chance to increase their <resistance> by
+    <t1modV> for <t1d> Rounds.
 
 
     Does not stack.'

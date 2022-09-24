@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Charged
   icon: {fileID: 21300000, guid: 655ed036f82e6a048b8e4bfe539f9c4d, type: 3}
   hidden: 0
-  description: You will be attacked by <caster>.
+  description: This target will be attacked by <caster>.
   isBuff: 0
   procType: 1
   duration: 5

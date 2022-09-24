@@ -22,8 +22,8 @@ MonoBehaviour:
   baseHealth: 125
   basePower: 10
   baseWisdom: 8
-  baseArmor: -15
-  baseResistance: 15
+  baseArmor: -11
+  baseResistance: 11
   baseVitality: 0
   speed: 6
   accuracy: 80

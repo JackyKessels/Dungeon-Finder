@@ -63,19 +63,7 @@ public class PassiveOnHitTrigger : PassiveAbility
 
     private void TriggerReceiveEvent(AbilityValue abilityValue)
     {
-        if (!abilityValue.isUnitTrigger)
-            return;
-
-        if (!IsTriggeredByHitType(abilityValue))
-            return;
-
-        if (!IsTriggeredByAbilityType(abilityValue.abilityType))
-            return;
-
-        if (!IsTriggeredBySchool(abilityValue.school))
-            return;
-
-        if (!IsProcced())
+        if (!SuccessfulTrigger(abilityValue))
             return;
 
         Unit attacked = abilityValue.target;
@@ -99,25 +87,13 @@ public class PassiveOnHitTrigger : PassiveAbility
         AbilityTriggerable.ApplyEffects(attacked, attacked, selfEffects, 1);
         AbilityTriggerable.ApplyEffects(attacked, attacker, targetEffects, 1);
 
-        ObjectUtilities.CreateSpecialEffects(this.casterSpecialEffects, attacked);
-        ObjectUtilities.CreateSpecialEffects(this.targetSpecialEffects, attacker);
+        ObjectUtilities.CreateSpecialEffects(casterSpecialEffects, attacked);
+        ObjectUtilities.CreateSpecialEffects(targetSpecialEffects, attacker);
     }
 
     private void TriggerCauseEvent(AbilityValue abilityValue)
     {
-        if (!abilityValue.isUnitTrigger)
-            return;
-
-        if (!IsTriggeredByHitType(abilityValue))
-            return;
-
-        if (!IsTriggeredByAbilityType(abilityValue.abilityType))
-            return;
-
-        if (!IsTriggeredBySchool(abilityValue.school))
-            return;
-
-        if (!IsProcced())
+        if (!SuccessfulTrigger(abilityValue))
             return;
 
         Unit attacker = abilityValue.caster;
@@ -141,8 +117,31 @@ public class PassiveOnHitTrigger : PassiveAbility
         AbilityTriggerable.ApplyEffects(attacker, attacker, selfEffects, 1);
         AbilityTriggerable.ApplyEffects(attacker, attacked, targetEffects, 1);
 
-        ObjectUtilities.CreateSpecialEffects(this.casterSpecialEffects, attacker);
-        ObjectUtilities.CreateSpecialEffects(this.targetSpecialEffects, attacked);
+        ObjectUtilities.CreateSpecialEffects(casterSpecialEffects, attacker);
+        ObjectUtilities.CreateSpecialEffects(targetSpecialEffects, attacked);
+    }
+
+    private bool SuccessfulTrigger(AbilityValue abilityValue)
+    {
+        if (abilityValue.ignorePassive == this)
+            return false;
+
+        if (!abilityValue.isUnitTrigger)
+            return false;
+
+        if (!IsTriggeredByHitType(abilityValue))
+            return false;
+
+        if (!IsTriggeredByAbilityType(abilityValue.abilityType))
+            return false;
+
+        if (!IsTriggeredBySchool(abilityValue.school))
+            return false;
+
+        if (!IsProcced())
+            return false;
+
+        return true;
     }
 
     private bool IsTriggeredBySchool(AbilitySchool abilitySchool)

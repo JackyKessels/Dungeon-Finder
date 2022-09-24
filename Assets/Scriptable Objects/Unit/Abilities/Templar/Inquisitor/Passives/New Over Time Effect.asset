@@ -10,33 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5656ac5e4bcf63e49b484de02f06fb42, type: 3}
-  m_Name: Pulsing Dread (DoT)
+  m_Name: New Over Time Effect
   m_EditorClassIdentifier: 
-  name: Pulsing Dread
-  icon: {fileID: 21300000, guid: f6fdc80c9a12ee74fa04469302272ecd, type: 3}
+  name: New Effect
+  icon: {fileID: 0}
   hidden: 0
-  description: Deal <1> <S> to all enemies per Round.
-  isBuff: 1
-  procType: 1
+  description: 
+  isBuff: 0
+  procType: 0
   duration: 1
-  permanent: 1
-  removeEffects:
-  - {fileID: 11400000}
+  permanent: 0
+  removeEffects: []
   timedActions:
-  - actionType: 1
-    actionTargets: 4
-    triggersPassives: 0
+  - actionType: 0
+    actionTargets: 0
+    triggersPassives: 1
     abilitySource:
       ignoreMultipliers: 0
       cannotCrit: 0
       cannotMiss: 0
-      school: 7
-      attributeType: 2
-      baseValue: 1
+      ignorePassive: {fileID: 0}
+      school: 0
+      attributeType: 0
+      baseValue: 0
       levelBase: 0
-      scaling: 0.5
+      scaling: 0
       levelScaling: 0
-      reductionType: 2
+      reductionType: 0
       modifier:
         hasModifier: 0
         modification: 0
@@ -50,6 +50,9 @@ MonoBehaviour:
         percentageIncrease: 0
         bonusAbilitySource:
           ignoreMultipliers: 0
+          cannotCrit: 0
+          cannotMiss: 0
+          ignorePassive: {fileID: 0}
           school: 0
           attributeType: 0
           baseValue: 0
@@ -57,7 +60,7 @@ MonoBehaviour:
           scaling: 0
           levelScaling: 0
           reductionType: 0
-        effectOnTarget: 1
+        effectOnTarget: 0
         conditionalEffect: {fileID: 0}
     specialEffects: []
     storedValue: 0

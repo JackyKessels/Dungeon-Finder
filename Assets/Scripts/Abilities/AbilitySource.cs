@@ -30,6 +30,7 @@ public class AbilitySource
     public bool ignoreMultipliers;
     public bool cannotCrit;
     public bool cannotMiss;
+    public PassiveAbility ignorePassive; // This AbilitySource does not trigger this Passive
     public AbilitySchool school;
     public AttributeType attributeType;
     public int baseValue;
@@ -44,6 +45,9 @@ public class AbilitySource
     public AbilitySource (BonusAbilitySource bonusAbilitySource)
     {
         ignoreMultipliers = bonusAbilitySource.ignoreMultipliers;
+        cannotCrit = bonusAbilitySource.cannotCrit;
+        cannotMiss = bonusAbilitySource.cannotMiss;
+        ignorePassive = bonusAbilitySource.ignorePassive;
         school = bonusAbilitySource.school;
         attributeType = bonusAbilitySource.attributeType;
         baseValue = bonusAbilitySource.baseValue;
@@ -141,7 +145,7 @@ public class AbilitySource
 
         float value = CalculateValue(caster, level, adjacentModifier, abilityMultiplier);
 
-        AbilityValue abilityValue = new AbilityValue(value, school, abilityType, cannotCrit, cannotMiss, caster, target, color, isUnitTrigger);
+        AbilityValue abilityValue = new AbilityValue(value, school, abilityType, cannotCrit, cannotMiss, caster, target, color, isUnitTrigger, ignorePassive);
 
         if (school == AbilitySchool.Healing)
         {
@@ -163,7 +167,7 @@ public class AbilitySource
     {
         Color color = GeneralUtilities.ConvertString2Color(ColorDatabase.SchoolColor(school));
 
-        AbilityValue abilityValue = new AbilityValue(value, school, AbilityType.Assault, cannotCrit, cannotMiss, caster, target, color, isUnitTrigger);
+        AbilityValue abilityValue = new AbilityValue(value, school, AbilityType.Assault, cannotCrit, cannotMiss, caster, target, color, isUnitTrigger, ignorePassive);
 
         if (school == AbilitySchool.Healing)
         {
@@ -250,11 +254,12 @@ public class AbilityValue
     public bool isCritical;
 
     public bool isUnitTrigger;
+    public PassiveAbility ignorePassive = null;
 
 
     public Color color;
 
-    public AbilityValue(float _value, AbilitySchool _school, AbilityType _abilityType, bool _cannotCrit, bool _cannotMiss, Unit _caster, Unit _target, Color _color, bool _isUnitTrigger)
+    public AbilityValue(float _value, AbilitySchool _school, AbilityType _abilityType, bool _cannotCrit, bool _cannotMiss, Unit _caster, Unit _target, Color _color, bool _isUnitTrigger, PassiveAbility _ignorePassive)
     {
         value = _value;// GetVarianceValue(_value);
         school = _school;
@@ -273,6 +278,7 @@ public class AbilityValue
         SetCriticalChance();
 
         isUnitTrigger = _isUnitTrigger;
+        ignorePassive = _ignorePassive;
 
         color = _color;
     }

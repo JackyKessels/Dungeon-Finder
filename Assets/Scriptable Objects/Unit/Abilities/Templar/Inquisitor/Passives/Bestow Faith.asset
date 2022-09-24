@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
-  m_Name: Dark Infusion
+  m_Name: Bestow Faith
   m_EditorClassIdentifier: 
-  id: 34
-  name: Dark Infusion
+  id: 164
+  name: Bestow Faith
   quality: 0
   type: 3
-  description: Increase <wisdom> by <s1modV> for <s1d> Rounds when receiving <Heal>.
-  icon: {fileID: 21300000, guid: 67ddbe5f491a80c48b329a50567fc49d, type: 3}
-  casterSpecialEffects:
-  - {fileID: 4364481057235456488, guid: ccd9e62d04029034ab6e68d27afa05f2, type: 3}
+  description: Heal a random ally for <s1timAp1> when receiving <Heal>.
+  icon: {fileID: 21300000, guid: 4d41e15a982954a4e83f865a0f4da78f, type: 3}
+  casterSpecialEffects: []
   targetSpecialEffects: []
   hasLevels: 0
   sellable: 0
@@ -36,5 +35,5 @@ MonoBehaviour:
   abilitySources: []
   selfEffectsPerTarget: 0
   selfEffects:
-  - {fileID: 11400000, guid: 6c8b5ac674911604e8265c883f7c0149, type: 2}
+  - {fileID: 11400000, guid: ec253c0535827c245ae610512e2f99df, type: 2}
   targetEffects: []

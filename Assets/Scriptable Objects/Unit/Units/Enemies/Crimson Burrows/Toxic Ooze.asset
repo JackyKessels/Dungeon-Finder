@@ -22,8 +22,8 @@ MonoBehaviour:
   baseHealth: 195
   basePower: 10
   baseWisdom: 10
-  baseArmor: -15
-  baseResistance: 15
+  baseArmor: -18
+  baseResistance: 18
   baseVitality: 0
   speed: 4
   accuracy: 50
@@ -49,7 +49,7 @@ MonoBehaviour:
     amount: 0
     weight: 1
   - itemObject: {fileID: 11400000, guid: a59beb3bea1f71645bb09ef59fa873a5, type: 2}
-    amount: 1
+    amount: 2
     weight: 1
   randomAbility: 1
   abilities:

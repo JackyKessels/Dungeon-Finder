@@ -229,6 +229,9 @@ public class BonusAbilitySource
 {
     [Header("[ General Values ]")]
     public bool ignoreMultipliers;
+    public bool cannotCrit;
+    public bool cannotMiss;
+    public PassiveAbility ignorePassive;
     public AbilitySchool school;
     public AttributeType attributeType;
     public int baseValue;
