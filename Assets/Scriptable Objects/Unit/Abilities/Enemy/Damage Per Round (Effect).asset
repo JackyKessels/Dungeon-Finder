@@ -25,8 +25,12 @@ MonoBehaviour:
   timedActions:
   - actionType: 1
     actionTargets: 4
+    triggersPassives: 1
     abilitySource:
       ignoreMultipliers: 0
+      cannotCrit: 0
+      cannotMiss: 0
+      ignorePassive: {fileID: 0}
       school: 1
       attributeType: 2
       baseValue: 1
@@ -47,6 +51,9 @@ MonoBehaviour:
         percentageIncrease: 0
         bonusAbilitySource:
           ignoreMultipliers: 0
+          cannotCrit: 0
+          cannotMiss: 0
+          ignorePassive: {fileID: 0}
           school: 0
           attributeType: 0
           baseValue: 0
