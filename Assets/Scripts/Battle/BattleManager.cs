@@ -473,8 +473,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
             Unit target = teamManager.heroes.LivingMembers[x];
 
-            t.Initialize(currentUnit.gameObject, active);
-            t.CastAbility(target, active.level);
+            active.Trigger(currentUnit, target);
         }
         else if (active.activeAbility is InstantAbility i)
         {
@@ -484,8 +483,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
             CastAnimation(active);
 
-            i.Initialize(currentUnit.gameObject, active);
-            i.TriggerAbility(active.level);
+            active.Trigger(currentUnit, null);
         }
 
         castingEnemy.ResetChargedAbility();
@@ -617,16 +615,13 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
         currentAbility = currentUnit.spellbook.flaskAbility;
 
-        ActiveAbility flaskAbility = currentAbility.activeAbility;
-
         CastAbility(currentAbility);
 
-        yield return new WaitForSeconds(flaskAbility.castTime);
+        yield return new WaitForSeconds(currentAbility.activeAbility.castTime);
 
         CastAnimation(currentAbility);
 
-        flaskAbility.Initialize(currentUnit.gameObject, currentAbility);
-        flaskAbility.TriggerAbility(currentAbility.level);
+        currentAbility.Trigger(currentUnit, currentTarget);
 
         currentAbility.PutOnCooldown();
 
@@ -736,10 +731,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
                 CastAnimation(currentAbility);
 
-                t.Initialize(currentUnit.gameObject, currentAbility);
-                Debug.Log("BETWEEN");
-                t.CastAbility(currentTarget, currentAbility.level);
-                Debug.Log("FINISHED " + t.name);
+                currentAbility.Trigger(currentUnit, currentTarget);
 
                 battleHUD.Refresh();
                 //-----------------------//
@@ -759,8 +751,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
             CastAnimation(currentAbility);
 
-            i.Initialize(currentUnit.gameObject, currentAbility);
-            i.TriggerAbility(currentAbility.level);
+            currentAbility.Trigger(currentUnit, currentTarget);
 
             battleHUD.Refresh();
         }

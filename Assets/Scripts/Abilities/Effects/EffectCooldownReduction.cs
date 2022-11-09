@@ -72,7 +72,7 @@ public class EffectCooldownReduction : EffectObject
                 {
                     for (int i = 0; i < validAbilities.Count; i++)
                     {
-                        if (validAbilities[i].activeAbility.type == abilityType)
+                        if (validAbilities[i].activeAbility.abilityType == abilityType)
                             ReduceCooldown(caster, validAbilities[i]);
                     }
                 }

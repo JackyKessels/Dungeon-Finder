@@ -21,6 +21,20 @@ public class EffectManager : MonoBehaviour
         unit = GetComponent<Unit>();
     }
 
+    public static void ApplyEffects(Unit caster, Unit target, List<EffectObject> list, int level)
+    {
+        if (list.Count <= 0)
+            return;
+
+        foreach (EffectObject e in list)
+        {
+            if (!target.statsManager.isDead)
+            {
+                ApplyEffect(e, caster, target, level);
+            }
+        }
+    }
+
     public static void ApplyEffect(EffectObject effectObject, Unit caster, Unit target, int level)
     {
         Effect effect = new Effect();
@@ -183,7 +197,7 @@ public class EffectManager : MonoBehaviour
             EffectAbilityModifier modifier = modifiers[i].data as EffectAbilityModifier;
 
             if (modifier.affectedAbility == AffectedAbility.AnyAbility ||
-               (modifier.affectedAbility == AffectedAbility.TypedAbility && activeAbility.type == modifier.abilityType) ||
+               (modifier.affectedAbility == AffectedAbility.TypedAbility && activeAbility.abilityType == modifier.abilityType) ||
                (modifier.affectedAbility == AffectedAbility.SpecificAbility && modifier.IsValidAbility(activeAbility)))
             {
                 bonus += modifier.GetBonusMultiplier(modifiers[i].level);

@@ -92,8 +92,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8613801734349828563}
   - component: {fileID: 1613920498793435332}
-  - component: {fileID: 8138187677608900565}
-  - component: {fileID: 8451030544241417449}
   - component: {fileID: 2418392508457119124}
   - component: {fileID: 7495028141555387122}
   - component: {fileID: 8014860685553042762}
@@ -191,6 +189,7 @@ MonoBehaviour:
       cooldown: 0
       currentCooldown: 0
     passives: []
+    learnedPassives: 
   fctHandler: {fileID: -2363563409174371590}
   heroObjectIndex: 0
   heroObject: {fileID: 0}
@@ -205,51 +204,6 @@ MonoBehaviour:
   equippedWeapons: 
   teamNumber: 0
   newHero: 1
---- !u!114 &8138187677608900565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7422715694881330666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eb83a5cf59f5e1439866e92065d9ac9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  caster: {fileID: 0}
-  active:
-    owner: {fileID: 0}
-    activeAbility: {fileID: 0}
-    allyAbilitySources: []
-    enemyAbilitySources: []
-    level: 0
-    cooldown: 0
-    currentCooldown: 0
-  abilityTarget: 0
-  adjacentModifier: 0
---- !u!114 &8451030544241417449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7422715694881330666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbfb2f2f3f7b78e408b1e200d03a8399, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  caster: {fileID: 0}
-  active:
-    owner: {fileID: 0}
-    activeAbility: {fileID: 0}
-    allyAbilitySources: []
-    enemyAbilitySources: []
-    level: 0
-    cooldown: 0
-    currentCooldown: 0
-  abilityTarget: 0
 --- !u!114 &2418392508457119124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectsList: []
+  preBattleEffects: []
 --- !u!70 &7495028141555387122
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

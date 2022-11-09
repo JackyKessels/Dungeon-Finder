@@ -18,32 +18,35 @@ public class TargetAbility : ActiveAbility
 
     public TargetTargets targetTargets = TargetTargets.Single;
     [Range(0, 1)]
-    public float adjacentReduction = 0;
+    public float adjacentModifier = 0;
 
-    private TargetTriggerable targetTrigger;
-
-    private Unit target;
-
-    public override void Initialize(GameObject obj, Active active)
+    public override void TriggerAbility(Unit caster, Unit target, int level)
     {
-        Debug.Log("INIT " + name);
-        targetTrigger = obj.GetComponent<TargetTriggerable>();
+        if (target == null)
+        {
+            Debug.Log("No target given.");
+            return;
+        }
 
-        targetTrigger.abilityTarget = targetTargets;
-        targetTrigger.adjacentModifier = adjacentReduction;
-        targetTrigger.active = active;
-    }
+        bool selfEffectBool = selfEffectsPerTarget;
 
-    public override void TriggerAbility(int level)
-    {
-        Debug.Log("Trigger " + name);
-        targetTrigger.Trigger(target, level);
-    }
+        ObjectUtilities.CreateSpecialEffects(casterSpecialEffects, caster);
 
-    public void CastAbility(Unit u, int level)
-    {
-        Debug.Log("Cast " + name);
-        target = u;
-        TriggerAbility(level);
+        float abilityMultiplier = 1 + caster.effectManager.ApplyMultipliers(this, target);
+
+        AbilityActions(caster, target, level, selfEffectBool, 1, abilityMultiplier);
+
+        if (targetTargets == TargetTargets.Adjacent)
+        {
+            foreach (Unit unit in AbilityUtilities.GetAdjacentUnits(target))
+            {
+                abilityMultiplier = 1 + caster.effectManager.ApplyMultipliers(this, unit);
+
+                AbilityActions(caster, target, level, selfEffectBool, adjacentModifier, abilityMultiplier);
+            }
+        }
+
+        // Do self effects after the actions
+        SelfEffectOnly(caster, level, selfEffectBool);
     }
 }

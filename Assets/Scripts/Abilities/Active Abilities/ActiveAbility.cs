@@ -58,8 +58,56 @@ public abstract class ActiveAbility : AbilityObject
         }
     }
 
-    public abstract void Initialize(GameObject obj, Active active);
-    public abstract void TriggerAbility(int level);
+    public abstract void TriggerAbility(Unit caster, Unit target, int level);
+
+    public void AbilityActions(Unit caster, Unit target, int level, bool selfEffectPerTarget, float adjacentModifier, float abilityMultiplier)
+    {
+        ObjectUtilities.CreateSpecialEffects(targetSpecialEffects, target);
+
+        if (caster.IsTargetEnemy(target))
+        {
+            // Trigger the ability's hostile sources to do damage/heal
+            foreach (AbilitySource source in enemyAbilitySources)
+            {
+                source.TriggerSource(caster, target, level, adjacentModifier, true, abilityMultiplier, abilityType);
+            }
+        }
+        else
+        {
+            // Trigger the ability's friendly sources to do damage/heal
+            foreach (AbilitySource source in allyAbilitySources)
+            {
+                source.TriggerSource(caster, target, level, adjacentModifier, true, abilityMultiplier, abilityType);
+            }
+        }
+
+        // Apply self effects to the caster
+        if (selfEffectPerTarget)
+        {
+            if (selfEffects.Count > 0)
+            {
+                EffectManager.ApplyEffects(caster, caster, selfEffects, level);
+            }
+        }
+
+        // Apply effects to the target
+        if (targetEffects.Count > 0)
+        {
+            EffectManager.ApplyEffects(caster, target, targetEffects, level);
+        }
+    }
+
+    public void SelfEffectOnly(Unit caster, int level, bool selfEffectPerTarget)
+    {
+        if (!selfEffectPerTarget)
+        {
+            if (selfEffects.Count > 0)
+            {
+                EffectManager.ApplyEffects(caster, caster, selfEffects, level);
+            }
+        }
+    }
+
 
     public string ParseDescription(string s, TooltipObject tooltipInfo)
     {
@@ -96,7 +144,7 @@ public abstract class ActiveAbility : AbilityObject
             {
                 temp = temp.Replace(check, "<color=#BFBFBF>{0}</color>");
 
-                temp = string.Format(temp, t.adjacentReduction * 100);
+                temp = string.Format(temp, t.adjacentModifier * 100);
             }
         }
 
@@ -202,33 +250,25 @@ public class CastActiveAbility
                 return;
             }
 
-            (bool _, int abilityLevel) = caster.spellbook.GetAbility(activeAbility);
+            (bool _, int level) = caster.spellbook.GetAbility(activeAbility);
 
-            Active abilityToCast = new Active(t, abilityLevel);
+            Active abilityToCast = new Active(t, level);
 
             List<Unit> targets = AbilityUtilities.GetAbilityTargets(abilityTarget, caster, target);
 
-            t.Initialize(caster.gameObject, abilityToCast);
-
             foreach (Unit u in targets)
             {
-
-                Debug.Log(u.name);
-
-                //t.CastAbility(u, abilityLevel);
+                abilityToCast.Trigger(caster, u);
             }
         }
 
         if (activeAbility is InstantAbility i)
         {
-            Debug.Log("CAST " + i.name);
+            (bool _, int level) = caster.spellbook.GetAbility(activeAbility);
 
-            (bool _, int abilityLevel) = caster.spellbook.GetAbility(activeAbility);
+            Active abilityToCast = new Active(i, level);
 
-            Active abilityToCast = new Active(i, abilityLevel);
-
-            i.Initialize(caster.gameObject, abilityToCast);
-            i.TriggerAbility(abilityLevel);
+            abilityToCast.Trigger(caster, target);
         }
 
         return;

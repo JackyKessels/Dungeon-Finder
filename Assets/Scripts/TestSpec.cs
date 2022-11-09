@@ -31,7 +31,7 @@ public class TestSpec : MonoBehaviour
                 {
                     case Quality.Common:
                         {
-                            if (activeAbility.type == AbilityType.Primary)
+                            if (activeAbility.abilityType == AbilityType.Primary)
                             {
                                 CreateAbility(activeAbility, primaryContainer);
                             }

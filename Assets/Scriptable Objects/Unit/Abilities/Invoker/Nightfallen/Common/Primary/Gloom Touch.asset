@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 26
   name: Gloom Touch
   quality: 0
-  type: 0
+  abilityType: 0
   description: Deal <e1> <S> to your target and deal <t1timAc1> <S> damage every
     Round for <t1d> Rounds.
   icon: {fileID: 21300000, guid: f675ab33178036d4d91b705f98400abd, type: 3}
@@ -32,11 +32,48 @@ MonoBehaviour:
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 0
-  allyAbilitySources: []
+  allyAbilitySources:
+  - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
+    school: 7
+    attributeType: 2
+    baseValue: 0
+    levelBase: 0
+    scaling: 0.3
+    levelScaling: 0.06
+    reductionType: 2
+    modifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      increasedAttribute: 0
+      increaseValue: 0
+      casterBased: 0
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 0
+      conditionalEffect: {fileID: 0}
   enemyAbilitySources:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 7
     attributeType: 2
     baseValue: 0
@@ -57,6 +94,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -73,4 +113,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

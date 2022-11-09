@@ -6,21 +6,22 @@ using UnityEngine;
 public class InstantAbility : ActiveAbility
 {
     [Header("Targeting")]
-    public AbilityTargets instantTargets = AbilityTargets.SelfOnly;
+    public AbilityTargets abilityTargets = AbilityTargets.SelfOnly;
 
-    private InstantTriggerable instantTrigger;
-
-    public override void Initialize(GameObject obj, Active active)
+    public override void TriggerAbility(Unit caster, Unit target, int level)
     {
-        instantTrigger = obj.GetComponent<InstantTriggerable>();
+        bool selfEffectBool = selfEffectsPerTarget;
 
-        instantTrigger.abilityTarget = instantTargets;
+        ObjectUtilities.CreateSpecialEffects(casterSpecialEffects, caster);
 
-        instantTrigger.active = active;
-    }
+        foreach (Unit unit in AbilityUtilities.GetAbilityTargets(abilityTargets, caster))
+        {
+            float abilityMultiplier = 1 + caster.effectManager.ApplyMultipliers(this, unit);
 
-    public override void TriggerAbility(int level)
-    {
-        instantTrigger.Trigger(null, level);
+            AbilityActions(caster, target, level, selfEffectBool, 1, abilityMultiplier);
+        }
+
+        // Do self effects after the actions
+        SelfEffectOnly(caster, level, selfEffectBool);
     }
 }

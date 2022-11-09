@@ -41,6 +41,11 @@ public class Active
         }
     }
 
+    public void Trigger(Unit caster, Unit target)
+    {
+        activeAbility.TriggerAbility(caster, target, level);
+    }
+
     public Active()
     {
         activeAbility = null;

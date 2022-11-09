@@ -92,8 +92,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3865035791341663227}
   - component: {fileID: 4816450385105221479}
-  - component: {fileID: -1533553886475896405}
-  - component: {fileID: -2891704111488916195}
   - component: {fileID: 207098772553251552}
   - component: {fileID: -4722213199005955712}
   - component: {fileID: 481911245741739853}
@@ -191,53 +189,10 @@ MonoBehaviour:
       cooldown: 0
       currentCooldown: 0
     passives: []
+    learnedPassives: 
   fctHandler: {fileID: -5030158891338869708}
   enemyObject: {fileID: 0}
---- !u!114 &-1533553886475896405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2678456513082283970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eb83a5cf59f5e1439866e92065d9ac9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  caster: {fileID: 0}
-  active:
-    owner: {fileID: 0}
-    activeAbility: {fileID: 0}
-    allyAbilitySources: []
-    enemyAbilitySources: []
-    level: 0
-    cooldown: 0
-    currentCooldown: 0
-  abilityTarget: 0
-  adjacentModifier: 0
---- !u!114 &-2891704111488916195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2678456513082283970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbfb2f2f3f7b78e408b1e200d03a8399, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  caster: {fileID: 0}
-  active:
-    owner: {fileID: 0}
-    activeAbility: {fileID: 0}
-    allyAbilitySources: []
-    enemyAbilitySources: []
-    level: 0
-    cooldown: 0
-    currentCooldown: 0
-  abilityTarget: 0
+  chargedAbility: []
 --- !u!114 &207098772553251552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,6 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectsList: []
+  preBattleEffects: []
 --- !u!70 &-4722213199005955712
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

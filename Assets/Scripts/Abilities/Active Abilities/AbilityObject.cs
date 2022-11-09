@@ -32,7 +32,7 @@ public abstract class AbilityObject : ScriptableObject, IDescribable
     public int id = -1;
     public new string name = "New Ability";
     public Quality quality = Quality.Common;
-    public AbilityType type = AbilityType.Primary;
+    public AbilityType abilityType = AbilityType.Primary;
     [TextArea(10, 10)] public string description;
     public Sprite icon;
     public List<ParticleSystem> casterSpecialEffects;
@@ -51,11 +51,11 @@ public abstract class AbilityObject : ScriptableObject, IDescribable
 
         if (currentLevel == 0 || !hasLevels)
         {
-            return string.Format("<smallcaps><b><color={0}>{1}</color></b></smallcaps>{2}", color, name, AbilityTooltipHandler.ParseAbilityType(type));
+            return string.Format("<smallcaps><b><color={0}>{1}</color></b></smallcaps>{2}", color, name, AbilityTooltipHandler.ParseAbilityType(abilityType));
         }
         else
         {
-            return string.Format("<smallcaps><b><color={0}>{1}</color></b></smallcaps>{2}\nLevel: {3}", color, name, AbilityTooltipHandler.ParseAbilityType(type), currentLevel);
+            return string.Format("<smallcaps><b><color={0}>{1}</color></b></smallcaps>{2}\nLevel: {3}", color, name, AbilityTooltipHandler.ParseAbilityType(abilityType), currentLevel);
         }
     }
 }
