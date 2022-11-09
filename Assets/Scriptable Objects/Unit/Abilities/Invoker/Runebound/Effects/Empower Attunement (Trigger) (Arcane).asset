@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Empower Attunement
   icon: {fileID: 0}
   hidden: 1
-  description: '<A>: <A> damage increased by <1modV>% for <1d> Rounds.'
+  description: '<A>: Arcane Damage increased by <1modV>% for <1d> Rounds.'
   isBuff: 0
   procType: 0
   duration: 1

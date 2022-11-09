@@ -26,6 +26,7 @@ public class TargetAbility : ActiveAbility
 
     public override void Initialize(GameObject obj, Active active)
     {
+        Debug.Log("INIT " + name);
         targetTrigger = obj.GetComponent<TargetTriggerable>();
 
         targetTrigger.abilityTarget = targetTargets;
@@ -35,11 +36,13 @@ public class TargetAbility : ActiveAbility
 
     public override void TriggerAbility(int level)
     {
+        Debug.Log("Trigger " + name);
         targetTrigger.Trigger(target, level);
     }
 
     public void CastAbility(Unit u, int level)
     {
+        Debug.Log("Cast " + name);
         target = u;
         TriggerAbility(level);
     }

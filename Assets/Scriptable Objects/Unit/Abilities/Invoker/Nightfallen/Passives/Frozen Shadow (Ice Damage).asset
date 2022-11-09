@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Frozen Shadow
   icon: {fileID: 21300000, guid: 21140133a7334ba46827c9989027f587, type: 3}
   hidden: 0
-  description: <I> damage increased by <1>%.
+  description: Ice Damage increased by <1>%.
   isBuff: 1
   procType: 1
   duration: 3
@@ -26,6 +26,9 @@ MonoBehaviour:
   modifierType: 0
   modifierSource:
     ignoreMultipliers: 1
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 0
     attributeType: 12
     baseValue: 10
@@ -46,6 +49,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0

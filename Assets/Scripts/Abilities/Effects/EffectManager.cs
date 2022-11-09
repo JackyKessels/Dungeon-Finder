@@ -447,7 +447,7 @@ public class EffectManager : MonoBehaviour
         }
         else if (e.data is EffectCooldownReduction cdr)
         {
-            cdr.ReduceCooldown(e.caster.spellbook.activeSpellbook, e.caster);
+            cdr.ReduceCooldown(e.caster);
         }
         else
         {

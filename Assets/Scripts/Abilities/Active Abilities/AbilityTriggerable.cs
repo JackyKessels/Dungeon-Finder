@@ -28,6 +28,7 @@ public abstract class AbilityTriggerable : MonoBehaviour
 
         foreach (EffectObject e in list)
         {
+            Debug.Log("APPLYING " + e.name);
             if (!target.statsManager.isDead)
             {
                 EffectManager.ApplyEffect(e, caster, target, level);
@@ -41,6 +42,7 @@ public abstract class AbilityTriggerable : MonoBehaviour
         {
             if (active.activeAbility.selfEffects.Count > 0)
             {
+                Debug.Log("self cast");
                 ApplyEffects(caster, caster, active.activeAbility.selfEffects, level);
             }
         }
@@ -52,6 +54,7 @@ public abstract class AbilityTriggerable : MonoBehaviour
     // 3. Applying effects if necessary
     public void AbilityActions(Unit target, int level, bool selfEffectPerTarget, float adjacentModifier, float abilityMultiplier)
     {
+        Debug.Log("DO ABILIT YACTIONS " + active.activeAbility.name);
         ObjectUtilities.CreateSpecialEffects(active.activeAbility.targetSpecialEffects, target);
 
         AbilityType abilityType = active.activeAbility.type;
@@ -78,6 +81,7 @@ public abstract class AbilityTriggerable : MonoBehaviour
         {
             if (active.activeAbility.selfEffects.Count > 0)
             {
+                Debug.Log("hello self " + active.activeAbility.name);
                 ApplyEffects(caster, caster, active.activeAbility.selfEffects, level);
             }
         }
@@ -85,6 +89,7 @@ public abstract class AbilityTriggerable : MonoBehaviour
         // Apply effects to the target
         if (active.activeAbility.targetEffects.Count > 0)
         {
+            Debug.Log("hello target " + active.activeAbility.name);
             ApplyEffects(caster, target, active.activeAbility.targetEffects, level);
         }
     }

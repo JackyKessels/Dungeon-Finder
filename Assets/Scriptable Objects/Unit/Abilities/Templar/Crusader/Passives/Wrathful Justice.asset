@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
   m_Name: Wrathful Justice
   m_EditorClassIdentifier: 
-  id: 107
+  id: 116
   name: Wrathful Justice
   quality: 0
   type: 3
@@ -34,6 +34,9 @@ MonoBehaviour:
   procChance: 100
   abilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 11400000}
     school: 6
     attributeType: 1
     baseValue: 0
@@ -54,6 +57,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0

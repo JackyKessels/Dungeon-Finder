@@ -36,10 +36,12 @@ public class PassiveOnHitTrigger : PassiveAbility
 
     [Space(10)]
     [Range(0, 100)] public int procChance;
-    [Space(10)]
-    public List<AbilitySource> abilitySources;
 
-    [Header("Effects")]
+    [Header("[ On Hit Events ]")]
+    public List<AbilitySource> abilitySources;
+    [Space(10)]
+    public List<CastActiveAbility> castActiveAbilities;
+    [Space(10)]
     [Tooltip("True = Triggers Self Effect for each target hit\nFalse = Just once")]
     public bool selfEffectsPerTarget = false;
     public List<EffectObject> selfEffects;
@@ -61,6 +63,7 @@ public class PassiveOnHitTrigger : PassiveAbility
             unit.statsManager.OnCauseUnitEvent -= TriggerCauseEvent;
     }
 
+    // Thorns Effect
     private void TriggerReceiveEvent(AbilityValue abilityValue)
     {
         if (!SuccessfulTrigger(abilityValue))
@@ -84,6 +87,14 @@ public class PassiveOnHitTrigger : PassiveAbility
             }
         }
 
+        if (castActiveAbilities.Count > 0)
+        {
+            for (int i = 0; i < castActiveAbilities.Count; i++)
+            {
+                castActiveAbilities[i].CastAbility(attacked, attacker);
+            }
+        }
+
         AbilityTriggerable.ApplyEffects(attacked, attacked, selfEffects, 1);
         AbilityTriggerable.ApplyEffects(attacked, attacker, targetEffects, 1);
 
@@ -91,6 +102,7 @@ public class PassiveOnHitTrigger : PassiveAbility
         ObjectUtilities.CreateSpecialEffects(targetSpecialEffects, attacker);
     }
 
+    // Enhancement Effect
     private void TriggerCauseEvent(AbilityValue abilityValue)
     {
         if (!SuccessfulTrigger(abilityValue))
@@ -111,6 +123,14 @@ public class PassiveOnHitTrigger : PassiveAbility
                 {
                     abilitySources[i].TriggerSource(attacker, attacker, attacker.spellbook.GetPassiveLevel(this), 1, triggersPassives, 1, type);
                 }
+            }
+        }
+
+        if (castActiveAbilities.Count > 0)
+        {
+            for (int i = 0; i < castActiveAbilities.Count; i++)
+            {
+                castActiveAbilities[i].CastAbility(attacker, attacked);
             }
         }
 

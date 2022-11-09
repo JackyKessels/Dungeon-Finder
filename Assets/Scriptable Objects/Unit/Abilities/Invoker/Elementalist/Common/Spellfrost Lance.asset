@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
+  m_Name: Spellfrost Lance
+  m_EditorClassIdentifier: 
+  id: 166
+  name: Spellfrost Lance
+  quality: 0
+  type: 2
+  description: 'Deal <e1> <I> and <e2> <A> damage to your target.
+
+
+    This ability
+    always critically hits and can never miss.'
+  icon: {fileID: 21300000, guid: ad0580fc75df49e428b80c1f3b18dbe3, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 2997152772003982279, guid: 264198943879ea04b8cb016c4ff8b623, type: 3}
+  - {fileID: 1343662882982698741, guid: 4699a6da1438dc3409a1a25d3a3c8466, type: 3}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  castTime: 0.75
+  cooldown: 3
+  endTurn: 1
+  resetChance: 0
+  weaponRequirement: 4
+  soundEffect: {fileID: 8300000, guid: d897198dbcaef654594ec08c2e6ae88c, type: 3}
+  animationType: 0
+  allyAbilitySources: []
+  enemyAbilitySources:
+  - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 1
+    ignorePassive: {fileID: 0}
+    school: 3
+    attributeType: 2
+    baseValue: 0
+    levelBase: 0
+    scaling: 1
+    levelScaling: 0.2
+    reductionType: 2
+    modifier:
+      hasModifier: 1
+      modification: 1
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      increasedAttribute: 2
+      increaseValue: 100
+      casterBased: 1
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 1
+    ignorePassive: {fileID: 0}
+    school: 5
+    attributeType: 2
+    baseValue: 0
+    levelBase: 0
+    scaling: 1
+    levelScaling: 0.2
+    reductionType: 2
+    modifier:
+      hasModifier: 1
+      modification: 1
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      increasedAttribute: 2
+      increaseValue: 100
+      casterBased: 1
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  selfEffectsPerTarget: 0
+  selfEffects: []
+  targetEffects: []
+  targetsAllies: 0
+  targetsEnemies: 1
+  targetTargets: 0
+  adjacentReduction: 0

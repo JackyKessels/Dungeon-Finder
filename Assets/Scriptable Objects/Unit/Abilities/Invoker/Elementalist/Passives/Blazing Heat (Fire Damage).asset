@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Blazing Heat
   icon: {fileID: 21300000, guid: bc6e3d667d2c7fe4abd6aaee76350fe1, type: 3}
   hidden: 0
-  description: Fire damage increased by <1>%.
+  description: Fire Damage increased by <1>%.
   isBuff: 1
   procType: 1
   duration: 3
@@ -23,8 +23,12 @@ MonoBehaviour:
   removeEffects: []
   attributeModified: 11
   isIncrease: 1
+  modifierType: 0
   modifierSource:
     ignoreMultipliers: 1
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 0
     attributeType: 11
     baseValue: 10
@@ -45,6 +49,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -52,5 +59,9 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  multiplier: 0
+  multiplierPerLevel: 0
   specialEffects:
   - {fileID: 7033329743914822064, guid: 81cb1b0fd421d6149bfc0046902a9746, type: 3}

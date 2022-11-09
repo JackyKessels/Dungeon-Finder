@@ -11,6 +11,7 @@ public class TargetTriggerable : AbilityTriggerable
 
     public override void Trigger(Unit target, int level)
     {
+        Debug.Log("I GET TRIGGERED " + active.activeAbility.name);
         bool selfEffectBool = active.activeAbility.selfEffectsPerTarget;
 
         ObjectUtilities.CreateSpecialEffects(active.activeAbility.casterSpecialEffects, caster);

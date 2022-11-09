@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
   m_Name: Shatter
   m_EditorClassIdentifier: 
-  id: -1
+  id: 30
   name: Shatter
   quality: 0
   type: 3
@@ -25,14 +25,14 @@ MonoBehaviour:
   sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
-  triggerType: 0
-  hitType: 0
+  triggerType: 1
+  hitType: 1
   targetTrigger: 0
   abilityTypeTrigger: 0
   typeRequirement: 0
-  schoolTriggers: 
+  schoolTriggers: 03000000
   triggersPassives: 0
-  procChance: 0
+  procChance: 100
   abilitySources: []
   selfEffectsPerTarget: 0
   selfEffects:

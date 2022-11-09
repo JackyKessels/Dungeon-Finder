@@ -143,14 +143,14 @@ public class MysteryAction
                     {
                         case MysteryActionTarget.Team:
                             {
-                                targets = AbilityUtilities.GetInstantTargets(InstantTargets.Allies, TeamManager.Instance.heroes.LivingMembers[0]);
+                                targets = AbilityUtilities.GetAbilityTargets(AbilityTargets.Allies, TeamManager.Instance.heroes.LivingMembers[0]);
 
                                 consequenceStructures.Add(new ConsequenceStructure(abilitySource.CalculateValue(TeamManager.Instance.heroes.LivingMembers[0], 1, 1, 1).ToString(), GeneralUtilities.GetSchoolIcon(abilitySource.school), GameAssets.i.threeMembers));
                             }
                             break;
                         case MysteryActionTarget.Random:
                             {
-                                targets = AbilityUtilities.GetInstantTargets(InstantTargets.RandomAlly, TeamManager.Instance.heroes.LivingMembers[0]);
+                                targets = AbilityUtilities.GetAbilityTargets(AbilityTargets.RandomAlly, TeamManager.Instance.heroes.LivingMembers[0]);
 
                                 consequenceStructures.Add(new ConsequenceStructure(abilitySource.CalculateValue(targets[0], 1, 1, 1).ToString(), GeneralUtilities.GetSchoolIcon(abilitySource.school), targets[0].icon));
                             }
@@ -182,14 +182,14 @@ public class MysteryAction
                         {
                             case MysteryActionTarget.Team:
                                 {
-                                    targets = AbilityUtilities.GetInstantTargets(InstantTargets.Allies, TeamManager.Instance.heroes.LivingMembers[0]);
+                                    targets = AbilityUtilities.GetAbilityTargets(AbilityTargets.Allies, TeamManager.Instance.heroes.LivingMembers[0]);
 
                                     consequenceStructures.Add(new ConsequenceStructure(EffectObject.DurationText(effect), effect.icon, GameAssets.i.threeMembers, true, effect));
                                 }
                                 break;
                             case MysteryActionTarget.Random:
                                 {
-                                    targets = AbilityUtilities.GetInstantTargets(InstantTargets.RandomAlly, TeamManager.Instance.heroes.LivingMembers[0]);
+                                    targets = AbilityUtilities.GetAbilityTargets(AbilityTargets.RandomAlly, TeamManager.Instance.heroes.LivingMembers[0]);
 
                                     consequenceStructures.Add(new ConsequenceStructure(EffectObject.DurationText(effect), effect.icon, targets[0].icon, true, effect));
                                 }

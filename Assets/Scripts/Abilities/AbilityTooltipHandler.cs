@@ -5,6 +5,18 @@ using UnityEngine;
 
 public static class AbilityTooltipHandler
 {
+    public static string ParseName(string temp, string check, AbilityObject abilityObject)
+    {
+        if (temp.Contains(check))
+        {
+            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>");
+
+            return string.Format(temp, abilityObject.name);
+        }
+
+        return temp;
+    }
+
     public static string ParseAbilityType(AbilityType abilityType)
     {
         if (abilityType != AbilityType.Passive)
@@ -33,6 +45,15 @@ public static class AbilityTooltipHandler
         return temp;
     }
 
+    public static string InsertNonScaling(string s)
+    {
+        string pattern = @"\<ns([^>]*)\>";
+
+        string temp = Regex.Replace(s, pattern, "<color=" + ColorDatabase.NonScalingColor() + ">$1</color>");
+
+        return temp;
+    }
+
     public static string ParseEffectTooltips(TooltipObject tooltipInfo, List<EffectObject> effects, string temp, string check)
     {
         for (int i = 0; i < effects.Count; i++)
@@ -55,6 +76,7 @@ public static class AbilityTooltipHandler
             if (effects[i] is EffectCooldownReduction cdr)
             {
                 temp = DetermineCooldownReduction(temp, string.Format("<{1}{0}cdr>", i + 1, check), cdr);
+                temp = DetermineCooldownReductionAbility(temp, string.Format("<{1}{0}cdrSpecific>", i + 1, check), cdr);
                 temp = DetermineCooldownReductionType(temp, string.Format("<{1}{0}type>", i + 1, check), cdr);
             }
 
@@ -207,9 +229,21 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=#FEF0AE>{0}</color>");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>");
 
             return string.Format(temp, cdr.roundsReduction);
+        }
+
+        return temp;
+    }
+
+    public static string DetermineCooldownReductionAbility(string temp, string check, EffectCooldownReduction cdr)
+    {
+        if (temp.Contains(check))
+        {
+            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>");
+
+            return string.Format(temp, cdr.specificAbility.name);
         }
 
         return temp;

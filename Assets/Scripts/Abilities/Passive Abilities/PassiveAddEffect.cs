@@ -20,7 +20,7 @@ public class PassiveAddEffect : PassiveAbility
     [Header("[ Add Effect Functionality ]")]
     public List<EffectObject> effects;
     public ActivationMoment activationMoment;
-    public InstantTargets targets;
+    public AbilityTargets targets;
 
     [Header("[ Health Threshold ]")]
     public float healthPercentage;
@@ -108,7 +108,7 @@ public class PassiveAddEffect : PassiveAbility
 
     private void TriggerAddEffect(Unit caster)
     {
-        foreach (Unit unit in AbilityUtilities.GetInstantTargets(targets, caster))
+        foreach (Unit unit in AbilityUtilities.GetAbilityTargets(targets, caster))
         {
             AddEffect(caster, unit);
         }

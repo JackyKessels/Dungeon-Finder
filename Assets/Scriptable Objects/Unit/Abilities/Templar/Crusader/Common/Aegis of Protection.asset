@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
   m_Name: Aegis of Protection
   m_EditorClassIdentifier: 
-  id: 53
+  id: 102
   name: Aegis of Protection
   quality: 0
   type: 1
   description: Increase the <resistance> of everyone in your Team by <t1modV> for
     this Round.
-  icon: {fileID: 21300000, guid: 44fc9c4883ab490479ea6958dc252f3a, type: 3}
+  icon: {fileID: 21300000, guid: 6a06baff07d57d34891248f54e0ac953, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
-  - {fileID: 4023380291342889100, guid: 2efcd3852d2756e49ba515443863ae57, type: 3}
+  - {fileID: 806816276243935535, guid: 80860551b82900444b750677240a3d99, type: 3}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
@@ -31,7 +31,7 @@ MonoBehaviour:
   resetChance: 0
   weaponRequirement: 4
   soundEffect: {fileID: 0}
-  animationType: 0
+  animationType: 1
   allyAbilitySources: []
   enemyAbilitySources: []
   selfEffectsPerTarget: 0

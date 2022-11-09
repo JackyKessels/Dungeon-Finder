@@ -65,6 +65,8 @@ public abstract class ActiveAbility : AbilityObject
     {
         string temp = s;
 
+        temp = AbilityTooltipHandler.ParseName(temp, "<name>", this);
+
         // Friendly Ability Values <a1> <a2> etc.
         for (int i = 0; i < allyAbilitySources.Count; i++)
         {
@@ -141,6 +143,8 @@ public abstract class ActiveAbility : AbilityObject
 
         temp = AbilityTooltipHandler.InsertRed(temp);
 
+        temp = AbilityTooltipHandler.InsertNonScaling(temp);
+
         return temp;
     }
 
@@ -173,3 +177,61 @@ public abstract class ActiveAbility : AbilityObject
         return temp;
     }
 }
+
+[System.Serializable]
+public class CastActiveAbility
+{
+    public ActiveAbility activeAbility;
+    
+    [Header("Target Ability Only")]
+    public AbilityTargets abilityTarget;
+
+    public void CastAbility(Unit caster, Unit target = null)
+    {
+        if (activeAbility == null)
+        {
+            Debug.Log("No active ability selected.");
+            return;
+        }
+
+        if (activeAbility is TargetAbility t)
+        {
+            if (target == null)
+            {
+                Debug.Log("No target selected.");
+                return;
+            }
+
+            (bool _, int abilityLevel) = caster.spellbook.GetAbility(activeAbility);
+
+            Active abilityToCast = new Active(t, abilityLevel);
+
+            List<Unit> targets = AbilityUtilities.GetAbilityTargets(abilityTarget, caster, target);
+
+            t.Initialize(caster.gameObject, abilityToCast);
+
+            foreach (Unit u in targets)
+            {
+
+                Debug.Log(u.name);
+
+                //t.CastAbility(u, abilityLevel);
+            }
+        }
+
+        if (activeAbility is InstantAbility i)
+        {
+            Debug.Log("CAST " + i.name);
+
+            (bool _, int abilityLevel) = caster.spellbook.GetAbility(activeAbility);
+
+            Active abilityToCast = new Active(i, abilityLevel);
+
+            i.Initialize(caster.gameObject, abilityToCast);
+            i.TriggerAbility(abilityLevel);
+        }
+
+        return;
+    }
+}
+

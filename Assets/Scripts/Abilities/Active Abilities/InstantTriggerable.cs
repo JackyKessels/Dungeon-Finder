@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class InstantTriggerable : AbilityTriggerable
 {
-    [HideInInspector] public InstantTargets abilityTarget;
+    [HideInInspector] public AbilityTargets abilityTarget;
 
     public override void Trigger(Unit t, int level)
     {
@@ -14,7 +14,7 @@ public class InstantTriggerable : AbilityTriggerable
 
         ObjectUtilities.CreateSpecialEffects(active.activeAbility.casterSpecialEffects, caster);
 
-        foreach (Unit unit in AbilityUtilities.GetInstantTargets(abilityTarget, caster))
+        foreach (Unit unit in AbilityUtilities.GetAbilityTargets(abilityTarget, caster))
         {
             float abilityMultiplier = 1 + caster.effectManager.ApplyMultipliers(active.activeAbility, unit);
 

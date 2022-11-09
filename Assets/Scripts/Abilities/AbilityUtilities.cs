@@ -2,9 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum AbilityTargets
+{
+    SelfOnly,
+    Allies,
+    Enemies,
+    RandomAlly,
+    RandomEnemy,
+    All,
+    AlliesNotSelf,
+    Target
+}
+
 public static class AbilityUtilities
 {
-    public static List<Unit> GetInstantTargets(InstantTargets targetType, Unit caster)
+    public static List<Unit> GetAbilityTargets(AbilityTargets targetType, Unit caster, Unit target = null)
     {
         TeamManager teamManager = TeamManager.Instance;
 
@@ -12,12 +24,12 @@ public static class AbilityUtilities
 
         switch (targetType)
         {
-            case InstantTargets.SelfOnly:
+            case AbilityTargets.SelfOnly:
                 {
                     targets.Add(caster);
                 }
                 break;
-            case InstantTargets.Allies:
+            case AbilityTargets.Allies:
                 {
                     Team team = caster.isEnemy ? teamManager.enemies : teamManager.heroes;
 
@@ -27,7 +39,7 @@ public static class AbilityUtilities
                     }
                 }
                 break;
-            case InstantTargets.Enemies:
+            case AbilityTargets.Enemies:
                 {
                     Team team = caster.isEnemy ? teamManager.heroes : teamManager.enemies;
 
@@ -37,15 +49,15 @@ public static class AbilityUtilities
                     }
                 }
                 break;
-            case InstantTargets.RandomAlly:
+            case AbilityTargets.RandomAlly:
                 {
                     Team team = caster.isEnemy ? teamManager.enemies : teamManager.heroes;
 
-                    if (team.LivingMembers.Count > 0)   
+                    if (team.LivingMembers.Count > 0)
                         targets.Add(GetRandomUnit(team));
                 }
                 break;
-            case InstantTargets.RandomEnemy:
+            case AbilityTargets.RandomEnemy:
                 {
                     Team team = caster.isEnemy ? teamManager.heroes : teamManager.enemies;
 
@@ -53,7 +65,7 @@ public static class AbilityUtilities
                         targets.Add(GetRandomUnit(team));
                 }
                 break;
-            case InstantTargets.All:
+            case AbilityTargets.All:
                 {
                     foreach (Unit unit in teamManager.heroes.LivingMembers)
                     {
@@ -65,7 +77,7 @@ public static class AbilityUtilities
                     }
                 }
                 break;
-            case InstantTargets.AlliesNotSelf:
+            case AbilityTargets.AlliesNotSelf:
                 {
                     Team team = caster.isEnemy ? teamManager.enemies : teamManager.heroes;
 
@@ -74,6 +86,11 @@ public static class AbilityUtilities
                         if (unit != caster)
                             targets.Add(unit);
                     }
+                }
+                break;
+            case AbilityTargets.Target:
+                {
+                    targets.Add(target);
                 }
                 break;
         }

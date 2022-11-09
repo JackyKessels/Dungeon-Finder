@@ -737,7 +737,9 @@ public class BattleManager : MonoBehaviour, IUserInterface
                 CastAnimation(currentAbility);
 
                 t.Initialize(currentUnit.gameObject, currentAbility);
+                Debug.Log("BETWEEN");
                 t.CastAbility(currentTarget, currentAbility.level);
+                Debug.Log("FINISHED " + t.name);
 
                 battleHUD.Refresh();
                 //-----------------------//

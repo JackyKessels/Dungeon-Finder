@@ -18,6 +18,9 @@ public class EffectCooldownReduction : EffectObject
     public int roundsReduction;
     public List<ParticleSystem> casterSpecialEffects;
 
+    [Header("Specific")]
+    public AbilityObject specificAbility;
+
     [Header("Typed")]
     public AbilityType abilityType;
 
@@ -26,11 +29,11 @@ public class EffectCooldownReduction : EffectObject
         return s;
     }
 
-    public void ReduceCooldown(Active[] currentAbilities, Unit caster)
+    public void ReduceCooldown(Unit caster)
     {
         List<Active> validAbilities = new List<Active>();
 
-        foreach (Active active in currentAbilities)
+        foreach (Active active in caster.spellbook.activeSpellbook)
         {
             if (active != null && active.currentCooldown > 0)
                 validAbilities.Add(active);
@@ -50,7 +53,11 @@ public class EffectCooldownReduction : EffectObject
                 break;
             case CooldownReductionType.Specific:
                 {
-                    // To be added
+                    foreach (Active active in validAbilities)
+                    {
+                        if (active.activeAbility == specificAbility)
+                            ReduceCooldown(caster, active);
+                    }
                 }
                 break;
             case CooldownReductionType.All:

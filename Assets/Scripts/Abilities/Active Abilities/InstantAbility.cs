@@ -2,22 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum InstantTargets
-{
-    SelfOnly, 
-    Allies,
-    Enemies,
-    RandomAlly,
-    RandomEnemy,
-    All,
-    AlliesNotSelf
-}
-
 [CreateAssetMenu(fileName = "New Instant Ability", menuName = "Unit/Ability Object/Instant Ability")]
 public class InstantAbility : ActiveAbility
 {
     [Header("Targeting")]
-    public InstantTargets instantTargets = InstantTargets.SelfOnly;
+    public AbilityTargets instantTargets = AbilityTargets.SelfOnly;
 
     private InstantTriggerable instantTrigger;
 

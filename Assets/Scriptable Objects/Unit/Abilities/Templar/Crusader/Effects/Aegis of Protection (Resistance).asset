@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Aegis of Protection (Resistance)
   m_EditorClassIdentifier: 
   name: Aegis of Protection
-  icon: {fileID: 21300000, guid: 44fc9c4883ab490479ea6958dc252f3a, type: 3}
+  icon: {fileID: 21300000, guid: 6a06baff07d57d34891248f54e0ac953, type: 3}
   hidden: 0
   description: Resistance increased by <1>.
   isBuff: 1
@@ -23,14 +23,18 @@ MonoBehaviour:
   removeEffects: []
   attributeModified: 4
   isIncrease: 1
+  modifierType: 0
   modifierSource:
     ignoreMultipliers: 1
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 0
     attributeType: 8
-    baseValue: 5
-    levelBase: 0
-    scaling: 0.5
-    levelScaling: 0.1
+    baseValue: 10
+    levelBase: 10
+    scaling: 0.75
+    levelScaling: 0
     reductionType: 0
     modifier:
       hasModifier: 0
@@ -45,6 +49,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -52,4 +59,8 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  multiplier: 0
+  multiplierPerLevel: 0
   specialEffects: []

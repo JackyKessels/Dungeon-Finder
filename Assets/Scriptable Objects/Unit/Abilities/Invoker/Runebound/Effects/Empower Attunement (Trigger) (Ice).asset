@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Empower Attunement
   icon: {fileID: 0}
   hidden: 1
-  description: '<I>: <I> damage increased by <1modV>% for <1d> Rounds.'
+  description: '<I>: Ice Damage increased by <1modV>% for <1d> Rounds.'
   isBuff: 0
   procType: 0
   duration: 1

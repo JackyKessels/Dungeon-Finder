@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Faithful Warrior
   icon: {fileID: 21300000, guid: adda846d3f5d817499fb2288f8e5a949, type: 3}
   hidden: 0
-  description: <P> Damage increased by <1>%.
+  description: Physical Damage increased by <1>%.
   isBuff: 1
   procType: 0
   duration: 1
@@ -27,6 +27,9 @@ MonoBehaviour:
   modifierType: 0
   modifierSource:
     ignoreMultipliers: 1
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 0
     attributeType: 10
     baseValue: 20
@@ -47,6 +50,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -57,5 +63,6 @@ MonoBehaviour:
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
   multiplier: 0
+  multiplierPerLevel: 0
   specialEffects:
   - {fileID: 2003023566564984859, guid: a7ce6f4c4a0a94241987ba0fa7c5357d, type: 3}

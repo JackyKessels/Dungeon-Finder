@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f61bd7798258c684cb135bcc9f1f3cfd, type: 3}
   m_Name: Glacial Focus (Arcane Damage)
   m_EditorClassIdentifier: 
-  name: Blazing Heat
+  name: Glacial Focus
   icon: {fileID: 21300000, guid: 9730d2546b4ad67479ad2528145ba1ef, type: 3}
   hidden: 0
-  description: Arcane damage increased by <1>%.
+  description: Arcane Damage increased by <1>%.
   isBuff: 1
   procType: 1
   duration: 2
   permanent: 0
-  removeEffects: []
+  removeEffects:
+  - {fileID: 11400000}
   attributeModified: 14
   isIncrease: 1
   modifierType: 0
@@ -28,6 +29,7 @@ MonoBehaviour:
     ignoreMultipliers: 1
     cannotCrit: 1
     cannotMiss: 1
+    ignorePassive: {fileID: 0}
     school: 5
     attributeType: 14
     baseValue: 25
@@ -48,6 +50,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0

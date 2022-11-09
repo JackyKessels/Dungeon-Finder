@@ -17,7 +17,7 @@ MonoBehaviour:
   quality: 0
   type: 0
   description: Deal <e1> <P> damage to your target.
-  icon: {fileID: 21300000, guid: 26d8312b510802040b6653b38b1b41cc, type: 3}
+  icon: {fileID: 21300000, guid: 28b429a6d129a2440ba81c73d30cf240, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
   - {fileID: 5688881199413913313, guid: 025c5a696abc4c546b5f1a3d2fce80ca, type: 3}
@@ -34,6 +34,9 @@ MonoBehaviour:
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 4
     attributeType: 1
     baseValue: 0
@@ -54,6 +57,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0

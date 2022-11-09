@@ -135,6 +135,23 @@ public class Spellbook
         return hasAbility;
     }
 
+    public (bool hasAbility, int level) GetAbility(ActiveAbility activeAbility)
+    {
+        bool hasAbility = false;
+        int abilityLevel = 1;
+
+        for (int i = 0; i < abilityCollection.Count; i++)
+        {
+            if (abilityCollection[i].activeAbility == activeAbility)
+            {
+                hasAbility = true;
+                abilityLevel = abilityCollection[i].level;
+            }
+        }
+
+        return (hasAbility, abilityLevel);
+    }
+
     public bool HasFlask()
     {
         if (flaskAbility.activeAbility == null)

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Scorch
   m_EditorClassIdentifier: 
-  id: 17
+  id: 5
   name: Scorch
   quality: 0
   type: 2
@@ -36,12 +36,15 @@ MonoBehaviour:
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 2
     attributeType: 2
     baseValue: 0
     levelBase: 0
-    scaling: 1.5
-    levelScaling: 0.3
+    scaling: 1.25
+    levelScaling: 0.25
     reductionType: 2
     modifier:
       hasModifier: 0
@@ -56,6 +59,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
