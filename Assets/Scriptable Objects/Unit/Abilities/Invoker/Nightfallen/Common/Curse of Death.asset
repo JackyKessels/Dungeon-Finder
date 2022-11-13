@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 18
   name: Curse of Death
   quality: 0
-  type: 2
+  abilityType: 2
   description: 'Deal <t1timEx1> <S> damage after <t1d> Rounds.
 
 
@@ -44,4 +44,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 53
   name: Hand of Earth
   quality: 0
-  type: 2
+  abilityType: 2
   description: Deal <e1> <P> damage to your target and increase your <power> by <s1modV>
     for <s1d> Rounds.
   icon: {fileID: 21300000, guid: 3faf56886980f0f40a35b6f22ddcf143, type: 3}
@@ -39,6 +39,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 1
     attributeType: 1
     baseValue: 0
@@ -59,6 +60,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -75,4 +79,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

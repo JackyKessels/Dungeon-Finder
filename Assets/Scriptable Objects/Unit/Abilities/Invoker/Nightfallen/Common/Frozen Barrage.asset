@@ -12,26 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
   m_Name: Frozen Barrage
   m_EditorClassIdentifier: 
-  id: 31
+  id: 23
   name: Frozen Barrage
   quality: 0
+  abilityType: 2
   description: Deal <e1> <I> damage to all enemies.
   icon: {fileID: 21300000, guid: 0c581eea2a5224c4c96a1cdf3d3612a2, type: 3}
-  specialEffects:
-  - {fileID: 1343662882982698741, guid: 4699a6da1438dc3409a1a25d3a3c8466, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 1.5
   cooldown: 3
   endTurn: 1
+  resetChance: 0
   weaponRequirement: 4
-  type: 2
   soundEffect: {fileID: 0}
   animationType: 0
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 3
     attributeType: 2
     baseValue: 0
@@ -50,7 +54,21 @@ MonoBehaviour:
       casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []
-  instantTargets: 2
+  abilityTargets: 0

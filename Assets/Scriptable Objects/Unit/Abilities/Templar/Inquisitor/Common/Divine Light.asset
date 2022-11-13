@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 118
   name: Divine Light
   quality: 0
-  type: 1
+  abilityType: 1
   description: Deal <e1> <H> damage to an enemy or heal an ally for <a1>.
   icon: {fileID: 21300000, guid: 3c421fcef8b30b24c8c4a0125f3f336f, type: 3}
   casterSpecialEffects: []
@@ -112,4 +112,4 @@ MonoBehaviour:
   targetsAllies: 1
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

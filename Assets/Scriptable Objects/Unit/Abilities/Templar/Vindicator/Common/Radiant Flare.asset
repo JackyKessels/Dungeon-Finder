@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 138
   name: Radiant Flare
   quality: 0
-  type: 2
+  abilityType: 2
   description: Deal <e1> <H> damage to all enemies and reduce their <accuracy> by
     <t1modV>% for <t1d> Rounds, but take <s1timAp1> <H> damage per target hit.
   icon: {fileID: 21300000, guid: 2fb3d2612a14d8d4aba60c669a296ae8, type: 3}
@@ -37,6 +37,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 6
     attributeType: 0
     baseValue: 0
@@ -57,6 +58,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -71,4 +75,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 302f620baa52a294099f432644a58ef2, type: 2}
   targetEffects:
   - {fileID: 11400000, guid: e65db50b71e05c5458fc703817f5628e, type: 2}
-  instantTargets: 2
+  abilityTargets: 0

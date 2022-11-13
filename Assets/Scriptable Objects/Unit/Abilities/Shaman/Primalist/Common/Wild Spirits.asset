@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
   m_Name: Wild Spirits
   m_EditorClassIdentifier: 
-  id: 124
+  id: 75
   name: Wild Spirits
   quality: 0
-  type: 2
+  abilityType: 2
   description: 'Gain <s1name> and <s2name> for <s1d> Rounds.
 
 
@@ -43,4 +43,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9a1d88bda4e0f034ba1a1e07a6b1b791, type: 2}
   - {fileID: 11400000, guid: 6e023a6b76e31bd4a835317b448c8940, type: 2}
   targetEffects: []
-  instantTargets: 0
+  abilityTargets: 0

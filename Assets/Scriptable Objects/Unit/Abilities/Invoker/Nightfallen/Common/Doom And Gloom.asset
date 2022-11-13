@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 20
   name: Doom And Gloom
   quality: 0
-  type: 2
+  abilityType: 2
   description: "Deal <e1> <S> to all enemies and afflict them with <t1name>. \n\nDealing
     <t1timAc1> <S> damage every Round for <t1d> Rounds."
   icon: {fileID: 21300000, guid: f6fdc80c9a12ee74fa04469302272ecd, type: 3}
@@ -37,6 +37,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 7
     attributeType: 2
     baseValue: 0
@@ -57,6 +58,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -70,4 +74,4 @@ MonoBehaviour:
   selfEffects: []
   targetEffects:
   - {fileID: 11400000, guid: ea5c198b281971b4fa69cee2ab616a5f, type: 2}
-  instantTargets: 2
+  abilityTargets: 0

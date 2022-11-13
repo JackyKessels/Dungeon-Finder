@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Bearslaught
   m_EditorClassIdentifier: 
-  id: 126
+  id: 69
   name: Bearslaught
   quality: 0
-  type: 2
+  abilityType: 2
   description: 'Deal <e1> <P> damage to your target.
 
 
@@ -39,6 +39,9 @@ MonoBehaviour:
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 1
     attributeType: 1
     baseValue: 0
@@ -59,6 +62,9 @@ MonoBehaviour:
       percentageIncrease: 1
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -74,4 +80,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

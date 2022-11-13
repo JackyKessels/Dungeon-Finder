@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 120
   name: Holy Fire
   quality: 0
-  type: 2
+  abilityType: 2
   description: Deal <e1> <H> and <e2> <F> damage to your target. Adjacent targets
     take <adjmod>% of the damage.
   icon: {fileID: 21300000, guid: eabfc7126b0699b4693a50217d3b1775, type: 3}
@@ -36,6 +36,8 @@ MonoBehaviour:
   enemyAbilitySources:
   - ignoreMultipliers: 0
     cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 6
     attributeType: 2
     baseValue: 0
@@ -56,6 +58,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -67,6 +72,8 @@ MonoBehaviour:
       conditionalEffect: {fileID: 0}
   - ignoreMultipliers: 0
     cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 2
     attributeType: 2
     baseValue: 0
@@ -87,6 +94,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -102,4 +112,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 1
-  adjacentReduction: 0.35
+  adjacentModifier: 0

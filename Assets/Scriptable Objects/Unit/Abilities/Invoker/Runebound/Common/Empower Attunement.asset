@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
   m_Name: Empower Attunement
   m_EditorClassIdentifier: 
-  id: 120
+  id: 35
   name: Empower Attunement
   quality: 0
-  type: 2
+  abilityType: 2
   description: 'Increase the effect of your current Attunement.
 
 
@@ -46,4 +46,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 88d2de3f3b49e59449c9018640de485b, type: 2}
   - {fileID: 11400000, guid: 99c34cad58061f24c8ebba9422562d42, type: 2}
   - {fileID: 11400000, guid: 9d71de861aba2c342a76623d73c21dfa, type: 2}
-  instantTargets: 0
+  abilityTargets: 0

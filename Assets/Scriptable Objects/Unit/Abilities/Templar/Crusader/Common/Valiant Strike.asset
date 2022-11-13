@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Valiant Strike
   m_EditorClassIdentifier: 
-  id: 63
+  id: 108
   name: Valiant Strike
   quality: 0
-  type: 2
+  abilityType: 2
   description: Deal <e1> <P> and <e2> <H> damage to your target and increase your
     <crit> by <s1modV>% for <s1d> Rounds.
   icon: {fileID: 21300000, guid: 624e3fc45ceb2fb449f0c8808f3258f3, type: 3}
@@ -37,6 +37,9 @@ MonoBehaviour:
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 1
     attributeType: 1
     baseValue: 0
@@ -57,6 +60,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -67,6 +73,9 @@ MonoBehaviour:
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 6
     attributeType: 1
     baseValue: 0
@@ -87,6 +96,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -103,4 +115,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

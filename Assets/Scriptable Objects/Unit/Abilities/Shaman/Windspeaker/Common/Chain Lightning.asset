@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 85
   name: Chain Lightning
   quality: 0
-  type: 2
+  abilityType: 2
   description: Deal <e1> <N> damage to your target. Adjacent targets take <adjmod>%
     of the damage.
   icon: {fileID: 21300000, guid: 21bbd6a44f75cb245b153e7e22159525, type: 3}
@@ -37,6 +37,8 @@ MonoBehaviour:
   enemyAbilitySources:
   - ignoreMultipliers: 0
     cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 4
     attributeType: 2
     baseValue: 0
@@ -57,6 +59,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -72,4 +77,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 1
-  adjacentReduction: 0.5
+  adjacentModifier: 0

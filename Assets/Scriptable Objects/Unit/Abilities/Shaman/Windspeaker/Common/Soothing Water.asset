@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Soothing Water
   m_EditorClassIdentifier: 
-  id: 42
+  id: 90
   name: Soothing Water
   quality: 0
-  type: 1
+  abilityType: 1
   description: Heal an ally for <a1> instantly and for <t1timAc1> every Round for
     <t1d> Rounds.
   icon: {fileID: 21300000, guid: c22dc18a9449ef445a15e48f21c6c638, type: 3}
@@ -34,6 +34,9 @@ MonoBehaviour:
   animationType: 1
   allyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 0
     attributeType: 0
     baseValue: 0
@@ -54,6 +57,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -61,6 +67,8 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
   enemyAbilitySources: []
   selfEffectsPerTarget: 0
   selfEffects: []
@@ -69,4 +77,4 @@ MonoBehaviour:
   targetsAllies: 1
   targetsEnemies: 0
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

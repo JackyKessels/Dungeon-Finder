@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
   m_Name: Overcharge
   m_EditorClassIdentifier: 
-  id: 101
+  id: 89
   name: Overcharge
   quality: 0
-  type: 2
+  abilityType: 2
   description: Your Assault abilities deal <t1bonus> more damage for <t1d> Rounds.
   icon: {fileID: 21300000, guid: bb6db85d2b341924a916e20601bb220b, type: 3}
   casterSpecialEffects:
@@ -37,4 +37,4 @@ MonoBehaviour:
   selfEffects: []
   targetEffects:
   - {fileID: 11400000, guid: 517c907e2bb55e246802ef3961a37276, type: 2}
-  instantTargets: 0
+  abilityTargets: 0

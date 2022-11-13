@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 132
   name: Bolster
   quality: 0
-  type: 1
+  abilityType: 1
   description: Increase your <armor> by <t1modV> and your <physicalmultiplier> by
     <t2modV>% for <t1d> Rounds.
   icon: {fileID: 21300000, guid: 44fc9c4883ab490479ea6958dc252f3a, type: 3}
@@ -39,4 +39,4 @@ MonoBehaviour:
   targetEffects:
   - {fileID: 11400000, guid: 411d2d4cd7e40534fb809551988658f5, type: 2}
   - {fileID: 11400000, guid: bb1bb43d71ae172459b39b07804d03ee, type: 2}
-  instantTargets: 0
+  abilityTargets: 0

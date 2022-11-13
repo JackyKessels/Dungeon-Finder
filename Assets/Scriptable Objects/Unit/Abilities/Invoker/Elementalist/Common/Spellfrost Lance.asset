@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 166
   name: Spellfrost Lance
   quality: 0
-  type: 2
+  abilityType: 2
   description: 'Deal <e1> <I> and <e2> <A> damage to your target.
 
 
@@ -116,4 +116,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

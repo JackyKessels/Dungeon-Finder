@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
   m_Name: Dark Embrace
   m_EditorClassIdentifier: 
-  id: 28
+  id: 19
   name: Dark Embrace
   quality: 0
-  type: 1
+  abilityType: 1
   description: Heal for <t1timAc1> per Turn for <t1d> Turns, but your <resistance>
     is reduced by <t2modV> for <t2d> Rounds.
   icon: {fileID: 21300000, guid: 7834c5f8ed1b3724c969e22ac2c9f0d5, type: 3}
@@ -39,4 +39,4 @@ MonoBehaviour:
   targetEffects:
   - {fileID: 11400000, guid: af92386f88fed9f4fb3787c1fe7c9f50, type: 2}
   - {fileID: 11400000, guid: 741d7b2289be87c40927db0b5cd30f45, type: 2}
-  instantTargets: 0
+  abilityTargets: 0

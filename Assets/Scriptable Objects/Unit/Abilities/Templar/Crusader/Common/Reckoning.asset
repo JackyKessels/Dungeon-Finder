@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 105
   name: Reckoning
   quality: 0
-  type: 2
+  abilityType: 2
   description: Increase your <power> by <t1modP> and your <speed> by <t2modV> for
     <t1d> Rounds.
   icon: {fileID: 21300000, guid: d7613b6989e3204448f1031c0f8387eb, type: 3}
@@ -40,4 +40,4 @@ MonoBehaviour:
   targetEffects:
   - {fileID: 11400000, guid: a876d6f2706cc6a45a4cb1a68f41641f, type: 2}
   - {fileID: 11400000, guid: a826b9007f27bad4395f6b1070913f42, type: 2}
-  instantTargets: 0
+  abilityTargets: 0

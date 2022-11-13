@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 103
   name: Blessing of Vigor
   quality: 0
-  type: 2
+  abilityType: 2
   description: 'Increase the <power> and <wisdom> of an ally by <t1modV> for <t1d>
     Rounds.
 
@@ -45,4 +45,4 @@ MonoBehaviour:
   targetsAllies: 1
   targetsEnemies: 0
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

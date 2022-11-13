@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 74
   name: Twin Fangs
   quality: 0
-  type: 2
+  abilityType: 2
   description: Deal <e1> <F> and <e2> <I> damage to your target and reduce their
     <vitality> by <t1modV> for <t1d> Rounds.
   icon: {fileID: 21300000, guid: a440e39c142f4564d9ba97bc568757b4, type: 3}
@@ -39,6 +39,8 @@ MonoBehaviour:
   enemyAbilitySources:
   - ignoreMultipliers: 0
     cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 2
     attributeType: 1
     baseValue: 0
@@ -59,6 +61,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -70,6 +75,8 @@ MonoBehaviour:
       conditionalEffect: {fileID: 0}
   - ignoreMultipliers: 0
     cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 3
     attributeType: 1
     baseValue: 0
@@ -90,6 +97,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -106,4 +116,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

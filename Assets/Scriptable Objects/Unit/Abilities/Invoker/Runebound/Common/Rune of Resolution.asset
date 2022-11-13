@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Rune of Resolution
   m_EditorClassIdentifier: 
-  id: -1
+  id: 36
   name: Rune of Resolution
   quality: 0
-  type: 1
+  abilityType: 1
   description: Grant an ally immunity to Stun and Incapacitate for <t1d> Rounds.
   icon: {fileID: 21300000, guid: 82da951337de0aa48ace942446d18a67, type: 3}
   casterSpecialEffects: []
@@ -40,4 +40,4 @@ MonoBehaviour:
   targetsAllies: 1
   targetsEnemies: 0
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

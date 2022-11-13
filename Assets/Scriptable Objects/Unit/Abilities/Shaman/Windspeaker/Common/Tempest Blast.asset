@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 167
   name: Tempest Blast
   quality: 0
-  type: 2
+  abilityType: 2
   description: "Deal <e1> <N> and <e2> <I> damage to your target. \n\nFor the next
     <s1d> Rounds, <N> damage reduces the cooldown of <name> by <ns1> Round."
   icon: {fileID: 21300000, guid: 61cbc8d6f407d6d42acfc243f38ebfed, type: 3}
@@ -115,4 +115,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 0
   name: Combustion
   quality: 0
-  type: 2
+  abilityType: 2
   description: 'Deal <e1> <F> damage to all enemies and burn them for <t1timAc1>
     <F> damage every Round for <t1d> Rounds.
 
@@ -41,6 +41,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 2
     attributeType: 2
     baseValue: 0
@@ -61,6 +62,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -75,4 +79,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 99854f72608d3cc4bb9e978f2940b720, type: 2}
   targetEffects:
   - {fileID: 11400000, guid: 5ce6e82e5c94a804682d80da7996ca02, type: 2}
-  instantTargets: 2
+  abilityTargets: 2

@@ -219,6 +219,11 @@ public class PassiveOnHitTrigger : PassiveAbility
 
         }
 
+        for (int i = 0; i < castActiveAbilities.Count; i++)
+        {
+            temp = AbilityTooltipHandler.ParseCastAbility(temp, string.Format("<castInfo{0}>", i + 1), string.Format("<castTooltip{0}>", i + 1), tooltipInfo, castActiveAbilities[i].activeAbility);
+        }
+
         temp = AbilityTooltipHandler.ParseAllEffectTooltips(temp, tooltipInfo, selfEffects, targetEffects);
 
         temp = AbilityTooltipHandler.ParseProcChance(temp, "<%>", procChance);

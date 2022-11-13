@@ -18,7 +18,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7b211fd9752c7564bbcf7e0128d18597, type: 2}
   primaryAbility: {fileID: 11400000, guid: 41add274c2e389145a6f0c9f0ff17c97, type: 2}
   secondaryAbility: {fileID: 11400000, guid: 07ffbca9367ca99478e9d2cd39ae0e9f, type: 2}
-  passiveAbility: {fileID: 11400000, guid: 216107ea2ceeb324b877d2270d8b47f1, type: 2}
+  passiveAbility: {fileID: 11400000, guid: 8231a86a8253d8549a0c2649ec8f5004, type: 2}
   activeAbilities:
   - {fileID: 11400000, guid: 41add274c2e389145a6f0c9f0ff17c97, type: 2}
   - {fileID: 11400000, guid: c78048d017f397341980786bf054ef3b, type: 2}
@@ -35,6 +35,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a31b940257b4b434090b023acbb3e8b1, type: 2}
   - {fileID: 11400000, guid: eecf634a74a468e45af0dc10d019307d, type: 2}
   - {fileID: 11400000, guid: 5774c92d5037c0f42a9ef8a5cdb2f9df, type: 2}
+  - {fileID: 11400000, guid: 720008b881b770c4a8e43766fc83e776, type: 2}
   attributes:
   - attributeType: 0
     baseValue: 2

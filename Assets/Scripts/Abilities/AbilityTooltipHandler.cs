@@ -36,6 +36,43 @@ public static class AbilityTooltipHandler
         return temp;
     }
 
+    public static string ParseCastAbility(string s, string checkInfo, string checkTooltip, TooltipObject tooltipObject, ActiveAbility activeAbility)
+    {
+        string temp = s;
+        string color = ColorDatabase.GeneralInformation();
+
+        Unit caster = GeneralUtilities.GetCorrectUnit(tooltipObject);
+
+        int level = 1;
+
+        if (caster != null)
+        {
+            (bool hasAbility, int abilityLevel) = caster.spellbook.GetAbility(activeAbility);
+
+            if (hasAbility) level = abilityLevel;
+        }
+
+        if (temp.Contains(checkInfo))
+        {
+            string text = "Level " + level + " " + activeAbility.name;
+
+            temp = temp.Replace(checkInfo, "<color={1}>{0}</color>");
+
+            temp = string.Format(temp, text, color);
+        }
+
+        if (temp.Contains(checkTooltip))
+        {
+            temp = temp.Replace(checkTooltip, "{0}");
+
+            tooltipObject.active.level = level;
+
+            temp = string.Format(temp, activeAbility.GetDescription(tooltipObject));
+        }
+
+        return temp;
+    }
+
     public static string InsertRed(string s)
     {
         string pattern = @"\<r([^>]*)\>";
@@ -101,7 +138,7 @@ public static class AbilityTooltipHandler
 
     public static string DoesNotEndTurn(string temp)
     {
-        string color = "#DBFF73";
+        string color = ColorDatabase.GeneralInformation();
 
         temp += string.Format("<color={0}>\n\nThis ability does not end your Turn.</color>", color);
 
@@ -110,7 +147,7 @@ public static class AbilityTooltipHandler
 
     public static string ReplacesAbility(string temp, AbilityObject abilityObject)
     {
-        string color = "#DBFF73";
+        string color = ColorDatabase.GeneralInformation();
 
         temp += string.Format("\n\nThis ability replaces <color={0}>{1}</color>.", color, abilityObject.name);
 
@@ -119,7 +156,7 @@ public static class AbilityTooltipHandler
 
     public static string ResetChance(string temp, int chance)
     {
-        string color = "#DBFF73";
+        string color = ColorDatabase.GeneralInformation();
 
         temp += string.Format("\n\nHas a <color={0}>{1}</color>% chance to reset its cooldown.", color, chance);
 
@@ -476,7 +513,7 @@ public static class AbilityTooltipHandler
 
         if (temp.Contains(check))
         {
-            string color = "#DBFF73";
+            string color = ColorDatabase.GeneralInformation();
 
             string fullString = "";
 

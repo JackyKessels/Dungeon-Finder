@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 57
   name: Thistle Shell
   quality: 0
-  type: 1
+  abilityType: 2
   description: '<targetPassive1>
 
 
@@ -40,4 +40,4 @@ MonoBehaviour:
   selfEffects: []
   targetEffects:
   - {fileID: 11400000, guid: c09d3d12cdb18f341b02ac27a4f28b8a, type: 2}
-  instantTargets: 0
+  abilityTargets: 0

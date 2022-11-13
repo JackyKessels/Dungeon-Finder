@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 58
   name: Tremor
   quality: 0
-  type: 2
+  abilityType: 2
   description: 'Deal <e1> <P> damage to a random enemy and Stun them for this Round.
 
 
@@ -42,6 +42,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 1
     attributeType: 0
     baseValue: 0
@@ -62,6 +63,9 @@ MonoBehaviour:
       percentageIncrease: 0.5
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -75,4 +79,4 @@ MonoBehaviour:
   selfEffects: []
   targetEffects:
   - {fileID: 11400000, guid: 0346b013adf8146468b471810d83b438, type: 2}
-  instantTargets: 4
+  abilityTargets: 0

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
   m_Name: Healing Tide
   m_EditorClassIdentifier: 
-  id: 129
+  id: 88
   name: Healing Tide
   quality: 0
-  type: 1
+  abilityType: 1
   description: 'Heal all allies for <t1timAc1> every Round for <t1d> Rounds.
 
 
@@ -41,4 +41,4 @@ MonoBehaviour:
   selfEffects: []
   targetEffects:
   - {fileID: 11400000, guid: 34dd2e778aad3464e88b180aada68243, type: 2}
-  instantTargets: 1
+  abilityTargets: 0

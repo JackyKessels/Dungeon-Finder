@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 123
   name: Pacify
   quality: 0
-  type: 2
+  abilityType: 2
   description: Deal <e1> <H> damage to an enemy and Incapacitate them for <t1d> Rounds.
   icon: {fileID: 21300000, guid: ab16e4de2033d9c42aa4cd562d510107, type: 3}
   casterSpecialEffects: []
@@ -34,6 +34,8 @@ MonoBehaviour:
   enemyAbilitySources:
   - ignoreMultipliers: 0
     cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 6
     attributeType: 2
     baseValue: 0
@@ -54,6 +56,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -70,4 +75,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

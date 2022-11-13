@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Rune Strike Glacial Smash
   m_EditorClassIdentifier: 
-  id: 134
+  id: 39
   name: 'Rune Strike: Glacial Smash'
   quality: 0
-  type: 2
+  abilityType: 2
   description: 'Deal <e1> <P> and <e2> <I> damage to your target and reduce their
     <speed> by <t1modV> for the next Round.
 
@@ -41,6 +41,8 @@ MonoBehaviour:
   enemyAbilitySources:
   - ignoreMultipliers: 0
     cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 1
     attributeType: 1
     baseValue: 0
@@ -61,6 +63,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -72,6 +77,8 @@ MonoBehaviour:
       conditionalEffect: {fileID: 0}
   - ignoreMultipliers: 0
     cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 3
     attributeType: 2
     baseValue: 0
@@ -92,6 +99,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -109,4 +119,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

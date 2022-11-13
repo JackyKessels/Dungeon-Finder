@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Umbral Shatter
   m_EditorClassIdentifier: 
-  id: 37
+  id: 25
   name: Umbral Shatter
   quality: 0
-  type: 2
+  abilityType: 2
   description: 'Reduce your target''s <resistance> by <t1modV> for <t1d> Rounds.
 
 
@@ -45,4 +45,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

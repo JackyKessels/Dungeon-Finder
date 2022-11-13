@@ -183,6 +183,11 @@ public static class ColorDatabase
         return "#66CCFF";
     }
 
+    public static string GeneralInformation()
+    {
+        return "#DBFF73";
+    }
+
     public static Color ConvertString2Color(string s)
     {
         ColorUtility.TryParseHtmlString(s, out Color c);

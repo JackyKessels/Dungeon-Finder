@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
   m_Name: Lifebloom
   m_EditorClassIdentifier: 
-  id: 113
+  id: 55
   name: Lifebloom
   quality: 0
-  type: 1
+  abilityType: 1
   description: "All allies receive <t1timAc1> <Heal> every Round for <t1d> Rounds.
     \n\nLifebloom will heal for an additional <t1timEx1> <Heal> on expiration."
   icon: {fileID: 21300000, guid: b3dabec7c2a85c642b97f7e35cf7da5c, type: 3}
@@ -38,4 +38,4 @@ MonoBehaviour:
   selfEffects: []
   targetEffects:
   - {fileID: 11400000, guid: 028ffab87038326479732c0d50ff7cfa, type: 2}
-  instantTargets: 1
+  abilityTargets: 0

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
   m_Name: Spirit Shell
   m_EditorClassIdentifier: 
-  id: 44
+  id: 73
   name: Spirit Shell
   quality: 0
-  type: 1
+  abilityType: 1
   description: 'Heal yourself for <a1> and increase your <resistance> by <s1modV>
     for <s1d> Rounds.
 
@@ -38,6 +38,9 @@ MonoBehaviour:
   animationType: 1
   allyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 0
     attributeType: 0
     baseValue: 0
@@ -58,6 +61,9 @@ MonoBehaviour:
       percentageIncrease: 2
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -72,4 +78,4 @@ MonoBehaviour:
   selfEffects:
   - {fileID: 11400000, guid: 2d49dd0a3b8069a46b279782ec974722, type: 2}
   targetEffects: []
-  instantTargets: 0
+  abilityTargets: 0

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
   m_Name: Mind Mastery
   m_EditorClassIdentifier: 
-  id: 21
+  id: 3
   name: Mind Mastery
   quality: 0
-  type: 2
+  abilityType: 2
   description: Increase your <wisdom> by <t1modP> for <t1d> Rounds.
   icon: {fileID: 21300000, guid: 99ca3f6aff4d6cb4085fef95b8c1fdce, type: 3}
   casterSpecialEffects:
@@ -37,4 +37,4 @@ MonoBehaviour:
   selfEffects: []
   targetEffects:
   - {fileID: 11400000, guid: 0bea1dd8c8d8ca14f974df8e6031fe06, type: 2}
-  instantTargets: 0
+  abilityTargets: 0

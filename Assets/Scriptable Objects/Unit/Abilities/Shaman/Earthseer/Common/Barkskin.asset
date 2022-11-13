@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Barkskin
   m_EditorClassIdentifier: 
-  id: 38
+  id: 52
   name: Barkskin
   quality: 0
-  type: 1
+  abilityType: 1
   description: Heal an ally for <a1> and increase their <armor> and <resistance>
     by <t1modV> for <t1d> Rounds.
   icon: {fileID: 21300000, guid: 6ca83162cdf52da4ab95f8815909fb48, type: 3}
@@ -34,6 +34,9 @@ MonoBehaviour:
   animationType: 1
   allyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 0
     attributeType: 0
     baseValue: 0
@@ -54,6 +57,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -72,4 +78,4 @@ MonoBehaviour:
   targetsAllies: 1
   targetsEnemies: 0
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

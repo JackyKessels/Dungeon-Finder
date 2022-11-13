@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 104
   name: Hand of Righteousness
   quality: 0
-  type: 2
+  abilityType: 2
   description: 'Deal <e1> <H> damage to your target and heal yourself for <s1timAp1>.
 
 
@@ -40,6 +40,8 @@ MonoBehaviour:
   enemyAbilitySources:
   - ignoreMultipliers: 0
     cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 6
     attributeType: 1
     baseValue: 0
@@ -60,6 +62,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -76,4 +81,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0
