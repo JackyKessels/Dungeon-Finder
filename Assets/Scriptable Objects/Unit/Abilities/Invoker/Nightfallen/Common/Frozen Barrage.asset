@@ -71,4 +71,4 @@ MonoBehaviour:
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []
-  abilityTargets: 0
+  abilityTargets: 2

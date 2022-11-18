@@ -39,4 +39,4 @@ MonoBehaviour:
   targetEffects:
   - {fileID: 11400000, guid: 1f1c391a12ef8eb4392e79012ba89f06, type: 2}
   - {fileID: 11400000, guid: 4332d7344b3a8204ba1c2e0aad75475a, type: 2}
-  abilityTargets: 0
+  abilityTargets: 1

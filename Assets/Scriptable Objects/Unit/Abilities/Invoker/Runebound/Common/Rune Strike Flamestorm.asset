@@ -80,4 +80,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fedd61971c870ce448f88acc4e4e27ab, type: 2}
   targetEffects:
   - {fileID: 11400000, guid: 40ebb1cd52db53848af295073c4e86cd, type: 2}
-  abilityTargets: 0
+  abilityTargets: 2

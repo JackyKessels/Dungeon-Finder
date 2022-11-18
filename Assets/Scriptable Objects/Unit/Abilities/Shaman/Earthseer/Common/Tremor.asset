@@ -79,4 +79,4 @@ MonoBehaviour:
   selfEffects: []
   targetEffects:
   - {fileID: 11400000, guid: 0346b013adf8146468b471810d83b438, type: 2}
-  abilityTargets: 0
+  abilityTargets: 4
