@@ -9,16 +9,21 @@ public class DamageMeterRecord : MonoBehaviour
 {
     public Image abilityIcon;
 
-    public TextMeshProUGUI instancesText;
-    public TextMeshProUGUI totalDamageText;
-    public TextMeshProUGUI totalPercentageText;
+    public TextMeshProUGUI damageTotalText;
+    public TextMeshProUGUI damagePercentageText;
+    public TextMeshProUGUI damagenInstancesText;
+
+    public TextMeshProUGUI healingTotalText;
+    public TextMeshProUGUI healingPercentageText;
+    public TextMeshProUGUI healingInstancesText;
 
     public AbilityObject abilityObject;
 
     private int damageInstances = 0;
     private int healingInstances = 0;
-    public int totalDamage = 0;
-    public int totalHealing = 0;
+
+    public int damage = 0;
+    public int healing = 0;
 
 
     public void SetupRecord(AbilityValue abilityValue)
@@ -27,51 +32,74 @@ public class DamageMeterRecord : MonoBehaviour
 
         abilityIcon.sprite = abilityObject.icon;
 
-        totalDamageText.text = totalDamage.ToString();
-        totalDamageText.color = GeneralUtilities.ConvertString2Color(ColorDatabase.SchoolColor(abilityValue.school));
+        if (abilityValue.school != AbilitySchool.Healing)
+        {
+            damageTotalText.text = damage.ToString();
+            damageTotalText.color = GeneralUtilities.ConvertString2Color(ColorDatabase.SchoolColor(abilityValue.school));
 
-        instancesText.text = damageInstances.ToString();
+            damagenInstancesText.text = damageInstances.ToString();
+        }
+        else
+        {
+            healingTotalText.text = healing.ToString();
+            healingTotalText.color = GeneralUtilities.ConvertString2Color(ColorDatabase.SchoolColor(abilityValue.school));
+
+            healingInstancesText.text = healingInstances.ToString();
+        }
+
+        
     }
 
     public void UpdateRecord(AbilityValue abilityValue)
     {
         if (abilityValue.school != AbilitySchool.Healing)
         {
-            damageInstances++;
-            instancesText.text = damageInstances.ToString();
+            damage += abilityValue.Rounded();
+            damageTotalText.text = damage.ToString();
 
-            totalDamage += abilityValue.Rounded();
-            totalDamageText.text = totalDamage.ToString();
+            damageInstances++;
+            damagenInstancesText.text = damageInstances.ToString();
         }
         else
         {
-            healingInstances++;
-            instancesText.text = healingInstances.ToString();
+            healing += abilityValue.Rounded();
+            healingTotalText.text = healing.ToString();
 
-            totalHealing += abilityValue.Rounded();
-            totalDamageText.text = totalHealing.ToString();
+            healingInstances++;
+            healingInstancesText.text = healingInstances.ToString();
         }
 
         Color mixedSchool = GeneralUtilities.ConvertString2Color("#FFFFFF");
 
-        if (totalDamageText.color == mixedSchool)
+        if (damageTotalText.color == mixedSchool)
             return;
 
-        if (totalDamageText.color != GeneralUtilities.ConvertString2Color(ColorDatabase.SchoolColor(abilityValue.school)))
-            totalDamageText.color = mixedSchool;
+        if (damageTotalText.color != GeneralUtilities.ConvertString2Color(ColorDatabase.SchoolColor(abilityValue.school)))
+            damageTotalText.color = mixedSchool;
     }
 
-    public void UpdatePercentage(int total)
+    public void UpdatePercentage(int totalDamage, int totalHealing)
     {
-        if (total == 0)
+        if (damage == 0)
         {
-            totalPercentageText.text = "0%";
+            damagePercentageText.text = "0%";
         }        
         else
         {
-            float percentage = ((float)totalDamage / (float)total * 100);
+            float percentage = ((float)damage / (float)totalDamage * 100);
 
-            totalPercentageText.text = GeneralUtilities.RoundFloat(percentage).ToString() + "%";
+            damagePercentageText.text = GeneralUtilities.RoundFloat(percentage).ToString() + "%";
+        }
+
+        if (healing == 0)
+        {
+            healingPercentageText.text = "0%";
+        }
+        else
+        {
+            float percentage = ((float)healing / (float)totalHealing * 100);
+
+            healingPercentageText.text = GeneralUtilities.RoundFloat(percentage).ToString() + "%";
         }
     }
 }

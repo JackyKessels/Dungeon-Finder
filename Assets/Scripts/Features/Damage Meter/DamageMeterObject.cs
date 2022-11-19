@@ -12,9 +12,11 @@ public class DamageMeterObject : MonoBehaviour
     public GameObject recordsContainer;
     public GameObject recordPrefab;
     public TextMeshProUGUI heroName;
-    public TextMeshProUGUI totalDamageNumber;
+    public TextMeshProUGUI totalDamageText;
+    public TextMeshProUGUI totalHealingText;
 
     private int totalDamage = 0;
+    private int totalHealing = 0;
 
     private List<DamageMeterRecord> damageMeterRecords;
 
@@ -66,26 +68,29 @@ public class DamageMeterObject : MonoBehaviour
     public void UpdateTotal()
     {
         totalDamage = 0;
+        totalHealing = 0;
 
         foreach (DamageMeterRecord record in damageMeterRecords)
         {
-            totalDamage += record.totalDamage;
+            totalDamage += record.damage;
+            totalHealing += record.healing;
         }
 
-        totalDamageNumber.text = totalDamage.ToString();
+        totalDamageText.text = "Damage: " + totalDamage.ToString();
+        totalHealingText.text = "Healing: " + totalHealing.ToString();
     }
 
     public void UpdatePercentages()
     {
         foreach (DamageMeterRecord record in damageMeterRecords)
         {
-            record.UpdatePercentage(totalDamage);
+            record.UpdatePercentage(totalDamage, totalHealing);
         }
     }
 
     public void SortRecords()
     {
-        damageMeterRecords.Sort((a, b) => a.totalDamage.CompareTo(b.totalDamage));
+        damageMeterRecords.Sort((a, b) => a.damage.CompareTo(b.damage));
         damageMeterRecords.Reverse();
 
         for (int i = 0; i < damageMeterRecords.Count; i++)
