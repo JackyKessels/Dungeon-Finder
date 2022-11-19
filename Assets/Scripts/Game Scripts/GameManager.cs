@@ -248,6 +248,8 @@ public class GameManager : MonoBehaviour
         SetupTeamSelection();
         CreateTeam();
 
+        DamageMeterManager.Instance.InitializeDamageMeters();
+
         //// Create 3 Heroes
         //teamManager.CreateHero(0, 0);
         //teamManager.CreateHero(1, 1);

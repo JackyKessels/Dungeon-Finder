@@ -21,7 +21,7 @@ public class EffectManager : MonoBehaviour
         unit = GetComponent<Unit>();
     }
 
-    public static void ApplyEffects(Unit caster, Unit target, List<EffectObject> list, int level)
+    public static void ApplyEffects(Unit caster, Unit target, List<EffectObject> list, int level, AbilityObject sourceAbility)
     {
         if (list.Count <= 0)
             return;
@@ -30,15 +30,15 @@ public class EffectManager : MonoBehaviour
         {
             if (!target.statsManager.isDead)
             {
-                ApplyEffect(e, caster, target, level);
+                ApplyEffect(e, caster, target, level, sourceAbility);
             }
         }
     }
 
-    public static void ApplyEffect(EffectObject effectObject, Unit caster, Unit target, int level)
+    public static void ApplyEffect(EffectObject effectObject, Unit caster, Unit target, int level, AbilityObject sourceAbility)
     {
         Effect effect = new Effect();
-        effect.Setup(effectObject, caster, target, level);
+        effect.Setup(effectObject, caster, target, level, sourceAbility);
         target.effectManager.OnApplication(effect);
     }
 
@@ -65,7 +65,7 @@ public class EffectManager : MonoBehaviour
         if (!hasEffect)
         {
             Effect effect = new Effect();
-            effect.Setup(effectObject, caster, caster, level);
+            effect.Setup(effectObject, caster, caster, level, null);
             preBattleEffects.Add(effect);
         }
     }
@@ -98,7 +98,7 @@ public class EffectManager : MonoBehaviour
 
             if (meetCondition)
             {
-                ApplyEffect(trigger.conditionalEffect, effect.caster, GetConditionalTarget(effect, trigger.effectTarget), effect.level);
+                ApplyEffect(trigger.conditionalEffect, effect.caster, GetConditionalTarget(effect, trigger.effectTarget), effect.level, effect.sourceAbility);
 
                 if (trigger.consumeEffect)
                 {
@@ -124,7 +124,7 @@ public class EffectManager : MonoBehaviour
 
             if (meetCondition)
             {
-                ApplyEffect(trigger.conditionalEffect, effect.caster, GetConditionalTarget(effect, trigger.effectTarget), effect.level);
+                ApplyEffect(trigger.conditionalEffect, effect.caster, GetConditionalTarget(effect, trigger.effectTarget), effect.level, effect.sourceAbility);
 
                 if (trigger.consumeEffect)
                 {
@@ -313,7 +313,7 @@ public class EffectManager : MonoBehaviour
     {
         if (timedAction.actionTargets == TimedActionTargets.Single)
         {
-            timedAction.abilitySource.TriggerSource(e.caster, e.target, timedAction.storedValue, timedAction.triggersPassives);
+            timedAction.abilitySource.TriggerSource(e.sourceAbility, e.caster, e.target, timedAction.storedValue, timedAction.triggersPassives);
 
             CreateSpecialEffect(e.target, timedAction.specialEffects);
         }
@@ -323,7 +323,7 @@ public class EffectManager : MonoBehaviour
 
             foreach (Unit unit in team.LivingMembers)
             {
-                timedAction.abilitySource.TriggerSource(e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.sourceAbility, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(unit, timedAction.specialEffects);
             }
@@ -334,7 +334,7 @@ public class EffectManager : MonoBehaviour
 
             foreach (Unit unit in AbilityUtilities.GetAdjacentUnits(e.target))
             {
-                timedAction.abilitySource.TriggerSource(e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.sourceAbility, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(unit, timedAction.specialEffects);
             }
@@ -347,7 +347,7 @@ public class EffectManager : MonoBehaviour
             {
                 Unit target = AbilityUtilities.GetRandomUnit(team);
 
-                timedAction.abilitySource.TriggerSource(e.caster, target, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.sourceAbility, e.caster, target, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(target, timedAction.specialEffects);
             }
@@ -358,7 +358,7 @@ public class EffectManager : MonoBehaviour
 
             foreach (Unit unit in team.LivingMembers)
             {
-                timedAction.abilitySource.TriggerSource(e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.sourceAbility, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(unit, timedAction.specialEffects);
             }
@@ -371,7 +371,7 @@ public class EffectManager : MonoBehaviour
             {
                 Unit target = AbilityUtilities.GetRandomUnit(team);
 
-                timedAction.abilitySource.TriggerSource(e.caster, target, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.sourceAbility, e.caster, target, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(target, timedAction.specialEffects);
             }
@@ -510,7 +510,7 @@ public class EffectManager : MonoBehaviour
         else if (e.data is EffectCrowdControl cc)
         {
             if (cc.addTauntImmune)
-                ApplyEffect(GameAssets.i.tauntImmune, unit, unit, 1);
+                ApplyEffect(GameAssets.i.tauntImmune, unit, unit, 1, e.sourceAbility);
         }
     }
 

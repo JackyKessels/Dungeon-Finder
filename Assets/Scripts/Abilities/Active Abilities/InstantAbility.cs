@@ -18,7 +18,7 @@ public class InstantAbility : ActiveAbility
         {
             float abilityMultiplier = 1 + caster.effectManager.ApplyMultipliers(this, unit);
 
-            AbilityActions(caster, target, level, selfEffectBool, 1, abilityMultiplier);
+            AbilityActions(caster, unit, level, selfEffectBool, 1, abilityMultiplier);
         }
 
         // Do self effects after the actions

@@ -42,7 +42,7 @@ public class TargetAbility : ActiveAbility
             {
                 abilityMultiplier = 1 + caster.effectManager.ApplyMultipliers(this, unit);
 
-                AbilityActions(caster, target, level, selfEffectBool, adjacentModifier, abilityMultiplier);
+                AbilityActions(caster, unit, level, selfEffectBool, adjacentModifier, abilityMultiplier);
             }
         }
 

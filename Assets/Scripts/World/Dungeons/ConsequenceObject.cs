@@ -24,7 +24,7 @@ public class ConsequenceObject : MonoBehaviour
         {
             TooltipObject tooltip = firstImage.gameObject.AddComponent<TooltipObject>();
             Effect effect = new Effect();
-            effect.Setup(consequenceStructure.effect, TeamManager.Instance.heroes.LivingMembers[0], TeamManager.Instance.heroes.LivingMembers[0], 1);
+            effect.Setup(consequenceStructure.effect, TeamManager.Instance.heroes.LivingMembers[0], TeamManager.Instance.heroes.LivingMembers[0], 1, null);
             tooltip.effect = effect;
             tooltip.state = CurrentState.Values;
         }

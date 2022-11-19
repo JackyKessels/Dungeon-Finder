@@ -7,7 +7,7 @@ public class Effect
 {
     public EffectObject data;
 
-    public Active parentAbility;
+    public AbilityObject sourceAbility;
 
     public string name;
     public int level;
@@ -22,15 +22,16 @@ public class Effect
 
     public Sprite IconOverride { get; set; }
 
-    public void Setup(EffectObject d, Unit c, Unit t, int l)
+    public void Setup(EffectObject _data, Unit _caster, Unit _target, int _level, AbilityObject _sourceAbility)
     {
-        data = d;
+        data = _data;
         name = data.name;
-        level = l;
+        level = _level;
         duration = data.duration;
         procType = data.procType;
-        caster = c;
-        target = t;
+        caster = _caster;
+        target = _target;
+        sourceAbility = _sourceAbility;
 
         if (data is EffectOverTime timed)
         {

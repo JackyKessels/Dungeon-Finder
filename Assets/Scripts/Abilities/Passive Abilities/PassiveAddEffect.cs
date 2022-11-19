@@ -94,7 +94,7 @@ public class PassiveAddEffect : PassiveAbility
     {
         foreach (EffectObject effectObject in effects)
         {
-            EffectManager.ApplyEffect(effectObject, caster, target, 1);
+            EffectManager.ApplyEffect(effectObject, caster, target, 1, this);
         }
     }
 

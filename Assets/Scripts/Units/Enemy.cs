@@ -81,14 +81,14 @@ public class Enemy : Unit
             chargeTarget = GetTarget(t);
 
             Effect effect = new Effect();
-            effect.Setup(GameAssets.i.chargeTargetEffect, this, TeamManager.Instance.heroes.GetUnit(chargeTarget), 1);
+            effect.Setup(GameAssets.i.chargeTargetEffect, this, TeamManager.Instance.heroes.GetUnit(chargeTarget), 1, active.activeAbility);
             effect.IconOverride = active.activeAbility.icon;
             effect.target.effectManager.OnApplication(effect);
         }
         else
         {
             Effect effect = new Effect();
-            effect.Setup(GameAssets.i.chargeInstantEffect, this, this, 1);
+            effect.Setup(GameAssets.i.chargeInstantEffect, this, this, 1, active.activeAbility);
             effect.IconOverride = active.activeAbility.icon;
             effect.target.effectManager.OnApplication(effect);
         }

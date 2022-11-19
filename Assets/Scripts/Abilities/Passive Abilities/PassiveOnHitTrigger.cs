@@ -78,11 +78,11 @@ public class PassiveOnHitTrigger : PassiveAbility
             {
                 if (targetTrigger == TargetTrigger.Attacked)
                 {
-                    abilitySources[i].TriggerSource(attacked, attacked, attacked.spellbook.GetPassiveLevel(this), 1, triggersPassives, 1, abilityType);
+                    abilitySources[i].TriggerSource(this, attacked, attacked, attacked.spellbook.GetPassiveLevel(this), 1, triggersPassives, 1, abilityType);
                 }
                 else if (targetTrigger == TargetTrigger.Attacker)
                 {
-                    abilitySources[i].TriggerSource(attacked, attacker, attacked.spellbook.GetPassiveLevel(this), 1, triggersPassives, 1, abilityType);
+                    abilitySources[i].TriggerSource(this, attacked, attacker, attacked.spellbook.GetPassiveLevel(this), 1, triggersPassives, 1, abilityType);
                 }
             }
         }
@@ -95,8 +95,8 @@ public class PassiveOnHitTrigger : PassiveAbility
             }
         }
 
-        EffectManager.ApplyEffects(attacked, attacked, selfEffects, 1);
-        EffectManager.ApplyEffects(attacked, attacker, targetEffects, 1);
+        EffectManager.ApplyEffects(attacked, attacked, selfEffects, 1, this);
+        EffectManager.ApplyEffects(attacked, attacker, targetEffects, 1, this);
 
         ObjectUtilities.CreateSpecialEffects(casterSpecialEffects, attacked);
         ObjectUtilities.CreateSpecialEffects(targetSpecialEffects, attacker);
@@ -117,11 +117,11 @@ public class PassiveOnHitTrigger : PassiveAbility
             {
                 if (targetTrigger == TargetTrigger.Attacked)
                 {
-                    abilitySources[i].TriggerSource(attacker, attacked, attacker.spellbook.GetPassiveLevel(this), 1, triggersPassives, 1, abilityType);
+                    abilitySources[i].TriggerSource(this, attacker, attacked, attacker.spellbook.GetPassiveLevel(this), 1, triggersPassives, 1, abilityType);
                 }
                 else if (targetTrigger == TargetTrigger.Attacker)
                 {
-                    abilitySources[i].TriggerSource(attacker, attacker, attacker.spellbook.GetPassiveLevel(this), 1, triggersPassives, 1, abilityType);
+                    abilitySources[i].TriggerSource(this, attacker, attacker, attacker.spellbook.GetPassiveLevel(this), 1, triggersPassives, 1, abilityType);
                 }
             }
         }
@@ -134,8 +134,8 @@ public class PassiveOnHitTrigger : PassiveAbility
             }
         }
 
-        EffectManager.ApplyEffects(attacker, attacker, selfEffects, 1);
-        EffectManager.ApplyEffects(attacker, attacked, targetEffects, 1);
+        EffectManager.ApplyEffects(attacker, attacker, selfEffects, 1, this);
+        EffectManager.ApplyEffects(attacker, attacked, targetEffects, 1, this);
 
         ObjectUtilities.CreateSpecialEffects(casterSpecialEffects, attacker);
         ObjectUtilities.CreateSpecialEffects(targetSpecialEffects, attacked);

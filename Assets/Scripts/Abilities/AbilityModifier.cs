@@ -141,7 +141,7 @@ public class AbilityModifier
             }
             else if (modification == AbilityModification.BonusAbilitySource)
             {
-                bonusAbilitySource.GetAbilitySource().TriggerSource(_value.caster, _value.target, level, 1, true, 1, AbilityType.Passive); 
+                bonusAbilitySource.GetAbilitySource().TriggerSource(_value.sourceAbility, _value.caster, _value.target, level, 1, true, 1, AbilityType.Passive); 
             }
             else if (modification == AbilityModification.ConditionalEffect)
             {
@@ -150,7 +150,7 @@ public class AbilityModifier
 
                 Unit target = effectOnTarget ? _value.target : _value.caster;
 
-                EffectManager.ApplyEffect(conditionalEffect, _value.caster, target, level);
+                EffectManager.ApplyEffect(conditionalEffect, _value.caster, target, level, _value.sourceAbility);
             }
         }
         else
