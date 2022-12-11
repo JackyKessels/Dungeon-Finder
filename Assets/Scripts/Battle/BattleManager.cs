@@ -184,9 +184,6 @@ public class BattleManager : MonoBehaviour, IUserInterface
         // Setup both teams
         TeamManager.Instance.SetupBattle(unitObjects);
 
-        // Initialize Damage Meter
-        DamageMeterManager.Instance.ClearDamageMeters();
-
         // Go to correct camera and interface
         gameManager.cameraScript.GoToCamera(cameraObject, false);
         EnableUI(true);
@@ -204,6 +201,9 @@ public class BattleManager : MonoBehaviour, IUserInterface
         state = BattleState.START;
 
         round = 1;
+
+        // Initialize Damage Meter
+        DamageMeterManager.Instance.ClearDamageMeters();
 
         teamManager.ApplyPreBattleEffects();
         teamManager.TriggerRoundStartPassives();

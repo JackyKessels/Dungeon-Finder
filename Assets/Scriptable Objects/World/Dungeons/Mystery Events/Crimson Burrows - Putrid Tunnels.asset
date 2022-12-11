@@ -26,6 +26,7 @@ MonoBehaviour:
         ignoreMultipliers: 1
         cannotCrit: 0
         cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 1
         attributeType: 0
         baseValue: 20
@@ -46,6 +47,9 @@ MonoBehaviour:
           percentageIncrease: 0
           bonusAbilitySource:
             ignoreMultipliers: 0
+            cannotCrit: 0
+            cannotMiss: 0
+            ignorePassive: {fileID: 0}
             school: 0
             attributeType: 0
             baseValue: 0
@@ -71,6 +75,7 @@ MonoBehaviour:
         ignoreMultipliers: 1
         cannotCrit: 0
         cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 1
         attributeType: 0
         baseValue: 20
@@ -91,6 +96,57 @@ MonoBehaviour:
           percentageIncrease: 0
           bonusAbilitySource:
             ignoreMultipliers: 0
+            cannotCrit: 0
+            cannotMiss: 0
+            ignorePassive: {fileID: 0}
+            school: 0
+            attributeType: 0
+            baseValue: 0
+            levelBase: 0
+            scaling: 0
+            levelScaling: 0
+            reductionType: 0
+          effectOnTarget: 0
+          conditionalEffect: {fileID: 0}
+      effectTargets: 0
+      effect: {fileID: 0}
+  - eventWeight: 10000
+    flavorText: Your party falls into a sink hole. Who knows where you will end up?
+    actions:
+    - type: 5
+      currencyAmount: 0
+      currencyType: 1
+      experienceAmount: 0
+      itemObject: {fileID: 11400000, guid: 208b6673db131fb44ae31518e7c4444e, type: 2}
+      sourceTargets: 1
+      abilitySource:
+        ignoreMultipliers: 1
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
+        school: 1
+        attributeType: 0
+        baseValue: 20
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 1
+        modifier:
+          hasModifier: 0
+          modification: 0
+          condition: 0
+          thresholdType: 0
+          conditionThreshold: 0
+          increasedAttribute: 0
+          increaseValue: 0
+          casterBased: 0
+          attributeBase: 0
+          percentageIncrease: 0
+          bonusAbilitySource:
+            ignoreMultipliers: 0
+            cannotCrit: 0
+            cannotMiss: 0
+            ignorePassive: {fileID: 0}
             school: 0
             attributeType: 0
             baseValue: 0

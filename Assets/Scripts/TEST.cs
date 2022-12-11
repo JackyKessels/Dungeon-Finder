@@ -162,6 +162,14 @@ public class TEST : MonoBehaviour
         testSpec.Setup(heroPathObject);
     }
 
+    public void PowerOverwhelming()
+    {
+        foreach (Unit unit in TeamManager.Instance.heroes.Members)
+        {
+            unit.statsManager.GetAttribute(AttributeType.Power).bonusValue += 5000;
+            unit.statsManager.GetAttribute(AttributeType.Wisdom).bonusValue += 5000;
+        }
+    }
 }
 
 

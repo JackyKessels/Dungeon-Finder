@@ -139,13 +139,13 @@ public class AbilitySource
     }
 
     // Does all the functionality
-    public void TriggerSource(AbilityObject sourceAbility, Unit caster, Unit target, int level, float adjacentModifier, bool isUnitTrigger, float abilityMultiplier, AbilityType abilityType)
+    public void TriggerSource(AbilityObject sourceAbility, bool isEffect, Unit caster, Unit target, int level, float adjacentModifier, bool isUnitTrigger, float abilityMultiplier, AbilityType abilityType)
     {
         Color color = GeneralUtilities.ConvertString2Color(ColorDatabase.SchoolColor(school));
 
         float value = CalculateValue(caster, level, adjacentModifier, abilityMultiplier);
 
-        AbilityValue abilityValue = new AbilityValue(sourceAbility, value, school, abilityType, cannotCrit, cannotMiss, caster, target, color, isUnitTrigger, ignorePassive);
+        AbilityValue abilityValue = new AbilityValue(sourceAbility, isEffect, value, school, abilityType, cannotCrit, cannotMiss, caster, target, color, isUnitTrigger, ignorePassive);
 
         if (school == AbilitySchool.Healing)
         {
@@ -163,11 +163,11 @@ public class AbilitySource
     }
 
     // Uses stored value for effects
-    public void TriggerSource(AbilityObject sourceAbility, Unit caster, Unit target, float value, bool isUnitTrigger)
+    public void TriggerSource(AbilityObject sourceAbility, bool isEffect, Unit caster, Unit target, float value, bool isUnitTrigger)
     {
         Color color = GeneralUtilities.ConvertString2Color(ColorDatabase.SchoolColor(school));
 
-        AbilityValue abilityValue = new AbilityValue(sourceAbility, value, school, AbilityType.Assault, cannotCrit, cannotMiss, caster, target, color, isUnitTrigger, ignorePassive);
+        AbilityValue abilityValue = new AbilityValue(sourceAbility, isEffect, value, school, AbilityType.Assault, cannotCrit, cannotMiss, caster, target, color, isUnitTrigger, ignorePassive);
 
         if (school == AbilitySchool.Healing)
         {
@@ -238,6 +238,7 @@ public class AbilitySource
 public class AbilityValue
 {
     public AbilityObject sourceAbility;
+    public bool isEffect = false;
 
     public float value;
     public AbilitySchool school;
@@ -261,9 +262,10 @@ public class AbilityValue
 
     public Color color;
 
-    public AbilityValue(AbilityObject _sourceAbility, float _value, AbilitySchool _school, AbilityType _abilityType, bool _cannotCrit, bool _cannotMiss, Unit _caster, Unit _target, Color _color, bool _isUnitTrigger, PassiveAbility _ignorePassive)
+    public AbilityValue(AbilityObject _sourceAbility, bool _isEffect, float _value, AbilitySchool _school, AbilityType _abilityType, bool _cannotCrit, bool _cannotMiss, Unit _caster, Unit _target, Color _color, bool _isUnitTrigger, PassiveAbility _ignorePassive)
     {
         sourceAbility = _sourceAbility;
+        isEffect = _isEffect;
 
         value = _value;// GetVarianceValue(_value);
         school = _school;

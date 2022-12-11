@@ -75,7 +75,7 @@ public class GridHandler : MonoBehaviour
         Debug.Log("Generated " + dungeon.name + ", floor: " + floor);
 
         // Lock first locations
-        startLocation.VisitedLocation();
+        startLocation.SetVisited();
 
         // Setup for array and fill the map with prefabs
         CreateGrid(dungeon.floors[floor].addOffset);
@@ -151,6 +151,25 @@ public class GridHandler : MonoBehaviour
     public float GetWidthIncrease()
     {
         return backgroundWidthIncrease;
+    }
+
+    public Location GetRandomFloorLocation(bool excludeBoss)
+    {
+        int counter = 0;
+        Location randomLocation = null;
+
+        int bossColumn = excludeBoss ? 1 : 0;
+
+        while(randomLocation == null || counter < 1000)
+        {
+            int row = Random.Range(0, rows);
+            int column = Random.Range(0, columns - bossColumn);
+
+            randomLocation = locations[column, row];
+            counter++;
+        }
+
+        return randomLocation;
     }
 
     private List<Location> GetBattles(bool includeFirstColumn)
@@ -266,6 +285,72 @@ public class GridHandler : MonoBehaviour
         }
     }
 
+    public bool IsReachable(Location currentLocation, Location targetLocation)
+    {
+        if (targetLocation == null)
+            return false;
+
+        if (currentLocation == targetLocation)
+            return true;
+
+        if (targetLocation.x < currentLocation.x)
+            return false;
+
+        if (targetLocation.x == currentLocation.x && targetLocation.y != currentLocation.y)
+            return false;
+
+        return false;
+    }
+
+    public void RefreshLocations(Location currentLocation)
+    {
+        foreach (Location location in locations)
+        {
+            if (location != null)
+                location.LockLocation(true);
+        }
+
+        foreach (Location location in GetAllReachableLocations(currentLocation, new List<Location>()))
+        {
+            location.LockLocation(false);
+        }
+    }
+
+    private List<Location> GetAllReachableLocations(Location targetLocation, List<Location> reachableLocations)
+    {
+        List<Location> rightConnections = targetLocation.GetRightConnectedLocations();
+
+        if (rightConnections.Count > 0)
+        {
+            if (!LocationInList(targetLocation, reachableLocations))
+                reachableLocations.Add(targetLocation);
+
+            foreach (Location location in rightConnections)
+            {
+                if (!LocationInList(location, reachableLocations))
+                    reachableLocations.Add(location);
+
+                GetAllReachableLocations(location, reachableLocations);
+            }
+        }
+
+        return reachableLocations;
+    }
+
+    private bool LocationInList(Location location, List<Location> targetList)
+    {
+        if (targetList.Count == 0 || location == null)
+            return false;
+
+        for (int i = 0; i < targetList.Count; i++)
+        {
+            if (location.x == targetList[i].x && location.y == targetList[i].y)
+                return true;
+        }
+
+        return false;
+    }
+
     public void LockUnreachableLocations(Location currentLocation)
     {
         // Return if at the last column
@@ -292,7 +377,25 @@ public class GridHandler : MonoBehaviour
             LockConnectedLocations(lockedLocations[i]);
         }
 
-        currentLocation.VisitedLocation();
+        currentLocation.SetVisited();
+    }
+
+    public void LockBehind(Location currentLocation)
+    {
+        // Return if first column
+        if (currentLocation.x == 0)
+            return;
+
+        for (int x = 0; x < currentLocation.x; x++)
+        {
+            for (int y = 0; y < columns; y++)
+            {
+                if (locations[x, y] != null && !locations[x, y].locked)
+                {
+                    locations[x, y].LockLocation(true);
+                }
+            }
+        }
     }
 
     private void LockConnectedLocations(Location _location)

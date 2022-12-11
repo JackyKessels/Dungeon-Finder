@@ -20,7 +20,7 @@ public enum LocationType
 public class Location : MonoBehaviour, IDescribable
 {
     private GameManager gameManager;
-    private DungeonManager runManager;
+    private DungeonManager dungeonManager;
     private EventManager eventManager;
     private TooltipHandler tooltipHandler;
     private Pathfinder pathfinder;
@@ -63,7 +63,7 @@ public class Location : MonoBehaviour, IDescribable
     private void Start()
     {
         gameManager = GameManager.Instance;
-        runManager = DungeonManager.Instance;
+        dungeonManager = DungeonManager.Instance;
         eventManager = EventManager.Instance;
         tooltipHandler = TooltipHandler.Instance;
         pathfinder = new Pathfinder();
@@ -123,7 +123,7 @@ public class Location : MonoBehaviour, IDescribable
 
     public void StartEvent(Dungeon dungeon, int floor)
     {
-        runManager.locationInformationObject.SetActive(false);
+        dungeonManager.locationInformationObject.SetActive(false);
 
         switch (locationType)
         {
@@ -179,14 +179,14 @@ public class Location : MonoBehaviour, IDescribable
                 break;
         }
 
-        runManager.player.movementLocked = false;
+        dungeonManager.player.movementLocked = false;
     }
 
     public void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
-            PlayerController player = runManager.player.GetComponent<PlayerController>();
+            PlayerController player = dungeonManager.player.GetComponent<PlayerController>();
 
             if (connectedLocations.Contains(player.currentLocation) && !locked && !player.movementLocked)
             {
@@ -200,7 +200,7 @@ public class Location : MonoBehaviour, IDescribable
 
     public void OnMouseEnter()
     {
-        Vector3 cameraCoords = runManager.cameraObject.WorldToScreenPoint(transform.position);
+        Vector3 cameraCoords = dungeonManager.cameraObject.WorldToScreenPoint(transform.position);
 
         if (!EventSystem.current.IsPointerOverGameObject())
         {
@@ -361,7 +361,12 @@ public class Location : MonoBehaviour, IDescribable
         }
     }
 
-    public void VisitedLocation()
+    public string GetLocationString()
+    {
+        return "Location[" + x + ", " + y + "]";
+    }
+
+    public void SetVisited()
     {
         locked = true;
 

@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private GameManager gameManager;
-    private DungeonManager runManager;
+    private DungeonManager dungeonManager;
 
     [SerializeField] private float moveSpeed = 5f;
 
@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         gameManager = GameManager.Instance;
-        runManager = DungeonManager.Instance;
+        dungeonManager = DungeonManager.Instance;
 
         pathVectorList = null;
     }
@@ -50,9 +50,9 @@ public class PlayerController : MonoBehaviour
                     StopMoving();
                     isMoving = false;
 
-                    runManager.locationInformationObject.SetActive(true);
-                    runManager.SetupLocationInformation(currentLocation);
-                    runManager.gridHandler.LockUnreachableLocations(currentLocation);
+                    dungeonManager.locationInformationObject.SetActive(true);
+                    dungeonManager.SetupLocationInformation(currentLocation);
+                    dungeonManager.gridHandler.LockUnreachableLocations(currentLocation);
                 }
             }
         }

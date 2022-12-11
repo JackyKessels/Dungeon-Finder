@@ -33,6 +33,7 @@ public class PassiveOnHitTrigger : PassiveAbility
 
     public List<AbilitySchool> schoolTriggers;
     public bool triggersPassives = false;
+    public bool triggeredByEffects = true;
 
     [Space(10)]
     [Range(0, 100)] public int procChance;
@@ -78,11 +79,11 @@ public class PassiveOnHitTrigger : PassiveAbility
             {
                 if (targetTrigger == TargetTrigger.Attacked)
                 {
-                    abilitySources[i].TriggerSource(this, attacked, attacked, attacked.spellbook.GetPassiveLevel(this), 1, triggersPassives, 1, abilityType);
+                    abilitySources[i].TriggerSource(this, false, attacked, attacked, attacked.spellbook.GetPassiveLevel(this), 1, triggersPassives, 1, abilityType);
                 }
                 else if (targetTrigger == TargetTrigger.Attacker)
                 {
-                    abilitySources[i].TriggerSource(this, attacked, attacker, attacked.spellbook.GetPassiveLevel(this), 1, triggersPassives, 1, abilityType);
+                    abilitySources[i].TriggerSource(this, false, attacked, attacker, attacked.spellbook.GetPassiveLevel(this), 1, triggersPassives, 1, abilityType);
                 }
             }
         }
@@ -117,11 +118,11 @@ public class PassiveOnHitTrigger : PassiveAbility
             {
                 if (targetTrigger == TargetTrigger.Attacked)
                 {
-                    abilitySources[i].TriggerSource(this, attacker, attacked, attacker.spellbook.GetPassiveLevel(this), 1, triggersPassives, 1, abilityType);
+                    abilitySources[i].TriggerSource(this, false, attacker, attacked, attacker.spellbook.GetPassiveLevel(this), 1, triggersPassives, 1, abilityType);
                 }
                 else if (targetTrigger == TargetTrigger.Attacker)
                 {
-                    abilitySources[i].TriggerSource(this, attacker, attacker, attacker.spellbook.GetPassiveLevel(this), 1, triggersPassives, 1, abilityType);
+                    abilitySources[i].TriggerSource(this, false, attacker, attacker, attacker.spellbook.GetPassiveLevel(this), 1, triggersPassives, 1, abilityType);
                 }
             }
         }
@@ -147,6 +148,9 @@ public class PassiveOnHitTrigger : PassiveAbility
             return false;
 
         if (!abilityValue.isUnitTrigger)
+            return false;
+
+        if (!triggeredByEffects && abilityValue.isEffect)
             return false;
 
         if (!IsTriggeredByHitType(abilityValue))

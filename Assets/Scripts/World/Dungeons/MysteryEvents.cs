@@ -49,6 +49,7 @@ public enum MysteryActionType
     Item,
     Source,
     Effect,
+    Relocate
 }
 
 public enum MysteryActionTarget
@@ -108,7 +109,7 @@ public class MysteryAction
                         Debug.Log("You lost " + currencyAmount + " " + Currency.GetCurrencyName(currencyType) + ".");
 
                         consequenceStructures.Add(new ConsequenceStructure("-" + currencyAmount, Currency.GetCurrencyIcon(currencyType, true), null));
-                    }                   
+                    }
                 }
                 break;
             case MysteryActionType.Experience:
@@ -164,7 +165,7 @@ public class MysteryAction
                         int current = target.statsManager.currentHealth;
                         Debug.Log(target.name + " has " + current + " health.");
 
-                        abilitySource.TriggerSource(null, target, target, 1, 1, true, 1, AbilityType.Assault);
+                        abilitySource.TriggerSource(null, false, target, target, 1, 1, true, 1, AbilityType.Assault);
 
                         Debug.Log(target.name + " takes " + abilitySource.CalculateValue(target, 1, 1, 1) + " " + abilitySource.school.ToString() + " damage.");
                     }
@@ -203,6 +204,19 @@ public class MysteryAction
                             target.effectManager.ApplyPreBattleEffect(effect, target, 1);
                         }
                     }
+                }
+                break;
+            case MysteryActionType.Relocate:
+                {
+                    DungeonManager dungeonManager = DungeonManager.Instance;
+
+                    Location randomLocation = dungeonManager.gridHandler.GetRandomFloorLocation(true);
+
+                    dungeonManager.player.SetCurrentLocation(randomLocation);
+                    dungeonManager.gridHandler.LockUnreachableLocations(randomLocation);
+                    dungeonManager.gridHandler.RefreshLocations(randomLocation);
+
+                    randomLocation.SetVisited();
                 }
                 break;
             default:

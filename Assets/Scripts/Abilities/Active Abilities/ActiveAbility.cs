@@ -69,7 +69,7 @@ public abstract class ActiveAbility : AbilityObject
             // Trigger the ability's hostile sources to do damage/heal
             foreach (AbilitySource source in enemyAbilitySources)
             {
-                source.TriggerSource(this, caster, target, level, adjacentModifier, true, abilityMultiplier, abilityType);
+                source.TriggerSource(this, false, caster, target, level, adjacentModifier, true, abilityMultiplier, abilityType);
             }
         }
         else
@@ -77,7 +77,7 @@ public abstract class ActiveAbility : AbilityObject
             // Trigger the ability's friendly sources to do damage/heal
             foreach (AbilitySource source in allyAbilitySources)
             {
-                source.TriggerSource(this, caster, target, level, adjacentModifier, true, abilityMultiplier, abilityType);
+                source.TriggerSource(this, false, caster, target, level, adjacentModifier, true, abilityMultiplier, abilityType);
             }
         }
 

@@ -313,7 +313,7 @@ public class EffectManager : MonoBehaviour
     {
         if (timedAction.actionTargets == TimedActionTargets.Single)
         {
-            timedAction.abilitySource.TriggerSource(e.sourceAbility, e.caster, e.target, timedAction.storedValue, timedAction.triggersPassives);
+            timedAction.abilitySource.TriggerSource(e.sourceAbility, true, e.caster, e.target, timedAction.storedValue, timedAction.triggersPassives);
 
             CreateSpecialEffect(e.target, timedAction.specialEffects);
         }
@@ -323,7 +323,7 @@ public class EffectManager : MonoBehaviour
 
             foreach (Unit unit in team.LivingMembers)
             {
-                timedAction.abilitySource.TriggerSource(e.sourceAbility, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.sourceAbility, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(unit, timedAction.specialEffects);
             }
@@ -334,7 +334,7 @@ public class EffectManager : MonoBehaviour
 
             foreach (Unit unit in AbilityUtilities.GetAdjacentUnits(e.target))
             {
-                timedAction.abilitySource.TriggerSource(e.sourceAbility, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.sourceAbility, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(unit, timedAction.specialEffects);
             }
@@ -347,7 +347,7 @@ public class EffectManager : MonoBehaviour
             {
                 Unit target = AbilityUtilities.GetRandomUnit(team);
 
-                timedAction.abilitySource.TriggerSource(e.sourceAbility, e.caster, target, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.sourceAbility, true, e.caster, target, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(target, timedAction.specialEffects);
             }
@@ -358,7 +358,7 @@ public class EffectManager : MonoBehaviour
 
             foreach (Unit unit in team.LivingMembers)
             {
-                timedAction.abilitySource.TriggerSource(e.sourceAbility, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.sourceAbility, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(unit, timedAction.specialEffects);
             }
@@ -371,7 +371,7 @@ public class EffectManager : MonoBehaviour
             {
                 Unit target = AbilityUtilities.GetRandomUnit(team);
 
-                timedAction.abilitySource.TriggerSource(e.sourceAbility, e.caster, target, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.sourceAbility, true, e.caster, target, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(target, timedAction.specialEffects);
             }

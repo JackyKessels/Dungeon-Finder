@@ -17,8 +17,11 @@ public enum ActivationMoment
 [CreateAssetMenu(fileName = "New Passive Ability", menuName = "Unit/Ability Object/Passive Add Effect")]
 public class PassiveAddEffect : PassiveAbility
 {
-    [Header("[ Add Effect Functionality ]")]
+    [Header("[ On Activate Events ]")]
+    public List<CastActiveAbility> castActiveAbilities;
+    [Space(10)]
     public List<EffectObject> effects;
+    [Space(10)]
     public ActivationMoment activationMoment;
     public AbilityTargets targets;
 
@@ -35,7 +38,7 @@ public class PassiveAddEffect : PassiveAbility
     public override void ActivatePassive(Unit unit)
     {
         if (activationMoment == ActivationMoment.StartBattle)
-            unit.OnStartBattle += TriggerAddEffect;
+            unit.OnStartBattle += TriggerPassiveEvent;
         else if (activationMoment == ActivationMoment.BelowHealthThreshold || activationMoment == ActivationMoment.AboveHealthThreshold)
         {
             unit.OnStartBattle += CheckHealthThreshold;
@@ -47,7 +50,7 @@ public class PassiveAddEffect : PassiveAbility
         }
         else if (activationMoment == ActivationMoment.RoundStart)
         {
-            unit.OnRoundStart += TriggerAddEffect;
+            unit.OnRoundStart += TriggerPassiveEvent;
         }
         else if (activationMoment == ActivationMoment.BelowAttributeValue || activationMoment == ActivationMoment.AboveAttributeValue)
         {
@@ -64,7 +67,7 @@ public class PassiveAddEffect : PassiveAbility
     public override void DeactivatePassive(Unit unit)
     {
         if (activationMoment == ActivationMoment.StartBattle)
-            unit.OnStartBattle -= TriggerAddEffect;
+            unit.OnStartBattle -= TriggerPassiveEvent;
         else if (activationMoment == ActivationMoment.BelowHealthThreshold || activationMoment == ActivationMoment.AboveHealthThreshold)
         {
             unit.OnStartBattle -= CheckHealthThreshold;
@@ -76,7 +79,7 @@ public class PassiveAddEffect : PassiveAbility
         }
         else if (activationMoment == ActivationMoment.RoundStart)
         {
-            unit.OnRoundStart -= TriggerAddEffect;
+            unit.OnRoundStart -= TriggerPassiveEvent;
         }
         else if (activationMoment == ActivationMoment.BelowAttributeValue || activationMoment == ActivationMoment.AboveAttributeValue)
         {
@@ -87,6 +90,17 @@ public class PassiveAddEffect : PassiveAbility
         else if (activationMoment == ActivationMoment.RoundCooldown)
         {
             unit.OnRoundStart -= CheckCurrentRound;
+        }
+    }
+
+    private void CastActiveAbility(Unit caster, Unit target)
+    {
+        if (castActiveAbilities.Count > 0)
+        {
+            for (int i = 0; i < castActiveAbilities.Count; i++)
+            {
+                castActiveAbilities[i].CastAbility(caster, target);
+            }
         }
     }
 
@@ -106,10 +120,11 @@ public class PassiveAddEffect : PassiveAbility
         }
     }
 
-    private void TriggerAddEffect(Unit caster)
+    private void TriggerPassiveEvent(Unit caster)
     {
         foreach (Unit unit in AbilityUtilities.GetAbilityTargets(targets, caster))
         {
+            CastActiveAbility(caster, unit);
             AddEffect(caster, unit);
         }
     }
@@ -132,7 +147,7 @@ public class PassiveAddEffect : PassiveAbility
     {
         Unit killed = abilityValue.target;
 
-        TriggerAddEffect(killed);
+        TriggerPassiveEvent(killed);
     }
 
     private void CheckHealthThreshold(Unit unit)
@@ -141,7 +156,7 @@ public class PassiveAddEffect : PassiveAbility
         {
             if (unit.statsManager.GetHealthPercentage() <= (healthPercentage / 100) && !unit.effectManager.HasEffect(effects[0]))
             {
-                TriggerAddEffect(unit);
+                TriggerPassiveEvent(unit);
             }
 
             if (unit.statsManager.GetHealthPercentage() > (healthPercentage / 100) && unit.effectManager.HasEffect(effects[0]))
@@ -153,7 +168,7 @@ public class PassiveAddEffect : PassiveAbility
         {
             if (unit.statsManager.GetHealthPercentage() >= (healthPercentage / 100) && !unit.effectManager.HasEffect(effects[0]))
             {
-                TriggerAddEffect(unit);
+                TriggerPassiveEvent(unit);
             }
 
             if (unit.statsManager.GetHealthPercentage() < (healthPercentage / 100) && unit.effectManager.HasEffect(effects[0]))
@@ -169,7 +184,7 @@ public class PassiveAddEffect : PassiveAbility
         {
             if (unit.statsManager.GetAttributeValue(attributeType) <= attributeValue && !unit.effectManager.HasEffect(effects[0]))
             {
-                TriggerAddEffect(unit);
+                TriggerPassiveEvent(unit);
             }
             else if (unit.statsManager.GetAttributeValue(attributeType) > attributeValue && unit.effectManager.HasEffect(effects[0]))
             {
@@ -180,7 +195,7 @@ public class PassiveAddEffect : PassiveAbility
         {
             if (unit.statsManager.GetAttributeValue(attributeType) >= attributeValue && !unit.effectManager.HasEffect(effects[0]))
             {
-                TriggerAddEffect(unit);
+                TriggerPassiveEvent(unit);
             }
             else if (unit.statsManager.GetAttributeValue(attributeType) < attributeValue && unit.effectManager.HasEffect(effects[0]))
             {
@@ -195,7 +210,7 @@ public class PassiveAddEffect : PassiveAbility
         {
             if (BattleManager.Instance.round % (cooldown + 1) == 0)
             {
-                TriggerAddEffect(unit);
+                TriggerPassiveEvent(unit);
             }
         }
     }
@@ -205,6 +220,11 @@ public class PassiveAddEffect : PassiveAbility
         string temp = base.ParseDescription(s, tooltipInfo);
 
         temp = AbilityTooltipHandler.ParseAllEffectTooltips(temp, tooltipInfo, effects, new List<EffectObject>());
+
+        for (int i = 0; i < castActiveAbilities.Count; i++)
+        {
+            temp = AbilityTooltipHandler.ParseCastAbility(temp, string.Format("<castInfo{0}>", i + 1), string.Format("<castTooltip{0}>", i + 1), tooltipInfo, castActiveAbilities[i].activeAbility);
+        }
 
         temp = AbilityTooltipHandler.InsertRed(temp);
 
