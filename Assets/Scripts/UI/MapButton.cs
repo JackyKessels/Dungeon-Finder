@@ -11,7 +11,7 @@ public class MapButton : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (KeyboardHandler.OpenMap())
         {
             ActivateButton();
         }

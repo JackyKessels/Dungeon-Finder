@@ -185,45 +185,43 @@ public static class GeneralUtilities
     {
         if (isHeroAbility)
         {
-            if (index == 0 && Input.GetKeyDown(KeyCode.Q))
+            if (index == 0 && KeyboardHandler.CastAbility1())
                 return true;
-            else if (index == 1 && Input.GetKeyDown(KeyCode.W))
+            else if (index == 1 && KeyboardHandler.CastAbility2())
                 return true;
-            else if (index == 2 && Input.GetKeyDown(KeyCode.E))
+            else if (index == 2 && KeyboardHandler.CastAbility3())
                 return true;
-            else if (index == 3 && Input.GetKeyDown(KeyCode.R))
-                return true;
-            else if (index == 4 && Input.GetKeyDown(KeyCode.F))
+            else if (index == 3 && KeyboardHandler.CastAbility4())
                 return true;
             else
                 return false;
         }
         else
         {
-            if (index == 0 && Input.GetKeyDown(KeyCode.Alpha1))
+            if (index == 0 && KeyboardHandler.UseItem1())
                 return true;
-            if (index == 1 && Input.GetKeyDown(KeyCode.Alpha2))
+            if (index == 1 && KeyboardHandler.UseItem2())
                 return true;
-            if (index == 2 && Input.GetKeyDown(KeyCode.Alpha3))
+            if (index == 2 && KeyboardHandler.UseItem3())
                 return true;
-            if (index == 3 && Input.GetKeyDown(KeyCode.Alpha4))
+            if (index == 3 && KeyboardHandler.UseItem4())
                 return true;
-            if (index == 4 && Input.GetKeyDown(KeyCode.Alpha5))
+            if (index == 4 && KeyboardHandler.UseItem5())
                 return true;
-            if (index == 5 && Input.GetKeyDown(KeyCode.Alpha6))
+            if (index == 5 && KeyboardHandler.UseItem6())
                 return true;
-            if (index == 6 && Input.GetKeyDown(KeyCode.Alpha7))
+            if (index == 6 && KeyboardHandler.UseItem7())
                 return true;
-            if (index == 7 && Input.GetKeyDown(KeyCode.Alpha8))
+            if (index == 7 && KeyboardHandler.UseItem8())
                 return true;
         }
 
         return false;
     }
 
-    public static int RoundFloat(float value)
+    public static int RoundFloat(float value, int decimals)
     {
-        return (int)System.Math.Round(value, System.MidpointRounding.AwayFromZero);
+        return (int)System.Math.Round(value, decimals, System.MidpointRounding.AwayFromZero);
     }
 
     public static Color ConvertString2Color(string s)

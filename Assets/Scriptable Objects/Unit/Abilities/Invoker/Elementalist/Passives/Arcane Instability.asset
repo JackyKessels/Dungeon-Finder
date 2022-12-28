@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 15
   name: Arcane Instability
   quality: 0
-  type: 3
+  abilityType: 3
   description: Dealing <A> damage has a <%> chance to deal an additional <1> <A>
     damage.
   icon: {fileID: 21300000, guid: e4d89f893f71c0a4eae5284dfd0d2e5f, type: 3}
@@ -32,11 +32,13 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 05000000
   triggersPassives: 1
+  triggeredByEffects: 1
   procChance: 25
   abilitySources:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 5
     attributeType: 2
     baseValue: 0
@@ -57,6 +59,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -66,6 +71,7 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
   m_Name: Gushing Wound
   m_EditorClassIdentifier: 
-  id: -1
+  id: 82
   name: Gushing Wound
   quality: 0
-  type: 3
+  abilityType: 3
   description: 'Your <P> attacks reduce the target''s <vitality> by <t1modV> for
     <t1d> Rounds.
 
@@ -35,8 +35,10 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 01000000
   triggersPassives: 0
+  triggeredByEffects: 1
   procChance: 100
   abilitySources: []
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects:

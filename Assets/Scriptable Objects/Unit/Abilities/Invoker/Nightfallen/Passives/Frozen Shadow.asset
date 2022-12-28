@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
   m_Name: Frozen Shadow
   m_EditorClassIdentifier: 
-  id: -1
+  id: 32
   name: Frozen Shadow
   quality: 0
-  type: 3
+  abilityType: 3
   description: Dealing <S> damage increases your <icemultiplier> by <s1modV>% for
     <s1d> Rounds.
   icon: {fileID: 21300000, guid: 21140133a7334ba46827c9989027f587, type: 3}
@@ -33,8 +33,10 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 07000000
   triggersPassives: 0
+  triggeredByEffects: 1
   procChance: 100
   abilitySources: []
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects:
   - {fileID: 11400000, guid: 2d58535aafa763740b94840fd62369b4, type: 2}

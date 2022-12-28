@@ -9,14 +9,14 @@ public class Attribute
     public AttributeType attributeType;
     public int baseValue;
     public int bonusValue;
-    public float mulitplier;
+    public float multiplier;
 
     public Attribute(AttributeType type)
     {
         attributeType = type;
         baseValue = 0;
         bonusValue = 0;
-        mulitplier = 1f;
+        multiplier = 1f;
     }
 
     public Attribute(AttributeType type, int value)
@@ -24,14 +24,14 @@ public class Attribute
         attributeType = type;
         baseValue = value;
         bonusValue = 0;
-        mulitplier = 1f;
+        multiplier = 1f;
 
         icon = GeneralUtilities.GetAttributeIcon(attributeType);
     }
 
     public int GetTotalValue()
     {
-        return GeneralUtilities.RoundFloat((baseValue + bonusValue) * mulitplier);
+        return GeneralUtilities.RoundFloat((baseValue + bonusValue) * multiplier, 0);
     }
 }
 

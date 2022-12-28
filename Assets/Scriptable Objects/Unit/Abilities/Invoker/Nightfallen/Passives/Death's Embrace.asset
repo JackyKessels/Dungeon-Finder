@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
   m_Name: Death's Embrace
   m_EditorClassIdentifier: 
-  id: -1
+  id: 33
   name: Death's Embrace
   quality: 0
-  type: 3
+  abilityType: 3
   description: Increase <shadowmultiplier> by <s1modV>% while under <threshold>%
     <health>.
   icon: {fileID: 21300000, guid: ba9bc9b4d38fd73409d78e166f077a66, type: 3}
@@ -25,8 +25,12 @@ MonoBehaviour:
   sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
+  castActiveAbilities: []
   effects:
   - {fileID: 11400000, guid: 3aeb4d1831400904f8ea15893df1bdbc, type: 2}
   activationMoment: 1
   targets: 0
   healthPercentage: 30
+  attributeType: 0
+  attributeValue: 0
+  cooldown: 0

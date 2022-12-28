@@ -18,8 +18,11 @@ MonoBehaviour:
   description: Holy Damage increased by <1>%.
   isBuff: 1
   procType: 1
-  duration: 5
+  duration: 2
   permanent: 0
+  stackable: 1
+  maxStacks: 10
+  refreshes: 1
   removeEffects: []
   attributeModified: 15
   isIncrease: 1
@@ -31,7 +34,7 @@ MonoBehaviour:
     ignorePassive: {fileID: 0}
     school: 0
     attributeType: 15
-    baseValue: 10
+    baseValue: 5
     levelBase: 0
     scaling: 0
     levelScaling: 0

@@ -19,8 +19,8 @@ public class UnitHUD : MonoBehaviour
     public TextMeshProUGUI armorValue;
     public TextMeshProUGUI resistanceValue;
     public TextMeshProUGUI vitalityValue;
-    public GameObject buffTracker;
-    public GameObject buffPrefab;
+    public GameObject effectsTracker;
+    public GameObject effectPrefab;
 
     public void Setup(Unit u)
     {
@@ -42,8 +42,8 @@ public class UnitHUD : MonoBehaviour
         float armorReduction = GeneralUtilities.DefensiveReductionValue_League_Tweaked(unit.statsManager.GetAttributeValue(AttributeType.Armor));
         float resistanceReduction = GeneralUtilities.DefensiveReductionValue_League_Tweaked(unit.statsManager.GetAttributeValue(AttributeType.Resistance));
 
-        armorValue.text = GeneralUtilities.RoundFloat(100 * (1 - armorReduction)).ToString() + "%";
-        resistanceValue.text = GeneralUtilities.RoundFloat(100 * (1 - resistanceReduction)).ToString() + "%";
+        armorValue.text = GeneralUtilities.RoundFloat(100 * (1 - armorReduction), 0).ToString() + "%";
+        resistanceValue.text = GeneralUtilities.RoundFloat(100 * (1 - resistanceReduction), 0).ToString() + "%";
         vitalityValue.text = unit.statsManager.GetAttributeValue(AttributeType.Vitality).ToString() + "%";
 
         UpdateHealthBarColor(u);
@@ -56,11 +56,11 @@ public class UnitHUD : MonoBehaviour
 
     public void UpdateBuffs()
     {
-        ObjectUtilities.ClearContainer(buffTracker);
+        ObjectUtilities.ClearContainer(effectsTracker);
 
         for (int i = 0; i < unit.effectManager.effectsList.Count; i++)
         {
-            if (unit.effectManager.effectsList[i].duration > 0 && !unit.effectManager.effectsList[i].data.hidden)
+            if (unit.effectManager.effectsList[i].duration > 0 && !unit.effectManager.effectsList[i].effectObject.hidden)
                 CreateBuff(i);
         }
     }
@@ -69,36 +69,10 @@ public class UnitHUD : MonoBehaviour
     {
         Effect effect = unit.effectManager.effectsList[index];
 
-        GameObject obj = ObjectUtilities.CreateSimplePrefab(buffPrefab, buffTracker);
+        GameObject obj = ObjectUtilities.CreateSimplePrefab(effectPrefab, effectsTracker);
 
-        TooltipObject info = obj.GetComponent<TooltipObject>();
-        info.effect = effect;
-        info.state = CurrentState.Battle;
-
-        Image image = obj.GetComponent<Image>();
-        image.sprite = effect.IconOverride == null ? effect.data.icon : effect.IconOverride;
-
-        TextMeshProUGUI text = obj.GetComponentInChildren<TextMeshProUGUI>();
-
-        // If it's a positive effect then color it green, otherwise color it red
-        if (effect.data.isBuff)
-        {
-            text.color = new Color(0f, 1f, 0f);
-        }
-        else
-        {
-            text.color = new Color(1f, 0f, 0f);
-        }
-
-        // Don't show duration if the effect is permanent
-        if (effect.data.permanent)
-        {
-            text.text = "";
-        }
-        else
-        {
-            text.text = effect.duration.ToString();
-        }
+        EffectGameObject effectGameObject = obj.GetComponent<EffectGameObject>();
+        effectGameObject.Setup(effect);
     }
 
     private void UpdateHealthBarColor(Unit unit)

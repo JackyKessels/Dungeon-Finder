@@ -18,18 +18,25 @@ MonoBehaviour:
   description: Wisdom increased by <1>.
   isBuff: 1
   procType: 1
-  duration: 3
+  duration: 4
   permanent: 0
+  stackable: 1
+  maxStacks: 4
+  refreshes: 1
   removeEffects: []
   attributeModified: 2
   isIncrease: 1
+  modifierType: 0
   modifierSource:
     ignoreMultipliers: 1
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 0
     attributeType: 0
     baseValue: 0
     levelBase: 0
-    scaling: 0.02
+    scaling: 0.025
     levelScaling: 0
     reductionType: 0
     modifier:
@@ -45,6 +52,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -54,4 +64,6 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+  multiplier: 0
+  multiplierPerLevel: 0
   specialEffects: []

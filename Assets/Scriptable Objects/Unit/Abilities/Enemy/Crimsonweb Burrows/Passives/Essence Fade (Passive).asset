@@ -10,22 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
-  m_Name: Hardened Carapace
+  m_Name: Essence Fade (Passive)
   m_EditorClassIdentifier: 
   id: -1
-  name: Hardened Carapace
+  name: Essence Fade
   quality: 0
-  type: 0
-  description: Immune to Stun.
-  icon: {fileID: 21300000, guid: 8836cc6da15100945b1fa598402e3acb, type: 3}
+  type: 3
+  description: 
+  icon: {fileID: 0}
   casterSpecialEffects: []
   targetSpecialEffects: []
-  hasLevels: 0
-  sellable: 0
+  hasLevels: 1
+  sellable: 1
   replacesAbility: {fileID: 0}
   isPositive: 1
   effects:
-  - {fileID: 11400000, guid: cd7e91830658cc64cb02c571c83d09c9, type: 2}
-  activationMoment: 0
-  targets: 0
+  - {fileID: 11400000, guid: 99aeb93dcecddcb458491cdbb9d60d08, type: 2}
+  activationMoment: 3
+  targets: 1
   healthPercentage: 0
+  attributeType: 0
+  attributeValue: 0

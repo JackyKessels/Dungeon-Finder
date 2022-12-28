@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -21,12 +20,12 @@ public class EffectManager : MonoBehaviour
         unit = GetComponent<Unit>();
     }
 
-    public static void ApplyEffects(Unit caster, Unit target, List<EffectObject> list, int level, AbilityObject sourceAbility)
+    public static void ApplyEffects(Unit caster, Unit target, List<EffectObject> effectsList, int level, AbilityObject sourceAbility)
     {
-        if (list.Count <= 0)
+        if (effectsList.Count <= 0)
             return;
 
-        foreach (EffectObject e in list)
+        foreach (EffectObject e in effectsList)
         {
             if (!target.statsManager.isDead)
             {
@@ -37,9 +36,21 @@ public class EffectManager : MonoBehaviour
 
     public static void ApplyEffect(EffectObject effectObject, Unit caster, Unit target, int level, AbilityObject sourceAbility)
     {
-        Effect effect = new Effect();
-        effect.Setup(effectObject, caster, target, level, sourceAbility);
-        target.effectManager.OnApplication(effect);
+        Effect sameEffect = target.effectManager.GetSameEffect(effectObject);
+        Effect applyEffect = new Effect(effectObject, 1, caster, target, level, sourceAbility);
+
+        // Target has the same effect active already and the effect to be applied is stackable
+        if (sameEffect != null && effectObject.stackable)
+        {
+            Effect stackedEffect = Effect.StackEffects(sameEffect, applyEffect);
+            target.effectManager.OnApplication(stackedEffect);
+
+            target.effectManager.OnExpiration(sameEffect);
+        }
+        else
+        {
+            target.effectManager.OnApplication(applyEffect);
+        }
     }
 
     public void ApplyPreBattleEffects()
@@ -58,17 +69,41 @@ public class EffectManager : MonoBehaviour
 
         for (int i = 0; i < preBattleEffects.Count; i++)
         {
-            if (preBattleEffects[i].data == effectObject)
+            if (preBattleEffects[i].effectObject == effectObject)
                 hasEffect = true;
         }
 
         if (!hasEffect)
         {
-            Effect effect = new Effect();
-            effect.Setup(effectObject, caster, caster, level, null);
+            Effect effect = new Effect(effectObject, 1, caster, caster, level, null);
             preBattleEffects.Add(effect);
         }
     }
+
+    public static void RemoveAuras()
+    {
+        foreach (Unit unit in TeamManager.Instance.heroes.LivingMembers)
+        {
+            unit.effectManager.RemoveAura();
+        }
+
+        foreach (Unit unit in TeamManager.Instance.enemies.LivingMembers)
+        {
+            unit.effectManager.RemoveAura();
+        }
+    }
+
+    private void RemoveAura()
+    {
+        for (int i = effectsList.Count; i-- > 0;)
+        {
+            if (effectsList[i].effectObject.aura && effectsList[i].caster.statsManager.isDead)
+            {
+                effectsList.RemoveAt(i);
+            }
+        }
+    }
+
 
     private bool NoEffects()
     {
@@ -80,7 +115,7 @@ public class EffectManager : MonoBehaviour
 
     private void TriggerConditionalEffect(Effect effect)
     {
-        EffectConditionalTrigger trigger = effect.data as EffectConditionalTrigger;
+        EffectConditionalTrigger trigger = effect.effectObject as EffectConditionalTrigger;
 
         if (trigger.conditionalEffectType == ConditionalEffectType.None)
             return;
@@ -152,11 +187,24 @@ public class EffectManager : MonoBehaviour
     {
         for (int i = effectsList.Count; i-- > 0;)
         {
-            if ((effectsList[i].data is EffectCrowdControlImmunity immunity) && (immunity.HasImmunityType(ccType)))
+            if ((effectsList[i].effectObject is EffectCrowdControlImmunity immunity) && (immunity.HasImmunityType(ccType)))
                 return true;
         }
 
         return false;
+    }
+
+    public Effect GetSameEffect(EffectObject effectObject)
+    {
+        for (int i = effectsList.Count; i-- > 0;)
+        {
+            if (effectsList[i].effectObject == effectObject)
+            {
+                return effectsList[i];
+            }
+        }
+
+        return null;
     }
 
     // Used from outside the EffectManager
@@ -164,7 +212,7 @@ public class EffectManager : MonoBehaviour
     {
         for (int i = effectsList.Count; i-- > 0;)         
         {
-            if (effectsList[i].data == removeEffect)
+            if (effectsList[i].effectObject == removeEffect)
             {
                 OnExpiration(effectsList[i]);
             }
@@ -175,7 +223,7 @@ public class EffectManager : MonoBehaviour
     {
         for (int i = effectsList.Count; i-- > 0;)
         {
-            if (effectsList[i].data is EffectChargeTarget)
+            if (effectsList[i].effectObject is EffectChargeTarget)
             {
                 OnExpiration(effectsList[i]);
             }
@@ -194,7 +242,7 @@ public class EffectManager : MonoBehaviour
 
         for (int i = modifiers.Count; i-- > 0;)
         {
-            EffectAbilityModifier modifier = modifiers[i].data as EffectAbilityModifier;
+            EffectAbilityModifier modifier = modifiers[i].effectObject as EffectAbilityModifier;
 
             if (modifier.affectedAbility == AffectedAbility.AnyAbility ||
                (modifier.affectedAbility == AffectedAbility.TypedAbility && activeAbility.abilityType == modifier.abilityType) ||
@@ -218,7 +266,7 @@ public class EffectManager : MonoBehaviour
 
         for (int i = 0; i < effectsList.Count; i++)
         {
-            if (effectsList[i].data is EffectAbilityModifier)
+            if (effectsList[i].effectObject is EffectAbilityModifier)
             {
                 list.Add(effectsList[i]);
             }
@@ -233,8 +281,8 @@ public class EffectManager : MonoBehaviour
             return null;
 
         Effect highestEffect = (from e in GetDamageTransfers()
-                                let maxPercentage = GetDamageTransfers().Max(m => (m.data as EffectDamageTransfer).percentage)
-                                where (e.data as EffectDamageTransfer).percentage == maxPercentage
+                                let maxPercentage = GetDamageTransfers().Max(m => (m.effectObject as EffectDamageTransfer).percentage)
+                                where (e.effectObject as EffectDamageTransfer).percentage == maxPercentage
                                 select e).FirstOrDefault();
 
         return highestEffect;
@@ -246,7 +294,7 @@ public class EffectManager : MonoBehaviour
 
         for (int i = 0; i < effectsList.Count; i++)
         {
-            if (effectsList[i].data is EffectDamageTransfer && !effectsList[i].caster.statsManager.isDead)
+            if (effectsList[i].effectObject is EffectDamageTransfer && !effectsList[i].caster.statsManager.isDead)
             {
                 list.Add(effectsList[i]);
             }
@@ -293,7 +341,7 @@ public class EffectManager : MonoBehaviour
 
         for (int i = 0; i < effectsList.Count; i++)
         {
-            if (effectsList[i].data is EffectCrowdControl cc && cc.type == ccType)
+            if (effectsList[i].effectObject is EffectCrowdControl cc && cc.type == ccType)
             {
                 list.Add(effectsList[i]);
             }
@@ -304,7 +352,7 @@ public class EffectManager : MonoBehaviour
 
     private bool IsTaunt(Effect effect)
     {
-        EffectCrowdControl cc = effect.data as EffectCrowdControl;
+        EffectCrowdControl cc = effect.effectObject as EffectCrowdControl;
   
         return cc.type == CrowdControlType.Taunt ? true : false;
     }
@@ -381,12 +429,12 @@ public class EffectManager : MonoBehaviour
     public void OnApplication(Effect e)
     {
         // Check if effect has any effects that it removes and do so
-        for (int i = 0; i < e.data.removeEffects.Count; i++)
+        for (int i = 0; i < e.effectObject.removeEffects.Count; i++)
         {
-            RemoveEffect(e.data.removeEffects[i]);
+            RemoveEffect(e.effectObject.removeEffects[i]);
         }
 
-        if (e.data is EffectCrowdControl cc)
+        if (e.effectObject is EffectCrowdControl cc)
         {
             if (HasImmunity(cc.type))
             {
@@ -398,48 +446,37 @@ public class EffectManager : MonoBehaviour
                 return;
             }
         }
-        else if (e.data is EffectCrowdControlImmunity immune)
+        else if (e.effectObject is EffectCrowdControlImmunity immune)
         {
             for (int i = 0; i < immune.immuneTypes.Count; i++)
             {
                 BreakCrowdControl(immune.immuneTypes[i]);
             }
         }
-        else if (e.data is EffectOverTime)
+        else if (e.effectObject is EffectOverTime)
         {
             foreach (TimedAction timedAction in e.timedActions)
             {
-                timedAction.storedValue = timedAction.abilitySource.CalculateValue(e.caster, e.level, 1, 1);
-
                 if (timedAction.actionType == TimedActionType.OnApplication)
                 {
                     TriggerSource(timedAction, e);
                 }
             }
         }
-        else if (e.data is EffectAttributeModifier modifier)
+        else if (e.effectObject is EffectAttributeModifier modifier)
         {
             CreateSpecialEffect(e.target, modifier.specialEffects);
 
-            if (modifier.modifierType == ModifierType.Flat)
-            {
-                e.storedModValue = CalculateModifiedValue(e);
-            }
-            else
-            {
-                e.storedModValue = modifier.multiplier + modifier.multiplierPerLevel * (e.level - 1);
-            }
-
             ModifyAttribute(e.target, modifier.attributeModified, e.storedModValue, modifier.isIncrease, true, modifier.modifierType);
         }
-        else if (e.data is EffectSpawnEnemy spawn)
+        else if (e.effectObject is EffectSpawnEnemy spawn)
         {
             TeamManager.Instance.SpawnEnemy(spawn.enemyObject, spawn.instant, spawn.specialEffects);
 
             if (spawn.two)
                 TeamManager.Instance.SpawnEnemy(spawn.enemyObject, spawn.instant, spawn.specialEffects);
         }
-        else if (e.data is EffectActivatePassive passive)
+        else if (e.effectObject is EffectActivatePassive passive)
         {
             CreateSpecialEffect(e.caster, passive.specialEffects);
 
@@ -449,17 +486,17 @@ public class EffectManager : MonoBehaviour
 
             e.storedPassive = effectPassive;
         }
-        else if (e.data is EffectDamageTransfer)
+        else if (e.effectObject is EffectDamageTransfer)
         {
             //effectsList.Remove(GetDamageTransfer());
         }
 
         // Effect Types below are not showing in the HUD
-        if (e.data is EffectConditionalTrigger)
+        if (e.effectObject is EffectConditionalTrigger)
         {
             TriggerConditionalEffect(e);
         }
-        else if (e.data is EffectCooldownReduction cdr)
+        else if (e.effectObject is EffectCooldownReduction cdr)
         {
             cdr.ReduceCooldown(e.caster);
         }
@@ -471,7 +508,7 @@ public class EffectManager : MonoBehaviour
     
     public void OnActive(Effect e)
     {
-        if (e.data is EffectOverTime)
+        if (e.effectObject is EffectOverTime)
         {
             foreach (TimedAction timedAction in e.timedActions)
             {
@@ -489,7 +526,7 @@ public class EffectManager : MonoBehaviour
     {
         effectsList.Remove(e);
 
-        if (e.data is EffectOverTime)
+        if (e.effectObject is EffectOverTime)
         {
             foreach (TimedAction timedAction in e.timedActions)
             {
@@ -499,15 +536,15 @@ public class EffectManager : MonoBehaviour
                 }
             }
         }
-        else if (e.data is EffectAttributeModifier modifier)
+        else if (e.effectObject is EffectAttributeModifier modifier)
         {
             ModifyAttribute(e.target, modifier.attributeModified, e.storedModValue, modifier.isIncrease, false, modifier.modifierType);
         }
-        else if (e.data is EffectActivatePassive)
+        else if (e.effectObject is EffectActivatePassive)
         {
             e.storedPassive.DeactivatePassive(unit);
         }
-        else if (e.data is EffectCrowdControl cc)
+        else if (e.effectObject is EffectCrowdControl cc)
         {
             if (cc.addTauntImmune)
                 ApplyEffect(GameAssets.i.tauntImmune, unit, unit, 1, e.sourceAbility);
@@ -534,7 +571,7 @@ public class EffectManager : MonoBehaviour
 
         if (modifierType == ModifierType.Flat)
         {
-            int valueIncrease = GeneralUtilities.RoundFloat(newValue);
+            int valueIncrease = GeneralUtilities.RoundFloat(newValue, 0);
 
             if (type == AttributeType.Health)
             {
@@ -555,30 +592,15 @@ public class EffectManager : MonoBehaviour
             {
                 float percentage = target.statsManager.GetHealthPercentage();
 
-                target.statsManager.GetAttribute(type).mulitplier += newValue;
+                target.statsManager.GetAttribute(type).multiplier += newValue;
 
                 target.statsManager.SetHealthPercentage(percentage);
             }
             else
             {
-                target.statsManager.GetAttribute(type).mulitplier += newValue;
+                target.statsManager.GetAttribute(type).multiplier += newValue;
             }
         }
-    }
-
-    public float CalculateModifiedValue(Effect e)
-    {
-        AbilitySource a = (e.data as EffectAttributeModifier).modifierSource;
-
-        int totalBase = a.baseValue + a.levelBase * (e.level - 1);
-
-        float totalScaling = a.scaling + a.levelScaling * (e.level - 1);
-
-        int totalAttribute = e.caster.statsManager.GetAttributeValue((int)a.attributeType);      
-
-        float totalValue = totalBase + totalScaling * totalAttribute;
-
-        return totalValue;
     }
 
     public void EffectDurationHandler(ProcType procType)
@@ -601,7 +623,7 @@ public class EffectManager : MonoBehaviour
         // Reduce the duration and do expiration effect if duration is 0
         for (int i = effectsList.Count; i-- > 0;)
         {
-            if (!effectsList[i].data.permanent)
+            if (!effectsList[i].effectObject.permanent)
             {
                 if (effectsList[i].procType == procType)
                 {
@@ -634,7 +656,7 @@ public class EffectManager : MonoBehaviour
 
         for (int i = 0; i < effectsList.Count; i++)
         {
-            if (effectsList[i].data == effectObject)
+            if (effectsList[i].effectObject == effectObject)
                 hasEffect = true;
         }
 

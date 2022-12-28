@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
   m_Name: Static Shock
   m_EditorClassIdentifier: 
-  id: -1
+  id: 97
   name: Static Shock
   quality: 0
-  type: 3
+  abilityType: 3
   description: Taking damage has a <%> chance to deal <1> <N> damage to the attacker
     and Stun them for <t1d> Rounds.
   icon: {fileID: 21300000, guid: 9b8bc7ddca767f741995b7347c9e6fb4, type: 3}
@@ -33,9 +33,13 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 01000000020000000300000004000000050000000500000007000000
   triggersPassives: 1
+  triggeredByEffects: 1
   procChance: 25
   abilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 4
     attributeType: 2
     baseValue: 0
@@ -56,6 +60,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -65,6 +72,7 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 0
       conditionalEffect: {fileID: 0}
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects:

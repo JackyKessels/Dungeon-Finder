@@ -173,7 +173,7 @@ public class StatsManager
 
         if (damageTransferEffect != null && allowDamageTransfer)
         {
-            EffectDamageTransfer damageTransfer = damageTransferEffect.data as EffectDamageTransfer;
+            EffectDamageTransfer damageTransfer = damageTransferEffect.effectObject as EffectDamageTransfer;
 
             AbilityValue transferValue = new AbilityValue(abilityValue.sourceAbility, true, abilityValue.value * damageTransfer.percentage, abilityValue.school, abilityValue.abilityType, abilityValue.cannotCrit, abilityValue.cannotMiss, abilityValue.target, damageTransferEffect.caster, abilityValue.color, abilityValue.isUnitTrigger, abilityValue.ignorePassive);
 
@@ -235,6 +235,7 @@ public class StatsManager
 
                 BattleManager.Instance.RemoveUnitFromBattle(unit);
                 QueueManager.Instance.SetIcon(unit);
+                EffectManager.RemoveAuras();
             }
         }
         else
@@ -274,7 +275,7 @@ public class StatsManager
 
     public void SetHealthPercentage(float percentage)
     {
-        currentHealth = GeneralUtilities.RoundFloat(percentage * (float)GetAttributeValue(AttributeType.Health));
+        currentHealth = GeneralUtilities.RoundFloat(percentage * (float)GetAttributeValue(AttributeType.Health), 0);
 
         CapCurrentHealth();
     }

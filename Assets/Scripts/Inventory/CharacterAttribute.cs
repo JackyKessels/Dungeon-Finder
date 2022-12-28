@@ -71,7 +71,7 @@ public class CharacterAttribute : MonoBehaviour, IDescribable
         }
         else if (a.attributeType == AttributeType.Armor || a.attributeType == AttributeType.Resistance)
         {
-            valueText.text = value.ToString() + " / " + GeneralUtilities.RoundFloat((1 - GeneralUtilities.DefensiveReductionValue_League_Tweaked(value)) * 100).ToString() + "%";
+            valueText.text = value.ToString() + " / " + GeneralUtilities.RoundFloat((1 - GeneralUtilities.DefensiveReductionValue_League_Tweaked(value)) * 100, 0).ToString() + "%";
         }
         else
         {

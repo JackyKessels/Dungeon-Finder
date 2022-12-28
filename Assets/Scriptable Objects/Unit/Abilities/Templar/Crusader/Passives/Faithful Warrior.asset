@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 113
   name: Faithful Warrior
   quality: 0
-  type: 3
+  abilityType: 3
   description: Increase your <physicalmultiplier> by <s1modV>% while above <threshold>%
     Health.
   icon: {fileID: 21300000, guid: adda846d3f5d817499fb2288f8e5a949, type: 3}
@@ -25,6 +25,7 @@ MonoBehaviour:
   sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
+  castActiveAbilities: []
   effects:
   - {fileID: 11400000, guid: d76a06e40b7d8554c8dc7d25c7754fe6, type: 2}
   activationMoment: 2

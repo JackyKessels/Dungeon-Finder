@@ -44,7 +44,7 @@ public class EffectOverTime : EffectObject
             {
                 temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(source.attributeType) + ">{0}</color>");
 
-                temp = string.Format(temp, GeneralUtilities.RoundFloat(tooltipInfo.effect.timedActions[i].storedValue));
+                temp = string.Format(temp, GeneralUtilities.RoundFloat(tooltipInfo.effect.timedActions[i].storedValue, 0));
             }
         }
 
@@ -91,5 +91,17 @@ public class TimedAction
         triggersPassives = copyTimedAction.triggersPassives;
         abilitySource = copyTimedAction.abilitySource;
         specialEffects = copyTimedAction.specialEffects;
+    }
+
+    public static TimedAction StackTimedActions(TimedAction sameTimedAction, TimedAction applyTimedAction)
+    {
+        // Missing a timed action
+        if (sameTimedAction == null || applyTimedAction == null)
+            return null;
+
+        TimedAction newTimedAction = new TimedAction(sameTimedAction);
+        newTimedAction.storedValue = sameTimedAction.storedValue + applyTimedAction.storedValue;
+
+        return newTimedAction;
     }
 }

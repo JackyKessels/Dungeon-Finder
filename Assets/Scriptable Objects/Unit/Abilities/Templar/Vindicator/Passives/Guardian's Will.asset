@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 145
   name: Guardian's Will
   quality: 0
-  type: 3
+  abilityType: 3
   description: Taking damage has a <%> chance to increase your <health> by <s1modP>
     for <s1d> Rounds.
   icon: {fileID: 21300000, guid: a420529f8be853a4dbd1faa3dd62bc71, type: 3}
@@ -32,8 +32,10 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 01000000020000000300000004000000050000000600000007000000
   triggersPassives: 0
+  triggeredByEffects: 1
   procChance: 25
   abilitySources: []
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects:
   - {fileID: 11400000, guid: e878729b3de94dc43a0de041031ac02d, type: 2}

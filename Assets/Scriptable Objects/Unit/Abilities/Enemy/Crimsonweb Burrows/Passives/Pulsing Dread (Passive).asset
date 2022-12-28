@@ -10,24 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
-  m_Name: Division
+  m_Name: Pulsing Dread (Passive)
   m_EditorClassIdentifier: 
   id: -1
-  name: Division
+  name: Pulsing Dread
   quality: 0
-  type: 3
+  type: 0
   description: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 66850040104a09e43b673f0e15e25b4c, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
-  hasLevels: 1
-  sellable: 1
+  hasLevels: 0
+  sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
   effects:
-  - {fileID: 11400000, guid: cfdfee0add4d18e45a175ccee9e3fff6, type: 2}
-  - {fileID: 11400000, guid: ccd02d0aac29ecf4888b504aae4acf85, type: 2}
-  - {fileID: 11400000, guid: 1d627b4674c248f438380460c8ad429f, type: 2}
-  activationMoment: 1
+  - {fileID: 11400000, guid: 177a537576216f74d9cfed6996800a9c, type: 2}
+  activationMoment: 0
   targets: 0
   healthPercentage: 50

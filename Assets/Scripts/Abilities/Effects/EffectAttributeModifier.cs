@@ -31,7 +31,7 @@ public class EffectAttributeModifier : EffectObject
         {
             temp = temp.Replace(checkPercentage, "<color=" + ColorDatabase.ScalingColor(modifierSource.attributeType) + ">{0}</color>");
 
-            temp = string.Format(temp, GeneralUtilities.RoundFloat(modifierSource.scaling * 100));
+            temp = string.Format(temp, GeneralUtilities.RoundFloat(modifierSource.scaling * 100, 1));
         }
 
         temp = DetermineColor(temp, "<Heal>", AbilitySchool.Healing);
@@ -65,13 +65,13 @@ public class EffectAttributeModifier : EffectObject
             {
                 temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(modifierSource.attributeType) + ">{0}</color>");
 
-                temp = string.Format(temp, GeneralUtilities.RoundFloat(value));
+                temp = string.Format(temp, GeneralUtilities.RoundFloat(value, 0));
             }
             else
             {
                 temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(modifierSource.attributeType) + ">{0}</color>%");
 
-                temp = string.Format(temp, value * 100);
+                temp = string.Format(temp, GeneralUtilities.RoundFloat(value * 100f, 1));
             }
         }
 

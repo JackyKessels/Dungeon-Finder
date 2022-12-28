@@ -15,8 +15,11 @@ MonoBehaviour:
   id: 34
   name: Dark Infusion
   quality: 0
-  type: 3
-  description: Increase <wisdom> by <s1modV> for <s1d> Rounds when receiving <Heal>.
+  abilityType: 3
+  description: 'Increase <wisdom> by <s1modV> for <s1d> Rounds when receiving <Heal>.
+
+
+    <s1stacks>'
   icon: {fileID: 21300000, guid: 67ddbe5f491a80c48b329a50567fc49d, type: 3}
   casterSpecialEffects:
   - {fileID: 4364481057235456488, guid: ccd9e62d04029034ab6e68d27afa05f2, type: 3}
@@ -32,8 +35,10 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 00000000
   triggersPassives: 0
+  triggeredByEffects: 1
   procChance: 100
   abilitySources: []
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects:
   - {fileID: 11400000, guid: 6c8b5ac674911604e8265c883f7c0149, type: 2}

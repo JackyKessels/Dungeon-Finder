@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
   m_Name: Strength of Will
   m_EditorClassIdentifier: 
-  id: 105
+  id: 47
   name: Strength of Will
   quality: 0
-  type: 3
+  abilityType: 3
   description: 'Dealing <P> damage has a <%> to increase your <wisdom> by <s1modV>
     for <s1d> Rounds.
 
@@ -35,8 +35,10 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 01000000
   triggersPassives: 0
+  triggeredByEffects: 1
   procChance: 35
   abilitySources: []
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects:
   - {fileID: 11400000, guid: a44ee744d4baee94a8d7d8b3d213dca4, type: 2}

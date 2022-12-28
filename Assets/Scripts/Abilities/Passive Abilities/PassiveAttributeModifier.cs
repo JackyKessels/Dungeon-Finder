@@ -23,7 +23,7 @@ public class PassiveAttributeModifier : PassiveAbility
             if (modification.modifierType == ModifierType.Flat)
                 unit.statsManager.GetAttribute((int)modification.attributeModified).bonusValue += modification.flatValue * positiveOrNegative;
             else if (modification.modifierType == ModifierType.Multiplier)
-                unit.statsManager.GetAttribute((int)modification.attributeModified).mulitplier += modification.multiplierValue * positiveOrNegative;
+                unit.statsManager.GetAttribute((int)modification.attributeModified).multiplier += modification.multiplierValue * positiveOrNegative;
         }
     }
 
@@ -36,7 +36,7 @@ public class PassiveAttributeModifier : PassiveAbility
             if (modification.modifierType == ModifierType.Flat)
                 unit.statsManager.GetAttribute((int)modification.attributeModified).bonusValue += modification.flatValue * positiveOrNegative;
             else if (modification.modifierType == ModifierType.Multiplier)
-                unit.statsManager.GetAttribute((int)modification.attributeModified).mulitplier += modification.multiplierValue * positiveOrNegative;
+                unit.statsManager.GetAttribute((int)modification.attributeModified).multiplier += modification.multiplierValue * positiveOrNegative;
         }
     }
 

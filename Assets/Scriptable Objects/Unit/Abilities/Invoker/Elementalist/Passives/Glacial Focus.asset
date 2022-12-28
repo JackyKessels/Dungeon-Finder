@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 162
   name: Glacial Focus
   quality: 0
-  type: 3
+  abilityType: 3
   description: Dealing <I> damage increases your <arcanemultiplier> by <s1modV>%
     for <s1d> Rounds.
   icon: {fileID: 21300000, guid: 9730d2546b4ad67479ad2528145ba1ef, type: 3}
@@ -32,8 +32,10 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 03000000
   triggersPassives: 0
+  triggeredByEffects: 1
   procChance: 100
   abilitySources: []
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects:
   - {fileID: 11400000, guid: 4ed972ef854e03c4786ca403939b3f21, type: 2}

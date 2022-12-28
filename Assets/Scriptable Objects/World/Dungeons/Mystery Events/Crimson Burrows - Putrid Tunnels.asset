@@ -110,7 +110,7 @@ MonoBehaviour:
           conditionalEffect: {fileID: 0}
       effectTargets: 0
       effect: {fileID: 0}
-  - eventWeight: 10000
+  - eventWeight: 2
     flavorText: Your party falls into a sink hole. Who knows where you will end up?
     actions:
     - type: 5

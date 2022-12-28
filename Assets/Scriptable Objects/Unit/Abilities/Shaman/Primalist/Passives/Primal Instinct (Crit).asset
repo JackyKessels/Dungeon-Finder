@@ -15,16 +15,23 @@ MonoBehaviour:
   name: Primal Instinct
   icon: {fileID: 21300000, guid: 06264afa70e582c42b72adae6b088536, type: 3}
   hidden: 0
-  description: Crit increased by <1>.
+  description: Critical Chance increased by <1>%.
   isBuff: 1
   procType: 1
-  duration: 4
+  duration: 5
   permanent: 0
+  stackable: 1
+  maxStacks: 0
+  refreshes: 0
   removeEffects: []
   attributeModified: 8
   isIncrease: 1
+  modifierType: 0
   modifierSource:
     ignoreMultipliers: 1
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 0
     attributeType: 8
     baseValue: 5
@@ -45,6 +52,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -54,4 +64,6 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+  multiplier: 0
+  multiplierPerLevel: 0
   specialEffects: []

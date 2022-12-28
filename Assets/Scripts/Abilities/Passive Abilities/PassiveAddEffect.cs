@@ -17,12 +17,14 @@ public enum ActivationMoment
 [CreateAssetMenu(fileName = "New Passive Ability", menuName = "Unit/Ability Object/Passive Add Effect")]
 public class PassiveAddEffect : PassiveAbility
 {
+    public ActivationMoment activationMoment;
+
     [Header("[ On Activate Events ]")]
     public List<CastActiveAbility> castActiveAbilities;
     [Space(10)]
     public List<EffectObject> effects;
     [Space(10)]
-    public ActivationMoment activationMoment;
+
     public AbilityTargets targets;
 
     [Header("[ Health Threshold ]")]

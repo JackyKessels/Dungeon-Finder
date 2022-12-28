@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 163
   name: Lifeblood Enchantment
   quality: 0
-  type: 3
+  abilityType: 3
   description: "Dealing <M> damage has a <%> to heal yourself for <1>. \n\nHealing
     is increased by <1modV>% while under <1conV>% <health>."
   icon: {fileID: 21300000, guid: 655c7dd7fb552624e8ca1c5e9b60b850, type: 3}
@@ -33,6 +33,7 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 020000000300000004000000050000000600000007000000
   triggersPassives: 1
+  triggeredByEffects: 1
   procChance: 35
   abilitySources:
   - ignoreMultipliers: 0
@@ -71,6 +72,7 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 0
       conditionalEffect: {fileID: 0}
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []

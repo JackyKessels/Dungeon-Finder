@@ -12,12 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
   m_Name: Runic Balance
   m_EditorClassIdentifier: 
-  id: -1
+  id: 48
   name: Runic Balance
   quality: 0
-  type: 3
-  description: Dealing <M> damage increases your <physicalmultiplier> by <s1modV>%
+  abilityType: 3
+  description: 'Dealing <M> damage increases your <physicalmultiplier> by <s1modV>%
     for <s1d> Rounds.
+
+
+    <s1stacks>
+
+
+    <s1refresh>'
   icon: {fileID: 21300000, guid: af98a1081158c134985c359dc0a01823, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
@@ -32,8 +38,10 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 020000000300000004000000050000000600000007000000
   triggersPassives: 0
+  triggeredByEffects: 1
   procChance: 100
   abilitySources: []
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects:
   - {fileID: 11400000, guid: 6cfad2a50c429084ab06a6e6f785fb57, type: 2}

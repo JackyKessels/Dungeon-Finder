@@ -58,6 +58,10 @@ public class TownManager : MonoBehaviour, IUserInterface
     public GameObject mapObject;
     public GameObject mapContainer;
 
+    [Header("[ Button Variables ]")]
+    public Button abilityShopButton;
+    public Button itemShopButton;
+
     [Header("[ Shop Variables ]")]
     // Town Hall
     public TownHall townHall;
@@ -93,14 +97,19 @@ public class TownManager : MonoBehaviour, IUserInterface
         //    OpenMap();
         //}
 
-        if (Input.GetKeyDown(KeyCode.R) && gameManager.gameState == GameState.TOWN)
+        if (KeyboardHandler.OpenAbilityShop() && gameManager.gameState == GameState.TOWN)
         {
             OpenAbilityShop();
         }
 
-        if (Input.GetKeyDown(KeyCode.T) && gameManager.gameState == GameState.TOWN)
+        if (KeyboardHandler.OpenItemShop() && gameManager.gameState == GameState.TOWN)
         {
             OpenItemShop();
+        }
+
+        if (KeyboardHandler.Escape())
+        {
+            CloseAllWindows();
         }
     }
 
@@ -154,8 +163,10 @@ public class TownManager : MonoBehaviour, IUserInterface
         dungeonManager.StartDungeon(dungeon);
 
         gameManager.GoToRun();
+
         dungeonManager.EnableUI(true);
-        EnableUI(false);
+        this.EnableUI(false);
+
         if (isTutorial) TutorialUI(false);
     }
 
@@ -260,6 +271,14 @@ public class TownManager : MonoBehaviour, IUserInterface
         }
     }
 
+    public void ShopButtonsState(bool state)
+    {
+        abilityShopButton.interactable = state;
+        itemShopButton.interactable = state;
+    }
+
+
+
     private void CloseAllWindows()
     {
         mapObject.SetActive(false);
@@ -268,6 +287,8 @@ public class TownManager : MonoBehaviour, IUserInterface
         enchanter.SetActive(false);
         trophyHunter.SetActive(false);
         generalGoods.SetActive(false);
+
+        TooltipHandler.Instance.HideTooltip();
     }
 
     public void EnableUI(bool show)

@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
   m_Name: Primal Instinct
   m_EditorClassIdentifier: 
-  id: 106
+  id: 80
   name: Primal Instinct
   quality: 0
-  type: 3
-  description: <critical> hits increase your <crit> by <s1modV>% for <s1d> Rounds.
+  abilityType: 3
+  description: '<critical> hits increase your <crit> by <s1modV>% for <s1d> Rounds.
+
+
+    <s1refresh>'
   icon: {fileID: 21300000, guid: 06264afa70e582c42b72adae6b088536, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
@@ -31,8 +34,10 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 01000000020000000300000004000000050000000600000007000000
   triggersPassives: 0
+  triggeredByEffects: 1
   procChance: 100
   abilitySources: []
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects:
   - {fileID: 11400000, guid: ca0c2db1bf470ef4dad7fda0fa04577e, type: 2}

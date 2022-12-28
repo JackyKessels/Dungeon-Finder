@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 65
   name: Rock Shard
   quality: 0
-  type: 3
+  abilityType: 3
   description: 'Dealing <P> damage has a <%> to deal an additional <1> <P> damage.
 
 
@@ -36,11 +36,13 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 01000000
   triggersPassives: 1
+  triggeredByEffects: 1
   procChance: 25
   abilitySources:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 1
     attributeType: 1
     baseValue: 0
@@ -61,6 +63,9 @@ MonoBehaviour:
       percentageIncrease: 2
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -70,6 +75,7 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []

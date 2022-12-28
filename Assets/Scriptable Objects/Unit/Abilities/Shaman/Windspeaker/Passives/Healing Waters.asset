@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 100
   name: Healing Waters
   quality: 0
-  type: 3
+  abilityType: 3
   description: Increase <healingmultiplier> by <1>%.
   icon: {fileID: 21300000, guid: 3023708050ff4cd40afabd9757115535, type: 3}
   casterSpecialEffects: []

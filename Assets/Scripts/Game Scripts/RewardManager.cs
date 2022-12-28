@@ -59,7 +59,7 @@ public class RewardManager : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (KeyboardHandler.ProgressWindow())
         {
             if (activeButton)
                 activeButton.onClick?.Invoke();

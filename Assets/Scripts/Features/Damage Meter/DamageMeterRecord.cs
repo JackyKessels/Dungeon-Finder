@@ -88,7 +88,7 @@ public class DamageMeterRecord : MonoBehaviour
         {
             float percentage = ((float)damage / (float)totalDamage * 100);
 
-            damagePercentageText.text = GeneralUtilities.RoundFloat(percentage).ToString() + "%";
+            damagePercentageText.text = GeneralUtilities.RoundFloat(percentage, 1).ToString() + "%";
         }
 
         if (healing == 0)
@@ -99,7 +99,7 @@ public class DamageMeterRecord : MonoBehaviour
         {
             float percentage = ((float)healing / (float)totalHealing * 100);
 
-            healingPercentageText.text = GeneralUtilities.RoundFloat(percentage).ToString() + "%";
+            healingPercentageText.text = GeneralUtilities.RoundFloat(percentage, 1).ToString() + "%";
         }
     }
 }

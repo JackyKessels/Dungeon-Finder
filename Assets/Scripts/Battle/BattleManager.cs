@@ -102,19 +102,19 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
     private void CheckHeroAbilityHotkeys()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (KeyboardHandler.CastAbility1())
         {
             OnAbilityButton(0, true);
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (KeyboardHandler.CastAbility2())
         {
             OnAbilityButton(1, true);
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (KeyboardHandler.CastAbility3())
         {
             OnAbilityButton(2, true);
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        if (KeyboardHandler.CastAbility4())
         {
             OnAbilityButton(3, true);
         }
@@ -122,35 +122,35 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
     private void CheckItemHotkeys()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && actionBar.GetTotalItemAbilities() > 0)
+        if (KeyboardHandler.UseItem1() && actionBar.GetTotalItemAbilities() > 0)
         {
             OnAbilityButton(0, false);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && actionBar.GetTotalItemAbilities() > 1)
+        if (KeyboardHandler.UseItem2() && actionBar.GetTotalItemAbilities() > 1)
         {
             OnAbilityButton(1, false);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3) && actionBar.GetTotalItemAbilities() > 2)
+        if (KeyboardHandler.UseItem3() && actionBar.GetTotalItemAbilities() > 2)
         {
             OnAbilityButton(2, false);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1) && actionBar.GetTotalItemAbilities() > 3)
+        if (KeyboardHandler.UseItem4() && actionBar.GetTotalItemAbilities() > 3)
         {
             OnAbilityButton(3, false);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && actionBar.GetTotalItemAbilities() > 4)
+        if (KeyboardHandler.UseItem5() && actionBar.GetTotalItemAbilities() > 4)
         {
             OnAbilityButton(4, false);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3) && actionBar.GetTotalItemAbilities() > 5)
+        if (KeyboardHandler.UseItem6() && actionBar.GetTotalItemAbilities() > 5)
         {
             OnAbilityButton(5, false);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1) && actionBar.GetTotalItemAbilities() > 6)
+        if (KeyboardHandler.UseItem7() && actionBar.GetTotalItemAbilities() > 6)
         {
             OnAbilityButton(6, false);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && actionBar.GetTotalItemAbilities() > 7)
+        if (KeyboardHandler.UseItem8() && actionBar.GetTotalItemAbilities() > 7)
         {
             OnAbilityButton(7, false);
         }
@@ -158,7 +158,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
     private void CheckOtherHotkeys()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (KeyboardHandler.UseFlask())
         {
             OnFlaskButton();
         }
@@ -166,7 +166,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
         //{
         //    OnFleeButton();
         //}
-        if (Input.GetKeyDown(KeyCode.X))
+        if (KeyboardHandler.PassTurn())
         {
             OnPassButton();
         }
@@ -477,6 +477,8 @@ public class BattleManager : MonoBehaviour, IUserInterface
             Unit target = teamManager.heroes.LivingMembers[x];
 
             active.Trigger(currentUnit, target);
+
+            castingEnemy.ResetChargedAbility(target);
         }
         else if (active.activeAbility is InstantAbility i)
         {
@@ -487,9 +489,9 @@ public class BattleManager : MonoBehaviour, IUserInterface
             CastAnimation(active);
 
             active.Trigger(currentUnit, null);
-        }
 
-        castingEnemy.ResetChargedAbility();
+            castingEnemy.ResetChargedAbility(castingEnemy);
+        }    
 
         // Update HUD
         battleHUD.Refresh();
@@ -902,7 +904,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
                 }
             }
 
-            if ((Input.GetKeyDown(KeyCode.Escape) || GeneralUtilities.GetMappedAbilityKey(index, isHeroAbility)) && !button.active)
+            if ((KeyboardHandler.Escape() || GeneralUtilities.GetMappedAbilityKey(index, isHeroAbility)) && !button.active)
             {
                 currentTarget = null;
                 button.active = true;

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
   m_Name: Burning Light
   m_EditorClassIdentifier: 
-  id: 92
+  id: 130
   name: Burning Light
   quality: 0
-  type: 3
+  abilityType: 3
   description: Dealing <H> damage causes your target to take <t1timAc1> <F> damage
     per Round for <t1d> Rounds.
   icon: {fileID: 21300000, guid: ee57f12112933ce4597e39036889aa74, type: 3}
@@ -32,8 +32,10 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 06000000
   triggersPassives: 0
+  triggeredByEffects: 1
   procChance: 100
   abilitySources: []
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects:

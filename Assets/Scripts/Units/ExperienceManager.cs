@@ -24,7 +24,7 @@ public class ExperienceManager
 
     public static int ExperienceToNextLevel(int level)
     {
-        return GeneralUtilities.RoundFloat(baseExperienceRequirement * (Mathf.Pow(experienceCoefficient, level)));
+        return GeneralUtilities.RoundFloat(baseExperienceRequirement * (Mathf.Pow(experienceCoefficient, level)), 0);
     }
 
     public static int ExperienceToNextLevel()

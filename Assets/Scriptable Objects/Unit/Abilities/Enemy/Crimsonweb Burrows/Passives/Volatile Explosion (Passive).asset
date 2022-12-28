@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
-  m_Name: Release Essence (Heal)
+  m_Name: Volatile Explosion (Passive)
   m_EditorClassIdentifier: 
-  id: -1
-  name: Release Essence
+  id: 1123441
+  name: Volatile Explosion
   quality: 0
-  type: 3
+  type: 2
   description: 
   icon: {fileID: 0}
   casterSpecialEffects: []
@@ -25,7 +25,7 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   isPositive: 1
   effects:
-  - {fileID: 11400000, guid: d8202b8faf80c9447a555da6fdca0c17, type: 2}
+  - {fileID: 11400000, guid: 976eabc843191ab4b962bf69ee528277, type: 2}
   activationMoment: 3
   targets: 2
   healthPercentage: 0

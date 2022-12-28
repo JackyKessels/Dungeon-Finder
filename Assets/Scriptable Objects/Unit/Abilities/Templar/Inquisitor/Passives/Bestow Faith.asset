@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 164
   name: Bestow Faith
   quality: 0
-  type: 3
+  abilityType: 3
   description: Heal a random ally for <s1timAp1> when receiving <Heal>.
   icon: {fileID: 21300000, guid: 4d41e15a982954a4e83f865a0f4da78f, type: 3}
   casterSpecialEffects: []
@@ -31,8 +31,10 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 00000000
   triggersPassives: 0
+  triggeredByEffects: 1
   procChance: 100
   abilitySources: []
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects:
   - {fileID: 11400000, guid: ec253c0535827c245ae610512e2f99df, type: 2}

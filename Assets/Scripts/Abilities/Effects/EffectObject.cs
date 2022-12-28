@@ -18,6 +18,11 @@ public abstract class EffectObject : ScriptableObject, IDescribable
     public ProcType procType = ProcType.Turn;
     public int duration = 1;
     public bool permanent = false;
+    public bool stackable = false;
+    public int maxStacks = 0;
+    public bool refreshes = true;
+    [Tooltip("True = Effect is removed when caster dies. | False = Effect persists when caster dies.")]
+    public bool aura = false;
     public List<EffectObject> removeEffects;
 
     public string GetDescription(TooltipObject tooltipInfo)

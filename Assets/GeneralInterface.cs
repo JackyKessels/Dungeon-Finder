@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GeneralFunctionality : MonoBehaviour
+public class GeneralInterface : MonoBehaviour
 {
     public GameObject gameMenu;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (KeyboardHandler.Escape())
         {
             ToggleMenu();
         }

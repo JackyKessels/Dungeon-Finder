@@ -64,7 +64,7 @@ public class AbilitySource
     {
         Unit unit;
 
-        if (tooltipInfo.effect != null && tooltipInfo.effect.data != null && tooltipInfo.effect.data.description == "<passive>")
+        if (tooltipInfo.effect != null && tooltipInfo.effect.effectObject != null && tooltipInfo.effect.effectObject.description == "<passive>")
             unit = tooltipInfo.effect.caster;
         else
             unit = GeneralUtilities.GetCorrectUnit(tooltipInfo);
@@ -123,7 +123,7 @@ public class AbilitySource
 
         float totalScaling = scaling + levelScaling * (level - 1);
 
-        int totalAttribute = caster.statsManager.GetAttributeValue((int)attributeType);
+        int totalAttribute = caster.statsManager.GetAttributeValue(attributeType);
 
         float totalValue = totalBase + totalScaling * totalAttribute * modifier;
 

@@ -16,8 +16,8 @@ MonoBehaviour:
   name: Gloom Touch
   quality: 0
   abilityType: 0
-  description: Deal <e1> <S> to your target and deal <t1timAc1> <S> damage every
-    Round for <t1d> Rounds.
+  description: "Deal <e1> <S> damage to your target and deal <t1timAc1> <S> damage
+    every Round for <t1d> Rounds. \n\n<t1stacks>"
   icon: {fileID: 21300000, guid: f675ab33178036d4d91b705f98400abd, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
@@ -25,7 +25,7 @@ MonoBehaviour:
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
-  castTime: 1.5
+  castTime: 0.75
   cooldown: 0
   endTurn: 1
   resetChance: 0

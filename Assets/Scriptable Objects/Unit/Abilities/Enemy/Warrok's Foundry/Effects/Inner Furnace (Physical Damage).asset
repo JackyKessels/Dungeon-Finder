@@ -20,11 +20,18 @@ MonoBehaviour:
   procType: 0
   duration: 1
   permanent: 1
+  stackable: 1
+  maxStacks: 0
+  refreshes: 1
   removeEffects: []
   attributeModified: 10
   isIncrease: 1
+  modifierType: 0
   modifierSource:
     ignoreMultipliers: 1
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 0
     attributeType: 10
     baseValue: 3
@@ -45,6 +52,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -54,5 +64,7 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+  multiplier: 0
+  multiplierPerLevel: 0
   specialEffects:
   - {fileID: 7033329743914822064, guid: 81cb1b0fd421d6149bfc0046902a9746, type: 3}

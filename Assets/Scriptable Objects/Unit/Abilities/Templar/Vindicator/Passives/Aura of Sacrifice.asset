@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
   m_Name: Aura of Sacrifice
   m_EditorClassIdentifier: 
-  id: -1
+  id: 147
   name: Aura of Sacrifice
   quality: 0
-  type: 3
+  abilityType: 3
   description: Transfer <s1transfer> of damage taken by your allies to yourself.
   icon: {fileID: 21300000, guid: 93c67676a81b2d747b28ba7d8b0d6e02, type: 3}
   casterSpecialEffects: []
@@ -24,8 +24,12 @@ MonoBehaviour:
   sellable: 1
   replacesAbility: {fileID: 0}
   isPositive: 1
+  castActiveAbilities: []
   effects:
   - {fileID: 11400000, guid: 3bd191759e36eac45828a406b638ed56, type: 2}
   activationMoment: 0
   targets: 6
   healthPercentage: 0
+  attributeType: 0
+  attributeValue: 0
+  cooldown: 0

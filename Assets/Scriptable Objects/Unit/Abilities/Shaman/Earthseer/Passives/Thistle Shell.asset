@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
   m_Name: Thistle Shell
   m_EditorClassIdentifier: 
-  id: 1122233
+  id: 63
   name: Thistle Shell
   quality: 0
-  type: 2
+  abilityType: 3
   description: When you take damage you deal <1> <N> damage to the attacker.
   icon: {fileID: 21300000, guid: ffcdda64a78a1494fb8f819b35b3922b, type: 3}
   casterSpecialEffects: []
@@ -27,11 +27,18 @@ MonoBehaviour:
   isPositive: 1
   triggerType: 0
   hitType: 0
+  targetTrigger: 0
+  abilityTypeTrigger: 0
+  typeRequirement: 0
   schoolTriggers: 01000000020000000300000004000000050000000600000007000000
   triggersPassives: 1
+  triggeredByEffects: 1
   procChance: 100
   abilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 4
     attributeType: 0
     baseValue: 0
@@ -52,6 +59,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -61,6 +71,7 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []

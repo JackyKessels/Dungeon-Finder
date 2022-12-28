@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
   m_Name: Northern Winds
   m_EditorClassIdentifier: 
-  id: -1
+  id: 31
   name: Northern Winds
   quality: 0
-  type: 3
+  abilityType: 3
   description: At the start of battle reduce the <speed> of all enemies by <s1modV>.
   icon: {fileID: 21300000, guid: bb6db85d2b341924a916e20601bb220b, type: 3}
   casterSpecialEffects: []
@@ -24,8 +24,12 @@ MonoBehaviour:
   sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
+  castActiveAbilities: []
   effects:
   - {fileID: 11400000, guid: dc75ceaa7e0ef2a4ea3ee8f8e5015901, type: 2}
   activationMoment: 0
   targets: 2
   healthPercentage: 0
+  attributeType: 0
+  attributeValue: 0
+  cooldown: 0

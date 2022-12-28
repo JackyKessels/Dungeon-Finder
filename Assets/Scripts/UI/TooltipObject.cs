@@ -59,9 +59,9 @@ public class TooltipObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             tooltipHandler.ShowTooltip(passive.passiveAbility, this, transform.position);
         }
-        else if (effect != null && effect.data != null)
+        else if (effect != null && effect.effectObject != null)
         {
-            tooltipHandler.ShowTooltip(effect.data, this, transform.position);
+            tooltipHandler.ShowTooltip(effect.effectObject, this, transform.position);
         }
         //else if (GetComponent<Location>() != null)
         //{

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
   m_Name: Touch of Light
   m_EditorClassIdentifier: 
-  id: -1
+  id: 128
   name: Touch of Light
   quality: 0
-  type: 3
+  abilityType: 3
   description: 'Dealing <H> damage heals a random ally for <s1timAp1>.
 
 
@@ -35,8 +35,10 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 06000000
   triggersPassives: 0
+  triggeredByEffects: 1
   procChance: 100
   abilitySources: []
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects:
   - {fileID: 11400000, guid: 2dbcb74c813a5b04ca937a3882f60659, type: 2}

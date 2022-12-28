@@ -10,24 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
-  m_Name: Corrupted Soul
+  m_Name: Shifting Currents
   m_EditorClassIdentifier: 
-  id: -1
-  name: Corrupted Soul
+  id: 170
+  name: Shifting Currents
   quality: 0
-  type: 3
-  description: 
-  icon: {fileID: 21300000, guid: c5d090d481741714fbe46c9cb094b4ea, type: 3}
+  abilityType: 3
+  description: 'Every Round increase your <wisdom> by <s1modP>.
+
+
+    <s1stacks>
+
+
+    <s1refresh>'
+  icon: {fileID: 21300000, guid: c22dc18a9449ef445a15e48f21c6c638, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
-  hasLevels: 1
-  sellable: 1
+  hasLevels: 0
+  sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
+  activationMoment: 4
+  castActiveAbilities: []
   effects:
-  - {fileID: 11400000, guid: d9e8fc6ee9e3083478ec227357e24eb0, type: 2}
-  activationMoment: 0
+  - {fileID: 11400000, guid: 4b47eac870fc8784b92b5541d047ffba, type: 2}
   targets: 0
   healthPercentage: 0
   attributeType: 0
   attributeValue: 0
+  cooldown: 0

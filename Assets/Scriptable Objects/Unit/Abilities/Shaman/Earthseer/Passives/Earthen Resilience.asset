@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 67
   name: Earthen Resilience
   quality: 0
-  type: 3
+  abilityType: 3
   description: Increase <health> by <1%> and <resistance> by <2%>.
   icon: {fileID: 21300000, guid: 19cc1ff462d223d4298ce315a1522077, type: 3}
   casterSpecialEffects: []

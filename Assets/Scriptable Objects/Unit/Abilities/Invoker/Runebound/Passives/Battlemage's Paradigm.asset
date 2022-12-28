@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 161
   name: Battlemage's Paradigm
   quality: 0
-  type: 3
+  abilityType: 3
   description: Every <cooldown> Rounds increase the damage of your next Primary ability
     by <s1bonus>.
   icon: {fileID: 21300000, guid: 13d7db31af5858548a2100096590fbe3, type: 3}
@@ -25,6 +25,7 @@ MonoBehaviour:
   sellable: 1
   replacesAbility: {fileID: 0}
   isPositive: 1
+  castActiveAbilities: []
   effects:
   - {fileID: 11400000, guid: 4da7e069011b1fb4ca3e7a2e8b688cc3, type: 2}
   activationMoment: 7

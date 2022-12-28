@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
   m_Name: Foresight
   m_EditorClassIdentifier: 
-  id: -1
+  id: 12
   name: Foresight
   quality: 0
-  type: 3
+  abilityType: 3
   description: Increase <wisdom> by <s1modV> for the first <s1d> Rounds of the Battle.
   icon: {fileID: 21300000, guid: 99ca3f6aff4d6cb4085fef95b8c1fdce, type: 3}
   casterSpecialEffects: []
@@ -24,8 +24,12 @@ MonoBehaviour:
   sellable: 1
   replacesAbility: {fileID: 0}
   isPositive: 1
+  castActiveAbilities: []
   effects:
   - {fileID: 11400000, guid: 7658b85aa20f0c249aafd722f3c2c64a, type: 2}
   activationMoment: 0
   targets: 0
   healthPercentage: 0
+  attributeType: 0
+  attributeValue: 0
+  cooldown: 0

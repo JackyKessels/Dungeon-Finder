@@ -97,6 +97,8 @@ public static class AbilityTooltipHandler
         {
             temp = DetermineEffectName(temp, string.Format("<{1}{0}name>", i + 1, check), effects[i]);
             temp = DetermineEffectDuration(temp, string.Format("<{1}{0}d>", i + 1, check), effects[i]);
+            temp = ParseStacking(temp, string.Format("<{1}{0}stacks>", i + 1, check), effects[i]);
+            temp = DoesNotRefresh(temp, string.Format("<{1}{0}refresh>", i + 1, check), effects[i]);
 
             if (effects[i] is EffectAttributeModifier attributeModifier)
             {
@@ -227,7 +229,7 @@ public static class AbilityTooltipHandler
 
     public static string ParseProcChance(string temp, string check, int chance)
     {
-        string color = "#FEF0AE";
+        string color = ColorDatabase.NonScalingColor();
 
         if (temp.Contains(check))
         {
@@ -241,7 +243,7 @@ public static class AbilityTooltipHandler
 
     public static string CriticalHit(string temp, string check)
     {
-        string color = "#FFE29B";
+        string color = ColorDatabase.NonScalingColor();
 
         if (temp.Contains(check))
         {
@@ -255,7 +257,7 @@ public static class AbilityTooltipHandler
 
     public static string TriggerPassive(string temp)
     {
-        string color = "#FF0000";
+        string color = ColorDatabase.Red();
 
         temp += string.Format("<color={0}>\n\nThis does not trigger passive effects.</color>", color);
 
@@ -413,7 +415,11 @@ public static class AbilityTooltipHandler
         {
             temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(effectAttributeModifier.attributeModified) + ">{0}</color>%");
 
-            return string.Format(temp, (effectAttributeModifier.multiplier + effectAttributeModifier.multiplierPerLevel * (tooltipInfo.active.level - 1)) * 100);
+            float percentage = (effectAttributeModifier.multiplier + effectAttributeModifier.multiplierPerLevel * (tooltipInfo.active.level - 1)) * 100f;
+
+            double rounded = System.Math.Round((double)percentage, 1);
+
+            return string.Format(temp, rounded);
         }
 
         return temp;
@@ -462,7 +468,7 @@ public static class AbilityTooltipHandler
 
     private static string DetermineEffectDuration(string temp, string check, EffectObject effectObject)
     {
-        string durationColor = "#C4C4C4";
+        string durationColor = ColorDatabase.Gray();
 
         if (temp.Contains(check))
         {
@@ -480,7 +486,7 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check))
         {
-            string nameColor = "#FEF0AE";
+            string nameColor = ColorDatabase.NonScalingColor();
 
             temp = temp.Replace(check, "<color=" + nameColor + ">{0}</color>");
 
@@ -490,11 +496,49 @@ public static class AbilityTooltipHandler
         return temp;
     }
 
+    private static string ParseStacking(string temp, string check, EffectObject effectObject)
+    {
+        if (temp.Contains(check) && effectObject.stackable)
+        {
+            string color = ColorDatabase.GeneralInformation();
+
+            if (effectObject.maxStacks > 0)
+            {
+                temp = temp.Replace(check, "<color=" + color + ">{0}</color>" + " stacks up to <color=" + color + ">{1}</color> times.");
+
+                return string.Format(temp, effectObject.name, effectObject.maxStacks);
+            }
+            else
+            {
+                temp = temp.Replace(check, "<color=" + color + ">{0}</color>" + " stacks and is not capped.");
+
+                return string.Format(temp, effectObject.name);
+            }
+        }
+
+        return temp;
+    }
+
+    private static string DoesNotRefresh(string temp, string check, EffectObject effectObject)
+    {
+        if (temp.Contains(check) && !effectObject.refreshes && effectObject.stackable)
+        {
+            string color = ColorDatabase.GeneralInformation();
+
+            temp = temp.Replace(check, "The duration of " + "<color=" + color + ">{0}</color>" + " cannot be refreshed.");
+
+            return string.Format(temp, effectObject.name, effectObject.maxStacks);
+        }
+
+        return temp;
+    }
+
+
     public static string DetermineBonusMultipler(string temp, string check, EffectAbilityModifier abilityModifier, int level)
     {
         if (temp.Contains(check))
         {
-            string color = "#FF0000";
+            string color = ColorDatabase.NonScalingColor();
 
             float fullValue = abilityModifier.GetBonusMultiplier(level) * 100;
 

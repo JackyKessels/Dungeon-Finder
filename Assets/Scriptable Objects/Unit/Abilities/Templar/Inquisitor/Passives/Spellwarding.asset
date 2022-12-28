@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 129
   name: Spellwarding
   quality: 0
-  type: 3
+  abilityType: 3
   description: '<Heal> a target has a <%> chance to increase their <resistance> by
     <t1modV> for <t1d> Rounds.
 
@@ -35,8 +35,10 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 00000000
   triggersPassives: 0
+  triggeredByEffects: 1
   procChance: 50
   abilitySources: []
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects:

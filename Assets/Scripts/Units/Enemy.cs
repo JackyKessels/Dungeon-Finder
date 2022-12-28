@@ -80,15 +80,13 @@ public class Enemy : Unit
         {
             chargeTarget = GetTarget(t);
 
-            Effect effect = new Effect();
-            effect.Setup(GameAssets.i.chargeTargetEffect, this, TeamManager.Instance.heroes.GetUnit(chargeTarget), 1, active.activeAbility);
+            Effect effect = new Effect(GameAssets.i.chargeTargetEffect, 1, this, TeamManager.Instance.heroes.GetUnit(chargeTarget), 1, active.activeAbility);
             effect.IconOverride = active.activeAbility.icon;
             effect.target.effectManager.OnApplication(effect);
         }
         else
         {
-            Effect effect = new Effect();
-            effect.Setup(GameAssets.i.chargeInstantEffect, this, this, 1, active.activeAbility);
+            Effect effect = new Effect(GameAssets.i.chargeInstantEffect, 1, this, this, 1, active.activeAbility);
             effect.IconOverride = active.activeAbility.icon;
             effect.target.effectManager.OnApplication(effect);
         }
@@ -104,11 +102,11 @@ public class Enemy : Unit
 
     }
 
-    public void ResetChargedAbility()
+    public void ResetChargedAbility(Unit target)
     {
         chargedAbility.Clear();
         chargeTarget = -1;
-        effectManager.RemoveCharging();
+        target.effectManager.RemoveCharging();
     }
 
     private AbilityBehavior GetAbilityBehavior(Active active)

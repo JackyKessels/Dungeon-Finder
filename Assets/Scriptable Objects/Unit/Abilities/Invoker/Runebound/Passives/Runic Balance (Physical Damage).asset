@@ -18,8 +18,11 @@ MonoBehaviour:
   description: Physical Damage increased by <1>%.
   isBuff: 1
   procType: 1
-  duration: 5
+  duration: 8
   permanent: 0
+  stackable: 1
+  maxStacks: 0
+  refreshes: 0
   removeEffects: []
   attributeModified: 10
   isIncrease: 1

@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 143
   name: Resolve
   quality: 0
-  type: 3
+  abilityType: 3
   description: 'Your Primary attacks Taunt the target for this Round.
 
 
@@ -35,8 +35,10 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 01000000020000000300000004000000050000000600000007000000
   triggersPassives: 0
+  triggeredByEffects: 1
   procChance: 100
   abilitySources: []
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects:

@@ -347,6 +347,8 @@ public class GameManager : MonoBehaviour
         else townManager.EnableUI(true);
 
         mapButton.UpdateButton(gameState);
+
+        townManager.ShopButtonsState(true);
     }
 
     public void GoToRun()
@@ -362,6 +364,8 @@ public class GameManager : MonoBehaviour
         dungeonManager.EnableUI(true);
 
         mapButton.UpdateButton(gameState);
+
+        townManager.ShopButtonsState(false);
     }
 
     public void TryAgain()

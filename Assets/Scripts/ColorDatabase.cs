@@ -173,7 +173,7 @@ public static class ColorDatabase
         return "#70FF62";
     }
 
-    public static string UseColor()
+    public static string Gray()
     {
         return "#C0C0C0";
     }
@@ -186,6 +186,11 @@ public static class ColorDatabase
     public static string GeneralInformation()
     {
         return "#DBFF73";
+    }
+
+    public static string Red()
+    {
+        return "#FF0000";
     }
 
     public static Color ConvertString2Color(string s)

@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
-  m_Name: Enrage (@50)
+  m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
+  m_Name: Instability (Passive)
   m_EditorClassIdentifier: 
   id: -1
-  name: Enrage
+  name: Instability
   quality: 0
-  type: 0
+  type: 3
   description: 
   icon: {fileID: 0}
   casterSpecialEffects: []
@@ -24,8 +24,16 @@ MonoBehaviour:
   sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
-  effects:
-  - {fileID: 11400000, guid: 1ddb8f265b6045a478bdd217443928c2, type: 2}
-  activationMoment: 1
-  targets: 0
-  healthPercentage: 50
+  triggerType: 0
+  hitType: 0
+  targetTrigger: 1
+  abilityTypeTrigger: 0
+  typeRequirement: 0
+  schoolTriggers: 01000000
+  triggersPassives: 0
+  procChance: 100
+  abilitySources: []
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: 4a1bc64a4b5198047871cca013ec5134, type: 2}
+  targetEffects: []

@@ -44,7 +44,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && activeConversation)
+        if (KeyboardHandler.ProgressWindow() && activeConversation)
         {
             AdvanceLine();
         }
