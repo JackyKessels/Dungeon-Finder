@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     private bool firstDeath = false;
 
     [Header("TESTING STUFF")]
+    public bool TEST_MODE = false;
     public Canvas TEST;
     public GameObject SKIP_BUTTON;
 
@@ -131,7 +132,7 @@ public class GameManager : MonoBehaviour
         currentUI = ui;
     }
 
-    public void ChooseTeamName()
+    public void ChooseTeam()
     {
         titleElements.gameObject.SetActive(false);
 
@@ -159,7 +160,7 @@ public class GameManager : MonoBehaviour
         startButton.interactable = false;
 
         ConfirmationBoxHandler.Instance.SetupConfirmationBox("Are you sure?", new List<ConfirmationButton>()
-                                                                            { new ConfirmationButton("Yes", StartStory),
+                                                                            { new ConfirmationButton("Yes", Introduction1),
                                                                               new ConfirmationButton("No", ReactiveStartButton) });
     }
 
@@ -236,6 +237,8 @@ public class GameManager : MonoBehaviour
 
     public void TestGame()
     {
+        TEST_MODE = true;
+
         TEST.gameObject.SetActive(true);
         SKIP_BUTTON.SetActive(true);
 
@@ -257,6 +260,7 @@ public class GameManager : MonoBehaviour
 
         //townManager.StartTutorial();
         townManager.SetupStratford();
+        townManager.dungeonList.SetDungeonList(true);
     }
 
     public void BackToTitle()

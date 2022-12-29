@@ -153,8 +153,11 @@ public class TownManager : MonoBehaviour, IUserInterface
 
     public void StartRun(Dungeon dungeon)
     {
-        audioSource.clip = dungeon.floors[0].backgroundSound;
-        audioSource.Play();
+        if (dungeon.floors[0].backgroundSound != null)
+        {
+            audioSource.clip = dungeon.floors[0].backgroundSound;
+            audioSource.Play();
+        }
 
         TooltipHandler.Instance.HideTooltip();
 
