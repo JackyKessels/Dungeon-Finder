@@ -18299,42 +18299,37 @@ MonoBehaviour:
   m_text: 'Welcome to the very first "prototype" of Dungeon Finder (tentative name).
     I appreciate you making the time to test this early version of the game.
 
-    
 
     Keep
     in mind that everything is most likely going to be changed, but I would you to
     think about certain aspects:
 
-    
 
     - Does the combat feel smooth?
 
+    - Is there
+    enough variation in abilities and items?
+
+    - Do you know what to do?
+
     -
-    Is there enough variation in abilities and items?
+    Is the UI clear and informative enough?
 
-    - Do you know what to
-    do?
 
-    - Is the UI clear and informative enough?
+    Due to time constraints please
+    disregard the following for now:
 
-    
-
-    Due to time
-    constraints please disregard the following for now:
-
-    
 
     - Artwork
 
-    -
-    Story
+    - Story
 
     - Balancing
 
-    
 
-    P.S.: There will be bugs and they may break
-    your game, I am sorry but please do report them. :-)'
+    P.S.:
+    There will be bugs and they may break your game, I am sorry but please do report
+    them. :-)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -40077,7 +40072,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 78821952}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ChooseTeamName
+        m_MethodName: ChooseTeam
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

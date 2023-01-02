@@ -23,6 +23,7 @@ MonoBehaviour:
   activeAbilities:
   - {fileID: 11400000, guid: 863451a5add7a2b4ab6d22775baf70cc, type: 2}
   - {fileID: 11400000, guid: caadc9f83fcd39346b8052c077b3b816, type: 2}
+  - {fileID: 11400000, guid: 8fbca1fdf00800448bba69fb89d75789, type: 2}
   - {fileID: 11400000, guid: 20a86b79589e73f429c0c7eef9548e80, type: 2}
   - {fileID: 11400000, guid: 0f46e9e5fd3684f4abdcc772593744f6, type: 2}
   - {fileID: 11400000, guid: 1b5b4dcb13021b44db66991c6b681556, type: 2}
@@ -40,20 +41,20 @@ MonoBehaviour:
   - attributeType: 0
     baseValue: 2
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   - attributeType: 2
     baseValue: 1
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   - attributeType: 5
     baseValue: 1
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   - attributeType: 12
     baseValue: 2
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   - attributeType: 16
     baseValue: 2
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0

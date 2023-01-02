@@ -15,7 +15,7 @@ MonoBehaviour:
   id: -1
   name: Blood Ritual
   quality: 0
-  type: 3
+  abilityType: 3
   description: Receive <s1timAc1> <Heal> every Round.
   icon: {fileID: 21300000, guid: 93c67676a81b2d747b28ba7d8b0d6e02, type: 3}
   casterSpecialEffects: []
@@ -24,8 +24,12 @@ MonoBehaviour:
   sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
+  activationMoment: 0
+  castActiveAbilities: []
   effects:
   - {fileID: 11400000, guid: ffa597d38dceb5b41986ffe4abba3d07, type: 2}
-  activationMoment: 0
   targets: 0
   healthPercentage: 0
+  attributeType: 0
+  attributeValue: 0
+  cooldown: 0

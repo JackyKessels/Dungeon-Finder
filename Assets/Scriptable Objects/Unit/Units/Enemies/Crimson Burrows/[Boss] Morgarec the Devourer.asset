@@ -65,11 +65,11 @@ MonoBehaviour:
     target: 2
     condition: 0
     startCooldown: 2
-    charged: 0
+    charged: 1
   - ability: {fileID: 11400000, guid: 234a4832156aed24e8a9f296a6dfe1d7, type: 2}
     target: 0
     condition: 0
     startCooldown: 0
-    charged: 1
+    charged: 0
   passiveAbilities:
   - {fileID: 11400000, guid: f4bb1353487f6f74f9144891c473bc1d, type: 2}

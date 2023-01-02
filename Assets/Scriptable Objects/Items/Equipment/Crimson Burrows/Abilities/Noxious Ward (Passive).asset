@@ -15,7 +15,7 @@ MonoBehaviour:
   id: -1
   name: Noxious Reprisal
   quality: 0
-  type: 3
+  abilityType: 3
   description: Taking <P> damage has a <%> chance to deal <1> <N> damage to the attacker.
   icon: {fileID: 21300000, guid: 4e488c9653d37a7468f5d057c50f8b11, type: 3}
   casterSpecialEffects: []
@@ -32,9 +32,13 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 01000000
   triggersPassives: 1
+  triggeredByEffects: 1
   procChance: 40
   abilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 4
     attributeType: 0
     baseValue: 8
@@ -55,6 +59,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -64,6 +71,7 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 0
       conditionalEffect: {fileID: 0}
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []

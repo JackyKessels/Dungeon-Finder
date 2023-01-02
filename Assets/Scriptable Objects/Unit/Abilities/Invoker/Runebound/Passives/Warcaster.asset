@@ -29,7 +29,7 @@ MonoBehaviour:
     isIncrease: 1
     modifierType: 1
     flatValue: 0
-    multiplierValue: 0.15
+    multiplierValue: 0.25
   - attributeModified: 2
     isIncrease: 0
     modifierType: 1

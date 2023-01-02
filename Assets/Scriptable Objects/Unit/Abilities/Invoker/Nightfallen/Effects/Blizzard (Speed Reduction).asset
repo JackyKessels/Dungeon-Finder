@@ -10,21 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f61bd7798258c684cb135bcc9f1f3cfd, type: 3}
-  m_Name: Northern Winds (Speed)
+  m_Name: Blizzard (Speed Reduction)
   m_EditorClassIdentifier: 
-  name: Northern Winds
-  icon: {fileID: 21300000, guid: bb6db85d2b341924a916e20601bb220b, type: 3}
+  name: Blizzard
+  icon: {fileID: 21300000, guid: 4eae406ef88904d4b80e90fbf235772a, type: 3}
   hidden: 0
   description: Speed reduced by <1>.
   isBuff: 0
-  procType: 0
-  duration: 1
-  permanent: 1
+  procType: 1
+  duration: 2
+  permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
   removeEffects: []
   attributeModified: 6
   isIncrease: 0
+  modifierType: 0
   modifierSource:
     ignoreMultipliers: 1
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 0
     attributeType: 6
     baseValue: 1
@@ -45,6 +53,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -52,5 +63,9 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  multiplier: 0
+  multiplierPerLevel: 0
   specialEffects:
   - {fileID: 1799810814159766964, guid: d1a4be81f4f1cfc478f32a25b6606fca, type: 3}

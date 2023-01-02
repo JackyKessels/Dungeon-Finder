@@ -20,7 +20,8 @@ MonoBehaviour:
     for <t1d> Rounds.
   icon: {fileID: 21300000, guid: b49f2a7775a5e8048b18998607105ffd, type: 3}
   casterSpecialEffects: []
-  targetSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 3310048376162225804, guid: 4a1e2b4cd75c435499e28091354a8189, type: 3}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}

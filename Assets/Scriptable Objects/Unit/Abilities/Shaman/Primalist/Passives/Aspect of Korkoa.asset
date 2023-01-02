@@ -17,7 +17,7 @@ MonoBehaviour:
   quality: 0
   abilityType: 3
   description: Receive <s1timAc1> <Heal> every Round.
-  icon: {fileID: 21300000, guid: dc1b17ffd20a9404cb05a7f48cb54894, type: 3}
+  icon: {fileID: 21300000, guid: e2ad9b4b95db7104a8bb39f907e5b51f, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
   hasLevels: 1

@@ -13,19 +13,27 @@ MonoBehaviour:
   m_Name: Aspect of Korkoa (HoT)
   m_EditorClassIdentifier: 
   name: Aspect of Korkoa
-  icon: {fileID: 21300000, guid: dc1b17ffd20a9404cb05a7f48cb54894, type: 3}
+  icon: {fileID: 21300000, guid: e2ad9b4b95db7104a8bb39f907e5b51f, type: 3}
   hidden: 0
   description: Receive <1> <Heal> every Round.
   isBuff: 1
   procType: 1
   duration: 1
   permanent: 1
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
   removeEffects: []
   timedActions:
   - actionType: 1
     actionTargets: 0
+    triggersPassives: 0
     abilitySource:
       ignoreMultipliers: 0
+      cannotCrit: 0
+      cannotMiss: 0
+      ignorePassive: {fileID: 0}
       school: 0
       attributeType: 0
       baseValue: 0
@@ -46,6 +54,9 @@ MonoBehaviour:
         percentageIncrease: 0
         bonusAbilitySource:
           ignoreMultipliers: 0
+          cannotCrit: 0
+          cannotMiss: 0
+          ignorePassive: {fileID: 0}
           school: 0
           attributeType: 0
           baseValue: 0
@@ -53,6 +64,8 @@ MonoBehaviour:
           scaling: 0
           levelScaling: 0
           reductionType: 0
+        effectOnTarget: 1
+        conditionalEffect: {fileID: 0}
     specialEffects:
-    - {fileID: 839941475029272488, guid: 5bcc72195cde8e048a84b086972d07c1, type: 3}
+    - {fileID: 7668763421552897605, guid: cf4650a645d2a284888a12a7520cd359, type: 3}
     storedValue: 0

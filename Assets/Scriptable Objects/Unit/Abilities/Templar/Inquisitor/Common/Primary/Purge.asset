@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Purge
   m_EditorClassIdentifier: 
-  id: 76
+  id: 124
   name: Purge
   quality: 0
-  type: 0
+  abilityType: 0
   description: 'Deal <e1> <F> and <e2> <H> damage to your target.
 
 
@@ -44,6 +44,9 @@ MonoBehaviour:
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 2
     attributeType: 2
     baseValue: 0
@@ -56,7 +59,7 @@ MonoBehaviour:
       modification: 1
       condition: 1
       thresholdType: 1
-      conditionThreshold: 90
+      conditionThreshold: 80
       increasedAttribute: 4
       increaseValue: 50
       casterBased: 1
@@ -64,6 +67,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -74,6 +80,9 @@ MonoBehaviour:
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 6
     attributeType: 2
     baseValue: 0
@@ -94,6 +103,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -110,4 +122,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

@@ -438,7 +438,7 @@ public class EffectManager : MonoBehaviour
         {
             if (HasImmunity(cc.type))
             {
-                string text = GeneralUtilities.GetCorrectCrowdControlText(cc.type) + " Immune";
+                string text = "Immune";
 
                 FCTData fctData = new FCTData(false, unit, text, Color.cyan);
                 unit.fctHandler.AddToFCTQueue(fctData);

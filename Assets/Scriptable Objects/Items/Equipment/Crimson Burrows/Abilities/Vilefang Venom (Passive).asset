@@ -15,7 +15,7 @@ MonoBehaviour:
   id: -1
   name: Vilefang Venom
   quality: 0
-  type: 3
+  abilityType: 3
   description: Your <critical> <P> hits deal an additional <t1timAc1> <N> damage
     per Turn for <t1d> Turns.
   icon: {fileID: 21300000, guid: d36aca348f632d247b5ae566b993b9cd, type: 3}
@@ -32,8 +32,10 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 01000000
   triggersPassives: 0
+  triggeredByEffects: 1
   procChance: 100
   abilitySources: []
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects:

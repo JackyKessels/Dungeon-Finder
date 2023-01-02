@@ -15,7 +15,7 @@ MonoBehaviour:
   id: -1
   name: Protective Shimmer
   quality: 0
-  type: 3
+  abilityType: 3
   description: Taking <critical> damage increases your <armor> by <t1modV> for <t1d>
     Rounds.
   icon: {fileID: 21300000, guid: 6f727da2dc9862642ac5f0f1fd6242e2, type: 3}
@@ -32,8 +32,10 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 01000000020000000300000004000000050000000600000007000000
   triggersPassives: 0
+  triggeredByEffects: 1
   procChance: 100
   abilitySources: []
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects:
