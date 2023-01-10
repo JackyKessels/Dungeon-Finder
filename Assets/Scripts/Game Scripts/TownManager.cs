@@ -130,8 +130,7 @@ public class TownManager : MonoBehaviour, IUserInterface
     // Only runs once per game, after doing tutorial or on load.
     public void SetupStratford()
     {
-        audioSource.clip = stratfordAmbient;
-        audioSource.Play();
+        audioSource.FadeIn(stratfordAmbient, 0.5f);
 
         gameManager.gameState = GameState.TOWN;
 
@@ -153,6 +152,14 @@ public class TownManager : MonoBehaviour, IUserInterface
 
     public void StartRun(Dungeon dungeon)
     {
+        if (dungeon.floors.Count == 0)
+        {
+            Debug.Log("Dungeon has no floors.");
+            return;
+        }
+
+        audioSource.FadeOut(0.5f);
+
         if (dungeon.floors[0].backgroundSound != null)
         {
             audioSource.clip = dungeon.floors[0].backgroundSound;

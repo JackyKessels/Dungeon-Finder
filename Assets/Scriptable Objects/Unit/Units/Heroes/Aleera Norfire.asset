@@ -19,9 +19,9 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 56434fbf86f8d4e4592a3205aeaf5028, type: 3}
   attackAnimation: {fileID: 0}
   castAnimation: {fileID: 0}
-  baseHealth: 50
-  basePower: 10
-  baseWisdom: 10
+  baseHealth: 100
+  basePower: 20
+  baseWisdom: 20
   baseArmor: 0
   baseResistance: 0
   baseVitality: 0

@@ -30,6 +30,7 @@ public class Floor
     public int endPoints;
     public int removalThreshold;
     public int minimumLocations = 1;
+    public int maximumLocations = 30;
     public bool addOffset;
     public bool forceBossCenter = false;
 

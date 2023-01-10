@@ -21,8 +21,10 @@ public abstract class EffectObject : ScriptableObject, IDescribable
     public bool stackable = false;
     public int maxStacks = 0;
     public bool refreshes = true;
-    [Tooltip("True = Effect is removed when caster dies. | False = Effect persists when caster dies.")]
+    [Tooltip("True = Effect is removed when caster dies.\nFalse = Effect persists when caster dies.")]
     public bool aura = false;
+    [Tooltip("True = This effect can only be active on 1 target.\nFalse = No limitations.")]
+    public bool unique = false;
     public List<EffectObject> removeEffects;
 
     public string GetDescription(TooltipObject tooltipInfo)

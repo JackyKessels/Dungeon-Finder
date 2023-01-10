@@ -14,6 +14,7 @@ public class EffectCrowdControl : EffectObject
 {
     [Header("Crowd Control")]
     public CrowdControlType type;
+    [Tooltip("True = When Taunt fades, make target immune to taunt for 1 Round.\nFalse = No taunt immunity.")]
     public bool addTauntImmune;
 
     protected override string ParseDescription(string s, TooltipObject tooltipInfo)

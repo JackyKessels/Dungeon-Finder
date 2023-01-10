@@ -27,6 +27,7 @@ MonoBehaviour:
     endPoints: 5
     removalThreshold: 0
     minimumLocations: 0
+    maximumLocations: 30
     addOffset: 0
     forceBossCenter: 0
     eliteCount: 0
@@ -40,7 +41,7 @@ MonoBehaviour:
       - {fileID: 11400000, guid: 5ae14ec0869089e47a5450ed7875927b, type: 2}
       weight: 1
     - enemyObjects:
-      - {fileID: 11400000, guid: aca16c850d16f7a4a9c1e39c728edb1c, type: 2}
+      - {fileID: 11400000, guid: 81af47cd6e032b74d92ab8ef6860fe49, type: 2}
       weight: 1
     - enemyObjects:
       - {fileID: 11400000, guid: 4b03e6418cf01c742ae0d5a5757895c9, type: 2}

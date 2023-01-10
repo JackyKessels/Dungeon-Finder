@@ -104,6 +104,24 @@ public class EffectManager : MonoBehaviour
         }
     }
 
+    public static void RemoveApplications(Effect effect)
+    {
+        foreach (Unit unit in TeamManager.Instance.heroes.LivingMembers)
+        {
+            if (unit != effect.target)
+            {
+                unit.effectManager.RemoveEffect(effect.effectObject);
+            }
+        }
+
+        foreach (Unit unit in TeamManager.Instance.enemies.LivingMembers)
+        {
+            if (unit != effect.target)
+            {
+                unit.effectManager.RemoveEffect(effect.effectObject);
+            }
+        }
+    }
 
     private bool NoEffects()
     {
@@ -502,10 +520,15 @@ public class EffectManager : MonoBehaviour
         }
         else
         {
+            if (e.effectObject.unique)
+            {
+                RemoveApplications(e);
+            }
+
             effectsList.Add(e);
         }
     }
-    
+
     public void OnActive(Effect e)
     {
         if (e.effectObject is EffectOverTime)

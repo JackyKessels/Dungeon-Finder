@@ -19,6 +19,14 @@ public class AbilityOptionsWindow : MonoBehaviour
 
     private readonly int priceMultiplier = 5;
 
+    private void Update()
+    {
+        if (KeyboardHandler.Escape())
+        {
+            Refund();
+        }
+    }
+
     public void CreateOptions(Hero _hero, HeroPathObject heroPathObject, Currency _cost)
     {
         hero = _hero;

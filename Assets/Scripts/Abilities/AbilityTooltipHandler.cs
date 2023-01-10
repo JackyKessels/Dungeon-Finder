@@ -99,6 +99,7 @@ public static class AbilityTooltipHandler
             temp = DetermineEffectDuration(temp, string.Format("<{1}{0}d>", i + 1, check), effects[i]);
             temp = ParseStacking(temp, string.Format("<{1}{0}stacks>", i + 1, check), effects[i]);
             temp = DoesNotRefresh(temp, string.Format("<{1}{0}refresh>", i + 1, check), effects[i]);
+            temp = UniqueEffect(temp, string.Format("<{1}{0}unique>", i + 1, check), effects[i]);
 
             if (effects[i] is EffectAttributeModifier attributeModifier)
             {
@@ -146,6 +147,7 @@ public static class AbilityTooltipHandler
 
         return temp;
     }
+
 
     public static string ReplacesAbility(string temp, AbilityObject abilityObject)
     {
@@ -528,6 +530,20 @@ public static class AbilityTooltipHandler
             temp = temp.Replace(check, "The duration of " + "<color=" + color + ">{0}</color>" + " cannot be refreshed.");
 
             return string.Format(temp, effectObject.name, effectObject.maxStacks);
+        }
+
+        return temp;
+    }
+
+    private static string UniqueEffect(string temp, string check, EffectObject effectObject)
+    {
+        if (temp.Contains(check) && effectObject.unique)
+        {
+            string color = ColorDatabase.GeneralInformation();
+
+            temp = temp.Replace(check, "<color=" + color + ">{0}</color>" + " can only be active on " + "<color=" + color + ">1</color>" + " target.");
+
+            return string.Format(temp, effectObject.name);
         }
 
         return temp;

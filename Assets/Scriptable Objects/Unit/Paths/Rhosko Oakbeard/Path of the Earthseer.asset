@@ -20,8 +20,9 @@ MonoBehaviour:
   secondaryAbility: {fileID: 11400000, guid: cde4ab97773683e4999ffc4cbdc9b3b2, type: 2}
   passiveAbility: {fileID: 11400000, guid: 03db37ea2b5748941ab0d0229bd8b9b7, type: 2}
   activeAbilities:
-  - {fileID: 11400000, guid: 4e5be734d86c08f48b7abd651207c920, type: 2}
   - {fileID: 11400000, guid: 35e17cf8771d10b48a10206277dc153a, type: 2}
+  - {fileID: 11400000, guid: 4e5be734d86c08f48b7abd651207c920, type: 2}
+  - {fileID: 11400000, guid: 138a8d31fc8d2de498e1b9804031d2f2, type: 2}
   - {fileID: 11400000, guid: 18decffc86c294c4caa6e7eb27d6f601, type: 2}
   - {fileID: 11400000, guid: cde4ab97773683e4999ffc4cbdc9b3b2, type: 2}
   - {fileID: 11400000, guid: 8c0c9c6e8251eab44abbb29e5b88f57d, type: 2}
@@ -39,20 +40,20 @@ MonoBehaviour:
   - attributeType: 0
     baseValue: 5
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   - attributeType: 1
     baseValue: 1
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   - attributeType: 4
     baseValue: 1
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   - attributeType: 10
     baseValue: 2
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   - attributeType: 13
     baseValue: 2
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0

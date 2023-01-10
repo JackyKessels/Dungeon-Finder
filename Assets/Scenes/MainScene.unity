@@ -22588,7 +22588,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Skip options and refund 50%
+  m_text: Skip options and refund 50% [Escape]
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02a595d32217990488a92337279e774f, type: 2}
   m_sharedMaterial: {fileID: 2834418323826619090, guid: 02a595d32217990488a92337279e774f,

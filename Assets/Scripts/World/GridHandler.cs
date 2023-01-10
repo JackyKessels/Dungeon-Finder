@@ -34,8 +34,6 @@ public class GridHandler : MonoBehaviour
 
     private List<int> bossColumns;
 
-    private readonly int maximumLocations = 100;
-
     public void EnterDungeon(Dungeon dungeon, int floor)
     {
         if (dungeon.floors.Count == 0 || dungeon.floors[floor].columns == 0 || dungeon.floors[floor].rows == 0)
@@ -46,22 +44,31 @@ public class GridHandler : MonoBehaviour
 
         int counter = 0;
 
-        while (counter > 1000 | RerollRun(CreateDungeon(dungeon, floor), dungeon, floor))
+        while (counter > 1000 | RerollFloor(CreateDungeon(dungeon, floor), dungeon, floor))
         {
             counter++;
             Debug.Log("Generated new dungeon layout after " + counter + " tries.");
         }
     }
 
-    private bool RerollRun(int gridCount, Dungeon currentDungeon, int floor)
+    private bool RerollFloor(int gridCount, Dungeon currentDungeon, int floor)
     {
         if (gridCount == -1)
             return false;
 
-        if (currentDungeon.floors[floor].minimumLocations <= gridCount && gridCount <= maximumLocations)
-            return false; // Grid count lies in the range so don't reroll
+        Floor currentFloor = currentDungeon.floors[floor];
+
+        // If conditions not met, reroll the floor
+        if (currentFloor.minimumLocations <= gridCount &&
+            gridCount <= currentFloor.maximumLocations &&
+            CountStartingPoints() == currentFloor.startingPoints)
+        {
+            return false; // DO NOT REROLL: All conditions are met
+        }
         else
-            return true; // Grid count does not lie within the range so reroll
+        {
+            return true; // REROLL: Not all conditions are met 
+        }      
     }
 
     private int CreateDungeon(Dungeon dungeon, int floor)
@@ -380,24 +387,6 @@ public class GridHandler : MonoBehaviour
         currentLocation.SetVisited();
     }
 
-    public void LockBehind(Location currentLocation)
-    {
-        // Return if first column
-        if (currentLocation.x == 0)
-            return;
-
-        for (int x = 0; x < currentLocation.x; x++)
-        {
-            for (int y = 0; y < columns; y++)
-            {
-                if (locations[x, y] != null && !locations[x, y].locked)
-                {
-                    locations[x, y].LockLocation(true);
-                }
-            }
-        }
-    }
-
     private void LockConnectedLocations(Location _location)
     {
         List<Location> rightConnectedLocations = _location.GetRightConnectedLocations();
@@ -437,6 +426,20 @@ public class GridHandler : MonoBehaviour
         return null;
     }
 
+    private int CountStartingPoints()
+    {
+        int count = 0;
+
+        foreach (Location location in locations)
+        {
+            if (location != null && location.x == 0)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
 
     private void RemoveConnectionlessLocations()
     {
