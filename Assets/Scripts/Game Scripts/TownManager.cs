@@ -130,6 +130,8 @@ public class TownManager : MonoBehaviour, IUserInterface
     // Only runs once per game, after doing tutorial or on load.
     public void SetupStratford()
     {
+        DamageMeterManager.Instance.InitializeDamageMeters();
+
         audioSource.FadeIn(stratfordAmbient, 0.5f);
 
         gameManager.gameState = GameState.TOWN;

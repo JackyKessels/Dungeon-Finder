@@ -20,7 +20,7 @@ MonoBehaviour:
   attackAnimation: {fileID: 0}
   castAnimation: {fileID: 0}
   baseHealth: 250
-  basePower: 20
+  basePower: 13
   baseWisdom: 15
   baseArmor: -11
   baseResistance: 11

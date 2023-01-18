@@ -15,7 +15,7 @@ MonoBehaviour:
   id: -1
   name: Cracked Shell
   quality: 0
-  type: 0
+  abilityType: 0
   description: Taking damage has a 25% chance to crack your shell, reducing your
     Armor by 10 for 2 Rounds.
   icon: {fileID: 21300000, guid: 2fb3d2612a14d8d4aba60c669a296ae8, type: 3}
@@ -28,10 +28,14 @@ MonoBehaviour:
   triggerType: 0
   hitType: 0
   targetTrigger: 1
+  abilityTypeTrigger: 0
+  typeRequirement: 0
   schoolTriggers: 01000000020000000300000004000000050000000600000007000000
   triggersPassives: 0
-  procChance: 25
+  triggeredByEffects: 1
+  procChance: 33
   abilitySources: []
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects:
   - {fileID: 11400000, guid: a9b5bcadba980cf45bf01e6099a5fc93, type: 2}

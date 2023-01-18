@@ -20,6 +20,11 @@ MonoBehaviour:
   procType: 0
   duration: 0
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
   removeEffects: []
   timedActions:
   - actionType: 0
@@ -34,7 +39,7 @@ MonoBehaviour:
       attributeType: 0
       baseValue: 0
       levelBase: 0
-      scaling: 0.03
+      scaling: 0.05
       levelScaling: 0
       reductionType: 0
       modifier:

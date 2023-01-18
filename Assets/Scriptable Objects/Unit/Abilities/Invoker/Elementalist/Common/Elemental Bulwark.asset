@@ -16,7 +16,8 @@ MonoBehaviour:
   name: Elemental Bulwark
   quality: 0
   abilityType: 1
-  description: Increase the <resistance> of your target by <t1modV> for this Round.
+  description: Increase your target's <health> by <t2modP> and <resistance> by <t1modV>
+    for this Round.
   icon: {fileID: 21300000, guid: e938f40e7c5fbf54cb42d9cfe79f9571, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
@@ -37,6 +38,7 @@ MonoBehaviour:
   selfEffects: []
   targetEffects:
   - {fileID: 11400000, guid: 4f445fafb6b22e54685112b85360c1a5, type: 2}
+  - {fileID: 11400000, guid: 72b244ae335899147bceecd806d09516, type: 2}
   targetsAllies: 1
   targetsEnemies: 0
   targetTargets: 0

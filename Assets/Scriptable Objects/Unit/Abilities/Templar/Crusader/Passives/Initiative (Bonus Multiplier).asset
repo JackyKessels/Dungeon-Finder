@@ -20,6 +20,11 @@ MonoBehaviour:
   procType: 1
   duration: 1
   permanent: 1
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
   removeEffects: []
   affectedAbility: 2
   getConsumed: 1
@@ -28,7 +33,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 07ffbca9367ca99478e9d2cd39ae0e9f, type: 2}
   - {fileID: 11400000, guid: 3ee1f0920ecbf1246aaf96ba0a2548dc, type: 2}
   - {fileID: 11400000, guid: f1cf393ed2ce5b242929bbd0002e8a5f, type: 2}
-  bonusMultiplier: 2
+  bonusMultiplier: 1.5
   bonusPerLevel: 0
   specialEffects:
   - {fileID: 6159370551172563889, guid: 1763c110a51076b45b5ec8c10ade8b6c, type: 3}

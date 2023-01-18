@@ -181,6 +181,9 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
         tooltipHandler.HideTooltip();
 
+        // Initialize Damage Meter
+        DamageMeterManager.Instance.ClearDamageMeters();
+
         // Setup both teams
         TeamManager.Instance.SetupBattle(unitObjects);
 
@@ -201,9 +204,6 @@ public class BattleManager : MonoBehaviour, IUserInterface
         state = BattleState.START;
 
         round = 1;
-
-        // Initialize Damage Meter
-        DamageMeterManager.Instance.ClearDamageMeters();
 
         teamManager.ApplyPreBattleEffects();
         teamManager.TriggerRoundStartPassives();
@@ -361,15 +361,15 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
         state = currentUnit.state;
 
-        if (!currentUnit.isEnemy)
+        if (currentUnit.isEnemy)
+        {
+            StartCoroutine(EnemyTurn());
+        }
+        else
         {
             currentHero = (Hero)currentUnit;
 
             PlayerTurn();
-        }
-        else if (currentUnit.isEnemy)
-        {
-            StartCoroutine(EnemyTurn());
         }
 
         //-- Start of the turn --//
@@ -407,7 +407,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
             if (swiftAbility != null)
             {
-                yield return EnemyCastAbility(swiftAbility);
+                yield return EnemyCastAbility(swiftAbility, true);
 
                 CheckWinCondition();
 
@@ -433,7 +433,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
                 // Otherwise just cast it
                 else
                 {
-                    yield return EnemyCastAbility(currentAbility);
+                    yield return EnemyCastAbility(currentAbility, false);
                 }
             }
             else
@@ -458,40 +458,35 @@ public class BattleManager : MonoBehaviour, IUserInterface
         EndTurn();
     }
 
-    IEnumerator EnemyCastAbility(Active active)
+    IEnumerator EnemyCastAbility(Active active, bool swift)
     {
         HandleCooldown(active);
 
         Enemy castingEnemy = (currentUnit as Enemy);
 
+        CastAbility(active);
+
+        yield return new WaitForSeconds(active.activeAbility.castTime);
+
+        CastAnimation(active);
+
         if (active.activeAbility is TargetAbility t)
         {
-            CastAbility(active);
-
-            yield return new WaitForSeconds(t.castTime);
-
-            CastAnimation(active);
-
             int x = castingEnemy.CheckTarget(t);
 
             Unit target = teamManager.heroes.LivingMembers[x];
 
             active.Trigger(currentUnit, target);
-
-            castingEnemy.ResetChargedAbility(target);
         }
         else if (active.activeAbility is InstantAbility i)
         {
-            CastAbility(active);
+            active.Trigger(currentUnit, null);   
+        }
 
-            yield return new WaitForSeconds(i.castTime);
-
-            CastAnimation(active);
-
-            active.Trigger(currentUnit, null);
-
+        if (!swift)
+        {
             castingEnemy.ResetChargedAbility(castingEnemy);
-        }    
+        }
 
         // Update HUD
         battleHUD.Refresh();

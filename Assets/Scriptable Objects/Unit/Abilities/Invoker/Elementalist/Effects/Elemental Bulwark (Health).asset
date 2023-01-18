@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f61bd7798258c684cb135bcc9f1f3cfd, type: 3}
-  m_Name: Arcane Blast (Resistance Reduction)
+  m_Name: Elemental Bulwark (Health)
   m_EditorClassIdentifier: 
-  name: Arcane Blast
-  icon: {fileID: 21300000, guid: fb430576c43b66841a7f98b30b77518f, type: 3}
+  name: Elemental Bulwark
+  icon: {fileID: 21300000, guid: e938f40e7c5fbf54cb42d9cfe79f9571, type: 3}
   hidden: 0
-  description: Resistance reduced by <1>.
-  isBuff: 0
+  description: Health increased by <1>%.
+  isBuff: 1
   procType: 1
-  duration: 4
+  duration: 1
   permanent: 0
-  stackable: 1
-  maxStacks: 4
+  stackable: 0
+  maxStacks: 0
   refreshes: 1
   aura: 0
   unique: 0
   removeEffects: []
-  attributeModified: 4
-  isIncrease: 0
-  modifierType: 0
+  attributeModified: 0
+  isIncrease: 1
+  modifierType: 1
   modifierSource:
     ignoreMultipliers: 0
     cannotCrit: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
     ignorePassive: {fileID: 0}
     school: 0
     attributeType: 4
-    baseValue: 5
+    baseValue: 0
     levelBase: 0
     scaling: 0
     levelScaling: 0
@@ -66,6 +66,6 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
-  multiplier: 0
-  multiplierPerLevel: 0
+  multiplier: 0.1
+  multiplierPerLevel: 0.02
   specialEffects: []

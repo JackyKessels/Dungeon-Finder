@@ -82,6 +82,7 @@ public class TooltipHandler : MonoBehaviour
 
     public void HideTooltip()
     {
-        tooltip.SetActive(false);
+        if (tooltip != null)
+            tooltip.SetActive(false);
     }
 }

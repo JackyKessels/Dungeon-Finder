@@ -67,7 +67,7 @@ public static class AbilityTooltipHandler
 
             tooltipObject.active.level = level;
 
-            temp = string.Format(temp, activeAbility.GetDescription(tooltipObject));
+            temp = string.Format(temp, activeAbility.GetNameAndDescription(tooltipObject));
         }
 
         return temp;

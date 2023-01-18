@@ -63,7 +63,10 @@ public class DamageMeterManager : MonoBehaviour
     {
         foreach (DamageMeterObject damageMeter in damageMeters)
         {
-            damageMeter.ClearRecords();
+            if (damageMeter.HasRecords())
+            {
+                damageMeter.ClearRecords();
+            }
         }
     }
 

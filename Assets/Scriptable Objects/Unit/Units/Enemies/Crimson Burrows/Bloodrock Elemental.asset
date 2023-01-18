@@ -20,8 +20,8 @@ MonoBehaviour:
   attackAnimation: {fileID: 0}
   castAnimation: {fileID: 0}
   baseHealth: 350
-  basePower: 25
-  baseWisdom: 20
+  basePower: 22
+  baseWisdom: 18
   baseArmor: 18
   baseResistance: -18
   baseVitality: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
     startCooldown: 1
     charged: 0
   - ability: {fileID: 11400000, guid: 18cf3aebb12d38a4f800fab9a5106435, type: 2}
-    target: 0
+    target: 2
     condition: 0
     startCooldown: 0
     charged: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   id: -1
   name: Enrage
   quality: 0
-  type: 0
+  abilityType: 0
   description: 
   icon: {fileID: 0}
   casterSpecialEffects: []
@@ -24,8 +24,12 @@ MonoBehaviour:
   sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
+  activationMoment: 1
+  castActiveAbilities: []
   effects:
   - {fileID: 11400000, guid: 1ddb8f265b6045a478bdd217443928c2, type: 2}
-  activationMoment: 1
   targets: 0
-  healthPercentage: 50
+  healthPercentage: 30
+  attributeType: 0
+  attributeValue: 0
+  cooldown: 0

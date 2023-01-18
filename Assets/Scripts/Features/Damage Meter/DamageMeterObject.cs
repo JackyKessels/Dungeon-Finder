@@ -104,5 +104,12 @@ public class DamageMeterObject : MonoBehaviour
         ObjectUtilities.ClearContainer(recordsContainer);
 
         damageMeterRecords.Clear();
+
+        UpdateTotal();
+    }
+
+    public bool HasRecords()
+    {
+        return damageMeterRecords.Count > 0;
     }
 }

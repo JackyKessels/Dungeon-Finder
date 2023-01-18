@@ -20,6 +20,11 @@ MonoBehaviour:
   procType: 1
   duration: 2
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
   removeEffects: []
   attributeModified: 1
   isIncrease: 1
@@ -28,11 +33,12 @@ MonoBehaviour:
     ignoreMultipliers: 1
     cannotCrit: 0
     cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 0
     attributeType: 0
     baseValue: 0
     levelBase: 0
-    scaling: 0.1
+    scaling: 0.08
     levelScaling: 0
     reductionType: 0
     modifier:
@@ -48,6 +54,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0

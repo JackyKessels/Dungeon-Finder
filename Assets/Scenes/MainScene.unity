@@ -4496,7 +4496,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6b6e73b4494714c98dac88126dd4ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orderObject: {fileID: 942969410}
+  orderContainer: {fileID: 942969410}
+  queueIconPrefab: {fileID: 716202003319958035, guid: c85fbd3df5efcdd4c9fdc2e8c8ca0f4f,
+    type: 3}
   width: 64
   height: 64
   queueList: []
@@ -11737,7 +11739,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &560420145
 MonoBehaviour:
   m_ObjectHideFlags: 0

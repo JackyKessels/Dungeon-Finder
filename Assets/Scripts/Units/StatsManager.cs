@@ -27,7 +27,16 @@ public enum AttributeType
     CritMultiplier
 }
 
+public enum AttributeValue
+{
+    baseValue,
+    bonusValue,
+    multiplier
+}
+
 public delegate void UnitEvent(AbilityValue abilityValue);
+
+public delegate void StatsEvent();
 
 [System.Serializable]
 public class StatsManager
@@ -39,6 +48,7 @@ public class StatsManager
     public UnitEvent OnReceiveUnitEvent;
     public UnitEvent OnCauseUnitEvent;
     public UnitEvent OnDeathEvent;
+    public StatsEvent OnStatsChanged;
 
     private bool deathEventTriggered = false;
 
@@ -124,6 +134,30 @@ public class StatsManager
                     a.baseValue = data.critMultiplier;
                     break;
             }
+        }
+    }
+
+    public void ModifyAttribute(AttributeType attributeType, AttributeValue attributeValue, int value)
+    {
+        switch (attributeValue)
+        {
+            case AttributeValue.baseValue:
+                {
+                    attributes[(int)attributeType].baseValue += value;
+                }
+                break;
+            case AttributeValue.bonusValue:
+                {
+                    attributes[(int)attributeType].bonusValue += value;
+                }
+                break;
+            case AttributeValue.multiplier:
+                {
+                    attributes[(int)attributeType].multiplier += value;
+                }
+                break;
+            default:
+                return;
         }
     }
 
@@ -262,7 +296,7 @@ public class StatsManager
             {
                 a.baseValue += attributeIncrease.baseValue;
 
-                if (a.attributeType == AttributeType.Health)
+                if (a.attributeType == AttributeType.Health && !isDead)
                     currentHealth += attributeIncrease.baseValue;
             }
         }

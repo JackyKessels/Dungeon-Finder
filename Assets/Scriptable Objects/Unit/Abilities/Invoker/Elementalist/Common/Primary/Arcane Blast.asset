@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Arcane Blast
   m_EditorClassIdentifier: 
-  id: 14
+  id: 6
   name: Arcane Blast
   quality: 0
-  type: 0
-  description: Deal <e1> <A> damage to your target and reduce their <resistance>
+  abilityType: 0
+  description: 'Deal <e1> <A> damage to your target and reduce their <resistance>
     by <t1modV> for <t1d> Rounds. This effect stacks.
+
+
+    <t1stacks>'
   icon: {fileID: 21300000, guid: fb430576c43b66841a7f98b30b77518f, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
@@ -35,6 +38,9 @@ MonoBehaviour:
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 5
     attributeType: 2
     baseValue: 0
@@ -55,6 +61,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -71,4 +80,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

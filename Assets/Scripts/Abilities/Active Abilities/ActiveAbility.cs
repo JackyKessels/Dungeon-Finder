@@ -39,6 +39,17 @@ public abstract class ActiveAbility : AbilityObject
                "\nEffect: " + ParseDescription(description, tooltipInfo); // Effect
     }
 
+    public string GetNameAndDescription(TooltipObject tooltipObject)
+    {
+        string color = ColorDatabase.QualityColor(quality);
+
+        string text = string.Format("<smallcaps><b><color={0}>{1}</color></b></smallcaps>", color, name);
+
+        string effect = "\nEffect: " + ParseDescription(description, tooltipObject);
+
+        return text + effect;
+    }
+
     public string FormatWeaponRequirement()
     {
         switch (weaponRequirement)

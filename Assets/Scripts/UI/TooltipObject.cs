@@ -94,4 +94,14 @@ public class TooltipObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         TooltipHandler.Instance.HideTooltip();
     }
+
+    public void OnDestroy()
+    {
+        TooltipHandler.Instance.HideTooltip();
+    }
+
+    private void OnDisable()
+    {
+        TooltipHandler.Instance.HideTooltip();
+    }
 }

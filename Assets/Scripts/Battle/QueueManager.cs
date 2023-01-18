@@ -23,7 +23,8 @@ public class QueueManager : MonoBehaviour
 
     #endregion
 
-    public GameObject orderObject;
+    public GameObject orderContainer;
+    public GameObject queueIconPrefab;
 
     public float width;
     public float height;
@@ -46,7 +47,7 @@ public class QueueManager : MonoBehaviour
         queueTurn = 0;
         queueSize = 0;
 
-        speedList = speedList.OrderByDescending(x => x.statsManager.GetAttributeValue((int)AttributeType.Speed)).ToList();
+        speedList = speedList.OrderByDescending(x => x.statsManager.GetAttributeValue(AttributeType.Speed)).ToList();
 
         Refresh(true);
     }
@@ -108,42 +109,27 @@ public class QueueManager : MonoBehaviour
 
     public void ClearIcons()
     {
-        ObjectUtilities.ClearContainer(orderObject);
+        ObjectUtilities.ClearContainer(orderContainer);
 
         iconsList.Clear();
     }
 
     public void AddToOrder(Unit u)
     {
-        GameObject newObj = new GameObject();                                       // Create the GameObject.
-        Image newImage = newObj.AddComponent<Image>();                              // Add the Image Component script.
-        newImage.sprite = u.icon;                                               // Set the Sprite of the Image Component on the new GameObject.
-        newObj.GetComponent<RectTransform>().SetParent(orderObject.transform);       // Assign the newly created Image GameObject as a Child of the Parent Panel.
-        newObj.GetComponent<RectTransform>().sizeDelta = new Vector2(width, height);// Change size of image.
+        GameObject obj = ObjectUtilities.CreateSimplePrefab(queueIconPrefab, orderContainer);
 
-        if (u.isEnemy)
-            newObj.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
-        else
-            newObj.GetComponent<RectTransform>().localScale = Vector3.one;
+        QueueIconObject queueIcon = obj.GetComponent<QueueIconObject>();
+        queueIcon.Setup(u);
 
-        newObj.SetActive(true);                                                     // Activate the GameObject.
-        iconsList.Add(newObj);
-        u.orderIcon = newObj;
+        iconsList.Add(obj);
     }
 
     public void SetIcon(Unit u)
     {
         if (u == null)
             return;
-        
-        if (u.hasTurn)
-        {
-            u.orderIcon.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f);
-        }
-        else
-        {
-            u.orderIcon.GetComponent<Image>().color = new Color(0.3f, 0.3f, 0.3f);
-        }
+
+        u.orderIcon.HandleTurn();
     }
 
     // Extra //

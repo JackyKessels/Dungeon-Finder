@@ -31,7 +31,7 @@ public class Unit : MonoBehaviour
     [HideInInspector] public BattleState state;
     [HideInInspector] public int queueNumber;
     [HideInInspector] public int battleNumber;
-    [HideInInspector] public GameObject orderIcon;
+    [HideInInspector] public QueueIconObject orderIcon;
     [HideInInspector] public bool hasTurn;
 
     // Stats
