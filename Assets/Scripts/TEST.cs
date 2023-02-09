@@ -166,8 +166,8 @@ public class TEST : MonoBehaviour
     {
         foreach (Unit unit in TeamManager.Instance.heroes.Members)
         {
-            unit.statsManager.GetAttribute(AttributeType.Power).bonusValue += 5000;
-            unit.statsManager.GetAttribute(AttributeType.Wisdom).bonusValue += 5000;
+            unit.statsManager.ModifyAttribute(AttributeType.Power, AttributeValue.bonusValue, 5000);
+            unit.statsManager.ModifyAttribute(AttributeType.Wisdom, AttributeValue.bonusValue, 5000);
         }
     }
 }

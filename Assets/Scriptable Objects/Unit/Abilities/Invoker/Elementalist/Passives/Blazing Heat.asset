@@ -16,8 +16,11 @@ MonoBehaviour:
   name: Blazing Heat
   quality: 0
   abilityType: 3
-  description: Dealing <F> damage has a <%> chance to increases your <firemultiplier>
+  description: 'Dealing <F> damage has a <%> chance to increases your <firemultiplier>
     by <s1modV>% for <s1d> Rounds.
+
+
+    <s1stacks>'
   icon: {fileID: 21300000, guid: bc6e3d667d2c7fe4abd6aaee76350fe1, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
@@ -31,7 +34,8 @@ MonoBehaviour:
   abilityTypeTrigger: 0
   typeRequirement: 0
   schoolTriggers: 02000000
-  triggersPassives: 0
+  triggersPassives: 1
+  triggeredByPassives: 1
   triggeredByEffects: 1
   procChance: 30
   abilitySources: []

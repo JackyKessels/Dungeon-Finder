@@ -36,4 +36,4 @@ MonoBehaviour:
   healthPercentage: 0
   attributeType: 0
   attributeValue: 0
-  cooldown: 3
+  cooldown: 2

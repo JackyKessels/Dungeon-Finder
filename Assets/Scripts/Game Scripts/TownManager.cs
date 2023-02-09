@@ -97,12 +97,16 @@ public class TownManager : MonoBehaviour, IUserInterface
         //    OpenMap();
         //}
 
-        if (KeyboardHandler.OpenAbilityShop() && gameManager.gameState == GameState.TOWN)
+        if (KeyboardHandler.OpenAbilityShop() && 
+            gameManager.gameState == GameState.TOWN &&
+            abilityShopButton.interactable)
         {
             OpenAbilityShop();
         }
 
-        if (KeyboardHandler.OpenItemShop() && gameManager.gameState == GameState.TOWN)
+        if (KeyboardHandler.OpenItemShop() && 
+            gameManager.gameState == GameState.TOWN &&
+            itemShopButton.interactable)
         {
             OpenItemShop();
         }

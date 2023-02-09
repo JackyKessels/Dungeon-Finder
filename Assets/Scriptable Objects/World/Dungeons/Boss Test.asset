@@ -38,7 +38,7 @@ MonoBehaviour:
     itemPool: []
     trashEncounters:
     - enemyObjects:
-      - {fileID: 11400000, guid: 5ae14ec0869089e47a5450ed7875927b, type: 2}
+      - {fileID: 11400000, guid: a9200d19756006b48805609fa24ebf0a, type: 2}
       weight: 1
     - enemyObjects:
       - {fileID: 11400000, guid: 81af47cd6e032b74d92ab8ef6860fe49, type: 2}

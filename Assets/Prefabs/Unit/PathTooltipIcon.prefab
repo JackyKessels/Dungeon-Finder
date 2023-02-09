@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2756362695650864350}
   - component: {fileID: 2756362695650864322}
+  - component: {fileID: 8001639789131243363}
   - component: {fileID: 2756362695650864321}
   - component: {fileID: 2756362695650864320}
   - component: {fileID: 2756362695650864351}
@@ -31,6 +32,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1808929704832230080}
   m_Father: {fileID: 0}
@@ -49,6 +51,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2756362695650864349}
   m_CullTransparentMesh: 0
+--- !u!114 &8001639789131243363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2756362695650864349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25ca5bb55ede1b49814ec48a77488e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 2756362695650864321}
+  button: {fileID: 2756362695650864320}
+  tooltipObject: {fileID: 2756362695650864351}
 --- !u!114 &2756362695650864321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,7 +109,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -100,9 +118,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.43867922, g: 1, b: 0.7358808, a: 1}
+    m_PressedColor: {r: 0.26486292, g: 0.6037736, b: 0.4449833, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -156,31 +174,30 @@ MonoBehaviour:
     level: 0
     cooldown: 0
     currentCooldown: 0
-  passiveAbility: {fileID: 0}
+  passive:
+    passiveAbility: {fileID: 0}
+    level: 0
   effect:
-    data: {fileID: 0}
-    parentAbility:
-      owner: {fileID: 0}
-      activeAbility: {fileID: 0}
-      allyAbilitySources: []
-      enemyAbilitySources: []
-      level: 0
-      cooldown: 0
-      currentCooldown: 0
+    effectObject: {fileID: 0}
+    sourceAbility: {fileID: 0}
     name: 
     level: 0
     procType: 0
     duration: 0
     caster: {fileID: 0}
     target: {fileID: 0}
+    stacks: 0
     storedModValue: 0
     timedActions: []
+    storedPassive:
+      passiveAbility: {fileID: 0}
+      level: 0
   itemObject: {fileID: 0}
   attribute:
     attributeType: 0
     baseValue: 0
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   currency:
     currencyType: 0
     totalAmount: 0
@@ -227,6 +244,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2756362695650864350}
   m_RootOrder: 0

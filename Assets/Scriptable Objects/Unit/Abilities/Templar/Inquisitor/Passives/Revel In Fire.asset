@@ -16,7 +16,11 @@ MonoBehaviour:
   name: Revel In Fire
   quality: 0
   abilityType: 3
-  description: Dealing <F> damage increases your <health> by <s1modP> for <s1d> Rounds.
+  description: 'Dealing <F> damage increases your <health> by <s1modP> for <s1d>
+    Rounds.
+
+
+    <s1stacks>'
   icon: {fileID: 21300000, guid: d689e7781d2e8a147acc8499766dd0d5, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
@@ -30,7 +34,8 @@ MonoBehaviour:
   abilityTypeTrigger: 0
   typeRequirement: 0
   schoolTriggers: 02000000
-  triggersPassives: 0
+  triggersPassives: 1
+  triggeredByPassives: 1
   triggeredByEffects: 1
   procChance: 100
   abilitySources: []

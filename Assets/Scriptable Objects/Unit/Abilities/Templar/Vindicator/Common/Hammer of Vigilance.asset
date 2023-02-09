@@ -18,10 +18,10 @@ MonoBehaviour:
   abilityType: 2
   description: Deal <e1> <P> and <e2> <H> damage to your target and heal all allies
     for <s1timAp1>.
-  icon: {fileID: 21300000, guid: eb7448916690cf246ba5a6ff51159349, type: 3}
+  icon: {fileID: 21300000, guid: 2b026924a3efdea4085dc5d8402a9986, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
-  - {fileID: 2330263339896092501, guid: aa759b8f67dcdff409933cffba2bbc9d, type: 3}
+  - {fileID: 699446564626133659, guid: 52978fb41bc160b4a940fa8168f4ea72, type: 3}
   - {fileID: 1352058325305091850, guid: 25bd61804b7cdb449ac285e0ce019385, type: 3}
   hasLevels: 1
   sellable: 1

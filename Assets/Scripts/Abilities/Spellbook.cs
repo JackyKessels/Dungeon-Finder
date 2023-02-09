@@ -18,6 +18,7 @@ public class Spellbook
     public List<int> learnedPassives;
 
     public static readonly int mysticalAbilityCap = 1;
+    public static readonly int abilityCollectionCap = 8;
 
     public Spellbook(Unit u)
     {
@@ -53,7 +54,7 @@ public class Spellbook
     public void LearnAbility(Active active, bool isItemAbility = false)
     {
         List<Active> targetCollection = isItemAbility ? itemAbilities : abilityCollection;
-        int collectionCap = isItemAbility ? 8 : 8;
+        int collectionCap = isItemAbility ? abilityCollectionCap : abilityCollectionCap;
 
         AbilityObject toReplaceAbility = active.activeAbility.replacesAbility;
 
@@ -179,9 +180,21 @@ public class Spellbook
             HeroManager.Instance.Setup();
     }
 
+    public bool IsCollectionFull()
+    {
+        if (abilityCollection.Count >= abilityCollectionCap)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public bool CanAddToCollection(Active active)
     {
-        if (abilityCollection.Count < 8)
+        if (!IsCollectionFull())
         {
             return true;
         }

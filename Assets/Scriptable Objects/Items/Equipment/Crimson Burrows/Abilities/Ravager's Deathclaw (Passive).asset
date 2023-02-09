@@ -20,7 +20,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: ba9bc9b4d38fd73409d78e166f077a66, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
-  - {fileID: 6264804792839183063, guid: b3ef39841fc87ee4988051d30edf029e, type: 3}
+  - {fileID: 5248838835281936956, guid: 3051850a10fb96c4e8a7672a426c5a67, type: 3}
   hasLevels: 0
   sellable: 0
   replacesAbility: {fileID: 0}

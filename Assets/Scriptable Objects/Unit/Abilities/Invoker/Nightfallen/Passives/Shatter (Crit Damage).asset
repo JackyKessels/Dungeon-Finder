@@ -18,8 +18,13 @@ MonoBehaviour:
   description: Critical Power increased by <1>%.
   isBuff: 1
   procType: 1
-  duration: 3
+  duration: 5
   permanent: 0
+  stackable: 1
+  maxStacks: 3
+  refreshes: 1
+  aura: 0
+  unique: 0
   removeEffects: []
   attributeModified: 17
   isIncrease: 1

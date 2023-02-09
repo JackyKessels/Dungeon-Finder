@@ -17,7 +17,7 @@ public class QueueIconObject : MonoBehaviour
         unit.orderIcon = this;
 
         icon.sprite = unit.icon;
-        speed.text = unit.statsManager.GetAttributeValue(AttributeType.Speed).ToString();
+        speed.text = Mathf.Clamp(unit.statsManager.GetAttributeValue(AttributeType.Speed), 0f, 1000f).ToString();
 
         if (unit.isEnemy)
             icon.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);

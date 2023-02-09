@@ -32,6 +32,8 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 01000000
   triggersPassives: 1
+  triggeredByPassives: 0
+  triggeredByEffects: 1
   procChance: 100
   abilitySources:
   - ignoreMultipliers: 0
@@ -42,7 +44,7 @@ MonoBehaviour:
     attributeType: 0
     baseValue: 0
     levelBase: 0
-    scaling: 0.04
+    scaling: 0.05
     levelScaling: 0
     reductionType: 2
     modifier:

@@ -75,4 +75,16 @@ public static class ObjectUtilities
         }
 
     }
+
+    public static List<GameObject> GetChildObjects(GameObject obj)
+    {
+        List<GameObject> childObjects = new List<GameObject>();
+
+        foreach (Transform child in obj.transform)
+        {
+            childObjects.Add(child.gameObject);
+        }
+
+        return childObjects;
+    }
 }

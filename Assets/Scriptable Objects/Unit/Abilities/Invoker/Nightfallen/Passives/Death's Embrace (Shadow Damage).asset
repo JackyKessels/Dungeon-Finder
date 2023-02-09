@@ -13,21 +13,30 @@ MonoBehaviour:
   m_Name: Death's Embrace (Shadow Damage)
   m_EditorClassIdentifier: 
   name: Death's Embrace
-  icon: {fileID: 21300000, guid: ba9bc9b4d38fd73409d78e166f077a66, type: 3}
+  icon: {fileID: 21300000, guid: 18ac1f8da3e591047a97df9951cfdf57, type: 3}
   hidden: 0
   description: Shadow Damage increased by <1>%.
   isBuff: 1
   procType: 0
   duration: 1
   permanent: 1
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
   removeEffects: []
   attributeModified: 16
   isIncrease: 1
+  modifierType: 0
   modifierSource:
     ignoreMultipliers: 1
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 0
     attributeType: 16
-    baseValue: 30
+    baseValue: 15
     levelBase: 0
     scaling: 0
     levelScaling: 0
@@ -45,6 +54,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -52,5 +64,9 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  multiplier: 0
+  multiplierPerLevel: 0
   specialEffects:
-  - {fileID: 4526457698441802425, guid: 17a08083cf579bc4db273a71e1861864, type: 3}
+  - {fileID: 8567108486126732616, guid: ae1e0c735ab26a243b6b6cb2b84dd9a1, type: 3}

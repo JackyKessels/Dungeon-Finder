@@ -257,11 +257,46 @@ public static class AbilityTooltipHandler
         return temp;
     }
 
-    public static string TriggerPassive(string temp)
+    public static string TriggerPassive(string temp, bool triggersPassives, bool triggeredByPassives, bool triggeredByEffects)
     {
         string color = ColorDatabase.Red();
 
-        temp += string.Format("<color={0}>\n\nThis does not trigger passive effects.</color>", color);
+        string triggers = "This ";
+
+        if (!triggersPassives)
+            triggers += "does not trigger passives";
+
+        if (!triggersPassives && (!triggeredByPassives || !triggeredByEffects))
+            triggers += " and ";
+
+        if (!triggeredByPassives && triggeredByEffects)
+            triggers += "is not triggered by passives";
+
+        if (!triggeredByEffects && triggeredByPassives)
+            triggers += "is not triggered by effects";
+
+        if (!triggeredByPassives && !triggeredByEffects)
+            triggers += "is not triggered by passives and effects";
+
+        temp += string.Format("<color={0}>\n\n{1}.</color>", color, triggers);
+
+        return temp;
+    }
+
+    public static string TriggeredByPassive(string temp)
+    {
+        string color = ColorDatabase.Red();
+
+        temp += string.Format("<color={0}>\n\nThis is not triggered by passives.</color>", color);
+
+        return temp;
+    }
+
+    public static string TriggeredByEffects(string temp)
+    {
+        string color = ColorDatabase.Red();
+
+        temp += string.Format("<color={0}>\n\nThis is not triggered by effects.</color>", color);
 
         return temp;
     }

@@ -32,7 +32,7 @@ MonoBehaviour:
   cooldown: 3
   endTurn: 1
   resetChance: 0
-  weaponRequirement: 3
+  weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 0
   allyAbilitySources: []

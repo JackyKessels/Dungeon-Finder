@@ -24,6 +24,7 @@ MonoBehaviour:
   maxStacks: 0
   refreshes: 1
   aura: 0
+  unique: 0
   removeEffects: []
   attributeModified: 6
   isIncrease: 0
@@ -35,7 +36,7 @@ MonoBehaviour:
     ignorePassive: {fileID: 0}
     school: 0
     attributeType: 6
-    baseValue: 1
+    baseValue: 2
     levelBase: 0
     scaling: 0
     levelScaling: 0

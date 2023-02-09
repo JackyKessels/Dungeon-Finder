@@ -22,7 +22,9 @@ MonoBehaviour:
   permanent: 0
   stackable: 1
   maxStacks: 25
-  refreshes: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
   removeEffects: []
   attributeModified: 12
   isIncrease: 1

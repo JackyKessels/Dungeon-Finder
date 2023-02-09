@@ -33,7 +33,6 @@ public class QueueManager : MonoBehaviour
     public List<Unit> speedList;
     public List<GameObject> iconsList;
 
-    public int queueTurn;
     public int queueSize;
 
     private void Start()
@@ -44,16 +43,20 @@ public class QueueManager : MonoBehaviour
 
     public void Setup()
     {
-        queueTurn = 0;
         queueSize = 0;
-
-        speedList = speedList.OrderByDescending(x => x.statsManager.GetAttributeValue(AttributeType.Speed)).ToList();
 
         Refresh(true);
     }
 
+    public void OrderOnSpeed()
+    {
+        speedList = speedList.OrderByDescending(x => x.statsManager.GetAttributeValue(AttributeType.Speed)).ToList();
+    }
+
     public void Refresh(bool refreshTurn)
     {
+        OrderOnSpeed();
+
         queueSize = speedList.Count;
         queueList = new Unit[queueSize];
 
@@ -69,6 +72,17 @@ public class QueueManager : MonoBehaviour
             AddToOrder(u);
             SetIcon(u);
         }
+    }
+
+    public Unit GetNextInOrder()
+    {
+        for (int i = 0; i < queueList.Length; i++)
+        {
+            if (queueList[i].hasTurn && !queueList[i].statsManager.isDead)
+                return queueList[i];
+        }
+
+        return null;
     }
 
     public void RemoveQueue()
@@ -117,6 +131,7 @@ public class QueueManager : MonoBehaviour
     public void AddToOrder(Unit u)
     {
         GameObject obj = ObjectUtilities.CreateSimplePrefab(queueIconPrefab, orderContainer);
+        obj.name = u.name;
 
         QueueIconObject queueIcon = obj.GetComponent<QueueIconObject>();
         queueIcon.Setup(u);

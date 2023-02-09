@@ -432,7 +432,7 @@ public class RewardManager : MonoBehaviour
     {
         Unit hero = teamManager.heroes.Members[nextHero];
 
-        hero.statsManager.GetAttribute((int)attribute.attributeType).bonusValue += attribute.baseValue;
+        hero.statsManager.ModifyAttribute(attribute.attributeType, AttributeValue.bonusValue, attribute.bonusValue);
     }
 
     public Hero CurrentHero()

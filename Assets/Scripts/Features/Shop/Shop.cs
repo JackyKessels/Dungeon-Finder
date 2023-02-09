@@ -93,7 +93,7 @@ public abstract class Shop : MonoBehaviour
                 break;
         }
 
-        return qualityCost * (10 + level * 5);
+        return qualityCost * (10 + (level - 1) * 5);
     }
 
     public void RemoveItemFromList(List<CurrentShopItem> currentShopItems, ShopItem shopItem)

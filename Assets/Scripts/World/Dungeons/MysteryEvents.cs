@@ -165,7 +165,7 @@ public class MysteryAction
                         int current = target.statsManager.currentHealth;
                         Debug.Log(target.name + " has " + current + " health.");
 
-                        abilitySource.TriggerSource(null, false, target, target, 1, 1, true, 1, AbilityType.Assault);
+                        abilitySource.TriggerSource(null, false, false, target, target, 1, 1, true, 1, AbilityType.Assault);
 
                         Debug.Log(target.name + " takes " + abilitySource.CalculateValue(target, 1, 1, 1) + " " + abilitySource.school.ToString() + " damage.");
                     }

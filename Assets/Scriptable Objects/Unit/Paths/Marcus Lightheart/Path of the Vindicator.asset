@@ -24,32 +24,32 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8d9d951e94f55cf4e8611b6ab078765b, type: 2}
   - {fileID: 11400000, guid: 25be23edac103e44eaa6a1dd3982da7b, type: 2}
   - {fileID: 11400000, guid: 03af46dea0ac45e498a8bb6c2004f345, type: 2}
-  - {fileID: 11400000, guid: 71f762ae7c9c3814fb54337e1f307b64, type: 2}
-  - {fileID: 11400000, guid: f1cf393ed2ce5b242929bbd0002e8a5f, type: 2}
-  - {fileID: 11400000, guid: 90d3db88bd1f4d94ca4a73c5b9de00f7, type: 2}
-  - {fileID: 11400000, guid: 413ad9e3344de4d4b989b4c28f3c02bf, type: 2}
-  - {fileID: 11400000, guid: f03e7b2883876a4448e98bac2728a1a9, type: 2}
   - {fileID: 11400000, guid: ec0aa385e198ac342a8e5be398a18755, type: 2}
+  - {fileID: 11400000, guid: 413ad9e3344de4d4b989b4c28f3c02bf, type: 2}
+  - {fileID: 11400000, guid: 71f762ae7c9c3814fb54337e1f307b64, type: 2}
+  - {fileID: 11400000, guid: 90d3db88bd1f4d94ca4a73c5b9de00f7, type: 2}
+  - {fileID: 11400000, guid: f03e7b2883876a4448e98bac2728a1a9, type: 2}
+  - {fileID: 11400000, guid: f1cf393ed2ce5b242929bbd0002e8a5f, type: 2}
   passiveAbilities:
-  - {fileID: 11400000, guid: 2ce768a0e3fc1cb458a8882dc19919f9, type: 2}
   - {fileID: 11400000, guid: 5dc3451269ec1504ca4bd909f4e9b177, type: 2}
   - {fileID: 11400000, guid: 5c40129d4fef3ef4ba9eeb82f7a04eea, type: 2}
   - {fileID: 11400000, guid: 3966d53684ffa01418627d013f75cbb3, type: 2}
   - {fileID: 11400000, guid: 9d2fa460126576a4baeb2ed7bdd2283e, type: 2}
+  - {fileID: 11400000, guid: 2ce768a0e3fc1cb458a8882dc19919f9, type: 2}
   attributes:
   - attributeType: 0
     baseValue: 5
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   - attributeType: 5
     baseValue: 1
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   - attributeType: 10
     baseValue: 3
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   - attributeType: 15
     baseValue: 3
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0

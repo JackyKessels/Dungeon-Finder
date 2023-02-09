@@ -36,7 +36,7 @@ public enum AttributeValue
 
 public delegate void UnitEvent(AbilityValue abilityValue);
 
-public delegate void StatsEvent();
+public delegate void AttributesEvent(Unit unit, AttributeType attributeType);
 
 [System.Serializable]
 public class StatsManager
@@ -48,7 +48,7 @@ public class StatsManager
     public UnitEvent OnReceiveUnitEvent;
     public UnitEvent OnCauseUnitEvent;
     public UnitEvent OnDeathEvent;
-    public StatsEvent OnStatsChanged;
+    public AttributesEvent OnAttributesChanged;
 
     private bool deathEventTriggered = false;
 
@@ -60,6 +60,7 @@ public class StatsManager
         Setup(data);
 
         OnReceiveUnitEvent += BreakIncapacitate;
+        OnAttributesChanged += AttributesChanged;
     }
 
     public void Setup(UnitObject data)
@@ -137,33 +138,50 @@ public class StatsManager
         }
     }
 
-    public void ModifyAttribute(AttributeType attributeType, AttributeValue attributeValue, int value)
+    public void ModifyAttribute(AttributeType attributeType, AttributeValue attributeValue, float value)
     {
+
+        float percentage = GetHealthPercentage();      
+
         switch (attributeValue)
         {
             case AttributeValue.baseValue:
-                {
-                    attributes[(int)attributeType].baseValue += value;
+                {        
+                    GetAttribute(attributeType).baseValue += (int)value;
                 }
                 break;
             case AttributeValue.bonusValue:
                 {
-                    attributes[(int)attributeType].bonusValue += value;
+                    GetAttribute(attributeType).bonusValue += (int)value;
                 }
                 break;
             case AttributeValue.multiplier:
                 {
-                    attributes[(int)attributeType].multiplier += value;
+                    GetAttribute(attributeType).multiplier += value;
                 }
                 break;
             default:
                 return;
         }
+
+        if (attributeType == AttributeType.Health)
+        {
+            SetHealthPercentage(percentage);
+        }
+
+        OnAttributesChanged?.Invoke(unit, attributeType);
     }
 
-    public Attribute GetAttribute(int type)
-    { 
-        return attributes[type];
+    public void AttributesChanged(Unit unit, AttributeType attributeType)
+    {
+        if (attributeType == AttributeType.Speed)
+        {
+            QueueManager.Instance.Refresh(false);
+        }
+
+        CapCurrentHealth();
+
+        Debug.Log(unit.name + "'s " + attributeType + " has been changed to " + GetAttributeValue(attributeType) + ".");
     }
 
     public Attribute GetAttribute(AttributeType type)
@@ -209,7 +227,7 @@ public class StatsManager
         {
             EffectDamageTransfer damageTransfer = damageTransferEffect.effectObject as EffectDamageTransfer;
 
-            AbilityValue transferValue = new AbilityValue(abilityValue.sourceAbility, true, abilityValue.value * damageTransfer.percentage, abilityValue.school, abilityValue.abilityType, abilityValue.cannotCrit, abilityValue.cannotMiss, abilityValue.target, damageTransferEffect.caster, abilityValue.color, abilityValue.isUnitTrigger, abilityValue.ignorePassive);
+            AbilityValue transferValue = new AbilityValue(abilityValue.sourceAbility, false, true, abilityValue.value * damageTransfer.percentage, abilityValue.school, abilityValue.abilityType, abilityValue.cannotCrit, abilityValue.cannotMiss, abilityValue.target, damageTransferEffect.caster, abilityValue.color, abilityValue.isUnitTrigger, abilityValue.ignorePassive);
 
             transferValue.value = unit.statsManager.CalculateMitigatedDamage(transferValue.value, GeneralUtilities.GetReductionType(transferValue.school));
 
@@ -330,7 +348,7 @@ public class StatsManager
 
     public float CalculateVitalityHealing(float value)
     {
-        float targetVitality = GetAttribute((int)AttributeType.Vitality).GetTotalValue();
+        float targetVitality = GetAttribute(AttributeType.Vitality).GetTotalValue();
 
         return value * (1 + targetVitality / 100);
     }

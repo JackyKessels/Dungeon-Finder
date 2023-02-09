@@ -24,8 +24,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: ad0580fc75df49e428b80c1f3b18dbe3, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
-  - {fileID: 2997152772003982279, guid: 264198943879ea04b8cb016c4ff8b623, type: 3}
   - {fileID: 1343662882982698741, guid: 4699a6da1438dc3409a1a25d3a3c8466, type: 3}
+  - {fileID: 2997152772003982279, guid: 264198943879ea04b8cb016c4ff8b623, type: 3}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
@@ -46,8 +46,8 @@ MonoBehaviour:
     attributeType: 2
     baseValue: 0
     levelBase: 0
-    scaling: 1
-    levelScaling: 0.2
+    scaling: 0.9
+    levelScaling: 0.18
     reductionType: 2
     modifier:
       hasModifier: 1
@@ -82,8 +82,8 @@ MonoBehaviour:
     attributeType: 2
     baseValue: 0
     levelBase: 0
-    scaling: 1
-    levelScaling: 0.2
+    scaling: 0.9
+    levelScaling: 0.18
     reductionType: 2
     modifier:
       hasModifier: 1

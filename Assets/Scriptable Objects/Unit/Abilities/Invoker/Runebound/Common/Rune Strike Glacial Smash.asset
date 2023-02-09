@@ -17,7 +17,7 @@ MonoBehaviour:
   quality: 0
   abilityType: 2
   description: 'Deal <e1> <P> and <e2> <I> damage to your target and reduce their
-    <speed> by <t1modV> for the next Round.
+    <speed> by <t1modV> for <t1d> Round.
 
 
     Gain <s1name>. Increasing <icemultiplier>

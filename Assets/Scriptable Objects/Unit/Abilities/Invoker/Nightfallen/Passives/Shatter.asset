@@ -16,8 +16,11 @@ MonoBehaviour:
   name: Shatter
   quality: 0
   abilityType: 3
-  description: Dealing <critical> <I> damage increases your <critmultiplier> by <s1modV>%
-    for <s1d> Rounds.
+  description: 'Dealing <critical> <I> damage increases your <critmultiplier> by
+    <s1modV>% for <s1d> Rounds.
+
+
+    <s1stacks>'
   icon: {fileID: 21300000, guid: 3a777b453872e374195ca1852bf96b4c, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
@@ -31,7 +34,8 @@ MonoBehaviour:
   abilityTypeTrigger: 0
   typeRequirement: 0
   schoolTriggers: 03000000
-  triggersPassives: 0
+  triggersPassives: 1
+  triggeredByPassives: 1
   triggeredByEffects: 1
   procChance: 100
   abilitySources: []

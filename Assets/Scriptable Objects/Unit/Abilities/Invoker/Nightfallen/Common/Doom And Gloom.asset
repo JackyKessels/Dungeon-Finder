@@ -17,7 +17,7 @@ MonoBehaviour:
   quality: 0
   abilityType: 2
   description: "Deal <e1> <S> to all enemies and afflict them with <t1name>. \n\nDealing
-    <t1timAc1> <S> damage every Round for <t1d> Rounds."
+    <t1timAc1> <S> damage every Round for <t1d> Rounds.\n\n<t1stacks>"
   icon: {fileID: 21300000, guid: f6fdc80c9a12ee74fa04469302272ecd, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:

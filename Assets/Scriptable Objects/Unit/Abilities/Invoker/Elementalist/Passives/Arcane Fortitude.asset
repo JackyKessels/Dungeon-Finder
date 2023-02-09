@@ -24,12 +24,12 @@ MonoBehaviour:
   sellable: 1
   replacesAbility: {fileID: 0}
   isPositive: 1
+  activationMoment: 1
   castActiveAbilities: []
   effects:
   - {fileID: 11400000, guid: a5b7430c7f913d046aa66ff04c1d145d, type: 2}
-  activationMoment: 1
   targets: 0
-  healthPercentage: 30
+  healthPercentage: 35
   attributeType: 0
   attributeValue: 0
   cooldown: 0

@@ -18,8 +18,13 @@ MonoBehaviour:
   description: Health increased by <1>.
   isBuff: 1
   procType: 1
-  duration: 3
+  duration: 10
   permanent: 0
+  stackable: 1
+  maxStacks: 0
+  refreshes: 0
+  aura: 0
+  unique: 0
   removeEffects: []
   attributeModified: 0
   isIncrease: 1
@@ -27,6 +32,8 @@ MonoBehaviour:
   modifierSource:
     ignoreMultipliers: 0
     cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 0
     attributeType: 0
     baseValue: 0
@@ -47,6 +54,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -56,7 +66,7 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
-  multiplier: 0.1
+  multiplier: 0.05
   multiplierPerLevel: 0
   specialEffects:
   - {fileID: 7480690435303374518, guid: 0209d5ea8177eac41b5e92a115af8d1d, type: 3}

@@ -18,8 +18,13 @@ MonoBehaviour:
   description: Ice Damage increased by <1>%.
   isBuff: 1
   procType: 1
-  duration: 3
+  duration: 6
   permanent: 0
+  stackable: 1
+  maxStacks: 0
+  refreshes: 0
+  aura: 0
+  unique: 0
   removeEffects: []
   attributeModified: 12
   isIncrease: 1
@@ -31,7 +36,7 @@ MonoBehaviour:
     ignorePassive: {fileID: 0}
     school: 0
     attributeType: 12
-    baseValue: 10
+    baseValue: 5
     levelBase: 0
     scaling: 0
     levelScaling: 0

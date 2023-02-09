@@ -12,19 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Ravage
   m_EditorClassIdentifier: 
-  id: 11231
+  id: 173
   name: Ravage
   quality: 0
   abilityType: 0
-  description: 
-  icon: {fileID: 21300000, guid: aba893c927ae06d4092f4463cd529832, type: 3}
+  description: Deal <e1> <P> damage to your target. Adjacent targets take <adjmod>%
+    of the damage.
+  icon: {fileID: 21300000, guid: d0414a60360fce14980b5f3b32596fec, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
   - {fileID: 1981900901609862536, guid: da907d775f0ad9942b95492ee5e8cb6a, type: 3}
   hasLevels: 0
   sellable: 0
   replacesAbility: {fileID: 0}
-  castTime: 1
+  castTime: 0.75
   cooldown: 0
   endTurn: 1
   resetChance: 0

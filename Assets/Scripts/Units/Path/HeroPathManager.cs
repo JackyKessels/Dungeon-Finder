@@ -31,10 +31,7 @@ public class HeroPathManager
     {
         foreach (Attribute attribute in path.path.attributes)
         {
-            hero.statsManager.GetAttribute((int)attribute.attributeType).bonusValue += attribute.baseValue;
-
-            if (attribute.attributeType == AttributeType.Health)
-                hero.statsManager.currentHealth += attribute.baseValue;
+            hero.statsManager.ModifyAttribute(attribute.attributeType, AttributeValue.bonusValue, attribute.baseValue);
         }
     }
 
@@ -42,16 +39,7 @@ public class HeroPathManager
     {
         foreach (Attribute attribute in path.path.attributes)
         {
-            hero.statsManager.GetAttribute((int)attribute.attributeType).bonusValue -= attribute.baseValue;
-
-            if (attribute.attributeType == AttributeType.Health)
-            {
-                hero.statsManager.currentHealth -= attribute.baseValue;
-
-                if (hero.statsManager.currentHealth < 1) 
-                    hero.statsManager.currentHealth = 1;
-            }
-
+            hero.statsManager.ModifyAttribute(attribute.attributeType, AttributeValue.bonusValue, attribute.baseValue);
         }
     }
 

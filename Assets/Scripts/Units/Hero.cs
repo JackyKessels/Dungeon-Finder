@@ -222,22 +222,9 @@ public class Hero : Unit
         // Add value to Attribute
         for (int i = 0; i < slot.item.attributes.Count; i++)
         {
-            for (int j = 0; j < statsManager.GetAttributes().Count; j++)
+            if (slot.item.attributes[i].baseValue != 0)
             {
-                if (statsManager.GetAttribute(j).attributeType == slot.item.attributes[i].attributeType)
-                {
-                    if (slot.item.attributes[i].baseValue != 0)
-                    {
-                        statsManager.GetAttribute(j).bonusValue += slot.item.attributes[i].baseValue;
-
-                        if (slot.item.attributes[i].attributeType == AttributeType.Health)
-                        {
-                            statsManager.currentHealth += slot.item.attributes[i].baseValue;
-
-                            statsManager.CapCurrentHealth();
-                        }
-                    }
-                }
+                statsManager.ModifyAttribute(slot.item.attributes[i].attributeType, AttributeValue.bonusValue, slot.item.attributes[i].baseValue);
             }
         }
 
@@ -310,22 +297,9 @@ public class Hero : Unit
         // Remove value from Attribute
         for (int i = 0; i < slot.item.attributes.Count; i++)
         {
-            for (int j = 0; j < statsManager.GetAttributes().Count; j++)
+            if (slot.item.attributes[i].baseValue != 0)
             {
-                if (statsManager.GetAttribute(j).attributeType == slot.item.attributes[i].attributeType)
-                {
-                    if (slot.item.attributes[i].baseValue != 0)
-                    {
-                        statsManager.GetAttribute(j).bonusValue -= slot.item.attributes[i].baseValue;
-
-                        if (slot.item.attributes[i].attributeType == AttributeType.Health)
-                        {
-                            statsManager.currentHealth -= slot.item.attributes[i].baseValue;
-
-                            statsManager.CapCurrentHealth();
-                        }
-                    }
-                }
+                statsManager.ModifyAttribute(slot.item.attributes[i].attributeType, AttributeValue.bonusValue, slot.item.attributes[i].baseValue * -1);
             }
         }
 

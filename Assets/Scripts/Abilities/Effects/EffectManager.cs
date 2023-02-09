@@ -379,7 +379,7 @@ public class EffectManager : MonoBehaviour
     {
         if (timedAction.actionTargets == TimedActionTargets.Single)
         {
-            timedAction.abilitySource.TriggerSource(e.sourceAbility, true, e.caster, e.target, timedAction.storedValue, timedAction.triggersPassives);
+            timedAction.abilitySource.TriggerSource(e.sourceAbility, false, true, e.caster, e.target, timedAction.storedValue, timedAction.triggersPassives);
 
             CreateSpecialEffect(e.target, timedAction.specialEffects);
         }
@@ -389,7 +389,7 @@ public class EffectManager : MonoBehaviour
 
             foreach (Unit unit in team.LivingMembers)
             {
-                timedAction.abilitySource.TriggerSource(e.sourceAbility, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.sourceAbility, false, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(unit, timedAction.specialEffects);
             }
@@ -400,7 +400,7 @@ public class EffectManager : MonoBehaviour
 
             foreach (Unit unit in AbilityUtilities.GetAdjacentUnits(e.target))
             {
-                timedAction.abilitySource.TriggerSource(e.sourceAbility, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.sourceAbility, false, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(unit, timedAction.specialEffects);
             }
@@ -413,7 +413,7 @@ public class EffectManager : MonoBehaviour
             {
                 Unit target = AbilityUtilities.GetRandomUnit(team);
 
-                timedAction.abilitySource.TriggerSource(e.sourceAbility, true, e.caster, target, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.sourceAbility, false, true, e.caster, target, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(target, timedAction.specialEffects);
             }
@@ -424,7 +424,7 @@ public class EffectManager : MonoBehaviour
 
             foreach (Unit unit in team.LivingMembers)
             {
-                timedAction.abilitySource.TriggerSource(e.sourceAbility, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.sourceAbility, false, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(unit, timedAction.specialEffects);
             }
@@ -437,7 +437,7 @@ public class EffectManager : MonoBehaviour
             {
                 Unit target = AbilityUtilities.GetRandomUnit(team);
 
-                timedAction.abilitySource.TriggerSource(e.sourceAbility, true, e.caster, target, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.sourceAbility, false, true, e.caster, target, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(target, timedAction.specialEffects);
             }
@@ -576,6 +576,9 @@ public class EffectManager : MonoBehaviour
 
     public static void CreateSpecialEffect(Unit target, List<ParticleSystem> specialEffects)
     {
+        if (target.statsManager.isDead)
+            return;
+
         if (specialEffects != null && specialEffects.Count > 0)
         {
             foreach (ParticleSystem specialEffect in specialEffects)
@@ -596,33 +599,11 @@ public class EffectManager : MonoBehaviour
         {
             int valueIncrease = GeneralUtilities.RoundFloat(newValue, 0);
 
-            if (type == AttributeType.Health)
-            {
-                float percentage = target.statsManager.GetHealthPercentage();
-
-                target.statsManager.GetAttribute(type).bonusValue += valueIncrease;
-
-                target.statsManager.SetHealthPercentage(percentage);
-            }
-            else
-            {
-                target.statsManager.GetAttribute(type).bonusValue += valueIncrease;
-            }
+            target.statsManager.ModifyAttribute(type, AttributeValue.bonusValue, valueIncrease);         
         }
         else if (modifierType == ModifierType.Multiplier)
         {
-            if (type == AttributeType.Health)
-            {
-                float percentage = target.statsManager.GetHealthPercentage();
-
-                target.statsManager.GetAttribute(type).multiplier += newValue;
-
-                target.statsManager.SetHealthPercentage(percentage);
-            }
-            else
-            {
-                target.statsManager.GetAttribute(type).multiplier += newValue;
-            }
+            target.statsManager.ModifyAttribute(type, AttributeValue.multiplier, newValue);
         }
     }
 

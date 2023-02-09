@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Absolution
   quality: 0
   abilityType: 3
-  description: Every Round deal <s1timAc1> <H> damage to all enemies while below
+  description: Every Round deal <s1timAc1> <H> damage to all enemies while above
     <threshold>% Health.
   icon: {fileID: 21300000, guid: b3ab5c9ca98078d4d90053ba927a9a5b, type: 3}
   casterSpecialEffects: []
@@ -25,7 +25,7 @@ MonoBehaviour:
   sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
-  activationMoment: 1
+  activationMoment: 2
   castActiveAbilities: []
   effects:
   - {fileID: 11400000, guid: 552a74c949185ba41ad20148c0f3dea8, type: 2}

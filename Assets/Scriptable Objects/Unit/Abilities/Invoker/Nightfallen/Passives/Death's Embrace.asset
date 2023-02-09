@@ -16,21 +16,22 @@ MonoBehaviour:
   name: Death's Embrace
   quality: 0
   abilityType: 3
-  description: Increase <shadowmultiplier> by <s1modV>% while under <threshold>%
-    <health>.
-  icon: {fileID: 21300000, guid: ba9bc9b4d38fd73409d78e166f077a66, type: 3}
+  description: Increase <shadowmultiplier> by <s1modV>% and <vitality> by <s2modV>
+    while under <threshold>% <health>.
+  icon: {fileID: 21300000, guid: 18ac1f8da3e591047a97df9951cfdf57, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
   hasLevels: 0
   sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
+  activationMoment: 1
   castActiveAbilities: []
   effects:
   - {fileID: 11400000, guid: 3aeb4d1831400904f8ea15893df1bdbc, type: 2}
-  activationMoment: 1
+  - {fileID: 11400000, guid: c702608cae8d30a4f8de6a94bcc583d5, type: 2}
   targets: 0
-  healthPercentage: 30
+  healthPercentage: 35
   attributeType: 0
   attributeValue: 0
   cooldown: 0

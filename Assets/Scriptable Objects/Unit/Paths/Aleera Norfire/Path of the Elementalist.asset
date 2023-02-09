@@ -22,37 +22,37 @@ MonoBehaviour:
   activeAbilities:
   - {fileID: 11400000, guid: 6e5975ba6b17c6240a43bceb1a1019b0, type: 2}
   - {fileID: 11400000, guid: d05e3ae64136ab24180a8e6730e486ce, type: 2}
-  - {fileID: 11400000, guid: 24ac787e962e1c14097d9e190662c65e, type: 2}
-  - {fileID: 11400000, guid: cb479b54546a0f44a8502b6536f27cc6, type: 2}
   - {fileID: 11400000, guid: 42b0fdd0eaef7a94e8b35ada198431fa, type: 2}
-  - {fileID: 11400000, guid: a674a9951fece1c40894b7dda7423167, type: 2}
+  - {fileID: 11400000, guid: 24ac787e962e1c14097d9e190662c65e, type: 2}
   - {fileID: 11400000, guid: 05795e5251a3ed64c81e6cb07f1e9e0e, type: 2}
+  - {fileID: 11400000, guid: cb479b54546a0f44a8502b6536f27cc6, type: 2}
+  - {fileID: 11400000, guid: a674a9951fece1c40894b7dda7423167, type: 2}
   - {fileID: 11400000, guid: 4100ddbe848e0cc4fa486c62b2f28cd6, type: 2}
   - {fileID: 11400000, guid: a78268346ed26b442b80fb325524ef7d, type: 2}
   passiveAbilities:
   - {fileID: 11400000, guid: 823124a44c7f17a49bd627576aa14d42, type: 2}
-  - {fileID: 11400000, guid: 8af798a0cf13cba4691a6b83e41c5986, type: 2}
   - {fileID: 11400000, guid: 433fd8bfc3c582448b6b037f4351e25d, type: 2}
+  - {fileID: 11400000, guid: 8af798a0cf13cba4691a6b83e41c5986, type: 2}
   - {fileID: 11400000, guid: dc3abd4f809009c43a3ef100697a992c, type: 2}
   - {fileID: 11400000, guid: f47d62d83bbf26d41b35ffaa2b83d007, type: 2}
   attributes:
   - attributeType: 0
     baseValue: 2
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   - attributeType: 2
     baseValue: 1
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   - attributeType: 11
     baseValue: 2
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   - attributeType: 12
     baseValue: 2
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   - attributeType: 14
     baseValue: 2
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0

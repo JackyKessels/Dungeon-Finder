@@ -76,4 +76,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 1
-  adjacentModifier: 0.25
+  adjacentModifier: 0.35

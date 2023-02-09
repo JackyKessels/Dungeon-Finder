@@ -13,18 +13,27 @@ MonoBehaviour:
   m_Name: Sundering Dismay (Power Reduction)
   m_EditorClassIdentifier: 
   name: Sundering Dismay
-  icon: {fileID: 21300000, guid: f4d28b62963e8e2458bb1565c01c4198, type: 3}
+  icon: {fileID: 21300000, guid: edf0db9c3c2586241801771cf993e8bb, type: 3}
   hidden: 0
   description: Power reduced by <1>.
   isBuff: 0
   procType: 1
   duration: 3
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
   removeEffects: []
   attributeModified: 1
   isIncrease: 0
+  modifierType: 0
   modifierSource:
     ignoreMultipliers: 1
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 0
     attributeType: 1
     baseValue: 0
@@ -45,6 +54,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -52,4 +64,8 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  multiplier: 0
+  multiplierPerLevel: 0
   specialEffects: []

@@ -231,6 +231,8 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
         teamManager.heroes.ExpireEffects();
 
+        battleHUD.Refresh();
+
         StartCoroutine(ExitBattle());
     }
 
@@ -298,7 +300,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
         // Checks Speed after everyone has had a turn
         // Resorts the queue based on highest Speed for this round
 
-        if (queueManager.queueTurn >= queueManager.queueSize)
+        if (queueManager.GetNextInOrder() == null)
         {
             //announcerText.SetText("Next round!");
 
@@ -343,20 +345,13 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
         battleHUD.Refresh();
 
-        currentUnit = queueManager.queueList[queueManager.queueTurn];
-        tooltipHandler.HideTooltip();
+        currentUnit = queueManager.GetNextInOrder();
 
-        while (currentUnit.statsManager.isDead)
+        // No valid units -> End of Round
+        if (currentUnit == null)
         {
-            queueManager.queueTurn++;
-
-            if (queueManager.queueTurn >= queueManager.queueSize)
-            {
-                StartCoroutine(NextTurn());
-                yield break;
-            }
-                
-            currentUnit = queueManager.queueList[queueManager.queueTurn];
+            StartCoroutine(NextTurn());
+            yield break;
         }
 
         state = currentUnit.state;
@@ -372,17 +367,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
             PlayerTurn();
         }
 
-        //-- Start of the turn --//
-
-        StartTurnActions();
-        //----------------------------//
-    }
-
-    void StartTurnActions()
-    {
         CheckWinCondition();
-
-        queueManager.queueTurn++;
     }
 
     void EndTurn()
@@ -477,15 +462,20 @@ public class BattleManager : MonoBehaviour, IUserInterface
             Unit target = teamManager.heroes.LivingMembers[x];
 
             active.Trigger(currentUnit, target);
+
+            if (!swift)
+            {
+                castingEnemy.ResetChargedAbility(target);
+            }
         }
         else if (active.activeAbility is InstantAbility i)
         {
-            active.Trigger(currentUnit, null);   
-        }
+            active.Trigger(currentUnit, null);
 
-        if (!swift)
-        {
-            castingEnemy.ResetChargedAbility(castingEnemy);
+            if (!swift)
+            {
+                castingEnemy.ResetChargedAbility(castingEnemy);
+            }
         }
 
         // Update HUD
