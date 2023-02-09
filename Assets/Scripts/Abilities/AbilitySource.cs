@@ -11,7 +11,8 @@ public enum AbilitySchool
     Nature,
     Arcane,
     Holy,
-    Shadow
+    Shadow,
+    Sacrificial
 }
 
 public enum ReductionType
@@ -296,7 +297,7 @@ public class AbilityValue
         if (cannotMiss)
             isGlancing = false;
         else
-            isGlancing = school != AbilitySchool.Healing ? Random.Range(0, 100) > accuracy : false;
+            isGlancing = (school != AbilitySchool.Healing || school != AbilitySchool.Sacrificial) ? Random.Range(0, 100) > accuracy : false;
     }
 
     public void SetCriticalChance()

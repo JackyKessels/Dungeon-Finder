@@ -19,8 +19,8 @@ MonoBehaviour:
   description: 'Reduce your target''s <resistance> by <t1modV> for <t1d> Rounds.
 
 
-    This
-    costs <s1timAp1> Health.'
+    You
+    take <s1timAp1> <sac> damage.'
   icon: {fileID: 21300000, guid: 36872b7619e6d1542b25b2a36818ad82, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:

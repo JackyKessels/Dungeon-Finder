@@ -34,18 +34,6 @@ public abstract class EffectObject : ScriptableObject, IDescribable
 
     protected abstract string ParseDescription(string s, TooltipObject tooltipInfo);
 
-    public string DetermineColor(string temp, string check, AbilitySchool school)
-    {
-        if (temp.Contains(check))
-        {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.SchoolColor(school) + ">{0}</color>");
-
-            return string.Format(temp, school);
-        }
-
-        return temp;
-    }
-
     public static string DurationText(EffectObject effectObject)
     {
         if (effectObject.permanent)

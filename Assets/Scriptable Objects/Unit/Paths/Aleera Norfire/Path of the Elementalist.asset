@@ -21,11 +21,12 @@ MonoBehaviour:
   passiveAbility: {fileID: 11400000, guid: 40c8bfaf8a0a79c4fb5d24b62aba7d51, type: 2}
   activeAbilities:
   - {fileID: 11400000, guid: 6e5975ba6b17c6240a43bceb1a1019b0, type: 2}
-  - {fileID: 11400000, guid: d05e3ae64136ab24180a8e6730e486ce, type: 2}
+  - {fileID: 11400000, guid: 8fbca1fdf00800448bba69fb89d75789, type: 2}
   - {fileID: 11400000, guid: 42b0fdd0eaef7a94e8b35ada198431fa, type: 2}
   - {fileID: 11400000, guid: 24ac787e962e1c14097d9e190662c65e, type: 2}
   - {fileID: 11400000, guid: 05795e5251a3ed64c81e6cb07f1e9e0e, type: 2}
   - {fileID: 11400000, guid: cb479b54546a0f44a8502b6536f27cc6, type: 2}
+  - {fileID: 11400000, guid: 0bec4029c12db914c8ebd93db73bb466, type: 2}
   - {fileID: 11400000, guid: a674a9951fece1c40894b7dda7423167, type: 2}
   - {fileID: 11400000, guid: 4100ddbe848e0cc4fa486c62b2f28cd6, type: 2}
   - {fileID: 11400000, guid: a78268346ed26b442b80fb325524ef7d, type: 2}

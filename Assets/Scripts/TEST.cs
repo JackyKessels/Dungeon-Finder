@@ -98,7 +98,9 @@ public class TEST : MonoBehaviour
 
     public void GainExperience()
     {
-        TeamManager.Instance.experienceManager.LevelUpTeam(false);
+        int value = ExperienceManager.ExperienceToNextLevel();
+
+        TeamManager.Instance.experienceManager.GainExperience(value, false);
     }
 
     public void SaveGame()

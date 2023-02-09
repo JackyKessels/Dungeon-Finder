@@ -34,14 +34,7 @@ public class EffectAttributeModifier : EffectObject
             temp = string.Format(temp, GeneralUtilities.RoundFloat(modifierSource.scaling * 100, 1));
         }
 
-        temp = DetermineColor(temp, "<Heal>", AbilitySchool.Healing);
-        temp = DetermineColor(temp, "<P>", AbilitySchool.Physical);
-        temp = DetermineColor(temp, "<F>", AbilitySchool.Fire);
-        temp = DetermineColor(temp, "<I>", AbilitySchool.Ice);
-        temp = DetermineColor(temp, "<N>", AbilitySchool.Nature);
-        temp = DetermineColor(temp, "<A>", AbilitySchool.Arcane);
-        temp = DetermineColor(temp, "<H>", AbilitySchool.Holy);
-        temp = DetermineColor(temp, "<S>", AbilitySchool.Shadow);
+        temp = AbilityTooltipHandler.ColorAllSchools(temp);
 
         return temp;
     }

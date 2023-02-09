@@ -54,6 +54,8 @@ public static class ColorDatabase
                 return "#FFFF9B";
             case AbilitySchool.Shadow:
                 return "#66339A";
+            case AbilitySchool.Sacrificial:
+                return "#FF0000";
             default:
                 return "#FFFFFF";
         }

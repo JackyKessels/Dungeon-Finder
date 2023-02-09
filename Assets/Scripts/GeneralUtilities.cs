@@ -144,7 +144,9 @@ public static class GeneralUtilities
                 return GameAssets.i.holyMultiplier;
             case AbilitySchool.Shadow:
                 return GameAssets.i.shadowMultiplier;
-
+            case AbilitySchool.Sacrificial:
+                // Replace this
+                return GameAssets.i.shadowMultiplier;
             default:
                 return null;
         }
@@ -281,6 +283,8 @@ public static class GeneralUtilities
     {
         if (abilitySchool == AbilitySchool.Physical)
             return ReductionType.Armor;
+        else if (abilitySchool == AbilitySchool.Sacrificial)
+            return ReductionType.None;
         else
             return ReductionType.Resistance;
     }

@@ -22,10 +22,10 @@ MonoBehaviour:
   passiveAbility: {fileID: 11400000, guid: cd4f0b4ca1eaa3b4390649c6a9c32e25, type: 2}
   activeAbilities:
   - {fileID: 11400000, guid: a2e5a08bd127f914f9b9b2bb43c631b8, type: 2}
-  - {fileID: 11400000, guid: 6b9b49d4459a4534a9ecb9bdc34ce5c0, type: 2}
-  - {fileID: 11400000, guid: 2b3173d780b7de74da9d5c1ccd4bad5f, type: 2}
   - {fileID: 11400000, guid: 86c55eee60feabb42846b26bcf9ab306, type: 2}
   - {fileID: 11400000, guid: 79688840bec053f49a744390f0d7da26, type: 2}
+  - {fileID: 11400000, guid: 6b9b49d4459a4534a9ecb9bdc34ce5c0, type: 2}
+  - {fileID: 11400000, guid: 2b3173d780b7de74da9d5c1ccd4bad5f, type: 2}
   - {fileID: 11400000, guid: 76c4139eb45bf184d9f84c7577afb949, type: 2}
   - {fileID: 11400000, guid: 5249c77f3f6551543ada97a588bce604, type: 2}
   - {fileID: 11400000, guid: b80ebac702fc4f14ca9d191a3a659c1f, type: 2}
@@ -40,16 +40,16 @@ MonoBehaviour:
   - attributeType: 0
     baseValue: 2
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   - attributeType: 1
     baseValue: 2
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   - attributeType: 10
     baseValue: 2
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   - attributeType: 17
     baseValue: 2
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0

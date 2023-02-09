@@ -20,7 +20,7 @@ MonoBehaviour:
     Round for <t1d> Rounds.
 
 
-    This costs <s1timAp1> <health>.'
+    You take <s1timAp1> <sac> damage.'
   icon: {fileID: 21300000, guid: 8d217927b6b84ee49a0bc7a80bc8694d, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:

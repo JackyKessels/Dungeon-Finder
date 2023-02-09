@@ -16,8 +16,8 @@ MonoBehaviour:
   name: Gift of Purgatory
   quality: 0
   abilityType: 3
-  description: 'When you take <M> damage, you receive <s1timAc1> <Heal> every Round
-    for <s1d> Rounds.
+  description: 'When you take <M> or <sac> damage, you receive <s1timAc1> <Heal>
+    every Round for <s1d> Rounds.
 
 
     Does not stack.'
@@ -33,7 +33,7 @@ MonoBehaviour:
   targetTrigger: 0
   abilityTypeTrigger: 0
   typeRequirement: 0
-  schoolTriggers: 020000000300000004000000050000000600000007000000
+  schoolTriggers: 02000000030000000400000005000000060000000700000008000000
   triggersPassives: 1
   triggeredByPassives: 1
   triggeredByEffects: 1

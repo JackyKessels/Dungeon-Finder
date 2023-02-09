@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Atonement
   quality: 0
   abilityType: 1
-  description: "Heal an ally for <a1>. \n\nThis costs <s1timAp1> Health."
+  description: "Heal an ally for <a1>. \n\nYou take <s1timAp1> <sac> damage."
   icon: {fileID: 21300000, guid: e18965f3d8096244e8dba467634ce3ca, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:

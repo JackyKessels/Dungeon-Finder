@@ -13,18 +13,23 @@ MonoBehaviour:
   m_Name: Overcharge (Bonus Multiplier)
   m_EditorClassIdentifier: 
   name: Overcharge
-  icon: {fileID: 21300000, guid: bb6db85d2b341924a916e20601bb220b, type: 3}
+  icon: {fileID: 21300000, guid: a45db03b91f9d114ba194de0fab28bb5, type: 3}
   hidden: 0
   description: Your Assault abilities deals <bonus> more damage.
   isBuff: 1
   procType: 1
   duration: 2
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
   removeEffects: []
   affectedAbility: 1
   getConsumed: 0
   abilityType: 2
-  specificAbility: {fileID: 0}
+  specificAbilities: []
   bonusMultiplier: 0.5
   bonusPerLevel: 0.1
   specialEffects:

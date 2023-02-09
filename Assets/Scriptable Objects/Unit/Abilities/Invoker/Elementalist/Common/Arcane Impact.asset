@@ -10,67 +10,39 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
-  m_Name: Wild Spellfire Bolt
+  m_Name: Arcane Impact
   m_EditorClassIdentifier: 
-  id: 25
-  name: Wild Spellfire Bolt
+  id: 175
+  name: Arcane Impact
   quality: 0
-  type: 0
-  description: Deal <e1> <F> and <e2> <A> damage to a random enemy.
-  icon: {fileID: 21300000, guid: 168f03a88c742cc4a90244f829119e34, type: 3}
+  abilityType: 2
+  description: Deal <e1> <A> damage to all enemies and an additional <s1timAp1> <A>
+    damage to a random enemy.
+  icon: {fileID: 21300000, guid: 2fc712a8f574a7a4992a53e879136ade, type: 3}
   casterSpecialEffects: []
-  targetSpecialEffects:
-  - {fileID: 1068813345954862006, guid: bd8b5b59d41174c4587353752ed4a205, type: 3}
-  - {fileID: 330853733547815387, guid: ebb289e9c5911c34b994236a8b8ebc68, type: 3}
+  targetSpecialEffects: []
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 0.75
-  cooldown: 0
+  cooldown: 3
   endTurn: 1
   resetChance: 0
   weaponRequirement: 4
   soundEffect: {fileID: 0}
-  animationType: 0
+  animationType: 1
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
-    school: 2
-    attributeType: 2
-    baseValue: 0
-    levelBase: 0
-    scaling: 0.7
-    levelScaling: 0.14
-    reductionType: 2
-    modifier:
-      hasModifier: 0
-      modification: 0
-      condition: 0
-      thresholdType: 0
-      conditionThreshold: 0
-      increasedAttribute: 0
-      increaseValue: 0
-      casterBased: 1
-      attributeBase: 0
-      percentageIncrease: 0
-      bonusAbilitySource:
-        ignoreMultipliers: 0
-        school: 0
-        attributeType: 0
-        baseValue: 0
-        levelBase: 0
-        scaling: 0
-        levelScaling: 0
-        reductionType: 0
-      effectOnTarget: 1
-      conditionalEffect: {fileID: 0}
-  - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 5
     attributeType: 2
     baseValue: 0
     levelBase: 0
-    scaling: 0.7
-    levelScaling: 0.14
+    scaling: 0.5
+    levelScaling: 0.1
     reductionType: 2
     modifier:
       hasModifier: 0
@@ -80,11 +52,14 @@ MonoBehaviour:
       conditionThreshold: 0
       increasedAttribute: 0
       increaseValue: 0
-      casterBased: 1
+      casterBased: 0
       attributeBase: 0
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -92,9 +67,10 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 0
-      effectOnTarget: 1
+      effectOnTarget: 0
       conditionalEffect: {fileID: 0}
   selfEffectsPerTarget: 0
-  selfEffects: []
+  selfEffects:
+  - {fileID: 11400000, guid: 623bf1a38ff17704c97e5786a9835099, type: 2}
   targetEffects: []
-  instantTargets: 4
+  abilityTargets: 2

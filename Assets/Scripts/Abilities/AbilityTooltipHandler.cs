@@ -177,6 +177,7 @@ public static class AbilityTooltipHandler
         temp = ColorSchool(temp, "<A>", AbilitySchool.Arcane);
         temp = ColorSchool(temp, "<H>", AbilitySchool.Holy);
         temp = ColorSchool(temp, "<S>", AbilitySchool.Shadow);
+        temp = ColorSchool(temp, "<sac>", AbilitySchool.Sacrificial);
 
         temp = ColorMagicalSchool(temp, "<M>");
 
@@ -339,6 +340,9 @@ public static class AbilityTooltipHandler
 
     public static string DetermineAbilityValue(string temp, string check, AbilitySource source, TooltipObject tooltipInfo)
     {
+        if (source == null)
+            return temp;
+
         if (temp.Contains(check))
         {
             if (tooltipInfo.state == CurrentState.Values)

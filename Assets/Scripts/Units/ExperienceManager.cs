@@ -97,7 +97,7 @@ public class ExperienceManager
     public void LevelUp(Hero hero)
     {
         // Increase attributes and path points of the hero
-        hero.statsManager.IncreaseAttribute(new Attribute(AttributeType.Health, 5));
+        hero.statsManager.ModifyAttribute(AttributeType.Health, AttributeValue.bonusValue, 5f);
 
         //hero.RestoreHealth();
 

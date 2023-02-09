@@ -23,8 +23,8 @@ MonoBehaviour:
     <e1modV>% increased damage when used above <e1conV>% health.
 
 
-    This costs
-    <s1timAp1> Health.'
+    You take <s1timAp1>
+    <sac> damage.'
   icon: {fileID: 21300000, guid: ee57f12112933ce4597e39036889aa74, type: 3}
   casterSpecialEffects:
   - {fileID: 7194467108489163391, guid: f1230e244fc69e147929d2346d3c5cae, type: 3}

@@ -9,30 +9,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
-  m_Name: Shadowfrost Bolt
+  m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
+  m_Name: Wild Spellfire Bolt [NYI]
   m_EditorClassIdentifier: 
-  id: 27
-  name: Shadowfrost bolt
+  id: 25
+  name: Wild Spellfire Bolt
   quality: 0
-  abilityType: 0
-  description: 'Deal <e1> <S> and <e2> <I> damage to your target.
-
-
-    Shadowfrost
-    Bolt deals <e1modP>% more damage per <r1>% of <health> you are missing.
-
-
-    You
-    take <s1timAp1> <sac> damage.'
-  icon: {fileID: 21300000, guid: 21140133a7334ba46827c9989027f587, type: 3}
+  type: 0
+  description: Deal <e1> <F> and <e2> <A> damage to a random enemy.
+  icon: {fileID: 21300000, guid: 168f03a88c742cc4a90244f829119e34, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
-  - {fileID: 6264804792839183063, guid: b3ef39841fc87ee4988051d30edf029e, type: 3}
+  - {fileID: 1068813345954862006, guid: bd8b5b59d41174c4587353752ed4a205, type: 3}
+  - {fileID: 330853733547815387, guid: ebb289e9c5911c34b994236a8b8ebc68, type: 3}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
-  castTime: 1
+  castTime: 0.75
   cooldown: 0
   endTurn: 1
   resetChance: 0
@@ -42,32 +35,26 @@ MonoBehaviour:
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
-    cannotCrit: 0
-    cannotMiss: 0
-    ignorePassive: {fileID: 0}
-    school: 7
+    school: 2
     attributeType: 2
     baseValue: 0
     levelBase: 0
-    scaling: 0.6
-    levelScaling: 0.12
+    scaling: 0.7
+    levelScaling: 0.14
     reductionType: 2
     modifier:
-      hasModifier: 1
-      modification: 2
+      hasModifier: 0
+      modification: 0
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
       increasedAttribute: 0
       increaseValue: 0
       casterBased: 1
-      attributeBase: 2
-      percentageIncrease: 0.5
+      attributeBase: 0
+      percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
-        cannotCrit: 0
-        cannotMiss: 0
-        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -78,32 +65,26 @@ MonoBehaviour:
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
   - ignoreMultipliers: 0
-    cannotCrit: 0
-    cannotMiss: 0
-    ignorePassive: {fileID: 0}
-    school: 3
+    school: 5
     attributeType: 2
     baseValue: 0
     levelBase: 0
-    scaling: 0.6
-    levelScaling: 0.12
+    scaling: 0.7
+    levelScaling: 0.14
     reductionType: 2
     modifier:
-      hasModifier: 1
-      modification: 2
+      hasModifier: 0
+      modification: 0
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
       increasedAttribute: 0
       increaseValue: 0
       casterBased: 1
-      attributeBase: 2
-      percentageIncrease: 0.5
+      attributeBase: 0
+      percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
-        cannotCrit: 0
-        cannotMiss: 0
-        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -114,10 +95,6 @@ MonoBehaviour:
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
   selfEffectsPerTarget: 0
-  selfEffects:
-  - {fileID: 11400000, guid: 29e8ee3384cd21a4197cf1ad62f2516f, type: 2}
+  selfEffects: []
   targetEffects: []
-  targetsAllies: 0
-  targetsEnemies: 1
-  targetTargets: 0
-  adjacentModifier: 0
+  instantTargets: 4
