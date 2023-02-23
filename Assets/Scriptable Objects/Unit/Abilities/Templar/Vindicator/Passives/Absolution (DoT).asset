@@ -30,7 +30,7 @@ MonoBehaviour:
   timedActions:
   - actionType: 1
     actionTargets: 4
-    triggersPassives: 0
+    triggersPassives: 1
     abilitySource:
       ignoreMultipliers: 0
       cannotCrit: 0

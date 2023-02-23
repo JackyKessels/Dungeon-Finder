@@ -193,11 +193,12 @@ public class ActionBar : MonoBehaviour
             ActionBarButton b = abilities[i].GetComponent<ActionBarButton>();
             TextMeshProUGUI t = abilities[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>();
 
-            if (currentHero.spellbook.activeSpellbook[i].OnCooldown())
+            if (currentHero.spellbook.activeSpellbook[i].IsOnCooldown())
             {
                 b.SetInteractable(false);
 
-                if (!currentHero.spellbook.activeSpellbook[i].activeAbility.endTurn && expendedTurn)
+                if (currentHero.spellbook.activeSpellbook[i].currentCooldown > currentHero.spellbook.activeSpellbook[i].cooldown)
+                //if (!currentHero.spellbook.activeSpellbook[i].activeAbility.endTurn && expendedTurn)
                 {
                     t.text = "";
                 }
@@ -213,11 +214,12 @@ public class ActionBar : MonoBehaviour
             ActionBarButton b = GetItemAbilityButtons()[i].GetComponent<ActionBarButton>();
             TextMeshProUGUI t = GetItemAbilityButtons()[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>();
 
-            if (currentHero.spellbook.itemAbilities[i].OnCooldown())
+            if (currentHero.spellbook.itemAbilities[i].IsOnCooldown())
             {
                 b.SetInteractable(false);
 
-                if (!currentHero.spellbook.itemAbilities[i].activeAbility.endTurn && expendedTurn)
+                if (currentHero.spellbook.itemAbilities[i].currentCooldown > currentHero.spellbook.itemAbilities[i].cooldown)
+                //if (!currentHero.spellbook.itemAbilities[i].activeAbility.endTurn && expendedTurn)
                 {
                     t.text = "";
                 }
@@ -233,11 +235,12 @@ public class ActionBar : MonoBehaviour
             ActionBarButton b = flask.GetComponent<ActionBarButton>();
             TextMeshProUGUI t = flask.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
 
-            if (currentHero.spellbook.flaskAbility.OnCooldown())
+            if (currentHero.spellbook.flaskAbility.IsOnCooldown())
             {
                 b.SetInteractable(false);
 
-                if (!currentHero.spellbook.flaskAbility.activeAbility.endTurn && expendedTurn)
+                if (currentHero.spellbook.flaskAbility.currentCooldown > currentHero.spellbook.flaskAbility.cooldown)
+                //if (!currentHero.spellbook.flaskAbility.activeAbility.endTurn && expendedTurn)
                 {
                     t.text = "";
                 }

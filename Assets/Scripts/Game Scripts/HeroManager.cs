@@ -121,7 +121,7 @@ public class HeroManager : MonoBehaviour, IUserInterface
         teamName.text = name;
     }
 
-    public void Setup()
+    private void Setup()
     {
         Hero hero = CurrentHero();
 
@@ -164,7 +164,18 @@ public class HeroManager : MonoBehaviour, IUserInterface
     public void Refresh()
     {
         if (heroInformationObject.activeSelf)
+        {
             Setup();
+        }   
+    }
+
+    public void Refresh(Unit unit)
+    {
+        if (heroInformationObject.activeSelf)
+        {
+            SetCurrentHero(unit);
+            Setup();
+        }
     }
 
     // Updates the experience bar

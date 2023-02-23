@@ -345,6 +345,9 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
         battleHUD.Refresh();
 
+        if (!CheckWinCondition())
+            yield break;
+
         currentUnit = queueManager.GetNextInOrder();
 
         // No valid units -> End of Round
@@ -914,7 +917,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
             }
             else
             {
-                active.currentCooldown = active.cooldown + 1;
+                active.PutOnCooldown();
             }
         //}
     }

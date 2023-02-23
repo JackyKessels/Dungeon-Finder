@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 1144411
   name: Sanguine Bolt
   quality: 0
-  type: 0
+  abilityType: 0
   description: Deal <e1> <N> damage to your target.
   icon: {fileID: 21300000, guid: 7bd8612f07cd6084494bb6ad7f471b8e, type: 3}
   casterSpecialEffects: []
@@ -29,11 +29,14 @@ MonoBehaviour:
   endTurn: 1
   resetChance: 0
   weaponRequirement: 4
-  soundEffect: {fileID: 0}
+  soundEffect: {fileID: 8300000, guid: 5eaf37eec741e9042b8c3a0cfa02ec0e, type: 3}
   animationType: 0
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 7
     attributeType: 2
     baseValue: 0
@@ -54,6 +57,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -70,4 +76,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

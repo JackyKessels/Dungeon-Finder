@@ -13,6 +13,7 @@ public abstract class ActiveAbility : AbilityObject
     [Header("[ Base Functionality ]")]
     public float castTime = .75f;
     public int cooldown = 0;
+    public int initialCooldown = 0;
     public bool endTurn = true;
     public int resetChance = 0;
 
@@ -36,6 +37,7 @@ public abstract class ActiveAbility : AbilityObject
         return base.GetDescription(tooltipInfo) + // Name + Level
                FormatWeaponRequirement() + // Weapon Requirement
                string.Format("\nCooldown: {0}", cooldown) + // Cooldown
+               InitialCooldownTooltip() + // Initial Cooldown
                "\nEffect: " + ParseDescription(description, tooltipInfo); // Effect
     }
 
@@ -50,7 +52,14 @@ public abstract class ActiveAbility : AbilityObject
         return text + effect;
     }
 
-    public string FormatWeaponRequirement()
+    public string GetFlaskDescription(TooltipObject tooltipObject)
+    {
+        return string.Format("\nCooldown: {0}", cooldown) + // Cooldown
+               InitialCooldownTooltip() + // Initial Cooldown
+               "\nEffect: " + ParseDescription(description, tooltipObject); // Effect
+    }
+
+    private string FormatWeaponRequirement()
     {
         switch (weaponRequirement)
         {
@@ -67,6 +76,14 @@ public abstract class ActiveAbility : AbilityObject
             default:
                 return "";
         }
+    }
+
+    private string InitialCooldownTooltip()
+    {
+        if (initialCooldown > 0)
+            return string.Format("\nInitial Cooldown: {0}", initialCooldown);
+        else
+            return "";
     }
 
     public abstract void TriggerAbility(Unit caster, Unit target, int level);
@@ -203,6 +220,8 @@ public abstract class ActiveAbility : AbilityObject
         temp = AbilityTooltipHandler.InsertRed(temp);
 
         temp = AbilityTooltipHandler.InsertNonScaling(temp);
+
+        temp = AbilityTooltipHandler.CurrentArmor(temp, "<currentarmor>", tooltipInfo);
 
         return temp;
     }

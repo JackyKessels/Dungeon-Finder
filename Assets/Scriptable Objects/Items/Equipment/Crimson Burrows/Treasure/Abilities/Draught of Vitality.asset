@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
+  m_Name: Draught of Vitality
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Draught of Vitality
+  quality: 0
+  abilityType: 1
+  description: Increase your Health by <s1modV> for <s1d> Rounds.
+  icon: {fileID: 21300000, guid: af503a204be959541990713c8ee44e7a, type: 3}
+  casterSpecialEffects:
+  - {fileID: 5136397075103941328, guid: ee6fe307c16ead74f9e1ae1d04583d5c, type: 3}
+  targetSpecialEffects: []
+  hasLevels: 0
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  castTime: 0.5
+  cooldown: 5
+  initialCooldown: 2
+  endTurn: 0
+  resetChance: 0
+  weaponRequirement: 4
+  soundEffect: {fileID: 0}
+  animationType: 1
+  allyAbilitySources: []
+  enemyAbilitySources: []
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: 77b417a6a0357074cb1e93abe084d711, type: 2}
+  targetEffects: []
+  abilityTargets: 0

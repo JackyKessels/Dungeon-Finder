@@ -16,7 +16,12 @@ public class ResourceContainer : Consumable
 
     public override string GetDescription(TooltipObject tooltipInfo)
     {
-        return base.GetDescription(tooltipInfo) + string.Format("\nUse: Gain {0} {1}.", currency.totalAmount, Currency.GetCurrencyName(currency.currencyType)) + GetItemDescription();
+        return base.GetDescription(tooltipInfo) + 
+               string.Format("\nUse: Gain {1} <color={0}>{2}</color>.", 
+                             Currency.GetCurrencyColor(currency.currencyType),
+                             currency.totalAmount, 
+                             Currency.GetCurrencyName(currency.currencyType)) + 
+               GetItemDescription();
     }
 
     public override void LeftClick(InteractableItem interactableItem)

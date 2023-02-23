@@ -40,8 +40,9 @@ MonoBehaviour:
   critMultiplier: 150
   heroClass: 2
   dualWield: 1
-  startingArmor: {fileID: 11400000, guid: 28fb4b90136cefa4e8dc2be5603c8023, type: 2}
-  startingWeapon: {fileID: 0}
+  startingEquipment:
+  - {fileID: 11400000, guid: 28fb4b90136cefa4e8dc2be5603c8023, type: 2}
+  - {fileID: 11400000, guid: fa45401708c0d7b45a47efb68714e1be, type: 2}
   paths:
   - {fileID: 11400000, guid: 53dd781b212d4bc4fa084f8ffa46e374, type: 2}
   - {fileID: 11400000, guid: 4acafb2b32aad95468a16bdd922120b2, type: 2}

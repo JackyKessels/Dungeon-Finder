@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8484a72ad63a8f4089ff72b351b4ad1, type: 3}
+  m_Name: 1 Fragile Wizard Staff [Starter]
+  m_EditorClassIdentifier: 
+  name: Fragile Wizard Staff
+  icon: {fileID: 21300000, guid: a99e791b010ce6246b63cfafacad8f4c, type: 3}
+  value: 80
+  stackable: 0
+  maxStacks: 1
+  sellable: 1
+  item:
+    name: 
+    id: 50
+    itemObject: {fileID: 0}
+    attributes: []
+  description: 
+  quality: 0
+  slot: 2
+  level: 1
+  health: 0
+  power: 0
+  wisdom: 3
+  armor: 0
+  resistance: 0
+  vitality: 0
+  speed: 0
+  accuracy: 0
+  crit: 10
+  healingMultiplier: 0
+  physicalMultiplier: 0
+  fireMultiplier: 0
+  iceMultiplier: 0
+  natureMultiplier: 0
+  arcaneMultiplier: 0
+  holyMultiplier: 0
+  shadowMultiplier: 0
+  critMultiplier: 0
+  passives: []
+  useAbility: {fileID: 0}

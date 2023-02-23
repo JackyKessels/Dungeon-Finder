@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
+  m_Name: Intervene
+  m_EditorClassIdentifier: 
+  id: 6969
+  name: Intervene
+  quality: 0
+  abilityType: 1
+  description: Transfer <t1transfer> of the target's damage taken to the caster.
+    Lasts for this Round.
+  icon: {fileID: 21300000, guid: b930b5afba681e04a94c36703d40cf78, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 3486972645575669235, guid: 2df6ed8bfa2542e47ab901b1eac932fe, type: 3}
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  castTime: 0.5
+  cooldown: 3
+  endTurn: 0
+  resetChance: 0
+  weaponRequirement: 2
+  soundEffect: {fileID: 0}
+  animationType: 1
+  allyAbilitySources: []
+  enemyAbilitySources: []
+  selfEffectsPerTarget: 0
+  selfEffects: []
+  targetEffects:
+  - {fileID: 11400000, guid: 631eaa827539651409c24692194ce4f4, type: 2}
+  targetsAllies: 1
+  targetsEnemies: 0
+  targetTargets: 0
+  adjacentModifier: 0

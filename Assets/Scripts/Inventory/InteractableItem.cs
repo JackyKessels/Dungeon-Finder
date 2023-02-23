@@ -63,10 +63,12 @@ public class InteractableItem : MonoBehaviour, IPointerClickHandler
 
                 elements.Add(new ContextMenuElement(itemObject.name, false, ColorDatabase.QualityColor(itemObject.quality)));
 
-                for (int i = 0; i < TeamManager.Instance.heroes.LivingMembers.Count; i++)
+                List<Unit> targetGroup = c.usableOnDead ? TeamManager.Instance.heroes.Members : TeamManager.Instance.heroes.LivingMembers;
+
+                for (int i = 0; i < targetGroup.Count; i++)
                 {
                     Action<int, GameObject> consume = new Action<int, GameObject>(Consume);
-                    elements.Add(new ContextMenuElement(TeamManager.Instance.heroes.LivingMembers[i] as Hero, i, consume));
+                    elements.Add(new ContextMenuElement(targetGroup[i] as Hero, i, consume));
                 }
 
                 elements.Add(new ContextMenuElement("Close"));

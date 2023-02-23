@@ -40,7 +40,7 @@ public class RewardObject : MonoBehaviour
                 tooltipIcon.attribute = reward.attribute;
                 break;
             case RewardType.Currency:
-                GetComponent<Image>().sprite = Currency.GetCurrencyIcon(r.currencyType, false);
+                GetComponent<Image>().sprite = Currency.GetCurrencyIcon(r.currencyType, true);
                 tooltipIcon.currency.totalAmount = reward.currency;
                 tooltipIcon.currency.currencyType = reward.currencyType;
                 break;

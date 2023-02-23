@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
+  m_Name: Bloodcrystal Hammer (Use)
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Crystal Blast
+  quality: 0
+  abilityType: 2
+  description: Deal <e1> <N> damage to your target and Incapacitate them for this
+    Round.
+  icon: {fileID: 21300000, guid: 8a9a8736901820440a258cee4b228391, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 1914165346093267879, guid: d9954c8873988bf4db790dec1a932018, type: 3}
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  castTime: 0.75
+  cooldown: 4
+  initialCooldown: 0
+  endTurn: 1
+  resetChance: 0
+  weaponRequirement: 4
+  soundEffect: {fileID: 0}
+  animationType: 0
+  allyAbilitySources: []
+  enemyAbilitySources:
+  - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
+    school: 4
+    attributeType: 0
+    baseValue: 30
+    levelBase: 0
+    scaling: 0
+    levelScaling: 0
+    reductionType: 2
+    modifier:
+      hasModifier: 0
+      modification: 1
+      condition: 4
+      thresholdType: 1
+      conditionThreshold: 0
+      increasedAttribute: 4
+      increaseValue: 0
+      casterBased: 0
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  selfEffectsPerTarget: 0
+  selfEffects: []
+  targetEffects:
+  - {fileID: 11400000, guid: 61326ea369140334f8656b20dfccd612, type: 2}
+  targetsAllies: 0
+  targetsEnemies: 1
+  targetTargets: 0
+  adjacentModifier: 0

@@ -29,7 +29,7 @@ public class Tome : Consumable
                         unit.spellbook.AddPassive(passive);
                     }
 
-                    SpellbookManager.Instance.Setup(unit as Hero);
+                    HeroManager.Instance.Refresh(unit);
                 }
                 break;
             case ConsumptionType.Party:

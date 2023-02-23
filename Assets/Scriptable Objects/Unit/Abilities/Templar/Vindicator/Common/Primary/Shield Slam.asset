@@ -30,10 +30,11 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 1
   cooldown: 0
+  initialCooldown: 0
   endTurn: 1
   resetChance: 0
   weaponRequirement: 2
-  soundEffect: {fileID: 8300000, guid: 3cd47381abc8f05429b8d3a745b27946, type: 3}
+  soundEffect: {fileID: 8300000, guid: 94d24720208e46745995095e36ca24a2, type: 3}
   animationType: 0
   allyAbilitySources: []
   enemyAbilitySources:

@@ -651,6 +651,11 @@ public class EffectManager : MonoBehaviour
         for (int i = effectsList.Count; i-- > 0;)
         {
             OnExpiration(effectsList[i]);
+
+            // If the effect expiration kills the target, then ExpireAll() will trigger
+            // again because of RemoveMember().
+            if (unit.statsManager.isDead)
+                break;
         }
     }
 

@@ -278,6 +278,8 @@ public class GameManager : MonoBehaviour
         {
             if (dungeonManager.IsLastFloor())
             {
+                townManager.dungeonList.UnlockDungeon(dungeonManager.currentDungeon);
+
                 GoToTown();
 
                 dungeonManager.EnableUI(false);

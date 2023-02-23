@@ -56,13 +56,17 @@ public class Equipment : ItemObject
 
     public override string GetDescription(TooltipObject tooltipInfo)
     {
+        string itemDescription = base.GetDescription(tooltipInfo) + string.Format("\nLevel: {0}", level) + ParseSlot() + ParseAttributes(tooltipInfo) + GetItemDescription();
+
         if (slot == EquipmentSlot.Flask)
         {
-            return useAbility.GetDescription(tooltipInfo);
+            if (useAbility != null)
+                return itemDescription += useAbility.GetFlaskDescription(tooltipInfo);
+            else
+                return itemDescription;
         }
         else
         {
-            string itemDescription = base.GetDescription(tooltipInfo) + string.Format("\nLevel: {0}", level) + ParseSlot() + ParseAttributes(tooltipInfo) + GetItemDescription();
 
             if (passives.Count == 1)
             {
@@ -74,8 +78,10 @@ public class Equipment : ItemObject
                 itemDescription += "\n\nYou learn the following active ability: " + "\n\n" + useAbility.GetDescription(tooltipInfo);
             }
 
-            return itemDescription;
+            
         }
+
+        return itemDescription;
     }
 
     private string ParseSlot()

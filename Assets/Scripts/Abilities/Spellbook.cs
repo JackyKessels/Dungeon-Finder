@@ -176,8 +176,7 @@ public class Spellbook
 
         targetCollection.Remove(active);
 
-        if (unit is Hero && HeroManager.Instance.heroInformationObject.activeSelf)
-            HeroManager.Instance.Setup();
+        HeroManager.Instance.Refresh();
     }
 
     public bool IsCollectionFull()
@@ -434,21 +433,28 @@ public class Spellbook
         }
     }
 
-    public void ResetCooldowns()
+    public void SetCooldowns()
     {
         foreach (Active ability in activeSpellbook)
         {
-            ability.currentCooldown = 0;
+            if (ability != null && ability.activeAbility != null)
+            {
+                ability.currentCooldown = ability.activeAbility.initialCooldown;
+            }
+            
         }
 
         foreach (Active ability in itemAbilities)
         {
-            ability.currentCooldown = 0;
+            if (ability != null && ability.activeAbility != null)
+            {
+                ability.currentCooldown = ability.activeAbility.initialCooldown;
+            }
         }
 
-        if (flaskAbility != null)
+        if (flaskAbility != null && flaskAbility.activeAbility != null)
         {
-            flaskAbility.currentCooldown = flaskAbility.cooldown;
+            flaskAbility.currentCooldown = flaskAbility.activeAbility.initialCooldown;
         }      
     }
 

@@ -131,7 +131,7 @@ public class Enemy : Unit
 
                 foreach (Active active in spellbook.abilityCollection)
                 {
-                    if (!active.OnCooldown())
+                    if (!active.IsOnCooldown())
                     {
                         validAbilities.Add(active);
                     }
@@ -148,7 +148,7 @@ public class Enemy : Unit
             {
                 for (int i = 0; i < spellbook.abilityCollection.Count; i++)
                 {
-                    if (!spellbook.abilityCollection[i].OnCooldown() && MeetsCastCondition(spellbook.abilityCollection[i].activeAbility))
+                    if (!spellbook.abilityCollection[i].IsOnCooldown() && MeetsCastCondition(spellbook.abilityCollection[i].activeAbility))
                     {
                         return spellbook.abilityCollection[i];
                     }
@@ -185,7 +185,7 @@ public class Enemy : Unit
 
         foreach (Active active in swiftAbilities)
         {
-            if (!active.OnCooldown() && MeetsCastCondition(active.activeAbility))
+            if (!active.IsOnCooldown() && MeetsCastCondition(active.activeAbility))
             {
                 offCooldown.Add(active);
             }    

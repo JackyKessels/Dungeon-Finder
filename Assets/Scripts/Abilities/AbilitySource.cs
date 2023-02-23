@@ -297,12 +297,12 @@ public class AbilityValue
         if (cannotMiss)
             isGlancing = false;
         else
-            isGlancing = (school != AbilitySchool.Healing || school != AbilitySchool.Sacrificial) ? Random.Range(0, 100) > accuracy : false;
+            isGlancing = school != AbilitySchool.Healing && school != AbilitySchool.Sacrificial ? Random.Range(0, 100) > accuracy : false;
     }
 
     public void SetCriticalChance()
     {
-        if (cannotCrit)
+        if (cannotCrit || school == AbilitySchool.Sacrificial)
             isCritical = false;
         else
             isCritical = Random.Range(0, 100) < critChance;

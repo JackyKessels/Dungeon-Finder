@@ -110,7 +110,7 @@ public class Team
         }
         else
         {
-            unit.spellbook.ResetCooldowns();
+            unit.spellbook.SetCooldowns();
         }
 
         unit.hasTurn = true;

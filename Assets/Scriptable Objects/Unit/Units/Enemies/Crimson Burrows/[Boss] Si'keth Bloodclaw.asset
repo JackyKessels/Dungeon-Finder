@@ -59,7 +59,7 @@ MonoBehaviour:
   - ability: {fileID: 11400000, guid: 3c025eee828113240a4a35b9a04ac57c, type: 2}
     target: 1
     condition: 0
-    startCooldown: 3
+    startCooldown: 2
     charged: 1
   - ability: {fileID: 11400000, guid: 5466a1c4bceeb4b4ca4687ac1765aea9, type: 2}
     target: 2

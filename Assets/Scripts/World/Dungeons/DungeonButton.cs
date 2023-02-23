@@ -21,7 +21,7 @@ public class DungeonButton : MonoBehaviour
         title.text = dungeon.name;
         title.color = dungeon.nameColor;
 
-        recommendedLevel.text = string.Format("Recommended Level: {0} - {1}", dungeon.recommendedMinimumLevel, dungeon.recommendedMaximumLevel);
+        recommendedLevel.text = string.Format("Loot Level: {0} - {1}", dungeon.recommendedMinimumLevel, dungeon.recommendedMaximumLevel);
         button.onClick.AddListener(delegate { TownManager.Instance.StartRun(dungeon); });
 
         LockDungeon(_dungeon.locked);

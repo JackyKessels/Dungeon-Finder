@@ -19,8 +19,14 @@ MonoBehaviour:
   isBuff: 1
   procType: 1
   duration: 1
-  permanent: 0
-  removeEffects: []
+  permanent: 1
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  removeEffects:
+  - {fileID: 11400000}
   affectedAbility: 1
   getConsumed: 1
   abilityType: 0

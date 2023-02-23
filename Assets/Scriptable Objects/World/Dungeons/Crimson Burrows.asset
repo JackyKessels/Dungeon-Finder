@@ -37,32 +37,32 @@ MonoBehaviour:
     mysteryCount: 3
     spiritColumns: 
     itemPool:
-    - itemObject: {fileID: 11400000, guid: ad4d72fbf4442d942942755c813a7c08, type: 2}
+    - itemObject: {fileID: 11400000, guid: 309044d6b6048974ba22997525062828, type: 2}
       amount: 1
       weight: 1
-    - itemObject: {fileID: 11400000, guid: db43b75b6180e064598310693230ca7d, type: 2}
+    - itemObject: {fileID: 11400000, guid: 8f0bbf180b8c51445be5122df1020e79, type: 2}
       amount: 1
       weight: 1
-    - itemObject: {fileID: 11400000, guid: 313f4790924acad4cbb951955ecdf1c4, type: 2}
+    - itemObject: {fileID: 11400000, guid: ec0a9724dbe106f419298058d381ce61, type: 2}
       amount: 1
       weight: 1
     - itemObject: {fileID: 11400000, guid: 85f6f2b7c99bf55428a0033f14755e9b, type: 2}
       amount: 3
       weight: 2
-    - itemObject: {fileID: 11400000, guid: 74e556b20bdcb044cbda44cf45138754, type: 2}
+    - itemObject: {fileID: 11400000, guid: bbec155b5c72e7447b17fc0f15e34b28, type: 2}
       amount: 1
       weight: 2
     trashEncounters:
     - enemyObjects:
-      - {fileID: 11400000, guid: b79f6fd3029771744af58bab7f1a7fc5, type: 2}
-      weight: 3
+      - {fileID: 11400000, guid: 3a7b7aae6b0359c4c85d82a8df9bea3c, type: 2}
+      weight: 1
     - enemyObjects:
       - {fileID: 11400000, guid: af177f13bfef55248883d789e5d684bb, type: 2}
       - {fileID: 11400000, guid: b79f6fd3029771744af58bab7f1a7fc5, type: 2}
-      weight: 2
+      weight: 1
     - enemyObjects:
       - {fileID: 11400000, guid: 7efd0ed442718c84c8b8be1d8fab97bb, type: 2}
-      weight: 2
+      weight: 1
     - enemyObjects:
       - {fileID: 11400000, guid: b79f6fd3029771744af58bab7f1a7fc5, type: 2}
       - {fileID: 11400000, guid: b79f6fd3029771744af58bab7f1a7fc5, type: 2}
@@ -98,21 +98,21 @@ MonoBehaviour:
     mysteryCount: 1
     spiritColumns: 
     itemPool:
-    - itemObject: {fileID: 11400000, guid: edfb06ae9132ebc4c975c716d9d58b1e, type: 2}
+    - itemObject: {fileID: 11400000, guid: a0db3ee41c33eef4dbc6a3840a9684c8, type: 2}
       amount: 1
       weight: 1
-    - itemObject: {fileID: 11400000, guid: 61e92c3157b2fb441967761ec8664631, type: 2}
+    - itemObject: {fileID: 11400000, guid: d6beeb7bbb5426949ac3d95f32b8a37a, type: 2}
+      amount: 1
+      weight: 1
+    - itemObject: {fileID: 11400000, guid: fff4349331be5354ab963cd24c78cee7, type: 2}
       amount: 1
       weight: 1
     - itemObject: {fileID: 11400000, guid: 85f6f2b7c99bf55428a0033f14755e9b, type: 2}
       amount: 5
-      weight: 1
+      weight: 2
     - itemObject: {fileID: 11400000, guid: a59beb3bea1f71645bb09ef59fa873a5, type: 2}
       amount: 3
-      weight: 1
-    - itemObject: {fileID: 11400000, guid: 74e556b20bdcb044cbda44cf45138754, type: 2}
-      amount: 1
-      weight: 1
+      weight: 2
     trashEncounters:
     - enemyObjects:
       - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
@@ -139,8 +139,8 @@ MonoBehaviour:
     eliteEncounters:
     - enemyObjects:
       - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
-      - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
       - {fileID: 11400000, guid: 4ea0468a2e1668c4faf097a9cdda25e2, type: 2}
+      - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
       weight: 2
     - enemyObjects:
       - {fileID: 11400000, guid: f2568653406671c48bea9b9ef4c74572, type: 2}

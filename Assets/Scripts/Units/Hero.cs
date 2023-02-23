@@ -78,11 +78,7 @@ public class Hero : Unit
 
         if (loadItemIDs == null)
         {
-            // Add starting items to equipment
-            int armorID = heroObject.startingArmor == null ? -1 : heroObject.startingArmor.item.id;
-            int weaponID = heroObject.startingWeapon == null ? -1 : heroObject.startingWeapon.item.id;
-
-            itemIDs = new int[8] { -1, armorID, weaponID, -1, -1, -1, -1, -1 };
+            EquipStartingEquipment();
         }
         else
         {
@@ -98,6 +94,17 @@ public class Hero : Unit
             RestoreHealth();
         else
             newHero = false;
+    }
+
+    private void EquipStartingEquipment()
+    {
+        itemIDs = new int[8] { -1, -1, -1, -1, -1, -1, -1, -1 };
+
+        for (int i = 0; i < heroObject.startingEquipment.Count; i++)
+        {
+            int slot = GeneralUtilities.GetCorrectEquipmentslot(heroObject.startingEquipment[i].slot);
+            itemIDs[slot] = heroObject.startingEquipment[i].item.id;
+        }
     }
 
     public override UnitObject GetUnitObject()

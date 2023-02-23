@@ -31,6 +31,7 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 3
+  initialCooldown: 0
   endTurn: 1
   resetChance: 0
   weaponRequirement: 4
@@ -39,7 +40,7 @@ MonoBehaviour:
   allyAbilitySources:
   - ignoreMultipliers: 0
     cannotCrit: 0
-    cannotMiss: 0
+    cannotMiss: 1
     ignorePassive: {fileID: 0}
     school: 0
     attributeType: 0

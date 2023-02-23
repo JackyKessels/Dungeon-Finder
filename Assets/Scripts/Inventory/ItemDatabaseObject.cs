@@ -12,6 +12,7 @@ public class ItemDatabaseObject : ScriptableObject
     public void UpdateId()
     {
         List<ItemObject> noDupes = new List<ItemObject>(new HashSet<ItemObject>(itemObjects));
+        noDupes.RemoveAll(item => item == null);
         itemObjects.Clear();
         itemObjects.AddRange(noDupes);
 

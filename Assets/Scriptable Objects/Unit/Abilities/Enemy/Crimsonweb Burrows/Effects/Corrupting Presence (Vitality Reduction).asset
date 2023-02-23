@@ -21,8 +21,10 @@ MonoBehaviour:
   duration: 1
   permanent: 1
   stackable: 1
-  maxStacks: 20
+  maxStacks: 0
   refreshes: 1
+  aura: 0
+  unique: 0
   removeEffects: []
   attributeModified: 5
   isIncrease: 0
@@ -34,7 +36,7 @@ MonoBehaviour:
     ignorePassive: {fileID: 0}
     school: 0
     attributeType: 5
-    baseValue: 5
+    baseValue: 10
     levelBase: 0
     scaling: 0
     levelScaling: 0

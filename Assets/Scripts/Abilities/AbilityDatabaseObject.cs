@@ -11,6 +11,7 @@ public class AbilityDatabaseObject : ScriptableObject
     public void UpdateId()
     {
         List<AbilityObject> noDupes = new List<AbilityObject>(new HashSet<AbilityObject>(abilityObjects));
+        noDupes.RemoveAll(item => item == null);
         abilityObjects.Clear();
         abilityObjects.AddRange(noDupes);
 

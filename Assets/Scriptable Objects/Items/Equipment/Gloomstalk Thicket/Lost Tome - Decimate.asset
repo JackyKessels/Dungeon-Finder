@@ -20,12 +20,13 @@ MonoBehaviour:
   sellable: 1
   item:
     name: 
-    id: 78
+    id: 48
     itemObject: {fileID: 0}
     attributes: []
   description: 
   quality: 0
   consumptionType: 0
+  usableOnDead: 1
   activeAbilityLearned: {fileID: 11400000, guid: c440b43ea0015b14889132d59e34c7fe,
     type: 2}
   passiveAbilityLearned: {fileID: 0}

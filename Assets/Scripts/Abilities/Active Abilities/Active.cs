@@ -78,7 +78,7 @@ public class Active
         }
     }
 
-    public bool OnCooldown()
+    public bool IsOnCooldown()
     {
         if (currentCooldown > 0)
         {

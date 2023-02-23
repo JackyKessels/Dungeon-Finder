@@ -9,8 +9,7 @@ public class HeroObject : UnitObject
     public HeroClass heroClass = HeroClass.None;
     public bool dualWield = false;
 
-    public ItemObject startingArmor;
-    public ItemObject startingWeapon;
+    public List<Equipment> startingEquipment;
 
     public List<HeroPathObject> paths;
 

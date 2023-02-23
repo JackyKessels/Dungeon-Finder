@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Righteous Hammer
   m_EditorClassIdentifier: 
-  id: 83
+  id: 139
   name: Righteous Hammer
   quality: 0
-  type: 0
-  description: Deal <e1> <P> damage to your target and reduce their <health> by <t1modV>
-    for <t1d> Rounds.
+  abilityType: 0
+  description: Deal <e1> <P> damage to your target and heal yourself for <s1timAp1>.
   icon: {fileID: 21300000, guid: bc0bab9ce6d6b7f43bb0e01dbb34d559, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
@@ -28,6 +27,7 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 1
   cooldown: 0
+  initialCooldown: 0
   endTurn: 1
   resetChance: 0
   weaponRequirement: 4
@@ -36,6 +36,9 @@ MonoBehaviour:
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassive: {fileID: 0}
     school: 1
     attributeType: 0
     baseValue: 0
@@ -56,6 +59,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -66,10 +72,10 @@ MonoBehaviour:
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
   selfEffectsPerTarget: 0
-  selfEffects: []
-  targetEffects:
-  - {fileID: 11400000, guid: 9438b0e531cba7e44940a96b27c8b651, type: 2}
+  selfEffects:
+  - {fileID: 11400000, guid: cee74469dc782944ba728be2b3dca105, type: 2}
+  targetEffects: []
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

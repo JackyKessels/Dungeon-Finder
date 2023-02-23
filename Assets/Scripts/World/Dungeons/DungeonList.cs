@@ -34,6 +34,26 @@ public class DungeonList : MonoBehaviour
             entry.locked = !active;
         }
     }
+
+    public void UnlockDungeon(Dungeon completedDungeon)
+    {
+        if (completedDungeon == null)
+            return;
+
+        List<string> unlockedDungeons = new List<string>();
+
+        foreach (DungeonListEntry dungeon in dungeons)
+        {
+            if (dungeon.unlockedBy == completedDungeon)
+            {
+                dungeon.locked = false;
+
+                unlockedDungeons.Add(dungeon.dungeon.name);
+            }
+        }
+
+        NotificationObject.SendNotification("You have unlocked " + AbilityTooltipHandler.JoinString(unlockedDungeons, ", ", " and ", ColorDatabase.MagicalColor()));
+    }
 }
 
 [System.Serializable]
@@ -41,6 +61,10 @@ public class DungeonListEntry
 {
     public Dungeon dungeon;
     public bool locked = false;
+    public Dungeon unlockedBy = null;
     public bool testing = false;
     [HideInInspector] public DungeonButton button;
+
+
+
 }

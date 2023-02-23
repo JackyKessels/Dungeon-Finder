@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
+  m_Name: Resonant Shard (Passive)
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Resonating Vigor
+  quality: 0
+  abilityType: 3
+  description: Dealing damage has a <%> chance to increase your <power> by <s1modV>
+    for <s1d> Rounds.
+  icon: {fileID: 21300000, guid: c17ca8fbf1c727446baa9f5f666a4073, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  triggerType: 1
+  hitType: 0
+  targetTrigger: 0
+  abilityTypeTrigger: 0
+  typeRequirement: 0
+  schoolTriggers: 01000000020000000300000004000000050000000600000007000000
+  triggersPassives: 1
+  triggeredByPassives: 1
+  triggeredByEffects: 1
+  procChance: 20
+  abilitySources: []
+  castActiveAbilities: []
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: 392360f0795ab94438c1209b4dff8438, type: 2}
+  targetEffects: []

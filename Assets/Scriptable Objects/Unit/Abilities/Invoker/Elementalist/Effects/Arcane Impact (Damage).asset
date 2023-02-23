@@ -67,5 +67,6 @@ MonoBehaviour:
           reductionType: 0
         effectOnTarget: 0
         conditionalEffect: {fileID: 0}
-    specialEffects: []
+    specialEffects:
+    - {fileID: 1068813345954862006, guid: bd8b5b59d41174c4587353752ed4a205, type: 3}
     storedValue: 0

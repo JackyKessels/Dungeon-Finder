@@ -15,7 +15,7 @@ MonoBehaviour:
   id: -1
   name: Brightstalk Refreshment
   quality: 0
-  type: 1
+  abilityType: 1
   description: Heal for <s1timAc1> every Turn for <s1d> Turns.
   icon: {fileID: 21300000, guid: 91f833f7e9234d2489a4cce723a96ad9, type: 3}
   casterSpecialEffects: []
@@ -36,4 +36,4 @@ MonoBehaviour:
   selfEffects:
   - {fileID: 11400000, guid: a3c4dfa371d3cd348b0d096321ad1c2e, type: 2}
   targetEffects: []
-  instantTargets: 0
+  abilityTargets: 0

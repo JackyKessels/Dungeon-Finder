@@ -13,6 +13,7 @@ public enum ConsumptionType
 public abstract class Consumable : ItemObject
 {
     public ConsumptionType consumptionType = ConsumptionType.Single;
+    public bool usableOnDead = false;
 
     public abstract void Consume(int i);
 
