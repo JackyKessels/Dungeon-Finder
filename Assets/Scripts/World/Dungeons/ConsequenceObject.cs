@@ -20,12 +20,20 @@ public class ConsequenceObject : MonoBehaviour
         else
             secondImage.sprite = consequenceStructure.secondIcon;
 
-        if (consequenceStructure.tooltip && consequenceStructure.effect != null)
+        if (consequenceStructure.tooltip)
         {
-            TooltipObject tooltip = firstImage.gameObject.AddComponent<TooltipObject>();
-            Effect effect = new Effect(consequenceStructure.effect, 1, TeamManager.Instance.heroes.LivingMembers[0], TeamManager.Instance.heroes.LivingMembers[0], 1, null);
-            tooltip.effect = effect;
+            TooltipObject tooltip = firstImage.GetComponent<TooltipObject>();
             tooltip.state = CurrentState.Values;
+
+            if (consequenceStructure.effect != null)
+            {
+                Effect effect = new Effect(consequenceStructure.effect, 1, TeamManager.Instance.heroes.LivingMembers[0], TeamManager.Instance.heroes.LivingMembers[0], 1, null);
+                tooltip.effect = effect;
+            }
+            else if (consequenceStructure.itemObject != null)
+            {
+                tooltip.itemObject = consequenceStructure.itemObject;
+            }
         }
     }
 }
@@ -37,13 +45,15 @@ public class ConsequenceStructure
     public Sprite secondIcon;
     public bool tooltip;
     public EffectObject effect;
+    public ItemObject itemObject;
 
-    public ConsequenceStructure(string _text, Sprite _firstIcon, Sprite _secondIcon, bool _tooltip = false, EffectObject _effect = null)
+    public ConsequenceStructure(string _text, Sprite _firstIcon, Sprite _secondIcon, bool _tooltip = false, EffectObject _effect = null, ItemObject _itemObject = null)
     {
         text = _text;
         firstIcon = _firstIcon;
         secondIcon = _secondIcon;
         tooltip = _tooltip;
         effect = _effect;
+        itemObject = _itemObject;
     }
 }

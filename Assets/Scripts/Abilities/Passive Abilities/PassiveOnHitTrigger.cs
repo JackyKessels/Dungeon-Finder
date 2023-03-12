@@ -145,7 +145,7 @@ public class PassiveOnHitTrigger : PassiveAbility
 
     private bool SuccessfulTrigger(AbilityValue abilityValue)
     {
-        if (abilityValue.ignorePassive == this)
+        if (abilityValue.ignorePassives == null || abilityValue.ignorePassives.Contains(this))
             return false;
 
         if (!abilityValue.isUnitTrigger)

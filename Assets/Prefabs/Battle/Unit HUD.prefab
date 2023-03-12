@@ -182,7 +182,7 @@ MonoBehaviour:
     passiveAbility: {fileID: 0}
     level: 0
   effect:
-    data: {fileID: 0}
+    effectObject: {fileID: 0}
     sourceAbility: {fileID: 0}
     name: 
     level: 0
@@ -190,6 +190,7 @@ MonoBehaviour:
     duration: 0
     caster: {fileID: 0}
     target: {fileID: 0}
+    stacks: 0
     storedModValue: 0
     timedActions: []
     storedPassive:
@@ -200,7 +201,7 @@ MonoBehaviour:
     attributeType: 3
     baseValue: 0
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   currency:
     currencyType: 0
     totalAmount: 0
@@ -222,7 +223,7 @@ MonoBehaviour:
     attributeType: 3
     baseValue: 0
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   value: 0
   image: {fileID: 8070082428327350936}
   typeText: {fileID: 0}
@@ -261,8 +262,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 316, y: 0}
-  m_SizeDelta: {x: 168, y: 128}
+  m_AnchoredPosition: {x: 378.294, y: 0}
+  m_SizeDelta: {x: 292.588, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1652189032151571123
 MonoBehaviour:
@@ -1279,7 +1280,7 @@ MonoBehaviour:
     passiveAbility: {fileID: 0}
     level: 0
   effect:
-    data: {fileID: 0}
+    effectObject: {fileID: 0}
     sourceAbility: {fileID: 0}
     name: 
     level: 0
@@ -1287,6 +1288,7 @@ MonoBehaviour:
     duration: 0
     caster: {fileID: 0}
     target: {fileID: 0}
+    stacks: 0
     storedModValue: 0
     timedActions: []
     storedPassive:
@@ -1297,7 +1299,7 @@ MonoBehaviour:
     attributeType: 3
     baseValue: 0
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   currency:
     currencyType: 0
     totalAmount: 0
@@ -1319,7 +1321,7 @@ MonoBehaviour:
     attributeType: 4
     baseValue: 0
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   value: 0
   image: {fileID: 4469192256680227388}
   typeText: {fileID: 0}
@@ -1916,7 +1918,7 @@ MonoBehaviour:
     passiveAbility: {fileID: 0}
     level: 0
   effect:
-    data: {fileID: 0}
+    effectObject: {fileID: 0}
     sourceAbility: {fileID: 0}
     name: 
     level: 0
@@ -1924,6 +1926,7 @@ MonoBehaviour:
     duration: 0
     caster: {fileID: 0}
     target: {fileID: 0}
+    stacks: 0
     storedModValue: 0
     timedActions: []
     storedPassive:
@@ -1934,7 +1937,7 @@ MonoBehaviour:
     attributeType: 3
     baseValue: 0
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   currency:
     currencyType: 0
     totalAmount: 0
@@ -1956,7 +1959,7 @@ MonoBehaviour:
     attributeType: 5
     baseValue: 0
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   value: 0
   image: {fileID: 45983172235326488}
   typeText: {fileID: 0}

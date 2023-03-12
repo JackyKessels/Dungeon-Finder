@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class TeamData
     // Tutorial or Stratford
     public bool isTutorial;
     public int gameState;
+    public bool unlockedPaths;
 
     // The correct HeroObject
     public int heroIndex_0 = -1;
@@ -28,9 +30,9 @@ public class TeamData
     public List<int> abilityLevels_2;
 
     // All passive IDs
-    public List<int> learnedPassives_0;
-    public List<int> learnedPassives_1;   
-    public List<int> learnedPassives_2;
+    public List<(int, int)> learnedPassives_0;
+    public List<(int, int)> learnedPassives_1;   
+    public List<(int, int)> learnedPassives_2;
 
     // The IDs of the abilities that are active
     public int[] activeAbilities_0;
@@ -96,6 +98,7 @@ public class TeamData
 
         isTutorial = townManager.isTutorial;
         gameState = (int)gameManager.gameState;
+        unlockedPaths = gameManager.unlockedPaths;
 
         Hero hero_0 = team.GetUnit(0) as Hero;
         Hero hero_1 = team.GetUnit(1) as Hero;
@@ -112,7 +115,7 @@ public class TeamData
             pathLevels_0 = hero_0.heroPathManager.SavePathLevels();
             pathPoints_0 = hero_0.heroPathManager.points;
             unlockedPassives_0 = hero_0.heroPathManager.SavePathPassives();
-            learnedPassives_0 = hero_0.spellbook.learnedPassives;
+            learnedPassives_0 = hero_0.spellbook.ConvertPassives();
 
             equipment_0 = inventoryManager.equipmentObjects[0].ConvertInventoryToIDs();
 
@@ -130,7 +133,7 @@ public class TeamData
             pathLevels_1 = hero_1.heroPathManager.SavePathLevels();
             pathPoints_1 = hero_1.heroPathManager.points;
             unlockedPassives_1 = hero_1.heroPathManager.SavePathPassives();
-            learnedPassives_1 = hero_1.spellbook.learnedPassives;
+            learnedPassives_1 = hero_1.spellbook.ConvertPassives();
 
             equipment_1 = inventoryManager.equipmentObjects[1].ConvertInventoryToIDs();
 
@@ -148,7 +151,7 @@ public class TeamData
             pathLevels_2 = hero_2.heroPathManager.SavePathLevels();
             pathPoints_2 = hero_2.heroPathManager.points;
             unlockedPassives_2 = hero_2.heroPathManager.SavePathPassives();
-            learnedPassives_2 = hero_2.spellbook.learnedPassives;
+            learnedPassives_2 = hero_2.spellbook.ConvertPassives();
 
             equipment_2 = inventoryManager.equipmentObjects[2].ConvertInventoryToIDs();
 
@@ -162,11 +165,11 @@ public class TeamData
         currency_0 = gameManager.currencyHandler.GetAmount(CurrencyType.Gold);
         currency_1 = gameManager.currencyHandler.GetAmount(CurrencyType.Spirit);
 
-        itemShop = townManager.ConvertItemShopToIDs(townManager.blacksmith.currentShopItems);
-        itemShopCosts = townManager.ConvertItemShopToCosts(townManager.blacksmith.currentShopItems);
-        itemShopRotation = townManager.blacksmith.rotationCounter;
+        //itemShop = townManager.ConvertItemShopToIDs(townManager.blacksmith.currentShopItems);
+        //itemShopCosts = townManager.ConvertItemShopToCosts(townManager.blacksmith.currentShopItems);
+        //itemShopRotation = townManager.blacksmith.rotationCounter;
 
-        chapterShop = townManager.ConvertItemShopToIDs(townManager.trophyHunter.currentChapterAbilities);
-        chapterShopCosts = townManager.ConvertItemShopToCosts(townManager.trophyHunter.currentChapterAbilities);
+        //chapterShop = townManager.ConvertItemShopToIDs(townManager.trophyHunter.currentChapterAbilities);
+        //chapterShopCosts = townManager.ConvertItemShopToCosts(townManager.trophyHunter.currentChapterAbilities);
     }
 }

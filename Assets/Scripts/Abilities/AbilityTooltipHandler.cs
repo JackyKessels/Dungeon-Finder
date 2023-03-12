@@ -83,6 +83,19 @@ public static class AbilityTooltipHandler
         return temp;
     }
 
+    public static string InsertGeneric(string s)
+    {
+        string pattern = @"\<g([^>]*)\>";
+
+        string color = ColorDatabase.GeneralInformation();
+
+        string temp = Regex.Replace(s, pattern, "<color={0}>$1</color>");
+
+        temp = string.Format(temp, color);
+
+        return temp;
+    }
+
     public static string InsertNonScaling(string s)
     {
         string pattern = @"\<ns([^>]*)\>";

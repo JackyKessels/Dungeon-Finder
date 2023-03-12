@@ -13,12 +13,18 @@ MonoBehaviour:
   m_Name: Crystallize (Incap)
   m_EditorClassIdentifier: 
   name: Crystallize
-  icon: {fileID: 21300000, guid: d7613b6989e3204448f1031c0f8387eb, type: 3}
+  icon: {fileID: 21300000, guid: ecc0b73fa5633824abfe816028b2ef62, type: 3}
   hidden: 0
   description: Stunned, but damage will break the effect.
   isBuff: 0
   procType: 1
   duration: 2
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
   removeEffects: []
   type: 2
+  addTauntImmune: 0

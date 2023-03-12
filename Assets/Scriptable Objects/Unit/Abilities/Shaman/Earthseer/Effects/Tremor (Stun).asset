@@ -13,12 +13,18 @@ MonoBehaviour:
   m_Name: Tremor (Stun)
   m_EditorClassIdentifier: 
   name: Tremor
-  icon: {fileID: 21300000, guid: 7434b6209ca803d419f81d14c664ed0c, type: 3}
+  icon: {fileID: 21300000, guid: a0493df8708564c40b0003d68db0cf40, type: 3}
   hidden: 0
   description: Stunned.
   isBuff: 0
   procType: 1
   duration: 1
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
   removeEffects: []
   type: 1
+  addTauntImmune: 0

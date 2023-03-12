@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
   m_Name: Inner Fury
   m_EditorClassIdentifier: 
-  id: 169
+  id: 168
   name: Inner Fury
   quality: 0
   abilityType: 3
@@ -20,18 +20,18 @@ MonoBehaviour:
 
 
     <castTooltip1>'
-  icon: {fileID: 21300000, guid: ca65d28c2b0f0ed4cb24e9c370b07fe1, type: 3}
+  icon: {fileID: 21300000, guid: 15ed668b03f95dc4a9f2e4af8f338ec1, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
   hasLevels: 0
   sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
+  activationMoment: 0
   castActiveAbilities:
   - activeAbility: {fileID: 11400000, guid: b80ebac702fc4f14ca9d191a3a659c1f, type: 2}
     abilityTarget: 0
   effects: []
-  activationMoment: 0
   targets: 0
   healthPercentage: 0
   attributeType: 0

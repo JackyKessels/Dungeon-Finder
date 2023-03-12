@@ -43,14 +43,16 @@ public class GameManager : MonoBehaviour
 
     public GameState gameState = GameState.TOWN;
 
-    public int totalBattles = 0;
-    public int monstersDefeated = 0;
-    private bool firstDeath = false;
-
     [Header("TESTING STUFF")]
     public bool TEST_MODE = false;
     public Canvas TEST;
     public GameObject SKIP_BUTTON;
+
+    [Header("[ Important Information ]")]
+    public int totalBattles = 0;
+    public int monstersDefeated = 0;
+    private bool firstDeath = false;
+    public bool unlockedPaths = false;
 
     [Header("[ Start & End Screen ]")]
     public Canvas startUI;
@@ -61,6 +63,7 @@ public class GameManager : MonoBehaviour
     [Header("[ Introduction ]")]
     public GameObject introductionWindow1;
     public GameObject introductionWindow2;
+    public GameObject introductionWindow3;
     public Conversation introductionSpeech;
 
     [Header("[ Team Setup ]")]
@@ -185,6 +188,13 @@ public class GameManager : MonoBehaviour
         introductionWindow2.SetActive(true);
     }
 
+    public void Introduction3()
+    {
+        ObjectUtilities.BlackTransition(true);
+
+        introductionWindow3.SetActive(true);
+    }
+
     // Start Story
     public void StartStory()
     {
@@ -242,6 +252,8 @@ public class GameManager : MonoBehaviour
         TEST.gameObject.SetActive(true);
         SKIP_BUTTON.SetActive(true);
 
+        unlockedPaths = true;
+
         titleElements.gameObject.SetActive(false);
 
         cameraScript.GoToCamera(townManager.cameraObject, false);
@@ -276,6 +288,13 @@ public class GameManager : MonoBehaviour
         // Won last location -> Map is finished so return back to town
         if (dungeonManager.player.currentLocation.x == dungeonManager.gridHandler.columns - 1)
         {
+            if (!unlockedPaths)
+            {
+                townManager.UnlockPaths(dungeonManager.currentDungeon, dungeonManager.currentFloor);
+
+                NotificationObject.SendNotification("The Path system has been unlocked.");
+            }
+
             if (dungeonManager.IsLastFloor())
             {
                 townManager.dungeonList.UnlockDungeon(dungeonManager.currentDungeon);

@@ -24,18 +24,70 @@ public class TooltipHandler : MonoBehaviour
 
     public GameObject tooltip;
     public TextMeshProUGUI tooltipText;
+    public TooltipObject tempTooltip;
+
+    private IDescribable lastObj;
+    private TooltipObject lastTooltip;
+    private Vector3 lastPosition;
+
+    private void Update()
+    {
+        if (KeyboardHandler.CompareTooltip())
+        {
+            if (tooltip.activeSelf)
+            {
+                ShowValuesTooltip();
+            }
+        }
+
+        if (KeyboardHandler.StopCompareTooltip())
+        {
+            if (tooltip.activeSelf)
+            {
+                ShowTooltip(lastObj, lastTooltip, lastPosition);
+            }
+        }
+    }
 
     public void ShowTooltip(IDescribable obj, TooltipObject tooltipInfo, Vector3 position)
     {
         if (obj == null)
             return;
 
+        lastObj = obj;
+        lastTooltip = tooltipInfo;
+        lastPosition = position;
+
         tooltip.SetActive(true);
         tooltipText.text = obj.GetDescription(tooltipInfo);
         SetPosition(position);
     }
 
-    public void ShowTooltip(IDescribable obj, string s, Vector3 position)
+    private void ShowValuesTooltip()
+    {
+        if (lastObj == null)
+            return;
+
+        tempTooltip.SetTooltip(lastTooltip);
+        tempTooltip.state = CurrentState.Values;
+        tooltipText.text = lastObj.GetDescription(tempTooltip);
+        SetPosition(lastPosition);
+    }
+
+    private void CleanHandler()
+    {
+        TooltipObject[] tooltipObjects = GetComponents<TooltipObject>();
+
+        if (GetComponent<TooltipObject>() != null)
+        {
+            foreach (var comp in tooltipObjects)
+            {
+                Destroy(comp);
+            }
+        }
+    }
+
+    public void ShowTooltip(string s, Vector3 position)
     {
         tooltip.SetActive(true);
         tooltipText.text = s;

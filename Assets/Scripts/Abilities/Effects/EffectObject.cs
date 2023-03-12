@@ -38,7 +38,7 @@ public abstract class EffectObject : ScriptableObject, IDescribable
     {
         if (effectObject.permanent)
         {
-            return "Full Fight";
+            return "Full Battle";
         }
         else
         {

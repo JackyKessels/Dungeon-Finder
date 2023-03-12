@@ -81,7 +81,7 @@ public class TeamManager : MonoBehaviour
             hero.heroPathManager.LoadPathLevels(data.pathLevels_0);
             hero.heroPathManager.LoadPathPassives(data.unlockedPassives_0);
 
-            hero.statsManager.currentHealth = data.currentHealth_0;
+            hero.RestoreHealth();
         }
                                        
         if (data.heroIndex_1 != -1)
@@ -96,7 +96,7 @@ public class TeamManager : MonoBehaviour
             hero.heroPathManager.LoadPathLevels(data.pathLevels_1);
             hero.heroPathManager.LoadPathPassives(data.unlockedPassives_1);
 
-            hero.statsManager.currentHealth = data.currentHealth_1;
+            hero.RestoreHealth();
         }
             
         if (data.heroIndex_2 != -1)
@@ -111,7 +111,7 @@ public class TeamManager : MonoBehaviour
             hero.heroPathManager.LoadPathLevels(data.pathLevels_2);     
             hero.heroPathManager.LoadPathPassives(data.unlockedPassives_2);
 
-            hero.statsManager.currentHealth = data.currentHealth_2;
+            hero.RestoreHealth();
         }
 
         experienceManager.GainExperience(data.teamExperience);
@@ -141,6 +141,8 @@ public class TeamManager : MonoBehaviour
         gameManager.currencyHandler.IncreaseCurrency(new Currency(CurrencyType.Gold, data.currency_0));
         gameManager.currencyHandler.IncreaseCurrency(new Currency(CurrencyType.Spirit, data.currency_1));
 
+        gameManager.unlockedPaths = data.unlockedPaths;
+
         if (data.isTutorial)
         {
             townManager.StartTutorial();
@@ -151,11 +153,13 @@ public class TeamManager : MonoBehaviour
 
 
 
-            townManager.blacksmith.LoadShop(data.itemShop, data.itemShopCosts, data.itemShopRotation);
-            townManager.trophyHunter.LoadShop(data.chapterShop);
+            //townManager.blacksmith.LoadShop(data.itemShop, data.itemShopCosts, data.itemShopRotation);
+            //townManager.trophyHunter.LoadShop(data.chapterShop);
 
-            townManager.UpdateRotationDisplay();
+            //townManager.UpdateRotationDisplay();
         }
+
+        
 
         //gameManager.interfaceBar.SetCorrectButton((GameState)data.gameState);
     }

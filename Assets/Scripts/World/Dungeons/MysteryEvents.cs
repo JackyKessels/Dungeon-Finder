@@ -133,7 +133,7 @@ public class MysteryAction
 
                     Debug.Log("You gained " + itemObject.name + ".");
 
-                    consequenceStructures.Add(new ConsequenceStructure("1", itemObject.icon, null));
+                    consequenceStructures.Add(new ConsequenceStructure("1", itemObject.icon, null, true, null, itemObject));
                 }
                 break;
             case MysteryActionType.Source:
@@ -162,12 +162,7 @@ public class MysteryAction
 
                     foreach (Unit target in targets)
                     {
-                        int current = target.statsManager.currentHealth;
-                        Debug.Log(target.name + " has " + current + " health.");
-
-                        abilitySource.TriggerSource(null, false, false, target, target, 1, 1, true, 1, AbilityType.Assault);
-
-                        Debug.Log(target.name + " takes " + abilitySource.CalculateValue(target, 1, 1, 1) + " " + abilitySource.school.ToString() + " damage.");
+                        target.statsManager.TakeDamage(abilitySource);
                     }
 
                     CheckParty();

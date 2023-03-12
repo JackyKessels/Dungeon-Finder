@@ -41,11 +41,25 @@ public class TooltipObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         tooltipHandler = TooltipHandler.Instance;
     }
 
+    public void SetTooltip(TooltipObject tooltipObject)
+    {
+        useGenericTooltip = tooltipObject.useGenericTooltip;
+        genericTooltip = tooltipObject.genericTooltip;
+        active = tooltipObject.active;  
+        effect = tooltipObject.effect;           
+        itemObject = tooltipObject.itemObject;
+        attribute = tooltipObject.attribute;
+        currency = tooltipObject.currency;
+        state = tooltipObject.state;
+        experience = tooltipObject.experience;
+
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (useGenericTooltip)
         {
-            tooltipHandler.ShowTooltip(null, genericTooltip, transform.position);
+            tooltipHandler.ShowTooltip(genericTooltip, transform.position);
         }
         else if (itemObject != null)
         {
@@ -86,7 +100,7 @@ public class TooltipObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
         else if (experience)
         {
-            tooltipHandler.ShowTooltip(null, "Experience points are required to level up your team.", transform.position);
+            tooltipHandler.ShowTooltip("Experience points are required to level up your team.", transform.position);
         }
     }
 

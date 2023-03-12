@@ -43,7 +43,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 11400000}
+    ignorePassives: []
     school: 3
     attributeType: 2
     baseValue: 0
@@ -66,7 +66,8 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive:
+        - {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0

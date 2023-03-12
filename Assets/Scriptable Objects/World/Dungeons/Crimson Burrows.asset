@@ -92,10 +92,10 @@ MonoBehaviour:
     maximumLocations: 30
     addOffset: 0
     forceBossCenter: 0
-    eliteCount: 1
-    campfireCount: 0
+    eliteCount: 2
+    campfireCount: 1
     treasureCount: 1
-    mysteryCount: 1
+    mysteryCount: 2
     spiritColumns: 
     itemPool:
     - itemObject: {fileID: 11400000, guid: a0db3ee41c33eef4dbc6a3840a9684c8, type: 2}
@@ -119,8 +119,8 @@ MonoBehaviour:
       - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
       weight: 1
     - enemyObjects:
+      - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
       - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
-      - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
       weight: 1
     - enemyObjects:
       - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
@@ -132,14 +132,14 @@ MonoBehaviour:
       - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
       weight: 1
     - enemyObjects:
+      - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
       - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
       - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
-      - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
       weight: 1
     eliteEncounters:
     - enemyObjects:
-      - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
       - {fileID: 11400000, guid: 4ea0468a2e1668c4faf097a9cdda25e2, type: 2}
+      - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
       - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
       weight: 2
     - enemyObjects:
@@ -166,10 +166,10 @@ MonoBehaviour:
     maximumLocations: 30
     addOffset: 0
     forceBossCenter: 0
-    eliteCount: 1
+    eliteCount: 2
     campfireCount: 1
     treasureCount: 1
-    mysteryCount: 0
+    mysteryCount: 1
     spiritColumns: 
     itemPool:
     - itemObject: {fileID: 11400000, guid: 1b677da83272f904c9c47a92f070c498, type: 2}
@@ -200,4 +200,4 @@ MonoBehaviour:
     bossEncounter:
       enemyObjects:
       - {fileID: 11400000, guid: 4b03e6418cf01c742ae0d5a5757895c9, type: 2}
-    mysteryEvents: {fileID: 0}
+    mysteryEvents: {fileID: 11400000, guid: c0bbfb3b5c26c7043a6b3e391c2ae9ce, type: 2}

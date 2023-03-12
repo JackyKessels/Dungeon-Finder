@@ -17,7 +17,7 @@ MonoBehaviour:
   quality: 0
   abilityType: 0
   description: Deal <e1> <N> damage to your target.
-  icon: {fileID: 21300000, guid: 7bd8612f07cd6084494bb6ad7f471b8e, type: 3}
+  icon: {fileID: 21300000, guid: 228c17514b385da4bb9008daf6747fac, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
   - {fileID: 3630556805578305352, guid: b81fb76c1e16e204d9210667bd87302f, type: 3}
@@ -26,6 +26,7 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 1
   cooldown: 0
+  initialCooldown: 0
   endTurn: 1
   resetChance: 0
   weaponRequirement: 4
@@ -36,7 +37,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 7
     attributeType: 2
     baseValue: 0
@@ -59,7 +60,8 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive:
+        - {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0

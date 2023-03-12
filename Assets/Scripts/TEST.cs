@@ -30,8 +30,6 @@ public class TEST : MonoBehaviour
 
     public HeroObject currentHero = null;
 
-    public Button fleeButton;
-
     private void Start()
     {
         gameManager = GameManager.Instance;
@@ -39,8 +37,6 @@ public class TEST : MonoBehaviour
         hero_0_button.onClick.AddListener(delegate { OpenAbilityWindow(hero_0); });
         hero_1_button.onClick.AddListener(delegate { OpenAbilityWindow(hero_1); });
         hero_2_button.onClick.AddListener(delegate { OpenAbilityWindow(hero_2); });
-
-        fleeButton.gameObject.SetActive(true);
     }
 
     public void AddCurrency()
@@ -123,10 +119,45 @@ public class TEST : MonoBehaviour
         BattleManager.Instance.OnFleeButton();
     }
 
+    public void Suicide()
+    {
+        foreach (Unit unit in TeamManager.Instance.heroes.Members)
+        {
+            unit.statsManager.TakeDamage(AbilitySchool.Shadow, 9999);
+        }
+
+        BattleManager.Instance.CheckWinCondition();
+    }
+
+    public void PowerOverwhelming()
+    {
+        foreach (Unit unit in TeamManager.Instance.heroes.Members)
+        {
+            unit.statsManager.ModifyAttribute(AttributeType.Power, AttributeValue.bonusValue, 5000);
+            unit.statsManager.ModifyAttribute(AttributeType.Wisdom, AttributeValue.bonusValue, 5000);
+        }
+    }
+
     public void ResetPathPoints()
     {
-
+        foreach (Hero hero in TeamManager.Instance.heroes.Members)
+        {
+            hero.heroPathManager.points = 0;
+        }
     }
+
+    public void NextFloor()
+    {
+        if (GameManager.Instance.gameState == GameState.RUN)
+        {
+            DungeonManager.Instance.NextFloor();
+        }
+        else
+        {
+            Debug.Log("No dungeon active.");
+        }
+    }
+
 
     // ABILITIES
 
@@ -164,14 +195,7 @@ public class TEST : MonoBehaviour
         testSpec.Setup(heroPathObject);
     }
 
-    public void PowerOverwhelming()
-    {
-        foreach (Unit unit in TeamManager.Instance.heroes.Members)
-        {
-            unit.statsManager.ModifyAttribute(AttributeType.Power, AttributeValue.bonusValue, 5000);
-            unit.statsManager.ModifyAttribute(AttributeType.Wisdom, AttributeValue.bonusValue, 5000);
-        }
-    }
+
 }
 
 

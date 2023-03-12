@@ -10,26 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
-  m_Name: Twin Fangs
+  m_Name: Twin Claws
   m_EditorClassIdentifier: 
   id: 74
-  name: Twin Fangs
+  name: Twin Claws
   quality: 0
   abilityType: 2
-  description: Deal <e1> <F> and <e2> <I> damage to your target and reduce their
-    <vitality> by <t1modV> for <t1d> Rounds.
-  icon: {fileID: 21300000, guid: a440e39c142f4564d9ba97bc568757b4, type: 3}
+  description: Deal <e1> <P> damage <gtwice> to your target and reduce their <vitality>
+    by <t1modV> for <t1d> Rounds.
+  icon: {fileID: 21300000, guid: 856828d6733577e4f805e5e7cc24ea3a, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
   - {fileID: 7084776835275811525, guid: 87fd9ddeb1ae08040854ab2b367f7cd5, type: 3}
-  - {fileID: 2816331531263477632, guid: 0579ee4dd9c50024aa129d281a53be0e, type: 3}
   - {fileID: 7267515126571012338, guid: c8f0362712588ca4d826b0cc447c0901, type: 3}
-  - {fileID: 594048948687980285, guid: c60ab12cb832f05429617f172b65e006, type: 3}
+  - {fileID: 6989958480090594355, guid: 302323a4b201d354fbbf4fce065b84d3, type: 3}
+  - {fileID: 6989958480090594355, guid: adf2c4f0d4395ec48acb76c8eb3c8848, type: 3}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 1
-  cooldown: 2
+  cooldown: 3
+  initialCooldown: 0
   endTurn: 1
   resetChance: 0
   weaponRequirement: 4
@@ -40,14 +41,14 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 0}
-    school: 2
+    ignorePassives: []
+    school: 1
     attributeType: 1
     baseValue: 0
     levelBase: 0
     scaling: 0.9
     levelScaling: 0.18
-    reductionType: 2
+    reductionType: 1
     modifier:
       hasModifier: 0
       modification: 0
@@ -63,7 +64,8 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive:
+        - {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -76,14 +78,14 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 0}
-    school: 3
+    ignorePassives: []
+    school: 1
     attributeType: 1
     baseValue: 0
     levelBase: 0
     scaling: 0.9
     levelScaling: 0.18
-    reductionType: 2
+    reductionType: 1
     modifier:
       hasModifier: 0
       modification: 0
@@ -99,7 +101,8 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive:
+        - {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0

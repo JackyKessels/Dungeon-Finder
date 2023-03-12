@@ -277,7 +277,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
         activeBattle = false;
     }
 
-    private bool CheckWinCondition()
+    public bool CheckWinCondition()
     {
         if (teamManager.heroes.LivingMembers.Count == 0 || teamManager.enemies.LivingMembers.Count == 0)
         {
@@ -905,21 +905,17 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
     private void HandleCooldown(Active active)
     {
-        //if (active.cooldown > 0)
-        //{
-            if (active.activeAbility.resetChance > 0 && active.activeAbility.SuccessfulReset())
-            {
-                Color color = GeneralUtilities.ConvertString2Color("#9DD8FF");
+        if (active.activeAbility.resetChance > 0 && active.activeAbility.SuccessfulReset())
+        {
+            Color color = GeneralUtilities.ConvertString2Color("#9DD8FF");
 
-                FCTData fctData = new FCTData(false, currentUnit, "Reset!", color);
-                currentUnit.fctHandler.AddToFCTQueue(fctData);
-                //FloatingCombatText.SendText(fctData);
-            }
-            else
-            {
-                active.PutOnCooldown();
-            }
-        //}
+            FCTData fctData = new FCTData(false, currentUnit, "Reset!", color);
+            currentUnit.fctHandler.AddToFCTQueue(fctData);
+        }
+        else
+        {
+            active.PutOnCooldown();           
+        }
     }
 
     public void EnableUI(bool show)

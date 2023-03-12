@@ -1,0 +1,158 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f0c950dd9b1944884020e632343d94, type: 3}
+  m_Name: Crimson Burrows - Inner Ruins
+  m_EditorClassIdentifier: 
+  events:
+  - eventWeight: 1
+    flavorText: You find an ominous hammer floating above a dark pedastal. As one
+      of your party picks up the hammer, a sinister presence surrounds you.
+    actions:
+    - type: 2
+      currencyAmount: 10
+      currencyType: 1
+      experienceAmount: 0
+      itemObject: {fileID: 11400000, guid: fbf6a738f3bdb6f47b54175a4bc82628, type: 2}
+      sourceTargets: 1
+      abilitySource:
+        ignoreMultipliers: 1
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
+        school: 1
+        attributeType: 0
+        baseValue: 20
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 1
+        modifier:
+          hasModifier: 0
+          modification: 0
+          condition: 0
+          thresholdType: 0
+          conditionThreshold: 0
+          increasedAttribute: 0
+          increaseValue: 0
+          casterBased: 0
+          attributeBase: 0
+          percentageIncrease: 0
+          bonusAbilitySource:
+            ignoreMultipliers: 0
+            cannotCrit: 0
+            cannotMiss: 0
+            ignorePassive: {fileID: 0}
+            school: 0
+            attributeType: 0
+            baseValue: 0
+            levelBase: 0
+            scaling: 0
+            levelScaling: 0
+            reductionType: 0
+          effectOnTarget: 0
+          conditionalEffect: {fileID: 0}
+      effectTargets: 0
+      effect: {fileID: 11400000, guid: 26fc2105314497343b6d1fc043fd3ae0, type: 2}
+    - type: 4
+      currencyAmount: 10
+      currencyType: 1
+      experienceAmount: 0
+      itemObject: {fileID: 11400000, guid: fbf6a738f3bdb6f47b54175a4bc82628, type: 2}
+      sourceTargets: 1
+      abilitySource:
+        ignoreMultipliers: 1
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
+        school: 1
+        attributeType: 0
+        baseValue: 20
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 1
+        modifier:
+          hasModifier: 0
+          modification: 0
+          condition: 0
+          thresholdType: 0
+          conditionThreshold: 0
+          increasedAttribute: 0
+          increaseValue: 0
+          casterBased: 0
+          attributeBase: 0
+          percentageIncrease: 0
+          bonusAbilitySource:
+            ignoreMultipliers: 0
+            cannotCrit: 0
+            cannotMiss: 0
+            ignorePassive: {fileID: 0}
+            school: 0
+            attributeType: 0
+            baseValue: 0
+            levelBase: 0
+            scaling: 0
+            levelScaling: 0
+            reductionType: 0
+          effectOnTarget: 0
+          conditionalEffect: {fileID: 0}
+      effectTargets: 0
+      effect: {fileID: 11400000, guid: c62d348ee53b6ed49a3d0562ae47c268, type: 2}
+  - eventWeight: 3
+    flavorText: A glowing rune attracts the attention of one of your party members.
+      Upon touching it, a strange power surges through their body.
+    actions:
+    - type: 4
+      currencyAmount: 10
+      currencyType: 1
+      experienceAmount: 0
+      itemObject: {fileID: 11400000, guid: fbf6a738f3bdb6f47b54175a4bc82628, type: 2}
+      sourceTargets: 1
+      abilitySource:
+        ignoreMultipliers: 1
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
+        school: 1
+        attributeType: 0
+        baseValue: 20
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 1
+        modifier:
+          hasModifier: 0
+          modification: 0
+          condition: 0
+          thresholdType: 0
+          conditionThreshold: 0
+          increasedAttribute: 0
+          increaseValue: 0
+          casterBased: 0
+          attributeBase: 0
+          percentageIncrease: 0
+          bonusAbilitySource:
+            ignoreMultipliers: 0
+            cannotCrit: 0
+            cannotMiss: 0
+            ignorePassive: {fileID: 0}
+            school: 0
+            attributeType: 0
+            baseValue: 0
+            levelBase: 0
+            scaling: 0
+            levelScaling: 0
+            reductionType: 0
+          effectOnTarget: 0
+          conditionalEffect: {fileID: 0}
+      effectTargets: 1
+      effect: {fileID: 11400000, guid: 336757722a739cb438b9ea249c49c9fa, type: 2}

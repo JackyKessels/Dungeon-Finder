@@ -39,6 +39,8 @@ public abstract class PassiveAbility : AbilityObject
 
         temp = AbilityTooltipHandler.ColorAllAttributes(temp);
 
+        temp = AbilityTooltipHandler.CurrentArmor(temp, "<currentarmor>", tooltipInfo);
+
         return temp;
     }
 }

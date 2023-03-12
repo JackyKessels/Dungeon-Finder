@@ -18,10 +18,13 @@ MonoBehaviour:
   description: Take <1> <S> damage every Round.
   isBuff: 0
   procType: 1
-  duration: 3
+  duration: 4
   permanent: 0
   stackable: 1
   maxStacks: 5
+  refreshes: 1
+  aura: 0
+  unique: 0
   removeEffects: []
   timedActions:
   - actionType: 1
@@ -31,7 +34,7 @@ MonoBehaviour:
       ignoreMultipliers: 0
       cannotCrit: 0
       cannotMiss: 0
-      ignorePassive: {fileID: 0}
+      ignorePassives: []
       school: 7
       attributeType: 2
       baseValue: 0
@@ -54,7 +57,8 @@ MonoBehaviour:
           ignoreMultipliers: 0
           cannotCrit: 0
           cannotMiss: 0
-          ignorePassive: {fileID: 0}
+          ignorePassive:
+          - {fileID: 0}
           school: 0
           attributeType: 0
           baseValue: 0

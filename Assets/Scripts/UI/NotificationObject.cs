@@ -11,6 +11,15 @@ public class NotificationObject : MonoBehaviour
     public Button continueButton;
     private GameObject container;
 
+    public void Update()
+    {
+        if (KeyboardHandler.ProgressWindow())
+        {
+            if (continueButton)
+                continueButton.onClick?.Invoke();
+        }
+    }
+
     public void Setup(GameObject containerObject, string message, List<Reward> rewards = null)
     {
         container = containerObject;
@@ -36,7 +45,9 @@ public class NotificationObject : MonoBehaviour
     {
         GameObject container = GameObject.Find("Notification Container");
 
-        NotificationObject notification = Instantiate(GameAssets.i.notificationPrefab, Vector3.zero, Quaternion.identity);
+        GameObject obj = ObjectUtilities.CreateSimplePrefab(GameAssets.i.notificationPrefab.gameObject, container);
+
+        NotificationObject notification = obj.GetComponent<NotificationObject>();
         notification.Setup(container, message, rewards);
     }
 

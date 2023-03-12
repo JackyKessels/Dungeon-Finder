@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class ExperienceManager
@@ -61,7 +62,7 @@ public class ExperienceManager
     public void LevelUpTeam(bool showNotification)
     {
         if (showNotification)
-            NotificationObject.SendNotification("Level Up! Maximum Health increased by 3.");
+            NotificationObject.SendNotification("Level Up! Maximum Health of all party members increased by " + StatsManager.levelUpHealth + ".");
 
         if (currentLevel < maxLevel)
         {
@@ -96,10 +97,7 @@ public class ExperienceManager
 
     public void LevelUp(Hero hero)
     {
-        // Increase attributes and path points of the hero
-        hero.statsManager.ModifyAttribute(AttributeType.Health, AttributeValue.bonusValue, 5f);
-
-        //hero.RestoreHealth();
+        hero.statsManager.LevelUp();
 
         if (currentLevel >= pathPointLevelRequirement)
         {

@@ -40,13 +40,13 @@ public class LocationInformation : MonoBehaviour
                     return enemies;
                 }
             case LocationType.Treasure:
-                return "Your team stumbles upon treasures.";
+                return location.TypeDescription(); // "Your team stumbles upon treasures.";
             case LocationType.Campfire:
-                return "The campfire will restore your Team's spirit.";
+                return location.TypeDescription(); // "The campfire will restore your Team's spirit.";
             case LocationType.Spirit:
                 return "You find some glowing stuff.";
             case LocationType.Mystery:
-                return "Something is going on here... what could it be?";
+                return location.TypeDescription(); // "Something is going on here... what could it be?";
             default:
                 return location.description;
         }

@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Crimson Hatchling
   lastName: 
   unitType: 1
-  icon: {fileID: 21300000, guid: 6155715af42bf2e468c4d36a97050d0d, type: 3}
+  icon: {fileID: 21300000, guid: 0152f40b530dd0f4db2933654a76454c, type: 3}
   sprite: {fileID: 21300000, guid: cc8610a05058af54d84a562b6707d010, type: 3}
   attackAnimation: {fileID: 0}
   castAnimation: {fileID: 0}

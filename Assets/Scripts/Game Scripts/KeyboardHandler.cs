@@ -13,6 +13,14 @@ public class KeyboardHandler
     {
         return Input.GetKeyDown(KeyCode.Space);
     }
+    public static bool CompareTooltip()
+    {
+        return Input.GetKeyDown(KeyCode.LeftControl);
+    }
+    public static bool StopCompareTooltip()
+    {
+        return Input.GetKeyUp(KeyCode.LeftControl);
+    }
 
     // --- UI --- //
     // Menus //

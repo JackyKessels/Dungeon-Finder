@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Stylesheet.uss?fileID=7433441132597879392&amp;guid=469fda9437ff76940ad9466dd64a97d7&amp;type=3#Stylesheet" />
+    <ui:VisualElement style="height: auto; flex-grow: 1;">
+        <ui:VisualElement name="Container" style="justify-content: center; align-items: auto; flex-direction: row; height: auto; top: 600px; position: relative; left: auto; width: auto; flex-wrap: nowrap;">
+            <ui:Button text="Big" display-tooltip-when-elided="true" class="button" />
+            <ui:Button text="Fat" display-tooltip-when-elided="true" name="Button" class="button" />
+            <ui:Button text="Cawk" display-tooltip-when-elided="true" class="button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -55,6 +55,8 @@ public class Location : MonoBehaviour, IDescribable
     [HideInInspector] public int x;
     [HideInInspector] public int y;
 
+    private readonly float campfireHeal = 0.5f;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -155,8 +157,11 @@ public class Location : MonoBehaviour, IDescribable
             case LocationType.Campfire:
                 {
                     TeamManager.Instance.heroes.ReviveDeadMembers(false);
-                    TeamManager.Instance.heroes.HealTeam(0.5f, true);
-                    NotificationObject.SendNotification("Your team has restored 50% of their missing Health, and all dead members are revived");
+                    TeamManager.Instance.heroes.HealTeam(campfireHeal, true);
+
+                    //string percentage = (campfireHeal * 100).ToString();
+
+                    //NotificationObject.SendNotification("Your team has restored " + percentage + "% of their missing Health, and all dead members are revived");
                     break;
                 }
             case LocationType.Spirit:
@@ -204,7 +209,7 @@ public class Location : MonoBehaviour, IDescribable
 
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            tooltipHandler.ShowTooltip(GetComponent<Location>(), GetDescription(null), cameraCoords);
+            tooltipHandler.ShowTooltip(GetDescription(null), cameraCoords);
         }
     }
 
@@ -219,7 +224,7 @@ public class Location : MonoBehaviour, IDescribable
     // Tooltip
     public string GetDescription(TooltipObject tooltipInfo)
     {
-        return LocationName() + TypeDescription() + PreviewEnemies();
+        return LocationName() + "\n" + TypeDescription() + PreviewEnemies();
     }
 
     private string PreviewEnemies()
@@ -276,17 +281,17 @@ public class Location : MonoBehaviour, IDescribable
                 colorName = "#80FF33";
                 break;
             case LocationType.Mystery:
-                colorName = "#80FF33";
+                colorName = "#FF8C00";
                 break;
             default:
                 colorName = "#FFFFFF";
                 break;
         }
 
-        return string.Format("<b><color={0}>{1}</b>", colorName, locationType);
+        return string.Format("<b><color={0}>{1}</color></b>", colorName, locationType);
     }
 
-    private string TypeDescription()
+    public string TypeDescription()
     {
         string colorDescription = "#FFFFFF";
 
@@ -295,38 +300,42 @@ public class Location : MonoBehaviour, IDescribable
         switch (locationType)
         {
             case LocationType.Start:
-                text = "\nThis is the starting location.";
+                text = "This is the starting location.";
                 break;
             case LocationType.Empty:
-                text = "\nThis is an empty location.";
+                text = "This is an empty location.";
                 break;
             case LocationType.Battle:
-                text = "\nEngage in combat with the following enemies:";
+                text = "Engage in combat with the following enemies:";
                 break;
             case LocationType.Elite:
-                text = "\nEngage in combat with the following enemies:";
+                text = "Engage in combat with the following enemies:";
                 break;
             case LocationType.Boss:
-                text = "\nDefeat the following boss to complete this chapter:";
+                text = "Defeat the following boss to complete this chapter:";
                 break;
             case LocationType.Treasure:
-                text = "\nFind a random assortment of loot.";
+                text = "Your party stumbles upon items of value." +
+                       "\n\n- Choose from a random array of items.";
                 break;
             case LocationType.Campfire:
-                text = "\nYour team restores some of its health.";
+                string percentage = (campfireHeal * 100).ToString();
+                text = "Your party has a moment of respite." +
+                       "\n\n- Dead members are revived and everyone restores " + percentage + "% of their missing Health.";
                 break;
             case LocationType.Spirit:
-                text = "\nEach member gets a random ability.";
+                text = "Each member gets a random ability.";
                 break;
             case LocationType.Mystery:
-                text = "\nSomething is going on here... what could it be?";
+                text = "Something of note happens to your party." +
+                       "\n\n- A random event occurs, it could be positive or negative.";
                 break;
             default:
                 text = "";
                 break;
         }
 
-        return string.Format("<color={0}>{1}", colorDescription, text);
+        return string.Format("<color={0}>{1}</color>", colorDescription, text);
     }
 
     // Pathfinding

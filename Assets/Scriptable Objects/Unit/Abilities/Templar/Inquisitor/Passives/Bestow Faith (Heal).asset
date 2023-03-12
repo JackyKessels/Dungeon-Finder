@@ -34,7 +34,8 @@ MonoBehaviour:
       ignoreMultipliers: 0
       cannotCrit: 0
       cannotMiss: 0
-      ignorePassive: {fileID: 11400000, guid: 7e7d959d514337c418be1bae49e8e593, type: 2}
+      ignorePassives:
+      - {fileID: 11400000, guid: 7e7d959d514337c418be1bae49e8e593, type: 2}
       school: 0
       attributeType: 0
       baseValue: 0
@@ -57,7 +58,8 @@ MonoBehaviour:
           ignoreMultipliers: 0
           cannotCrit: 0
           cannotMiss: 0
-          ignorePassive: {fileID: 0}
+          ignorePassive:
+          - {fileID: 0}
           school: 0
           attributeType: 0
           baseValue: 0

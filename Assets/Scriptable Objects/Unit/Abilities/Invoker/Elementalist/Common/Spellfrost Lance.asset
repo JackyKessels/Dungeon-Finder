@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Spellfrost Lance
   m_EditorClassIdentifier: 
-  id: 166
+  id: 165
   name: Spellfrost Lance
   quality: 0
   abilityType: 2
@@ -31,6 +31,7 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 3
+  initialCooldown: 0
   endTurn: 1
   resetChance: 0
   weaponRequirement: 4
@@ -41,7 +42,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 1
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 3
     attributeType: 2
     baseValue: 0
@@ -64,7 +65,7 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -77,7 +78,8 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 1
-    ignorePassive: {fileID: 0}
+    ignorePassives:
+    - {fileID: 11400000, guid: 11fff197dec90c347b76a2273145f866, type: 2}
     school: 5
     attributeType: 2
     baseValue: 0
@@ -100,7 +102,7 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0

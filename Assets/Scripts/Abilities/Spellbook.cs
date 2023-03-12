@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -15,7 +16,6 @@ public class Spellbook
     public Active flaskAbility;
 
     public List<Passive> passives;
-    public List<int> learnedPassives;
 
     public static readonly int mysticalAbilityCap = 1;
     public static readonly int abilityCollectionCap = 8;
@@ -28,7 +28,6 @@ public class Spellbook
         activeSpellbook = new Active[4];
         flaskAbility = new Active();
         passives = new List<Passive>();
-        learnedPassives = new List<int>();
 
         for (int i = 0; i < activeSpellbook.Length; i++)
         {
@@ -543,16 +542,26 @@ public class Spellbook
         return null;
     }
 
-    public void LearnPassives(List<int> ids)
+    public List<(int, int)> ConvertPassives()
     {
-        foreach (int id in ids)
+        List<(int, int)> completeList = new List<(int, int)>();
+
+        foreach (Passive passive in passives)
+        {
+            completeList.Add((passive.passiveAbility.id, passive.level));
+        }
+
+        return completeList;
+    }
+
+    public void LearnPassives(List<(int, int)> passivesList)
+    {
+        foreach ((int id, int level) in passivesList)
         {
             PassiveAbility p = DatabaseHandler.Instance.abilityDatabase.abilityObjects[id] as PassiveAbility;
 
-            Passive passive = new Passive(p, 1);
+            Passive passive = new Passive(p, level);
             passive.ActivatePassive(unit);
-
-            unit.spellbook.learnedPassives.Add(passive.passiveAbility.id);
         }
     }
 }

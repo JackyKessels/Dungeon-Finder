@@ -28,6 +28,7 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 2
+  initialCooldown: 0
   endTurn: 1
   resetChance: 0
   weaponRequirement: 4
@@ -38,13 +39,13 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 4
     attributeType: 2
     baseValue: 0
     levelBase: 0
-    scaling: 1.6
-    levelScaling: 0.32
+    scaling: 1.5
+    levelScaling: 0.3
     reductionType: 2
     modifier:
       hasModifier: 0
@@ -61,7 +62,8 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive:
+        - {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0

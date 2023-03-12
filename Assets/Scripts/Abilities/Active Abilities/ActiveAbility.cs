@@ -219,6 +219,8 @@ public abstract class ActiveAbility : AbilityObject
 
         temp = AbilityTooltipHandler.InsertRed(temp);
 
+        temp = AbilityTooltipHandler.InsertGeneric(temp);
+
         temp = AbilityTooltipHandler.InsertNonScaling(temp);
 
         temp = AbilityTooltipHandler.CurrentArmor(temp, "<currentarmor>", tooltipInfo);

@@ -15,9 +15,9 @@ MonoBehaviour:
   id: 5512341
   name: Crystal Tomb
   quality: 0
-  type: 2
+  abilityType: 0
   description: Stun a target.
-  icon: {fileID: 21300000, guid: e18965f3d8096244e8dba467634ce3ca, type: 3}
+  icon: {fileID: 21300000, guid: c17ca8fbf1c727446baa9f5f666a4073, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
   - {fileID: 7333905049804575283, guid: 5a1e0da4aec563b46ad0c75a27b9d380, type: 3}
@@ -26,6 +26,7 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 5
+  initialCooldown: 0
   endTurn: 0
   resetChance: 0
   weaponRequirement: 4
@@ -40,4 +41,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

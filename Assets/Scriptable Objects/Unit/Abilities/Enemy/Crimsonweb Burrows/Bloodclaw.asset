@@ -17,7 +17,7 @@ MonoBehaviour:
   quality: 0
   abilityType: 0
   description: 
-  icon: {fileID: 21300000, guid: f9c4d50f33e147141af20f35bd0d5792, type: 3}
+  icon: {fileID: 21300000, guid: 73231d271c950cf47b2c1590e826fac7, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
   - {fileID: 7044846959313319938, guid: 16cb0949114531d47b8c095163de546a, type: 3}

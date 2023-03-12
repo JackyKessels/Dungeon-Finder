@@ -54,6 +54,8 @@ public class StatsManager
 
     private Unit unit;
 
+    public static int levelUpHealth = 5;
+
     public StatsManager(Unit u, UnitObject data)
     {
         unit = u;
@@ -227,7 +229,7 @@ public class StatsManager
         {
             EffectDamageTransfer damageTransfer = damageTransferEffect.effectObject as EffectDamageTransfer;
 
-            AbilityValue transferValue = new AbilityValue(abilityValue.sourceAbility, false, true, abilityValue.value * damageTransfer.percentage, abilityValue.school, abilityValue.abilityType, abilityValue.cannotCrit, abilityValue.cannotMiss, abilityValue.target, damageTransferEffect.caster, abilityValue.color, abilityValue.isUnitTrigger, abilityValue.ignorePassive);
+            AbilityValue transferValue = new AbilityValue(abilityValue.sourceAbility, false, true, abilityValue.value * damageTransfer.percentage, abilityValue.school, abilityValue.abilityType, abilityValue.cannotCrit, abilityValue.cannotMiss, abilityValue.target, damageTransferEffect.caster, abilityValue.color, abilityValue.isUnitTrigger, abilityValue.ignorePassives);
 
             transferValue.value = unit.statsManager.CalculateMitigatedDamage(transferValue.value, GeneralUtilities.GetReductionType(transferValue.school));
 
@@ -245,6 +247,17 @@ public class StatsManager
         OnReceiveUnitEvent?.Invoke(abilityValue);
 
         CheckHealthStatus(abilityValue);
+    }
+
+    public void TakeDamage(AbilitySchool school, int amount)
+    {
+        AbilitySource abilitySource = new AbilitySource(school, amount);
+        abilitySource.TriggerSource(null, false, false, unit, unit, 1, 1, true, 1, AbilityType.Assault);
+    }
+
+    public void TakeDamage(AbilitySource abilitySource)
+    {
+        abilitySource.TriggerSource(null, false, false, unit, unit, 1, 1, true, 1, AbilityType.Assault);
     }
 
     private void BreakIncapacitate(AbilityValue abilityValue)
@@ -351,5 +364,10 @@ public class StatsManager
         float targetVitality = GetAttribute(AttributeType.Vitality).GetTotalValue();
 
         return value * (1 + targetVitality / 100);
+    }
+
+    public void LevelUp()
+    {
+        ModifyAttribute(AttributeType.Health, AttributeValue.bonusValue, levelUpHealth);
     }
 }

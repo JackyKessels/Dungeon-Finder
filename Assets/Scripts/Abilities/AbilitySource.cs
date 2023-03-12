@@ -31,7 +31,7 @@ public class AbilitySource
     public bool ignoreMultipliers;
     public bool cannotCrit;
     public bool cannotMiss;
-    public PassiveAbility ignorePassive; // This AbilitySource does not trigger this Passive
+    public List<PassiveAbility> ignorePassives = new List<PassiveAbility>(); // This AbilitySource does not trigger this Passive
     public AbilitySchool school;
     public AttributeType attributeType;
     public int baseValue;
@@ -43,12 +43,28 @@ public class AbilitySource
     [Header("[ Extra ]")]
     public AbilityModifier modifier;
 
+    public AbilitySource(AbilitySchool abilitySchool, int value)
+    {
+        ignoreMultipliers = true;
+        cannotCrit = true;
+        cannotMiss = true;
+        ignorePassives = null;
+        school = abilitySchool;
+        baseValue = value;
+        levelBase = 0;
+        scaling = 0;
+        levelScaling = 0;
+        reductionType = GeneralUtilities.GetReductionType(school);
+
+        modifier = null;
+    }
+
     public AbilitySource (BonusAbilitySource bonusAbilitySource)
     {
         ignoreMultipliers = bonusAbilitySource.ignoreMultipliers;
         cannotCrit = bonusAbilitySource.cannotCrit;
         cannotMiss = bonusAbilitySource.cannotMiss;
-        ignorePassive = bonusAbilitySource.ignorePassive;
+        ignorePassives = bonusAbilitySource.ignorePassive;
         school = bonusAbilitySource.school;
         attributeType = bonusAbilitySource.attributeType;
         baseValue = bonusAbilitySource.baseValue;
@@ -146,7 +162,7 @@ public class AbilitySource
 
         float value = CalculateValue(caster, level, adjacentModifier, abilityMultiplier);
 
-        AbilityValue abilityValue = new AbilityValue(sourceAbility, isPassive, isEffect, value, school, abilityType, cannotCrit, cannotMiss, caster, target, color, isUnitTrigger, ignorePassive);
+        AbilityValue abilityValue = new AbilityValue(sourceAbility, isPassive, isEffect, value, school, abilityType, cannotCrit, cannotMiss, caster, target, color, isUnitTrigger, ignorePassives);
 
         if (school == AbilitySchool.Healing)
         {
@@ -168,7 +184,7 @@ public class AbilitySource
     {
         Color color = GeneralUtilities.ConvertString2Color(ColorDatabase.SchoolColor(school));
 
-        AbilityValue abilityValue = new AbilityValue(sourceAbility, isPassive, isEffect, value, school, AbilityType.Assault, cannotCrit, cannotMiss, caster, target, color, isUnitTrigger, ignorePassive);
+        AbilityValue abilityValue = new AbilityValue(sourceAbility, isPassive, isEffect, value, school, AbilityType.Assault, cannotCrit, cannotMiss, caster, target, color, isUnitTrigger, ignorePassives);
 
         if (school == AbilitySchool.Healing)
         {
@@ -259,12 +275,12 @@ public class AbilityValue
     public bool isCritical;
 
     public bool isUnitTrigger;
-    public PassiveAbility ignorePassive = null;
+    public List<PassiveAbility> ignorePassives = new List<PassiveAbility>();
 
 
     public Color color;
 
-    public AbilityValue(AbilityObject _sourceAbility, bool _isPassive, bool _isEffect, float _value, AbilitySchool _school, AbilityType _abilityType, bool _cannotCrit, bool _cannotMiss, Unit _caster, Unit _target, Color _color, bool _isUnitTrigger, PassiveAbility _ignorePassive)
+    public AbilityValue(AbilityObject _sourceAbility, bool _isPassive, bool _isEffect, float _value, AbilitySchool _school, AbilityType _abilityType, bool _cannotCrit, bool _cannotMiss, Unit _caster, Unit _target, Color _color, bool _isUnitTrigger, List<PassiveAbility> _ignorePassive)
     {
         sourceAbility = _sourceAbility;
         isPassive = _isPassive;
@@ -287,7 +303,7 @@ public class AbilityValue
         SetCriticalChance();
 
         isUnitTrigger = _isUnitTrigger;
-        ignorePassive = _ignorePassive;
+        ignorePassives = _ignorePassive;
 
         color = _color;
     }

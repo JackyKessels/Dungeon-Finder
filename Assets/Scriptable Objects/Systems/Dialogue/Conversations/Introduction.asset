@@ -16,8 +16,11 @@ MonoBehaviour:
   rightSpeaker: {fileID: 0}
   lines:
   - speaker: {fileID: 11400000, guid: de4bff313bc1b06428cae4f08332f567, type: 2}
-    text: Alright guys, we made it to Stratford.
+    text: Welcome to Stratford, this is pretty much your hub.
   - speaker: {fileID: 11400000, guid: de4bff313bc1b06428cae4f08332f567, type: 2}
-    text: Let's head to the nearest tavern and find out what's going on here.
+    text: You will tend to your party members, unlock new abilities and start your
+      runs from here.
+  - speaker: {fileID: 11400000, guid: de4bff313bc1b06428cae4f08332f567, type: 2}
+    text: Click on the map to start a dungeon.
   problem: {fileID: 0}
   nextConversation: {fileID: 0}

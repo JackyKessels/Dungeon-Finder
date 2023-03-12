@@ -54,7 +54,7 @@ public class DungeonManager : MonoBehaviour, IUserInterface
     public GameObject nameTagContainer;
 
     public Dungeon currentDungeon;
-    private int currentFloor;
+    public int currentFloor;
 
     private Vector2 initialSize;
 

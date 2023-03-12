@@ -93,10 +93,7 @@ public class Active
 
     public void PutOnCooldown()
     {
-        if (cooldown > 0)
-        {
-            currentCooldown = cooldown + 1;
-        }
+        currentCooldown = cooldown + 1;
     }
 
     public void SetCurrentCooldown(int amount)

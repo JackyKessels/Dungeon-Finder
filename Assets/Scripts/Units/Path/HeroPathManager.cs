@@ -92,8 +92,6 @@ public class HeroPathManager
         {
             Passive passive = new Passive(paths[index].path.passiveAbility, 1);
             passive.ActivatePassive(hero);
-
-            hero.spellbook.learnedPassives.Add(passive.passiveAbility.id);
         }
 
         hero.RestoreHealth();

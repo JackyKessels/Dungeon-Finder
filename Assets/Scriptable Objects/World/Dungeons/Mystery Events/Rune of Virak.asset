@@ -10,25 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f61bd7798258c684cb135bcc9f1f3cfd, type: 3}
-  m_Name: Twin Fangs (Vitality Reduction)
+  m_Name: Rune of Virak
   m_EditorClassIdentifier: 
-  name: Twin Fangs
-  icon: {fileID: 21300000, guid: a440e39c142f4564d9ba97bc568757b4, type: 3}
+  name: Rune of Virak
+  icon: {fileID: 21300000, guid: e18965f3d8096244e8dba467634ce3ca, type: 3}
   hidden: 0
-  description: Vitality reduced by <1>.
-  isBuff: 0
+  description: Critical Power increased by <1>%.
+  isBuff: 1
   procType: 1
-  duration: 2
+  duration: 5
   permanent: 0
-  removeEffects:
-  - {fileID: 11400000}
-  attributeModified: 5
-  isIncrease: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  removeEffects: []
+  attributeModified: 17
+  isIncrease: 1
+  modifierType: 0
   modifierSource:
     ignoreMultipliers: 1
+    cannotCrit: 1
+    cannotMiss: 1
+    ignorePassive: {fileID: 0}
     school: 0
-    attributeType: 5
-    baseValue: 75
+    attributeType: 17
+    baseValue: 100
     levelBase: 0
     scaling: 0
     levelScaling: 0
@@ -46,6 +54,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -53,4 +64,9 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 0
-  specialEffects: []
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  multiplier: 0
+  multiplierPerLevel: 0
+  specialEffects:
+  - {fileID: 451265648191469161, guid: a62f4ed0e8420be4b98d7e4e4d55bac3, type: 3}

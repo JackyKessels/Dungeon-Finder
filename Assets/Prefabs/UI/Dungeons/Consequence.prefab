@@ -29,6 +29,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8277084900543792779}
   m_Father: {fileID: 0}
@@ -121,6 +122,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8277084900543792779}
   m_RootOrder: 2
@@ -200,6 +202,7 @@ GameObject:
   - component: {fileID: 2707634079482895163}
   - component: {fileID: 6676917756935853296}
   - component: {fileID: 8467797299331800132}
+  - component: {fileID: 8917942957526387922}
   m_Layer: 5
   m_Name: First Icon
   m_TagString: Untagged
@@ -217,6 +220,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8277084900543792779}
   m_RootOrder: 1
@@ -284,6 +288,57 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &8917942957526387922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5419810760425341707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 069ce13c125975b4babbad7280439e91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useGenericTooltip: 0
+  genericTooltip: 
+  active:
+    owner: {fileID: 0}
+    activeAbility: {fileID: 0}
+    allyAbilitySources: []
+    enemyAbilitySources: []
+    level: 0
+    cooldown: 0
+    currentCooldown: 0
+  passive:
+    passiveAbility: {fileID: 0}
+    level: 0
+  effect:
+    effectObject: {fileID: 0}
+    sourceAbility: {fileID: 0}
+    name: 
+    level: 0
+    procType: 0
+    duration: 0
+    caster: {fileID: 0}
+    target: {fileID: 0}
+    stacks: 0
+    storedModValue: 0
+    timedActions: []
+    storedPassive:
+      passiveAbility: {fileID: 0}
+      level: 0
+  itemObject: {fileID: 0}
+  attribute:
+    attributeType: 0
+    baseValue: 0
+    bonusValue: 0
+    multiplier: 0
+  currency:
+    currencyType: 0
+    totalAmount: 0
+  state: 4
+  experience: 0
 --- !u!1 &5827277189580654062
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +368,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8897989041273766740}
   - {fileID: 1385353316361197408}
@@ -402,6 +458,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8277084900543792779}
   m_RootOrder: 0

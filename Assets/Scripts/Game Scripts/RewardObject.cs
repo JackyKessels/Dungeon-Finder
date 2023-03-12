@@ -23,7 +23,7 @@ public class RewardObject : MonoBehaviour
         reward = r;
 
         tooltipIcon = GetComponent<TooltipObject>();
-        tooltipIcon.state = CurrentState.Reward;
+        tooltipIcon.state = CurrentState.Values;
 
         switch (reward.type)
         {
