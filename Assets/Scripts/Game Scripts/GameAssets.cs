@@ -29,6 +29,8 @@ public class GameAssets : MonoBehaviour
     public Transform floatingCombatText;
     public Transform abilityCast;
     public NotificationObject notificationPrefab;
+    public EventWindow eventPrefab;
+    public BattleResultWindow battleResultPrefab;
     public GameObject rewardPrefab;
     public Transform shortMessage;
     public GameObject blackTransition;

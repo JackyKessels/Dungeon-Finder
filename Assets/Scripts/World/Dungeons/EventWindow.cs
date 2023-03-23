@@ -2,14 +2,25 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EventWindow : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI problemText;
-    [SerializeField] GameObject consequencesContainer;
-    [SerializeField] GameObject consequencePrefab;
+    public TextMeshProUGUI problemText;
+    public GameObject consequencesContainer;
+    public GameObject consequencePrefab;
+    public Button continueButton;
 
     private List<ConsequenceStructure> consequenceStructures = new List<ConsequenceStructure>();
+
+    public void Update()
+    {
+        if (KeyboardHandler.ProgressWindow())
+        {
+            if (continueButton)
+                continueButton.onClick?.Invoke();
+        }
+    }
 
     public void Setup(MysteryEvent mysteryEvent)
     {
@@ -27,6 +38,16 @@ public class EventWindow : MonoBehaviour
         }
     }
 
+    public static void SendEventWindow(MysteryEvent mysteryEvent)
+    {
+        GameObject container = GameObject.Find("Event Container");
+
+        GameObject obj = ObjectUtilities.CreateSimplePrefab(GameAssets.i.eventPrefab.gameObject, container);
+
+        EventWindow eventWindow = obj.GetComponent<EventWindow>();
+        eventWindow.Setup(mysteryEvent);
+    }
+
     private void CreateConsequence(ConsequenceStructure consequenceStructure)
     {
         GameObject obj = ObjectUtilities.CreateSimplePrefab(consequencePrefab, consequencesContainer);
@@ -37,6 +58,6 @@ public class EventWindow : MonoBehaviour
 
     public void ContinueButton()
     {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

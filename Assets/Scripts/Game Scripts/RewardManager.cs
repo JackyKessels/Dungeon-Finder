@@ -23,7 +23,6 @@ public class RewardManager : MonoBehaviour
     }
     #endregion
 
-    private CurrencyHandler currencyHandler;
     private TeamManager teamManager;
 
     public RewardDatabase database;
@@ -34,18 +33,8 @@ public class RewardManager : MonoBehaviour
     public GameObject rewardContainer;
     public GameObject rewardPrefab;
 
-    [Header("Battle Result")]
-    public GameObject battleResultObject;
-    public TextMeshProUGUI battleResultTitle;
-    public GameObject battleResultContainer;
-
-    public GameObject battleRewardPrefab;
-    public GameObject battleExperiencePrefab;
-    public GameObject continueButtonPrefab;
-
     private List<Reward> rewards;
 
-    private int rewardsAmount;
     private int heroesToReward;
     private int nextHero;
 
@@ -53,7 +42,6 @@ public class RewardManager : MonoBehaviour
 
     private void Start()
     {
-        currencyHandler = GameManager.Instance.currencyHandler;
         teamManager = TeamManager.Instance;
     }
 
@@ -77,112 +65,16 @@ public class RewardManager : MonoBehaviour
 
     public void SetupBattleResult()
     {
-        bool anyRewards = false;
+        int experience = GetTotalExperienceReward();
 
-        // Rewards
+        List<Currency> currencies = new List<Currency>();
 
-        Currency goldReward = GetCurrencyReward(CurrencyType.Gold);
-        Currency spiritReward = GetCurrencyReward(CurrencyType.Spirit);
+        currencies.Add(GetCurrencyReward(CurrencyType.Gold));
+        currencies.Add(GetCurrencyReward(CurrencyType.Spirit));
 
-        currencyHandler.IncreaseCurrency(goldReward);
-        currencyHandler.IncreaseCurrency(spiritReward);
+        List<ItemDrop> itemDrops = GetItemDrops();
 
-        List<ItemDrop> itemRewards = GetItemDrops();
-
-        int experienceReward = GetTotalExperienceReward();
-
-        // UI
-
-        // Only show results menu if there are actual rewards.
-        if (experienceReward > 0 || itemRewards.Count > 0 || goldReward.totalAmount > 0 || spiritReward.totalAmount > 0)
-            anyRewards = true;
-
-        if (anyRewards)
-        {
-            battleResultObject.SetActive(true);
-
-            ObjectUtilities.ClearContainer(battleResultContainer);
-        }
-
-        if (experienceReward > 0)
-            AddBattleReward(experienceReward);
-
-        if (goldReward.totalAmount > 0)
-            AddBattleReward(0, goldReward);
-
-        if (spiritReward.totalAmount > 0)
-            AddBattleReward(0, spiritReward);
-
-        if (itemRewards.Count > 0)
-        {
-            foreach (ItemDrop itemDrop in itemRewards)
-            {
-                AddBattleReward(itemDrop);
-
-                InventoryManager.Instance.AddItemToInventory(itemDrop.itemObject, itemDrop.amount);
-            }
-        }
-
-        Button continueButton = AddContinueButton();
-
-        if (experienceReward > 0)
-            continueButton.onClick.AddListener(delegate { NextWindow(experienceReward); });
-        else
-            continueButton.onClick.AddListener(delegate { CloseWindow(); });
-
-        activeButton = continueButton;
-    }
-
-    private void NextWindow(int experienceReward)
-    {
-        ObjectUtilities.ClearContainer(battleResultContainer);
-
-        AddBattleReward(experienceReward);
-
-        AddBattleExperienceBar(experienceReward);
-
-        Button continueButton = AddContinueButton();
-
-        continueButton.onClick.AddListener(delegate { CloseWindow(); });
-
-        activeButton = continueButton;
-    }
-
-    private void CloseWindow()
-    {
-        if (battleResultObject.activeSelf)
-            battleResultObject.SetActive(false);
-    }
-
-    private Button AddContinueButton()
-    {
-        GameObject obj = ObjectUtilities.CreateSimplePrefab(continueButtonPrefab, battleResultContainer);
-
-        return obj.GetComponent<Button>();
-    }
-
-    private void AddBattleReward(int experience = 0, Currency currency = null)
-    {
-        GameObject obj = ObjectUtilities.CreateSimplePrefab(battleRewardPrefab, battleResultContainer);
-
-        BattleRewardObject battleReward = obj.GetComponent<BattleRewardObject>();
-        battleReward.Setup(experience, currency);
-    }
-
-    private void AddBattleReward(ItemDrop itemDrop)
-    {
-        GameObject obj = ObjectUtilities.CreateSimplePrefab(battleRewardPrefab, battleResultContainer);
-
-        BattleRewardObject battleReward = obj.GetComponent<BattleRewardObject>();
-        battleReward.Setup(itemDrop);
-    }
-
-    private void AddBattleExperienceBar(int experienceReward)
-    {
-        GameObject obj = ObjectUtilities.CreateSimplePrefab(battleExperiencePrefab, battleResultContainer);
-
-        BattleExperienceBar battleExperienceBar = obj.GetComponent<BattleExperienceBar>();
-        battleExperienceBar.Setup(experienceReward);
+        BattleResultWindow.SendBattleResult(experience, currencies, itemDrops);
     }
 
     public List<ItemDrop> GetItemDrops()
@@ -225,6 +117,9 @@ public class RewardManager : MonoBehaviour
     // Calculates the total experience points from all defeated enemies.
     public int GetTotalExperienceReward()
     {
+        if (teamManager.enemies.killedMembers.Count == 0)
+            return 0;
+
         int totalExperience = 0;
 
         foreach (Unit unit in teamManager.enemies.killedMembers)
@@ -239,6 +134,9 @@ public class RewardManager : MonoBehaviour
 
     public Currency GetCurrencyReward(CurrencyType currencyType)
     {
+        if (teamManager.enemies.killedMembers.Count == 0)
+            return new Currency(currencyType, 0);
+
         int totalCurrency = 0;
 
         foreach (Unit unit in teamManager.enemies.killedMembers)
@@ -272,16 +170,7 @@ public class RewardManager : MonoBehaviour
             {
                 AddItem(droppedItem);
             }
-
-
-
-
-            //ItemDrop item = ItemDrop.WeightedDrops(lootTable);
-            //Debug.Log(item);
-            //AddItem(item);
         }
-
-
 
         ListToRewards();
     }

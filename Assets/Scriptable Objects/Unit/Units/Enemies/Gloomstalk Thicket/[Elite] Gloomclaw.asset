@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65caad74ac8a56045ad833b616779ac4, type: 3}
-  m_Name: '[Boss] Gloomclaw'
+  m_Name: '[Elite] Gloomclaw'
   m_EditorClassIdentifier: 
   name: Gloomclaw
   lastName: 

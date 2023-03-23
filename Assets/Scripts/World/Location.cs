@@ -176,7 +176,7 @@ public class Location : MonoBehaviour, IDescribable
             case LocationType.Mystery:
                 {
                     {
-                        DungeonManager.Instance.OpenEventWindow(dungeon.floors[floor].mysteryEvents.GetRandomEvent());
+                        EventWindow.SendEventWindow(dungeon.floors[floor].mysteryEvents.GetRandomEvent());
                     }
                     break;
                 }

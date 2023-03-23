@@ -607,9 +607,15 @@ public class GridHandler : MonoBehaviour
 
         for (int i = 0; i < count; i++)
         {
+            openBattles = GetBattles(includeFirstColumn);
+
+            if (openBattles.Count <= 0)
+                return;
+
             int randomLocation = Random.Range(0, openBattles.Count);
 
             openBattles[randomLocation].SetLocationType(type);
+
             openBattles.RemoveAt(randomLocation);
         }
     }

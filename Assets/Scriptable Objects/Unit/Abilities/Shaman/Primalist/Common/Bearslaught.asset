@@ -60,7 +60,7 @@ MonoBehaviour:
       increaseValue: 0
       casterBased: 0
       attributeBase: 2
-      percentageIncrease: 2
+      percentageIncrease: 1.75
       bonusAbilitySource:
         ignoreMultipliers: 0
         cannotCrit: 0

@@ -80,7 +80,7 @@ public class Enemy : Unit
         {
             chargeTarget = GetTarget(t);
 
-            Effect effect = new Effect(GameAssets.i.chargeTargetEffect, 1, this, TeamManager.Instance.heroes.GetUnit(chargeTarget), 1, active.activeAbility);
+            Effect effect = new Effect(GameAssets.i.chargeTargetEffect, 1, this, TeamManager.Instance.heroes.LivingMembers[chargeTarget], 1, active.activeAbility);
             effect.IconOverride = active.activeAbility.icon;
             effect.target.effectManager.OnApplication(effect);
         }
@@ -95,11 +95,12 @@ public class Enemy : Unit
     public int CheckTarget(TargetAbility t)
     {
         // If there is no target or if the target is dead, change target
-        if (chargeTarget == -1 || TeamManager.Instance.heroes.GetUnit(chargeTarget).statsManager.isDead)
+        if (chargeTarget == -1 || TeamManager.Instance.heroes.GetUnitAlive(chargeTarget) == null)
+            // Rerolled charge
             return GetTarget(t);
         else
+            // Successful charge
             return chargeTarget;
-
     }
 
     public void ResetChargedAbility(Unit target)
@@ -287,14 +288,18 @@ public class Enemy : Unit
                 }
             case CastCondition.BelowHalfHealth:
                 {
-                    if (statsManager.currentHealth < statsManager.GetAttributeValue((int)AttributeType.Health) * .5)
+                    float threshold = statsManager.GetAttributeValue(AttributeType.Health) * .5f;
+
+                    if (statsManager.currentHealth < threshold)
                         return true;
                     else
                         return false;
                 }
             case CastCondition.AboveHalfHealth:
                 {
-                    if (statsManager.currentHealth > statsManager.GetAttributeValue((int)AttributeType.Health) * .5)
+                    float threshold = statsManager.GetAttributeValue(AttributeType.Health) * .5f;
+
+                    if (statsManager.currentHealth > threshold)
                         return true;
                     else
                         return false;

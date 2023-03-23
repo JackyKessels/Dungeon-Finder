@@ -9,21 +9,19 @@ public class BattleRewardObject : MonoBehaviour
     public TooltipObject tooltipObject;
     public TextMeshProUGUI amount;
 
-    public void Setup(int experience = 0, Currency currency = null)
+    public void Setup(int experience = 0)
     {
-        if (currency != null)
-        {
-            tooltipObject.gameObject.AddComponent<CurrencyObject>();
-            tooltipObject.currency = currency;
-            tooltipObject.GetComponent<Image>().sprite = Currency.GetCurrencyIcon(currency.currencyType, false);
+        tooltipObject.experience = true;
+        amount.text = experience.ToString();
+    }
 
-            amount.text = currency.totalAmount.ToString();
-        }
-        else if (experience > 0)
-        {
-            tooltipObject.experience = true;
-            amount.text = experience.ToString();
-        }
+    public void Setup(Currency currency)
+    {
+        tooltipObject.gameObject.AddComponent<CurrencyObject>();
+        tooltipObject.currency = currency;
+        tooltipObject.GetComponent<Image>().sprite = Currency.GetCurrencyIcon(currency.currencyType, false);
+
+        amount.text = currency.totalAmount.ToString();
     }
 
     public void Setup(ItemDrop itemDrop)

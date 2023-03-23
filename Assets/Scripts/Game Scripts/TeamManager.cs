@@ -62,6 +62,8 @@ public class TeamManager : MonoBehaviour
     {
         SaveSystem.SaveTeam(heroes);
 
+        ShortMessage.SendMessage(Input.mousePosition, "Saved!", 24, Color.green);
+
         Debug.Log("Game Saved!");
     }
 
@@ -143,21 +145,23 @@ public class TeamManager : MonoBehaviour
 
         gameManager.unlockedPaths = data.unlockedPaths;
 
-        if (data.isTutorial)
-        {
-            townManager.StartTutorial();
-        }
-        else
-        {
-            townManager.SetupStratford();
+        townManager.SetupStratford();
+
+        //if (data.isTutorial)
+        //{
+        //    townManager.StartTutorial();
+        //}
+        //else
+        //{
+            
 
 
 
-            //townManager.blacksmith.LoadShop(data.itemShop, data.itemShopCosts, data.itemShopRotation);
-            //townManager.trophyHunter.LoadShop(data.chapterShop);
+        //    //townManager.blacksmith.LoadShop(data.itemShop, data.itemShopCosts, data.itemShopRotation);
+        //    //townManager.trophyHunter.LoadShop(data.chapterShop);
 
-            //townManager.UpdateRotationDisplay();
-        }
+        //    //townManager.UpdateRotationDisplay();
+        //}
 
         
 

@@ -40,10 +40,10 @@ MonoBehaviour:
   critMultiplier: 150
   level: 2
   difficulty: 5
-  experienceReward: 50
+  experienceReward: 30
   currencyRewards:
   - currencyType: 0
-    totalAmount: 45
+    totalAmount: 1
   itemDrops:
   - itemObject: {fileID: 0}
     amount: 0

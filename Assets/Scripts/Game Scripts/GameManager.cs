@@ -283,7 +283,7 @@ public class GameManager : MonoBehaviour
 
     public void BattleWon()
     {
-        townManager.RotateShopDisplay();
+        //townManager.RotateShopDisplay();
 
         // Won last location -> Map is finished so return back to town
         if (dungeonManager.player.currentLocation.x == dungeonManager.gridHandler.columns - 1)

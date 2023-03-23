@@ -15,8 +15,8 @@ MonoBehaviour:
   name: Crimson Tunneler
   lastName: 
   unitType: 1
-  icon: {fileID: 21300000, guid: 0152f40b530dd0f4db2933654a76454c, type: 3}
-  sprite: {fileID: 21300000, guid: cc8610a05058af54d84a562b6707d010, type: 3}
+  icon: {fileID: 21300000, guid: 96f9daaea362d864f8896206f626ce92, type: 3}
+  sprite: {fileID: 21300000, guid: 9dcba075cddf9484fac8c24dd13edf64, type: 3}
   attackAnimation: {fileID: 0}
   castAnimation: {fileID: 0}
   baseHealth: 175
@@ -39,17 +39,17 @@ MonoBehaviour:
   shadowMultiplier: 100
   critMultiplier: 150
   level: 1
-  difficulty: 3
-  experienceReward: 25
+  difficulty: 4
+  experienceReward: 15
   currencyRewards:
   - currencyType: 0
-    totalAmount: 25
+    totalAmount: 1
   itemDrops:
   - itemObject: {fileID: 0}
     amount: 0
     weight: 2
   - itemObject: {fileID: 11400000, guid: 85f6f2b7c99bf55428a0033f14755e9b, type: 2}
-    amount: 1
+    amount: 2
     weight: 1
   randomAbility: 1
   abilities:

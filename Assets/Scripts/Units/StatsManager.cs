@@ -183,7 +183,7 @@ public class StatsManager
 
         CapCurrentHealth();
 
-        Debug.Log(unit.name + "'s " + attributeType + " has been changed to " + GetAttributeValue(attributeType) + ".");
+        //Debug.Log(unit.name + "'s " + attributeType + " has been changed to " + GetAttributeValue(attributeType) + ".");
     }
 
     public Attribute GetAttribute(AttributeType type)

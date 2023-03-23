@@ -15,7 +15,7 @@ MonoBehaviour:
   id: -1
   name: Kindling
   quality: 0
-  abilityType: 0
+  abilityType: 3
   description: 
   icon: {fileID: 0}
   casterSpecialEffects: []
@@ -31,6 +31,7 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 02000000
   triggersPassives: 1
+  triggeredByPassives: 1
   triggeredByEffects: 0
   procChance: 100
   abilitySources: []

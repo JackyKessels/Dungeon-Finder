@@ -331,7 +331,10 @@ public class EffectManager : MonoBehaviour
         }
         else
         {
-            return taunt.caster;
+            if (taunt.caster.statsManager.isDead)
+                return null;
+            else
+                return taunt.caster;
         }
     }
 

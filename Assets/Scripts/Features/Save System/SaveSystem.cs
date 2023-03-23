@@ -32,6 +32,8 @@ public static class SaveSystem
         }
         else
         {
+            GameManager.Instance.Introduction1();
+
             Debug.Log("No save file. :(");
             return null;
         }

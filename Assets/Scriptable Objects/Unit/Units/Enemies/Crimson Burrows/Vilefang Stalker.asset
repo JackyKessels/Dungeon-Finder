@@ -40,10 +40,10 @@ MonoBehaviour:
   critMultiplier: 150
   level: 2
   difficulty: 6
-  experienceReward: 45
+  experienceReward: 30
   currencyRewards:
   - currencyType: 0
-    totalAmount: 35
+    totalAmount: 1
   itemDrops:
   - itemObject: {fileID: 0}
     amount: 0
@@ -51,12 +51,18 @@ MonoBehaviour:
   - itemObject: {fileID: 11400000, guid: 85f6f2b7c99bf55428a0033f14755e9b, type: 2}
     amount: 1
     weight: 1
-  randomAbility: 1
+  randomAbility: 0
   abilities:
   - ability: {fileID: 11400000, guid: d4db62a50393f5a4f873d91c9177925c, type: 2}
+    target: 0
+    condition: 2
+    startCooldown: 0
+    charged: 0
+  - ability: {fileID: 11400000, guid: a69b8f3a390da054aa02303c7e619c27, type: 2}
     target: 1
-    condition: 0
+    condition: 1
     startCooldown: 0
     charged: 0
   passiveAbilities:
   - {fileID: 11400000, guid: f4bb1353487f6f74f9144891c473bc1d, type: 2}
+  - {fileID: 11400000, guid: d4d2d6f3a17bd914a969ed6e5a0362aa, type: 2}

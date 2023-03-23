@@ -39,7 +39,7 @@ public class UnlockAbilityButton : MonoBehaviour
         return string.Format("<color={0}>{1}</color>" +
                              "\n" +
                              "\nOption 1: <color={2}>100%</color> {1}" +
-                             "\nOption 2: <color={3}><100%</color> {1}" +
+                             "\nOption 2: <color={2}>100%</color> {1}" +
                              "\nOption 3: <color={4}>0%</color> {1}", pathColor, heroPathObject.name, option1Color, option2Color, option3Color);
     }
 

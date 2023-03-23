@@ -138,6 +138,9 @@ public class MysteryAction
                 break;
             case MysteryActionType.Source:
                 {
+                    if (abilitySource == null)
+                        return;
+
                     List<Unit> targets = new List<Unit>();
 
                     switch (sourceTargets)
@@ -146,14 +149,22 @@ public class MysteryAction
                             {
                                 targets = AbilityUtilities.GetAbilityTargets(AbilityTargets.Allies, TeamManager.Instance.heroes.LivingMembers[0]);
 
-                                consequenceStructures.Add(new ConsequenceStructure(abilitySource.CalculateValue(TeamManager.Instance.heroes.LivingMembers[0], 1, 1, 1).ToString(), GeneralUtilities.GetSchoolIcon(abilitySource.school), GameAssets.i.threeMembers));
+                                string value = abilitySource.CalculateValue(TeamManager.Instance.heroes.LivingMembers[0], 1, 1, 1).ToString();
+
+                                string sign = abilitySource.school == AbilitySchool.Healing ? "+ " : "- ";
+
+                                consequenceStructures.Add(new ConsequenceStructure(sign + value + " Health", GeneralUtilities.GetSchoolIcon(abilitySource.school), GameAssets.i.threeMembers));
                             }
                             break;
                         case MysteryActionTarget.Random:
                             {
                                 targets = AbilityUtilities.GetAbilityTargets(AbilityTargets.RandomAlly, TeamManager.Instance.heroes.LivingMembers[0]);
 
-                                consequenceStructures.Add(new ConsequenceStructure(abilitySource.CalculateValue(targets[0], 1, 1, 1).ToString(), GeneralUtilities.GetSchoolIcon(abilitySource.school), targets[0].icon));
+                                string value = abilitySource.CalculateValue(targets[0], 1, 1, 1).ToString();
+
+                                string sign = abilitySource.school == AbilitySchool.Healing ? "+ " : "- ";
+
+                                consequenceStructures.Add(new ConsequenceStructure(sign + value + " Health", GeneralUtilities.GetSchoolIcon(abilitySource.school), targets[0].icon));
                             }
                             break;
                         default:
@@ -170,35 +181,36 @@ public class MysteryAction
                 break;
             case MysteryActionType.Effect:
                 {
-                    if (effect != null)
+                    if (effect == null)
+                        return;
+                    
+                    List<Unit> targets = new List<Unit>();
+
+                    switch (effectTargets)
                     {
-                        List<Unit> targets = new List<Unit>();
+                        case MysteryActionTarget.Team:
+                            {
+                                targets = AbilityUtilities.GetAbilityTargets(AbilityTargets.Allies, TeamManager.Instance.heroes.LivingMembers[0]);
 
-                        switch (effectTargets)
-                        {
-                            case MysteryActionTarget.Team:
-                                {
-                                    targets = AbilityUtilities.GetAbilityTargets(AbilityTargets.Allies, TeamManager.Instance.heroes.LivingMembers[0]);
+                                consequenceStructures.Add(new ConsequenceStructure(EffectObject.DurationText(effect), effect.icon, GameAssets.i.threeMembers, true, effect));
+                            }
+                            break;
+                        case MysteryActionTarget.Random:
+                            {
+                                targets = AbilityUtilities.GetAbilityTargets(AbilityTargets.RandomAlly, TeamManager.Instance.heroes.LivingMembers[0]);
 
-                                    consequenceStructures.Add(new ConsequenceStructure(EffectObject.DurationText(effect), effect.icon, GameAssets.i.threeMembers, true, effect));
-                                }
-                                break;
-                            case MysteryActionTarget.Random:
-                                {
-                                    targets = AbilityUtilities.GetAbilityTargets(AbilityTargets.RandomAlly, TeamManager.Instance.heroes.LivingMembers[0]);
-
-                                    consequenceStructures.Add(new ConsequenceStructure(EffectObject.DurationText(effect), effect.icon, targets[0].icon, true, effect));
-                                }
-                                break;
-                            default:
-                                break;
-                        }
-
-                        foreach (Unit target in targets)
-                        {
-                            target.effectManager.ApplyPreBattleEffect(effect, target, 1);
-                        }
+                                consequenceStructures.Add(new ConsequenceStructure(EffectObject.DurationText(effect), effect.icon, targets[0].icon, true, effect));
+                            }
+                            break;
+                        default:
+                            break;
                     }
+
+                    foreach (Unit target in targets)
+                    {
+                        target.effectManager.ApplyPreBattleEffect(effect, target, 1);
+                    }
+                    
                 }
                 break;
             case MysteryActionType.Relocate:

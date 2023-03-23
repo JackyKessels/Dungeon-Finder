@@ -154,9 +154,9 @@ public class TownManager : MonoBehaviour, IUserInterface
         townName.text = stratford.name;
         townBackground.sprite = stratford.background;
 
-        townHall.Initialize();
+        //townHall.Initialize();
 
-        BuildShops();
+        //BuildShops();
 
         currencyHandler.UpdateCurrencies();
 
@@ -202,9 +202,9 @@ public class TownManager : MonoBehaviour, IUserInterface
 
     public void BuildShops()
     {
-        UpdateRotationDisplay();
+        //UpdateRotationDisplay();
 
-        blacksmith.BuildShop(teamManager.experienceManager.currentLevel);
+        //blacksmith.BuildShop(teamManager.experienceManager.currentLevel);
         //enchanter.BuildShop();
         //trophyHunter.BuildShop(lastFinishedChapter.dungeonAbilities);
         generalGoods.BuildShop(teamManager.experienceManager.currentLevel);
@@ -364,7 +364,7 @@ public class TownManager : MonoBehaviour, IUserInterface
             string color = ColorDatabase.GeneralInformation();
 
             tooltip.useGenericTooltip = true;
-            tooltip.genericTooltip = string.Format("Unlocks when <color={0}>Morgarec the Devourer</color> has been defeated.\n\nHe can be found in the <color={0}>Crimson Burrows</color>.", color);
+            tooltip.genericTooltip = string.Format("Unlocks when <color={0}>Si'keth Bloodclaw</color> has been defeated.\n\nHe can be found in the <color={0}>Crimson Burrows</color>.", color);
         }
     }
 

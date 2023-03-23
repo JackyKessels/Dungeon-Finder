@@ -38,12 +38,12 @@ MonoBehaviour:
   holyMultiplier: 100
   shadowMultiplier: 100
   critMultiplier: 150
-  level: 1
+  level: 3
   difficulty: 2
-  experienceReward: 15
+  experienceReward: 20
   currencyRewards:
   - currencyType: 0
-    totalAmount: 10
+    totalAmount: 1
   itemDrops: []
   randomAbility: 1
   abilities:

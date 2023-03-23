@@ -460,9 +460,9 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
         if (active.activeAbility is TargetAbility t)
         {
-            int x = castingEnemy.CheckTarget(t);
+            int targetNumber = castingEnemy.CheckTarget(t);
 
-            Unit target = teamManager.heroes.LivingMembers[x];
+            Unit target = teamManager.heroes.LivingMembers[targetNumber];
 
             active.Trigger(currentUnit, target);
 

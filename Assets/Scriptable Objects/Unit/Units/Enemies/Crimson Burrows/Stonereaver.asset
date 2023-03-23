@@ -39,11 +39,11 @@ MonoBehaviour:
   shadowMultiplier: 100
   critMultiplier: 150
   level: 2
-  difficulty: 4
-  experienceReward: 50
+  difficulty: 7
+  experienceReward: 30
   currencyRewards:
   - currencyType: 0
-    totalAmount: 50
+    totalAmount: 1
   itemDrops:
   - itemObject: {fileID: 0}
     amount: 0

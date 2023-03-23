@@ -47,11 +47,12 @@ MonoBehaviour:
   itemDrops: []
   randomAbility: 0
   abilities:
-  - ability: {fileID: 11400000, guid: 8dde4c32446fd8041b44ad88ea866082, type: 2}
+  - ability: {fileID: 11400000, guid: d2f9ea3205e7f5145ab6905bc24661b0, type: 2}
     target: 0
     condition: 0
     startCooldown: 0
     charged: 0
   passiveAbilities:
   - {fileID: 11400000, guid: 489101c02fa52b243a27cfef6661a3f3, type: 2}
+  - {fileID: 11400000, guid: b604ca95735b0bf4cb0f9a9054654d77, type: 2}
   - {fileID: 11400000, guid: 9ea75142b28fdf0449a20b81d80bd6bb, type: 2}

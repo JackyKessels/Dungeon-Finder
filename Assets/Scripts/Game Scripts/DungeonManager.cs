@@ -201,13 +201,6 @@ public class DungeonManager : MonoBehaviour, IUserInterface
             return false;
     }
 
-    public void OpenEventWindow(MysteryEvent mysteryEvent)
-    {
-        eventWindow.gameObject.SetActive(true);
-
-        eventWindow.Setup(mysteryEvent);
-    }
-
     public void EnableUI(bool show)
     {
         userInterface.gameObject.SetActive(show);

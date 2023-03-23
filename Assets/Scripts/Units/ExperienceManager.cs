@@ -68,7 +68,7 @@ public class ExperienceManager
         {
             currentLevel++;
 
-            TownManager.Instance.BuildShops();
+            //TownManager.Instance.BuildShops();
 
             foreach (Hero hero in TeamManager.Instance.heroes.Members)
             {
