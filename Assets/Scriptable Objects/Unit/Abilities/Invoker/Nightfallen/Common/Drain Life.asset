@@ -16,7 +16,11 @@ MonoBehaviour:
   name: Drain Life
   quality: 0
   abilityType: 1
-  description: Deal <e1> <S> damage to your target and heal yourself for <s1timAp1>.
+  description: 'Deal <e1> <S> damage to your target and heal yourself for <s1timAp1>.
+
+
+    Deal
+    an additional <e1modB> <S> damage while at <rfull> Health.'
   icon: {fileID: 21300000, guid: fd7977934d49fdd4f97fab5b3433c9cb, type: 3}
   casterSpecialEffects:
   - {fileID: 2826372407629097830, guid: afa4742a7c27e5045aab95de4c4634dc, type: 3}
@@ -27,6 +31,7 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 1
   cooldown: 1
+  initialCooldown: 0
   endTurn: 1
   resetChance: 0
   weaponRequirement: 4
@@ -37,20 +42,20 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 7
     attributeType: 0
     baseValue: 0
     levelBase: 0
-    scaling: 0.1
-    levelScaling: 0.02
+    scaling: 0.12
+    levelScaling: 0.024
     reductionType: 2
     modifier:
-      hasModifier: 0
-      modification: 0
-      condition: 0
-      thresholdType: 0
-      conditionThreshold: 0
+      hasModifier: 1
+      modification: 3
+      condition: 1
+      thresholdType: 1
+      conditionThreshold: 100
       increasedAttribute: 0
       increaseValue: 0
       casterBased: 0
@@ -60,13 +65,13 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
-        school: 0
-        attributeType: 0
+        ignorePassive: []
+        school: 7
+        attributeType: 2
         baseValue: 0
         levelBase: 0
-        scaling: 0
-        levelScaling: 0
+        scaling: 0.5
+        levelScaling: 0.1
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
