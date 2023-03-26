@@ -19,7 +19,7 @@ MonoBehaviour:
   description: 'Deal <e1> <P> damage to your target.
 
 
-    This ability deals <e1modV>%
+    <name> deals <e1modV>%
     increased damage if the target is below <e1conV>% Health.'
   icon: {fileID: 21300000, guid: 1ff50424ab88d2649beabf00de0c843c, type: 3}
   casterSpecialEffects: []
@@ -41,7 +41,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 1
     attributeType: 0
     baseValue: 20
@@ -64,7 +64,8 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive:
+        - {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0

@@ -10,7 +10,7 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.GeneralInformation() + ">{0}</color>");
 
             return string.Format(temp, abilityObject.name);
         }
@@ -541,7 +541,7 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check))
         {
-            string nameColor = ColorDatabase.NonScalingColor();
+            string nameColor = ColorDatabase.GeneralInformation();
 
             temp = temp.Replace(check, "<color=" + nameColor + ">{0}</color>");
 

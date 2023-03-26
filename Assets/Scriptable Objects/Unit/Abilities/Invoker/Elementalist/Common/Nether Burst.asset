@@ -19,8 +19,8 @@ MonoBehaviour:
   description: 'Deal <e1> <A> to your target.
 
 
-    This ability has 100% <accuracy>
-    if the target is below <e1conV>% <health>.'
+    <name> has 100% <accuracy> if
+    the target is below <e1conV>% <health>.'
   icon: {fileID: 21300000, guid: 431c14f3d0fe40c4abfc341cd4578012, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
@@ -30,6 +30,7 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 2
+  initialCooldown: 0
   endTurn: 0
   resetChance: 0
   weaponRequirement: 4
@@ -40,7 +41,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 5
     attributeType: 2
     baseValue: 0
@@ -63,7 +64,8 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive:
+        - {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0

@@ -19,8 +19,8 @@ MonoBehaviour:
   description: 'Dealing <P> damage has a <%> to deal an additional <1> <P> damage.
 
 
-    Rock
-    Shard deals <1modP>% more damage per point of <armor> you have.
+    <name>
+    deals <1modP>% more damage per point of <armor> you have.
 
 
     <currentarmor>'

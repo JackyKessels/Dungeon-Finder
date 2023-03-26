@@ -17,7 +17,7 @@ MonoBehaviour:
   hidden: 0
   description: Take <1> <N> damage every Round.
   isBuff: 0
-  procType: 0
+  procType: 1
   duration: 3
   permanent: 0
   stackable: 0

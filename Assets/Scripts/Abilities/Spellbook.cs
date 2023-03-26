@@ -556,12 +556,18 @@ public class Spellbook
 
     public void LearnPassives(List<(int, int)> passivesList)
     {
-        foreach ((int id, int level) in passivesList)
+        for (int i = 0; i < passivesList.Count; i++)
         {
-            PassiveAbility p = DatabaseHandler.Instance.abilityDatabase.abilityObjects[id] as PassiveAbility;
+            (int id, int level) = passivesList[i];
 
-            Passive passive = new Passive(p, level);
-            passive.ActivatePassive(unit);
+            // Skip item passives
+            if (id != -1)
+            {
+                PassiveAbility p = DatabaseHandler.Instance.abilityDatabase.abilityObjects[id] as PassiveAbility;
+
+                Passive passive = new Passive(p, level);
+                passive.ActivatePassive(unit);
+            }
         }
     }
 }

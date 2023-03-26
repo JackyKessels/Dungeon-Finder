@@ -19,8 +19,8 @@ MonoBehaviour:
   description: 'Deal <t1timEx1> <S> damage after <t1d> Rounds.
 
 
-    Curse of Death
-    deals <r35>% more damage if the target is below <r50>% Health.'
+    <name> deals
+    <r35>% more damage if the target is below <r50>% Health.'
   icon: {fileID: 21300000, guid: ba9bc9b4d38fd73409d78e166f077a66, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
@@ -30,6 +30,7 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 1
   cooldown: 3
+  initialCooldown: 0
   endTurn: 1
   resetChance: 0
   weaponRequirement: 4

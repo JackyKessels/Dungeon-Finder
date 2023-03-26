@@ -19,7 +19,7 @@ MonoBehaviour:
   description: 'Deal <e1> <F> and <e2> <H> damage to your target.
 
 
-    Purge deals
+    <name> deals
     <e1modV>% increased damage when used above <e1conV>% health.
 
 
@@ -36,6 +36,7 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 1.2
   cooldown: 0
+  initialCooldown: 0
   endTurn: 1
   resetChance: 0
   weaponRequirement: 4
@@ -46,7 +47,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 2
     attributeType: 2
     baseValue: 0
@@ -69,7 +70,8 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive:
+        - {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -82,7 +84,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 6
     attributeType: 2
     baseValue: 0
@@ -105,7 +107,8 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive:
+        - {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0

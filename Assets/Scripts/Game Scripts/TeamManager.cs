@@ -118,6 +118,8 @@ public class TeamManager : MonoBehaviour
 
         experienceManager.GainExperience(data.teamExperience);
 
+        inventoryManager.inventoryObject.AddItemsToInventory(data.inventory);
+
         // Add path points
         if (data.heroIndex_0 != -1)
         {
@@ -137,8 +139,6 @@ public class TeamManager : MonoBehaviour
 
             hero.heroPathManager.LoadPoints(data.pathPoints_2);
         }
-
-        inventoryManager.inventoryObject.AddItemsToInventory(data.inventory);
 
         gameManager.currencyHandler.IncreaseCurrency(new Currency(CurrencyType.Gold, data.currency_0));
         gameManager.currencyHandler.IncreaseCurrency(new Currency(CurrencyType.Spirit, data.currency_1));

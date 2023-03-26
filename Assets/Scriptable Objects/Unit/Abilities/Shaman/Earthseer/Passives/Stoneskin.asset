@@ -17,7 +17,7 @@ MonoBehaviour:
   quality: 0
   abilityType: 3
   description: "Taking <P> damage increases your <armor> by <s1modV> for <s1d> Rounds.
-    \n\nDoes not stack."
+    \n\n<s1name> does not stack."
   icon: {fileID: 21300000, guid: e48aa75680a578347b70f86f310f42e8, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []

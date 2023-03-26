@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7301d6b2e8e6d5f4caae063d10e60b00, type: 3}
   m_Name: Deadly Strikes (Axe Passive)
   m_EditorClassIdentifier: 
-  id: 152
+  id: -1
   name: Deadly Strikes
   quality: 0
-  type: 3
+  abilityType: 0
   description: You benefit <1%> more from <crit> increases.
   icon: {fileID: 21300000, guid: 94df29176792566468e8a46720b6475d, type: 3}
   casterSpecialEffects: []
@@ -24,8 +24,4 @@ MonoBehaviour:
   sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
-  attributeModified: 8
-  isIncrease: 1
-  modifierType: 1
-  flatValue: 0
-  multiplierValue: 0.3
+  modifications: []

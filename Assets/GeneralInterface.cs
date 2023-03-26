@@ -8,7 +8,7 @@ public class GeneralInterface : MonoBehaviour
 
     void Update()
     {
-        if (KeyboardHandler.Escape())
+        if (KeyboardHandler.Escape() && GameManager.Instance.gameState != GameState.START_SCREEN)
         {
             ToggleMenu();
         }

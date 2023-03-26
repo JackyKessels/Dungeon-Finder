@@ -19,7 +19,7 @@ MonoBehaviour:
   description: 'Deal <e1> <P> damage to your target.
 
 
-    Bearslaught deals <e1modP>%
+    <name> deals <e1modP>%
     more damage per <r1>% of <health> the target is missing.'
   icon: {fileID: 21300000, guid: 255e5f9d51a81e34194674709898dc01, type: 3}
   casterSpecialEffects: []

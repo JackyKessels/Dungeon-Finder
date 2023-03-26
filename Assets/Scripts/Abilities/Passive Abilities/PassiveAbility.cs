@@ -35,6 +35,8 @@ public abstract class PassiveAbility : AbilityObject
     {
         string temp = s;
 
+        temp = AbilityTooltipHandler.ParseName(temp, "<name>", this);
+
         temp = AbilityTooltipHandler.ColorAllSchools(temp);
 
         temp = AbilityTooltipHandler.ColorAllAttributes(temp);

@@ -19,8 +19,8 @@ MonoBehaviour:
   description: 'Deal <e1> <H> damage to your target and heal yourself for <s1timAp1>.
 
 
-    Hand
-    of Righteousness has a <e1modV>% increased chance to critically hit.'
+    <name>
+    has a <e1modV>% increased chance to critically hit.'
   icon: {fileID: 21300000, guid: 039dd3f4edcfb144f972bb0afc06b94b, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
@@ -31,6 +31,7 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 1
   cooldown: 3
+  initialCooldown: 0
   endTurn: 1
   resetChance: 0
   weaponRequirement: 4
@@ -41,7 +42,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 6
     attributeType: 1
     baseValue: 0
@@ -64,7 +65,8 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive:
+        - {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0

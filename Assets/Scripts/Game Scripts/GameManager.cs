@@ -9,7 +9,8 @@ public enum GameState
     NONE,
     TOWN,
     RUN,
-    BATTLE
+    BATTLE,
+    START_SCREEN
 }
 
 public class GameManager : MonoBehaviour
@@ -41,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     public AudioSource audioSource;
 
-    public GameState gameState = GameState.TOWN;
+    public GameState gameState;
 
     [Header("TESTING STUFF")]
     public bool TEST_MODE = false;
@@ -198,6 +199,8 @@ public class GameManager : MonoBehaviour
     // Start Story
     public void StartStory()
     {
+        gameState = GameState.TOWN;
+
         ObjectUtilities.BlackTransition(true);
 
         teamNameWindow.SetActive(false);
@@ -235,6 +238,8 @@ public class GameManager : MonoBehaviour
 
     public void LoadGame()
     {
+        gameState = GameState.TOWN;
+
         titleElements.gameObject.SetActive(false);
 
         cameraScript.GoToCamera(townManager.cameraObject, false);
@@ -247,6 +252,8 @@ public class GameManager : MonoBehaviour
 
     public void TestGame()
     {
+        gameState = GameState.TOWN;
+
         TEST_MODE = true;
 
         TEST.gameObject.SetActive(true);

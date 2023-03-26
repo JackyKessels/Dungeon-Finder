@@ -20,8 +20,8 @@ MonoBehaviour:
     for <s1d> Rounds.
 
 
-    Spirit Shell heals <a1modP>% more per <r1>% of <health>
-    you are missing.'
+    <name> heals <a1modP>% more per <r1>% of <health> you
+    are missing.'
   icon: {fileID: 21300000, guid: dc1b17ffd20a9404cb05a7f48cb54894, type: 3}
   casterSpecialEffects:
   - {fileID: 3886938949540358888, guid: 7b9bce567c2155e4d94898aac0440b1a, type: 3}
@@ -41,7 +41,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 1
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 0
     attributeType: 0
     baseValue: 0
@@ -64,7 +64,8 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive:
+        - {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0

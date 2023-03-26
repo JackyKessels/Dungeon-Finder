@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
-  m_Name: Sliver of Darkness
+  m_Name: Sliver of Darkness (Passive)
   m_EditorClassIdentifier: 
-  id: 0
+  id: -1
   name: Nightfall
   quality: 0
   abilityType: 3

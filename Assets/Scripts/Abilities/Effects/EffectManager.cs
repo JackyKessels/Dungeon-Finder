@@ -657,8 +657,8 @@ public class EffectManager : MonoBehaviour
 
             // If the effect expiration kills the target, then ExpireAll() will trigger
             // again because of RemoveMember().
-            if (unit.statsManager.isDead)
-                break;
+            //if (unit.statsManager.isDead)
+            //    break;
         }
     }
 

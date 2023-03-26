@@ -20,8 +20,7 @@ MonoBehaviour:
     Rounds.
 
 
-    Overwhelming Roar has a <e1modV>% increased chance to critically
-    hit.'
+    <name> has a <e1modV>% increased chance to critically hit.'
   icon: {fileID: 21300000, guid: ca65d28c2b0f0ed4cb24e9c370b07fe1, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
@@ -31,6 +30,7 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 4
+  initialCooldown: 0
   endTurn: 1
   resetChance: 0
   weaponRequirement: 4
@@ -41,7 +41,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 1
     attributeType: 0
     baseValue: 0
@@ -64,7 +64,8 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive:
+        - {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
