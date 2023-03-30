@@ -58,21 +58,25 @@ MonoBehaviour:
   abilities:
   - ability: {fileID: 11400000, guid: 3c025eee828113240a4a35b9a04ac57c, type: 2}
     target: 1
+    targetAttribute: 4
     condition: 0
     startCooldown: 2
     charged: 1
   - ability: {fileID: 11400000, guid: 5466a1c4bceeb4b4ca4687ac1765aea9, type: 2}
     target: 2
+    targetAttribute: 0
     condition: 0
     startCooldown: 2
     charged: 0
   - ability: {fileID: 11400000, guid: 4777814b4948ca04780cbd5ae592cc43, type: 2}
     target: 0
+    targetAttribute: 0
     condition: 0
     startCooldown: 1
     charged: 0
   - ability: {fileID: 11400000, guid: a7dba92c783b6a047906e2b007bb2f7e, type: 2}
     target: 0
+    targetAttribute: 0
     condition: 0
     startCooldown: 0
     charged: 0

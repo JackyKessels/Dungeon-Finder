@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65caad74ac8a56045ad833b616779ac4, type: 3}
   m_Name: Mana-Stricken Bear
   m_EditorClassIdentifier: 
-  name: Corrupted Bristlefur
+  name: Mana-Stricken Bear
   lastName: 
   unitType: 1
   icon: {fileID: 21300000, guid: 771e6088c62641847a9621972dc85f41, type: 3}
   sprite: {fileID: 21300000, guid: dbbd9ef881b579849834bce9eb34b5d7, type: 3}
   attackAnimation: {fileID: 0}
   castAnimation: {fileID: 0}
-  baseHealth: 350
-  basePower: 15
-  baseWisdom: 0
+  baseHealth: 800
+  basePower: 25
+  baseWisdom: 18
   baseArmor: 15
   baseResistance: 0
   baseVitality: 0
@@ -46,5 +46,18 @@ MonoBehaviour:
     totalAmount: 50
   itemDrops: []
   randomAbility: 0
-  abilities: []
-  passiveAbilities: []
+  abilities:
+  - ability: {fileID: 11400000, guid: 37738eb13182f9543982fa5d7196278c, type: 2}
+    target: 0
+    targetAttribute: 0
+    condition: 0
+    startCooldown: 0
+    charged: 0
+  - ability: {fileID: 11400000, guid: b1e0bfdcc46eb3540b0715c9e6c4c29f, type: 2}
+    target: 0
+    targetAttribute: 0
+    condition: 0
+    startCooldown: 0
+    charged: 0
+  passiveAbilities:
+  - {fileID: 11400000, guid: e375bc4a70727704cb91c0613d99e6c4, type: 2}

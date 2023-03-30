@@ -628,11 +628,11 @@ public class GridHandler : MonoBehaviour
             {
                 if (location.locationType == LocationType.Battle)
                 {
-                    location.enemyUnits = Encounter.MixUnitObjects(Encounter.WeightedEncounter(dungeon.floors[floor].trashEncounters));
+                    location.enemyUnits = Encounter.SetupUnitObjects(dungeon.floors[floor].trashEncounters);
                 }
                 else if (location.locationType == LocationType.Elite)
                 {
-                    location.enemyUnits = Encounter.MixUnitObjects(Encounter.WeightedEncounter(dungeon.floors[floor].eliteEncounters));
+                    location.enemyUnits = Encounter.SetupUnitObjects(dungeon.floors[floor].eliteEncounters);
                 }
                 else if (location.locationType == LocationType.Boss)
                 {

@@ -206,6 +206,29 @@ public class StatsManager
         return attributes[(int)type].GetTotalValue();
     }
 
+    public int GetAttributeValue(TargetAttribute targetAttribute)
+    {
+        switch (targetAttribute)
+        {
+            case TargetAttribute.CurrentHealth:
+                return currentHealth;
+            case TargetAttribute.MaximumHealth:
+                return GetAttributeValue(AttributeType.Health);
+            case TargetAttribute.Power:
+                return GetAttributeValue(AttributeType.Power);
+            case TargetAttribute.Wisdom:
+                return GetAttributeValue(AttributeType.Wisdom);
+            case TargetAttribute.Armor:
+                return GetAttributeValue(AttributeType.Armor);
+            case TargetAttribute.Resistance:
+                return GetAttributeValue(AttributeType.Resistance);
+            case TargetAttribute.Speed:
+                return GetAttributeValue(AttributeType.Speed);
+            default:
+                return 0;
+        }
+    }
+
     public int GetReductionValue(ReductionType type)
     {
         switch (type)

@@ -52,7 +52,10 @@ public class DungeonList : MonoBehaviour
             }
         }
 
-        NotificationObject.SendNotification("You have unlocked " + AbilityTooltipHandler.JoinString(unlockedDungeons, ", ", " and ", ColorDatabase.MagicalColor()));
+        if (unlockedDungeons.Count > 0)
+        {
+            NotificationObject.SendNotification("You have unlocked " + AbilityTooltipHandler.JoinString(unlockedDungeons, ", ", " and ", ColorDatabase.MagicalColor()));
+        }
     }
 }
 

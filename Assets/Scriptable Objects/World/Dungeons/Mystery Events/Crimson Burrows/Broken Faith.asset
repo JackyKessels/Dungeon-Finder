@@ -20,7 +20,7 @@ MonoBehaviour:
   procType: 1
   duration: 1
   permanent: 1
-  stackable: 0
+  stackable: 1
   maxStacks: 0
   refreshes: 1
   aura: 0
@@ -34,7 +34,7 @@ MonoBehaviour:
       ignoreMultipliers: 1
       cannotCrit: 1
       cannotMiss: 1
-      ignorePassive: {fileID: 0}
+      ignorePassives: []
       school: 7
       attributeType: 0
       baseValue: 5
@@ -57,7 +57,8 @@ MonoBehaviour:
           ignoreMultipliers: 0
           cannotCrit: 0
           cannotMiss: 0
-          ignorePassive: {fileID: 0}
+          ignorePassive:
+          - {fileID: 0}
           school: 0
           attributeType: 0
           baseValue: 0

@@ -36,6 +36,8 @@ MonoBehaviour:
     treasureCount: 1
     mysteryCount: 3
     spiritColumns: 
+    wellRestedEffect: {fileID: 0}
+    wellRestedChance: 0
     itemPool:
     - itemObject: {fileID: 11400000, guid: 309044d6b6048974ba22997525062828, type: 2}
       amount: 1
@@ -55,24 +57,30 @@ MonoBehaviour:
     trashEncounters:
     - enemyObjects:
       - {fileID: 11400000, guid: 3a7b7aae6b0359c4c85d82a8df9bea3c, type: 2}
+      randomOrder: 1
       weight: 1
     - enemyObjects:
-      - {fileID: 11400000, guid: b79f6fd3029771744af58bab7f1a7fc5, type: 2}
       - {fileID: 11400000, guid: af177f13bfef55248883d789e5d684bb, type: 2}
+      - {fileID: 11400000, guid: b79f6fd3029771744af58bab7f1a7fc5, type: 2}
+      randomOrder: 1
       weight: 1
     - enemyObjects:
       - {fileID: 11400000, guid: 7efd0ed442718c84c8b8be1d8fab97bb, type: 2}
+      randomOrder: 1
       weight: 1
     - enemyObjects:
       - {fileID: 11400000, guid: b79f6fd3029771744af58bab7f1a7fc5, type: 2}
       - {fileID: 11400000, guid: b79f6fd3029771744af58bab7f1a7fc5, type: 2}
+      randomOrder: 1
       weight: 1
     eliteEncounters:
     - enemyObjects:
       - {fileID: 11400000, guid: 1e885b4f05ab13844a9521dbe3bd51c3, type: 2}
+      randomOrder: 1
       weight: 1
     - enemyObjects:
       - {fileID: 11400000, guid: 5b6ab52c59c62a449ada92c18a8900dc, type: 2}
+      randomOrder: 1
       weight: 1
     bossEncounter:
       enemyObjects:
@@ -97,6 +105,8 @@ MonoBehaviour:
     treasureCount: 1
     mysteryCount: 2
     spiritColumns: 
+    wellRestedEffect: {fileID: 0}
+    wellRestedChance: 0
     itemPool:
     - itemObject: {fileID: 11400000, guid: a0db3ee41c33eef4dbc6a3840a9684c8, type: 2}
       amount: 1
@@ -117,37 +127,45 @@ MonoBehaviour:
     - enemyObjects:
       - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
       - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
+      randomOrder: 1
       weight: 1
     - enemyObjects:
+      - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
       - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
-      - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
+      randomOrder: 1
       weight: 1
     - enemyObjects:
       - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
       - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
+      randomOrder: 1
       weight: 1
     - enemyObjects:
       - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
       - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
       - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
+      randomOrder: 1
       weight: 1
     - enemyObjects:
+      - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
+      - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
       - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
-      - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
-      - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
+      randomOrder: 1
       weight: 1
     eliteEncounters:
     - enemyObjects:
-      - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
-      - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
       - {fileID: 11400000, guid: 4ea0468a2e1668c4faf097a9cdda25e2, type: 2}
-      weight: 2
-    - enemyObjects:
-      - {fileID: 11400000, guid: f2568653406671c48bea9b9ef4c74572, type: 2}
-      weight: 1
+      - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
+      - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
+      randomOrder: 0
+      weight: 3
     - enemyObjects:
       - {fileID: 11400000, guid: 685ad876308ddb84abc8e5287b8bc86b, type: 2}
-      weight: 2
+      randomOrder: 1
+      weight: 3
+    - enemyObjects:
+      - {fileID: 11400000, guid: f2568653406671c48bea9b9ef4c74572, type: 2}
+      randomOrder: 1
+      weight: 1
     bossEncounter:
       enemyObjects:
       - {fileID: 11400000, guid: 81af47cd6e032b74d92ab8ef6860fe49, type: 2}
@@ -171,6 +189,8 @@ MonoBehaviour:
     treasureCount: 1
     mysteryCount: 1
     spiritColumns: 
+    wellRestedEffect: {fileID: 0}
+    wellRestedChance: 0
     itemPool:
     - itemObject: {fileID: 11400000, guid: 1b677da83272f904c9c47a92f070c498, type: 2}
       amount: 1
@@ -189,13 +209,16 @@ MonoBehaviour:
       - {fileID: 11400000, guid: 0dd4bbfde238be6479975b797d721ea4, type: 2}
       - {fileID: 11400000, guid: 0dd4bbfde238be6479975b797d721ea4, type: 2}
       - {fileID: 11400000, guid: 0dd4bbfde238be6479975b797d721ea4, type: 2}
+      randomOrder: 1
       weight: 1
     - enemyObjects:
       - {fileID: 11400000, guid: deee5678bba001b4e981c4bc21557db9, type: 2}
+      randomOrder: 1
       weight: 1
     eliteEncounters:
     - enemyObjects:
       - {fileID: 11400000, guid: aec1fe96cfac071458fb7d706b9d830d, type: 2}
+      randomOrder: 1
       weight: 1
     bossEncounter:
       enemyObjects:

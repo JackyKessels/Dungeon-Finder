@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34f0c950dd9b1944884020e632343d94, type: 3}
-  m_Name: Crimson Burrows - Crystal Caverns
+  m_Name: Crystal Caverns [Mystery Events]
   m_EditorClassIdentifier: 
   events:
-  - eventWeight: 1
+  - eventWeight: 2
     flavorText: A loud tremor echoes through the caverns. Suddenly a large stalactite
       breaks off of the ceiling and crashes into a member of your party. Among the
       rubble you find some glowing shards.
@@ -28,7 +28,7 @@ MonoBehaviour:
         ignoreMultipliers: 1
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassives: []
         school: 1
         attributeType: 0
         baseValue: 20
@@ -51,7 +51,8 @@ MonoBehaviour:
             ignoreMultipliers: 0
             cannotCrit: 0
             cannotMiss: 0
-            ignorePassive: {fileID: 0}
+            ignorePassive:
+            - {fileID: 0}
             school: 0
             attributeType: 0
             baseValue: 0
@@ -73,7 +74,7 @@ MonoBehaviour:
         ignoreMultipliers: 1
         cannotCrit: 1
         cannotMiss: 1
-        ignorePassive: {fileID: 0}
+        ignorePassives: []
         school: 1
         attributeType: 0
         baseValue: 20
@@ -96,7 +97,8 @@ MonoBehaviour:
             ignoreMultipliers: 0
             cannotCrit: 0
             cannotMiss: 0
-            ignorePassive: {fileID: 0}
+            ignorePassive:
+            - {fileID: 0}
             school: 0
             attributeType: 0
             baseValue: 0
@@ -122,7 +124,7 @@ MonoBehaviour:
         ignoreMultipliers: 1
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassives: []
         school: 1
         attributeType: 0
         baseValue: 20
@@ -145,7 +147,8 @@ MonoBehaviour:
             ignoreMultipliers: 0
             cannotCrit: 0
             cannotMiss: 0
-            ignorePassive: {fileID: 0}
+            ignorePassive:
+            - {fileID: 0}
             school: 0
             attributeType: 0
             baseValue: 0
@@ -157,7 +160,7 @@ MonoBehaviour:
           conditionalEffect: {fileID: 0}
       effectTargets: 0
       effect: {fileID: 0}
-  - eventWeight: 1
+  - eventWeight: 2
     flavorText: You find a glowing piece of rock which radiates a strange energy.
     actions:
     - type: 4
@@ -170,7 +173,7 @@ MonoBehaviour:
         ignoreMultipliers: 1
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassives: []
         school: 1
         attributeType: 0
         baseValue: 20
@@ -193,7 +196,8 @@ MonoBehaviour:
             ignoreMultipliers: 0
             cannotCrit: 0
             cannotMiss: 0
-            ignorePassive: {fileID: 0}
+            ignorePassive:
+            - {fileID: 0}
             school: 0
             attributeType: 0
             baseValue: 0
@@ -215,7 +219,7 @@ MonoBehaviour:
         ignoreMultipliers: 1
         cannotCrit: 1
         cannotMiss: 1
-        ignorePassive: {fileID: 0}
+        ignorePassives: []
         school: 4
         attributeType: 0
         baseValue: 10
@@ -238,7 +242,8 @@ MonoBehaviour:
             ignoreMultipliers: 0
             cannotCrit: 0
             cannotMiss: 0
-            ignorePassive: {fileID: 0}
+            ignorePassive:
+            - {fileID: 0}
             school: 0
             attributeType: 0
             baseValue: 0

@@ -41,6 +41,11 @@ public class Floor
     public int mysteryCount = 0;
     public List<int> spiritColumns = new List<int>();
 
+    [Header("[ Campfires ]")]
+    public EffectObject wellRestedEffect;
+    [Tooltip("Value in percentages (integer)")]
+    public int wellRestedChance;
+
     [Header("[ Treasure Contents ]")]
     public List<ItemDrop> itemPool = new List<ItemDrop>();
 

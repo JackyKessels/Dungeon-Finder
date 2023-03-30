@@ -208,7 +208,7 @@ public class MysteryAction
 
                     foreach (Unit target in targets)
                     {
-                        target.effectManager.ApplyPreBattleEffect(effect, target, 1);
+                        target.effectManager.PreparePreBattleEffect(effect);
                     }
                     
                 }

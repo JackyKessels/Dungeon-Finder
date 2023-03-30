@@ -27,15 +27,17 @@ MonoBehaviour:
     startingPoints: 2
     endPoints: 1
     removalThreshold: 2
-    minimumLocations: 12
-    maximumLocations: 20
+    minimumLocations: 14
+    maximumLocations: 18
     addOffset: 0
     forceBossCenter: 1
-    eliteCount: 0
-    campfireCount: 0
-    treasureCount: 0
-    mysteryCount: 0
+    eliteCount: 2
+    campfireCount: 1
+    treasureCount: 1
+    mysteryCount: 3
     spiritColumns: 
+    wellRestedEffect: {fileID: 0}
+    wellRestedChance: 0
     itemPool: []
     trashEncounters:
     - enemyObjects:
@@ -67,7 +69,7 @@ MonoBehaviour:
     bossEncounter:
       enemyObjects:
       - {fileID: 11400000, guid: 689bcd23c303b3f439c67e818508c117, type: 2}
-    mysteryEvents: {fileID: 0}
+    mysteryEvents: {fileID: 11400000, guid: 231c02ff732d83547ab282c7db77039b, type: 2}
   - name: Solemn Courtyard
     dungeonBackground: {fileID: 21300000, guid: 911aa93669d9cf04cba48c4ba6d63a4f,
       type: 3}
@@ -87,6 +89,8 @@ MonoBehaviour:
     treasureCount: 0
     mysteryCount: 0
     spiritColumns: 
+    wellRestedEffect: {fileID: 0}
+    wellRestedChance: 0
     itemPool: []
     trashEncounters:
     - enemyObjects:
@@ -117,6 +121,8 @@ MonoBehaviour:
     treasureCount: 0
     mysteryCount: 0
     spiritColumns: 
+    wellRestedEffect: {fileID: 0}
+    wellRestedChance: 0
     itemPool: []
     trashEncounters: []
     eliteEncounters: []

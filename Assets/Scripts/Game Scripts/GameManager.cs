@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     [Header("[ Important Information ]")]
     public int totalBattles = 0;
     public int monstersDefeated = 0;
-    private bool firstDeath = false;
+    public bool firstDeath = false;
     public bool unlockedPaths = false;
 
     [Header("[ Start & End Screen ]")]

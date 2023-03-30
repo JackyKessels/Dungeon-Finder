@@ -15,13 +15,13 @@ MonoBehaviour:
   name: Fickle Wisp
   lastName: 
   unitType: 4
-  icon: {fileID: 21300000, guid: c22dc18a9449ef445a15e48f21c6c638, type: 3}
+  icon: {fileID: 21300000, guid: 5c6e400310a2cfc45929ed36b6123ada, type: 3}
   sprite: {fileID: 21300000, guid: 2cadf78c1b300de42942759336768cd0, type: 3}
   attackAnimation: {fileID: 0}
   castAnimation: {fileID: 0}
-  baseHealth: 100
+  baseHealth: 400
   basePower: 0
-  baseWisdom: 10
+  baseWisdom: 25
   baseArmor: 50
   baseResistance: 0
   baseVitality: 0
@@ -47,6 +47,11 @@ MonoBehaviour:
   itemDrops: []
   randomAbility: 0
   abilities:
+  - ability: {fileID: 11400000, guid: 741fbdb3eb926414684500d7c10fa57e, type: 2}
+    target: 0
+    condition: 0
+    startCooldown: 5
+    charged: 0
   - ability: {fileID: 11400000, guid: e0373bd0627359f428157de6991c118d, type: 2}
     target: 0
     condition: 0

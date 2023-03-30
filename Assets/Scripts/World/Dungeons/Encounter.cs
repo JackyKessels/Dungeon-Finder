@@ -6,9 +6,10 @@ using UnityEngine;
 public class Encounter
 {
     public List<EnemyObject> enemyObjects;
+    public bool randomOrder = true;
     public int weight = 1;
 
-    public static Encounter WeightedEncounter(List<Encounter> encounters)
+    private static Encounter WeightedEncounter(List<Encounter> encounters)
     {
         List<int> weights = new List<int>();
 
@@ -20,19 +21,24 @@ public class Encounter
         return encounters[GeneralUtilities.RandomWeighted(weights)];
     }
 
-    public static List<EnemyObject> MixUnitObjects(Encounter encounter)
+    public static List<EnemyObject> SetupUnitObjects(List<Encounter> encounters)
     {
-        List<EnemyObject> mixedUnits = new List<EnemyObject>(encounter.enemyObjects);
+        Encounter encounter = WeightedEncounter(encounters);
 
-        for (int i = 0; i < mixedUnits.Count; i++)
+        if (encounter.randomOrder)
         {
-            EnemyObject temp = mixedUnits[i];
-            int randomIndex = Random.Range(i, mixedUnits.Count);
-            mixedUnits[i] = mixedUnits[randomIndex];
-            mixedUnits[randomIndex] = temp;
-        }
+            List<EnemyObject> mixedUnits = new List<EnemyObject>(encounter.enemyObjects);
 
-        encounter.enemyObjects = mixedUnits;
+            for (int i = 0; i < mixedUnits.Count; i++)
+            {
+                EnemyObject temp = mixedUnits[i];
+                int randomIndex = Random.Range(i, mixedUnits.Count);
+                mixedUnits[i] = mixedUnits[randomIndex];
+                mixedUnits[randomIndex] = temp;
+            }
+
+            return mixedUnits;
+        }
 
         return encounter.enemyObjects;
     }

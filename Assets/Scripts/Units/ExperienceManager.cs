@@ -23,6 +23,13 @@ public class ExperienceManager
         totalExperienceGained = 0;
     }
 
+    public static int TotalExperienceToLevel(int level)
+    {
+        float totalExperience = 100f * ((1f - Mathf.Pow(experienceCoefficient, level - 1)) / -0.5f);
+        Debug.Log(totalExperience);
+        return (int)Mathf.Floor(totalExperience);
+    }
+
     public static int ExperienceToNextLevel(int level)
     {
         return GeneralUtilities.RoundFloat(baseExperienceRequirement * (Mathf.Pow(experienceCoefficient, level)), 0);

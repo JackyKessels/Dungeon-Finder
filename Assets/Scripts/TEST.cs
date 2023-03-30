@@ -158,6 +158,21 @@ public class TEST : MonoBehaviour
         }
     }
 
+    public void TestGloomstalkThicket()
+    {
+        int level = 5;
+        int spiritShards = 60;
+
+        //
+
+        gameManager.firstDeath = true;
+        gameManager.currencyHandler.IncreaseCurrency(new Currency(CurrencyType.Spirit, spiritShards));
+
+        int exp = ExperienceManager.TotalExperienceToLevel(level);
+
+        TeamManager.Instance.experienceManager.GainExperience(exp);
+    }
+
 
     // ABILITIES
 

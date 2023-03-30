@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34f0c950dd9b1944884020e632343d94, type: 3}
-  m_Name: Crimson Burrows - Inner Ruins
+  m_Name: Putrid Tunnels [Mystery Events]
   m_EditorClassIdentifier: 
   events:
-  - eventWeight: 1
-    flavorText: You find an ominous hammer floating above a dark pedastal. As one
-      of your party picks up the hammer, a sinister presence surrounds you.
+  - eventWeight: 3
+    flavorText: Acid from a nearby sludge river splashes onto the group.
     actions:
-    - type: 2
+    - type: 4
       currencyAmount: 10
       currencyType: 1
       experienceAmount: 0
-      itemObject: {fileID: 11400000, guid: fbf6a738f3bdb6f47b54175a4bc82628, type: 2}
+      itemObject: {fileID: 0}
       sourceTargets: 1
       abilitySource:
         ignoreMultipliers: 1
@@ -62,11 +61,15 @@ MonoBehaviour:
           conditionalEffect: {fileID: 0}
       effectTargets: 0
       effect: {fileID: 11400000, guid: 26fc2105314497343b6d1fc043fd3ae0, type: 2}
-    - type: 4
-      currencyAmount: 10
+  - eventWeight: 1
+    flavorText: You find a sword stuck in the cave wall. It is covered in a green
+      slime.
+    actions:
+    - type: 2
+      currencyAmount: 0
       currencyType: 1
       experienceAmount: 0
-      itemObject: {fileID: 11400000, guid: fbf6a738f3bdb6f47b54175a4bc82628, type: 2}
+      itemObject: {fileID: 11400000, guid: 208b6673db131fb44ae31518e7c4444e, type: 2}
       sourceTargets: 1
       abilitySource:
         ignoreMultipliers: 1
@@ -106,16 +109,15 @@ MonoBehaviour:
           effectOnTarget: 0
           conditionalEffect: {fileID: 0}
       effectTargets: 0
-      effect: {fileID: 11400000, guid: c62d348ee53b6ed49a3d0562ae47c268, type: 2}
-  - eventWeight: 3
-    flavorText: A glowing rune attracts the attention of one of your party members.
-      Upon touching it, a strange power surges through their body.
+      effect: {fileID: 0}
+  - eventWeight: 2
+    flavorText: Your party falls into a sink hole. Who knows where you will end up?
     actions:
-    - type: 4
-      currencyAmount: 10
+    - type: 5
+      currencyAmount: 0
       currencyType: 1
       experienceAmount: 0
-      itemObject: {fileID: 11400000, guid: fbf6a738f3bdb6f47b54175a4bc82628, type: 2}
+      itemObject: {fileID: 11400000, guid: 208b6673db131fb44ae31518e7c4444e, type: 2}
       sourceTargets: 1
       abilitySource:
         ignoreMultipliers: 1
@@ -154,5 +156,5 @@ MonoBehaviour:
             reductionType: 0
           effectOnTarget: 0
           conditionalEffect: {fileID: 0}
-      effectTargets: 1
-      effect: {fileID: 11400000, guid: 336757722a739cb438b9ea249c49c9fa, type: 2}
+      effectTargets: 0
+      effect: {fileID: 0}

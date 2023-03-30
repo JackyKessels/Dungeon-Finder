@@ -159,9 +159,28 @@ public class Location : MonoBehaviour, IDescribable
                     TeamManager.Instance.heroes.ReviveDeadMembers(false);
                     TeamManager.Instance.heroes.HealTeam(campfireHeal, true);
 
-                    //string percentage = (campfireHeal * 100).ToString();
+                    EffectObject wellRestedEffect = dungeon.floors[floor].wellRestedEffect;
+                    int wellRestedChance = dungeon.floors[floor].wellRestedChance;
 
-                    //NotificationObject.SendNotification("Your team has restored " + percentage + "% of their missing Health, and all dead members are revived");
+                    bool successfulWellFed;
+
+                    if (wellRestedEffect == null || wellRestedChance <= 0)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        successfulWellFed = Random.Range(0, 100) < wellRestedChance;
+
+                        if (successfulWellFed)
+                        {
+                            foreach (Unit hero in TeamManager.Instance.heroes.LivingMembers)
+                            {
+                                hero.effectManager.PreparePreBattleEffect(wellRestedEffect);
+                            }
+                        }
+                    }
+
                     break;
                 }
             case LocationType.Spirit:

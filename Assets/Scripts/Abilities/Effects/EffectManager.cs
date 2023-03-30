@@ -10,7 +10,7 @@ public class EffectManager : MonoBehaviour
     public List<Effect> effectsList = new List<Effect>();
 
     // Effects that will be applied at the start of the next battle
-    public List<Effect> preBattleEffects = new List<Effect>();
+    public List<EffectObject> preBattleEffects = new List<EffectObject>();
 
     private Unit unit;
 
@@ -55,29 +55,14 @@ public class EffectManager : MonoBehaviour
 
     public void ApplyPreBattleEffects()
     {
-        for (int i = preBattleEffects.Count; i-- > 0;)
-        {
-            unit.effectManager.OnApplication(preBattleEffects[i]);
-        }
+        ApplyEffects(unit, unit, preBattleEffects, 1, null);
 
         preBattleEffects.Clear();
     }
 
-    public void ApplyPreBattleEffect(EffectObject effectObject, Unit caster, int level)
+    public void PreparePreBattleEffect(EffectObject effectObject)
     {
-        bool hasEffect = false;
-
-        for (int i = 0; i < preBattleEffects.Count; i++)
-        {
-            if (preBattleEffects[i].effectObject == effectObject)
-                hasEffect = true;
-        }
-
-        if (!hasEffect)
-        {
-            Effect effect = new Effect(effectObject, 1, caster, caster, level, null);
-            preBattleEffects.Add(effect);
-        }
+        preBattleEffects.Add(effectObject);
     }
 
     public static void RemoveAuras()

@@ -44,7 +44,7 @@ public class Food : Consumable
 
         if (preBattleEffect != null)
         {
-            unit.effectManager.ApplyPreBattleEffect(preBattleEffect, unit, 1);
+            unit.effectManager.PreparePreBattleEffect(preBattleEffect);
         }
     }
 

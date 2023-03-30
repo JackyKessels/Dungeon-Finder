@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
-  m_Name: Get Energized
+  m_Name: Pylon Death (Armor) (Passive)
   m_EditorClassIdentifier: 
   id: -1
   name: New Ability
@@ -25,8 +25,7 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   isPositive: 1
   effects:
-  - {fileID: 11400000, guid: 295a247d313a5154ba51dc8f03548104, type: 2}
-  - {fileID: 11400000, guid: 21181ad5c6d27674381bc8a324fc7a15, type: 2}
-  activationMoment: 0
-  targets: 0
+  - {fileID: 11400000, guid: bc88738c90b46314ea008a1f3789c657, type: 2}
+  activationMoment: 3
+  targets: 1
   healthPercentage: 0

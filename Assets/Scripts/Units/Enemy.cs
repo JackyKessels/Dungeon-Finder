@@ -219,7 +219,7 @@ public class Enemy : Unit
         }
         else
         {
-            TargetCondition targetCondition = GetTargetCondition(t);
+            (TargetCondition targetCondition, TargetAttribute targetAttribute) = GetTargetCondition(t);
 
             switch (targetCondition)
             {
@@ -228,7 +228,7 @@ public class Enemy : Unit
                         target = Random.Range(0, targetGroup.Count);
                     }
                     break;
-                case TargetCondition.LowestHealth:
+                case TargetCondition.LowestAttribute:
                     {
                         if (targetGroup.Count == 1)
                         {
@@ -240,7 +240,7 @@ public class Enemy : Unit
 
                             for (int i = 0; i < targetGroup.Count; i++)
                             {
-                                if (targetGroup[i].statsManager.currentHealth < targetGroup[lowest].statsManager.currentHealth)
+                                if (targetGroup[i].statsManager.GetAttributeValue(targetAttribute) < targetGroup[lowest].statsManager.GetAttributeValue(targetAttribute))
                                     lowest = i;
                             }
 
@@ -248,7 +248,7 @@ public class Enemy : Unit
                         }
                     }
                     break;
-                case TargetCondition.HighestHealth:
+                case TargetCondition.HighestAttribute:
                     {
                         if (targetGroup.Count == 1)
                         {
@@ -260,7 +260,7 @@ public class Enemy : Unit
 
                             for (int i = 0; i < targetGroup.Count; i++)
                             {
-                                if (targetGroup[i].statsManager.currentHealth > targetGroup[highest].statsManager.currentHealth)
+                                if (targetGroup[i].statsManager.GetAttributeValue(targetAttribute) > targetGroup[highest].statsManager.GetAttributeValue(targetAttribute))
                                     highest = i;
                             }
 
@@ -309,17 +309,17 @@ public class Enemy : Unit
         }
     }
 
-    private TargetCondition GetTargetCondition(TargetAbility ability)
+    private (TargetCondition, TargetAttribute) GetTargetCondition(TargetAbility ability)
     {
         foreach (AbilityBehavior abilityBehavior in enemyObject.abilities)
         {
             if (abilityBehavior.ability == ability)
             {
-                return abilityBehavior.target;
+                return (abilityBehavior.target, abilityBehavior.targetAttribute);
             }
         }
 
-        return TargetCondition.Random;
+        return (TargetCondition.Random, TargetAttribute.CurrentHealth);
     }
 
     private CastCondition GetCastCondition(ActiveAbility ability)

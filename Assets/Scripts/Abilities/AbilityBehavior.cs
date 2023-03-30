@@ -5,8 +5,19 @@ using UnityEngine;
 public enum TargetCondition
 {
     Random,
-    LowestHealth,
-    HighestHealth
+    LowestAttribute,
+    HighestAttribute
+}
+
+public enum TargetAttribute
+{
+    CurrentHealth,
+    MaximumHealth,
+    Power,
+    Wisdom,
+    Armor,
+    Resistance,
+    Speed
 }
 
 public enum CastCondition
@@ -21,6 +32,7 @@ public class AbilityBehavior
 {
     public ActiveAbility ability;
     public TargetCondition target;
+    public TargetAttribute targetAttribute;
     public CastCondition condition;
     public int startCooldown = 0;
     public bool charged = false;
