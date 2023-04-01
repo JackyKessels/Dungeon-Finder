@@ -86,7 +86,7 @@ public abstract class ActiveAbility : AbilityObject
             return "";
     }
 
-    public abstract void TriggerAbility(Unit caster, Unit target, int level);
+    public abstract void TriggerAbility(Unit caster, Unit target, int level, float effectiveness);
 
     public void AbilityActions(Unit caster, Unit target, int level, bool selfEffectPerTarget, float adjacentModifier, float abilityMultiplier)
     {
@@ -262,6 +262,8 @@ public abstract class ActiveAbility : AbilityObject
 public class CastActiveAbility
 {
     public ActiveAbility activeAbility;
+
+    public float effectiveness = 1f;
     
     [Header("Target Ability Only")]
     public AbilityTargets abilityTarget;
@@ -290,7 +292,7 @@ public class CastActiveAbility
 
             foreach (Unit u in targets)
             {
-                abilityToCast.Trigger(caster, u);
+                abilityToCast.Trigger(caster, u, effectiveness);
             }
         }
 
@@ -300,7 +302,7 @@ public class CastActiveAbility
 
             Active abilityToCast = new Active(i, level);
 
-            abilityToCast.Trigger(caster, target);
+            abilityToCast.Trigger(caster, target, effectiveness);
         }
 
         return;

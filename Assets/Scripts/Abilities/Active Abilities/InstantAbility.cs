@@ -8,7 +8,7 @@ public class InstantAbility : ActiveAbility
     [Header("Targeting")]
     public AbilityTargets abilityTargets = AbilityTargets.SelfOnly;
 
-    public override void TriggerAbility(Unit caster, Unit target, int level)
+    public override void TriggerAbility(Unit caster, Unit target, int level, float effectiveness)
     {
         bool selfEffectBool = selfEffectsPerTarget;
 
@@ -16,7 +16,7 @@ public class InstantAbility : ActiveAbility
 
         foreach (Unit unit in AbilityUtilities.GetAbilityTargets(abilityTargets, caster))
         {
-            float abilityMultiplier = 1 + caster.effectManager.ApplyMultipliers(this, unit);
+            float abilityMultiplier = (1 + caster.effectManager.ApplyMultipliers(this, unit)) * effectiveness;
 
             AbilityActions(caster, unit, level, selfEffectBool, 1, abilityMultiplier);
         }

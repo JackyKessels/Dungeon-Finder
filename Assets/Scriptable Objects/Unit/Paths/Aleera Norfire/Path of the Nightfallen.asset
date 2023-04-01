@@ -30,6 +30,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 29a9685f4dc73a242a6bfaf21a115862, type: 2}
   - {fileID: 11400000, guid: 1b5b4dcb13021b44db66991c6b681556, type: 2}
   - {fileID: 11400000, guid: 1bfbe950cf768ae46b74932b56db2fed, type: 2}
+  - {fileID: 11400000, guid: 183e71c0c00fa5743b536eb6bb3c6b1a, type: 2}
   passiveAbilities:
   - {fileID: 11400000, guid: 2d68d2728137824468c938c851dbdf29, type: 2}
   - {fileID: 11400000, guid: c64d775a8d720d24396e3062a283c61b, type: 2}

@@ -240,6 +240,9 @@ public static class GeneralUtilities
         foreach (int weight in weights)
             weightTotal += weight;
 
+        if (weightTotal == 0)
+            return 0;
+
         int result;
         int total = 0;
 

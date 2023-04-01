@@ -20,7 +20,7 @@ public class TargetAbility : ActiveAbility
     [Range(0, 1)]
     public float adjacentModifier = 0;
 
-    public override void TriggerAbility(Unit caster, Unit target, int level)
+    public override void TriggerAbility(Unit caster, Unit target, int level, float effectivness)
     {
         if (target == null)
         {
@@ -32,7 +32,7 @@ public class TargetAbility : ActiveAbility
 
         ObjectUtilities.CreateSpecialEffects(casterSpecialEffects, caster);
 
-        float abilityMultiplier = 1 + caster.effectManager.ApplyMultipliers(this, target);
+        float abilityMultiplier = (1 + caster.effectManager.ApplyMultipliers(this, target)) * effectivness;
 
         AbilityActions(caster, target, level, selfEffectBool, 1, abilityMultiplier);
 

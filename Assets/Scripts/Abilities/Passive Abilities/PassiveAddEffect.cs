@@ -226,6 +226,7 @@ public class PassiveAddEffect : PassiveAbility
         for (int i = 0; i < castActiveAbilities.Count; i++)
         {
             temp = AbilityTooltipHandler.ParseCastAbility(temp, string.Format("<castInfo{0}>", i + 1), string.Format("<castTooltip{0}>", i + 1), tooltipInfo, castActiveAbilities[i].activeAbility);
+            temp = AbilityTooltipHandler.ParseCastAbilityEffectiveness(temp, string.Format("<castEffect{0}>", i + 1), castActiveAbilities[i]);
         }
 
         temp = AbilityTooltipHandler.InsertRed(temp);

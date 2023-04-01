@@ -171,6 +171,10 @@ public class TEST : MonoBehaviour
         int exp = ExperienceManager.TotalExperienceToLevel(level);
 
         TeamManager.Instance.experienceManager.GainExperience(exp);
+
+        TownManager.Instance.PathsState(true);
+
+        TownManager.Instance.dungeonList.SetDungeonList(true);
     }
 
 

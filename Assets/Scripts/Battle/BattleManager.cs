@@ -464,7 +464,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
             Unit target = teamManager.heroes.LivingMembers[targetNumber];
 
-            active.Trigger(currentUnit, target);
+            active.Trigger(currentUnit, target, 1f);
 
             if (!swift)
             {
@@ -473,7 +473,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
         }
         else if (active.activeAbility is InstantAbility i)
         {
-            active.Trigger(currentUnit, null);
+            active.Trigger(currentUnit, null, 1f);
 
             if (!swift)
             {
@@ -614,7 +614,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
         CastAnimation(currentAbility);
 
-        currentAbility.Trigger(currentUnit, currentTarget);
+        currentAbility.Trigger(currentUnit, currentTarget, 1f);
 
         currentAbility.PutOnCooldown();
 
@@ -724,7 +724,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
                 CastAnimation(currentAbility);
 
-                currentAbility.Trigger(currentUnit, currentTarget);
+                currentAbility.Trigger(currentUnit, currentTarget, 1f);
 
                 battleHUD.Refresh();
                 //-----------------------//
@@ -744,7 +744,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
             CastAnimation(currentAbility);
 
-            currentAbility.Trigger(currentUnit, currentTarget);
+            currentAbility.Trigger(currentUnit, currentTarget, 1f);
 
             battleHUD.Refresh();
         }

@@ -41,9 +41,9 @@ public class Active
         }
     }
 
-    public void Trigger(Unit caster, Unit target)
+    public void Trigger(Unit caster, Unit target, float effectiveness)
     {
-        activeAbility.TriggerAbility(caster, target, level);
+        activeAbility.TriggerAbility(caster, target, level, effectiveness);
     }
 
     public Active()
