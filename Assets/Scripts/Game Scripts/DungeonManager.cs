@@ -108,13 +108,18 @@ public class DungeonManager : MonoBehaviour, IUserInterface
         dungeonTitle.text = currentDungeon.name;
         dungeonTitle.color = currentDungeon.nameColor;
 
-        floorName.text = currentDungeon.floors[floor].name;
+        floorName.text = currentDungeon.floors[floor].name + " " + GetFloorString(floor);
         floorName.color = currentDungeon.nameColor;
 
         if (currentDungeon.floors[floor].name == "")
             floorBackground.SetActive(false);
         else
             floorBackground.SetActive(true);
+    }
+
+    private string GetFloorString(int floor)
+    {
+        return "(" + (floor + 1).ToString() + " / " + currentDungeon.floors.Count.ToString() + ")";
     }
 
     // Creates the movable player icon on the map
