@@ -10,26 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
-  m_Name: Fracturing Icicle
+  m_Name: Rune of Binding
   m_EditorClassIdentifier: 
-  id: 22
-  name: Fracturing Icicle
+  id: 174
+  name: Rune of Binding
   quality: 0
   abilityType: 2
-  description: 'Deal <e1> <I> damage to your target.
+  description: 'Incapacitate the target for <t1d> Rounds.
 
 
-    <targetTrigger1>'
-  icon: {fileID: 21300000, guid: 3a777b453872e374195ca1852bf96b4c, type: 3}
+    <name> deals <e1modB>
+    <A> damage if the target is at <rfull> Health.
+
+
+    <t1unique>'
+  icon: {fileID: 21300000, guid: 375de5491e3042b4fbf26b63b99e16a4, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
-  - {fileID: 3049639920439385640, guid: 2e16f726a1584fd43a343a1971a2c923, type: 3}
-  - {fileID: 1343662882982698741, guid: 4699a6da1438dc3409a1a25d3a3c8466, type: 3}
-  hasLevels: 1
+  - {fileID: 753743259402887878, guid: 8e5a949be681c8f4cada5656299c13c4, type: 3}
+  hasLevels: 0
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 0.75
-  cooldown: 3
+  cooldown: 5
   initialCooldown: 0
   endTurn: 1
   resetChance: 0
@@ -42,19 +45,19 @@ MonoBehaviour:
     cannotCrit: 0
     cannotMiss: 0
     ignorePassives: []
-    school: 3
-    attributeType: 2
+    school: 0
+    attributeType: 0
     baseValue: 0
     levelBase: 0
-    scaling: 1.8
-    levelScaling: 0.36
-    reductionType: 2
+    scaling: 0
+    levelScaling: 0
+    reductionType: 0
     modifier:
-      hasModifier: 0
-      modification: 0
-      condition: 0
-      thresholdType: 0
-      conditionThreshold: 0
+      hasModifier: 1
+      modification: 3
+      condition: 3
+      thresholdType: 1
+      conditionThreshold: 100
       increasedAttribute: 0
       increaseValue: 0
       casterBased: 0
@@ -64,21 +67,20 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive:
-        - {fileID: 0}
-        school: 0
+        ignorePassive: []
+        school: 5
         attributeType: 0
         baseValue: 0
         levelBase: 0
-        scaling: 0
-        levelScaling: 0
-        reductionType: 0
-      effectOnTarget: 1
+        scaling: 0.3
+        levelScaling: 0.06
+        reductionType: 2
+      effectOnTarget: 0
       conditionalEffect: {fileID: 0}
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects:
-  - {fileID: 11400000, guid: ee392fe114d878f4c82e4c0b5fd7111c, type: 2}
+  - {fileID: 11400000, guid: 815c3eef5799ba541bd545099dbcdb33, type: 2}
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0

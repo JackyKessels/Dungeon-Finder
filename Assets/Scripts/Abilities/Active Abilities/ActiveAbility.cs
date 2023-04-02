@@ -114,14 +114,14 @@ public abstract class ActiveAbility : AbilityObject
         {
             if (selfEffects.Count > 0)
             {
-                EffectManager.ApplyEffects(caster, caster, selfEffects, level, this);
+                EffectManager.ApplyEffects(selfEffects, caster, caster, level, this);
             }
         }
 
         // Apply effects to the target
         if (targetEffects.Count > 0)
         {
-            EffectManager.ApplyEffects(caster, target, targetEffects, level, this);
+            EffectManager.ApplyEffects(targetEffects, caster, target, level, this);
         }
     }
 
@@ -131,7 +131,7 @@ public abstract class ActiveAbility : AbilityObject
         {
             if (selfEffects.Count > 0)
             {
-                EffectManager.ApplyEffects(caster, caster, selfEffects, level, this);
+                EffectManager.ApplyEffects(selfEffects, caster, caster, level, this);
             }
         }
     }
@@ -161,7 +161,7 @@ public abstract class ActiveAbility : AbilityObject
             temp = AbilityTooltipHandler.DetermineAbilityModifierAttribute(temp, string.Format("<e{0}modP>", i + 1), enemyAbilitySources[i].modifier);
             temp = AbilityTooltipHandler.DetermineAbilityValue(temp, string.Format("<e{0}modB>", i + 1), enemyAbilitySources[i].modifier.bonusAbilitySource.GetAbilitySource(), tooltipInfo);
             temp = AbilityTooltipHandler.DetermineAbilityConditionValue(temp, string.Format("<e{0}conV>", i + 1), enemyAbilitySources[i].modifier);
-            temp = AbilityTooltipHandler.ParseEffectTooltips(tooltipInfo, new List<EffectObject>() { enemyAbilitySources[i].modifier.conditionalEffect }, temp, string.Format("e{0}modCE", i + 1));
+            temp = AbilityTooltipHandler.ParseEffectTooltips(temp, string.Format("e{0}modCE", i + 1), new List<EffectObject>() { enemyAbilitySources[i].modifier.conditionalEffect }, tooltipInfo);
         }
 
         if (this is TargetAbility t)

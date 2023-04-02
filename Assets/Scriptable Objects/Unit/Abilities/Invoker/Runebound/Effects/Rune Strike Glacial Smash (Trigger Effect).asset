@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51850a8b11733b04f9956814f3c60d35, type: 3}
-  m_Name: Fracturing Icicle (Trigger)
+  m_Name: Rune Strike Glacial Smash (Trigger Effect)
   m_EditorClassIdentifier: 
-  name: Fracturing Icicle
+  name: 'Rune Strike: Glacial Smash'
   icon: {fileID: 0}
   hidden: 1
-  description: If the target is Stunned, deal an additional <applied1timAp1> <I>
-    damage.
+  description: If you are <specific1name>, reduce the target's <speed> by <applied1modV>
+    for <applied1d> Rounds.
   isBuff: 0
   procType: 0
   duration: 1
@@ -27,12 +27,13 @@ MonoBehaviour:
   aura: 0
   unique: 0
   removeEffects: []
-  conditionalEffectType: 1
+  conditionalEffectType: 2
   appliedEffects:
-  - {fileID: 11400000, guid: 2e2e8f170c9dd26479f0fc896f708e12, type: 2}
-  ccTypes: 01000000
-  specificEffects: []
+  - {fileID: 11400000, guid: e594b6534dfd52b408b3417a0d6e87ee, type: 2}
+  ccTypes: 
+  specificEffects:
+  - {fileID: 11400000, guid: ed80c80b6269ce34eb458d9dec28e254, type: 2}
   hasAllEffects: 0
-  checkTarget: 0
+  checkTarget: 1
   effectTarget: 0
   consumeEffect: 0

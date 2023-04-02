@@ -27,6 +27,11 @@ public class HeroPathObject : ScriptableObject
         List<ActiveAbility> tempList = new List<ActiveAbility>(activeAbilities);
         List<ActiveAbility> newList = new List<ActiveAbility>();
 
+        if (tempList.Count <= amount)
+        {
+            return tempList;
+        }
+
         for (int i = 0; i < amount; i++)
         {
             int randomAbility = Random.Range(0, tempList.Count);

@@ -20,7 +20,7 @@ public class EffectManager : MonoBehaviour
         unit = GetComponent<Unit>();
     }
 
-    public static void ApplyEffects(Unit caster, Unit target, List<EffectObject> effectsList, int level, AbilityObject sourceAbility)
+    public static void ApplyEffects(List<EffectObject> effectsList, Unit caster, Unit target, int level, AbilityObject sourceAbility)
     {
         if (effectsList.Count <= 0)
             return;
@@ -55,7 +55,7 @@ public class EffectManager : MonoBehaviour
 
     public void ApplyPreBattleEffects()
     {
-        ApplyEffects(unit, unit, preBattleEffects, 1, null);
+        ApplyEffects(preBattleEffects, unit, unit, 1, null);
 
         preBattleEffects.Clear();
     }
@@ -136,7 +136,7 @@ public class EffectManager : MonoBehaviour
 
             if (meetCondition)
             {
-                ApplyEffect(trigger.conditionalEffect, effect.caster, GetConditionalTarget(effect, trigger.effectTarget), effect.level, effect.sourceAbility);
+                ApplyEffects(trigger.appliedEffects, effect.caster, GetConditionalTarget(effect, trigger.effectTarget), effect.level, effect.sourceAbility);
 
                 if (trigger.consumeEffect)
                 {
@@ -151,18 +151,35 @@ public class EffectManager : MonoBehaviour
         {
             Unit target = GetConditionalTarget(effect, trigger.checkTarget);
 
+            bool meetCondition;
 
-            bool meetCondition = false;
-
-            foreach (EffectObject specificEffect in trigger.specificEffects)
+            if (trigger.hasAllEffects)
             {
-                if (target.effectManager.HasEffect(specificEffect))
-                    meetCondition = true;
+                meetCondition = true;
+
+                foreach (EffectObject specificEffect in trigger.specificEffects)
+                {
+                    if (!target.effectManager.HasEffect(specificEffect))
+                    {
+                        meetCondition = false;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                meetCondition = false;
+
+                foreach (EffectObject specificEffect in trigger.specificEffects)
+                {
+                    if (target.effectManager.HasEffect(specificEffect))
+                        meetCondition = true;
+                }
             }
 
             if (meetCondition)
             {
-                ApplyEffect(trigger.conditionalEffect, effect.caster, GetConditionalTarget(effect, trigger.effectTarget), effect.level, effect.sourceAbility);
+                ApplyEffects(trigger.appliedEffects, effect.caster, GetConditionalTarget(effect, trigger.effectTarget), effect.level, effect.sourceAbility);
 
                 if (trigger.consumeEffect)
                 {

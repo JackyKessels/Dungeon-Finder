@@ -20,9 +20,13 @@ public class EffectConditionalTrigger : EffectObject
 {
     [Header("[ Conditional Effect ]")]
     public ConditionalEffectType conditionalEffectType = ConditionalEffectType.None;
-    public EffectObject conditionalEffect;
+    public List<EffectObject> appliedEffects;
+
+    [Header("[ Conditions ]")]
     public List<CrowdControlType> ccTypes;
     public List<EffectObject> specificEffects;
+    [Tooltip("False = at least 1 to trigger")]
+    public bool hasAllEffects = false;
     public ConditionalEffectTarget checkTarget;
     public ConditionalEffectTarget effectTarget;
     public bool consumeEffect = false;
@@ -36,14 +40,18 @@ public class EffectConditionalTrigger : EffectObject
     {
         string temp = description;
 
-        temp = AbilityTooltipHandler.ParseEffectTooltips(tooltipInfo, new List<EffectObject>() { conditionalEffect }, temp, "");
+        for (int i = 0; i < appliedEffects.Count; i++)
+        {
+            temp = AbilityTooltipHandler.ParseEffectTooltips(temp, "applied", appliedEffects, tooltipInfo);
+        }
 
         for (int i = 0; i < specificEffects.Count; i++)
         {
-            temp = AbilityTooltipHandler.ParseEffectTooltips(tooltipInfo, specificEffects, temp, "spec");
+            temp = AbilityTooltipHandler.ParseEffectTooltips(temp, "specific", specificEffects, tooltipInfo);
         }
 
         temp = AbilityTooltipHandler.ColorAllSchools(temp);
+        temp = AbilityTooltipHandler.ColorAllAttributes(temp);
 
         return temp;
     }

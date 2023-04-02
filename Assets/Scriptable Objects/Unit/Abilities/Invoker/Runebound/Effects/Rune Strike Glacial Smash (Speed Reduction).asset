@@ -13,22 +13,30 @@ MonoBehaviour:
   m_Name: Rune Strike Glacial Smash (Speed Reduction)
   m_EditorClassIdentifier: 
   name: 'Rune Strike: Glacial Smash'
-  icon: {fileID: 21300000, guid: dd964e4fbad96934088cd9eaf9b9a502, type: 3}
+  icon: {fileID: 21300000, guid: 89325f67ac914644bbda5c265826b85d, type: 3}
   hidden: 0
   description: Speed reduced by <1>.
   isBuff: 0
   procType: 1
-  duration: 1
+  duration: 2
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
   removeEffects: []
   attributeModified: 6
   isIncrease: 0
   modifierType: 0
   modifierSource:
     ignoreMultipliers: 1
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 0
     attributeType: 6
-    baseValue: 3
+    baseValue: 2
     levelBase: 0
     scaling: 0
     levelScaling: 0
@@ -46,6 +54,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -56,4 +67,5 @@ MonoBehaviour:
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
   multiplier: 0
+  multiplierPerLevel: 0
   specialEffects: []

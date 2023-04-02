@@ -15,17 +15,24 @@ MonoBehaviour:
   name: Empower Attunement
   icon: {fileID: 0}
   hidden: 1
-  description: '<A>: Arcane Damage increased by <1modV>% for <1d> Rounds.'
+  description: '<A>: Arcane Damage increased by <applied1modV>% for <applied1d> Rounds.'
   isBuff: 0
   procType: 0
   duration: 1
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
   removeEffects: []
   conditionalEffectType: 2
-  conditionalEffect: {fileID: 11400000, guid: 1ad4a8046e170354c881b6ad40f5c053, type: 2}
+  appliedEffects:
+  - {fileID: 11400000, guid: 1ad4a8046e170354c881b6ad40f5c053, type: 2}
   ccTypes: 
   specificEffects:
   - {fileID: 11400000, guid: 7dc0c7f2fa9672843835c8b41501c119, type: 2}
+  hasAllEffects: 0
   checkTarget: 1
   effectTarget: 1
   consumeEffect: 0

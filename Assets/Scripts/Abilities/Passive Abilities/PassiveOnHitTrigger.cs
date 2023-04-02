@@ -97,8 +97,8 @@ public class PassiveOnHitTrigger : PassiveAbility
             }
         }
 
-        EffectManager.ApplyEffects(attacked, attacked, selfEffects, 1, this);
-        EffectManager.ApplyEffects(attacked, attacker, targetEffects, 1, this);
+        EffectManager.ApplyEffects(selfEffects, attacked, attacked, 1, this);
+        EffectManager.ApplyEffects(targetEffects, attacked, attacker, 1, this);
 
         ObjectUtilities.CreateSpecialEffects(casterSpecialEffects, attacked);
         ObjectUtilities.CreateSpecialEffects(targetSpecialEffects, attacker);
@@ -136,8 +136,8 @@ public class PassiveOnHitTrigger : PassiveAbility
             }
         }
 
-        EffectManager.ApplyEffects(attacker, attacker, selfEffects, 1, this);
-        EffectManager.ApplyEffects(attacker, attacked, targetEffects, 1, this);
+        EffectManager.ApplyEffects(selfEffects, attacker, attacker, 1, this);
+        EffectManager.ApplyEffects(targetEffects, attacker, attacked, 1, this);
 
         ObjectUtilities.CreateSpecialEffects(casterSpecialEffects, attacker);
         ObjectUtilities.CreateSpecialEffects(targetSpecialEffects, attacked);

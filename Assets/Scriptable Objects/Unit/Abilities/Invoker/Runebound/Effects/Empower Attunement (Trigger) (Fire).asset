@@ -15,17 +15,24 @@ MonoBehaviour:
   name: Empower Attunement
   icon: {fileID: 0}
   hidden: 1
-  description: '<F>: Fire Damage increased by <1modV>% for <1d> Rounds.'
+  description: '<F>: Fire Damage increased by <applied1modV>% for <applied1d> Rounds.'
   isBuff: 0
   procType: 0
   duration: 1
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
   removeEffects: []
   conditionalEffectType: 2
-  conditionalEffect: {fileID: 11400000, guid: 5da5b02ad77b47a458a27f857ffa831e, type: 2}
+  appliedEffects:
+  - {fileID: 11400000, guid: 5da5b02ad77b47a458a27f857ffa831e, type: 2}
   ccTypes: 
   specificEffects:
   - {fileID: 11400000, guid: fedd61971c870ce448f88acc4e4e27ab, type: 2}
+  hasAllEffects: 0
   checkTarget: 1
   effectTarget: 1
   consumeEffect: 0

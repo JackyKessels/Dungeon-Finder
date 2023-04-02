@@ -144,6 +144,10 @@ public class AbilitySource
 
         float totalValue = totalBase + totalScaling * totalAttribute * modifier;
 
+        // There is no base or scaling, so should not be shown
+        if (totalBase + totalScaling == 0)
+            return -1;
+
         if (!ignoreMultipliers)
             totalValue = AddSchoolMultiplier(totalValue, school, caster);
 
@@ -176,7 +180,9 @@ public class AbilitySource
         if (modifier != null)
             modifier.TriggerModifier(abilityValue, level);
 
-        abilityValue.Trigger();
+        // No value were filled in, do not trigger it
+        if (value != -1)
+            abilityValue.Trigger();
     }
 
     // Uses stored value for effects

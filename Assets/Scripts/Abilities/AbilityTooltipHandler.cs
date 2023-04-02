@@ -30,9 +30,9 @@ public static class AbilityTooltipHandler
     {
         string temp = s;
 
-        temp = ParseEffectTooltips(tooltipInfo, selfEffects, temp, "s");
+        temp = ParseEffectTooltips(temp, "s", selfEffects, tooltipInfo);
 
-        temp = ParseEffectTooltips(tooltipInfo, targetEffects, temp, "t");
+        temp = ParseEffectTooltips(temp, "t", targetEffects, tooltipInfo);
 
         return temp;
     }
@@ -122,7 +122,7 @@ public static class AbilityTooltipHandler
         return temp;
     }
 
-    public static string ParseEffectTooltips(TooltipObject tooltipInfo, List<EffectObject> effects, string temp, string check)
+    public static string ParseEffectTooltips(string temp, string check, List<EffectObject> effects, TooltipObject tooltipInfo)
     {
         for (int i = 0; i < effects.Count; i++)
         {
