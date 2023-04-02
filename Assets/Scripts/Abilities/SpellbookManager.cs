@@ -38,7 +38,7 @@ public class SpellbookManager : MonoBehaviour
     public Button nextPassivesPage;
     public Button previousPassivesPage;
     private int passiveAbilitiesPage = 0;
-    private readonly int passiveAbilitiesTotalSlots = 4;
+    private readonly int passiveAbilitiesTotalSlots = 8;
 
     public GameObject collectionContainer;      // Container object that holds all available abilities
 
@@ -103,7 +103,7 @@ public class SpellbookManager : MonoBehaviour
         }
     }
 
-    private void SetActiveSlotInactive(int slot)
+    public void SetActiveSlotInactive(int slot)
     {
         currentHero.spellbook.activeSpellbook[slot] = new Active(null, 0);
         activeAbilities[slot].GetComponent<TooltipObject>().active = new Active(null, 0);
@@ -308,7 +308,8 @@ public class SpellbookManager : MonoBehaviour
     {
         if (currentHero.spellbook.passives.Count > passiveAbilitiesTotalSlots)
         {
-            passiveAbilitiesPage = GetCorrectPageCount() - 1;
+            // Last Page
+            //passiveAbilitiesPage = GetCorrectPageCount() - 1;
             SetPassiveButtonState(true);
         }
         else

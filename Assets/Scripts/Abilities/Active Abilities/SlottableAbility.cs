@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SlottableAbility : MonoBehaviour
+public class SlottableAbility : MonoBehaviour, IPointerClickHandler
 {
     public int slot;
 
@@ -15,6 +15,24 @@ public class SlottableAbility : MonoBehaviour
         ObjectUtilities.AddEvent(gameObject, EventTriggerType.BeginDrag, delegate { OnDragStart(gameObject); });
         ObjectUtilities.AddEvent(gameObject, EventTriggerType.EndDrag, delegate { OnDragEnd(gameObject); });
         ObjectUtilities.AddEvent(gameObject, EventTriggerType.Drag, delegate { OnDrag(gameObject); });
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+
+        }
+
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            UnslotAbility();
+        }
+    }
+
+    private void UnslotAbility()
+    {
+        SpellbookManager.Instance.SetActiveSlotInactive(slot);
     }
 
     public void OnEnter(GameObject obj)

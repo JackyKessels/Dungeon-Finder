@@ -21,7 +21,7 @@ public class AbilityOptionsWindow : MonoBehaviour
 
     private void Update()
     {
-        if (KeyboardHandler.Escape())
+        if (KeyboardHandler.ProgressWindow())
         {
             Refund();
         }
