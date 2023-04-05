@@ -7,7 +7,7 @@ public static class SaveSystem
     public static void SaveTeam(Team team)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Path.Combine(Application.persistentDataPath, "/team.psd");
+        string path = Path.Combine(Application.persistentDataPath, "Save_Slot_1.dat");
 
         using (FileStream stream = new FileStream(path, FileMode.Create))
         {
@@ -19,7 +19,7 @@ public static class SaveSystem
 
     public static TeamData LoadTeam()
     {
-        string path = Path.Combine(Application.persistentDataPath, "/team.psd");
+        string path = Path.Combine(Application.persistentDataPath, "Save_Slot_1.dat");
 
         if (File.Exists(path))
         {
@@ -32,7 +32,7 @@ public static class SaveSystem
         }
         else
         {
-            GameManager.Instance.Introduction1();
+            // GameManager.Instance.Introduction1();
 
             Debug.Log("No save file. :(");
             return null;

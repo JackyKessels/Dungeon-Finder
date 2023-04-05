@@ -22,8 +22,8 @@ MonoBehaviour:
   baseHealth: 750
   basePower: 35
   baseWisdom: 0
-  baseArmor: 18
-  baseResistance: 0
+  baseArmor: 11
+  baseResistance: 25
   baseVitality: 0
   speed: 3
   accuracy: 80
@@ -44,11 +44,24 @@ MonoBehaviour:
   currencyRewards:
   - currencyType: 0
     totalAmount: 50
-  itemDrops: []
+  itemDrops:
+  - itemObject: {fileID: 0}
+    amount: 0
+    weight: 2
+  - itemObject: {fileID: 11400000, guid: ab57594b34c8d1f4a9b670d053ac3f73, type: 2}
+    amount: 1
+    weight: 1
   randomAbility: 0
   abilities:
+  - ability: {fileID: 11400000, guid: 176ae01e18f1d044da049e5ae9e0ead2, type: 2}
+    target: 2
+    targetAttribute: 6
+    condition: 0
+    startCooldown: 1
+    charged: 0
   - ability: {fileID: 11400000, guid: d2f9ea3205e7f5145ab6905bc24661b0, type: 2}
     target: 0
+    targetAttribute: 0
     condition: 0
     startCooldown: 0
     charged: 0

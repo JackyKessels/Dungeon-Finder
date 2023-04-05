@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5d8964ff6732a478daba8589bfd458, type: 3}
   m_Name: Boss Test
   m_EditorClassIdentifier: 
-  name: Boss Test
+  name: Boss
   recommendedMinimumLevel: 1
   recommendedMaximumLevel: 99
   nameColor: {r: 1, g: 0, b: 0.018810749, a: 1}
   floors:
-  - name: 
+  - name: Test
     dungeonBackground: {fileID: 0}
     battleBackground: {fileID: 0}
     backgroundSound: {fileID: 0}
@@ -35,23 +35,30 @@ MonoBehaviour:
     treasureCount: 0
     mysteryCount: 0
     spiritColumns: 
+    wellRestedEffect: {fileID: 0}
+    wellRestedChance: 0
     itemPool: []
     trashEncounters:
     - enemyObjects:
-      - {fileID: 11400000, guid: a9200d19756006b48805609fa24ebf0a, type: 2}
+      - {fileID: 11400000, guid: 45d3fc0619a68b04e9e4f0baf268cf1d, type: 2}
+      randomOrder: 1
       weight: 1
     - enemyObjects:
       - {fileID: 11400000, guid: 81af47cd6e032b74d92ab8ef6860fe49, type: 2}
+      randomOrder: 1
       weight: 1
     - enemyObjects:
       - {fileID: 11400000, guid: 4b03e6418cf01c742ae0d5a5757895c9, type: 2}
+      randomOrder: 0
       weight: 1
     - enemyObjects:
       - {fileID: 11400000, guid: 6ce95a10a91101946b85ad2553a6e54b, type: 2}
       - {fileID: 11400000, guid: a401d806e596eaf4bb79f1af9ae6b10f, type: 2}
+      randomOrder: 1
       weight: 1
     - enemyObjects:
       - {fileID: 11400000, guid: 689bcd23c303b3f439c67e818508c117, type: 2}
+      randomOrder: 1
       weight: 1
     eliteEncounters: []
     bossEncounter:

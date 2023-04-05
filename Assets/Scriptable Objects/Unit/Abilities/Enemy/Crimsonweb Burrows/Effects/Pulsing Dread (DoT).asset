@@ -33,7 +33,7 @@ MonoBehaviour:
     triggersPassives: 1
     abilitySource:
       ignoreMultipliers: 0
-      cannotCrit: 0
+      cannotCrit: 1
       cannotMiss: 0
       ignorePassives: []
       school: 7

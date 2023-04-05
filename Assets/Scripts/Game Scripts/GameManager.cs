@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     private BattleManager battleManager;
     private TeamManager teamManager;
     private JourneyManager journeyManager;
+
     [HideInInspector] public CurrencyHandler currencyHandler;
 
     public AudioSource audioSource;
@@ -60,8 +61,10 @@ public class GameManager : MonoBehaviour
     public Canvas endUI;
     public Camera startCamera;
     public Camera endCamera;
+    public Button loadButton;
 
     [Header("[ Introduction ]")]
+    public TutorialManager tutorialManager;
     public GameObject introductionWindow1;
     public GameObject introductionWindow2;
     public GameObject introductionWindow3;
@@ -126,6 +129,9 @@ public class GameManager : MonoBehaviour
 
         titleElements = startUI.transform.GetChild(0);
         newGameElements = startUI.transform.GetChild(1);
+
+        if (SaveSystem.LoadTeam() == null)
+            loadButton.interactable = false;
     }
 
     public void EnableUI(Canvas ui)
@@ -260,6 +266,8 @@ public class GameManager : MonoBehaviour
         SKIP_BUTTON.SetActive(true);
 
         unlockedPaths = true;
+
+        tutorialManager.SkipTutorials = true;
 
         titleElements.gameObject.SetActive(false);
 

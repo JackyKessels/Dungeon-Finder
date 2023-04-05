@@ -71,6 +71,9 @@ public class TeamManager : MonoBehaviour
     {
         TeamData data = SaveSystem.LoadTeam();
 
+        if (data == null)
+            return;
+
         if (data.heroIndex_0 != -1)
         {
             Hero hero = CreateHero(data.heroIndex_0, 0, data.equipment_0);

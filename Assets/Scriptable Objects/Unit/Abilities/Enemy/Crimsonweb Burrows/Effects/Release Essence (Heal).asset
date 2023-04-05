@@ -20,12 +20,21 @@ MonoBehaviour:
   procType: 0
   duration: 1
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
   removeEffects: []
   timedActions:
   - actionType: 0
     actionTargets: 0
+    triggersPassives: 0
     abilitySource:
       ignoreMultipliers: 1
+      cannotCrit: 0
+      cannotMiss: 0
+      ignorePassives: []
       school: 0
       attributeType: 0
       baseValue: 25
@@ -34,18 +43,21 @@ MonoBehaviour:
       levelScaling: 0
       reductionType: 0
       modifier:
-        hasModifier: 0
-        modification: 0
+        hasModifier: 1
+        modification: 2
         condition: 0
         thresholdType: 0
         conditionThreshold: 0
         increasedAttribute: 0
         increaseValue: 0
         casterBased: 0
-        attributeBase: 0
-        percentageIncrease: 0
+        attributeBase: 2
+        percentageIncrease: 1
         bonusAbilitySource:
           ignoreMultipliers: 0
+          cannotCrit: 0
+          cannotMiss: 0
+          ignorePassive: []
           school: 0
           attributeType: 0
           baseValue: 0

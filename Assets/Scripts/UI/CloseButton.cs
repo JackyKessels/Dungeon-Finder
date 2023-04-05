@@ -10,4 +10,9 @@ public class CloseButton : MonoBehaviour
     {
         windowToClose.SetActive(false);
     }
+
+    public void DestroyWindow()
+    {
+        Destroy(windowToClose);
+    }
 }

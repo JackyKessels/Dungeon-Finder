@@ -111,6 +111,8 @@ public class HeroManager : MonoBehaviour, IUserInterface
 
     public void HeroInformationPathButton()
     {
+        gameManager.tutorialManager.UsingPathSystem();
+
         currentTab = HeroInformationTab.Path;
 
         OpenHeroInformation();
