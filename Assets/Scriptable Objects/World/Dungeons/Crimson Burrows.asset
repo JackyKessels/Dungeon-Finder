@@ -118,7 +118,7 @@ MonoBehaviour:
       amount: 1
       weight: 1
     - itemObject: {fileID: 11400000, guid: 85f6f2b7c99bf55428a0033f14755e9b, type: 2}
-      amount: 5
+      amount: 4
       weight: 2
     - itemObject: {fileID: 11400000, guid: a59beb3bea1f71645bb09ef59fa873a5, type: 2}
       amount: 3
@@ -192,18 +192,21 @@ MonoBehaviour:
     wellRestedEffect: {fileID: 0}
     wellRestedChance: 0
     itemPool:
-    - itemObject: {fileID: 11400000, guid: 1b677da83272f904c9c47a92f070c498, type: 2}
-      amount: 1
-      weight: 2
-    - itemObject: {fileID: 11400000, guid: fbf6a738f3bdb6f47b54175a4bc82628, type: 2}
+    - itemObject: {fileID: 11400000, guid: ec3af5e8d3b29674793c7665102b479d, type: 2}
       amount: 1
       weight: 1
-    - itemObject: {fileID: 11400000, guid: 74e556b20bdcb044cbda44cf45138754, type: 2}
+    - itemObject: {fileID: 11400000, guid: f52243a338ebdbf4ab182eaced35d996, type: 2}
+      amount: 1
+      weight: 1
+    - itemObject: {fileID: 11400000, guid: 3dc8a6fa61c22d64a8b1c430c0c08c3f, type: 2}
+      amount: 1
+      weight: 1
+    - itemObject: {fileID: 11400000, guid: 5621ba4d5fa078c4b83d03458d510ae6, type: 2}
       amount: 1
       weight: 2
     - itemObject: {fileID: 11400000, guid: 85f6f2b7c99bf55428a0033f14755e9b, type: 2}
-      amount: 3
-      weight: 3
+      amount: 5
+      weight: 2
     trashEncounters:
     - enemyObjects:
       - {fileID: 11400000, guid: 0dd4bbfde238be6479975b797d721ea4, type: 2}

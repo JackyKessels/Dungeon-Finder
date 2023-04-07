@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8d8dc0d65bde7c4b9353b7ecd9c6998, type: 3}
-  m_Name: Resistant Ooze
+  m_Name: Shaded Stone
   m_EditorClassIdentifier: 
-  name: Resistant Ooze
-  icon: {fileID: 21300000, guid: e6f3e6f03f046334faa260c86e763434, type: 3}
-  value: 20
-  stackable: 1
+  name: Shaded Stone
+  icon: {fileID: 21300000, guid: c5d090d481741714fbe46c9cb094b4ea, type: 3}
+  value: 40
+  stackable: 0
   maxStacks: 3
   sellable: 1
   item:
     name: 
-    id: 74
+    id: 67
     itemObject: {fileID: 0}
     attributes: []
   description: 
   quality: 0
-  consumptionType: 0
+  consumptionType: 1
   usableOnDead: 0
   healthRestore: 0
   preBattleEffects:
-  - {fileID: 11400000, guid: d6933cc0408722e40967feacb5c6b1c7, type: 2}
+  - {fileID: 11400000, guid: a29857206ce6e234e90c85326a37131e, type: 2}

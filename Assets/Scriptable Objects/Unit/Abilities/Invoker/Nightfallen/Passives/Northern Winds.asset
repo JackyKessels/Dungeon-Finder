@@ -30,7 +30,7 @@ MonoBehaviour:
   activationMoment: 7
   castActiveAbilities:
   - activeAbility: {fileID: 11400000, guid: 8fbca1fdf00800448bba69fb89d75789, type: 2}
-    effectiveness: 0.8
+    effectiveness: 0.65
     abilityTarget: 4
   effects: []
   targets: 0

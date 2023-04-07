@@ -31,7 +31,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3aeb4d1831400904f8ea15893df1bdbc, type: 2}
   - {fileID: 11400000, guid: c702608cae8d30a4f8de6a94bcc583d5, type: 2}
   targets: 0
-  healthPercentage: 35
+  healthPercentage: 50
   attributeType: 0
   attributeValue: 0
   cooldown: 0

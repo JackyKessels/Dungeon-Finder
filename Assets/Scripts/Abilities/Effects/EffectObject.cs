@@ -42,14 +42,28 @@ public abstract class EffectObject : ScriptableObject, IDescribable
         }
         else
         {
-            if (effectObject.duration > 1)
+            if (effectObject.procType == ProcType.Turn)
             {
-                return effectObject.duration + " Rounds";
+                if (effectObject.duration > 1)
+                {
+                    return effectObject.duration + " Turns";
+                }
+                else
+                {
+                    return "1 Turn";
+                }
             }
             else
             {
-                return "1 Round";
-            }        
+                if (effectObject.duration > 1)
+                {
+                    return effectObject.duration + " Rounds";
+                }
+                else
+                {
+                    return "1 Round";
+                }
+            }   
         }
     }
 }
