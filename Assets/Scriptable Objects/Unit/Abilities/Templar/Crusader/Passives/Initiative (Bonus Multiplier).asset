@@ -32,7 +32,7 @@ MonoBehaviour:
   specificAbilities:
   - {fileID: 11400000, guid: 07ffbca9367ca99478e9d2cd39ae0e9f, type: 2}
   - {fileID: 11400000, guid: 3ee1f0920ecbf1246aaf96ba0a2548dc, type: 2}
-  - {fileID: 11400000, guid: f1cf393ed2ce5b242929bbd0002e8a5f, type: 2}
+  - {fileID: 11400000, guid: ec0aa385e198ac342a8e5be398a18755, type: 2}
   bonusMultiplier: 1.5
   bonusPerLevel: 0
   specialEffects:

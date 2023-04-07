@@ -19,8 +19,8 @@ MonoBehaviour:
   description: 'Deal <e1> <A> to your target.
 
 
-    <name> has 100% <accuracy> if
-    the target is below <e1conV>% <health>.'
+    A <critical> hit will reduce
+    the cooldown of a random ability by <e1modCE1cdr>.'
   icon: {fileID: 21300000, guid: 431c14f3d0fe40c4abfc341cd4578012, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
@@ -51,12 +51,12 @@ MonoBehaviour:
     reductionType: 2
     modifier:
       hasModifier: 1
-      modification: 1
-      condition: 4
+      modification: 4
+      condition: 5
       thresholdType: 1
-      conditionThreshold: 30
+      conditionThreshold: 0
       increasedAttribute: 1
-      increaseValue: 1000
+      increaseValue: 0
       casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
@@ -73,8 +73,9 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 0
-      effectOnTarget: 1
-      conditionalEffect: {fileID: 0}
+      effectOnTarget: 0
+      conditionalEffect: {fileID: 11400000, guid: a1b06cb6e851ebb408c2b5e6bd7f5c8b,
+        type: 2}
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []

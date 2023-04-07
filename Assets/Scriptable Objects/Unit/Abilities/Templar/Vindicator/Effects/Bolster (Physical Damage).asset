@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f61bd7798258c684cb135bcc9f1f3cfd, type: 3}
-  m_Name: Bolster (Power)
+  m_Name: Bolster (Physical Damage)
   m_EditorClassIdentifier: 
   name: Bolster
   icon: {fileID: 21300000, guid: 44fc9c4883ab490479ea6958dc252f3a, type: 3}
@@ -20,13 +20,21 @@ MonoBehaviour:
   procType: 1
   duration: 2
   permanent: 0
-  removeEffects: []
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  removeEffects:
+  - {fileID: 11400000}
   attributeModified: 10
   isIncrease: 1
   modifierType: 0
   modifierSource:
     ignoreMultipliers: 1
     cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 0
     attributeType: 10
     baseValue: 20
@@ -47,6 +55,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0

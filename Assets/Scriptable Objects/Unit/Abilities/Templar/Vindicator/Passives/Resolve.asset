@@ -24,8 +24,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: faa194240041eea4ba6447aa156896e3, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
-  hasLevels: 1
-  sellable: 1
+  hasLevels: 0
+  sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
   triggerType: 1

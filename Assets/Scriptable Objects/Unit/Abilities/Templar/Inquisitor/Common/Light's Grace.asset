@@ -27,7 +27,7 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 1
   cooldown: 6
-  initialCooldown: 0
+  initialCooldown: 1
   endTurn: 1
   resetChance: 0
   weaponRequirement: 4

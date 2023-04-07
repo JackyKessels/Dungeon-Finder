@@ -36,6 +36,7 @@ public class PassiveAddEffect : PassiveAbility
 
     [Header("[ Round Cooldown ]")]
     public int cooldown;
+    public bool castFirstRound = false;
 
     public override void ActivatePassive(Unit unit)
     {
@@ -56,9 +57,11 @@ public class PassiveAddEffect : PassiveAbility
         }
         else if (activationMoment == ActivationMoment.BelowAttributeValue || activationMoment == ActivationMoment.AboveAttributeValue)
         {
-            unit.OnStartBattle += CheckAttributeValue;
+            unit.OnStartBattle += TriggerAttributeValue;
             unit.statsManager.OnReceiveUnitEvent += TriggerAttributeValue;
-            unit.OnRoundStart += CheckAttributeValue;
+            unit.OnRoundStart += TriggerAttributeValue;
+            // TODO: Fix the infinite loop
+            //unit.statsManager.OnAttributesChanged += TriggerAttributeValue;
         }
         else if (activationMoment == ActivationMoment.RoundCooldown)
         {
@@ -85,9 +88,11 @@ public class PassiveAddEffect : PassiveAbility
         }
         else if (activationMoment == ActivationMoment.BelowAttributeValue || activationMoment == ActivationMoment.AboveAttributeValue)
         {
-            unit.OnStartBattle -= CheckAttributeValue;
+            unit.OnStartBattle -= TriggerAttributeValue;
             unit.statsManager.OnReceiveUnitEvent -= TriggerAttributeValue;
-            unit.OnRoundStart -= CheckAttributeValue;
+            unit.OnRoundStart -= TriggerAttributeValue;
+            // TODO: Fix the infinite loop
+            //unit.statsManager.OnAttributesChanged -= TriggerAttributeValue;
         }
         else if (activationMoment == ActivationMoment.RoundCooldown)
         {
@@ -142,7 +147,17 @@ public class PassiveAddEffect : PassiveAbility
     {
         Unit attacked = abilityValue.target;
 
-        CheckAttributeValue(attacked);
+        CheckAttributeValue(attacked, attributeType);
+    }
+
+    private void TriggerAttributeValue(Unit unit)
+    {
+        CheckAttributeValue(unit, attributeType);
+    }
+
+    private void TriggerAttributeValue(Unit unit, AttributeType attributeType)
+    {
+        CheckAttributeValue(unit, attributeType);
     }
 
     private void TriggerOnDeath(AbilityValue abilityValue)
@@ -180,7 +195,7 @@ public class PassiveAddEffect : PassiveAbility
         }
     }
 
-    private void CheckAttributeValue(Unit unit)
+    private void CheckAttributeValue(Unit unit, AttributeType attributeType)
     {
         if (activationMoment == ActivationMoment.BelowAttributeValue)
         {
@@ -210,9 +225,24 @@ public class PassiveAddEffect : PassiveAbility
     {
         if (activationMoment == ActivationMoment.RoundCooldown)
         {
-            if (BattleManager.Instance.round % (cooldown + 1) == 0)
+            if (castFirstRound)
             {
-                TriggerPassiveEvent(unit);
+                // If CD = 3
+                // 1, 4, 7
+                if ((BattleManager.Instance.round == 1) ||
+                    (BattleManager.Instance.round % (cooldown + 1) == 1))
+                {
+                    TriggerPassiveEvent(unit);
+                }
+            }
+            else
+            {
+                // If CD = 3
+                // 3, 6, 9
+                if (BattleManager.Instance.round % (cooldown + 1) == 0)
+                {
+                    TriggerPassiveEvent(unit);
+                }
             }
         }
     }

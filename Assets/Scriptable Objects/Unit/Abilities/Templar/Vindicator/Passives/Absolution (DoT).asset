@@ -35,12 +35,12 @@ MonoBehaviour:
       ignoreMultipliers: 0
       cannotCrit: 0
       cannotMiss: 0
-      ignorePassive: {fileID: 0}
+      ignorePassives: []
       school: 6
       attributeType: 0
       baseValue: 0
       levelBase: 0
-      scaling: 0.02
+      scaling: 0.025
       levelScaling: 0
       reductionType: 2
       modifier:
@@ -58,7 +58,8 @@ MonoBehaviour:
           ignoreMultipliers: 0
           cannotCrit: 0
           cannotMiss: 0
-          ignorePassive: {fileID: 0}
+          ignorePassive:
+          - {fileID: 0}
           school: 0
           attributeType: 0
           baseValue: 0
