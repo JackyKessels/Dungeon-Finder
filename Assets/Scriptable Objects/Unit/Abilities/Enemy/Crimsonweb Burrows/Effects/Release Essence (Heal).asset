@@ -37,7 +37,7 @@ MonoBehaviour:
       ignorePassives: []
       school: 0
       attributeType: 0
-      baseValue: 25
+      baseValue: 40
       levelBase: 0
       scaling: 0
       levelScaling: 0

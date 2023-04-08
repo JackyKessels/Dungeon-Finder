@@ -13,12 +13,24 @@ public class ConsequenceObject : MonoBehaviour
     public void Setup(ConsequenceStructure consequenceStructure)
     {
         text.text = consequenceStructure.text;
-        firstImage.sprite = consequenceStructure.firstIcon;
+
+        if (consequenceStructure.firstIcon == null)
+        {
+            firstImage.gameObject.SetActive(false);
+        }
+        else
+        {
+            firstImage.sprite = consequenceStructure.firstIcon;
+        }
 
         if (consequenceStructure.secondIcon == null)
+        {
             secondImage.gameObject.SetActive(false);
+        }
         else
-            secondImage.sprite = consequenceStructure.secondIcon;
+        { 
+            secondImage.sprite = consequenceStructure.secondIcon; 
+        }
 
         if (consequenceStructure.tooltip)
         {

@@ -40,7 +40,7 @@ MonoBehaviour:
   critMultiplier: 150
   level: 3
   difficulty: 6
-  experienceReward: 125
+  experienceReward: 100
   currencyRewards:
   - currencyType: 1
     totalAmount: 20

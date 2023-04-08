@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Crusader
   icon: {fileID: 21300000, guid: af1f7016d6b2d9c4ab1a3debe69331b3, type: 3}
+  description: '- Physical Damage & Buffs'
   baseWeapons:
   - {fileID: 11400000, guid: 7b211fd9752c7564bbcf7e0128d18597, type: 2}
   primaryAbility: {fileID: 11400000, guid: 41add274c2e389145a6f0c9f0ff17c97, type: 2}

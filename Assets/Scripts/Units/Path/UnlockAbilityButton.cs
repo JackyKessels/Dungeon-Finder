@@ -32,15 +32,18 @@ public class UnlockAbilityButton : MonoBehaviour
     {
         string pathColor = "#FFEEA8";
 
-        string option1Color = "#00FF00";
-        string option2Color = "#FFFF00";
-        string option3Color = "#FF0000";
+        return string.Format("<color={0}>{1}</color>\n\n{2}", pathColor, heroPathObject.name, heroPathObject.description);
 
-        return string.Format("<color={0}>{1}</color>" +
-                             "\n" +
-                             "\nOption 1: <color={2}>100%</color> {1}" +
-                             "\nOption 2: <color={2}>100%</color> {1}" +
-                             "\nOption 3: <color={4}>0%</color> {1}", pathColor, heroPathObject.name, option1Color, option2Color, option3Color);
+
+        //string option1Color = "#00FF00";
+        //string option2Color = "#FFFF00";
+        //string option3Color = "#FF0000";
+
+        //return string.Format("<color={0}>{1}</color>" +
+        //                     "\n" +
+        //                     "\nOption 1: <color={2}>100%</color> {1}" +
+        //                     "\nOption 2: <color={2}>100%</color> {1}" +
+        //                     "\nOption 3: <color={4}>0%</color> {1}", pathColor, heroPathObject.name, option1Color, option2Color, option3Color);
     }
 
     private void SelectPath(HeroPathObject heroPathObject, Hero hero)

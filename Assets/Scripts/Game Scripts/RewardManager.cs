@@ -59,6 +59,8 @@ public class RewardManager : MonoBehaviour
         rewardsObject.SetActive(true);
         rewards = new List<Reward>();
 
+        ObjectUtilities.ClearContainer(rewardContainer);
+
         heroesToReward = teamManager.heroes.Members.Count;
         nextHero = 0;
     }
@@ -274,8 +276,6 @@ public class RewardManager : MonoBehaviour
                 SelectAttribute(button.GetComponent<RewardObject>().reward.attribute);
                 break;
         }
-
-        ObjectUtilities.ClearContainer(rewardContainer);
 
         if (type == RewardType.Item || type == RewardType.Currency)
         {

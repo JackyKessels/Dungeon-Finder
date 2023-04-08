@@ -8,6 +8,8 @@ public class HeroPathObject : ScriptableObject
     [Header("[ General ]")]
     public new string name;
     public Sprite icon;
+    [TextArea(4, 4)]
+    public string description;
 
     [Header("[ Starter Path ]")]
     public List<Equipment> baseWeapons;

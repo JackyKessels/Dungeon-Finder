@@ -39,11 +39,14 @@ public class BattleResultWindow : MonoBehaviour
         {
             foreach (Currency currency in currencies)
             {
-                AddBattleReward(currency);
+                if (currency.totalAmount > 0)
+                {
+                    AddBattleReward(currency);
 
-                GameManager.Instance.currencyHandler.IncreaseCurrency(currency);
+                    GameManager.Instance.currencyHandler.IncreaseCurrency(currency);
 
-                rewardCount++;
+                    rewardCount++;
+                }
             }
         }
 

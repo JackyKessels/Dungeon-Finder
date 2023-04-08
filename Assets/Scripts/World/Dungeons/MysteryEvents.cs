@@ -224,6 +224,8 @@ public class MysteryAction
                     dungeonManager.gridHandler.RefreshLocations(randomLocation);
 
                     randomLocation.SetVisited();
+
+                    consequenceStructures.Add(new ConsequenceStructure("You have been moved to a random location.", null, null));
                 }
                 break;
             default:

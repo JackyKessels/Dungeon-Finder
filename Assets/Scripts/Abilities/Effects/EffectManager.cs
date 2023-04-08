@@ -550,9 +550,11 @@ public class EffectManager : MonoBehaviour
 
 
 
-    public void OnExpiration(Effect e)
+    public void OnExpiration(Effect e, bool expireAll = false)
     {
-        effectsList.Remove(e);
+        // Only remove the effect from the list one-by-one
+        if (!expireAll)
+            effectsList.Remove(e);
 
         if (e.effectObject is EffectOverTime)
         {
@@ -655,13 +657,10 @@ public class EffectManager : MonoBehaviour
     {
         for (int i = effectsList.Count; i-- > 0;)
         {
-            OnExpiration(effectsList[i]);
-
-            // If the effect expiration kills the target, then ExpireAll() will trigger
-            // again because of RemoveMember().
-            //if (unit.statsManager.isDead)
-            //    break;
+            OnExpiration(effectsList[i], true);
         }
+
+        effectsList.Clear();
     }
 
     public bool HasEffect(EffectObject effectObject)
