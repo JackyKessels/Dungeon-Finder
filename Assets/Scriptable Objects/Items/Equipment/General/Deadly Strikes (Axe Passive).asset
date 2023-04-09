@@ -24,4 +24,9 @@ MonoBehaviour:
   sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
-  modifications: []
+  modifications:
+  - attributeModified: 8
+    isIncrease: 1
+    modifierType: 1
+    flatValue: 0
+    multiplierValue: 5

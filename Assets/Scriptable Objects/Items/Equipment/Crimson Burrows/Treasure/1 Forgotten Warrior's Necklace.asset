@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Forgotten Warrior's Necklace
   icon: {fileID: 21300000, guid: 46120bbed170ff44f81f46c02117b927, type: 3}
-  value: 0
+  value: 40
   stackable: 0
   maxStacks: 1
   sellable: 1

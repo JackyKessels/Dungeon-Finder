@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Primalist
   icon: {fileID: 21300000, guid: 06264afa70e582c42b72adae6b088536, type: 3}
+  description: '- Physical Damage & Debuffs'
   baseWeapons:
   - {fileID: 11400000, guid: c7ff259eb2100ac4b8f45c78db560063, type: 2}
   - {fileID: 11400000, guid: c7ff259eb2100ac4b8f45c78db560063, type: 2}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Venoxan Ring
   icon: {fileID: 21300000, guid: 96c6586d54c663a4db58c7b65ffbd96d, type: 3}
-  value: 0
+  value: 60
   stackable: 0
   maxStacks: 1
   sellable: 1

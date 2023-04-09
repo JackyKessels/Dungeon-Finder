@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Shadowfiend Fang
   icon: {fileID: 21300000, guid: b75ed27a78834a940842ea26c6788fbe, type: 3}
-  value: 0
+  value: 80
   stackable: 0
   maxStacks: 1
   sellable: 1

@@ -8968,13 +8968,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 11400000, guid: ad4d72fbf4442d942942755c813a7c08, type: 2}
-  - {fileID: 11400000, guid: 1b677da83272f904c9c47a92f070c498, type: 2}
-  - {fileID: 11400000, guid: d54e85951334f0d4789b4ab447524654, type: 2}
-  - {fileID: 11400000, guid: 61e92c3157b2fb441967761ec8664631, type: 2}
   - {fileID: 11400000, guid: db43b75b6180e064598310693230ca7d, type: 2}
+  - {fileID: 11400000, guid: 61e92c3157b2fb441967761ec8664631, type: 2}
   - {fileID: 11400000, guid: 0e1a87c451710bb4b90483ac36cae661, type: 2}
   - {fileID: 11400000, guid: edfb06ae9132ebc4c975c716d9d58b1e, type: 2}
-  - {fileID: 11400000, guid: fbf6a738f3bdb6f47b54175a4bc82628, type: 2}
+  - {fileID: 11400000, guid: 1b677da83272f904c9c47a92f070c498, type: 2}
 --- !u!1 &417081534
 GameObject:
   m_ObjectHideFlags: 0
@@ -11305,14 +11303,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 11400000, guid: 2fd74b68355f617418891cd4ca276275, type: 2}
-  - {fileID: 11400000, guid: 4a5da500e6191904d911691bf6330968, type: 2}
-  - {fileID: 11400000, guid: f3469f88b0dc25b4484bfa50995c890b, type: 2}
-  - {fileID: 11400000, guid: acdb4f3da0147e84085f2b8fdbe1bc09, type: 2}
-  - {fileID: 11400000, guid: b100b78b2f0928e4e9587480157ca09f, type: 2}
-  - {fileID: 11400000, guid: 208b6673db131fb44ae31518e7c4444e, type: 2}
-  - {fileID: 11400000, guid: fee08737e3382da4cad72139df036ce7, type: 2}
-  - {fileID: 11400000, guid: 9551c5fc36c479540b6f46d561b21b7c, type: 2}
   - {fileID: 11400000, guid: 38c70f5c05c5d2249b579482d0845527, type: 2}
+  - {fileID: 11400000, guid: acdb4f3da0147e84085f2b8fdbe1bc09, type: 2}
+  - {fileID: 11400000, guid: f3469f88b0dc25b4484bfa50995c890b, type: 2}
+  - {fileID: 11400000, guid: 9551c5fc36c479540b6f46d561b21b7c, type: 2}
+  - {fileID: 11400000, guid: 208b6673db131fb44ae31518e7c4444e, type: 2}
+  - {fileID: 11400000, guid: b100b78b2f0928e4e9587480157ca09f, type: 2}
+  - {fileID: 11400000, guid: fee08737e3382da4cad72139df036ce7, type: 2}
+  - {fileID: 11400000, guid: 4a5da500e6191904d911691bf6330968, type: 2}
 --- !u!1 &522637143
 GameObject:
   m_ObjectHideFlags: 0
@@ -16721,7 +16719,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Treasure - Gloomstalk Thicket
+  m_text: Treasure / Other - Gloomstalk Thicket
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02a595d32217990488a92337279e774f, type: 2}
   m_sharedMaterial: {fileID: 2834418323826619090, guid: 02a595d32217990488a92337279e774f,
@@ -22092,13 +22090,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: 672709d438a07224bb239ba8dbf5fe7f, type: 2}
-  - {fileID: 11400000, guid: e4f6e618145e8054c98661a623ace905, type: 2}
-  - {fileID: 11400000, guid: aac92a78a6d3e35428bab44f80d0249e, type: 2}
   - {fileID: 11400000, guid: 0810c68dda8cb5e43985dafefedfe6aa, type: 2}
-  - {fileID: 11400000, guid: ab57594b34c8d1f4a9b670d053ac3f73, type: 2}
-  - {fileID: 11400000, guid: 9636dcb6d6b4fde4fa0e4a2c3bf9d0fa, type: 2}
+  - {fileID: 11400000, guid: aac92a78a6d3e35428bab44f80d0249e, type: 2}
+  - {fileID: 11400000, guid: 1d94f840637e67c4887aa2c8de1f10d7, type: 2}
   - {fileID: 11400000, guid: a31424e9327f4da4a8e7b1de63951535, type: 2}
+  - {fileID: 11400000, guid: 9636dcb6d6b4fde4fa0e4a2c3bf9d0fa, type: 2}
+  - {fileID: 11400000, guid: abca1ab87bbb901479a184a485c67532, type: 2}
 --- !u!114 &979123974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34899,7 +34896,7 @@ GameObject:
   - component: {fileID: 1577386324}
   - component: {fileID: 1577386323}
   m_Layer: 5
-  m_Name: Treasure - Crimson Burrows
+  m_Name: Treasure / Other - Crimson Burrows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34948,6 +34945,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ec3af5e8d3b29674793c7665102b479d, type: 2}
   - {fileID: 11400000, guid: f52243a338ebdbf4ab182eaced35d996, type: 2}
   - {fileID: 11400000, guid: 3dc8a6fa61c22d64a8b1c430c0c08c3f, type: 2}
+  - {fileID: 11400000, guid: fbf6a738f3bdb6f47b54175a4bc82628, type: 2}
+  - {fileID: 11400000, guid: 313f4790924acad4cbb951955ecdf1c4, type: 2}
 --- !u!114 &1577386324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35267,7 +35266,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Treasure - Crimson Burrows
+  m_text: Treasure / Other - Crimson Burrows
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02a595d32217990488a92337279e774f, type: 2}
   m_sharedMaterial: {fileID: 2834418323826619090, guid: 02a595d32217990488a92337279e774f,
@@ -36866,7 +36865,7 @@ GameObject:
   - component: {fileID: 1686442960}
   - component: {fileID: 1686442959}
   m_Layer: 5
-  m_Name: Treasure - Gloomstalk Thicket
+  m_Name: Treasure / Other - Gloomstalk Thicket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36906,8 +36905,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: 1d94f840637e67c4887aa2c8de1f10d7, type: 2}
-  - {fileID: 11400000, guid: abca1ab87bbb901479a184a485c67532, type: 2}
+  - {fileID: 11400000, guid: e4f6e618145e8054c98661a623ace905, type: 2}
+  - {fileID: 11400000, guid: 25c3a5f31d8a1f24d81fb0212b7f4518, type: 2}
 --- !u!114 &1686442960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42658,8 +42657,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: 1d94f840637e67c4887aa2c8de1f10d7, type: 2}
-  - {fileID: 11400000, guid: abca1ab87bbb901479a184a485c67532, type: 2}
+  - {fileID: 11400000, guid: 672709d438a07224bb239ba8dbf5fe7f, type: 2}
+  - {fileID: 11400000, guid: 30070842ffdd55c4d9fc17cfeff4920c, type: 2}
+  - {fileID: 11400000, guid: ab57594b34c8d1f4a9b670d053ac3f73, type: 2}
 --- !u!114 &1970926567
 MonoBehaviour:
   m_ObjectHideFlags: 0

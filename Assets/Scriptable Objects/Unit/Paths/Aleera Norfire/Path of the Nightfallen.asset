@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Nightfallen
   icon: {fileID: 21300000, guid: 67ddbe5f491a80c48b329a50567fc49d, type: 3}
+  description: '- Ice & Shadow Damage'
   baseWeapons:
   - {fileID: 11400000, guid: c5ca182b3eae2d14abe556750bf11f9e, type: 2}
   - {fileID: 11400000, guid: 3e4b13cf8e9b30f4ab792728a94e9fb7, type: 2}

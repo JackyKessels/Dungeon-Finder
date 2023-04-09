@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Windspeaker
   icon: {fileID: 21300000, guid: 7434b6209ca803d419f81d14c664ed0c, type: 3}
+  description: '- Nature Damage & Buffs'
   baseWeapons:
   - {fileID: 11400000, guid: 42b4c394e6d30874d95a3b1e84652b7b, type: 2}
   primaryAbility: {fileID: 11400000, guid: a0fa36ddf9f76db49ba44a42e4b02f88, type: 2}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Spellbinder Signet
   icon: {fileID: 21300000, guid: e7e2e99daa0ee9d4e9071bb68aafed66, type: 3}
-  value: 0
+  value: 40
   stackable: 0
   maxStacks: 1
   sellable: 1

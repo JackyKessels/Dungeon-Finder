@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 'Lost Tome: Ravage'
   icon: {fileID: 21300000, guid: 33e87258816545148918ee488e998eb0, type: 3}
-  value: 50
+  value: 100
   stackable: 0
   maxStacks: 1
   sellable: 1

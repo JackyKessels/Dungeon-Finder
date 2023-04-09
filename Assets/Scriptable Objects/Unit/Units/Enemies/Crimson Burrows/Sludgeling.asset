@@ -38,12 +38,12 @@ MonoBehaviour:
   holyMultiplier: 100
   shadowMultiplier: 100
   critMultiplier: 150
-  level: 1
-  difficulty: 5
+  level: 2
+  difficulty: 2
   experienceReward: 15
   currencyRewards:
   - currencyType: 0
-    totalAmount: 1
+    totalAmount: 20
   itemDrops:
   - itemObject: {fileID: 0}
     amount: 0
@@ -55,11 +55,13 @@ MonoBehaviour:
   abilities:
   - ability: {fileID: 11400000, guid: 3f726a4b3f9fcf34babb8d410b8e83fe, type: 2}
     target: 0
+    targetAttribute: 0
     condition: 0
     startCooldown: 0
     charged: 0
   - ability: {fileID: 11400000, guid: a8e5ee30e7f8ebc429e0210d5e1e456d, type: 2}
     target: 0
+    targetAttribute: 0
     condition: 0
     startCooldown: 0
     charged: 0

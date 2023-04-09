@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Cracked Iron Helmet
   icon: {fileID: 21300000, guid: 6155715af42bf2e468c4d36a97050d0d, type: 3}
-  value: 0
+  value: 60
   stackable: 0
   maxStacks: 1
   sellable: 1
