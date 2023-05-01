@@ -197,6 +197,7 @@ public class ActionBar : MonoBehaviour
             {
                 b.SetInteractable(false);
 
+                // Swift ability
                 if (currentHero.spellbook.activeSpellbook[i].currentCooldown > currentHero.spellbook.activeSpellbook[i].cooldown)
                 //if (!currentHero.spellbook.activeSpellbook[i].activeAbility.endTurn && expendedTurn)
                 {

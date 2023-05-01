@@ -14,7 +14,7 @@ public class AbilityOptionsWindow : MonoBehaviour
     private Hero hero;
     private Currency cost;
 
-    private readonly int abilityOptions = 2;
+    private readonly int abilityOptions = 3;
     private readonly int offspecOptions = 1;
 
     private readonly int priceMultiplier = 5;
