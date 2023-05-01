@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Spellfrost Lance
   m_EditorClassIdentifier: 
-  id: 165
+  id: 162
   name: Spellfrost Lance
   quality: 0
   abilityType: 2
@@ -47,8 +47,8 @@ MonoBehaviour:
     attributeType: 2
     baseValue: 0
     levelBase: 0
-    scaling: 0.9
-    levelScaling: 0.18
+    scaling: 0.8
+    levelScaling: 0.16
     reductionType: 2
     modifier:
       hasModifier: 1
@@ -84,8 +84,8 @@ MonoBehaviour:
     attributeType: 2
     baseValue: 0
     levelBase: 0
-    scaling: 0.9
-    levelScaling: 0.18
+    scaling: 0.8
+    levelScaling: 0.16
     reductionType: 2
     modifier:
       hasModifier: 1

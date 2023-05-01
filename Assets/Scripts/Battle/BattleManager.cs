@@ -50,8 +50,6 @@ public class BattleManager : MonoBehaviour, IUserInterface
     private InventoryManager inventoryManager;
     private TooltipHandler tooltipHandler;
 
-    private AudioSource audioSource;
-
     [Header("[ Teams ]")]
     public Transform positions;
 
@@ -84,8 +82,6 @@ public class BattleManager : MonoBehaviour, IUserInterface
         teamManager = TeamManager.Instance;
         inventoryManager = InventoryManager.Instance;
         tooltipHandler = TooltipHandler.Instance;
-
-        audioSource = gameManager.audioSource;
     }
 
     private void Update()
@@ -802,7 +798,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
     private void CastAnimation(Active a)
     {
         if (a.activeAbility.soundEffect != null)
-            audioSource.PlayOneShot(a.activeAbility.soundEffect);
+            gameManager.audioSourceSFX.PlayOneShot(a.activeAbility.soundEffect);
 
         if (a.activeAbility.animationType == AnimationType.Attack)
         {

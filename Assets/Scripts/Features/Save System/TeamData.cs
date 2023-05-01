@@ -94,8 +94,6 @@ public class TeamData
         InventoryManager inventoryManager = InventoryManager.Instance;
         TownManager townManager = TownManager.Instance;
 
-        //
-
         isTutorial = townManager.isTutorial;
         gameState = (int)gameManager.gameState;
         unlockedPaths = gameManager.unlockedPaths;

@@ -28,8 +28,6 @@ public class TownManager : MonoBehaviour, IUserInterface
     private TeamManager teamManager;
     private CurrencyHandler currencyHandler;
 
-    public AudioSource audioSource;
-
     [Header("[ Sound ]")]
     public AudioClip stratfordAmbient;
     public AudioClip openMap;
@@ -89,10 +87,6 @@ public class TownManager : MonoBehaviour, IUserInterface
         dungeonManager = DungeonManager.Instance;
         teamManager = TeamManager.Instance;
         currencyHandler = gameManager.currencyHandler;
-
-        audioSource = gameManager.audioSource;
-
-
     }
 
     private void Update()
@@ -141,7 +135,7 @@ public class TownManager : MonoBehaviour, IUserInterface
     {
         DamageMeterManager.Instance.InitializeDamageMeters();
 
-        audioSource.FadeIn(stratfordAmbient, 0.5f);
+        gameManager.audioSourceAmbient.FadeIn(stratfordAmbient, 0.5f);
 
         gameManager.gameState = GameState.TOWN;
 
@@ -171,12 +165,16 @@ public class TownManager : MonoBehaviour, IUserInterface
             return;
         }
 
-        audioSource.FadeOut(0.5f);
+        gameManager.audioSourceAmbient.FadeOut(0.5f);
 
         if (dungeon.floors[0].backgroundSound != null)
         {
-            audioSource.clip = dungeon.floors[0].backgroundSound;
-            audioSource.Play();
+            gameManager.audioSourceAmbient.clip = dungeon.floors[0].backgroundSound;
+            gameManager.audioSourceAmbient.Play();
+        }
+        else
+        {
+            gameManager.audioSourceAmbient.Stop();
         }
 
         TooltipHandler.Instance.HideTooltip();
@@ -255,7 +253,7 @@ public class TownManager : MonoBehaviour, IUserInterface
 
         if (!shop.ActiveSelf())
         {
-            gameManager.audioSource.PlayOneShot(GameAssets.i.coins);
+            gameManager.audioSourceSFX.PlayOneShot(GameAssets.i.coins);
 
             gameManager.tutorialManager.ShowLearningAbilities();
 
@@ -267,7 +265,7 @@ public class TownManager : MonoBehaviour, IUserInterface
         }
         else
         {
-            gameManager.audioSource.PlayOneShot(GameAssets.i.click);
+            gameManager.audioSourceSFX.PlayOneShot(GameAssets.i.click);
 
             shop.SetActive(false);
         }
@@ -286,13 +284,13 @@ public class TownManager : MonoBehaviour, IUserInterface
 
             SetupMap();
 
-            audioSource.PlayOneShot(openMap, 0.75f);
+            gameManager.audioSourceSFX.PlayOneShot(openMap, 0.75f);
         }
         else
         {
             mapObject.SetActive(false);
 
-            audioSource.PlayOneShot(closeMap, 0.75f);
+            gameManager.audioSourceSFX.PlayOneShot(closeMap, 0.75f);
         }
     }
 

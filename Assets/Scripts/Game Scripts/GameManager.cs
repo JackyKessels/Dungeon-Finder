@@ -41,7 +41,8 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public CurrencyHandler currencyHandler;
 
-    public AudioSource audioSource;
+    public AudioSource audioSourceAmbient;
+    public AudioSource audioSourceSFX;
 
     public GameState gameState;
 
@@ -94,6 +95,7 @@ public class GameManager : MonoBehaviour
     public CameraScript cameraScript;
     public EnemyDatabase enemyDatabase;
     public MapButton mapButton;
+    public OptionsManager optionsManager;
 
     [Header("[ Inventory ]")]
     public GameObject inventoryContainer;
@@ -125,13 +127,13 @@ public class GameManager : MonoBehaviour
         journeyManager = new JourneyManager(endUI);
         currencyHandler = GetComponent<CurrencyHandler>();
 
-        audioSource = GetComponent<AudioSource>();
+        audioSourceAmbient = GetComponent<AudioSource>();
 
         titleElements = startUI.transform.GetChild(0);
         newGameElements = startUI.transform.GetChild(1);
 
-        if (SaveSystem.LoadTeam() == null)
-            loadButton.interactable = false;
+        //if (SaveSystem.LoadTeam() == null)
+        //    loadButton.interactable = false;
     }
 
     public void EnableUI(Canvas ui)

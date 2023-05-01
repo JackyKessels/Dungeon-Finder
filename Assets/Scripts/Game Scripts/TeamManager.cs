@@ -71,6 +71,9 @@ public class TeamManager : MonoBehaviour
     {
         TeamData data = SaveSystem.LoadTeam();
 
+        //gameManager.optionsManager.LoadAmbientVolume();
+        //gameManager.optionsManager.LoadSFXVolume();
+
         if (data == null)
             return;
 

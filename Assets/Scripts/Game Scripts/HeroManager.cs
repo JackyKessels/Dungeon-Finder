@@ -200,7 +200,7 @@ public class HeroManager : MonoBehaviour, IUserInterface
     {
         if (gameManager.gameState != GameState.BATTLE)
         {
-            gameManager.audioSource.PlayOneShot(GameAssets.i.click);
+            gameManager.audioSourceSFX.PlayOneShot(GameAssets.i.click);
 
             // If not open
             if (!heroInformationObject.activeSelf)

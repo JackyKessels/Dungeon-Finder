@@ -8,7 +8,7 @@ public static class SoundUtilities
 {
     public static void PlayClick()
     {
-        GameManager.Instance.audioSource.PlayOneShot(GameAssets.i.click);
+        GameManager.Instance.audioSourceSFX.PlayOneShot(GameAssets.i.click);
     }
 
 }
