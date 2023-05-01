@@ -155,6 +155,17 @@ public class Team
         }
     }
 
+    public void SetInvulnerable(bool invulnerable)
+    {
+        foreach (Unit unit in members)
+        {
+            if (unit != null)
+            {
+                unit.statsManager.isInvulnerable = invulnerable;
+            }
+        }
+    }
+
     public void ExpireEffects()
     {
         foreach (Unit unit in Members)

@@ -223,9 +223,9 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
     void EndBattle()
     {
-        //StopAllCoroutines();
-
+        teamManager.heroes.SetInvulnerable(true);
         teamManager.heroes.ExpireEffects();
+        teamManager.heroes.SetInvulnerable(false);
 
         battleHUD.Refresh();
 

@@ -43,6 +43,8 @@ public class StatsManager
 {
     public int currentHealth;
     public bool isDead = false;
+    public bool isInvulnerable = false;
+
     [SerializeField] private List<Attribute> attributes;
 
     public UnitEvent OnReceiveUnitEvent;
@@ -246,30 +248,40 @@ public class StatsManager
 
     public void TakeDamage(AbilityValue abilityValue, bool allowDamageTransfer)
     {
-        Effect damageTransferEffect = unit.effectManager.GetHighestDamageTransfer();
-
-        if (damageTransferEffect != null && allowDamageTransfer)
+        if (isInvulnerable)
         {
-            EffectDamageTransfer damageTransfer = damageTransferEffect.effectObject as EffectDamageTransfer;
+            //Color color = new Color(1f, 1f, 1f);
 
-            AbilityValue transferValue = new AbilityValue(abilityValue.sourceAbility, false, true, abilityValue.value * damageTransfer.percentage, abilityValue.school, abilityValue.abilityType, abilityValue.cannotCrit, abilityValue.cannotMiss, abilityValue.target, damageTransferEffect.caster, abilityValue.color, abilityValue.isUnitTrigger, abilityValue.ignorePassives);
-
-            transferValue.value = unit.statsManager.CalculateMitigatedDamage(transferValue.value, GeneralUtilities.GetReductionType(transferValue.school));
-
-            damageTransferEffect.caster.statsManager.TakeDamage(transferValue, false);
-
-            abilityValue.value *= (1 - damageTransfer.percentage);
+            //FCTData fctData = new FCTData(false, unit, "Invulnerable", color);
+            //unit.fctHandler.AddToFCTQueue(fctData);
         }
+        else
+        {
+            Effect damageTransferEffect = unit.effectManager.GetHighestDamageTransfer();
 
-        currentHealth -= abilityValue.Rounded();
+            if (damageTransferEffect != null && allowDamageTransfer)
+            {
+                EffectDamageTransfer damageTransfer = damageTransferEffect.effectObject as EffectDamageTransfer;
 
-        // Show damage dealt
-        FCTData fctData = new FCTData(true, unit, abilityValue.Rounded().ToString(), abilityValue.isGlancing, abilityValue.isCritical, abilityValue.color, abilityValue.color);
-        unit.fctHandler.AddToFCTQueue(fctData);
+                AbilityValue transferValue = new AbilityValue(abilityValue.sourceAbility, false, true, abilityValue.value * damageTransfer.percentage, abilityValue.school, abilityValue.abilityType, abilityValue.cannotCrit, abilityValue.cannotMiss, abilityValue.target, damageTransferEffect.caster, abilityValue.color, abilityValue.isUnitTrigger, abilityValue.ignorePassives);
 
-        OnReceiveUnitEvent?.Invoke(abilityValue);
+                transferValue.value = unit.statsManager.CalculateMitigatedDamage(transferValue.value, GeneralUtilities.GetReductionType(transferValue.school));
 
-        CheckHealthStatus(abilityValue);
+                damageTransferEffect.caster.statsManager.TakeDamage(transferValue, false);
+
+                abilityValue.value *= (1 - damageTransfer.percentage);
+            }
+
+            currentHealth -= abilityValue.Rounded();
+
+            // Show damage dealt
+            FCTData fctData = new FCTData(true, unit, abilityValue.Rounded().ToString(), abilityValue.isGlancing, abilityValue.isCritical, abilityValue.color, abilityValue.color);
+            unit.fctHandler.AddToFCTQueue(fctData);
+
+            OnReceiveUnitEvent?.Invoke(abilityValue);
+
+            CheckHealthStatus(abilityValue);
+        }
     }
 
     public void TakeDamage(AbilitySchool school, int amount)
