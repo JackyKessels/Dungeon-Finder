@@ -16,8 +16,8 @@ MonoBehaviour:
   name: Righteous Purpose
   quality: 0
   abilityType: 3
-  description: Dealing damage with Primary attacks has a <%> chance to increase the
-    damage of your next Assault ability by <s1bonus>.
+  description: Dealing damage with <primary> attacks has a <%> chance to increase
+    the damage of your next <assault> ability by <s1bonus>.
   icon: {fileID: 21300000, guid: a22c987fe3d17424fb924b27ff2e59c6, type: 3}
   casterSpecialEffects:
   - {fileID: 6909870495878108212, guid: 1ff2ea23101a6aa45969c2b2b3aab1db, type: 3}

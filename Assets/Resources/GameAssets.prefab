@@ -91,7 +91,7 @@ MonoBehaviour:
   experienceIcon: {fileID: 21300000, guid: 556153c1b28e1e9438d69936872cb7a9, type: 3}
   shopItemPrefab: {fileID: 9120591279372793913, guid: caf5e69001fac2c4faa5ff201f119a69,
     type: 3}
-  health: {fileID: 21300000, guid: 0969e0adb36468241a24e02515a44937, type: 3}
+  health: {fileID: 21300000, guid: 60c2369d3dc7d3d47ae8a7620fb5865a, type: 3}
   power: {fileID: 21300000, guid: d7c2c68306566f143a7ec9171a69f10f, type: 3}
   wisdom: {fileID: 21300000, guid: aaeb2a718fb34ff40968d22c9e4c8140, type: 3}
   armor: {fileID: 21300000, guid: 8836cc6da15100945b1fa598402e3acb, type: 3}

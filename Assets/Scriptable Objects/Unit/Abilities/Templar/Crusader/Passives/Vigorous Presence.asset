@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
   m_Name: Vigorous Presence
   m_EditorClassIdentifier: 
-  id: 168
+  id: 164
   name: Vigorous Presence
   quality: 0
   abilityType: 3
-  description: 'Your Primary attacks have a <%> chance to cast a <castInfo1> on a
-    random ally.
+  description: 'Your <primary> attacks have a <%> chance to cast a <castInfo1> on
+    a random ally.
 
 
     <castTooltip1>'
@@ -41,6 +41,7 @@ MonoBehaviour:
   abilitySources: []
   castActiveAbilities:
   - activeAbility: {fileID: 11400000, guid: 695049b6390248747a8f18accf011f13, type: 2}
+    effectiveness: 1
     abilityTarget: 3
   selfEffectsPerTarget: 0
   selfEffects: []

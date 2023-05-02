@@ -143,6 +143,8 @@ public abstract class ActiveAbility : AbilityObject
 
         temp = AbilityTooltipHandler.ParseName(temp, "<name>", this);
 
+        temp = AbilityTooltipHandler.ParseAbilityType(temp, "<primary>", "<assault>", "<protection>");
+
         // Friendly Ability Values <a1> <a2> etc.
         for (int i = 0; i < allyAbilitySources.Count; i++)
         {

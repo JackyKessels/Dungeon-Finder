@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Heart of the Wild
   quality: 0
   abilityType: 3
-  description: Your <critical> Assault abilities increase the damage of your Primary
+  description: Your <critical> <assault> abilities increase the damage of your <primary>
     attacks by <s1bonus> for <s1d> Rounds.
   icon: {fileID: 21300000, guid: 43eb2a5b06d853e4a90b40d64f72f14b, type: 3}
   casterSpecialEffects:

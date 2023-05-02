@@ -259,8 +259,6 @@ public class PassiveAddEffect : PassiveAbility
             temp = AbilityTooltipHandler.ParseCastAbilityEffectiveness(temp, string.Format("<castEffect{0}>", i + 1), castActiveAbilities[i]);
         }
 
-        temp = AbilityTooltipHandler.InsertRed(temp);
-
         temp = ThresholdParse(temp, "<threshold>");
 
         temp = RoundCooldown(temp, "<cooldown>");
@@ -274,7 +272,7 @@ public class PassiveAddEffect : PassiveAbility
 
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(AttributeType.Health) + ">{0}</color>");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>");
 
             return string.Format(temp, healthPercentage);
         }

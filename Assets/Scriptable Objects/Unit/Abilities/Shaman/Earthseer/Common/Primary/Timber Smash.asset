@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Timber Smash
   m_EditorClassIdentifier: 
-  id: 8
+  id: 60
   name: Timber Smash
   quality: 0
-  type: 0
-  description: Deal <e1> <N> damage to your target and reduce their Power by <t1modV>
+  abilityType: 0
+  description: Deal <e1> <N> damage to your target and reduce their <power> by <t1modV>
     for this Round.
   icon: {fileID: 21300000, guid: e0f8d9af521ec2841addc433b5723242, type: 3}
   casterSpecialEffects: []
@@ -27,6 +27,7 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 0
+  initialCooldown: 0
   endTurn: 1
   resetChance: 0
   weaponRequirement: 4
@@ -35,6 +36,9 @@ MonoBehaviour:
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 4
     attributeType: 0
     baseValue: 0
@@ -55,6 +59,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -71,4 +78,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Rock Fist
   m_EditorClassIdentifier: 
-  id: 40
+  id: 59
   name: Rock Fist
   quality: 0
-  type: 0
-  description: 'Deal <e1> <P> damage to your target and reduce their Armor by <t1modV>
+  abilityType: 0
+  description: 'Deal <e1> <P> damage to your target and reduce their <armor> by <t1modV>
     for <t1d> Rounds.
 
 
@@ -31,6 +31,7 @@ MonoBehaviour:
   replacesAbility: {fileID: 11400000, guid: 1bd033397ffa809499cf698a1d4f55a5, type: 2}
   castTime: 0.75
   cooldown: 0
+  initialCooldown: 0
   endTurn: 1
   resetChance: 0
   weaponRequirement: 4
@@ -39,6 +40,9 @@ MonoBehaviour:
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 1
     attributeType: 1
     baseValue: 0
@@ -59,6 +63,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -75,4 +82,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

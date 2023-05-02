@@ -16,7 +16,7 @@ MonoBehaviour:
   name: 'Rune Strike: Flamestorm'
   quality: 0
   abilityType: 2
-  description: 'Deal <e1> <P> damage to all enemies and burn them for <t1timAc1>
+  description: 'Deal <e1> <P> damage to all enemies and an additional <t1timAc1>
     <F> damage every Round for <t1d> Rounds.
 
 
@@ -32,6 +32,7 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 1
   cooldown: 6
+  initialCooldown: 0
   endTurn: 1
   resetChance: 0
   weaponRequirement: 0
@@ -42,7 +43,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 1
     attributeType: 1
     baseValue: 0
@@ -65,7 +66,8 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive:
+        - {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0

@@ -18,7 +18,7 @@ public static class AbilityTooltipHandler
         return temp;
     }
 
-    public static string ParseAbilityType(AbilityType abilityType)
+    public static string ShowAbilityType(AbilityType abilityType)
     {
         if (abilityType != AbilityType.Passive)
             return string.Format("\n<color={0}>{1}</color>", ColorDatabase.AbilityTypeColor(abilityType), abilityType.ToString());
@@ -275,6 +275,38 @@ public static class AbilityTooltipHandler
         return temp;
     }
 
+    public static string ParseAbilityType(string temp, string checkPrimary, string checkAssault, string checkProtection)
+    {
+        if (temp.Contains(checkPrimary))
+        {
+            string color = ColorDatabase.AbilityTypeColor(AbilityType.Primary);
+
+            temp = temp.Replace(checkPrimary, "<color={1}>{0}</color>");
+
+            temp = string.Format(temp, AbilityType.Primary.ToString(), color);
+        }
+
+        if (temp.Contains(checkAssault))
+        {
+            string color = ColorDatabase.AbilityTypeColor(AbilityType.Assault);
+
+            temp = temp.Replace(checkAssault, "<color={1}>{0}</color>");
+
+            temp = string.Format(temp, AbilityType.Assault.ToString(), color);
+        }
+
+        if (temp.Contains(checkProtection))
+        {
+            string color = ColorDatabase.AbilityTypeColor(AbilityType.Protection);
+
+            temp = temp.Replace(checkProtection, "<color={1}>{0}</color>");
+
+            temp = string.Format(temp, AbilityType.Protection.ToString(), color);
+        }
+
+        return temp;
+    }
+
     public static string CriticalHit(string temp, string check)
     {
         string color = ColorDatabase.NonScalingColor();
@@ -415,7 +447,7 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.AttributeIncreaseColor(modifier.increasedAttribute) + ">{0}</color>");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>");
 
             return string.Format(temp, modifier.increaseValue);
         }
@@ -427,7 +459,7 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.AttributeBaseColor(modifier.attributeBase) + ">{0}</color>");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>");
 
             return string.Format(temp, modifier.percentageIncrease);
         }
@@ -439,7 +471,7 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.ThresholdTypeColor(modifier.thresholdType) + ">{0}</color>");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>");
 
             return string.Format(temp, modifier.conditionThreshold);
         }
@@ -485,7 +517,8 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(effectAttributeModifier.attributeModified) + ">{0}</color>%");
+            //temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(effectAttributeModifier.attributeModified) + ">{0}</color>%");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>%");
 
             float percentage = (effectAttributeModifier.multiplier + effectAttributeModifier.multiplierPerLevel * (tooltipInfo.active.level - 1)) * 100f;
 

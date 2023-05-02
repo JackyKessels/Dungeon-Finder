@@ -20,11 +20,11 @@ MonoBehaviour:
 
 
     <name> deals <e1modP>%
-    more damage per <r1>% of Health the target is missing.
+    more damage per <ns1>% of Health the target is missing.
 
 
-    Gain <s1name>. Increasing
-    <icemultiplier> by <s1modV>%. Can only be Attuned to <r1> element.'
+    Gain <s1name>.
+    Increasing <icemultiplier> by <s1modV>%. Can only be Attuned to <r1> element.'
   icon: {fileID: 21300000, guid: 35980aa4f2872b444a18aba2024dc3e2, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:

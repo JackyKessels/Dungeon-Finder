@@ -20,7 +20,7 @@ MonoBehaviour:
 
 
     <name> deals <e1modB>
-    <A> damage if the target is at <rfull> Health.
+    <A> damage if the target is at <nsfull> Health.
 
 
     <t1unique>'

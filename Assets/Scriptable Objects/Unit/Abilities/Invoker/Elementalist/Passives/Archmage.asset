@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
   m_Name: Archmage
   m_EditorClassIdentifier: 
-  id: 175
+  id: 172
   name: Archmage
   quality: 0
   abilityType: 3
-  description: Dealing damage with an Assault ability increases the damage of your
-    next Assault ability within <s1d> Rounds by <s1bonus>.
+  description: Dealing damage with an <assault> ability increases the damage of your
+    next <assault> ability within <s1d> Rounds by <s1bonus>.
   icon: {fileID: 21300000, guid: 168f03a88c742cc4a90244f829119e34, type: 3}
   casterSpecialEffects:
   - {fileID: 357724894253419115, guid: e6ae8b3c743ff60429e9bafd308e6521, type: 3}

@@ -51,11 +51,11 @@ public abstract class AbilityObject : ScriptableObject, IDescribable
 
         if (currentLevel == 0 || !hasLevels)
         {
-            return string.Format("<smallcaps><b><color={0}>{1}</color></b></smallcaps>{2}", color, name, AbilityTooltipHandler.ParseAbilityType(abilityType));
+            return string.Format("<smallcaps><b><color={0}>{1}</color></b></smallcaps>{2}", color, name, AbilityTooltipHandler.ShowAbilityType(abilityType));
         }
         else
         {
-            return string.Format("<smallcaps><b><color={0}>{1}</color></b></smallcaps>{2}\nLevel: {3}", color, name, AbilityTooltipHandler.ParseAbilityType(abilityType), currentLevel);
+            return string.Format("<smallcaps><b><color={0}>{1}</color></b></smallcaps>{2}\nLevel: {3}", color, name, AbilityTooltipHandler.ShowAbilityType(abilityType), currentLevel);
         }
     }
 }

@@ -19,8 +19,8 @@ MonoBehaviour:
   description: 'Dealing <H> damage heals a random ally for <s1timAp1>.
 
 
-    Touch
-    of Light heals <r1>% more per <r1>% of Health the target is missing.'
+    <name>
+    heals <ns1>% more per <ns1>% of Health the target is missing.'
   icon: {fileID: 21300000, guid: 225618e3e8207734caa3799e11dd1915, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []

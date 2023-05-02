@@ -20,7 +20,7 @@ MonoBehaviour:
 
 
     <name> deals
-    <r35>% more damage if the target is below <r50>% Health.'
+    <ns35>% more damage if the target is below <ns50>% Health.'
   icon: {fileID: 21300000, guid: ba9bc9b4d38fd73409d78e166f077a66, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:

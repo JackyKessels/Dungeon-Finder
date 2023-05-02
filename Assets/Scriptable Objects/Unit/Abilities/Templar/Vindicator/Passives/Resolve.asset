@@ -20,7 +20,7 @@ MonoBehaviour:
 
 
     Target
-    will be Taunt immune for <r1> Round after.'
+    will be Taunt immune for <ns1> Round after.'
   icon: {fileID: 21300000, guid: faa194240041eea4ba6447aa156896e3, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []

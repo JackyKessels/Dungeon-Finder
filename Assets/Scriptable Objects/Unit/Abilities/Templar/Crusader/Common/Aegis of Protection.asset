@@ -27,7 +27,8 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 1
   cooldown: 4
-  endTurn: 1
+  initialCooldown: 0
+  endTurn: 0
   resetChance: 0
   weaponRequirement: 4
   soundEffect: {fileID: 0}

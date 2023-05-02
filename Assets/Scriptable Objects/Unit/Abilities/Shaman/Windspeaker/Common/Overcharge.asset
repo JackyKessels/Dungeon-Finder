@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Overcharge
   quality: 0
   abilityType: 2
-  description: Your Assault abilities deal <t1bonus> more damage for <t1d> Rounds.
+  description: Your <assault> abilities deal <t1bonus> more damage for <t1d> Rounds.
   icon: {fileID: 21300000, guid: a45db03b91f9d114ba194de0fab28bb5, type: 3}
   casterSpecialEffects:
   - {fileID: 2240714166833413090, guid: 8347398db49945748bfc3d1acb08986b, type: 3}
@@ -26,6 +26,7 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 0.5
   cooldown: 4
+  initialCooldown: 0
   endTurn: 0
   resetChance: 0
   weaponRequirement: 4

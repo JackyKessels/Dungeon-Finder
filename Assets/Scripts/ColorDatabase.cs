@@ -72,7 +72,7 @@ public static class ColorDatabase
         {
             // General Attributes
             case AttributeType.Health:
-                return "#FF0000";
+                return "#00FF80";
             case AttributeType.Power:
                 return "#FF9300";
             case AttributeType.Wisdom:

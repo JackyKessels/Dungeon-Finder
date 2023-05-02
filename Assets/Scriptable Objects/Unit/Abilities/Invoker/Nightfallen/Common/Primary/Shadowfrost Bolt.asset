@@ -19,12 +19,12 @@ MonoBehaviour:
   description: 'Deal <e1> <S> and <e2> <I> damage to your target.
 
 
-    Shadowfrost
-    Bolt deals <e1modP>% more damage per <r1>% of <health> you are missing.
+    <name> deals
+    <e1modP>% more damage per <ns1>% of Health you are missing.
 
 
-    You
-    take <s1timAp1> <sac> damage.'
+    You take <s1timAp1>
+    <sac> damage.'
   icon: {fileID: 21300000, guid: 21140133a7334ba46827c9989027f587, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:

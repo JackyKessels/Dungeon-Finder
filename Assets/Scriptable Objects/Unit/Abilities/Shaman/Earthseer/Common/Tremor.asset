@@ -21,7 +21,7 @@ MonoBehaviour:
 
     If
     the Shaman has more than <e1conV> <armor>, <name> will deal <e1modP>% more damage
-    per <r1>% of Health the target has.
+    per <ns1>% of Health the target has.
 
 
     <currentarmor>'

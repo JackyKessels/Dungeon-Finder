@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
   m_Name: Lifeblood Enchantment
   m_EditorClassIdentifier: 
-  id: 163
+  id: 159
   name: Lifeblood Enchantment
   quality: 0
   abilityType: 3
-  description: "Dealing <M> damage has a <%> to heal yourself for <1>. \n\nHealing
-    is increased by <1modV>% while under <1conV>% <health>."
+  description: "Dealing <M> damage has a <%> to heal yourself for <1>. \n\n<name>
+    is increased by <1modV>% while under <1conV>% Health."
   icon: {fileID: 21300000, guid: 8a2ce676b5f7cfd4bab83283a433df3d, type: 3}
   casterSpecialEffects:
   - {fileID: 4698229947461908415, guid: 89e9d26c5d80d7541b62c61f74ac189b, type: 3}
@@ -40,7 +40,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 1
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 0
     attributeType: 0
     baseValue: 0
@@ -63,7 +63,8 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive:
+        - {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
