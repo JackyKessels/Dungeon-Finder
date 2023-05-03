@@ -58,6 +58,8 @@ public class UnitHUD : MonoBehaviour
     {
         ObjectUtilities.ClearContainer(effectsTracker);
 
+        unit.effectManager.SortEffectDurations(unit.isEnemy);
+
         for (int i = 0; i < unit.effectManager.effectsList.Count; i++)
         {
             if (unit.effectManager.effectsList[i].duration > 0 && !unit.effectManager.effectsList[i].effectObject.hidden)

@@ -20,9 +20,9 @@ MonoBehaviour:
   procType: 1
   duration: 3
   permanent: 0
-  stackable: 0
-  maxStacks: 0
-  refreshes: 1
+  stackable: 1
+  maxStacks: 3
+  refreshes: 0
   aura: 0
   unique: 0
   removeEffects: []

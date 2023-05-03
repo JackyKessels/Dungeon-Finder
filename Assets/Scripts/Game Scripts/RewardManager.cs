@@ -40,6 +40,8 @@ public class RewardManager : MonoBehaviour
 
     private Button activeButton;
 
+    public GameObject confirmationButtons;
+
     private void Start()
     {
         teamManager = TeamManager.Instance;
@@ -57,6 +59,7 @@ public class RewardManager : MonoBehaviour
     public void Setup()
     {
         rewardsObject.SetActive(true);
+        confirmationButtons.SetActive(false);
         rewards = new List<Reward>();
 
         ObjectUtilities.ClearContainer(rewardContainer);
@@ -298,6 +301,16 @@ public class RewardManager : MonoBehaviour
                 rewardTitle.text = teamManager.heroes.Members[nextHero].name;
             }
         }
+    }
+
+    public void ShowConfirmation()
+    {
+        confirmationButtons.SetActive(true);
+    }
+
+    public void HideConfirmation()
+    {
+        confirmationButtons.SetActive(false);
     }
 
     public void SkipRewards()

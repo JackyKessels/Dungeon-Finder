@@ -39,6 +39,9 @@ public class EffectManager : MonoBehaviour
         Effect sameEffect = target.effectManager.GetSameEffect(effectObject);
         Effect applyEffect = new Effect(effectObject, 1, caster, target, level, sourceAbility);
 
+        if (applyEffect.effectObject.permanent)
+            applyEffect.duration = 999;
+
         // Target has the same effect active already and the effect to be applied is stackable
         if (sameEffect != null && effectObject.stackable)
         {
@@ -674,5 +677,17 @@ public class EffectManager : MonoBehaviour
         }
 
         return hasEffect;
+    }
+
+    public void SortEffectDurations(bool isEnemy)
+    {
+        if (isEnemy)
+        {
+            effectsList.Sort((e1, e2) => e1.duration.CompareTo(e2.duration));
+        }
+        else
+        {
+            effectsList.Sort((e1, e2) => e2.duration.CompareTo(e1.duration));
+        }
     }
 }
