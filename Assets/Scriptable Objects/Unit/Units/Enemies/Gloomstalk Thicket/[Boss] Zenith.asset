@@ -23,10 +23,10 @@ MonoBehaviour:
   basePower: 45
   baseWisdom: 5
   baseArmor: 0
-  baseResistance: 0
+  baseResistance: 18
   baseVitality: 0
   speed: 7
-  accuracy: 80
+  accuracy: 90
   criticalHit: 20
   healingMultiplier: 100
   crushingMultiplier: 100
@@ -44,13 +44,13 @@ MonoBehaviour:
   currencyRewards: []
   itemDrops:
   - itemObject: {fileID: 11400000, guid: 0810c68dda8cb5e43985dafefedfe6aa, type: 2}
-    amount: 0
+    amount: 1
     weight: 1
   - itemObject: {fileID: 11400000, guid: aac92a78a6d3e35428bab44f80d0249e, type: 2}
-    amount: 0
+    amount: 1
     weight: 1
   - itemObject: {fileID: 11400000, guid: 1d94f840637e67c4887aa2c8de1f10d7, type: 2}
-    amount: 0
+    amount: 1
     weight: 1
   randomAbility: 0
   abilities:
@@ -66,10 +66,17 @@ MonoBehaviour:
     condition: 0
     startCooldown: 3
     charged: 0
+  - ability: {fileID: 11400000, guid: 3a0497c41294404478eb7d1abc6a05d3, type: 2}
+    target: 0
+    targetAttribute: 0
+    condition: 0
+    startCooldown: 2
+    charged: 1
   - ability: {fileID: 11400000, guid: 8dde4c32446fd8041b44ad88ea866082, type: 2}
     target: 0
     targetAttribute: 0
     condition: 0
     startCooldown: 0
     charged: 0
-  passiveAbilities: []
+  passiveAbilities:
+  - {fileID: 11400000, guid: 4ef6a28ee6869bb45b8043ab2f66d2a1, type: 2}
