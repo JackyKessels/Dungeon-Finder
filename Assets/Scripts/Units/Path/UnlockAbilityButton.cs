@@ -63,7 +63,7 @@ public class UnlockAbilityButton : MonoBehaviour
                 townManager.enchanter.abilityOptionsWindow.gameObject.SetActive(true);
                 townManager.enchanter.abilityOptionsWindow.CreateOptions(hero, heroPathObject, cost);
 
-                ShortMessage.SendMessage(Input.mousePosition, "Successful purchase!", 24, Color.green);
+                //ShortMessage.SendMessage(Input.mousePosition, "Successful purchase!", 24, Color.green);
             }
             else
             {

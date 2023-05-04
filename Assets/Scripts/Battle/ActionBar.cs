@@ -201,12 +201,16 @@ public class ActionBar : MonoBehaviour
                 if (currentHero.spellbook.activeSpellbook[i].currentCooldown > currentHero.spellbook.activeSpellbook[i].cooldown)
                 //if (!currentHero.spellbook.activeSpellbook[i].activeAbility.endTurn && expendedTurn)
                 {
-                    t.text = "";
+                    t.SetText("");
                 }
                 else
                 {
                     t.SetText(currentHero.spellbook.activeSpellbook[i].currentCooldown.ToString());
                 }
+            }
+            else
+            {
+                t.SetText("");
             }
         }
 
@@ -222,12 +226,16 @@ public class ActionBar : MonoBehaviour
                 if (currentHero.spellbook.itemAbilities[i].currentCooldown > currentHero.spellbook.itemAbilities[i].cooldown)
                 //if (!currentHero.spellbook.itemAbilities[i].activeAbility.endTurn && expendedTurn)
                 {
-                    t.text = "";
+                    t.SetText("");
                 }
                 else
                 {
                     t.SetText(currentHero.spellbook.itemAbilities[i].currentCooldown.ToString());
                 }
+            }
+            else
+            {
+                t.SetText("");
             }
         }
 

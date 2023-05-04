@@ -99,7 +99,7 @@ public class AbilityOptionsWindow : MonoBehaviour
 
                 SuccessfulPurchase(active);
 
-                ShortMessage.SendMessage(Input.mousePosition, "Successful purchase!", 24, Color.green);
+                //ShortMessage.SendMessage(Input.mousePosition, "Successful purchase!", 24, Color.green);
             }
             else
             {
