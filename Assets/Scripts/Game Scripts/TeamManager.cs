@@ -43,8 +43,8 @@ public class TeamManager : MonoBehaviour
     //[HideInInspector] 
     public Team enemies;
 
-    public Transform[] heroPositions = new Transform[3];
-    public Transform[] enemyPositions = new Transform[3];
+    public UnitPosition[] heroPositions = new UnitPosition[3];
+    public UnitPosition[] enemyPositions = new UnitPosition[3];
 
     private void Start()
     {
@@ -291,7 +291,7 @@ public class TeamManager : MonoBehaviour
         if (u.isEnemy)
         {
             // Remove shadow
-            enemyPositions[u.battleNumber].GetChild(0).gameObject.SetActive(false);
+            enemyPositions[u.battleNumber].shadow.SetActive(false);
 
             // Set team slot to null and add unit to some other list so rewards
             // can be extracted.
@@ -302,7 +302,19 @@ public class TeamManager : MonoBehaviour
         else
         {      
             // Remove shadow
-            heroPositions[u.battleNumber].GetChild(0).gameObject.SetActive(false);
+            heroPositions[u.battleNumber].shadow.SetActive(false);
+        }
+    }
+
+    public void SetCurrentTurnVisual(Unit u, bool active)
+    {
+        if (u.isEnemy)
+        {
+            enemyPositions[u.battleNumber].currentTurn.SetActive(active);
+        }
+        else
+        {
+            heroPositions[u.battleNumber].currentTurn.SetActive(active);
         }
     }
 }

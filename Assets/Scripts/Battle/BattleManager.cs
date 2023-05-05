@@ -344,7 +344,14 @@ public class BattleManager : MonoBehaviour, IUserInterface
         if (!CheckWinCondition())
             yield break;
 
+        // Turn the previous current unit's visual off
+        if (currentUnit != null)
+            teamManager.SetCurrentTurnVisual(currentUnit, false);
+
         currentUnit = queueManager.GetNextInOrder();
+
+        // Turn the current unit's visual on
+        teamManager.SetCurrentTurnVisual(currentUnit, true);
 
         // No valid units -> End of Round
         if (currentUnit == null)

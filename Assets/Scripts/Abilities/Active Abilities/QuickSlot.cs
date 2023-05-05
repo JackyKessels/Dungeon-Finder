@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class QuickSlot : MonoBehaviour, IPointerClickHandler
 {
     public Active Ability { get; set; }
+    public GameObject draggableContainer;
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -17,6 +18,7 @@ public class QuickSlot : MonoBehaviour, IPointerClickHandler
         if (eventData.button == PointerEventData.InputButton.Right)
         {
             SlotAbility();
+            ObjectUtilities.ClearContainer(draggableContainer);
         }
     }
 

@@ -25,7 +25,7 @@ MonoBehaviour:
   baseArmor: 18
   baseResistance: -18
   baseVitality: 0
-  speed: 4
+  speed: 8
   accuracy: 80
   criticalHit: 10
   healingMultiplier: 100
@@ -58,16 +58,19 @@ MonoBehaviour:
   abilities:
   - ability: {fileID: 11400000, guid: 123455b22a9f51c4b8bd87aeb35c1fdb, type: 2}
     target: 0
+    targetAttribute: 0
     condition: 0
     startCooldown: 2
     charged: 0
   - ability: {fileID: 11400000, guid: 8650ed4b320d23b4bb9da1651bcb7de9, type: 2}
     target: 0
+    targetAttribute: 0
     condition: 0
     startCooldown: 1
     charged: 0
   - ability: {fileID: 11400000, guid: 18cf3aebb12d38a4f800fab9a5106435, type: 2}
     target: 0
+    targetAttribute: 0
     condition: 0
     startCooldown: 0
     charged: 0

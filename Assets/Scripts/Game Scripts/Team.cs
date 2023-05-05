@@ -72,28 +72,29 @@ public class Team
         members[position] = unit;
     }
 
-    public void Setup(Transform[] positions, bool isEnemy)
+    public void Setup(UnitPosition[] positions, bool isEnemy)
     {
         killedMembers = new List<Unit>();
 
-        foreach (Transform transform in positions)
+        foreach (UnitPosition position in positions)
         {
-            transform.GetChild(0).gameObject.SetActive(false);
+            position.shadow.SetActive(false);
         }
 
         for (int i = 0; (i < LivingMembers.Count); i++)
         {
             InitializeUnit(positions, isEnemy, i);
-            positions[i].GetChild(0).gameObject.SetActive(true);
+            positions[i].shadow.SetActive(true);
         }
     }
 
-    public void InitializeUnit(Transform[] positions, bool isEnemy, int i)
+    public void InitializeUnit(UnitPosition[] positions, bool isEnemy, int i)
     {
         Unit unit = LivingMembers[i];
 
         // Show the shadow at the location of the unit
-        positions[i].GetChild(0).gameObject.SetActive(true);
+        positions[i].shadow.SetActive(true);
+        positions[i].currentTurn.SetActive(false);
 
         // Set the unit at the correct position, offset by his sprite
         unit.transform.position = new Vector3(positions[i].transform.position.x,

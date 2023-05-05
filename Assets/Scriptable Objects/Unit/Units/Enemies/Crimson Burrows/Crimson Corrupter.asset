@@ -23,7 +23,7 @@ MonoBehaviour:
   basePower: 0
   baseWisdom: 32
   baseArmor: -11
-  baseResistance: 11
+  baseResistance: 9
   baseVitality: 0
   speed: 4
   accuracy: 80

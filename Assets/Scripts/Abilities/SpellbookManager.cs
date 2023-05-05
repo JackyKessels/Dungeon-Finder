@@ -30,6 +30,7 @@ public class SpellbookManager : MonoBehaviour
 
     [Header("Variables")]
     public GameObject spellbookPanel;           // Background of the Spellbook
+    public GameObject draggableContainer;       // This is where the draggables go
 
     public GameObject activeAbilitiesContainer; // Active abilities container object
     public GameObject[] activeAbilities;        // List of all active abilities
@@ -63,11 +64,11 @@ public class SpellbookManager : MonoBehaviour
             activeAbilities[i] = activeAbilitiesContainer.transform.GetChild(i).gameObject;
         }
 
-        foreach (GameObject obj in activeAbilities)
-        {
-            ObjectUtilities.AddEvent(obj, EventTriggerType.PointerEnter, delegate { OnEnter(obj); });
-            ObjectUtilities.AddEvent(obj, EventTriggerType.PointerExit, delegate { OnExit(obj); });
-        }
+        //foreach (GameObject obj in activeAbilities)
+        //{
+        //    ObjectUtilities.AddEvent(obj, EventTriggerType.PointerEnter, delegate { OnEnter(obj); });
+        //    ObjectUtilities.AddEvent(obj, EventTriggerType.PointerExit, delegate { OnExit(obj); });
+        //}
     }
 
     public void Setup(Hero hero)
@@ -354,6 +355,7 @@ public class SpellbookManager : MonoBehaviour
         {
             QuickSlot qs = obj.AddComponent<QuickSlot>();
             qs.Ability = ability;
+            qs.draggableContainer = draggableContainer;
 
             ObjectUtilities.AddEvent(obj, EventTriggerType.PointerEnter, delegate { OnEnter(obj); });
             ObjectUtilities.AddEvent(obj, EventTriggerType.PointerExit, delegate { OnExit(obj); });
@@ -412,7 +414,7 @@ public class SpellbookManager : MonoBehaviour
 
             var rt = tempAbility.AddComponent<RectTransform>();
             rt.sizeDelta = new Vector2(36, 36);
-            tempAbility.transform.SetParent(HeroManager.Instance.heroInformationObject.transform);
+            tempAbility.transform.SetParent(draggableContainer.transform);
             rt.localScale = Vector3.one;
 
             var img = tempAbility.AddComponent<Image>();
