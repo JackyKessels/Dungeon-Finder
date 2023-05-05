@@ -20,7 +20,7 @@ MonoBehaviour:
   sellable: 1
   item:
     name: 
-    id: 18
+    id: 9
     itemObject: {fileID: 0}
     attributes: []
   description: 
@@ -28,7 +28,7 @@ MonoBehaviour:
   slot: 2
   level: 3
   health: 0
-  power: 4
+  power: 5
   wisdom: 0
   armor: 0
   resistance: 0

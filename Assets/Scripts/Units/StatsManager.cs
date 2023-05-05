@@ -263,7 +263,7 @@ public class StatsManager
             {
                 EffectDamageTransfer damageTransfer = damageTransferEffect.effectObject as EffectDamageTransfer;
 
-                AbilityValue transferValue = new AbilityValue(abilityValue.sourceAbility, false, true, abilityValue.value * damageTransfer.percentage, abilityValue.school, abilityValue.abilityType, abilityValue.cannotCrit, abilityValue.cannotMiss, abilityValue.target, damageTransferEffect.caster, abilityValue.color, abilityValue.isUnitTrigger, abilityValue.ignorePassives);
+                AbilityValue transferValue = new AbilityValue(abilityValue.sourceAbility, false, true, abilityValue.value * damageTransfer.percentage, abilityValue.school, abilityValue.abilityType, abilityValue.cannotCrit, abilityValue.cannotMiss, abilityValue.target, damageTransferEffect.caster, abilityValue.color, false, abilityValue.ignorePassives);
 
                 transferValue.value = unit.statsManager.CalculateMitigatedDamage(transferValue.value, GeneralUtilities.GetReductionType(transferValue.school));
 

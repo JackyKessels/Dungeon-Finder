@@ -18,8 +18,13 @@ MonoBehaviour:
   description: Speed reduced by <1>.
   isBuff: 0
   procType: 1
-  duration: 2
+  duration: 3
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
   removeEffects:
   - {fileID: 11400000}
   attributeModified: 6
@@ -27,6 +32,9 @@ MonoBehaviour:
   modifierType: 0
   modifierSource:
     ignoreMultipliers: 1
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 0
     attributeType: 6
     baseValue: 3
@@ -47,6 +55,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0

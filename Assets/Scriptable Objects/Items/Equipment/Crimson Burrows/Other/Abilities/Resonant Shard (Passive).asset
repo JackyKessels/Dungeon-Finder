@@ -32,8 +32,8 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 01000000020000000300000004000000050000000600000007000000
   triggersPassives: 1
-  triggeredByPassives: 1
-  triggeredByEffects: 1
+  triggeredByPassives: 0
+  triggeredByEffects: 0
   procChance: 20
   abilitySources: []
   castActiveAbilities: []

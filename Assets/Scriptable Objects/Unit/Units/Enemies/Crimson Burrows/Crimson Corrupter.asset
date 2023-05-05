@@ -25,7 +25,7 @@ MonoBehaviour:
   baseArmor: -11
   baseResistance: 9
   baseVitality: 0
-  speed: 4
+  speed: 10
   accuracy: 80
   criticalHit: 10
   healingMultiplier: 100

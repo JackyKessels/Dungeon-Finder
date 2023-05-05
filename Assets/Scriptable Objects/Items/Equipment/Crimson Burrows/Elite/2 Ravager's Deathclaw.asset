@@ -27,7 +27,7 @@ MonoBehaviour:
   quality: 0
   slot: 2
   level: 2
-  health: 1
+  health: 2
   power: 4
   wisdom: 0
   armor: 0

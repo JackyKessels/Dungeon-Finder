@@ -201,6 +201,10 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
         round = 1;
 
+        //teamManager.heroes.SetInvulnerable(true);
+        //teamManager.heroes.ExpireEffects();
+        //teamManager.heroes.SetInvulnerable(false);
+
         teamManager.ApplyPreBattleEffects();
         teamManager.TriggerRoundStartPassives();
 

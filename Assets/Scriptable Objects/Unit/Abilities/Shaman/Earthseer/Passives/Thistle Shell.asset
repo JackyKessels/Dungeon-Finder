@@ -32,19 +32,20 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 01000000020000000300000004000000050000000600000007000000
   triggersPassives: 1
+  triggeredByPassives: 1
   triggeredByEffects: 1
   procChance: 100
   abilitySources:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 4
     attributeType: 0
     baseValue: 0
     levelBase: 0
-    scaling: 0.12
-    levelScaling: 0.024
+    scaling: 0.08
+    levelScaling: 0.016
     reductionType: 2
     modifier:
       hasModifier: 0
@@ -61,7 +62,8 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive:
+        - {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0

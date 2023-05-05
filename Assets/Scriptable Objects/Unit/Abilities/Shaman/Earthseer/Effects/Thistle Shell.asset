@@ -18,8 +18,13 @@ MonoBehaviour:
   description: <passive>
   isBuff: 1
   procType: 1
-  duration: 3
+  duration: 4
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
   removeEffects:
   - {fileID: 11400000}
   passiveAbility: {fileID: 11400000, guid: 1286ba6bfe8fe9d4eacbc20622c3e3a5, type: 2}

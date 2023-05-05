@@ -47,9 +47,9 @@ MonoBehaviour:
   itemDrops:
   - itemObject: {fileID: 0}
     amount: 0
-    weight: 2
+    weight: 3
   - itemObject: {fileID: 11400000, guid: a59beb3bea1f71645bb09ef59fa873a5, type: 2}
-    amount: 2
+    amount: 1
     weight: 1
   randomAbility: 1
   abilities:
