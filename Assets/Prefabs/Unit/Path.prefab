@@ -319,6 +319,7 @@ GameObject:
   - component: {fileID: 2367458146316290371}
   - component: {fileID: 2367458146316290369}
   - component: {fileID: 2367458146316290370}
+  - component: {fileID: 1740824138823189016}
   m_Layer: 5
   m_Name: 2
   m_TagString: Untagged
@@ -385,6 +386,57 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1740824138823189016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2367458146316290380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 069ce13c125975b4babbad7280439e91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useGenericTooltip: 1
+  genericTooltip: +1 Passive Ability
+  active:
+    owner: {fileID: 0}
+    activeAbility: {fileID: 0}
+    allyAbilitySources: []
+    enemyAbilitySources: []
+    level: 0
+    cooldown: 0
+    currentCooldown: 0
+  passive:
+    passiveAbility: {fileID: 0}
+    level: 0
+  effect:
+    effectObject: {fileID: 0}
+    sourceAbility: {fileID: 0}
+    name: 
+    level: 0
+    procType: 0
+    duration: 0
+    caster: {fileID: 0}
+    target: {fileID: 0}
+    stacks: 0
+    storedModValue: 0
+    timedActions: []
+    storedPassive:
+      passiveAbility: {fileID: 0}
+      level: 0
+  itemObject: {fileID: 0}
+  attribute:
+    attributeType: 0
+    baseValue: 0
+    bonusValue: 0
+    multiplier: 0
+  currency:
+    currencyType: 0
+    totalAmount: 0
+  state: 4
+  experience: 0
 --- !u!1 &2367458146459399039
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,6 +771,7 @@ GameObject:
   - component: {fileID: 2367458147456133592}
   - component: {fileID: 2367458147456133598}
   - component: {fileID: 2367458147456133599}
+  - component: {fileID: 6755359548278876570}
   m_Layer: 5
   m_Name: 4
   m_TagString: Untagged
@@ -785,6 +838,57 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6755359548278876570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2367458147456133593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 069ce13c125975b4babbad7280439e91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useGenericTooltip: 1
+  genericTooltip: +1 Passive Ability
+  active:
+    owner: {fileID: 0}
+    activeAbility: {fileID: 0}
+    allyAbilitySources: []
+    enemyAbilitySources: []
+    level: 0
+    cooldown: 0
+    currentCooldown: 0
+  passive:
+    passiveAbility: {fileID: 0}
+    level: 0
+  effect:
+    effectObject: {fileID: 0}
+    sourceAbility: {fileID: 0}
+    name: 
+    level: 0
+    procType: 0
+    duration: 0
+    caster: {fileID: 0}
+    target: {fileID: 0}
+    stacks: 0
+    storedModValue: 0
+    timedActions: []
+    storedPassive:
+      passiveAbility: {fileID: 0}
+      level: 0
+  itemObject: {fileID: 0}
+  attribute:
+    attributeType: 0
+    baseValue: 0
+    bonusValue: 0
+    multiplier: 0
+  currency:
+    currencyType: 0
+    totalAmount: 0
+  state: 4
+  experience: 0
 --- !u!1 &2367458147496926568
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,6 +900,7 @@ GameObject:
   - component: {fileID: 2367458147496926575}
   - component: {fileID: 2367458147496926573}
   - component: {fileID: 2367458147496926574}
+  - component: {fileID: 7183197769420412120}
   m_Layer: 5
   m_Name: 5
   m_TagString: Untagged
@@ -862,6 +967,57 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7183197769420412120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2367458147496926568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 069ce13c125975b4babbad7280439e91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useGenericTooltip: 1
+  genericTooltip: +1 Passive Ability
+  active:
+    owner: {fileID: 0}
+    activeAbility: {fileID: 0}
+    allyAbilitySources: []
+    enemyAbilitySources: []
+    level: 0
+    cooldown: 0
+    currentCooldown: 0
+  passive:
+    passiveAbility: {fileID: 0}
+    level: 0
+  effect:
+    effectObject: {fileID: 0}
+    sourceAbility: {fileID: 0}
+    name: 
+    level: 0
+    procType: 0
+    duration: 0
+    caster: {fileID: 0}
+    target: {fileID: 0}
+    stacks: 0
+    storedModValue: 0
+    timedActions: []
+    storedPassive:
+      passiveAbility: {fileID: 0}
+      level: 0
+  itemObject: {fileID: 0}
+  attribute:
+    attributeType: 0
+    baseValue: 0
+    bonusValue: 0
+    multiplier: 0
+  currency:
+    currencyType: 0
+    totalAmount: 0
+  state: 4
+  experience: 0
 --- !u!1 &2367458147525067877
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,6 +1029,7 @@ GameObject:
   - component: {fileID: 2367458147525067876}
   - component: {fileID: 2367458147525067866}
   - component: {fileID: 2367458147525067867}
+  - component: {fileID: 1673363124240486765}
   m_Layer: 5
   m_Name: 1
   m_TagString: Untagged
@@ -939,6 +1096,57 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1673363124240486765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2367458147525067877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 069ce13c125975b4babbad7280439e91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useGenericTooltip: 1
+  genericTooltip: +1 Passive Ability
+  active:
+    owner: {fileID: 0}
+    activeAbility: {fileID: 0}
+    allyAbilitySources: []
+    enemyAbilitySources: []
+    level: 0
+    cooldown: 0
+    currentCooldown: 0
+  passive:
+    passiveAbility: {fileID: 0}
+    level: 0
+  effect:
+    effectObject: {fileID: 0}
+    sourceAbility: {fileID: 0}
+    name: 
+    level: 0
+    procType: 0
+    duration: 0
+    caster: {fileID: 0}
+    target: {fileID: 0}
+    stacks: 0
+    storedModValue: 0
+    timedActions: []
+    storedPassive:
+      passiveAbility: {fileID: 0}
+      level: 0
+  itemObject: {fileID: 0}
+  attribute:
+    attributeType: 0
+    baseValue: 0
+    bonusValue: 0
+    multiplier: 0
+  currency:
+    currencyType: 0
+    totalAmount: 0
+  state: 4
+  experience: 0
 --- !u!1 &2367458148097665519
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,6 +1271,7 @@ GameObject:
   - component: {fileID: 2367458148302688634}
   - component: {fileID: 2367458148302688632}
   - component: {fileID: 2367458148302688633}
+  - component: {fileID: 2638928303686735866}
   m_Layer: 5
   m_Name: 3
   m_TagString: Untagged
@@ -1129,6 +1338,57 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2638928303686735866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2367458148302688635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 069ce13c125975b4babbad7280439e91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useGenericTooltip: 1
+  genericTooltip: +1 Passive Ability
+  active:
+    owner: {fileID: 0}
+    activeAbility: {fileID: 0}
+    allyAbilitySources: []
+    enemyAbilitySources: []
+    level: 0
+    cooldown: 0
+    currentCooldown: 0
+  passive:
+    passiveAbility: {fileID: 0}
+    level: 0
+  effect:
+    effectObject: {fileID: 0}
+    sourceAbility: {fileID: 0}
+    name: 
+    level: 0
+    procType: 0
+    duration: 0
+    caster: {fileID: 0}
+    target: {fileID: 0}
+    stacks: 0
+    storedModValue: 0
+    timedActions: []
+    storedPassive:
+      passiveAbility: {fileID: 0}
+      level: 0
+  itemObject: {fileID: 0}
+  attribute:
+    attributeType: 0
+    baseValue: 0
+    bonusValue: 0
+    multiplier: 0
+  currency:
+    currencyType: 0
+    totalAmount: 0
+  state: 4
+  experience: 0
 --- !u!1 &2440190306998869837
 GameObject:
   m_ObjectHideFlags: 0
