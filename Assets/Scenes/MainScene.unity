@@ -33054,7 +33054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215d4248cb8814b4eb4b8e2181c604dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stratfordAmbient: {fileID: 8300000, guid: 44ed059bf5e39e241b820b15ef31469d, type: 3}
+  stratfordAmbient: {fileID: 0}
   openMap: {fileID: 8300000, guid: d9c89a6c419528140a8b028678bb64c7, type: 3}
   closeMap: {fileID: 8300000, guid: dece9e2e0716401498d7b9702b64fec3, type: 3}
   tutorialTown: {fileID: 11400000, guid: 340ef886864742248b563e336781d7c4, type: 2}

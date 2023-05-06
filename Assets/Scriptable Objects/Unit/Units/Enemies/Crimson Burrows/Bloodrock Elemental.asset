@@ -15,8 +15,8 @@ MonoBehaviour:
   name: Bloodrock Elemental
   lastName: 
   unitType: 4
-  icon: {fileID: 21300000, guid: 3f2fb75f406323f489f801cd958c89f7, type: 3}
-  sprite: {fileID: 21300000, guid: 628a5b6ab013f0141ba70db01e33d999, type: 3}
+  icon: {fileID: 21300000, guid: acf76f66f4c49c14f8a57c036e47bb31, type: 3}
+  sprite: {fileID: 21300000, guid: df2d4992c7ea5e04790556ef85620a7a, type: 3}
   attackAnimation: {fileID: 0}
   castAnimation: {fileID: 0}
   baseHealth: 350
