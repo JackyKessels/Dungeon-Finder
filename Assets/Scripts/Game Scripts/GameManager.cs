@@ -183,6 +183,11 @@ public class GameManager : MonoBehaviour
         startButton.interactable = true;
     }
 
+    public void StartNewGame()
+    {
+        Introduction1();
+    }
+
     public void Introduction1()
     {
         ObjectUtilities.BlackTransition(true);
@@ -224,6 +229,8 @@ public class GameManager : MonoBehaviour
         townManager.SetupStratford();
 
         StartCoroutine(StartIntroductionDialogue());
+
+        SaveManager.Instance.SaveGame();
     }
 
     IEnumerator StartIntroductionDialogue()
@@ -244,7 +251,7 @@ public class GameManager : MonoBehaviour
         hero_2.heroPathManager.SelectStarterPath(heroSelectionObject_2.GetData()[1]);
     }
 
-    public void LoadGame()
+    public void SetupTown()
     {
         gameState = GameState.TOWN;
 
@@ -253,13 +260,12 @@ public class GameManager : MonoBehaviour
         cameraScript.GoToCamera(townManager.cameraObject, false);
 
         heroManager.EnableUI(true);
-
-        // Load Heroes
-        teamManager.LoadTeam();
     }
 
     public void TestGame()
     {
+        SaveManager.Instance.currentId = "1";
+
         gameState = GameState.TOWN;
 
         TEST_MODE = true;
@@ -389,6 +395,8 @@ public class GameManager : MonoBehaviour
         mapButton.UpdateButton(gameState);
 
         townManager.ShopButtonsState(true);
+
+        SaveManager.Instance.SaveGame();
     }
 
     public void GoToRun()
@@ -406,6 +414,8 @@ public class GameManager : MonoBehaviour
         mapButton.UpdateButton(gameState);
 
         townManager.ShopButtonsState(false);
+
+        SaveManager.Instance.SaveGame();
     }
 
     public void TryAgain()
@@ -430,4 +440,6 @@ public class GameManager : MonoBehaviour
         // Reset Inventory
         // Reset Everything
     }
+
+
 }

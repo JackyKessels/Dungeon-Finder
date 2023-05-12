@@ -329,7 +329,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The first two options are from your chosen Path, whilst the last option
+  m_text: The first three options are from your chosen Path, whilst the last option
     is from one of the other Paths.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02a595d32217990488a92337279e774f, type: 2}
@@ -751,7 +751,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 39
+  m_fontSize: 51.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

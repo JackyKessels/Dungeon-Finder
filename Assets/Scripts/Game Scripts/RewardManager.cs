@@ -328,6 +328,8 @@ public class RewardManager : MonoBehaviour
     {
         InventoryManager.Instance.AddItemToInventory(itemDrop.itemObject, itemDrop.amount);
         InventoryManager.Instance.inventory.UpdateItems();
+
+        SaveManager.Instance.SaveGame();
     }
 
     private void SelectAttribute(Attribute attribute)

@@ -55,12 +55,15 @@ public class TeamData
     public List<bool[]> unlockedPassives_2;
 
     // The IDs of the items in the inventory
-    public int[] inventory;
+    public (int, int)[] inventory;
+
+    // The IDs and stacks of the items in the consumables
+    public (int, int)[] consumables;
 
     // The IDs of the items in the hero's equipment
-    public int[] equipment_0;
-    public int[] equipment_1;
-    public int[] equipment_2;
+    public (int, int)[] equipment_0;
+    public (int, int)[] equipment_1;
+    public (int, int)[] equipment_2;
 
     // Current health of the hero
     public int currentHealth_0;
@@ -159,6 +162,7 @@ public class TeamData
         teamExperience = TeamManager.Instance.experienceManager.totalExperienceGained;
 
         inventory = inventoryManager.inventoryObject.ConvertInventoryToIDs();
+        consumables = inventoryManager.consumablesObject.ConvertInventoryToIDs();
 
         currency_0 = gameManager.currencyHandler.GetAmount(CurrencyType.Gold);
         currency_1 = gameManager.currencyHandler.GetAmount(CurrencyType.Spirit);

@@ -99,11 +99,6 @@ public class TEST : MonoBehaviour
         TeamManager.Instance.experienceManager.GainExperience(value, false);
     }
 
-    public void SaveGame()
-    {
-        TeamManager.Instance.SaveTeam();
-    }
-
     public void TestDialogue()
     {
         DialogueManager.Instance.Setup(testConversation);

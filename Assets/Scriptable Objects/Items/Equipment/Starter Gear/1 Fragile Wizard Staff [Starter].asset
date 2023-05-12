@@ -20,7 +20,7 @@ MonoBehaviour:
   sellable: 1
   item:
     name: 
-    id: 50
+    id: 30
     itemObject: {fileID: 0}
     attributes: []
   description: 
@@ -35,7 +35,7 @@ MonoBehaviour:
   vitality: 0
   speed: 0
   accuracy: 0
-  crit: 10
+  crit: 0
   healingMultiplier: 0
   physicalMultiplier: 0
   fireMultiplier: 0
@@ -44,6 +44,6 @@ MonoBehaviour:
   arcaneMultiplier: 0
   holyMultiplier: 0
   shadowMultiplier: 0
-  critMultiplier: 0
+  critMultiplier: 25
   passives: []
   useAbility: {fileID: 0}

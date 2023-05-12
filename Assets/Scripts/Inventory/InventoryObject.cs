@@ -249,24 +249,25 @@ public class InventoryObject : ScriptableObject
         }
     }
 
-    public int[] ConvertInventoryToIDs()
+    public (int, int)[] ConvertInventoryToIDs()
     {
-        int[] inventoryList = new int[container.slots.Length];
+        (int id, int stacks)[] inventoryList = new (int, int)[container.slots.Length];
 
         for (int i = 0; i < container.slots.Length; i++)
         {
-            inventoryList[i] = container.slots[i].item.id;
+            inventoryList[i].id = container.slots[i].item.id;
+            inventoryList[i].stacks = container.slots[i].amount;
         }
 
         return inventoryList;
     }
 
-    public void AddItemsToInventory(int[] itemIDs)
+    public void AddItemsToInventory((int id, int amount)[] itemIDs)
     {
         for (int i = 0; i < container.slots.Length; i++)
         {
-            if (itemIDs[i] != -1)
-                container.slots[i].UpdateSlot(new Item(database.itemObjects[itemIDs[i]]), 1);
+            if (itemIDs[i].id != -1)
+                container.slots[i].UpdateSlot(new Item(database.itemObjects[itemIDs[i].id]), itemIDs[i].amount);
         }
     }
 

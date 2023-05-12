@@ -58,122 +58,6 @@ public class TeamManager : MonoBehaviour
         experienceManager = new ExperienceManager();
     }
 
-    public void SaveTeam()
-    {
-        SaveSystem.SaveTeam(heroes);
-
-        ShortMessage.SendMessage(Input.mousePosition, "Saved!", 24, Color.green);
-
-        Debug.Log("Game Saved!");
-    }
-
-    public void LoadTeam()
-    {
-        TeamData data = SaveSystem.LoadTeam();
-
-        //gameManager.optionsManager.LoadAmbientVolume();
-        //gameManager.optionsManager.LoadSFXVolume();
-
-        if (data == null)
-            return;
-
-        if (data.heroIndex_0 != -1)
-        {
-            Hero hero = CreateHero(data.heroIndex_0, 0, data.equipment_0);
-            hero.newHero = false;
-
-            hero.spellbook.AddAbilitiesToCollection(data.abilityCollection_0, data.abilityLevels_0);
-            hero.spellbook.ChangeIDsToActive(data.activeAbilities_0);
-            hero.spellbook.LearnPassives(data.learnedPassives_0);
-
-            hero.heroPathManager.LoadPathLevels(data.pathLevels_0);
-            hero.heroPathManager.LoadPathPassives(data.unlockedPassives_0);
-
-            hero.RestoreHealth();
-        }
-                                       
-        if (data.heroIndex_1 != -1)
-        {
-            Hero hero = CreateHero(data.heroIndex_1, 1, data.equipment_1);
-            hero.newHero = false;
-
-            hero.spellbook.AddAbilitiesToCollection(data.abilityCollection_1, data.abilityLevels_1);
-            hero.spellbook.ChangeIDsToActive(data.activeAbilities_1);
-            hero.spellbook.LearnPassives(data.learnedPassives_1);
-
-            hero.heroPathManager.LoadPathLevels(data.pathLevels_1);
-            hero.heroPathManager.LoadPathPassives(data.unlockedPassives_1);
-
-            hero.RestoreHealth();
-        }
-            
-        if (data.heroIndex_2 != -1)
-        {
-            Hero hero = CreateHero(data.heroIndex_2, 2, data.equipment_2);
-            hero.newHero = false;
-
-            hero.spellbook.AddAbilitiesToCollection(data.abilityCollection_2, data.abilityLevels_2);
-            hero.spellbook.ChangeIDsToActive(data.activeAbilities_2);
-            hero.spellbook.LearnPassives(data.learnedPassives_2);
-
-            hero.heroPathManager.LoadPathLevels(data.pathLevels_2);     
-            hero.heroPathManager.LoadPathPassives(data.unlockedPassives_2);
-
-            hero.RestoreHealth();
-        }
-
-        experienceManager.GainExperience(data.teamExperience);
-
-        inventoryManager.inventoryObject.AddItemsToInventory(data.inventory);
-
-        // Add path points
-        if (data.heroIndex_0 != -1)
-        {
-            Hero hero = Instance.heroes.Members[0] as Hero;
-
-            hero.heroPathManager.LoadPoints(data.pathPoints_0);
-        }
-        if (data.heroIndex_1 != -1)
-        {
-            Hero hero = Instance.heroes.Members[1] as Hero;
-
-            hero.heroPathManager.LoadPoints(data.pathPoints_1);
-        }
-        if (data.heroIndex_2 != -1)
-        {
-            Hero hero = Instance.heroes.Members[2] as Hero;
-
-            hero.heroPathManager.LoadPoints(data.pathPoints_2);
-        }
-
-        gameManager.currencyHandler.IncreaseCurrency(new Currency(CurrencyType.Gold, data.currency_0));
-        gameManager.currencyHandler.IncreaseCurrency(new Currency(CurrencyType.Spirit, data.currency_1));
-
-        gameManager.unlockedPaths = data.unlockedPaths;
-
-        townManager.SetupStratford();
-
-        //if (data.isTutorial)
-        //{
-        //    townManager.StartTutorial();
-        //}
-        //else
-        //{
-            
-
-
-
-        //    //townManager.blacksmith.LoadShop(data.itemShop, data.itemShopCosts, data.itemShopRotation);
-        //    //townManager.trophyHunter.LoadShop(data.chapterShop);
-
-        //    //townManager.UpdateRotationDisplay();
-        //}
-
-        
-
-        //gameManager.interfaceBar.SetCorrectButton((GameState)data.gameState);
-    }
-
     public void SetupBattle(List<EnemyObject> enemyObjects)
     {
         // Setup hero team
@@ -204,7 +88,7 @@ public class TeamManager : MonoBehaviour
         heroes.ApplyPreBattleEffects();
     }
 
-    public Hero CreateHero(int heroIndex, int index, int[] loadItemIDs = null)
+    public Hero CreateHero(int heroIndex, int index, (int, int)[] loadItemIDs = null)
     {
         GameObject obj = ObjectUtilities.CreateSimplePrefab(GameAssets.i.heroPrefab, heroesContainer);
         obj.name = heroObjects[heroIndex].name;

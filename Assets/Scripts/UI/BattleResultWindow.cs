@@ -141,6 +141,8 @@ public class BattleResultWindow : MonoBehaviour
     private void CloseWindow()
     {
         Destroy(gameObject);
+
+        SaveManager.Instance.SaveGame();
     }
 
     private float GetTotalHeight()

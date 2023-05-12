@@ -26,7 +26,7 @@ public class Hero : Unit
     //public List<Specialization> specializations = new List<Specialization>();
     //public Specialization currentSpecialization;
 
-    public int[] itemIDs;
+    public (int, int)[] itemIDs;
 
     public List<WeaponRequirement> equippedWeapons = new List<WeaponRequirement>();
 
@@ -34,7 +34,7 @@ public class Hero : Unit
 
     public bool newHero = true;
 
-    public void UpdateUnit(int heroIndex, int index, int[] loadItemIDs = null)
+    public void UpdateUnit(int heroIndex, int index, (int, int)[] loadItemIDs = null)
     {
         this.heroObjectIndex = heroIndex;
         teamNumber = index;
@@ -98,12 +98,12 @@ public class Hero : Unit
 
     private void EquipStartingEquipment()
     {
-        itemIDs = new int[8] { -1, -1, -1, -1, -1, -1, -1, -1 };
+        itemIDs = new (int, int)[8] {(-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1)};
 
         for (int i = 0; i < heroObject.startingEquipment.Count; i++)
         {
             int slot = GeneralUtilities.GetCorrectEquipmentslot(heroObject.startingEquipment[i].slot);
-            itemIDs[slot] = heroObject.startingEquipment[i].item.id;
+            itemIDs[slot] = (heroObject.startingEquipment[i].item.id, 1);
         }
     }
 
@@ -124,12 +124,12 @@ public class Hero : Unit
         }
     }
 
-    public void SetupEquipment(int[] itemIDs, int currentHealth = -1)
+    public void SetupEquipment((int id, int amount)[] itemIDs, int currentHealth = -1)
     {
         for (int i = 0; i < itemIDs.Length; i++)
         {
-            if (itemIDs[i] != -1)
-                equipmentObject.AddEquipment(i, new Item(DatabaseHandler.Instance.itemDatabase.itemObjects[itemIDs[i]]));
+            if (itemIDs[i].id != -1)
+                equipmentObject.AddEquipment(i, new Item(DatabaseHandler.Instance.itemDatabase.itemObjects[itemIDs[i].id]));
         }
 
         // No specified current Health resets it to full
