@@ -28,6 +28,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2212159207498190193}
   m_RootOrder: 0
@@ -110,6 +111,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2212159207258040450}
   m_Father: {fileID: 0}
@@ -171,7 +173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -239,21 +242,15 @@ MonoBehaviour:
     passiveAbility: {fileID: 0}
     level: 0
   effect:
-    data: {fileID: 0}
-    parentAbility:
-      owner: {fileID: 0}
-      activeAbility: {fileID: 0}
-      allyAbilitySources: []
-      enemyAbilitySources: []
-      level: 0
-      cooldown: 0
-      currentCooldown: 0
+    effectObject: {fileID: 0}
+    sourceAbility: {fileID: 0}
     name: 
     level: 0
     procType: 0
     duration: 0
     caster: {fileID: 0}
     target: {fileID: 0}
+    stacks: 0
     storedModValue: 0
     timedActions: []
     storedPassive:
@@ -264,7 +261,7 @@ MonoBehaviour:
     attributeType: 0
     baseValue: 0
     bonusValue: 0
-    mulitplier: 0
+    multiplier: 0
   currency:
     currencyType: 0
     totalAmount: 0
