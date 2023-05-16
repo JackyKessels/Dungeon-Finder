@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ada0ff3ca2662c64c891e6cc278c1157, type: 3}
-  m_Name: Battlemage's Paradigm (Bonus Multiplier)
+  m_Name: Warcaster's Paradigm (Bonus Multiplier)
   m_EditorClassIdentifier: 
-  name: Battlemage's Paradigm
+  name: Warcaster's Paradigm
   icon: {fileID: 21300000, guid: 13d7db31af5858548a2100096590fbe3, type: 3}
   hidden: 0
   description: Your next Primary ability deals <bonus> more damage.

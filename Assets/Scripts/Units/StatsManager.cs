@@ -290,9 +290,9 @@ public class StatsManager
         abilitySource.TriggerSource(null, false, false, unit, unit, 1, 1, true, 1, AbilityType.Assault);
     }
 
-    public void TakeDamage(AbilitySource abilitySource)
+    public void TakeDamage(AbilitySource abilitySource, bool isUnitTrigger)
     {
-        abilitySource.TriggerSource(null, false, false, unit, unit, 1, 1, true, 1, AbilityType.Assault);
+        abilitySource.TriggerSource(null, false, false, unit, unit, 1, 1, isUnitTrigger, 1, AbilityType.Assault);
     }
 
     private void BreakIncapacitate(AbilityValue abilityValue)

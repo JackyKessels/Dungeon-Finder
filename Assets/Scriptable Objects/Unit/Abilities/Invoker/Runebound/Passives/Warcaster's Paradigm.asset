@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
-  m_Name: Battlemage's Paradigm
+  m_Name: Warcaster's Paradigm
   m_EditorClassIdentifier: 
   id: 157
-  name: Battlemage's Paradigm
+  name: Warcaster's Paradigm
   quality: 0
   abilityType: 3
   description: Every <cooldown> Rounds increase the damage of your next <primary>

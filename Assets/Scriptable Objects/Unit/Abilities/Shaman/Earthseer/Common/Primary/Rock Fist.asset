@@ -20,7 +20,7 @@ MonoBehaviour:
     for <t1d> Rounds.
 
 
-    Armor reduction does not stack.'
+    <name> does not stack.'
   icon: {fileID: 21300000, guid: 6d1615ac17ee62c41865fe209fb43fb4, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:

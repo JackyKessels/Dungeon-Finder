@@ -54,8 +54,8 @@ MonoBehaviour:
   randomAbility: 1
   abilities:
   - ability: {fileID: 11400000, guid: 991a720b65f4fed4abc5a7f8a0c0b4d9, type: 2}
-    target: 0
-    targetAttribute: 0
+    target: 2
+    targetAttribute: 3
     condition: 0
     startCooldown: 0
     charged: 0

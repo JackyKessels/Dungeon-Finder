@@ -20,16 +20,16 @@ MonoBehaviour:
   sellable: 1
   item:
     name: 
-    id: 51
+    id: 31
     itemObject: {fileID: 0}
     attributes: []
   description: 
   quality: 0
   slot: 2
   level: 1
-  health: 0
-  power: 2
-  wisdom: 2
+  health: 6
+  power: 1
+  wisdom: 1
   armor: 0
   resistance: 0
   vitality: 0

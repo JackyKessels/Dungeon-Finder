@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Shaded Stone
   icon: {fileID: 21300000, guid: 983e01965d8cb504cac06f067482b53b, type: 3}
   hidden: 0
-  description: Shadow Damage increased by <1>%.
+  description: Critical Chance increased by <1>%.
   isBuff: 1
   procType: 0
   duration: 1
@@ -26,7 +26,7 @@ MonoBehaviour:
   aura: 0
   unique: 0
   removeEffects: []
-  attributeModified: 16
+  attributeModified: 8
   isIncrease: 1
   modifierType: 0
   modifierSource:
@@ -34,9 +34,9 @@ MonoBehaviour:
     cannotCrit: 1
     cannotMiss: 1
     ignorePassives: []
-    school: 7
-    attributeType: 16
-    baseValue: 25
+    school: 0
+    attributeType: 8
+    baseValue: 15
     levelBase: 0
     scaling: 0
     levelScaling: 0

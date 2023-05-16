@@ -20,7 +20,7 @@ MonoBehaviour:
     <s1modV> for <s1d> Rounds.
 
 
-    <armor> increase does not stack.'
+    <name> does not stack.'
   icon: {fileID: 21300000, guid: ad2389f17ee529e4aba84604a4de7a16, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
@@ -41,7 +41,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 1
     attributeType: 1
     baseValue: 0
@@ -64,7 +64,8 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive:
+        - {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0

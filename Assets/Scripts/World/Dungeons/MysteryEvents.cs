@@ -173,7 +173,7 @@ public class MysteryAction
 
                     foreach (Unit target in targets)
                     {
-                        target.statsManager.TakeDamage(abilitySource);
+                        target.statsManager.TakeDamage(abilitySource, false);
                     }
 
                     CheckParty();
