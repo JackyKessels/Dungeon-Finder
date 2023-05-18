@@ -20,14 +20,14 @@ MonoBehaviour:
   sellable: 1
   item:
     name: 
-    id: 42
+    id: 22
     itemObject: {fileID: 0}
     attributes: []
   description: 
   quality: 0
   slot: 4
   level: 1
-  health: 3
+  health: 4
   power: 0
   wisdom: 0
   armor: 15

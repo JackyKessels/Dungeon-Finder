@@ -18,17 +18,26 @@ MonoBehaviour:
   description: Heal for <1> every Turn.
   isBuff: 1
   procType: 0
-  duration: 10
+  duration: 8
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
   removeEffects: []
   timedActions:
   - actionType: 1
     actionTargets: 0
+    triggersPassives: 0
     abilitySource:
       ignoreMultipliers: 1
+      cannotCrit: 0
+      cannotMiss: 0
+      ignorePassives: []
       school: 0
       attributeType: 0
-      baseValue: 2
+      baseValue: 3
       levelBase: 0
       scaling: 0
       levelScaling: 0
@@ -46,6 +55,9 @@ MonoBehaviour:
         percentageIncrease: 0
         bonusAbilitySource:
           ignoreMultipliers: 0
+          cannotCrit: 0
+          cannotMiss: 0
+          ignorePassive: []
           school: 0
           attributeType: 0
           baseValue: 0

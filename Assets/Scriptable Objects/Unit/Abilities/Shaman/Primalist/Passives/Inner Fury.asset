@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
   m_Name: Inner Fury
   m_EditorClassIdentifier: 
-  id: 168
+  id: 165
   name: Inner Fury
   quality: 0
   abilityType: 3
-  description: 'At the start of a battle you cast a <castInfo1>.
+  description: 'At the start of a battle you cast a <castInfo1> at <castEffect1>.
 
 
     <castTooltip1>'
@@ -30,6 +30,7 @@ MonoBehaviour:
   activationMoment: 0
   castActiveAbilities:
   - activeAbility: {fileID: 11400000, guid: b80ebac702fc4f14ca9d191a3a659c1f, type: 2}
+    effectiveness: 1.5
     abilityTarget: 0
   effects: []
   targets: 0
@@ -37,3 +38,4 @@ MonoBehaviour:
   attributeType: 0
   attributeValue: 0
   cooldown: 0
+  castFirstRound: 0

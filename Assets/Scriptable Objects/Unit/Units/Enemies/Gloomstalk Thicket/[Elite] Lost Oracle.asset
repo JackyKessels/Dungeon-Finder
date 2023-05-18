@@ -48,15 +48,20 @@ MonoBehaviour:
   - itemObject: {fileID: 0}
     amount: 0
     weight: 1
+  - itemObject: {fileID: 11400000, guid: 672709d438a07224bb239ba8dbf5fe7f, type: 2}
+    amount: 1
+    weight: 1
   randomAbility: 0
   abilities:
   - ability: {fileID: 11400000, guid: f9edfb53526c3e248a331540967b09ec, type: 2}
     target: 0
+    targetAttribute: 0
     condition: 0
     startCooldown: 1
     charged: 0
   - ability: {fileID: 11400000, guid: dfb7c920ae3d91343b0844886e36ee71, type: 2}
     target: 0
+    targetAttribute: 0
     condition: 0
     startCooldown: 0
     charged: 0

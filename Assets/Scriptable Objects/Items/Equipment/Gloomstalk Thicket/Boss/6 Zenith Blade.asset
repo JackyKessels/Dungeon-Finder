@@ -28,13 +28,13 @@ MonoBehaviour:
   slot: 2
   level: 6
   health: 0
-  power: 8
+  power: 9
   wisdom: 0
   armor: 0
   resistance: 0
   vitality: 0
   speed: 1
-  accuracy: 4
+  accuracy: 0
   crit: 0
   healingMultiplier: 0
   physicalMultiplier: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   arcaneMultiplier: 0
   holyMultiplier: 0
   shadowMultiplier: 0
-  critMultiplier: 0
+  critMultiplier: 20
   passives:
   - {fileID: 11400000, guid: cee0732fa1503b84ab1033aa67ab73e0, type: 2}
   useAbility: {fileID: 0}
