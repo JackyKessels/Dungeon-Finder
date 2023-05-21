@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class AbilityShop : Shop
 {
+    [Header("[ Shop Settings ]")]
+    public int abilityOptions = 3;
+    public int offspecOptions = 1;
+
+    public int priceMultiplier = 5;
+
     [Header("[ Ability Shop ]")]
     public AbilityOptionsWindow abilityOptionsWindow;
 

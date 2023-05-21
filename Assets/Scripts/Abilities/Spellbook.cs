@@ -230,7 +230,9 @@ public class Spellbook
         {
             for (int i = 0; i < activeSpellbook.Length; i++)
             {
-                if (activeSpellbook[i].activeAbility == null && HasWeaponRequirement(active))
+                if (activeSpellbook[i].activeAbility == null && 
+                    HasWeaponRequirement(active) &&
+                    !SpellbookManager.Instance.activeAbilities[i].locked)
                 {
                     activeSpellbook[i] = active;
                     activeSpellbook[i].Initialize();

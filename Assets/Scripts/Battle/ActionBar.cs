@@ -117,8 +117,19 @@ public class ActionBar : MonoBehaviour
             }
             else
             {
+                Sprite sprite;
+
+                if (SpellbookManager.Instance.activeAbilities[i].locked)
+                {
+                    sprite = GameAssets.i.lockedAbility;
+                }
+                else
+                {
+                    sprite = GameAssets.i.noAbility;
+                }
+
                 SetupActionBarAbility(abilities[i],
-                                      GameAssets.i.noAbility,
+                                      sprite,
                                       null,
                                       CurrentState.Battle);
             }

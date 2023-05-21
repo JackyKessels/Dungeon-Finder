@@ -14,10 +14,7 @@ public class AbilityOptionsWindow : MonoBehaviour
     private Hero hero;
     private Currency cost;
 
-    private readonly int abilityOptions = 3;
-    private readonly int offspecOptions = 1;
-
-    private readonly int priceMultiplier = 5;
+    private AbilityShop abilityShop;
 
     private void Update()
     {
@@ -25,6 +22,11 @@ public class AbilityOptionsWindow : MonoBehaviour
         {
             Refund();
         }
+    }
+
+    private void Awake()
+    {
+        abilityShop = TownManager.Instance.enchanter;
     }
 
     public void CreateOptions(Hero _hero, HeroPathObject heroPathObject, Currency _cost)
@@ -36,16 +38,16 @@ public class AbilityOptionsWindow : MonoBehaviour
 
         ObjectUtilities.ClearContainer(container);
 
-        List<ActiveAbility> options = heroPathObject.GetRandomActiveAbilities(abilityOptions);
+        List<ActiveAbility> options = heroPathObject.GetRandomActiveAbilities(abilityShop.abilityOptions);
 
-        for (int i = 0; i < abilityOptions; i++)
+        for (int i = 0; i < abilityShop.abilityOptions; i++)
         {
             Active active = new Active(options[i], hero.spellbook.LevelOfAbility(options[i]) + 1);
 
             AddAbilityOption(active);
         }
 
-        for (int i = 0; i < offspecOptions; i++)
+        for (int i = 0; i < abilityShop.offspecOptions; i++)
         {
             ActiveAbility activeAbility = hero.heroPathManager.GetRandomAbilityFromOtherPaths(heroPathObject);
 
@@ -115,7 +117,7 @@ public class AbilityOptionsWindow : MonoBehaviour
 
     private int UpgradeCost(int level)
     {
-        return priceMultiplier * level;
+        return abilityShop.priceMultiplier * level;
     }
 
     private void SuccessfulPurchase(Active active)

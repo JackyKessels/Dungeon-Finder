@@ -160,16 +160,18 @@ public class TEST : MonoBehaviour
 
         //
 
-        gameManager.firstDeath = true;
+        ProgressionManager.Instance.FirstDeath();
+        ProgressionManager.Instance.unlockedPaths = true;
+        ProgressionManager.Instance.SetPathButtonState();
+        ProgressionManager.Instance.UnlockFourthAbility();
+        ProgressionManager.Instance.UnlockEnchanterUpgrade();
+        ProgressionManager.Instance.dungeonList.SetDungeonList(true);
+
         gameManager.currencyHandler.IncreaseCurrency(new Currency(CurrencyType.Spirit, spiritShards));
 
         int exp = ExperienceManager.TotalExperienceToLevel(level);
 
         TeamManager.Instance.experienceManager.GainExperience(exp);
-
-        TownManager.Instance.PathsState(true);
-
-        TownManager.Instance.dungeonList.SetDungeonList(true);
     }
 
 

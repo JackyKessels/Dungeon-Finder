@@ -9,7 +9,11 @@ public class TeamData
     // Tutorial or Stratford
     public bool isTutorial;
     public int gameState;
+
+    public bool firstDeath;
     public bool unlockedPaths;
+    public bool unlockedFourthAbility;
+    public bool unlockedEnchanterUpgrade;
 
     // The correct HeroObject
     public int heroIndex_0 = -1;
@@ -96,10 +100,15 @@ public class TeamData
         GameManager gameManager = GameManager.Instance;
         InventoryManager inventoryManager = InventoryManager.Instance;
         TownManager townManager = TownManager.Instance;
+        ProgressionManager progressionManager = ProgressionManager.Instance;
 
         isTutorial = townManager.isTutorial;
         gameState = (int)gameManager.gameState;
-        unlockedPaths = gameManager.unlockedPaths;
+
+        firstDeath = progressionManager.firstDeath;
+        unlockedPaths = progressionManager.unlockedPaths;
+        unlockedFourthAbility = progressionManager.unlockedFourthAbility;
+        unlockedEnchanterUpgrade = progressionManager.unlockedEnchanterUpgrade;
 
         Hero hero_0 = team.GetUnit(0) as Hero;
         Hero hero_1 = team.GetUnit(1) as Hero;

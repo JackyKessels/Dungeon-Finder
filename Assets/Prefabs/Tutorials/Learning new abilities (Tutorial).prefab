@@ -329,7 +329,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The first three options are from your chosen Path, whilst the last option
+  m_text: The first two options are from your chosen Path, whilst the last option
     is from one of the other Paths.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02a595d32217990488a92337279e774f, type: 2}
@@ -532,7 +532,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6ec489237ec54df42b966bcd0c688f69, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9308dc4a242f4574cb5bddca29671ce0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1113,7 +1113,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a816bc9f2d9aec54b89cea31691036db, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 929d60e1ea379e142ab5d28d9a939cbf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

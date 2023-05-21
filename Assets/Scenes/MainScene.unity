@@ -2106,10 +2106,6 @@ MonoBehaviour:
   TEST_MODE: 0
   TEST: {fileID: 560420148}
   SKIP_BUTTON: {fileID: 128224538}
-  totalBattles: 0
-  monstersDefeated: 0
-  firstDeath: 0
-  unlockedPaths: 0
   startUI: {fileID: 1464552222}
   endUI: {fileID: 1730384994}
   startCamera: {fileID: 1463232678}
@@ -3676,7 +3672,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 878759087}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &159561163
 GameObject:
@@ -4382,6 +4378,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1005873551}
     m_Modifications:
+    - target: {fileID: 1338896400282160867, guid: c7c18e2ecbe870e4e93c65ba99c33cce,
+        type: 3}
+      propertyPath: active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338896400282160867, guid: c7c18e2ecbe870e4e93c65ba99c33cce,
+        type: 3}
+      propertyPath: interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5889402657643774661, guid: c7c18e2ecbe870e4e93c65ba99c33cce,
         type: 3}
       propertyPath: m_text
@@ -4735,7 +4741,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 878759087}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &212547794
 MonoBehaviour:
@@ -7905,7 +7911,7 @@ Transform:
   - {fileID: 975997691}
   - {fileID: 1238638666}
   m_Father: {fileID: 878759087}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &347682088
 GameObject:
@@ -14527,6 +14533,11 @@ PrefabInstance:
       propertyPath: slot
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -6488291070251719042, guid: 163295bd84467704981bef8c808e7917,
+        type: 3}
+      propertyPath: locked
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 48367373161341136, guid: 163295bd84467704981bef8c808e7917,
         type: 3}
       propertyPath: m_Pivot.x
@@ -17631,7 +17642,7 @@ PrefabInstance:
     - target: {fileID: 48367373161341139, guid: 163295bd84467704981bef8c808e7917,
         type: 3}
       propertyPath: m_Name
-      value: Primary Ability
+      value: Ability 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 163295bd84467704981bef8c808e7917, type: 3}
@@ -20145,6 +20156,7 @@ Transform:
   m_Children:
   - {fileID: 1298120632}
   - {fileID: 78821953}
+  - {fileID: 1363033730}
   - {fileID: 1902208509}
   - {fileID: 1247864327}
   - {fileID: 1432473863}
@@ -20943,6 +20955,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 890951221}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &890951224 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -6488291070251719042, guid: 163295bd84467704981bef8c808e7917,
+    type: 3}
+  m_PrefabInstance: {fileID: 890951221}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24749b7143e379f469bbfb936b62c71c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &892102669 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3129523690482869532, guid: f80417b5896851e4586b56608077e90a,
@@ -21947,7 +21971,11 @@ MonoBehaviour:
   spellbookPanel: {fileID: 1190090457}
   draggableContainer: {fileID: 1026379226}
   activeAbilitiesContainer: {fileID: 232998769}
-  activeAbilities: []
+  activeAbilities:
+  - {fileID: 1317860814}
+  - {fileID: 890951224}
+  - {fileID: 1156102707}
+  - {fileID: 1704866187}
   passiveAbilitiesContainer: {fileID: 672644335}
   nextPassivesPage: {fileID: 1891496872}
   previousPassivesPage: {fileID: 1014243774}
@@ -21971,7 +21999,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 878759087}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &926056997
 MonoBehaviour:
@@ -24199,7 +24227,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 878759087}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1001015850
 MonoBehaviour:
@@ -33042,6 +33070,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c477c7e90a3b4a418a1444a06348c7d, type: 3}
+--- !u!114 &1156102707 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -6488291070251719042, guid: 163295bd84467704981bef8c808e7917,
+    type: 3}
+  m_PrefabInstance: {fileID: 240464496}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24749b7143e379f469bbfb936b62c71c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1156858294
 GameObject:
   m_ObjectHideFlags: 0
@@ -34841,7 +34881,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 878759087}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1247864328
 MonoBehaviour:
@@ -35980,6 +36020,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1302717069}
   m_CullTransparentMesh: 0
+--- !u!114 &1317860814 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -6488291070251719042, guid: 163295bd84467704981bef8c808e7917,
+    type: 3}
+  m_PrefabInstance: {fileID: 774489642}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24749b7143e379f469bbfb936b62c71c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1318463142
 GameObject:
   m_ObjectHideFlags: 0
@@ -36907,6 +36959,118 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1359743893}
   m_CullTransparentMesh: 0
+--- !u!1 &1363033729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1363033730}
+  - component: {fileID: 1363033731}
+  - component: {fileID: 1363033732}
+  m_Layer: 0
+  m_Name: Progression Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1363033730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363033729}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 878759087}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1363033731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363033729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88763c75ce1c5fd40b258c4cd7e41fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dungeonList: {fileID: 1363033732}
+  totalVictories: 0
+  totalDefeats: 0
+  totalBossesDefeated: 0
+  totalMonstersDefeated: 0
+  firstDeath: 0
+  unlockedPaths: 0
+  unlockedPaths_Button: {fileID: 1410519800}
+  unlockedPaths_Dungeon: {fileID: 11400000, guid: dc6996d45d25c0d438907341f35d65a3,
+    type: 2}
+  unlockedPaths_Floor: 0
+  unlockedFourthAbility: 0
+  unlockedFourthAbility_Dungeon: {fileID: 11400000, guid: dc6996d45d25c0d438907341f35d65a3,
+    type: 2}
+  unlockedEnchanterUpgrade: 0
+  unlockedEnchanterUpgrade_Dungeon: {fileID: 11400000, guid: 6b5fe543dc302914a9dce4e18be8c28f,
+    type: 2}
+--- !u!114 &1363033732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363033729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96dd830fb3ca4f54ca39bd4dddd29b1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dungeonPrefab: {fileID: 5264437525786323630, guid: 4343846b972ecd64db07f282bffdb892,
+    type: 3}
+  dungeons:
+  - dungeon: {fileID: 11400000, guid: dc6996d45d25c0d438907341f35d65a3, type: 2}
+    locked: 0
+    unlockedBy: {fileID: 0}
+    testing: 0
+    button: {fileID: 0}
+  - dungeon: {fileID: 11400000, guid: 6b5fe543dc302914a9dce4e18be8c28f, type: 2}
+    locked: 1
+    unlockedBy: {fileID: 0}
+    testing: 0
+    button: {fileID: 0}
+  - dungeon: {fileID: 11400000, guid: ae8b59980eaa4cc45877efd0d555d894, type: 2}
+    locked: 1
+    unlockedBy: {fileID: 0}
+    testing: 1
+    button: {fileID: 0}
+  - dungeon: {fileID: 11400000, guid: a3793fa3a9bea6445b5b3fc5a80738b0, type: 2}
+    locked: 1
+    unlockedBy: {fileID: 0}
+    testing: 1
+    button: {fileID: 0}
+  - dungeon: {fileID: 11400000, guid: 5d851ae00e9ef124aacbaa052d5f3fbc, type: 2}
+    locked: 1
+    unlockedBy: {fileID: 0}
+    testing: 1
+    button: {fileID: 0}
+  - dungeon: {fileID: 11400000, guid: 57b41c953d0109249b6398f5a4621690, type: 2}
+    locked: 0
+    unlockedBy: {fileID: 0}
+    testing: 1
+    button: {fileID: 0}
+  - dungeon: {fileID: 11400000, guid: f7c416bf606681245b320978a8f79258, type: 2}
+    locked: 0
+    unlockedBy: {fileID: 0}
+    testing: 1
+    button: {fileID: 0}
 --- !u!1 &1364626168
 GameObject:
   m_ObjectHideFlags: 0
@@ -38916,7 +39080,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 878759087}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1432473864
 MonoBehaviour:
@@ -38947,7 +39111,6 @@ MonoBehaviour:
   pathsButton: {fileID: 1410519800}
   pathUnlockDungeon: {fileID: 11400000, guid: dc6996d45d25c0d438907341f35d65a3, type: 2}
   pathUnlockFloor: 0
-  dungeonList: {fileID: 1432473870}
   mapObject: {fileID: 881813680}
   mapContainer: {fileID: 1662154536}
   abilityShopButton: {fileID: 1767919236}
@@ -38979,6 +39142,9 @@ MonoBehaviour:
   shopTitle: {fileID: 1449169555}
   unlocked: 1
   currentHero: 0
+  abilityOptions: 2
+  offspecOptions: 1
+  priceMultiplier: 5
   abilityOptionsWindow: {fileID: 1175766381}
   heroPathOptionPrefab: {fileID: 3632914831796848933, guid: c8bdef676c407914aa9f0f53fc09952d,
     type: 3}
@@ -45155,6 +45321,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702052462}
   m_CullTransparentMesh: 0
+--- !u!114 &1704866187 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -6488291070251719042, guid: 163295bd84467704981bef8c808e7917,
+    type: 3}
+  m_PrefabInstance: {fileID: 600076492}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24749b7143e379f469bbfb936b62c71c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1709369684
 GameObject:
   m_ObjectHideFlags: 0
@@ -49756,7 +49934,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 878759087}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1902208510
 MonoBehaviour:
@@ -51185,7 +51363,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 878759087}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1978728641
 MonoBehaviour:

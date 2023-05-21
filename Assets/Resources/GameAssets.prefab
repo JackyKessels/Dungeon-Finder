@@ -73,6 +73,7 @@ MonoBehaviour:
   threeMembers: {fileID: 21300000, guid: 9b8e5dab7810bf4449a6d0e07d11c055, type: 3}
   cancelIcon: {fileID: 21300000, guid: 00152f83547c6b24bb6e5bbd47abecb0, type: 3}
   noAbility: {fileID: 21300000, guid: 8e4a547bafcb2c742b251b00a810c6e4, type: 3}
+  lockedAbility: {fileID: 21300000, guid: 2a7bb88ee6280fc4eaf2ef8cd62ff839, type: 3}
   genericAttackAnimation: {fileID: 21300000, guid: c45a6e9f24bde1342806ad63dc0c22a8,
     type: 3}
   chargeTargetEffect: {fileID: 11400000, guid: e750d7a8e64ac404bb0d15d8f5621251, type: 2}

@@ -4,17 +4,22 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SlottableAbility : MonoBehaviour, IPointerClickHandler
+public class ActiveAbilitySlot : MonoBehaviour, IPointerClickHandler
 {
+    public Image icon;
+    public Button button;
+    public TooltipObject tooltip;
+
     public int slot;
+    public bool locked = false;
 
     private void Start()
     {
         ObjectUtilities.AddEvent(gameObject, EventTriggerType.PointerEnter, delegate { OnEnter(gameObject); });
-        ObjectUtilities.AddEvent(gameObject, EventTriggerType.PointerExit, delegate { OnExit(gameObject); });
-        ObjectUtilities.AddEvent(gameObject, EventTriggerType.BeginDrag, delegate { OnDragStart(gameObject); });
+        ObjectUtilities.AddEvent(gameObject, EventTriggerType.PointerExit, delegate { OnExit(); });
+        ObjectUtilities.AddEvent(gameObject, EventTriggerType.BeginDrag, delegate { OnDragStart(); });
         ObjectUtilities.AddEvent(gameObject, EventTriggerType.EndDrag, delegate { OnDragEnd(gameObject); });
-        ObjectUtilities.AddEvent(gameObject, EventTriggerType.Drag, delegate { OnDrag(gameObject); });
+        ObjectUtilities.AddEvent(gameObject, EventTriggerType.Drag, delegate { OnDrag(); });
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -40,38 +45,36 @@ public class SlottableAbility : MonoBehaviour, IPointerClickHandler
         MouseData.slotHoveredOver = obj;
     }
 
-    public void OnExit(GameObject obj)
+    public void OnExit()
     {
         MouseData.slotHoveredOver = null;
     }
 
-    public void OnDragStart(GameObject obj)
+    public void OnDragStart()
     {
-        MouseData.tempObjectBeingDragged = CreateTempAbility(obj);
+        MouseData.tempObjectBeingDragged = CreateTempAbility();
     }
 
-    public GameObject CreateTempAbility(GameObject obj)
+    public GameObject CreateTempAbility()
     {
         GameObject tempAbility = null;
 
-        TooltipObject info = obj.GetComponent<TooltipObject>();
-
-        if (info.active.activeAbility != null)
+        if (tooltip.active.activeAbility != null)
         {
             tempAbility = new GameObject();
             var rt = tempAbility.AddComponent<RectTransform>();
             rt.sizeDelta = new Vector2(36, 36);
-            tempAbility.transform.SetParent(HeroManager.Instance.heroInformationObject.transform);
+            tempAbility.transform.SetParent(SpellbookManager.Instance.draggableContainer.transform);
             rt.localScale = Vector3.one;
             var img = tempAbility.AddComponent<Image>();
-            img.sprite = info.active.activeAbility.icon;
+            img.sprite = tooltip.active.activeAbility.icon;
             img.raycastTarget = false;
         }
 
         return tempAbility;
     }
 
-    public void OnDrag(GameObject obj)
+    public void OnDrag()
     {
         if (MouseData.tempObjectBeingDragged != null)
         {
@@ -83,9 +86,11 @@ public class SlottableAbility : MonoBehaviour, IPointerClickHandler
     {
         Destroy(MouseData.tempObjectBeingDragged);
 
-        if (MouseData.slotHoveredOver && MouseData.slotHoveredOver.GetComponent<SlottableAbility>() != null)
+        if (MouseData.slotHoveredOver && 
+            MouseData.slotHoveredOver.GetComponent<ActiveAbilitySlot>() != null &&
+            !MouseData.slotHoveredOver.GetComponent<ActiveAbilitySlot>().locked)
         {
-            int targetSlot = MouseData.slotHoveredOver.GetComponent<SlottableAbility>().slot;
+            int targetSlot = MouseData.slotHoveredOver.GetComponent<ActiveAbilitySlot>().slot;
 
             TooltipObject currentObject = obj.GetComponent<TooltipObject>();
             TooltipObject targetObject = MouseData.slotHoveredOver.GetComponent<TooltipObject>();

@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     private BattleManager battleManager;
     private TeamManager teamManager;
     private JourneyManager journeyManager;
+    private ProgressionManager progressionManager;
 
     [HideInInspector] public CurrencyHandler currencyHandler;
 
@@ -50,12 +51,6 @@ public class GameManager : MonoBehaviour
     public bool TEST_MODE = false;
     public Canvas TEST;
     public GameObject SKIP_BUTTON;
-
-    [Header("[ Important Information ]")]
-    public int totalBattles = 0;
-    public int monstersDefeated = 0;
-    public bool firstDeath = false;
-    public bool unlockedPaths = false;
 
     [Header("[ Start & End Screen ]")]
     public Canvas startUI;
@@ -107,9 +102,6 @@ public class GameManager : MonoBehaviour
     private HeroSelectionObject heroSelectionObject_1;
     private HeroSelectionObject heroSelectionObject_2;
 
-    [Header("[ First Death Rewards ]")]
-    [SerializeField] private FirstDeathRewards firstDeathRewards;
-
     private void Start()
     {
         DatabaseHandler.Instance.itemDatabase.UpdateId();
@@ -123,6 +115,7 @@ public class GameManager : MonoBehaviour
         townManager = TownManager.Instance;
         battleManager = BattleManager.Instance;
         teamManager = TeamManager.Instance;
+        progressionManager = ProgressionManager.Instance;
 
         journeyManager = new JourneyManager(endUI);
         currencyHandler = GetComponent<CurrencyHandler>();
@@ -225,7 +218,8 @@ public class GameManager : MonoBehaviour
 
         CreateTeam();
 
-        //townManager.StartTutorial();
+        progressionManager.ResetProgression();
+
         townManager.SetupStratford();
 
         StartCoroutine(StartIntroductionDialogue());
@@ -273,7 +267,14 @@ public class GameManager : MonoBehaviour
         TEST.gameObject.SetActive(true);
         SKIP_BUTTON.SetActive(true);
 
-        unlockedPaths = true;
+        progressionManager.dungeonList.SetDungeonList(true);
+
+        progressionManager.firstDeath = true;
+        progressionManager.unlockedPaths = true;
+        progressionManager.SetPathButtonState();
+        progressionManager.UnlockFourthAbility();
+        progressionManager.UnlockEnchanterUpgrade();
+
 
         tutorialManager.SkipTutorials = true;
 
@@ -293,7 +294,6 @@ public class GameManager : MonoBehaviour
 
         //townManager.StartTutorial();
         townManager.SetupStratford();
-        townManager.dungeonList.SetDungeonList(true);
     }
 
     public void BackToTitle()
@@ -306,21 +306,20 @@ public class GameManager : MonoBehaviour
 
     public void BattleWon()
     {
-        //townManager.RotateShopDisplay();
+        progressionManager.totalVictories++;
 
         // Won last location -> Map is finished so return back to town
         if (dungeonManager.player.currentLocation.x == dungeonManager.gridHandler.columns - 1)
         {
-            if (!unlockedPaths)
-            {
-                townManager.UnlockPaths(dungeonManager.currentDungeon, dungeonManager.currentFloor);
-
-                NotificationObject.SendNotification("The Path system has been unlocked.");
-            }
+            progressionManager.UnlockPaths(dungeonManager.currentDungeon, dungeonManager.currentFloor);
 
             if (dungeonManager.IsLastFloor())
             {
-                townManager.dungeonList.UnlockDungeon(dungeonManager.currentDungeon);
+                progressionManager.totalBossesDefeated++;
+
+                progressionManager.dungeonList.UnlockDungeon(dungeonManager.currentDungeon);
+                progressionManager.UnlockFourthAbility();
+                progressionManager.UnlockEnchanterUpgrade();
 
                 GoToTown();
 
@@ -345,30 +344,21 @@ public class GameManager : MonoBehaviour
 
             GoToRun();
         }
-
-        totalBattles++;
     }
 
     public void BattleLost()
     {
-        teamManager.heroes.FullRestoreTeam();
+        progressionManager.totalDefeats++;
 
-        FirstDeath();
+        progressionManager.FirstDeath();
+
+        teamManager.heroes.FullRestoreTeam();
 
         GoToTown();
 
         RewardManager.Instance.SetupBattleResult();
     }
-    
-    private void FirstDeath()
-    {
-        if (firstDeath)
-            return;
 
-        firstDeath = true;
-
-        firstDeathRewards.Reward(currencyHandler);
-    }
 
     public void BattleFled()
     {
@@ -389,6 +379,7 @@ public class GameManager : MonoBehaviour
         currencyHandler.UpdateCurrencies();
 
         cameraScript.GoToCamera(townManager.cameraObject, false);
+
         if (townManager.isTutorial) townManager.TutorialUI(true);
         else townManager.EnableUI(true);
 
@@ -434,11 +425,7 @@ public class GameManager : MonoBehaviour
         teamManager.heroes.ResetTeam();
         teamManager.enemies.ResetTeam();
 
-        totalBattles = 0;
-        monstersDefeated = 0;
-
-        // Reset Inventory
-        // Reset Everything
+        progressionManager.ResetProgression();
     }
 
 

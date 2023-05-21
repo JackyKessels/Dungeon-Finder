@@ -41,6 +41,7 @@ public class GameAssets : MonoBehaviour
     [Header("Abilities")]
     public Sprite cancelIcon;
     public Sprite noAbility;
+    public Sprite lockedAbility;
     public Sprite genericAttackAnimation;
     public EffectObject chargeTargetEffect;
     public EffectObject chargeInstantEffect;

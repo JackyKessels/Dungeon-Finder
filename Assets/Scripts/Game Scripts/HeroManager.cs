@@ -81,7 +81,7 @@ public class HeroManager : MonoBehaviour, IUserInterface
             HeroInformationGeneralButton();
         }
 
-        if (KeyboardHandler.OpenHeroInformationPaths() && gameManager.gameState != GameState.NONE && gameManager.unlockedPaths)
+        if (KeyboardHandler.OpenHeroInformationPaths() && gameManager.gameState != GameState.NONE && ProgressionManager.Instance.unlockedPaths)
         {
             HeroInformationPathButton();
         }

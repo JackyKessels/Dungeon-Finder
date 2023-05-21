@@ -33,7 +33,7 @@ public class SpellbookManager : MonoBehaviour
     public GameObject draggableContainer;       // This is where the draggables go
 
     public GameObject activeAbilitiesContainer; // Active abilities container object
-    public GameObject[] activeAbilities;        // List of all active abilities
+    public ActiveAbilitySlot[] activeAbilities = new ActiveAbilitySlot[4];        // List of all active abilities
 
     public GameObject passiveAbilitiesContainer;
     public Button nextPassivesPage;
@@ -56,24 +56,13 @@ public class SpellbookManager : MonoBehaviour
     private void Start()
     {
         teamManager = TeamManager.Instance;
-
-        activeAbilities = new GameObject[4];
-
-        for (int i = 0; i < activeAbilities.Length; i++)
-        {
-            activeAbilities[i] = activeAbilitiesContainer.transform.GetChild(i).gameObject;
-        }
-
-        //foreach (GameObject obj in activeAbilities)
-        //{
-        //    ObjectUtilities.AddEvent(obj, EventTriggerType.PointerEnter, delegate { OnEnter(obj); });
-        //    ObjectUtilities.AddEvent(obj, EventTriggerType.PointerExit, delegate { OnExit(obj); });
-        //}
     }
 
     public void Setup(Hero hero)
     {
         currentHero = hero;
+
+        ObjectUtilities.ClearContainer(draggableContainer);
 
         GenerateAbilityCollection();
 
@@ -81,7 +70,6 @@ public class SpellbookManager : MonoBehaviour
         GenerateItemAbilities();
 
         CheckActiveValidity();
-
         UpdateActiveAbilities();
 
         CheckPassiveAbilitiesButtons();
@@ -99,6 +87,7 @@ public class SpellbookManager : MonoBehaviour
             if ((!currentHero.spellbook.abilityCollection.Contains(currentHero.spellbook.activeSpellbook[i])) ||
                 (currentHero.spellbook.activeSpellbook[i].activeAbility != null && currentHero.spellbook.HasWeaponRequirement(currentHero.spellbook.activeSpellbook[i]) == false))
             {
+                currentHero.spellbook.activeSpellbook[i] = new Active(null, 0);
                 SetActiveSlotInactive(i);
             }
         }
@@ -106,9 +95,16 @@ public class SpellbookManager : MonoBehaviour
 
     public void SetActiveSlotInactive(int slot)
     {
-        currentHero.spellbook.activeSpellbook[slot] = new Active(null, 0);
-        activeAbilities[slot].GetComponent<TooltipObject>().active = new Active(null, 0);
-        activeAbilities[slot].GetComponent<Image>().sprite = GameAssets.i.noAbility;
+        if (activeAbilities[slot].locked)
+        {
+            activeAbilities[slot].tooltip.active = new Active(null, 0);
+            activeAbilities[slot].icon.sprite = GameAssets.i.lockedAbility;
+        }
+        else
+        {
+            activeAbilities[slot].tooltip.active = new Active(null, 0);
+            activeAbilities[slot].icon.sprite = GameAssets.i.noAbility;
+        }
     }
 
     // Updates all active abilities with the Hero's active abilities
@@ -116,19 +112,15 @@ public class SpellbookManager : MonoBehaviour
     {
         for (int i = 0; i < currentHero.spellbook.activeSpellbook.Length; i++)
         {
-            Image b = activeAbilities[i].GetComponent<Image>();
-            TooltipObject t = activeAbilities[i].GetComponent<TooltipObject>();
-
             if (currentHero.spellbook.activeSpellbook[i].activeAbility != null)
             {
-                t.active = currentHero.spellbook.activeSpellbook[i];
-                t.state = CurrentState.HeroInformation;
-                b.sprite = currentHero.spellbook.activeSpellbook[i].activeAbility.icon;
+                activeAbilities[i].tooltip.active = currentHero.spellbook.activeSpellbook[i];
+                activeAbilities[i].tooltip.state = CurrentState.HeroInformation;
+                activeAbilities[i].icon.sprite = currentHero.spellbook.activeSpellbook[i].activeAbility.icon;
             }
             else
             {
-                t.active = new Active(null, 0);
-                b.sprite = GameAssets.i.noAbility;
+                SetActiveSlotInactive(i);
             }
         }
     }
@@ -140,7 +132,7 @@ public class SpellbookManager : MonoBehaviour
 
         for (int i = 0; i < activeAbilities.Length; i++)
         {
-            if (activeAbilities[i].GetComponent<TooltipObject>().active.activeAbility == ability.activeAbility)
+            if (activeAbilities[i].tooltip.active.activeAbility == ability.activeAbility)
             {
                 isInList = true;
                 Debug.Log("Already contains: " + ability.activeAbility.name);
@@ -434,8 +426,6 @@ public class SpellbookManager : MonoBehaviour
         {
             TooltipObject draggedAbility = obj.GetComponent<TooltipObject>();
 
-
-
             // If dropped in a Sell Slot
             if (MouseData.slotHoveredOver.GetComponent<SellSlot>() != null)
             {
@@ -449,9 +439,10 @@ public class SpellbookManager : MonoBehaviour
                 }
             }
             // If dropped in a Active Ability slot
-            else if (MouseData.slotHoveredOver.GetComponent<SlottableAbility>() &&
-                    !ContainsAbility(draggedAbility.active) &&
-                    currentHero.spellbook.HasWeaponRequirement(draggedAbility.active))
+            else if (MouseData.slotHoveredOver.GetComponent<ActiveAbilitySlot>() &&
+                     !MouseData.slotHoveredOver.GetComponent<ActiveAbilitySlot>().locked &&
+                     !ContainsAbility(draggedAbility.active) &&
+                     currentHero.spellbook.HasWeaponRequirement(draggedAbility.active))
             {
                 TooltipObject targetAbility = MouseData.slotHoveredOver.GetComponent<TooltipObject>();
 
@@ -459,7 +450,7 @@ public class SpellbookManager : MonoBehaviour
                 {
                     targetAbility.active = draggedAbility.active;
 
-                    SlottableAbility slottableAbility = MouseData.slotHoveredOver.GetComponent<SlottableAbility>();
+                    ActiveAbilitySlot slottableAbility = MouseData.slotHoveredOver.GetComponent<ActiveAbilitySlot>();
 
                     currentHero.spellbook.activeSpellbook[slottableAbility.slot] = targetAbility.active;
                     currentHero.spellbook.activeSpellbook[slottableAbility.slot].Initialize();

@@ -18,17 +18,28 @@ public class GeneralInterface : MonoBehaviour
     {
         #if UNITY_EDITOR
         {
-            //TeamManager.Instance.SaveTeam();
+            SaveAndExit();
 
             UnityEditor.EditorApplication.isPlaying = false;
         }
         #else
         {
-            //TeamManager.Instance.SaveTeam();
+            SaveAndExit();
 
             Application.Quit();
         }         
         #endif
+    }
+
+    private void SaveAndExit()
+    {
+        ProgressionManager.Instance.totalDefeats++;
+
+        TeamManager.Instance.heroes.SetInvulnerable(true);
+        TeamManager.Instance.heroes.ExpireEffects();
+        TeamManager.Instance.heroes.SetInvulnerable(false);
+
+        SaveManager.Instance.SaveGame();
     }
 
     public void ToggleMenu()

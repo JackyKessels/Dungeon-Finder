@@ -57,7 +57,6 @@ public class TownManager : MonoBehaviour, IUserInterface
     public int pathUnlockFloor;
 
     [Header("[ Map Variables ]")]
-    public DungeonList dungeonList;
     public GameObject mapObject;
     public GameObject mapContainer;
 
@@ -143,7 +142,7 @@ public class TownManager : MonoBehaviour, IUserInterface
 
         EnableUI(true);
 
-        PathsState(gameManager.unlockedPaths);
+        ProgressionManager.Instance.SetPathButtonState();
 
         townName.text = stratford.name;
         townBackground.sprite = stratford.background;
@@ -195,7 +194,7 @@ public class TownManager : MonoBehaviour, IUserInterface
     {
         mapObject.gameObject.SetActive(true);
 
-        dungeonList.AddDungeonsToMap(mapContainer);
+        ProgressionManager.Instance.dungeonList.AddDungeonsToMap(mapContainer);
     }
 
     public void BuildShops()
@@ -334,42 +333,6 @@ public class TownManager : MonoBehaviour, IUserInterface
 
         //HeroManager.Instance.SetupStarterPath(teamManager.heroes.members[0] as Hero);
     }
-
-    public void UnlockPaths(Dungeon dungeon, int floor)
-    {
-        if (pathUnlockDungeon == dungeon && pathUnlockFloor == floor)
-        {
-            PathsState(true);
-        }
-    }
-
-    public void PathsState(bool unlocked)
-    {
-        TooltipObject tooltip = pathsButton.GetComponent<TooltipObject>();
-
-        if (unlocked)
-        {
-            gameManager.unlockedPaths = true;
-
-            pathsButton.interactable = true;
-
-            Destroy(tooltip);
-
-            Debug.Log("Unlocked Paths");
-        }
-        else
-        {
-            pathsButton.interactable = false;
-
-            string color = ColorDatabase.GeneralInformation();
-
-            tooltip.useGenericTooltip = true;
-            tooltip.genericTooltip = string.Format("Unlocks when <color={0}>Si'keth Bloodclaw</color> has been defeated.\n\nHe can be found in the <color={0}>Crimson Burrows</color>.", color);
-        }
-    }
-
-
-
 
     // Save & Load
 

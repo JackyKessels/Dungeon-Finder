@@ -174,14 +174,14 @@ public class TeamManager : MonoBehaviour
 
         if (u.isEnemy)
         {
+            ProgressionManager.Instance.totalMonstersDefeated++;
+
             // Remove shadow
             enemyPositions[u.battleNumber].shadow.SetActive(false);
 
             // Set team slot to null and add unit to some other list so rewards
             // can be extracted.
             enemies.KillEnemy(u);
-
-            gameManager.monstersDefeated++;
         }
         else
         {      

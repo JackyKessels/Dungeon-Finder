@@ -23,6 +23,7 @@ public class SaveManager : MonoBehaviour
 
     private GameManager gameManager;
     private TeamManager teamManager;
+    private ProgressionManager progressionManager;
     private InventoryManager inventoryManager;
 
     public string currentId;
@@ -34,6 +35,7 @@ public class SaveManager : MonoBehaviour
     {
         gameManager = GameManager.Instance;
         teamManager = TeamManager.Instance;
+        progressionManager = ProgressionManager.Instance;
         inventoryManager = InventoryManager.Instance;
     }
 
@@ -131,7 +133,10 @@ public class SaveManager : MonoBehaviour
         gameManager.currencyHandler.IncreaseCurrency(new Currency(CurrencyType.Gold, data.currency_0));
         gameManager.currencyHandler.IncreaseCurrency(new Currency(CurrencyType.Spirit, data.currency_1));
 
-        gameManager.unlockedPaths = data.unlockedPaths;
+        progressionManager.firstDeath = data.firstDeath;
+        progressionManager.unlockedPaths = data.unlockedPaths;
+        progressionManager.unlockedFourthAbility = data.unlockedFourthAbility;
+        progressionManager.unlockedEnchanterUpgrade = data.unlockedEnchanterUpgrade;
 
         TownManager.Instance.SetupStratford();
 
