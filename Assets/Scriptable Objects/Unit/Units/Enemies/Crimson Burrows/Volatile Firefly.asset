@@ -45,7 +45,7 @@ MonoBehaviour:
   - currencyType: 0
     totalAmount: 15
   - currencyType: 1
-    totalAmount: 3
+    totalAmount: 1
   itemDrops: []
   randomAbility: 1
   abilities:

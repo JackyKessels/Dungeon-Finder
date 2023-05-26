@@ -17,7 +17,7 @@ MonoBehaviour:
   quality: 0
   abilityType: 1
   description: Increase the <resistance> of everyone in your Team by <t1modV> for
-    this Round.
+    <t1d> Rounds.
   icon: {fileID: 21300000, guid: 6a06baff07d57d34891248f54e0ac953, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:

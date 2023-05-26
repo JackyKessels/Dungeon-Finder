@@ -20,12 +20,12 @@ MonoBehaviour:
   sellable: 1
   item:
     name: 
-    id: 77
+    id: 47
     itemObject: {fileID: 0}
     attributes: []
   description: 
   quality: 0
-  slot: 8
+  slot: 9
   level: 5
   health: 0
   power: 0

@@ -20,12 +20,12 @@ MonoBehaviour:
   attackAnimation: {fileID: 0}
   castAnimation: {fileID: 0}
   baseHealth: 800
-  basePower: 25
+  basePower: 35
   baseWisdom: 18
   baseArmor: 18
   baseResistance: 0
   baseVitality: 0
-  speed: 3
+  speed: 9
   accuracy: 80
   criticalHit: 10
   healingMultiplier: 100

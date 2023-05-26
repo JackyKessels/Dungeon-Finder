@@ -147,7 +147,7 @@ public class Currency : IDescribable
             case CurrencyType.Gold:
                 return "Gold";
             case CurrencyType.Spirit:
-                return "Spirit Fragments";
+                return "Spirit";
             default:
                 return "";
         }

@@ -45,7 +45,7 @@ MonoBehaviour:
   - currencyType: 0
     totalAmount: 30
   - currencyType: 1
-    totalAmount: 5
+    totalAmount: 2
   itemDrops:
   - itemObject: {fileID: 0}
     amount: 0

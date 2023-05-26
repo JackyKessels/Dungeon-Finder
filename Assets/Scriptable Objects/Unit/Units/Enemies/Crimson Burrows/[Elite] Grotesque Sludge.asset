@@ -43,7 +43,7 @@ MonoBehaviour:
   experienceReward: 75
   currencyRewards:
   - currencyType: 1
-    totalAmount: 10
+    totalAmount: 5
   itemDrops:
   - itemObject: {fileID: 11400000, guid: a59beb3bea1f71645bb09ef59fa873a5, type: 2}
     amount: 1
