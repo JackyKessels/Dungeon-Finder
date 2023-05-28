@@ -42,6 +42,26 @@ public class Encounter
 
         return encounter.enemyObjects;
     }
+
+    public static List<EnemyObject> SetupUnitObjects(Encounter encounter)
+    {
+        if (encounter.randomOrder)
+        {
+            List<EnemyObject> mixedUnits = new List<EnemyObject>(encounter.enemyObjects);
+
+            for (int i = 0; i < mixedUnits.Count; i++)
+            {
+                EnemyObject temp = mixedUnits[i];
+                int randomIndex = Random.Range(i, mixedUnits.Count);
+                mixedUnits[i] = mixedUnits[randomIndex];
+                mixedUnits[randomIndex] = temp;
+            }
+
+            return mixedUnits;
+        }
+
+        return encounter.enemyObjects;
+    }
 }
 
 [System.Serializable]

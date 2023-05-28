@@ -11,6 +11,7 @@ public class EnemyObject : UnitObject
     public int difficulty;
     public int experienceReward;
     public List<Currency> currencyRewards;
+    public bool dropEverything = false;
     public List<ItemDrop> itemDrops;
 
     [Header("[ Abilities ]")]

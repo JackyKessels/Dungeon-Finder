@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   events:
   - eventWeight: 1
-    flavorText: hYUge amount of shards :)
+    flavorText: "As your party presses onward through the dense forest, an eerie
+      sensation settles upon them\u2014an unshakeable certainty that they are being
+      watched. Suddenly, a fearsome, monstrous shape emerges before them."
     actions:
-    - type: 0
+    - type: 6
       currencyAmount: 1
       currencyType: 1
       experienceAmount: 0
@@ -61,3 +63,8 @@ MonoBehaviour:
           conditionalEffect: {fileID: 0}
       effectTargets: 0
       effect: {fileID: 0}
+      encounter:
+        enemyObjects:
+        - {fileID: 11400000, guid: 7e770a08fed917144b5101bb41314679, type: 2}
+        randomOrder: 1
+        weight: 1

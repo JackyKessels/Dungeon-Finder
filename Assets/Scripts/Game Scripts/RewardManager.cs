@@ -90,25 +90,35 @@ public class RewardManager : MonoBehaviour
         {
             Enemy enemy = unit as Enemy;
 
-            ItemDrop droppedItem = ItemDrop.WeightedDrops(enemy.enemyObject.itemDrops);
-
-            if (droppedItem != null && droppedItem.itemObject != null)
+            if (enemy.enemyObject.dropEverything)
             {
-                if (itemDrops.Count == 0)
+                foreach (ItemDrop itemDrop in enemy.enemyObject.itemDrops)
                 {
-                    itemDrops.Add(droppedItem);
+                    itemDrops.Add(itemDrop);
                 }
-                else
+            }
+            else
+            {
+                ItemDrop droppedItem = ItemDrop.WeightedDrops(enemy.enemyObject.itemDrops);
+
+                if (droppedItem != null && droppedItem.itemObject != null)
                 {
-                    for (int i = 0; i < itemDrops.Count; i++)
+                    if (itemDrops.Count == 0)
                     {
-                        if (itemDrops[i].itemObject == droppedItem.itemObject)
+                        itemDrops.Add(droppedItem);
+                    }
+                    else
+                    {
+                        for (int i = 0; i < itemDrops.Count; i++)
                         {
-                            itemDrops[i].amount += droppedItem.amount;
-                        }
-                        else
-                        {
-                            itemDrops.Add(droppedItem);
+                            if (itemDrops[i].itemObject == droppedItem.itemObject)
+                            {
+                                itemDrops[i].amount += droppedItem.amount;
+                            }
+                            else
+                            {
+                                itemDrops.Add(droppedItem);
+                            }
                         }
                     }
                 }

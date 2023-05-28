@@ -420,12 +420,14 @@ public class Spellbook
     {
         foreach (Active a in activeSpellbook)
         {
-            a.CoolDown(1);
+            if (a.activeAbility != null)
+                a.CoolDown(1);
         }
 
         foreach (Active a in itemAbilities)
         {
-            a.CoolDown(1);
+            if (a.activeAbility != null)
+                a.CoolDown(1);
         }
 
         if (flaskAbility != null)

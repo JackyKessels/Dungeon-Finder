@@ -29,6 +29,7 @@ MonoBehaviour:
   initialCooldown: 0
   endTurn: 0
   resetChance: 0
+  singleUse: 0
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 1

@@ -49,7 +49,8 @@ public enum MysteryActionType
     Item,
     Source,
     Effect,
-    Relocate
+    Relocate,
+    Battle
 }
 
 public enum MysteryActionTarget
@@ -80,6 +81,10 @@ public class MysteryAction
     [Header("Effect")]
     public MysteryActionTarget effectTargets;
     public EffectObject effect;
+
+    [Header("Battle")]
+    public Encounter encounter;
+
 
     public void TriggerAction(List<ConsequenceStructure> consequenceStructures)
     {
@@ -183,7 +188,7 @@ public class MysteryAction
                 {
                     if (effect == null)
                         return;
-                    
+
                     List<Unit> targets = new List<Unit>();
 
                     switch (effectTargets)
@@ -210,7 +215,7 @@ public class MysteryAction
                     {
                         target.effectManager.PreparePreBattleEffect(effect);
                     }
-                    
+
                 }
                 break;
             case MysteryActionType.Relocate:
@@ -226,6 +231,12 @@ public class MysteryAction
                     randomLocation.SetVisited();
 
                     consequenceStructures.Add(new ConsequenceStructure("You have been moved to a random location.", null, null));
+                }
+                break;
+            case MysteryActionType.Battle:
+                {
+                    List<EnemyObject> enemyUnits = Encounter.SetupUnitObjects(encounter);
+                    BattleManager.Instance.StartBattle(enemyUnits);
                 }
                 break;
             default:

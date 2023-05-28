@@ -189,8 +189,6 @@ public class BattleManager : MonoBehaviour, IUserInterface
         HeroManager.Instance.EnableUI(false);
         DungeonManager.Instance.EnableUI(false);
 
-        actionBar.Initialize();
-
         // Setup the fight logistics
         StartCoroutine(SetupBattle());
     }
@@ -214,6 +212,8 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
         // Set current actionbar to 
         currentHero = queueManager.GetFastestHero();
+
+        actionBar.Initialize();
         actionBar.SetupActionBar(currentHero);
         actionBar.SetInteractable(false);
 
@@ -508,22 +508,22 @@ public class BattleManager : MonoBehaviour, IUserInterface
     {
         if (isHeroAbility)
         {
-            ActionBarButton button = actionBar.abilities[i].GetComponent<ActionBarButton>();
+            ActionBarButton button = actionBar.heroAbilities[i];
 
             if (button.interactable)
             {
                 StartCoroutine(Ability(i, isHeroAbility));
-                button.active = false;
+                button.isActive = false;
             }
         }
         else
         {
-            ActionBarButton button = actionBar.itemBar.transform.GetChild(i).GetComponent<ActionBarButton>();
+            ActionBarButton button = actionBar.itemAbilities[i];
 
             if (button.interactable)
             {
                 StartCoroutine(Ability(i, isHeroAbility));
-                button.active = false;
+                button.isActive = false;
             }
         }
     }
@@ -537,9 +537,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
     public void OnFlaskButton()
     {
-        ActionBarButton button = actionBar.flask.GetComponent<ActionBarButton>();
-
-        if (button.interactable)
+        if (actionBar.flask.interactable)
         {
             if (currentUnit.spellbook.HasFlask())
             {
@@ -550,18 +548,16 @@ public class BattleManager : MonoBehaviour, IUserInterface
                 Debug.Log("No flask equipped.");
             }
 
-            button.active = false;
+            actionBar.flask.isActive = false;
         }
     }
 
     public void OnPassButton()
     {
-        ActionBarButton button = actionBar.pass.GetComponent<ActionBarButton>();
-
-        if (button.interactable)
+        if (actionBar.pass.interactable)
         {
             StartCoroutine(PassTurn());
-            button.active = false;
+            actionBar.pass.isActive = false;
         }
     }
 
@@ -638,7 +634,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
         }
         else
         {
-            actionBar.UpdateCooldowns(currentHero, true);
+            actionBar.UpdateCooldowns(currentHero);
         }
     }
 
@@ -683,14 +679,14 @@ public class BattleManager : MonoBehaviour, IUserInterface
         {
             currentAbility = currentUnit.spellbook.activeSpellbook[spellNumber];
 
-            icon = actionBar.abilities[spellNumber].GetComponent<Image>();
+            icon = actionBar.heroAbilities[spellNumber].icon;
             tempSprite = icon.sprite;
         }
         else
         {
             currentAbility = currentUnit.spellbook.itemAbilities[spellNumber];
 
-            icon = actionBar.itemBar.transform.GetChild(spellNumber).GetComponent<Image>();
+            icon = actionBar.itemAbilities[spellNumber].icon;
             tempSprite = icon.sprite;
         }
 
@@ -763,9 +759,9 @@ public class BattleManager : MonoBehaviour, IUserInterface
         if (succesfulCast)
         {
             if (isHeroAbility)
-                actionBar.abilities[spellNumber].GetComponent<ActionBarButton>().active = true;
+                actionBar.heroAbilities[spellNumber].isActive = true;
             else
-                actionBar.itemBar.transform.GetChild(spellNumber).GetComponent<ActionBarButton>().active = true;
+                actionBar.itemAbilities[spellNumber].isActive = true;
 
             HandleCooldown(currentAbility);
 
@@ -780,7 +776,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
             }
             else
             {
-                actionBar.UpdateCooldowns(currentHero, true);
+                actionBar.UpdateCooldowns(currentHero);
 
                 CheckWinCondition();
             }
@@ -829,9 +825,9 @@ public class BattleManager : MonoBehaviour, IUserInterface
         ActionBarButton button;
 
         if (isHeroAbility)
-            button = actionBar.abilities[index].GetComponent<ActionBarButton>();
+            button = actionBar.heroAbilities[index];
         else
-            button = actionBar.GetItemAbilityButtons()[index].GetComponent<ActionBarButton>();
+            button = actionBar.itemAbilities[index];
 
         while (true)
         {
@@ -880,29 +876,29 @@ public class BattleManager : MonoBehaviour, IUserInterface
                 {
                     if (isHeroAbility)
                     {
-                        if (result.gameObject == actionBar.abilities[index] && !button.active)
+                        if (result.gameObject == actionBar.heroAbilities[index].gameObject && !button.isActive)
                         {
                             currentTarget = null;
-                            button.active = true;
+                            button.isActive = true;
                             yield break;
                         }
                     }
                     else
                     {
-                        if (result.gameObject == actionBar.itemBar.transform.GetChild(index).gameObject && !button.active)
+                        if (result.gameObject == actionBar.itemAbilities[index].gameObject && !button.isActive)
                         {
                             currentTarget = null;
-                            button.active = true;
+                            button.isActive = true;
                             yield break;
                         }
                     }
                 }
             }
 
-            if ((KeyboardHandler.Escape() || GeneralUtilities.GetMappedAbilityKey(index, isHeroAbility)) && !button.active)
+            if ((KeyboardHandler.Escape() || GeneralUtilities.GetMappedAbilityKey(index, isHeroAbility)) && !button.isActive)
             {
                 currentTarget = null;
-                button.active = true;
+                button.isActive = true;
                 yield break;
             }
 
@@ -912,6 +908,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
     private void HandleCooldown(Active active)
     {
+        // Ability procced successful reset
         if (active.activeAbility.resetChance > 0 && active.activeAbility.SuccessfulReset())
         {
             Color color = GeneralUtilities.ConvertString2Color("#9DD8FF");

@@ -70,11 +70,18 @@ public class Active
 
     public void CoolDown(int rounds)
     {
-        currentCooldown -= rounds;
-
-        if (currentCooldown < 0)
+        if (currentCooldown == ActiveAbility.SINGLE_USE_COOLDOWN)
         {
-            currentCooldown = 0;
+            return;
+        }
+        else
+        {
+            currentCooldown -= rounds;
+
+            if (currentCooldown < 0)
+            {
+                currentCooldown = 0;
+            }
         }
     }
 
@@ -93,7 +100,14 @@ public class Active
 
     public void PutOnCooldown()
     {
-        currentCooldown = cooldown + 1;
+        if (activeAbility != null && activeAbility.singleUse)
+        {
+            currentCooldown = ActiveAbility.SINGLE_USE_COOLDOWN;
+        }
+        else
+        {
+            currentCooldown = cooldown + 1;
+        }
     }
 
     public void SetCurrentCooldown(int amount)

@@ -6,9 +6,14 @@ using UnityEngine.UI;
 
 public class EventWindow : MonoBehaviour
 {
-    public TextMeshProUGUI problemText;
     public GameObject consequencesContainer;
     public GameObject consequencePrefab;
+
+    public GameObject textAndConsequence;
+    public TextMeshProUGUI textAndConsequenceText;
+    public GameObject textOnly;
+    public TextMeshProUGUI textOnlyText;
+
     public Button continueButton;
 
     private List<ConsequenceStructure> consequenceStructures = new List<ConsequenceStructure>();
@@ -24,17 +29,28 @@ public class EventWindow : MonoBehaviour
 
     public void Setup(MysteryEvent mysteryEvent)
     {
-        problemText.text = mysteryEvent.flavorText;
-
         ObjectUtilities.ClearContainer(consequencesContainer);
 
         consequenceStructures = new List<ConsequenceStructure>();
 
         mysteryEvent.TriggerEvent(consequenceStructures);
 
-        foreach (ConsequenceStructure consequenceStructure in consequenceStructures)
+        if (consequenceStructures.Count > 0)
         {
-            CreateConsequence(consequenceStructure);
+            textOnly.SetActive(false);
+
+            textAndConsequenceText.SetText(mysteryEvent.flavorText);
+
+            foreach (ConsequenceStructure consequenceStructure in consequenceStructures)
+            {
+                CreateConsequence(consequenceStructure);
+            }
+        }
+        else
+        {
+            textAndConsequence.SetActive(false);
+
+            textOnlyText.SetText(mysteryEvent.flavorText);
         }
     }
 

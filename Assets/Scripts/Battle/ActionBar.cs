@@ -8,39 +8,24 @@ using UnityEngine.Events;
 
 public class ActionBar : MonoBehaviour
 {
-    public GameObject[] abilities = new GameObject[4];
-    public GameObject flask;
-    public GameObject pass;
+    public ActionBarButton[] heroAbilities = new ActionBarButton[4];
+    public List<ActionBarButton> itemAbilities;
+    public ActionBarButton flask;
+    public ActionBarButton pass;
+
     public GameObject itemBar;
     [SerializeField] GameObject itemBarPrefab;
-
-    private ActionBarButton[] heroAbilities;
-    private ActionBarButton[] itemAbilities;
-    private ActionBarButton flaskButton;
-    private ActionBarButton passButton;
 
     [SerializeField] private Sprite emptyFlaskIcon;
 
     public void Start()
     {
-        AddEvent(abilities[0], EventTriggerType.PointerDown, delegate { BattleManager.Instance.OnAbilityButton(0, true); });
-        AddEvent(abilities[1], EventTriggerType.PointerDown, delegate { BattleManager.Instance.OnAbilityButton(1, true); });
-        AddEvent(abilities[2], EventTriggerType.PointerDown, delegate { BattleManager.Instance.OnAbilityButton(2, true); });
-        AddEvent(abilities[3], EventTriggerType.PointerDown, delegate { BattleManager.Instance.OnAbilityButton(3, true); });
-        AddEvent(flask, EventTriggerType.PointerDown, delegate { BattleManager.Instance.OnFlaskButton(); });
-        AddEvent(pass, EventTriggerType.PointerDown, delegate { BattleManager.Instance.OnPassButton(); });
-    }
-
-    public List<ActionBarButton> GetItemAbilityButtons()
-    {
-        List<ActionBarButton> itemAbilityButtons = new List<ActionBarButton>();
-
-        foreach (Transform child in itemBar.transform)
-        {
-            itemAbilityButtons.Add(child.GetComponent<ActionBarButton>());
-        }
-
-        return itemAbilityButtons;
+        AddEvent(heroAbilities[0].gameObject, EventTriggerType.PointerDown, delegate { BattleManager.Instance.OnAbilityButton(0, true); });
+        AddEvent(heroAbilities[1].gameObject, EventTriggerType.PointerDown, delegate { BattleManager.Instance.OnAbilityButton(1, true); });
+        AddEvent(heroAbilities[2].gameObject, EventTriggerType.PointerDown, delegate { BattleManager.Instance.OnAbilityButton(2, true); });
+        AddEvent(heroAbilities[3].gameObject, EventTriggerType.PointerDown, delegate { BattleManager.Instance.OnAbilityButton(3, true); });
+        AddEvent(flask.gameObject, EventTriggerType.PointerDown, delegate { BattleManager.Instance.OnFlaskButton(); });
+        AddEvent(pass.gameObject, EventTriggerType.PointerDown, delegate { BattleManager.Instance.OnPassButton(); });
     }
 
     private void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
@@ -54,33 +39,28 @@ public class ActionBar : MonoBehaviour
 
     public void Initialize()
     {
-        heroAbilities = transform.GetComponentsInChildren<ActionBarButton>();
-        itemAbilities = itemBar.GetComponentsInChildren<ActionBarButton>();
-
-        flaskButton = flask.GetComponent<ActionBarButton>();
-        passButton = pass.GetComponent<ActionBarButton>();
-
         foreach (ActionBarButton b in heroAbilities)
         {
-            b.active = true;
+            b.isActive = true;
+            b.CrossButton(false);
         }
 
-        foreach (ActionBarButton b in itemAbilities)
-        {
-            b.active = true;
-        }
+        // itemAbilities has not been created at this point.
+        //foreach (ActionBarButton b in itemAbilities)
+        //{
+        //    b.isActive = true;
+        //    b.CrossButton(false);
+        //}
 
-        flaskButton.active = true;
-        passButton.active = true;
+        flask.isActive = true;
+        flask.CrossButton(false);
+
+        pass.isActive = true;
+        pass.CrossButton(false);
     }
 
     public void SetInteractable(bool active)
     {
-        heroAbilities = transform.GetComponentsInChildren<ActionBarButton>();
-        itemAbilities = itemBar.GetComponentsInChildren<ActionBarButton>();
-
-        flaskButton = flask.GetComponent<ActionBarButton>();
-
         foreach (ActionBarButton b in heroAbilities)
         {
             b.SetInteractable(active);
@@ -91,8 +71,8 @@ public class ActionBar : MonoBehaviour
             b.SetInteractable(active);
         }
 
-        flaskButton.interactable = active;
-        passButton.interactable = active;
+        flask.SetInteractable(active);
+        pass.SetInteractable(active);
     }
 
     public void SetupActionBar(Hero currentHero)
@@ -110,28 +90,14 @@ public class ActionBar : MonoBehaviour
         {
             if (currentHero.spellbook.activeSpellbook[i].activeAbility != null)
             {
-                SetupActionBarAbility(abilities[i],
-                                      currentHero.spellbook.activeSpellbook[i].activeAbility.icon,
-                                      currentHero.spellbook.activeSpellbook[i],
-                                      CurrentState.Battle);
+                heroAbilities[i].SetupActionBarAbility(
+                    currentHero.spellbook.activeSpellbook[i].activeAbility.icon,
+                    currentHero.spellbook.activeSpellbook[i],
+                    CurrentState.Battle);                     
             }
             else
             {
-                Sprite sprite;
-
-                if (SpellbookManager.Instance.activeAbilities[i].locked)
-                {
-                    sprite = GameAssets.i.lockedAbility;
-                }
-                else
-                {
-                    sprite = GameAssets.i.noAbility;
-                }
-
-                SetupActionBarAbility(abilities[i],
-                                      sprite,
-                                      null,
-                                      CurrentState.Battle);
+                heroAbilities[i].SetupEmptyActionBarAbility(SpellbookManager.Instance.activeAbilities[i].locked);
             }
         }
     }
@@ -140,23 +106,24 @@ public class ActionBar : MonoBehaviour
     {
         if (currentHero.GetFlask() != null)
         {
-            SetupActionBarAbility(flask,
-                                  currentHero.spellbook.flaskAbility.activeAbility.icon,
-                                  currentHero.spellbook.flaskAbility,
-                                  CurrentState.Battle);
+            flask.SetupActionBarAbility(
+                currentHero.spellbook.flaskAbility.activeAbility.icon,
+                currentHero.spellbook.flaskAbility,
+                CurrentState.Battle);
         }
         else
         {
-            SetupActionBarAbility(flask,
-                                  emptyFlaskIcon,
-                                  null,
-                                  CurrentState.Battle);
+            flask.SetupActionBarAbility(
+                emptyFlaskIcon,
+                null,
+                CurrentState.Battle);
         }
     }
 
     private void SetupItemBar(Hero currentHero)
     {
         ObjectUtilities.ClearContainer(itemBar);
+        itemAbilities.Clear();
 
         if (currentHero.spellbook.itemAbilities.Count <= 0)
             return;
@@ -167,15 +134,19 @@ public class ActionBar : MonoBehaviour
 
             GameObject itemBarAbility = ObjectUtilities.CreateSimplePrefab(itemBarPrefab, itemBar);
             itemBarAbility.name = active.activeAbility.name;
+            RectTransform rt = itemBarAbility.GetComponent<RectTransform>();
+            rt.sizeDelta = new Vector2(80, 80);
 
-            ActionBarButton actionBarButton = itemBarAbility.GetComponent<ActionBarButton>();
+            ActionBarButton itemAbility = itemBarAbility.GetComponent<ActionBarButton>();
 
-            actionBarButton.SetHotkeyText(i);
+            itemAbilities.Add(itemAbility);
 
-            SetupActionBarAbility(itemBarAbility,
-                                  active.activeAbility.icon,
-                                  active,
-                                  CurrentState.Battle);
+            itemAbility.SetHotkeyText(i);
+
+            itemAbility.SetupActionBarAbility(
+                active.activeAbility.icon,
+                active,
+                CurrentState.Battle);
 
             int index = i;
             AddEvent(itemBarAbility, EventTriggerType.PointerDown, delegate { BattleManager.Instance.OnAbilityButton(index, false); });
@@ -184,91 +155,26 @@ public class ActionBar : MonoBehaviour
 
     public int GetTotalItemAbilities()
     {
-        return itemBar.transform.childCount;
+        return itemAbilities.Count;
     }
 
-    private void SetupActionBarAbility(GameObject _buttonObject, Sprite _sprite, Active _active, CurrentState _state)
-    {
-        _buttonObject.GetComponent<Image>().sprite = _sprite;
-        _buttonObject.GetComponent<TooltipObject>().active = _active;
-        _buttonObject.GetComponent<TooltipObject>().state = _state;
-        _buttonObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText("");
-    }
-
-    public void UpdateCooldowns(Hero currentHero, bool expendedTurn = false)
+    public void UpdateCooldowns(Hero currentHero)
     {
         SetInteractable(true);
 
         for (int i = 0; i < currentHero.spellbook.activeSpellbook.Length; i++)
         {
-            ActionBarButton b = abilities[i].GetComponent<ActionBarButton>();
-            TextMeshProUGUI t = abilities[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-
-            if (currentHero.spellbook.activeSpellbook[i].IsOnCooldown())
-            {
-                b.SetInteractable(false);
-
-                // Swift ability
-                if (currentHero.spellbook.activeSpellbook[i].currentCooldown > currentHero.spellbook.activeSpellbook[i].cooldown)
-                //if (!currentHero.spellbook.activeSpellbook[i].activeAbility.endTurn && expendedTurn)
-                {
-                    t.SetText("");
-                }
-                else
-                {
-                    t.SetText(currentHero.spellbook.activeSpellbook[i].currentCooldown.ToString());
-                }
-            }
-            else
-            {
-                t.SetText("");
-            }
+            heroAbilities[i].SetButtonCooldown(currentHero.spellbook.activeSpellbook[i]);
         }
 
         for (int i = 0; i < currentHero.spellbook.itemAbilities.Count; i++)
         {
-            ActionBarButton b = GetItemAbilityButtons()[i].GetComponent<ActionBarButton>();
-            TextMeshProUGUI t = GetItemAbilityButtons()[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-
-            if (currentHero.spellbook.itemAbilities[i].IsOnCooldown())
-            {
-                b.SetInteractable(false);
-
-                if (currentHero.spellbook.itemAbilities[i].currentCooldown > currentHero.spellbook.itemAbilities[i].cooldown)
-                //if (!currentHero.spellbook.itemAbilities[i].activeAbility.endTurn && expendedTurn)
-                {
-                    t.SetText("");
-                }
-                else
-                {
-                    t.SetText(currentHero.spellbook.itemAbilities[i].currentCooldown.ToString());
-                }
-            }
-            else
-            {
-                t.SetText("");
-            }
+            itemAbilities[i].SetButtonCooldown(currentHero.spellbook.itemAbilities[i]);
         }
 
         if (currentHero.GetFlask() != null)
         {
-            ActionBarButton b = flask.GetComponent<ActionBarButton>();
-            TextMeshProUGUI t = flask.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-
-            if (currentHero.spellbook.flaskAbility.IsOnCooldown())
-            {
-                b.SetInteractable(false);
-
-                if (currentHero.spellbook.flaskAbility.currentCooldown > currentHero.spellbook.flaskAbility.cooldown)
-                //if (!currentHero.spellbook.flaskAbility.activeAbility.endTurn && expendedTurn)
-                {
-                    t.text = "";
-                }
-                else
-                {
-                    t.SetText(currentHero.spellbook.flaskAbility.currentCooldown.ToString());
-                }
-            }
+            flask.SetButtonCooldown(currentHero.spellbook.flaskAbility);
         }
     }
 }

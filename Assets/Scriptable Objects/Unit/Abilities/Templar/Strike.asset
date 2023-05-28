@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Strike
   m_EditorClassIdentifier: 
-  id: 88
+  id: 148
   name: Strike
   quality: 0
-  type: 0
+  abilityType: 0
   description: Deal <e1> <P> damage to your target.
   icon: {fileID: 21300000, guid: 4b3412d5bc5099f4bb020dfdcdf45405, type: 3}
   casterSpecialEffects: []
@@ -27,14 +27,19 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 1
   cooldown: 0
+  initialCooldown: 0
   endTurn: 1
   resetChance: 0
+  singleUse: 0
   weaponRequirement: 4
   soundEffect: {fileID: 8300000, guid: 3cd47381abc8f05429b8d3a745b27946, type: 3}
   animationType: 0
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 1
     attributeType: 1
     baseValue: 0
@@ -55,6 +60,9 @@ MonoBehaviour:
       percentageIncrease: 0.5
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -70,4 +78,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

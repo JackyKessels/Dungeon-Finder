@@ -16,6 +16,8 @@ public abstract class ActiveAbility : AbilityObject
     public int initialCooldown = 0;
     public bool endTurn = true;
     public int resetChance = 0;
+    public bool singleUse = false;
+    public readonly static int SINGLE_USE_COOLDOWN = 999;
 
     [Header("[ Additional Variables ]")]
     public WeaponRequirement weaponRequirement = WeaponRequirement.Nothing;
@@ -36,7 +38,7 @@ public abstract class ActiveAbility : AbilityObject
     {
         return base.GetDescription(tooltipInfo) + // Name + Level
                FormatWeaponRequirement() + // Weapon Requirement
-               string.Format("\nCooldown: {0}", cooldown) + // Cooldown
+               CooldownTooltip() + // Cooldown
                InitialCooldownTooltip() + // Initial Cooldown
                "\nEffect: " + ParseDescription(description, tooltipInfo); // Effect
     }
@@ -54,7 +56,7 @@ public abstract class ActiveAbility : AbilityObject
 
     public string GetFlaskDescription(TooltipObject tooltipObject)
     {
-        return string.Format("\nCooldown: {0}", cooldown) + // Cooldown
+        return CooldownTooltip() + // Cooldown
                InitialCooldownTooltip() + // Initial Cooldown
                "\nEffect: " + ParseDescription(description, tooltipObject); // Effect
     }
@@ -75,6 +77,18 @@ public abstract class ActiveAbility : AbilityObject
                 return "";
             default:
                 return "";
+        }
+    }
+
+    private string CooldownTooltip()
+    {
+        if (singleUse)
+        {
+            return "\nCooldown: Single Use";
+        }
+        else
+        {
+            return string.Format("\nCooldown: {0}", cooldown);
         }
     }
 
