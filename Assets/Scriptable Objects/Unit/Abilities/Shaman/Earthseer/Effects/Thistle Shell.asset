@@ -18,7 +18,7 @@ MonoBehaviour:
   description: <passive>
   isBuff: 1
   procType: 1
-  duration: 4
+  duration: 3
   permanent: 0
   stackable: 0
   maxStacks: 0

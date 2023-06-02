@@ -26,10 +26,11 @@ MonoBehaviour:
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 1
-  cooldown: 2
+  cooldown: 1
   initialCooldown: 0
   endTurn: 0
   resetChance: 0
+  singleUse: 0
   weaponRequirement: 4
   soundEffect: {fileID: 8300000, guid: 3cd47381abc8f05429b8d3a745b27946, type: 3}
   animationType: 0
@@ -43,8 +44,8 @@ MonoBehaviour:
     attributeType: 0
     baseValue: 0
     levelBase: 0
-    scaling: 0.25
-    levelScaling: 0.05
+    scaling: 0.1
+    levelScaling: 0.02
     reductionType: 2
     modifier:
       hasModifier: 0
