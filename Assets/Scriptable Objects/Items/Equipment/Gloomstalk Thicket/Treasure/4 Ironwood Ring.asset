@@ -27,13 +27,13 @@ MonoBehaviour:
   quality: 0
   slot: 7
   level: 4
-  health: 13
+  health: 15
   power: 0
   wisdom: 0
   armor: 4
   resistance: 0
   vitality: 0
-  speed: 0
+  speed: -1
   accuracy: 0
   crit: 0
   healingMultiplier: 0

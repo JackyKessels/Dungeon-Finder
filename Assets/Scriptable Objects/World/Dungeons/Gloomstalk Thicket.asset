@@ -39,7 +39,13 @@ MonoBehaviour:
     wellRestedEffect: {fileID: 11400000, guid: 3833ea2557edd154ebabe34e16ffe3d5, type: 2}
     wellRestedChance: 100
     itemPool:
-    - itemObject: {fileID: 11400000, guid: e4f6e618145e8054c98661a623ace905, type: 2}
+    - itemObject: {fileID: 11400000, guid: e7de7b2a7a37de943b9e9b64a190d5a4, type: 2}
+      amount: 1
+      weight: 1
+    - itemObject: {fileID: 11400000, guid: 35cdd114b3c66a64ab38f10ac5c884b9, type: 2}
+      amount: 1
+      weight: 1
+    - itemObject: {fileID: 11400000, guid: 296e7d66c6cd359418a792a1c2c1669f, type: 2}
       amount: 1
       weight: 1
     trashEncounters:

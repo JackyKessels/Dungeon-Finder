@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8484a72ad63a8f4089ff72b351b4ad1, type: 3}
+  m_Script: {fileID: 11500000, guid: e8d8dc0d65bde7c4b9353b7ecd9c6998, type: 3}
   m_Name: Brightstalk Refreshment
   m_EditorClassIdentifier: 
   name: Brightstalk Refreshment
   icon: {fileID: 21300000, guid: 91f833f7e9234d2489a4cce723a96ad9, type: 3}
-  value: 150
-  stackable: 0
-  maxStacks: 1
+  value: 20
+  stackable: 1
+  maxStacks: 3
   sellable: 1
   item:
     name: 
@@ -25,25 +25,7 @@ MonoBehaviour:
     attributes: []
   description: 
   quality: 0
-  slot: 9
-  level: 4
-  health: 0
-  power: 0
-  wisdom: 0
-  armor: 0
-  resistance: 0
-  vitality: 0
-  speed: 0
-  accuracy: 0
-  crit: 0
-  healingMultiplier: 0
-  physicalMultiplier: 0
-  fireMultiplier: 0
-  iceMultiplier: 0
-  natureMultiplier: 0
-  arcaneMultiplier: 0
-  holyMultiplier: 0
-  shadowMultiplier: 0
-  critMultiplier: 0
-  passives: []
-  useAbility: {fileID: 11400000, guid: 526f691ed2de3dc4d938d8c83a28f148, type: 2}
+  consumptionType: 1
+  usableOnDead: 0
+  healthRestore: 25
+  preBattleEffects: []
