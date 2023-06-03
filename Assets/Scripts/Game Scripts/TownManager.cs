@@ -254,7 +254,7 @@ public class TownManager : MonoBehaviour, IUserInterface
         {
             gameManager.audioSourceSFX.PlayOneShot(GameAssets.i.coins);
 
-            gameManager.tutorialManager.ShowLearningAbilities();
+            gameManager.tutorialManager.TutorialLearningAbilities();
 
             CloseAllWindows();
 

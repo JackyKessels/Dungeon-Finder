@@ -10,10 +10,15 @@ public class TeamData
     public bool isTutorial;
     public int gameState;
 
+    // Progression
     public bool firstDeath;
     public bool unlockedPaths;
     public bool unlockedFourthAbility;
     public bool unlockedEnchanterUpgrade;
+
+    // Tutorials
+    public bool showTutorialLearningAbilities;
+    public bool showTutorialPathSystem;
 
     // The correct HeroObject
     public int heroIndex_0 = -1;
@@ -109,6 +114,9 @@ public class TeamData
         unlockedPaths = progressionManager.unlockedPaths;
         unlockedFourthAbility = progressionManager.unlockedFourthAbility;
         unlockedEnchanterUpgrade = progressionManager.unlockedEnchanterUpgrade;
+
+        showTutorialLearningAbilities = gameManager.tutorialManager.ShowLearningAbilities;
+        showTutorialPathSystem = gameManager.tutorialManager.ShowUsingPathSystem;
 
         Hero hero_0 = team.GetUnit(0) as Hero;
         Hero hero_1 = team.GetUnit(1) as Hero;

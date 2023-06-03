@@ -138,6 +138,9 @@ public class SaveManager : MonoBehaviour
         progressionManager.unlockedFourthAbility = data.unlockedFourthAbility;
         progressionManager.unlockedEnchanterUpgrade = data.unlockedEnchanterUpgrade;
 
+        gameManager.tutorialManager.ShowLearningAbilities = data.showTutorialLearningAbilities;
+        gameManager.tutorialManager.ShowUsingPathSystem = data.showTutorialPathSystem;
+
         TownManager.Instance.SetupStratford();
 
         //if (data.isTutorial)

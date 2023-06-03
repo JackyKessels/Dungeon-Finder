@@ -14,7 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Primalist
   icon: {fileID: 21300000, guid: 06264afa70e582c42b72adae6b088536, type: 3}
-  description: '- Physical Damage & Debuffs'
+  description: 'Primalists are fierce warriors imbued with the primal essence of
+    ancient animal spirits. They are the embodiment of offensive might. However,
+    their aggressive nature comes at a price, as their resilience falters in the
+    face of relentless assaults.
+
+    
+
+    - Physical Damage & Debuffs'
   baseWeapons:
   - {fileID: 11400000, guid: c7ff259eb2100ac4b8f45c78db560063, type: 2}
   - {fileID: 11400000, guid: c7ff259eb2100ac4b8f45c78db560063, type: 2}

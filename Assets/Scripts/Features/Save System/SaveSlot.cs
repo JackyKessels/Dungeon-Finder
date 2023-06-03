@@ -2,13 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SaveSlot : MonoBehaviour
 {
     private SaveManager saveManager;
 
     public string id;
-    public TextMeshProUGUI slotContent;
+
+    public GameObject emptySlot;
+    public GameObject usedSlot;
+
+    public Image hero_1;
+    public Image hero_2;
+    public Image hero_3;
+
+    public TextMeshProUGUI slot;
+    public TextMeshProUGUI gold;
+    public TextMeshProUGUI spirit;
+    public TextMeshProUGUI experience;
+    public TextMeshProUGUI date;
 
     private TeamData teamData;
 
@@ -23,11 +36,15 @@ public class SaveSlot : MonoBehaviour
         {
             teamData = SaveSystem.LoadTeamData(id);
 
-            slotContent.SetText(ParseTeamData());
+            emptySlot.SetActive(false);
+            usedSlot.SetActive(true);
+
+            ParseTeamData();
         }
         else
         {
-            slotContent.SetText("Empty Save Slot");
+            emptySlot.SetActive(true);
+            usedSlot.SetActive(false);
         }
     }
 
@@ -60,18 +77,18 @@ public class SaveSlot : MonoBehaviour
         Setup();
     }
 
-    private string ParseTeamData()
+    private void ParseTeamData()
     {
-        string s = "Slot " + id;
+        slot.SetText("Slot " + id);
 
-        s += "\n";
+        hero_1.sprite = TeamManager.Instance.heroObjects[teamData.heroIndex_0].icon;
+        hero_2.sprite = TeamManager.Instance.heroObjects[teamData.heroIndex_1].icon;
+        hero_3.sprite = TeamManager.Instance.heroObjects[teamData.heroIndex_2].icon;
 
-        s += "\nGold: " + teamData.currency_0;
-        s += "\nSpirit: " + teamData.currency_1;
-        s += "\nExperience: " + teamData.teamExperience;
+        gold.SetText(teamData.currency_0.ToString());
+        spirit.SetText(teamData.currency_1.ToString());
+        experience.SetText(teamData.teamExperience.ToString());
 
-        s += "\n\nLast Saved: " + SaveSystem.GetLastSaved(id);
-
-        return s;
+        date.SetText(SaveSystem.GetLastSaved(id));
     }
 }

@@ -14,11 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Elementalist
   icon: {fileID: 21300000, guid: a440e39c142f4564d9ba97bc568757b4, type: 3}
-  description: '- Fire, Ice & Arcane Damage
+  description: 'Elementalists are true masters of magic, specializing in the art
+    of wielding the scorching flames of fire, the icy tendrils of frost, and the
+    enigmatic forces of arcane. While their repertoire may lack defensive capabilities,
+    their true prowess lies in the staggering magnitude of destruction they can unleash
+    upon their foes.
 
 
-    Elementalists are masters of magic
-    specialized in wielding fire, ice and arcane mage.'
+    - Fire, Ice & Arcane Damage
+
+'
   baseWeapons:
   - {fileID: 11400000, guid: b319e2ba20701654ebc43ffe366167f6, type: 2}
   primaryAbility: {fileID: 11400000, guid: 6e5975ba6b17c6240a43bceb1a1019b0, type: 2}

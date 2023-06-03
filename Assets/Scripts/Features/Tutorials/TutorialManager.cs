@@ -11,35 +11,46 @@ public class TutorialManager : MonoBehaviour
 
     private bool skipTutorials = false;
 
-    private bool learningAbilities = false;
-    private bool usingPathSystem = false;
+    private bool showLearningAbilities = false;
+    private bool showUsingPathSystem = false;
 
-    public bool SkipTutorials { 
+    public bool SkipTutorials 
+    { 
         get => skipTutorials; 
         set => skipTutorials = value; 
     }
+    public bool ShowLearningAbilities
+    { 
+        get => showLearningAbilities; 
+        set => showLearningAbilities = value; 
+    }
+    public bool ShowUsingPathSystem 
+    { 
+        get => showUsingPathSystem; 
+        set => showUsingPathSystem = value; 
+    }
 
-    public void ShowLearningAbilities()
+    public void TutorialLearningAbilities()
     {
-        if (skipTutorials)
+        if (SkipTutorials)
             return;
 
-        if (learningAbilities)
+        if (ShowLearningAbilities)
             return;
 
         ObjectUtilities.CreateSimplePrefab(learningAbilitiesPrefab, tutorialsContainer);
-        learningAbilities = true;
+        ShowLearningAbilities = true;
     }
 
-    public void UsingPathSystem()
+    public void TutorialPathSystem()
     {
-        if (skipTutorials)
+        if (SkipTutorials)
             return;
 
-        if (usingPathSystem)
+        if (ShowUsingPathSystem)
             return;
 
         ObjectUtilities.CreateSimplePrefab(usingPathSystemPrefab, tutorialsContainer);
-        usingPathSystem = true;
+        ShowUsingPathSystem = true;
     }
 }

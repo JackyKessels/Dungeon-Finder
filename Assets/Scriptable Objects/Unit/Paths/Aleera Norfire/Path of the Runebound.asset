@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Runebound
   icon: {fileID: 21300000, guid: 51807fa17ecf38a43b0aa164cca58689, type: 3}
-  description: '- Physical, Fire, Ice & Arcane Damage'
+  description: "Runebound are the formidable fusion of magical prowess and raw physical
+    strength. They seamlessly blend the efficacy of spellcasting with the sheer force
+    of their physical abilities, forming an indomitable force on the battlefield.
+    Through the use of mystical runes, they enhance their strikes and unleash devastating
+    spells. \n\n- Physical, Fire, Ice & Arcane Damage"
   baseWeapons:
   - {fileID: 11400000, guid: 7c7f0e7cd4041fa42b6b6217372b5dea, type: 2}
   primaryAbility: {fileID: 11400000, guid: 4056f49a4ab9ef34589912ab64e10ccf, type: 2}
