@@ -20,11 +20,10 @@ MonoBehaviour:
   sellable: 1
   item:
     name: 
-    id: 7
+    id: 6
     itemObject: {fileID: 0}
     attributes: []
-  description: The traditional uniform of the Vanguard. Time has not been easy on
-    it.
+  description: 
   quality: 0
   slot: 1
   level: 1

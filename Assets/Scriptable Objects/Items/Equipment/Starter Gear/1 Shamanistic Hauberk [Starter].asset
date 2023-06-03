@@ -20,10 +20,10 @@ MonoBehaviour:
   sellable: 1
   item:
     name: 
-    id: 8
+    id: 7
     itemObject: {fileID: 0}
     attributes: []
-  description: A piece of armor that is infused with shamanistic power.
+  description: 
   quality: 0
   slot: 1
   level: 1

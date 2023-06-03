@@ -20,10 +20,10 @@ MonoBehaviour:
   sellable: 1
   item:
     name: 
-    id: 6
+    id: 5
     itemObject: {fileID: 0}
     attributes: []
-  description: A chestguard designed to protect against magic.
+  description: 
   quality: 0
   slot: 1
   level: 1

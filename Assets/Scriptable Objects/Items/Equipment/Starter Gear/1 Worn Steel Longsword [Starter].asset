@@ -20,10 +20,10 @@ MonoBehaviour:
   sellable: 1
   item:
     name: 
-    id: 52
+    id: 32
     itemObject: {fileID: 0}
     attributes: []
-  description: A traditional longsword that has been used in many battles.
+  description: 
   quality: 0
   slot: 2
   level: 1

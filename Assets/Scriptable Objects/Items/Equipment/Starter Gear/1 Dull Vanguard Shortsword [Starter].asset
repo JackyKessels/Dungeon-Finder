@@ -20,11 +20,10 @@ MonoBehaviour:
   sellable: 1
   item:
     name: 
-    id: 47
+    id: 27
     itemObject: {fileID: 0}
     attributes: []
-  description: A sword commonly used by the Vanguard. Ardeous usage caused it to
-    go dull.
+  description: 
   quality: 0
   slot: 3
   level: 1

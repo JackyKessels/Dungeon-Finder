@@ -20,10 +20,10 @@ MonoBehaviour:
   sellable: 1
   item:
     name: 
-    id: 46
+    id: 26
     itemObject: {fileID: 0}
     attributes: []
-  description: Excessive use of magic has drained this staff of all its energy.
+  description: 
   quality: 0
   slot: 2
   level: 1
