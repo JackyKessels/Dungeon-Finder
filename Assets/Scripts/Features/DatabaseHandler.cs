@@ -23,4 +23,5 @@ public class DatabaseHandler : MonoBehaviour
 
     public ItemDatabaseObject itemDatabase;
     public AbilityDatabaseObject abilityDatabase;
+    public GlyphDatabaseObject glyphDatabase;
 }

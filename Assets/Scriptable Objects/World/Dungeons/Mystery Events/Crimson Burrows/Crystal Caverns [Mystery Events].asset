@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   events:
   - eventWeight: 2
-    flavorText: A loud tremor echoes through the caverns. Suddenly a large stalactite
-      breaks off of the ceiling and crashes into a member of your party. Among the
-      rubble you find some glowing shards.
+    flavorText: A thunderous quake reverberates within the caverns. Abruptly, a colossal
+      stalactite shatters, striking a party member. Amidst the debris lies radiant
+      shards, emanating an ethereal glow, hinting at untold secrets.
     actions:
     - type: 0
       currencyAmount: 10
@@ -64,6 +64,10 @@ MonoBehaviour:
           conditionalEffect: {fileID: 0}
       effectTargets: 0
       effect: {fileID: 0}
+      encounter:
+        enemyObjects: []
+        randomOrder: 1
+        weight: 1
     - type: 3
       currencyAmount: 7
       currencyType: 1
@@ -110,9 +114,14 @@ MonoBehaviour:
           conditionalEffect: {fileID: 0}
       effectTargets: 0
       effect: {fileID: 0}
+      encounter:
+        enemyObjects: []
+        randomOrder: 1
+        weight: 1
   - eventWeight: 1
-    flavorText: You find a withered corpse on the ground. His dead hands seem to
-      be clenching a treasure chest of sorts.
+    flavorText: Upon the ground lies a desiccated corpse, its lifeless hands gripping
+      a chest of untold wonders. The mere sight hints at a treacherous tale, igniting
+      a mix of anticipation and caution within the party.
     actions:
     - type: 0
       currencyAmount: 50
@@ -160,8 +169,15 @@ MonoBehaviour:
           conditionalEffect: {fileID: 0}
       effectTargets: 0
       effect: {fileID: 0}
+      encounter:
+        enemyObjects: []
+        randomOrder: 1
+        weight: 1
   - eventWeight: 2
-    flavorText: You find a glowing piece of rock which radiates a strange energy.
+    flavorText: Hidden within the shadows, a mesmerizing rock emanates a peculiar
+      energy, its glow enchanting and perilous. As the party discovers it, a captivating
+      aura engulfs them, both invigorating their spirits and testing their resilience,
+      for the source of power bears both blessings and dangers.
     actions:
     - type: 4
       currencyAmount: 50
@@ -209,6 +225,10 @@ MonoBehaviour:
           conditionalEffect: {fileID: 0}
       effectTargets: 0
       effect: {fileID: 11400000, guid: d7dcafdf06bc96949b5fbaacd4e28bd4, type: 2}
+      encounter:
+        enemyObjects: []
+        randomOrder: 1
+        weight: 1
     - type: 3
       currencyAmount: 0
       currencyType: 0
@@ -255,3 +275,7 @@ MonoBehaviour:
           conditionalEffect: {fileID: 0}
       effectTargets: 0
       effect: {fileID: 11400000, guid: d7dcafdf06bc96949b5fbaacd4e28bd4, type: 2}
+      encounter:
+        enemyObjects: []
+        randomOrder: 1
+        weight: 1

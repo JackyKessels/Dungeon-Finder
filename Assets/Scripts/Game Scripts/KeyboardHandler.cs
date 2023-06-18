@@ -54,10 +54,15 @@ public class KeyboardHandler
         return Input.GetKeyDown(KeyCode.R);
     }
 
-    public static bool OpenItemShop()
+    public static bool OpenGlyphShop()
     {
         return Input.GetKeyDown(KeyCode.T);
     }
+
+    //public static bool OpenItemShop()
+    //{
+    //    return Input.GetKeyDown(KeyCode.T);
+    //}
 
 
 

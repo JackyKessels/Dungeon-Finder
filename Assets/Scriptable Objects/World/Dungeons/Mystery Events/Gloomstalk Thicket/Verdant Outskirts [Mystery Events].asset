@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   events:
   - eventWeight: 1
-    flavorText: "As your party presses onward through the dense forest, an eerie
-      sensation settles upon them\u2014an unshakeable certainty that they are being
-      watched. Suddenly, a fearsome, monstrous shape emerges before them."
+    flavorText: "As the party presses onward through the dense forest, an eerie sensation
+      settles upon them\u2014an unshakeable certainty that they are being watched.
+      Suddenly, a fearsome, monstrous shape emerges before them."
     actions:
     - type: 6
       currencyAmount: 1

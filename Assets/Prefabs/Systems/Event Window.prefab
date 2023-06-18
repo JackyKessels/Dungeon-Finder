@@ -258,7 +258,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Something has happened, which causes A and B.
+  m_text: Hidden within the shadows, a mesmerizing rock emanates a peculiar energy,
+    its glow enchanting and perilous. As the party discovers it, a captivating aura
+    engulfs them, both invigorating their spirits and testing their resilience, for
+    the source of power bears both blessings and dangers.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02a595d32217990488a92337279e774f, type: 2}
   m_sharedMaterial: {fileID: 2834418323826619090, guid: 02a595d32217990488a92337279e774f,
@@ -286,10 +289,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
+  m_fontSize: 25.95
   m_fontSizeBase: 32
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -734,9 +737,9 @@ MonoBehaviour:
   m_fontSize: 32
   m_fontSizeBase: 32
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 32
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512

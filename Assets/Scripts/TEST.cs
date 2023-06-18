@@ -133,6 +133,16 @@ public class TEST : MonoBehaviour
         }
     }
 
+    public void DamageEnemies()
+    {
+        foreach (Unit unit in TeamManager.Instance.enemies.LivingMembers)
+        {
+            unit.statsManager.TakeDamage(AbilitySchool.Physical, 1000);
+        }
+
+        BattleManager.Instance.CheckWinCondition();
+    } 
+
     public void ResetPathPoints()
     {
         foreach (Hero hero in TeamManager.Instance.heroes.Members)

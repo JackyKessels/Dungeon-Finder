@@ -60,21 +60,12 @@ public class TownManager : MonoBehaviour, IUserInterface
     public GameObject mapObject;
     public GameObject mapContainer;
 
-    [Header("[ Button Variables ]")]
-    public Button abilityShopButton;
-    public Button itemShopButton;
-
     [Header("[ Shop Variables ]")]
-    // Town Hall
-    public TownHall townHall;
-    // Item Shop
-    public ItemShop blacksmith;
     // Ability Shop
     public AbilityShop enchanter;
-    // Chapter Shop
-    public ChapterShop trophyHunter;
-    // General Goods Shop
-    public ItemShop generalGoods;
+    // Glyph Shop
+    public GlyphShop glyphweaver;
+
 
     public GameObject shopItemPrefab;
 
@@ -97,16 +88,16 @@ public class TownManager : MonoBehaviour, IUserInterface
 
         if (KeyboardHandler.OpenAbilityShop() && 
             gameManager.gameState == GameState.TOWN &&
-            abilityShopButton.interactable)
+            enchanter.ActiveButton())
         {
             OpenAbilityShop();
         }
 
-        if (KeyboardHandler.OpenItemShop() && 
+        if (KeyboardHandler.OpenGlyphShop() && 
             gameManager.gameState == GameState.TOWN &&
-            itemShopButton.interactable)
+            glyphweaver.ActiveButton())
         {
-            OpenItemShop();
+            OpenGlyphShop();
         }
 
         if (KeyboardHandler.Escape())
@@ -197,52 +188,14 @@ public class TownManager : MonoBehaviour, IUserInterface
         ProgressionManager.Instance.dungeonList.AddDungeonsToMap(mapContainer);
     }
 
-    public void BuildShops()
-    {
-        //UpdateRotationDisplay();
-
-        //blacksmith.BuildShop(teamManager.experienceManager.currentLevel);
-        //enchanter.BuildShop();
-        //trophyHunter.BuildShop(lastFinishedChapter.dungeonAbilities);
-        generalGoods.BuildShop(teamManager.experienceManager.currentLevel);
-    }
-
-    public void RotateShopDisplay()
-    {
-        if (isTutorial)
-            return;
-
-        blacksmith.RotateShopDisplay(teamManager.experienceManager.currentLevel);
-    }
-
-    public void UpdateRotationDisplay()
-    {
-        blacksmith.UpdateRotationDisplay();
-    }
-
-    public void OpenTownHall()
-    {
-        OpenShopWindow(townHall);
-    }
-
-    public void OpenItemShop()
-    {
-        OpenShopWindow(blacksmith);
-    }
-
     public void OpenAbilityShop()
     {
         OpenShopWindow(enchanter);
     }
-
-    public void OpenChapterShop()
+    
+    public void OpenGlyphShop()
     {
-        OpenShopWindow(trophyHunter);
-    }
-
-    public void OpenGeneralGoodsShop()
-    {
-        OpenShopWindow(generalGoods);
+        OpenShopWindow(glyphweaver);
     }
 
     private void OpenShopWindow(Shop shop)
@@ -254,7 +207,14 @@ public class TownManager : MonoBehaviour, IUserInterface
         {
             gameManager.audioSourceSFX.PlayOneShot(GameAssets.i.coins);
 
-            gameManager.tutorialManager.TutorialLearningAbilities();
+            if (shop is AbilityShop)
+                gameManager.tutorialManager.TutorialLearningAbilities();
+
+            if (shop is GlyphShop)
+            {
+                if (HeroManager.Instance.heroInformationObject.activeSelf)
+                    HeroManager.Instance.heroInformationObject.SetActive(false);
+            }
 
             CloseAllWindows();
 
@@ -295,20 +255,16 @@ public class TownManager : MonoBehaviour, IUserInterface
 
     public void ShopButtonsState(bool state)
     {
-        abilityShopButton.interactable = state;
-        itemShopButton.interactable = state;
+        enchanter.SetButton(state);
+        glyphweaver.SetButton(state);
     }
-
-
 
     private void CloseAllWindows()
     {
         mapObject.SetActive(false);
-        townHall.SetActive(false);
-        blacksmith.SetActive(false);
+
         enchanter.SetActive(false);
-        trophyHunter.SetActive(false);
-        generalGoods.SetActive(false);
+        glyphweaver.SetActive(false);
 
         TooltipHandler.Instance.HideTooltip();
     }

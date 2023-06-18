@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   events:
   - eventWeight: 1
-    flavorText: You find an ominous hammer floating above a dark pedastal. As one
-      of your party picks up the hammer, a sinister presence surrounds you.
+    flavorText: Amidst the shadows, an ominous hammer hovers above a foreboding pedestal.
+      As a brave companion grasps its handle, an eerie aura envelops the group, signaling
+      the awakening of a malevolent aura.
     actions:
     - type: 2
       currencyAmount: 10
@@ -27,7 +28,7 @@ MonoBehaviour:
         ignoreMultipliers: 1
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassives: []
         school: 1
         attributeType: 0
         baseValue: 20
@@ -50,7 +51,8 @@ MonoBehaviour:
             ignoreMultipliers: 0
             cannotCrit: 0
             cannotMiss: 0
-            ignorePassive: {fileID: 0}
+            ignorePassive:
+            - {fileID: 0}
             school: 0
             attributeType: 0
             baseValue: 0
@@ -62,6 +64,10 @@ MonoBehaviour:
           conditionalEffect: {fileID: 0}
       effectTargets: 0
       effect: {fileID: 11400000, guid: 26fc2105314497343b6d1fc043fd3ae0, type: 2}
+      encounter:
+        enemyObjects: []
+        randomOrder: 1
+        weight: 1
     - type: 4
       currencyAmount: 10
       currencyType: 1
@@ -72,7 +78,7 @@ MonoBehaviour:
         ignoreMultipliers: 1
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassives: []
         school: 1
         attributeType: 0
         baseValue: 20
@@ -95,7 +101,8 @@ MonoBehaviour:
             ignoreMultipliers: 0
             cannotCrit: 0
             cannotMiss: 0
-            ignorePassive: {fileID: 0}
+            ignorePassive:
+            - {fileID: 0}
             school: 0
             attributeType: 0
             baseValue: 0
@@ -107,9 +114,14 @@ MonoBehaviour:
           conditionalEffect: {fileID: 0}
       effectTargets: 0
       effect: {fileID: 11400000, guid: c62d348ee53b6ed49a3d0562ae47c268, type: 2}
+      encounter:
+        enemyObjects: []
+        randomOrder: 1
+        weight: 1
   - eventWeight: 3
-    flavorText: A glowing rune attracts the attention of one of your party members.
-      Upon touching it, a strange power surges through their body.
+    flavorText: In a mesmerizing display, a luminous rune catches the eye of a party
+      member. Drawn to its allure, they reach out and make contact, instantly engulfed
+      by an electrifying surge of unfamiliar power coursing through their veins.
     actions:
     - type: 4
       currencyAmount: 10
@@ -121,7 +133,7 @@ MonoBehaviour:
         ignoreMultipliers: 1
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassives: []
         school: 1
         attributeType: 0
         baseValue: 20
@@ -144,7 +156,8 @@ MonoBehaviour:
             ignoreMultipliers: 0
             cannotCrit: 0
             cannotMiss: 0
-            ignorePassive: {fileID: 0}
+            ignorePassive:
+            - {fileID: 0}
             school: 0
             attributeType: 0
             baseValue: 0
@@ -156,3 +169,7 @@ MonoBehaviour:
           conditionalEffect: {fileID: 0}
       effectTargets: 1
       effect: {fileID: 11400000, guid: 336757722a739cb438b9ea249c49c9fa, type: 2}
+      encounter:
+        enemyObjects: []
+        randomOrder: 1
+        weight: 1

@@ -44,6 +44,7 @@ MonoBehaviour:
   currencyRewards:
   - currencyType: 1
     totalAmount: 10
+  dropEverything: 0
   itemDrops:
   - itemObject: {fileID: 11400000, guid: acdb4f3da0147e84085f2b8fdbe1bc09, type: 2}
     amount: 1
@@ -81,5 +82,4 @@ MonoBehaviour:
     startCooldown: 0
     charged: 0
   passiveAbilities:
-  - {fileID: 11400000, guid: cc46f34b658df944db0da9b43b63817f, type: 2}
   - {fileID: 11400000, guid: 91d5cd0b898405c4eb033cf55201d012, type: 2}

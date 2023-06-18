@@ -141,7 +141,7 @@ public class ShopItem : MonoBehaviour
 
                 if (remove)
                 {
-                    shop.RemoveFromShop(this);
+                    //shop.RemoveFromShop(this);
                     Destroy(gameObject);
                 }
             }

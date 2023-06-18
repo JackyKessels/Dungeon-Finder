@@ -24,6 +24,11 @@ public class Effect
 
     public Sprite IconOverride { get; set; }
 
+    public Effect(EffectObject _effectObject)
+    {
+        effectObject = _effectObject;
+    }
+
     public Effect(EffectObject _effectObject, int _stacks, Unit _caster, Unit _target, int _level, AbilityObject _sourceAbility)
     {
         effectObject = _effectObject;

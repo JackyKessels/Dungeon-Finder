@@ -83,7 +83,7 @@ public class ChapterShop : Shop
         }
     }
 
-    public override void RemoveFromShop(ShopItem shopItem)
+    public void RemoveFromShop(ShopItem shopItem)
     {
         RemoveItemFromList(currentChapterAbilities, shopItem);
 

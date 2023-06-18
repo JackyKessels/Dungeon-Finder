@@ -47,11 +47,6 @@ public class AbilityShop : Shop
         obj.GetComponent<HeroPathOption>().CreatePathOptions(hero);
     }
 
-    public override void RemoveFromShop(ShopItem shopItem)
-    {
-        //
-    }
-
     private void SetupAbilityOverview()
     {
         foreach (Hero hero in TeamManager.Instance.heroes.Members)

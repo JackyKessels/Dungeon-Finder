@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Shop : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public abstract class Shop : MonoBehaviour
     [Header("[ Generic Shop ]")]
     public string shopName;
 
+    public Button shopButton;
     public GameObject shopObject;
     public GameObject shopContainer;
     public TextMeshProUGUI shopTitle;
@@ -20,8 +22,6 @@ public abstract class Shop : MonoBehaviour
     public int currentHero = 0;
 
     public abstract void SetupShop();
-
-    public abstract void RemoveFromShop(ShopItem shopItem);
 
     private void Start()
     {
@@ -39,6 +39,23 @@ public abstract class Shop : MonoBehaviour
     public bool ActiveSelf()
     {
         return shopObject.activeSelf;
+    }
+
+    public void SetButton(bool active)
+    {
+        if (shopButton != null)
+            shopButton.interactable = active;
+    }
+
+    public bool ActiveButton()
+    {
+        if (shopButton == null)
+            return false;
+
+        if (shopButton.interactable)
+            return true;
+
+        return false;
     }
 
     public void UnlockShop()

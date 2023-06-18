@@ -13,9 +13,9 @@ public class TownHall : Shop
     {
         townHallUpgrades = new TownHallUpgrade[3];
 
-        townHallUpgrades[0] = new TownHallUpgrade(0, "Blacksmith", new Currency(CurrencyType.Gold, 0), UnlockBlacksmith);
-        townHallUpgrades[1] = new TownHallUpgrade(1, "Enchanter", new Currency(CurrencyType.Gold, 0), UnlockEnchanter);
-        townHallUpgrades[2] = new TownHallUpgrade(2, "Trophy Hunter", new Currency(CurrencyType.Gold, 0), UnlockTrophyHunter);
+        //townHallUpgrades[0] = new TownHallUpgrade(0, "Blacksmith", new Currency(CurrencyType.Gold, 0), UnlockBlacksmith);
+        //townHallUpgrades[1] = new TownHallUpgrade(1, "Enchanter", new Currency(CurrencyType.Gold, 0), UnlockEnchanter);
+        //townHallUpgrades[2] = new TownHallUpgrade(2, "Trophy Hunter", new Currency(CurrencyType.Gold, 0), UnlockTrophyHunter);
     }
 
     public override void SetupShop()
@@ -30,26 +30,26 @@ public class TownHall : Shop
     }
 
 
-    private void UnlockBlacksmith()
-    {
-        townManager.blacksmith.UnlockShop();
+    //private void UnlockBlacksmith()
+    //{
+    //    townManager.blacksmith.UnlockShop();
 
-        // Add blacksmith upgrades to new townhall tab
-    }
+    //    // Add blacksmith upgrades to new townhall tab
+    //}
 
-    private void UnlockEnchanter()
-    {
-        townManager.enchanter.UnlockShop();
+    //private void UnlockEnchanter()
+    //{
+    //    townManager.enchanter.UnlockShop();
 
-        // Add enchanter upgrades to new townhall tab
-    }
+    //    // Add enchanter upgrades to new townhall tab
+    //}
 
-    private void UnlockTrophyHunter()
-    {
-        townManager.trophyHunter.UnlockShop();
+    //private void UnlockTrophyHunter()
+    //{
+    //    townManager.trophyHunter.UnlockShop();
 
-        // Add trophy hunter upgrades to new townhall tab
-    }
+    //    // Add trophy hunter upgrades to new townhall tab
+    //}
 
     private void AddUpgradeToShop(TownHallUpgrade townHallUpgrade)
     {
@@ -57,11 +57,6 @@ public class TownHall : Shop
 
         TownHallUpgradeObject townHallUpgradeObject = obj.GetComponent<TownHallUpgradeObject>();
         townHallUpgradeObject.SetData(townHallUpgrade);
-    }
-
-    public override void RemoveFromShop(ShopItem shopItem)
-    {
-
     }
 }
 

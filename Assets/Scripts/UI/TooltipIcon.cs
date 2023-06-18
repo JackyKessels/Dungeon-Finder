@@ -22,6 +22,17 @@ public class TooltipIcon : MonoBehaviour
             tooltipObject.passive = new Passive(passive, 1);
     }
 
+    public void Setup(EffectObject effectObject)
+    {
+        if (effectObject == null)
+            return;
+
+        icon.sprite = effectObject.icon;
+
+        tooltipObject.state = CurrentState.HeroInformation;
+        tooltipObject.effect = new Effect(effectObject);
+    }
+
     public void Setup(ItemObject itemObject)
     {
         icon.sprite = itemObject.icon;
@@ -33,4 +44,6 @@ public class TooltipIcon : MonoBehaviour
         icon.sprite = Currency.GetCurrencyIcon(currency.currencyType, false);
         tooltipObject.currency = currency;
     }
+
+
 }
