@@ -11,7 +11,12 @@ public class GlyphShop : Shop
     {
         ObjectUtilities.ClearContainer(shopContainer);
 
-        foreach (GlyphObject glyphObject in DatabaseHandler.Instance.glyphDatabase.glyphObjects)
+        List<GlyphObject> glyphObjects = GlyphManager.Instance.GetGlyphObjects();
+
+        if (glyphObjects.Count <= 0)
+            return;
+
+        foreach (GlyphObject glyphObject in glyphObjects)
         {
             CreateGlyph(glyphObject);
         }

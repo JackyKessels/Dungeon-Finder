@@ -52,7 +52,7 @@ public abstract class Shop : MonoBehaviour
         if (shopButton == null)
             return false;
 
-        if (shopButton.interactable)
+        if (shopButton.interactable && shopButton.gameObject.activeSelf)
             return true;
 
         return false;

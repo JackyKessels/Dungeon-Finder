@@ -141,6 +141,8 @@ public class SaveManager : MonoBehaviour
         gameManager.tutorialManager.ShowLearningAbilities = data.showTutorialLearningAbilities;
         gameManager.tutorialManager.ShowUsingPathSystem = data.showTutorialPathSystem;
 
+        GlyphManager.Instance.LoadGlyphs(data.unlockedGlyphs);
+
         TownManager.Instance.SetupStratford();
 
         //if (data.isTutorial)

@@ -135,6 +135,8 @@ public class TownManager : MonoBehaviour, IUserInterface
 
         ProgressionManager.Instance.SetPathButtonState();
 
+        GlyphManager.Instance.UnlockStarterGlyphs();
+
         townName.text = stratford.name;
         townBackground.sprite = stratford.background;
 

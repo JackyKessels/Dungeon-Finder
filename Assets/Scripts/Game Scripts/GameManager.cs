@@ -276,6 +276,8 @@ public class GameManager : MonoBehaviour
         progressionManager.UnlockEnchanterUpgrade();
 
 
+
+
         tutorialManager.SkipTutorials = true;
 
         titleElements.gameObject.SetActive(false);

@@ -1200,7 +1200,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2228577944761368305}
         m_TargetAssemblyTypeName: GlyphPrefab, Assembly-CSharp
-        m_MethodName: Buy
+        m_MethodName: SelectGlyph
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

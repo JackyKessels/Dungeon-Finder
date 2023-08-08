@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65caad74ac8a56045ad833b616779ac4, type: 3}
-  m_Name: Dummy
+  m_Name: caster
   m_EditorClassIdentifier: 
-  name: Dummy
+  name: caster
   lastName: 
   unitType: 0
-  icon: {fileID: 21300000, guid: a7619ad7bd0893140abbed396da38b8b, type: 3}
-  sprite: {fileID: 21300000, guid: 5cf3a356f04ccea4588382665cfaad4f, type: 3}
+  icon: {fileID: 21300000, guid: fb430576c43b66841a7f98b30b77518f, type: 3}
+  sprite: {fileID: 21300000, guid: 61f3705895e82cd40b2a4818d3838512, type: 3}
   attackAnimation: {fileID: 0}
   castAnimation: {fileID: 0}
-  baseHealth: 5
+  baseHealth: 55
   basePower: 0
-  baseWisdom: 0
+  baseWisdom: 1
   baseArmor: 0
   baseResistance: 0
   baseVitality: 0
   speed: 5
-  accuracy: 75
+  accuracy: 80
   criticalHit: 0
   healingMultiplier: 100
   crushingMultiplier: 100
@@ -39,16 +39,11 @@ MonoBehaviour:
   shadowMultiplier: 100
   critMultiplier: 150
   level: 1
-  difficulty: 1
+  difficulty: 0
   experienceReward: 0
   currencyRewards: []
+  dropEverything: 0
   itemDrops: []
   randomAbility: 1
-  abilities:
-  - ability: {fileID: 11400000, guid: 9be50d3cfbb457646847643430744cab, type: 2}
-    target: 2
-    targetAttribute: 2
-    condition: 0
-    startCooldown: 0
-    charged: 0
+  abilities: []
   passiveAbilities: []

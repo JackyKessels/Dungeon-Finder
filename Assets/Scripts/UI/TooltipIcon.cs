@@ -8,6 +8,14 @@ public class TooltipIcon : MonoBehaviour
     public Image icon;
     public TooltipObject tooltipObject;
 
+    public void Setup(Sprite icon, string genericTooltip)
+    {
+        this.icon.sprite = icon;
+
+        tooltipObject.useGenericTooltip = true;
+        tooltipObject.genericTooltip = genericTooltip;
+    }
+
     public void Setup(AbilityObject abilityObject)
     {
         if (abilityObject == null)
@@ -29,7 +37,7 @@ public class TooltipIcon : MonoBehaviour
 
         icon.sprite = effectObject.icon;
 
-        tooltipObject.state = CurrentState.HeroInformation;
+        tooltipObject.state = CurrentState.Values;
         tooltipObject.effect = new Effect(effectObject);
     }
 

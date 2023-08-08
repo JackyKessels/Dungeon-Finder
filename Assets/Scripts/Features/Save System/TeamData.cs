@@ -84,21 +84,7 @@ public class TeamData
     public int currency_1;
 
     // Stratford Shops
-    public List<int> itemShop;
-    public List<int> itemShopCosts;
-    public int itemShopRotation;
-
-    public List<int> abilityShop_0;
-    public List<int> abilityShopCosts_0;
-    public List<int> abilityShop_1;
-    public List<int> abilityShopCosts_1;
-    public List<int> abilityShop_2;
-    public List<int> abilityShopCosts_2;
-    public int abilityShopRotation;
-
-    public List<int> chapterShop;
-    public List<int> chapterShopCosts;
-    public int chapterShopRotation;
+    public List<int> unlockedGlyphs;
 
     public TeamData(Team team)
     {
@@ -117,6 +103,8 @@ public class TeamData
 
         showTutorialLearningAbilities = gameManager.tutorialManager.ShowLearningAbilities;
         showTutorialPathSystem = gameManager.tutorialManager.ShowUsingPathSystem;
+
+        unlockedGlyphs = GlyphManager.Instance.SaveGlyphs();
 
         Hero hero_0 = team.GetUnit(0) as Hero;
         Hero hero_1 = team.GetUnit(1) as Hero;
@@ -183,12 +171,5 @@ public class TeamData
 
         currency_0 = gameManager.currencyHandler.GetAmount(CurrencyType.Gold);
         currency_1 = gameManager.currencyHandler.GetAmount(CurrencyType.Spirit);
-
-        //itemShop = townManager.ConvertItemShopToIDs(townManager.blacksmith.currentShopItems);
-        //itemShopCosts = townManager.ConvertItemShopToCosts(townManager.blacksmith.currentShopItems);
-        //itemShopRotation = townManager.blacksmith.rotationCounter;
-
-        //chapterShop = townManager.ConvertItemShopToIDs(townManager.trophyHunter.currentChapterAbilities);
-        //chapterShopCosts = townManager.ConvertItemShopToCosts(townManager.trophyHunter.currentChapterAbilities);
     }
 }

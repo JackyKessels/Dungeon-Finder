@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54ad118dcfc58bc49b58d37915f48ed3, type: 3}
-  m_Name: Glyph of Corrosion
+  m_Name: Sanguine
   m_EditorClassIdentifier: 
-  id: 0
-  name: Corrosion
-  icon: {fileID: 21300000, guid: 0c3a3f42ea409fa48b26bb925ba33ea4, type: 3}
-  cost: 15
+  id: 1
+  name: Sanguine
+  icon: {fileID: 21300000, guid: 228c17514b385da4bb9008daf6747fac, type: 3}
+  cost: 50
   currency: 0
   heroEffects:
-  - {fileID: 11400000, guid: 65aade293d417e34cb691125b2c74a57, type: 2}
-  enemyEffects: []
+  - {fileID: 11400000, guid: 7c7f72057f67a6b45b3990f71d2a556b, type: 2}
+  enemyEffects:
+  - {fileID: 11400000, guid: 7c7f72057f67a6b45b3990f71d2a556b, type: 2}
