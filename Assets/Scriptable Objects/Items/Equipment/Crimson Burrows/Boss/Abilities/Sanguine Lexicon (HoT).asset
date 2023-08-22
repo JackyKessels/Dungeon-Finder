@@ -39,7 +39,7 @@ MonoBehaviour:
       attributeType: 0
       baseValue: 0
       levelBase: 0
-      scaling: 0.01
+      scaling: 0.02
       levelScaling: 0
       reductionType: 0
       modifier:

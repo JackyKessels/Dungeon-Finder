@@ -47,7 +47,7 @@ MonoBehaviour:
     attributeType: 1
     baseValue: 0
     levelBase: 0
-    scaling: 0.5
+    scaling: 0.4
     levelScaling: 0
     reductionType: 1
     modifier:
@@ -57,7 +57,7 @@ MonoBehaviour:
       thresholdType: 1
       conditionThreshold: 30
       increasedAttribute: 4
-      increaseValue: 100
+      increaseValue: 150
       casterBased: 0
       attributeBase: 0
       percentageIncrease: 0
