@@ -38,9 +38,7 @@ public class TeamManager : MonoBehaviour
     public ExperienceManager experienceManager;
 
     [Header("[ Teams ]")]
-    //[HideInInspector] 
     public Team heroes;
-    //[HideInInspector] 
     public Team enemies;
 
     public UnitPosition[] heroPositions = new UnitPosition[3];
@@ -58,7 +56,7 @@ public class TeamManager : MonoBehaviour
         experienceManager = new ExperienceManager();
     }
 
-    public void SetupBattle(List<EnemyObject> enemyObjects)
+    public void SetupBattle(List<(EnemyObject enemyObject, int level)> enemyObjects)
     {
         // Setup hero team
         heroes.Setup(heroPositions, false);
@@ -66,8 +64,8 @@ public class TeamManager : MonoBehaviour
         // Create enemy objects
         for (int i = 0; i < enemyObjects.Count; i++)
         {
-            if (enemyObjects[i] != null)
-                CreateEnemy(enemyObjects[i], i);
+            if (enemyObjects[i].enemyObject != null)
+                CreateEnemy(enemyObjects[i].enemyObject, enemyObjects[i].level, i);
         }
 
         // Setup enemy team
@@ -88,33 +86,33 @@ public class TeamManager : MonoBehaviour
         heroes.ApplyPreBattleEffects();
     }
 
-    public Hero CreateHero(int heroIndex, int index, (int, int)[] loadItemIDs = null)
+    public Hero CreateHero(int heroIndex, int index, (int, int, int)[] loadItemIDs = null)
     {
         GameObject obj = ObjectUtilities.CreateSimplePrefab(GameAssets.i.heroPrefab, heroesContainer);
         obj.name = heroObjects[heroIndex].name;
 
         Hero hero = obj.GetComponent<Hero>();
-        hero.UpdateUnit(heroIndex, index, loadItemIDs);
+        hero.Setup(heroIndex, index, loadItemIDs);
 
         heroes.AddUnit(hero, index);
 
         return hero;
     }
 
-    public Enemy CreateEnemy(EnemyObject enemyObject, int position)
+    public Enemy CreateEnemy(EnemyObject enemyObject, int level, int position)
     {
         GameObject obj = ObjectUtilities.CreateSimplePrefab(GameAssets.i.enemyPrefab, enemiesContainer);
         obj.name = enemyObject.name;
 
         Enemy enemy = obj.GetComponent<Enemy>();
-        enemy.UpdateUnit(enemyObject);
+        enemy.Setup(enemyObject, level);
 
         enemies.AddUnit(enemy, position);
 
         return enemy;
     }
 
-    public void SpawnEnemy(EnemyObject enemyObject, bool instant, List<ParticleSystem> specialEffects)
+    public void SpawnEnemy(EnemyObject enemyObject, int level, bool instant, List<ParticleSystem> specialEffects)
     {
         int availablePosition = enemies.GetFirstEmptyPosition();
 
@@ -125,7 +123,7 @@ public class TeamManager : MonoBehaviour
             return;
         }
 
-        Enemy enemy = CreateEnemy(enemyObject, availablePosition);
+        Enemy enemy = CreateEnemy(enemyObject, level, availablePosition);
         GameObject enemyGameObject = enemy.gameObject;
 
         enemies.InitializeUnit(enemyPositions, true, availablePosition);

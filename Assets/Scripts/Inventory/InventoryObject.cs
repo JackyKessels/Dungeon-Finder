@@ -96,7 +96,7 @@ public class InventoryObject : ScriptableObject
 
     public void AddEquipment(int _slot, Item _item)
     {
-        Equipment equipment = _item.itemObject as Equipment;
+        EquipmentObject equipment = _item.itemObject as EquipmentObject;
 
         int mainHandSlot = GeneralUtilities.GetCorrectEquipmentslot(EquipmentSlot.TwoHand);
         int offHandSlot = GeneralUtilities.GetCorrectEquipmentslot(EquipmentSlot.Shield);
@@ -249,37 +249,28 @@ public class InventoryObject : ScriptableObject
         }
     }
 
-    public (int, int)[] ConvertInventoryToIDs()
+    public (int, int, int)[] ConvertInventoryToIDs()
     {
-        (int id, int stacks)[] inventoryList = new (int, int)[container.slots.Length];
+        (int id, int level, int stacks)[] inventoryList = new (int, int, int)[container.slots.Length];
 
         for (int i = 0; i < container.slots.Length; i++)
         {
             inventoryList[i].id = container.slots[i].item.id;
+            inventoryList[i].level = container.slots[i].item.level;
             inventoryList[i].stacks = container.slots[i].amount;
         }
 
         return inventoryList;
     }
 
-    public void AddItemsToInventory((int id, int amount)[] itemIDs)
+    public void AddItemsToInventory((int id, int level, int amount)[] itemIDs)
     {
         for (int i = 0; i < container.slots.Length; i++)
         {
+            Item item = Item.CreateItem(database.itemObjects[itemIDs[i].id], itemIDs[i].level);
+
             if (itemIDs[i].id != -1)
-                container.slots[i].UpdateSlot(new Item(database.itemObjects[itemIDs[i].id]), itemIDs[i].amount);
-        }
-    }
-
-    public void AddItemsToEquipment(int[] itemIDs)
-    {
-        for (int i = 0; i < container.slots.Length; i++)
-        {
-            if (itemIDs[i] != -1)
-            {
-                AddEquipment(i, new Item(database.itemObjects[itemIDs[i]]));
-            }
-
+                container.slots[i].UpdateSlot(item, itemIDs[i].amount);
         }
     }
 
@@ -456,7 +447,7 @@ public class InventorySlot
         if (allowedItems.Count <= 0 || itemObject == null || itemObject.item.id < 0)
             return true;
 
-        if (itemObject is Equipment equip)
+        if (itemObject is EquipmentObject equip)
         {
             return CorrectSlot(equip);
         }
@@ -464,7 +455,7 @@ public class InventorySlot
         return false;
     }
 
-    private bool CorrectSlot(Equipment equip)
+    private bool CorrectSlot(EquipmentObject equip)
     {
         return allowedItems.Contains(equip.slot);
     }

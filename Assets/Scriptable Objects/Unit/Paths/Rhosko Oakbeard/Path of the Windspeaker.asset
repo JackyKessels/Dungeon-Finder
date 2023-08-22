@@ -20,7 +20,7 @@ MonoBehaviour:
     water magic, they become indispensable allies in any scenario. \n\n- Nature Damage,
     Healing & Buffs"
   baseWeapons:
-  - {fileID: 11400000, guid: 42b4c394e6d30874d95a3b1e84652b7b, type: 2}
+  - {fileID: 11400000, guid: 5dc9c414280861b4694d95efbc761452, type: 2}
   primaryAbility: {fileID: 11400000, guid: a0fa36ddf9f76db49ba44a42e4b02f88, type: 2}
   secondaryAbility: {fileID: 11400000, guid: a4d0c404a25a1ae4aa2397810a436759, type: 2}
   passiveAbility: {fileID: 11400000, guid: 377a16875b88a094580e37945cc4f542, type: 2}

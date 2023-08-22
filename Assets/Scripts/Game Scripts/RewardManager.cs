@@ -336,7 +336,7 @@ public class RewardManager : MonoBehaviour
 
     private void SelectItem(ItemDrop itemDrop)
     {
-        InventoryManager.Instance.AddItemToInventory(itemDrop.itemObject, itemDrop.amount);
+        InventoryManager.Instance.AddItemToInventory(itemDrop.GetItem(), itemDrop.amount);
         InventoryManager.Instance.inventory.UpdateItems();
 
         SaveManager.Instance.SaveGame();

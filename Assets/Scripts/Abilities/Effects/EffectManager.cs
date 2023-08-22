@@ -497,10 +497,10 @@ public class EffectManager : MonoBehaviour
         }
         else if (e.effectObject is EffectSpawnEnemy spawn)
         {
-            TeamManager.Instance.SpawnEnemy(spawn.enemyObject, spawn.instant, spawn.specialEffects);
+            TeamManager.Instance.SpawnEnemy(spawn.enemyObject, spawn.level, spawn.instant, spawn.specialEffects);
 
             if (spawn.two)
-                TeamManager.Instance.SpawnEnemy(spawn.enemyObject, spawn.instant, spawn.specialEffects);
+                TeamManager.Instance.SpawnEnemy(spawn.enemyObject, spawn.level, spawn.instant, spawn.specialEffects);
         }
         else if (e.effectObject is EffectActivatePassive passive)
         {

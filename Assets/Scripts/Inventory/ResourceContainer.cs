@@ -12,25 +12,13 @@ public class ResourceContainer : Consumable
         GameManager.Instance.currencyHandler.IncreaseCurrency(currency);      
     }
 
-
-
-    public override string GetDescription(TooltipObject tooltipInfo)
+    public string GetDescription(TooltipObject tooltipInfo, string itemName, string itemDescription)
     {
-        return base.GetDescription(tooltipInfo) + 
+        return itemName + 
                string.Format("\nUse: Gain {1} <color={0}>{2}</color>.", 
                              Currency.GetCurrencyColor(currency.currencyType),
                              currency.totalAmount, 
-                             Currency.GetCurrencyName(currency.currencyType)) + 
-               GetItemDescription();
-    }
-
-    public override void LeftClick(InteractableItem interactableItem)
-    {
-        // Do nothing
-    }
-
-    public override void RightClick(InteractableItem interactableItem)
-    {
-        // Do nothing
+                             Currency.GetCurrencyName(currency.currencyType)) +
+               itemDescription;
     }
 }

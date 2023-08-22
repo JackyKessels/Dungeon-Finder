@@ -52,7 +52,7 @@ public class Food : Consumable
         }
     }
 
-    public override string GetDescription(TooltipObject tooltipInfo)
+    public string GetDescription(TooltipObject tooltipInfo, string itemName, string itemDescription)
     {
         string healthRestoreText = "";
         string effectText = "";
@@ -97,22 +97,12 @@ public class Food : Consumable
         else
             stacks = "\nMaximum Stacks: 1";
 
-        return base.GetDescription(tooltipInfo) +   // Name
+        return itemName +                           // Name
                stacks +                             // Max stacks
                healthRestoreText +                  // Health Restore             
                effectText +                         // Effect description
                effectDescriptions +                     // Effect duration
-               GetItemDescription() +               // Item description
+               itemDescription +               // Item description
                HowToUseText();                      // Right-click to use
-    }
-
-    public override void LeftClick(InteractableItem interactableItem)
-    {
-        // Do nothing
-    }
-
-    public override void RightClick(InteractableItem interactableItem)
-    {
-        // Do nothing
     }
 }

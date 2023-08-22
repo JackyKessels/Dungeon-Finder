@@ -11,7 +11,9 @@ public class Test_LootButton : MonoBehaviour
     {
         foreach (ItemObject obj in items)
         {
-            InventoryManager.Instance.AddItemToInventory(obj);
+            Item item = Item.CreateItem(obj, 1);
+
+            InventoryManager.Instance.AddItemToInventory(item);
         }
     }
 
@@ -27,7 +29,9 @@ public class Test_LootButton : MonoBehaviour
 
         foreach (ItemObject obj in randomItems)
         {
-            InventoryManager.Instance.AddItemToInventory(obj);
+            Item item = Item.CreateItem(obj, 1);
+
+            InventoryManager.Instance.AddItemToInventory(item);
         }
     }
 }

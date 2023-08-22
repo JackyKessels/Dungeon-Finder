@@ -80,8 +80,9 @@ public class HeroPathManager
 
     public void SelectStarterPath(int index)
     {
-        foreach (Equipment equipment in paths[index].path.baseWeapons)
+        foreach (EquipmentObject equipmentObject in paths[index].path.baseWeapons)
         {
+            Equipment equipment = new Equipment(equipmentObject, 1);
             hero.ForceEquipItem(equipment);
         }
 

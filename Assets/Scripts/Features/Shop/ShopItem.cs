@@ -80,7 +80,7 @@ public class ShopItem : MonoBehaviour
                 tooltipIconItem.active = rewardObject.reward.ability;
                 break;
             case RewardType.Item:
-                tooltipIconItem.itemObject = rewardObject.reward.itemDrop.itemObject;
+                //tooltipIconItem.itemObject = rewardObject.reward.itemDrop.itemObject;
                 break;
             case RewardType.Attribute:
                 tooltipIconItem.attribute = rewardObject.reward.attribute;
@@ -120,7 +120,7 @@ public class ShopItem : MonoBehaviour
                     break;
                 case RewardType.Item:
                     {
-                        successfulBuy = inventoryManager.AddItemToInventory(rewardObject.reward.itemDrop.itemObject);
+                        //successfulBuy = inventoryManager.AddItemToInventory(rewardObject.reward.itemDrop.itemObject);
                     }
                     break;
                 case RewardType.Attribute:

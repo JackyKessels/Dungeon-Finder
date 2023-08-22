@@ -42,9 +42,9 @@ MonoBehaviour:
     ignorePassives: []
     school: 4
     attributeType: 0
-    baseValue: 9
+    baseValue: 0
     levelBase: 0
-    scaling: 0
+    scaling: 0.08
     levelScaling: 0
     reductionType: 2
     modifier:

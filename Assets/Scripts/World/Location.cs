@@ -44,7 +44,7 @@ public class Location : MonoBehaviour, IDescribable
     public LocationType locationType = LocationType.Empty;
     public bool locked = false;
     public List<Location> connectedLocations;
-    public List<EnemyObject> enemyUnits = new List<EnemyObject>();
+    public List<(EnemyObject enemyObject, int level)> enemyUnits = new List<(EnemyObject, int)>();
 
     // Pathfinder Data
     [HideInInspector] public float gCost;
@@ -253,11 +253,11 @@ public class Location : MonoBehaviour, IDescribable
         string enemy3 = "";
 
         if (enemyUnits.Count > 0)
-            enemy1 = "\n" + enemyUnits[0].name;
+            enemy1 = "\n" + GeneralUtilities.FormattedEnemyObject(enemyUnits[0]);
         if (enemyUnits.Count > 1)
-            enemy2 = "\n" + enemyUnits[1].name;
+            enemy2 = "\n" + GeneralUtilities.FormattedEnemyObject(enemyUnits[1]);
         if (enemyUnits.Count > 2)
-            enemy3 = "\n" + enemyUnits[2].name;
+            enemy3 = "\n" + GeneralUtilities.FormattedEnemyObject(enemyUnits[2]);
 
         return string.Format("\n{0}{1}{2}", enemy1, enemy2, enemy3);
     }

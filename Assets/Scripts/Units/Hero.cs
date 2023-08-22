@@ -26,7 +26,7 @@ public class Hero : Unit
     //public List<Specialization> specializations = new List<Specialization>();
     //public Specialization currentSpecialization;
 
-    public (int, int)[] itemIDs;
+    public (int, int, int)[] itemIDs;
 
     public List<WeaponRequirement> equippedWeapons = new List<WeaponRequirement>();
 
@@ -34,7 +34,7 @@ public class Hero : Unit
 
     public bool newHero = true;
 
-    public void UpdateUnit(int heroIndex, int index, (int, int)[] loadItemIDs = null)
+    public void Setup(int heroIndex, int index, (int, int, int)[] loadItemIDs = null)
     {
         this.heroObjectIndex = heroIndex;
         teamNumber = index;
@@ -98,12 +98,22 @@ public class Hero : Unit
 
     private void EquipStartingEquipment()
     {
-        itemIDs = new (int, int)[8] {(-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1), (-1, 1)};
+        itemIDs = new (int, int, int)[8] 
+        {
+            (-1, 1, 1), 
+            (-1, 1, 1), 
+            (-1, 1, 1), 
+            (-1, 1, 1), 
+            (-1, 1, 1), 
+            (-1, 1, 1), 
+            (-1, 1, 1), 
+            (-1, 1, 1)
+        };
 
         for (int i = 0; i < heroObject.startingEquipment.Count; i++)
         {
             int slot = GeneralUtilities.GetCorrectEquipmentslot(heroObject.startingEquipment[i].slot);
-            itemIDs[slot] = (heroObject.startingEquipment[i].item.id, 1);
+            itemIDs[slot] = (heroObject.startingEquipment[i].item.id, 1, 1);
         }
     }
 
@@ -124,12 +134,15 @@ public class Hero : Unit
         }
     }
 
-    public void SetupEquipment((int id, int amount)[] itemIDs, int currentHealth = -1)
+    public void SetupEquipment((int id, int level, int amount)[] itemIDs, int currentHealth = -1)
     {
         for (int i = 0; i < itemIDs.Length; i++)
         {
             if (itemIDs[i].id != -1)
-                equipmentObject.AddEquipment(i, new Item(DatabaseHandler.Instance.itemDatabase.itemObjects[itemIDs[i].id]));
+            {
+                Item item = Item.CreateItem(DatabaseHandler.Instance.itemDatabase.itemObjects[itemIDs[i].id], itemIDs[i].level);
+                equipmentObject.AddEquipment(i, item);
+            }
         }
 
         // No specified current Health resets it to full
@@ -141,9 +154,9 @@ public class Hero : Unit
 
     public void ForceEquipItem(Equipment equipment)
     {
-        int slot = GeneralUtilities.GetCorrectEquipmentslot(equipment.slot);
+        int slot = GeneralUtilities.GetCorrectEquipmentslot(equipment.equipmentObject.slot);
 
-        equipmentObject.AddEquipment(slot, new Item(equipment));
+        equipmentObject.AddEquipment(slot, equipment);
     }
 
     public void OnBeforeSlotUpdate(InventorySlot _slot)
@@ -164,74 +177,78 @@ public class Hero : Unit
 
     public void EquipItem(InventorySlot slot)
     {
-        if (slot.item.itemObject is Equipment e)
+        if (slot.item is not Equipment)
         {
-            // Equip one-hand
-            if (e.slot == EquipmentSlot.OneHand)
-            {
-                equippedWeapons.Add(WeaponRequirement.OneHand);
+            return;
+        }
 
-                if (heroObject.dualWield && slot.SlotAllows(EquipmentSlot.Shield))
-                    equipmentObject.RestrictMainHand(true);
-            }
+        Equipment equipment = slot.item as Equipment;
 
-            // Equip a two-hand
-            if (e.slot == EquipmentSlot.TwoHand)
-            {
-                equippedWeapons.Add(WeaponRequirement.TwoHand);
+        // Equip one-hand
+        if (equipment.equipmentObject.slot == EquipmentSlot.OneHand)
+        {
+            equippedWeapons.Add(WeaponRequirement.OneHand);
 
-                equipmentObject.RestrictOffHand(true);
-            }
-
-            // Equip a shield
-            if (e.slot == EquipmentSlot.Shield)
-            {
-                equippedWeapons.Add(WeaponRequirement.Shield);
-
+            if (heroObject.dualWield && slot.SlotAllows(EquipmentSlot.Shield))
                 equipmentObject.RestrictMainHand(true);
-            }
+        }
 
-            // Equip a relic
-            if (e.slot == EquipmentSlot.Relic)
-            {
-                equippedWeapons.Add(WeaponRequirement.Relic);
+        // Equip a two-hand
+        if (equipment.equipmentObject.slot == EquipmentSlot.TwoHand)
+        {
+            equippedWeapons.Add(WeaponRequirement.TwoHand);
 
-                equipmentObject.RestrictMainHand(true);
-            }
-            
-            // Add passive bonuses
-            if (e.passives.Count > 0)
-            {
-                for (int i = 0; i < e.passives.Count; i++)
-                {
-                    Passive equipmentPassive = new Passive(e.passives[i], 1);
-                    
-                    equipmentPassive.ActivatePassive(this);
-                }
-            }
+            equipmentObject.RestrictOffHand(true);
+        }
 
-            // Items with abilities
-            if (e.useAbility != null)
+        // Equip a shield
+        if (equipment.equipmentObject.slot == EquipmentSlot.Shield)
+        {
+            equippedWeapons.Add(WeaponRequirement.Shield);
+
+            equipmentObject.RestrictMainHand(true);
+        }
+
+        // Equip a relic
+        if (equipment.equipmentObject.slot == EquipmentSlot.Relic)
+        {
+            equippedWeapons.Add(WeaponRequirement.Relic);
+
+            equipmentObject.RestrictMainHand(true);
+        }
+
+        // Add passive bonuses
+        if (equipment.equipmentObject.passives.Count > 0)
+        {
+            for (int i = 0; i < equipment.equipmentObject.passives.Count; i++)
             {
-                if (e.slot == EquipmentSlot.Flask)
-                {
-                    spellbook.flaskAbility = new Active(e.useAbility, 1);
-                    spellbook.flaskAbility.Initialize();
-                }
-                else
-                {
-                    Active useAbility = new Active(e.useAbility, 1);
-                    spellbook.LearnAbility(useAbility, true);
-                }
+                Passive equipmentPassive = new Passive(equipment.equipmentObject.passives[i], 1);
+
+                equipmentPassive.ActivatePassive(this);
+            }
+        }
+
+        // Items with abilities
+        if (equipment.equipmentObject.useAbility != null)
+        {
+            if (equipment.equipmentObject.slot == EquipmentSlot.Flask)
+            {
+                spellbook.flaskAbility = new Active(equipment.equipmentObject.useAbility, 1);
+                spellbook.flaskAbility.Initialize();
+            }
+            else
+            {
+                Active useAbility = new Active(equipment.equipmentObject.useAbility, 1);
+                spellbook.LearnAbility(useAbility, true);
             }
         }
 
         // Add value to Attribute
-        for (int i = 0; i < slot.item.attributes.Count; i++)
+        for (int i = 0; i < equipment.attributes.Count; i++)
         {
-            if (slot.item.attributes[i].baseValue != 0)
+            if (equipment.attributes[i].baseValue != 0)
             {
-                statsManager.ModifyAttribute(slot.item.attributes[i].attributeType, AttributeValue.bonusValue, slot.item.attributes[i].baseValue);
+                statsManager.ModifyAttribute(equipment.attributes[i].attributeType, AttributeValue.bonusValue, equipment.attributes[i].baseValue);
             }
         }
 
@@ -241,72 +258,76 @@ public class Hero : Unit
 
     public void UnequipItem(InventorySlot slot)
     {
-        if (slot.item.itemObject is Equipment e)
+        if (slot.item is not Equipment)
         {
-            // Unequip one-hand
-            if (e.slot == EquipmentSlot.OneHand)
-            {
-                equippedWeapons.Remove(WeaponRequirement.OneHand);
+            return;
+        }
 
-                if (heroObject.dualWield && slot.SlotAllows(EquipmentSlot.Shield))
-                    equipmentObject.RestrictMainHand(false);
-            }
+        Equipment equipment = slot.item as Equipment;
 
-            // Unequip a two-hand
-            if (e.slot == EquipmentSlot.TwoHand)
-            {
-                equippedWeapons.Remove(WeaponRequirement.TwoHand);
+        // Unequip one-hand
+        if (equipment.equipmentObject.slot == EquipmentSlot.OneHand)
+        {
+            equippedWeapons.Remove(WeaponRequirement.OneHand);
 
-                equipmentObject.RestrictOffHand(false);
-            }
-
-            // Unequip a shield
-            if (e.slot == EquipmentSlot.Shield)
-            {
-                equippedWeapons.Remove(WeaponRequirement.Shield);
-
+            if (heroObject.dualWield && slot.SlotAllows(EquipmentSlot.Shield))
                 equipmentObject.RestrictMainHand(false);
-            }
+        }
 
-            // Unequip a relic
-            if (e.slot == EquipmentSlot.Relic)
+        // Unequip a two-hand
+        if (equipment.equipmentObject.slot == EquipmentSlot.TwoHand)
+        {
+            equippedWeapons.Remove(WeaponRequirement.TwoHand);
+
+            equipmentObject.RestrictOffHand(false);
+        }
+
+        // Unequip a shield
+        if (equipment.equipmentObject.slot == EquipmentSlot.Shield)
+        {
+            equippedWeapons.Remove(WeaponRequirement.Shield);
+
+            equipmentObject.RestrictMainHand(false);
+        }
+
+        // Unequip a relic
+        if (equipment.equipmentObject.slot == EquipmentSlot.Relic)
+        {
+            equippedWeapons.Remove(WeaponRequirement.Relic);
+
+            equipmentObject.RestrictMainHand(false);
+        }
+
+        // Remove passive bonuses
+        if (equipment.equipmentObject.passives.Count > 0)
+        {
+            for (int i = 0; i < equipment.equipmentObject.passives.Count; i++)
             {
-                equippedWeapons.Remove(WeaponRequirement.Relic);
+                Passive equipmentPassive = new Passive(equipment.equipmentObject.passives[i], 1);
 
-                equipmentObject.RestrictMainHand(false);
+                equipmentPassive.DeactivatePassive(this);
             }
+        }
 
-            // Remove passive bonuses
-            if (e.passives.Count > 0)
+        // Items with abilities
+        if (equipment.equipmentObject.useAbility != null)
+        {
+            if (equipment.equipmentObject.slot == EquipmentSlot.Flask)
             {
-                for (int i = 0; i < e.passives.Count; i++)
-                {
-                    Passive equipmentPassive = new Passive(e.passives[i], 1);
-                    
-                    equipmentPassive.DeactivatePassive(this);
-                }
+                spellbook.flaskAbility = new Active();
             }
-
-            // Items with abilities
-            if (e.useAbility != null)
+            else
             {
-                if (e.slot == EquipmentSlot.Flask)
-                {
-                    spellbook.flaskAbility = new Active();
-                }
-                else
-                {
-                    spellbook.UnlearnAbility(spellbook.FindItemAbility(e.useAbility), true);
-                }
+                spellbook.UnlearnAbility(spellbook.FindItemAbility(equipment.equipmentObject.useAbility), true);
             }
         }
 
         // Remove value from Attribute
-        for (int i = 0; i < slot.item.attributes.Count; i++)
+        for (int i = 0; i < equipment.attributes.Count; i++)
         {
-            if (slot.item.attributes[i].baseValue != 0)
+            if (equipment.attributes[i].baseValue != 0)
             {
-                statsManager.ModifyAttribute(slot.item.attributes[i].attributeType, AttributeValue.bonusValue, slot.item.attributes[i].baseValue * -1);
+                statsManager.ModifyAttribute(equipment.attributes[i].attributeType, AttributeValue.bonusValue, equipment.attributes[i].baseValue * -1);
             }
         }
 

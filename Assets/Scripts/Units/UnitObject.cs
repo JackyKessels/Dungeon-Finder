@@ -19,9 +19,9 @@ public class UnitObject : ScriptableObject
     public int baseHealth;
     public int basePower;
     public int baseWisdom;
-    public int baseArmor;
-    public int baseResistance;
-    public int baseVitality;
+    public int armor;
+    public int resistance;
+    public int vitality;
     public int speed = 5;
     public int accuracy = 80;
     public int criticalHit = 0;

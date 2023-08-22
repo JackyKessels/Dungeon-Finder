@@ -29,7 +29,7 @@ public class UnitHUD : MonoBehaviour
         name.text = u.isEnemy ? (u as Enemy).enemyObject.name : (u as Hero).heroObject.name;
         image.sprite = unit.icon;
 
-        string currentLevel = u.isEnemy ? (u as Enemy).enemyObject.level.ToString() : TeamManager.Instance.experienceManager.currentLevel.ToString();
+        string currentLevel = u.isEnemy ? (u as Enemy).Level.ToString() : TeamManager.Instance.experienceManager.currentLevel.ToString();
 
         level.text = currentLevel;
 

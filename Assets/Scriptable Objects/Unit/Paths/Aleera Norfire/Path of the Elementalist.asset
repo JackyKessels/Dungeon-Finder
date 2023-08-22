@@ -25,7 +25,7 @@ MonoBehaviour:
 
 '
   baseWeapons:
-  - {fileID: 11400000, guid: b319e2ba20701654ebc43ffe366167f6, type: 2}
+  - {fileID: 11400000, guid: 8dc33e93293386b4887313e9c9189245, type: 2}
   primaryAbility: {fileID: 11400000, guid: 6e5975ba6b17c6240a43bceb1a1019b0, type: 2}
   secondaryAbility: {fileID: 11400000, guid: 42b0fdd0eaef7a94e8b35ada198431fa, type: 2}
   passiveAbility: {fileID: 11400000, guid: 40c8bfaf8a0a79c4fb5d24b62aba7d51, type: 2}

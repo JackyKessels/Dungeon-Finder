@@ -73,6 +73,7 @@ public class MysteryAction
 
     [Header("Item")]
     public ItemObject itemObject;
+    public int equipmentLevel;
 
     [Header("Source")]
     public MysteryActionTarget sourceTargets; 
@@ -134,7 +135,8 @@ public class MysteryAction
                     if (itemObject == null)
                         return;
 
-                    InventoryManager.Instance.AddItemToInventory(itemObject);
+                    Item item = Item.CreateItem(itemObject, equipmentLevel);
+                    InventoryManager.Instance.AddItemToInventory(item);
 
                     Debug.Log("You gained " + itemObject.name + ".");
 
@@ -235,7 +237,7 @@ public class MysteryAction
                 break;
             case MysteryActionType.Battle:
                 {
-                    List<EnemyObject> enemyUnits = Encounter.SetupUnitObjects(encounter);
+                    List<(EnemyObject, int)> enemyUnits = Encounter.SetupUnitObjects(encounter);
                     BattleManager.Instance.StartBattle(enemyUnits);
                 }
                 break;

@@ -34,7 +34,7 @@ public class LocationInformation : MonoBehaviour
 
                     for (int i = 0; i < location.enemyUnits.Count; i++)
                     {
-                        enemies += location.enemyUnits[i].name + "\n";
+                        enemies += GeneralUtilities.FormattedEnemyObject(location.enemyUnits[i]) + "\n";
                     }
 
                     return enemies;

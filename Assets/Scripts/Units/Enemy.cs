@@ -7,20 +7,23 @@ public class Enemy : Unit
 {
     [HideInInspector] public EnemyObject enemyObject;
 
+    public int Level { get; set; }
+
     public List<Active> chargedAbility;
     private int chargeTarget;
 
-    public void UpdateUnit(EnemyObject unitObject)
+    public void Setup(EnemyObject unitObject, int level)
     {
         // set correct data from the UnitObject
         enemyObject = unitObject;
+        Level = level;
         name = enemyObject.name;
         unitType = enemyObject.unitType;
         icon = enemyObject.icon;
         sprite = enemyObject.sprite;
         unitRenderer.sprite = unitObject.sprite;
 
-        statsManager = new StatsManager(this, enemyObject);
+        statsManager = new StatsManager(this, enemyObject, Level);
 
         spellbook = new Spellbook(this);
         spellbook.SetDefaultAbilities(enemyObject);

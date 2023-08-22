@@ -6,6 +6,8 @@ using UnityEngine;
 public class Encounter
 {
     public List<EnemyObject> enemyObjects;
+    public int minimumLevel = 1;
+    public int maximumLevel = 1;
     public bool randomOrder = true;
     public int weight = 1;
 
@@ -21,46 +23,42 @@ public class Encounter
         return encounters[GeneralUtilities.RandomWeighted(weights)];
     }
 
-    public static List<EnemyObject> SetupUnitObjects(List<Encounter> encounters)
+    public static List<(EnemyObject, int)> SetupUnitObjects(List<Encounter> encounters)
     {
         Encounter encounter = WeightedEncounter(encounters);
 
+        List<(EnemyObject, int)> enemyObjects = new List<(EnemyObject, int)>();
+
         if (encounter.randomOrder)
         {
-            List<EnemyObject> mixedUnits = new List<EnemyObject>(encounter.enemyObjects);
-
-            for (int i = 0; i < mixedUnits.Count; i++)
-            {
-                EnemyObject temp = mixedUnits[i];
-                int randomIndex = Random.Range(i, mixedUnits.Count);
-                mixedUnits[i] = mixedUnits[randomIndex];
-                mixedUnits[randomIndex] = temp;
-            }
-
-            return mixedUnits;
+            encounter.enemyObjects.Shuffle();
         }
 
-        return encounter.enemyObjects;
+        for (int i = 0; i < encounter.enemyObjects.Count; i++)
+        {
+            int level = Random.Range(encounter.minimumLevel, encounter.maximumLevel + 1);
+            enemyObjects.Add((encounter.enemyObjects[i], level));
+        }
+
+        return enemyObjects;
     }
 
-    public static List<EnemyObject> SetupUnitObjects(Encounter encounter)
+    public static List<(EnemyObject, int)> SetupUnitObjects(Encounter encounter)
     {
+        List<(EnemyObject, int)> enemyObjects = new List<(EnemyObject, int)>();
+
         if (encounter.randomOrder)
         {
-            List<EnemyObject> mixedUnits = new List<EnemyObject>(encounter.enemyObjects);
-
-            for (int i = 0; i < mixedUnits.Count; i++)
-            {
-                EnemyObject temp = mixedUnits[i];
-                int randomIndex = Random.Range(i, mixedUnits.Count);
-                mixedUnits[i] = mixedUnits[randomIndex];
-                mixedUnits[randomIndex] = temp;
-            }
-
-            return mixedUnits;
+            encounter.enemyObjects.Shuffle();
         }
 
-        return encounter.enemyObjects;
+        for (int i = 0; i < encounter.enemyObjects.Count; i++)
+        {
+            int level = Random.Range(encounter.minimumLevel, encounter.maximumLevel + 1);
+            enemyObjects.Add((encounter.enemyObjects[i], level));
+        }
+
+        return enemyObjects;
     }
 }
 
@@ -68,4 +66,5 @@ public class Encounter
 public class BossEncounter 
 {
     public List<EnemyObject> enemyObjects;
+    public int level;
 }

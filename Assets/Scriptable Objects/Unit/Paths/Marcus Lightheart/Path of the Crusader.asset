@@ -21,7 +21,7 @@ MonoBehaviour:
     to uplift and embolden their comrades through an array of empowering buffs. \n\n-
     Physical Damage, Holy Damage & Buffs"
   baseWeapons:
-  - {fileID: 11400000, guid: 7b211fd9752c7564bbcf7e0128d18597, type: 2}
+  - {fileID: 11400000, guid: e298c15c89c374b4fbf8a4846ce26572, type: 2}
   primaryAbility: {fileID: 11400000, guid: 41add274c2e389145a6f0c9f0ff17c97, type: 2}
   secondaryAbility: {fileID: 11400000, guid: 07ffbca9367ca99478e9d2cd39ae0e9f, type: 2}
   passiveAbility: {fileID: 11400000, guid: 8231a86a8253d8549a0c2649ec8f5004, type: 2}

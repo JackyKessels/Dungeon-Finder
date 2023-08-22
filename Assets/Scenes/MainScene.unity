@@ -12230,14 +12230,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 11400000, guid: 2fd74b68355f617418891cd4ca276275, type: 2}
-  - {fileID: 11400000, guid: 38c70f5c05c5d2249b579482d0845527, type: 2}
-  - {fileID: 11400000, guid: acdb4f3da0147e84085f2b8fdbe1bc09, type: 2}
-  - {fileID: 11400000, guid: f3469f88b0dc25b4484bfa50995c890b, type: 2}
-  - {fileID: 11400000, guid: 9551c5fc36c479540b6f46d561b21b7c, type: 2}
-  - {fileID: 11400000, guid: 208b6673db131fb44ae31518e7c4444e, type: 2}
-  - {fileID: 11400000, guid: b100b78b2f0928e4e9587480157ca09f, type: 2}
-  - {fileID: 11400000, guid: fee08737e3382da4cad72139df036ce7, type: 2}
   - {fileID: 11400000, guid: 4a5da500e6191904d911691bf6330968, type: 2}
+  - {fileID: 11400000, guid: f3469f88b0dc25b4484bfa50995c890b, type: 2}
+  - {fileID: 11400000, guid: acdb4f3da0147e84085f2b8fdbe1bc09, type: 2}
+  - {fileID: 11400000, guid: b100b78b2f0928e4e9587480157ca09f, type: 2}
+  - {fileID: 11400000, guid: 208b6673db131fb44ae31518e7c4444e, type: 2}
+  - {fileID: 11400000, guid: fee08737e3382da4cad72139df036ce7, type: 2}
+  - {fileID: 11400000, guid: 9551c5fc36c479540b6f46d561b21b7c, type: 2}
+  - {fileID: 11400000, guid: 38c70f5c05c5d2249b579482d0845527, type: 2}
 --- !u!1 &522637143
 GameObject:
   m_ObjectHideFlags: 0
@@ -24043,12 +24043,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: 0810c68dda8cb5e43985dafefedfe6aa, type: 2}
-  - {fileID: 11400000, guid: aac92a78a6d3e35428bab44f80d0249e, type: 2}
-  - {fileID: 11400000, guid: 1d94f840637e67c4887aa2c8de1f10d7, type: 2}
-  - {fileID: 11400000, guid: a31424e9327f4da4a8e7b1de63951535, type: 2}
-  - {fileID: 11400000, guid: 9636dcb6d6b4fde4fa0e4a2c3bf9d0fa, type: 2}
-  - {fileID: 11400000, guid: abca1ab87bbb901479a184a485c67532, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &979123974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24812,7 +24812,11 @@ MonoBehaviour:
     storedPassive:
       passiveAbility: {fileID: 0}
       level: 0
-  itemObject: {fileID: 0}
+  item:
+    name: 
+    id: -1
+    itemObject: {fileID: 0}
+    level: 1
   attribute:
     attributeType: 0
     baseValue: 0
@@ -39025,7 +39029,11 @@ MonoBehaviour:
     storedPassive:
       passiveAbility: {fileID: 0}
       level: 0
-  itemObject: {fileID: 0}
+  item:
+    name: 
+    id: -1
+    itemObject: {fileID: 0}
+    level: 1
   attribute:
     attributeType: 0
     baseValue: 0
@@ -43199,8 +43207,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ec3af5e8d3b29674793c7665102b479d, type: 2}
   - {fileID: 11400000, guid: f52243a338ebdbf4ab182eaced35d996, type: 2}
   - {fileID: 11400000, guid: 3dc8a6fa61c22d64a8b1c430c0c08c3f, type: 2}
-  - {fileID: 11400000, guid: fbf6a738f3bdb6f47b54175a4bc82628, type: 2}
   - {fileID: 11400000, guid: 313f4790924acad4cbb951955ecdf1c4, type: 2}
+  - {fileID: 11400000, guid: fbf6a738f3bdb6f47b54175a4bc82628, type: 2}
 --- !u!114 &1577386324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45580,10 +45588,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: 35cdd114b3c66a64ab38f10ac5c884b9, type: 2}
-  - {fileID: 11400000, guid: 296e7d66c6cd359418a792a1c2c1669f, type: 2}
-  - {fileID: 11400000, guid: e7de7b2a7a37de943b9e9b64a190d5a4, type: 2}
-  - {fileID: 11400000, guid: 25c3a5f31d8a1f24d81fb0212b7f4518, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1686442960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51726,10 +51734,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: 672709d438a07224bb239ba8dbf5fe7f, type: 2}
-  - {fileID: 11400000, guid: 30070842ffdd55c4d9fc17cfeff4920c, type: 2}
-  - {fileID: 11400000, guid: ab57594b34c8d1f4a9b670d053ac3f73, type: 2}
-  - {fileID: 11400000, guid: 281ad6faa1e3f4f46a223e307541baba, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1970926567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52672,7 +52680,11 @@ MonoBehaviour:
     storedPassive:
       passiveAbility: {fileID: 0}
       level: 0
-  itemObject: {fileID: 0}
+  item:
+    name: 
+    id: -1
+    itemObject: {fileID: 0}
+    level: 1
   attribute:
     attributeType: 0
     baseValue: 0
@@ -56364,7 +56376,7 @@ MonoBehaviour:
       name: 
       id: -1
       itemObject: {fileID: 0}
-      attributes: []
+      level: 1
     amount: 0
     foodOnly: 0
   active:
@@ -56742,7 +56754,11 @@ MonoBehaviour:
     storedPassive:
       passiveAbility: {fileID: 0}
       level: 0
-  itemObject: {fileID: 0}
+  item:
+    name: 
+    id: -1
+    itemObject: {fileID: 0}
+    level: 1
   attribute:
     attributeType: 0
     baseValue: 0
@@ -56793,7 +56809,11 @@ MonoBehaviour:
     storedPassive:
       passiveAbility: {fileID: 0}
       level: 0
-  itemObject: {fileID: 0}
+  item:
+    name: 
+    id: -1
+    itemObject: {fileID: 0}
+    level: 1
   attribute:
     attributeType: 0
     baseValue: 0
@@ -56844,7 +56864,11 @@ MonoBehaviour:
     storedPassive:
       passiveAbility: {fileID: 0}
       level: 0
-  itemObject: {fileID: 0}
+  item:
+    name: 
+    id: -1
+    itemObject: {fileID: 0}
+    level: 1
   attribute:
     attributeType: 0
     baseValue: 0
@@ -56895,7 +56919,11 @@ MonoBehaviour:
     storedPassive:
       passiveAbility: {fileID: 0}
       level: 0
-  itemObject: {fileID: 0}
+  item:
+    name: 
+    id: -1
+    itemObject: {fileID: 0}
+    level: 1
   attribute:
     attributeType: 0
     baseValue: 0
@@ -56946,7 +56974,11 @@ MonoBehaviour:
     storedPassive:
       passiveAbility: {fileID: 0}
       level: 0
-  itemObject: {fileID: 0}
+  item:
+    name: 
+    id: -1
+    itemObject: {fileID: 0}
+    level: 1
   attribute:
     attributeType: 0
     baseValue: 0
@@ -56997,7 +57029,11 @@ MonoBehaviour:
     storedPassive:
       passiveAbility: {fileID: 0}
       level: 0
-  itemObject: {fileID: 0}
+  item:
+    name: 
+    id: -1
+    itemObject: {fileID: 0}
+    level: 1
   attribute:
     attributeType: 0
     baseValue: 0
@@ -57048,7 +57084,11 @@ MonoBehaviour:
     storedPassive:
       passiveAbility: {fileID: 0}
       level: 0
-  itemObject: {fileID: 0}
+  item:
+    name: 
+    id: -1
+    itemObject: {fileID: 0}
+    level: 1
   attribute:
     attributeType: 0
     baseValue: 0
@@ -57099,7 +57139,11 @@ MonoBehaviour:
     storedPassive:
       passiveAbility: {fileID: 0}
       level: 0
-  itemObject: {fileID: 0}
+  item:
+    name: 
+    id: -1
+    itemObject: {fileID: 0}
+    level: 1
   attribute:
     attributeType: 0
     baseValue: 0
@@ -57129,7 +57173,7 @@ MonoBehaviour:
       name: 
       id: -1
       itemObject: {fileID: 0}
-      attributes: []
+      level: 1
     amount: 0
     foodOnly: 0
   equipped: 0
@@ -57152,7 +57196,7 @@ MonoBehaviour:
       name: 
       id: -1
       itemObject: {fileID: 0}
-      attributes: []
+      level: 1
     amount: 0
     foodOnly: 0
   equipped: 0
@@ -57175,7 +57219,7 @@ MonoBehaviour:
       name: 
       id: -1
       itemObject: {fileID: 0}
-      attributes: []
+      level: 1
     amount: 0
     foodOnly: 0
   equipped: 0
@@ -57198,7 +57242,7 @@ MonoBehaviour:
       name: 
       id: -1
       itemObject: {fileID: 0}
-      attributes: []
+      level: 1
     amount: 0
     foodOnly: 0
   equipped: 0
@@ -57221,7 +57265,7 @@ MonoBehaviour:
       name: 
       id: -1
       itemObject: {fileID: 0}
-      attributes: []
+      level: 1
     amount: 0
     foodOnly: 0
   equipped: 0
@@ -57244,7 +57288,7 @@ MonoBehaviour:
       name: 
       id: -1
       itemObject: {fileID: 0}
-      attributes: []
+      level: 1
     amount: 0
     foodOnly: 0
   equipped: 0
@@ -57267,7 +57311,7 @@ MonoBehaviour:
       name: 
       id: -1
       itemObject: {fileID: 0}
-      attributes: []
+      level: 1
     amount: 0
     foodOnly: 0
   equipped: 0
@@ -57290,7 +57334,7 @@ MonoBehaviour:
       name: 
       id: -1
       itemObject: {fileID: 0}
-      attributes: []
+      level: 1
     amount: 0
     foodOnly: 0
   equipped: 0
@@ -58704,7 +58748,11 @@ MonoBehaviour:
     storedPassive:
       passiveAbility: {fileID: 0}
       level: 0
-  itemObject: {fileID: 0}
+  item:
+    name: 
+    id: -1
+    itemObject: {fileID: 0}
+    level: 1
   attribute:
     attributeType: 0
     baseValue: 0

@@ -1,131 +1,227 @@
-﻿using System.Collections;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
-public enum EquipmentSlot
+public class Equipment : Item
 {
-    Helmet,
-    Armor,
-    TwoHand,
-    OneHand,
-    Shield,
-    Relic,
-    Necklace,
-    Ring,
-    Trinket,
-    Flask,
-    Nothing
-}
+    private readonly float healthWeight = 3f;
+    private readonly float powerWeight = 1f;
+    private readonly float wisdomWeight = 1f;
 
-[CreateAssetMenu(fileName = "New Equipment", menuName = "Item/Equipment")]
-[System.Serializable]
-public class Equipment : ItemObject
-{
-    public EquipmentSlot slot;
-    public int level = 1;
-
-    [Header("[ General Attributes ]")]
-    public int health;
-    public int power;
-    public int wisdom;
-    public int armor;
-    public int resistance;
-    public int vitality;
-    public int speed;
-    public int accuracy;
-    public int crit;
-
-    [Header("[ School Modifiers ]")]
-    public int healingMultiplier;
-    public int physicalMultiplier;
-    public int fireMultiplier;
-    public int iceMultiplier;
-    public int natureMultiplier;
-    public int arcaneMultiplier;
-    public int holyMultiplier;
-    public int shadowMultiplier;
-    public int critMultiplier;
-
-    [Header("[ Additional ]")]
-    public List<PassiveAbility> passives;
-    public ActiveAbility useAbility;
+    public List<Attribute> attributes;
+    public EquipmentObject equipmentObject;
 
     private string positiveAttributes;
     private string negativeAttributes;
 
+    public Equipment(EquipmentObject equipmentObject, int level)
+    {
+        name = equipmentObject.name;
+        id = equipmentObject.item.id;
+        itemObject = equipmentObject;
+        this.equipmentObject = equipmentObject;
+        this.level = level;
+
+        attributes = new List<Attribute>();
+
+        float totalValue = TotalValue(equipmentObject.slot, equipmentObject.quality);
+
+        foreach (AttributeType type in (AttributeType[])Enum.GetValues(typeof(AttributeType)))
+        {
+            attributes.Add(new Attribute(type));
+        }
+
+        foreach (Attribute a in attributes)
+        {
+            switch (a.attributeType)
+            {
+                // General Attributes
+                case AttributeType.Health:
+                    a.baseValue = GeneralUtilities.RoundFloat(equipmentObject.healthFactor * healthWeight * totalValue, 0);
+                    break;
+                case AttributeType.Power:
+                    a.baseValue = GeneralUtilities.RoundFloat(equipmentObject.powerFactor * powerWeight * totalValue, 0);
+                    break;
+                case AttributeType.Wisdom:
+                    a.baseValue = GeneralUtilities.RoundFloat(equipmentObject.wisdomFactor * wisdomWeight * totalValue, 0);
+                    break;
+                case AttributeType.Armor:
+                    a.baseValue = equipmentObject.armor;
+                    break;
+                case AttributeType.Resistance:
+                    a.baseValue = equipmentObject.resistance;
+                    break;
+                case AttributeType.Vitality:
+                    a.baseValue = equipmentObject.vitality;
+                    break;
+                case AttributeType.Speed:
+                    a.baseValue = equipmentObject.speed;
+                    break;
+                case AttributeType.Accuracy:
+                    a.baseValue = equipmentObject.accuracy;
+                    break;
+                case AttributeType.Crit:
+                    a.baseValue = equipmentObject.crit;
+                    break;
+
+                // School Multipliers
+                case AttributeType.HealingMultiplier:
+                    a.baseValue = equipmentObject.healingMultiplier;
+                    break;
+                case AttributeType.PhysicalMultiplier:
+                    a.baseValue = equipmentObject.physicalMultiplier;
+                    break;
+                case AttributeType.FireMultiplier:
+                    a.baseValue = equipmentObject.fireMultiplier;
+                    break;
+                case AttributeType.IceMultiplier:
+                    a.baseValue = equipmentObject.iceMultiplier;
+                    break;
+                case AttributeType.NatureMultiplier:
+                    a.baseValue = equipmentObject.natureMultiplier;
+                    break;
+                case AttributeType.ArcaneMultiplier:
+                    a.baseValue = equipmentObject.arcaneMultiplier;
+                    break;
+                case AttributeType.HolyMultiplier:
+                    a.baseValue = equipmentObject.holyMultiplier;
+                    break;
+                case AttributeType.ShadowMultiplier:
+                    a.baseValue = equipmentObject.shadowMultiplier;
+                    break;
+                case AttributeType.CritMultiplier:
+                    a.baseValue = equipmentObject.critMultiplier;
+                    break;
+            }
+        }
+    }
+
+    private float TotalValue(EquipmentSlot slot, Quality quality)
+    {
+        return (level + 1) * GetSlotValue(slot) * GetQualityValue(quality);
+    }
+
+    private float GetSlotValue(EquipmentSlot slot)
+    {
+        switch (slot)
+        {
+            case EquipmentSlot.Helmet:
+                return 1.50f;
+            case EquipmentSlot.Armor:
+                return 2.00f;
+            case EquipmentSlot.Necklace:
+                return 1.00f;
+            case EquipmentSlot.Ring:
+                return 1.00f;
+            case EquipmentSlot.Trinket:
+                return 1.00f;
+            case EquipmentSlot.Flask:
+                return 1.25f;
+            case EquipmentSlot.TwoHand:
+                return 2.00f;
+            case EquipmentSlot.OneHand:
+                return 1.00f;
+            case EquipmentSlot.Shield:
+                return 1.00f;
+            case EquipmentSlot.Relic:
+                return 1.00f;
+            default:
+                return 1.00f;
+        }
+    }
+
+    private float GetQualityValue(Quality quality)
+    {
+        switch (quality)
+        {
+            case Quality.Common:
+                return 1.00f;
+            case Quality.Mystical:
+                return 1.25f;
+            case Quality.Legendary:
+                return 1.50f;
+            default:
+                return 1.00f;
+        }
+    }
+
     public override string GetDescription(TooltipObject tooltipInfo)
     {
-        string itemDescription = base.GetDescription(tooltipInfo) + string.Format("\nLevel: {0}", level) + ParseSlot() + ParseAttributes(tooltipInfo) + GetItemDescription();
+        string tooltip = base.GetDescription(tooltipInfo) + 
+                         string.Format("\nLevel: {0}", level) + 
+                         ParseSlot() + 
+                         ParseAttributes() + 
+                         GetItemDescription();
 
-        if (slot == EquipmentSlot.Flask)
+        if (equipmentObject.slot == EquipmentSlot.Flask)
         {
-            if (useAbility != null)
-                return itemDescription += useAbility.GetFlaskDescription(tooltipInfo);
+            if (equipmentObject.useAbility != null)
+                return tooltip += equipmentObject.useAbility.GetFlaskDescription(tooltipInfo);
             else
-                return itemDescription;
+                return tooltip;
         }
         else
         {
 
-            if (passives.Count == 1)
+            if (equipmentObject.passives.Count == 1)
             {
-                itemDescription += "\n\nYou learn the following passive ability: " + "\n\n" + passives[0].GetDescription(tooltipInfo);
+                tooltip += "\n\nYou learn the following passive ability: " + "\n\n" + equipmentObject.passives[0].GetDescription(tooltipInfo);
             }
 
-            if (useAbility != null)
+            if (equipmentObject.useAbility != null)
             {
-                itemDescription += "\n\nYou learn the following active ability: " + "\n\n" + useAbility.GetDescription(tooltipInfo);
+                tooltip += "\n\nYou learn the following active ability: " + "\n\n" + equipmentObject.useAbility.GetDescription(tooltipInfo);
             }
 
-            
+
         }
 
-        return itemDescription;
+        return tooltip;
     }
 
     private string ParseSlot()
     {
-        if (slot == EquipmentSlot.OneHand)
+        if (equipmentObject.slot == EquipmentSlot.OneHand)
         {
             return string.Format("\nSlot: One-hand");
         }
-        else if (slot == EquipmentSlot.TwoHand)
+        else if (equipmentObject.slot == EquipmentSlot.TwoHand)
         {
             return string.Format("\nSlot: Two-hand");
         }
         else
         {
-            return string.Format("\nSlot: {0}", slot);
+            return string.Format("\nSlot: {0}", equipmentObject.slot);
         }
     }
 
-    private string ParseAttributes(TooltipObject tooltipInfo)
+    private string ParseAttributes()
     {
         positiveAttributes = "";
         negativeAttributes = "";
 
         // General stats
-        ParseAttribute(health, AttributeType.Health, false);
-        ParseAttribute(power, AttributeType.Power, false);
-        ParseAttribute(wisdom, AttributeType.Wisdom, false);
-        ParseAttribute(armor, AttributeType.Armor, false);
-        ParseAttribute(resistance, AttributeType.Resistance, false);
-        ParseAttribute(vitality, AttributeType.Vitality, false);
-        ParseAttribute(speed, AttributeType.Speed, false);
-        ParseAttribute(accuracy, AttributeType.Accuracy, true);
-        ParseAttribute(crit, AttributeType.Crit, true);
+        ParseAttribute(AttributeType.Health, false);
+        ParseAttribute(AttributeType.Power, false);
+        ParseAttribute(AttributeType.Wisdom, false);
+        ParseAttribute(AttributeType.Armor, false);
+        ParseAttribute(AttributeType.Resistance, false);
+        ParseAttribute(AttributeType.Vitality, false);
+        ParseAttribute(AttributeType.Speed, false);
+        ParseAttribute(AttributeType.Accuracy, true);
+        ParseAttribute(AttributeType.Crit, true);
 
         // School Multipliers
-        ParseAttribute(healingMultiplier, AttributeType.HealingMultiplier, true);
-        ParseAttribute(physicalMultiplier, AttributeType.PhysicalMultiplier, true);
-        ParseAttribute(fireMultiplier, AttributeType.FireMultiplier, true);
-        ParseAttribute(iceMultiplier, AttributeType.IceMultiplier, true);
-        ParseAttribute(natureMultiplier, AttributeType.NatureMultiplier, true);
-        ParseAttribute(arcaneMultiplier, AttributeType.ArcaneMultiplier, true);
-        ParseAttribute(holyMultiplier, AttributeType.HolyMultiplier, true);
-        ParseAttribute(shadowMultiplier, AttributeType.ShadowMultiplier, true);
-        ParseAttribute(critMultiplier, AttributeType.CritMultiplier, true);
+        ParseAttribute(AttributeType.HealingMultiplier, true);
+        ParseAttribute(AttributeType.PhysicalMultiplier, true);
+        ParseAttribute(AttributeType.FireMultiplier, true);
+        ParseAttribute(AttributeType.IceMultiplier, true);
+        ParseAttribute(AttributeType.NatureMultiplier, true);
+        ParseAttribute(AttributeType.ArcaneMultiplier, true);
+        ParseAttribute(AttributeType.HolyMultiplier, true);
+        ParseAttribute(AttributeType.ShadowMultiplier, true);
+        ParseAttribute(AttributeType.CritMultiplier, true);
 
         return positiveAttributes + AddLine() + negativeAttributes;
     }
@@ -138,13 +234,14 @@ public class Equipment : ItemObject
         return "";
     }
 
-    private void ParseAttribute(int attributeValue, AttributeType attributeType, bool percentage)
+    private void ParseAttribute(AttributeType attributeType, bool percentage)
     {
         string plus = "#1FFF00";
         string minus = "#FF0000";
 
         string percentageSign = percentage ? "%" : "";
 
+        int attributeValue = attributes[(int)attributeType].baseValue;
 
         if (attributeValue != 0)
         {
@@ -179,7 +276,7 @@ public class Equipment : ItemObject
         }
         else
         {
-            int slotIndex = GeneralUtilities.GetCorrectEquipmentslot(slot);
+            int slotIndex = GeneralUtilities.GetCorrectEquipmentslot(equipmentObject.slot);
 
             HeroManager.Instance.CurrentHero().equipmentObject.AddEquipment(slotIndex, interactableItem.inventorySlot.item);
 

@@ -63,11 +63,11 @@ public class HeroSelectionObject : MonoBehaviour
     {
         ObjectUtilities.ClearContainer(weaponContainer);
 
-        foreach (Equipment weapon in heroObject.paths[currentSpec].baseWeapons)
+        foreach (EquipmentObject weapon in heroObject.paths[currentSpec].baseWeapons)
         {
             TooltipIcon weaponIcon = ObjectUtilities.CreateSimplePrefab(tooltipIconPrefab, weaponContainer).GetComponent<TooltipIcon>();
 
-            weaponIcon.Setup(weapon);
+            weaponIcon.Setup(weapon, 1);
         }
     }
 

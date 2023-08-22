@@ -41,6 +41,11 @@ public delegate void AttributesEvent(Unit unit, AttributeType attributeType);
 [System.Serializable]
 public class StatsManager
 {
+    public static readonly int levelUpHealth = 5;
+    public static readonly float levelScaling = 0.2f;
+
+
+
     public int currentHealth;
     public bool isDead = false;
     public bool isInvulnerable = false;
@@ -56,18 +61,18 @@ public class StatsManager
 
     private Unit unit;
 
-    public static int levelUpHealth = 5;
 
-    public StatsManager(Unit u, UnitObject data)
+
+    public StatsManager(Unit u, UnitObject data, int level = 1)
     {
         unit = u;
-        Setup(data);
+        Setup(data, level);
 
         OnReceiveUnitEvent += BreakIncapacitate;
         OnAttributesChanged += AttributesChanged;
     }
 
-    public void Setup(UnitObject data)
+    public void Setup(UnitObject data, int level)
     {
         attributes = new List<Attribute>();
 
@@ -82,23 +87,23 @@ public class StatsManager
             {
                 // General Stats
                 case AttributeType.Health:
-                    a.baseValue = data.baseHealth;
+                    a.baseValue = GeneralUtilities.RoundFloat(data.baseHealth + (level - 1) * (data.baseHealth * levelScaling), 0);
                     currentHealth = a.baseValue;
                     break;
                 case AttributeType.Power:
-                    a.baseValue = data.basePower;
+                    a.baseValue = GeneralUtilities.RoundFloat(data.basePower + (level - 1) * (data.basePower * levelScaling), 0);
                     break;
                 case AttributeType.Wisdom:
-                    a.baseValue = data.baseWisdom;
+                    a.baseValue = GeneralUtilities.RoundFloat(data.baseWisdom + (level - 1) * (data.baseWisdom * levelScaling), 0);
                     break;
                 case AttributeType.Armor:
-                    a.baseValue = data.baseArmor;
+                    a.baseValue = data.armor;
                     break;
                 case AttributeType.Resistance:
-                    a.baseValue = data.baseResistance;
+                    a.baseValue = data.resistance;
                     break;
                 case AttributeType.Vitality:
-                    a.baseValue = data.baseVitality;
+                    a.baseValue = data.vitality;
                     break;
                 case AttributeType.Speed:
                     a.baseValue = data.speed;

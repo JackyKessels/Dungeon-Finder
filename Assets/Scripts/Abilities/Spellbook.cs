@@ -225,6 +225,11 @@ public class Spellbook
 
     public void AddLearnedToActive(Active active, int index)
     {
+        if (active == null && active.activeAbility == null)
+        {
+            return;
+        }
+
         // -1 means add to first empty slot
         if (index == -1)
         {

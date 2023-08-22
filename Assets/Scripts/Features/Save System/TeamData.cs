@@ -63,16 +63,16 @@ public class TeamData
     public List<bool[]> unlockedPassives_1;
     public List<bool[]> unlockedPassives_2;
 
-    // The IDs of the items in the inventory
-    public (int, int)[] inventory;
+    // The IDs of the items in the inventory => (ID, Level, Stacks)
+    public (int, int, int)[] inventory;
 
-    // The IDs and stacks of the items in the consumables
-    public (int, int)[] consumables;
+    // The IDs and stacks of the items in the consumables => (ID, Level, Stacks)
+    public (int, int, int)[] consumables;
 
-    // The IDs of the items in the hero's equipment
-    public (int, int)[] equipment_0;
-    public (int, int)[] equipment_1;
-    public (int, int)[] equipment_2;
+    // The IDs of the items in the hero's equipment => (ID, Level, Stacks)
+    public (int, int, int)[] equipment_0;
+    public (int, int, int)[] equipment_1;
+    public (int, int, int)[] equipment_2;
 
     // Current health of the hero
     public int currentHealth_0;

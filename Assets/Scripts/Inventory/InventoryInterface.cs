@@ -57,7 +57,7 @@ public abstract class InventoryInterface : MonoBehaviour
         if (_slot.item.id >= 0)
         {
             _slot.slotDisplay.GetComponent<Image>().sprite = _slot.ItemObject.icon;
-            _slot.slotDisplay.GetComponent<TooltipObject>().itemObject = _slot.ItemObject;
+            _slot.slotDisplay.GetComponent<TooltipObject>().item = _slot.item;
 
             if (_slot.slotDisplay.GetComponent<EquipmentSlotIcon>() == null)
                 _slot.slotDisplay.GetComponentInChildren<TextMeshProUGUI>().text = _slot.amount == 1 ? "" : _slot.amount.ToString("n0");
@@ -69,18 +69,18 @@ public abstract class InventoryInterface : MonoBehaviour
                 if (_slot.restricted)
                 {
                     _slot.slotDisplay.GetComponent<Image>().sprite = GameAssets.i.restrictedSlot;
-                    _slot.slotDisplay.GetComponent<TooltipObject>().itemObject = null;
+                    _slot.slotDisplay.GetComponent<TooltipObject>().item = null;
                 }
                 else
                 {
                     _slot.slotDisplay.GetComponent<Image>().sprite = _slot.slotDisplay.GetComponent<EquipmentSlotIcon>().icon;
-                    _slot.slotDisplay.GetComponent<TooltipObject>().itemObject = null;
+                    _slot.slotDisplay.GetComponent<TooltipObject>().item = null;
                 }
             }
             else
             {
                 _slot.slotDisplay.GetComponent<Image>().sprite = GameAssets.i.emptySlot;
-                _slot.slotDisplay.GetComponent<TooltipObject>().itemObject = null;
+                _slot.slotDisplay.GetComponent<TooltipObject>().item = null;
                 _slot.slotDisplay.GetComponentInChildren<TextMeshProUGUI>().text = "";
             }
         }
@@ -151,7 +151,7 @@ public abstract class InventoryInterface : MonoBehaviour
                 inventoryObject.SwapItems(slotsOnInterface[obj], mouseHoverSlotData);
 
                 if (mouseHoverSlotData.item.itemObject != null)
-                    TooltipHandler.Instance.ShowTooltip(mouseHoverSlotData.item.itemObject, mouseHoverSlotData.slotDisplay.GetComponent<TooltipObject>(), MouseData.slotHoveredOver.transform.position);
+                    TooltipHandler.Instance.ShowTooltip(mouseHoverSlotData.item, mouseHoverSlotData.slotDisplay.GetComponent<TooltipObject>(), MouseData.slotHoveredOver.transform.position);
             }
         }
     }

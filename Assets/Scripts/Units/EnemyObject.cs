@@ -6,7 +6,6 @@ using UnityEngine;
 public class EnemyObject : UnitObject
 {
     [Header("[ Enemy Only ]")]
-    public int level = 1;
     [Range(0, 10)]
     public int difficulty;
     public int experienceReward;

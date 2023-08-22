@@ -24,7 +24,7 @@ MonoBehaviour:
     - Holy Damage, Fire
     Damage & Healing'
   baseWeapons:
-  - {fileID: 11400000, guid: 638c1705c4382464b94fd5784b5d8436, type: 2}
+  - {fileID: 11400000, guid: 1af08362e8a88134cad3a809e8c0af98, type: 2}
   - {fileID: 11400000, guid: 01661fdad787cbf4f83e3bd3fb9a983c, type: 2}
   primaryAbility: {fileID: 11400000, guid: 15aabe11cd958a34987bb698676244b7, type: 2}
   secondaryAbility: {fileID: 11400000, guid: bbfb46e3eb7233a4f8ef038884099383, type: 2}

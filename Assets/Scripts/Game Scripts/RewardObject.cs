@@ -33,7 +33,7 @@ public class RewardObject : MonoBehaviour
                 break;
             case RewardType.Item:
                 GetComponent<Image>().sprite = reward.itemDrop.itemObject.icon;
-                tooltipIcon.itemObject = reward.itemDrop.itemObject;
+                tooltipIcon.item = reward.itemDrop.GetItem();
                 break;
             case RewardType.Attribute:
                 GetComponent<Image>().sprite = GeneralUtilities.GetAttributeIcon(reward.attribute.attributeType);

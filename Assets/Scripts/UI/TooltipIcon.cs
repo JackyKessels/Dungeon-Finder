@@ -41,10 +41,10 @@ public class TooltipIcon : MonoBehaviour
         tooltipObject.effect = new Effect(effectObject);
     }
 
-    public void Setup(ItemObject itemObject)
+    public void Setup(ItemObject itemObject, int level)
     {
         icon.sprite = itemObject.icon;
-        tooltipObject.itemObject = itemObject;
+        tooltipObject.item = Item.CreateItem(itemObject, level);
     }
 
     public void Setup(Currency currency)

@@ -44,7 +44,7 @@ public class ConsequenceObject : MonoBehaviour
             }
             else if (consequenceStructure.itemObject != null)
             {
-                tooltip.itemObject = consequenceStructure.itemObject;
+                tooltip.item = Item.CreateItem(consequenceStructure.itemObject, 1);
             }
         }
     }
@@ -58,8 +58,9 @@ public class ConsequenceStructure
     public bool tooltip;
     public EffectObject effect;
     public ItemObject itemObject;
+    public int equipmentLevel;
 
-    public ConsequenceStructure(string _text, Sprite _firstIcon, Sprite _secondIcon, bool _tooltip = false, EffectObject _effect = null, ItemObject _itemObject = null)
+    public ConsequenceStructure(string _text, Sprite _firstIcon, Sprite _secondIcon, bool _tooltip = false, EffectObject _effect = null, ItemObject _itemObject = null, int _equipmentLevel = 1)
     {
         text = _text;
         firstIcon = _firstIcon;
@@ -67,5 +68,6 @@ public class ConsequenceStructure
         tooltip = _tooltip;
         effect = _effect;
         itemObject = _itemObject;
+        equipmentLevel = _equipmentLevel;
     }
 }

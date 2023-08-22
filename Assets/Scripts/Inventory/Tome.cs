@@ -39,29 +39,19 @@ public class Tome : Consumable
         }
     }
 
-    public override string GetDescription(TooltipObject tooltipInfo)
+    public string GetDescription(TooltipObject tooltipInfo, string itemName, string itemDescription)
     {
         if (activeAbilityLearned != null)
         {
-            return base.GetDescription(tooltipInfo) + string.Format("<color={1}>\nUse: Learn the {0} ability.</color>", activeAbilityLearned.name, ColorDatabase.EffectColor()) + "\n\n" + activeAbilityLearned.GetDescription(tooltipInfo) + GetItemDescription() + HowToUseText();
+            return itemName + string.Format("<color={1}>\nUse: Learn the {0} ability.</color>", activeAbilityLearned.name, ColorDatabase.EffectColor()) + "\n\n" + activeAbilityLearned.GetDescription(tooltipInfo) + itemDescription + HowToUseText();
         }
         else if (passiveAbilityLearned != null)
         {
-            return base.GetDescription(tooltipInfo) + string.Format("<color={1}>\nUse: Learn the {0} ability.</color>", passiveAbilityLearned.name, ColorDatabase.EffectColor()) + GetItemDescription() + HowToUseText();
+            return itemName + string.Format("<color={1}>\nUse: Learn the {0} ability.</color>", passiveAbilityLearned.name, ColorDatabase.EffectColor()) + itemDescription + HowToUseText();
         }
         else
         {
             return "This tome contains no valuable information.";
         }
-    }
-
-    public override void LeftClick(InteractableItem interactableItem)
-    {
-        // Do nothing
-    }
-
-    public override void RightClick(InteractableItem interactableItem)
-    {
-        // Do nothing
     }
 }

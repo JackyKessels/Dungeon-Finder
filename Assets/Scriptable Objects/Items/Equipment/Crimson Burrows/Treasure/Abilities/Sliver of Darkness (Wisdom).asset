@@ -29,15 +29,15 @@ MonoBehaviour:
   - {fileID: 11400000}
   attributeModified: 2
   isIncrease: 1
-  modifierType: 0
+  modifierType: 1
   modifierSource:
     ignoreMultipliers: 1
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 0
     attributeType: 2
-    baseValue: 5
+    baseValue: 0
     levelBase: 0
     scaling: 0
     levelScaling: 0
@@ -57,7 +57,8 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive:
+        - {fileID: 0}
         school: 0
         attributeType: 0
         baseValue: 0
@@ -67,7 +68,7 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
-  multiplier: 0
+  multiplier: 0.1
   multiplierPerLevel: 0
   specialEffects:
   - {fileID: 901769199821685610, guid: e479fc38ac05c62459a1311b82f1ef3b, type: 3}

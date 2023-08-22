@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Resonating Vigor
   quality: 0
   abilityType: 3
-  description: Dealing damage has a <%> chance to increase your <power> by <s1modV>
+  description: Dealing damage has a <%> chance to increase your <power> by <s1modP>
     for <s1d> Rounds.
   icon: {fileID: 21300000, guid: c17ca8fbf1c727446baa9f5f666a4073, type: 3}
   casterSpecialEffects: []

@@ -114,9 +114,6 @@ public class GridHandler : MonoBehaviour
         // Create paths between locations
         SetupPaths();
 
-        // Turn certain columns into spirit orbs
-        ChangeColumns(dungeon.floors[floor].spiritColumns, LocationType.Spirit);
-
         // Turn the last row into boss fights
         AddBosses(dungeon.floors[floor].forceBossCenter);
 
@@ -636,7 +633,7 @@ public class GridHandler : MonoBehaviour
                 }
                 else if (location.locationType == LocationType.Boss)
                 {
-                    location.enemyUnits = dungeon.floors[floor].bossEncounter.enemyObjects;
+                    location.enemyUnits = Encounter.SetupUnitObjects(dungeon.floors[floor].bossEncounter);
                 }
             }
         }

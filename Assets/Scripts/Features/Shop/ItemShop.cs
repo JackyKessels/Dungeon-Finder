@@ -73,7 +73,7 @@ public class ItemShop : Shop
                 price = item.value;
             }
 
-            currentShopItems.Add(new CurrentShopItem(new Reward(new ItemDrop(item)), new Currency(CurrencyType.Gold, price)));
+            currentShopItems.Add(new CurrentShopItem(new Reward(new ItemDrop(item, 1)), new Currency(CurrencyType.Gold, price)));
         }
     }
 
@@ -109,7 +109,7 @@ public class ItemShop : Shop
 
         for (int i = 0; i < itemIDs.Count; i++)
         {
-            currentShopItems.Add(new CurrentShopItem(new Reward(new ItemDrop(databaseHandler.itemDatabase.itemObjects[itemIDs[i]])), new Currency(CurrencyType.Gold, itemCosts[i])));
+            currentShopItems.Add(new CurrentShopItem(new Reward(new ItemDrop(databaseHandler.itemDatabase.itemObjects[itemIDs[i]], 1)), new Currency(CurrencyType.Gold, itemCosts[i])));
         }
 
         rotationCounter = rotation;

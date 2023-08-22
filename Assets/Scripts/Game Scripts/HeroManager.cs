@@ -296,8 +296,9 @@ public class HeroManager : MonoBehaviour, IUserInterface
 
     public void PickStarterPath(HeroPathObject heroPathObject, Hero hero)
     {
-        foreach (Equipment equipment in heroPathObject.baseWeapons)
+        foreach (EquipmentObject equipmentObject in heroPathObject.baseWeapons)
         {
+            Equipment equipment = new Equipment(equipmentObject, 1);
             hero.ForceEquipItem(equipment);
         }
 

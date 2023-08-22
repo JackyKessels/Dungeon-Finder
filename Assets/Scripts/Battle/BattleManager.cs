@@ -168,7 +168,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
         }
     }
 
-    public void StartBattle(List<EnemyObject> unitObjects)
+    public void StartBattle(List<(EnemyObject, int)> enemies)
     {
         gameManager.gameState = GameState.BATTLE;
         activeBattle = true;
@@ -181,7 +181,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
         DamageMeterManager.Instance.ClearDamageMeters();
 
         // Setup both teams
-        TeamManager.Instance.SetupBattle(unitObjects);
+        TeamManager.Instance.SetupBattle(enemies);
 
         // Go to correct camera and interface
         gameManager.cameraScript.GoToCamera(cameraObject, false);

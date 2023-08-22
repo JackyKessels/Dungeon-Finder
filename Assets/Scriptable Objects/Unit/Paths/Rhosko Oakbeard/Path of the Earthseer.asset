@@ -23,7 +23,7 @@ MonoBehaviour:
     -
     Physical Damage, Nature Damage & Buffs'
   baseWeapons:
-  - {fileID: 11400000, guid: 7adcda0a78e406c4588f792e87ac8043, type: 2}
+  - {fileID: 11400000, guid: b19b6fd2425faa84abcc239f23819061, type: 2}
   primaryAbility: {fileID: 11400000, guid: 35e17cf8771d10b48a10206277dc153a, type: 2}
   secondaryAbility: {fileID: 11400000, guid: cde4ab97773683e4999ffc4cbdc9b3b2, type: 2}
   passiveAbility: {fileID: 11400000, guid: 03db37ea2b5748941ab0d0229bd8b9b7, type: 2}

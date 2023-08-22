@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af0eb2a57c0a6284399350acff28371b, type: 3}
+  m_Name: TESTING FLOOR
+  m_EditorClassIdentifier: 
+  name: TESTING FLOOR
+  dungeonBackground: {fileID: 21300000, guid: 911aa93669d9cf04cba48c4ba6d63a4f, type: 3}
+  battleBackground: {fileID: 21300000, guid: 041bd19ad39bae34c85ee9ed415b6913, type: 3}
+  backgroundSound: {fileID: 0}
+  columns: 3
+  rows: 1
+  startingPoints: 1
+  endPoints: 1
+  removalThreshold: 0
+  minimumLocations: 1
+  maximumLocations: 30
+  addOffset: 0
+  forceBossCenter: 1
+  eliteCount: 0
+  campfireCount: 0
+  treasureCount: 0
+  mysteryCount: 0
+  wellRestedEffect: {fileID: 0}
+  wellRestedChance: 0
+  itemPool: []
+  trashEncounters:
+  - enemyObjects:
+    - {fileID: 11400000, guid: b79f6fd3029771744af58bab7f1a7fc5, type: 2}
+    minimumLevel: 11
+    maximumLevel: 11
+    randomOrder: 0
+    weight: 1
+  eliteEncounters: []
+  bossEncounter:
+    enemyObjects:
+    - {fileID: 11400000, guid: e43675038dff24842ba1c38e89df82a2, type: 2}
+    minimumLevel: 1
+    maximumLevel: 1
+    randomOrder: 1
+    weight: 1
+  mysteryEvents: {fileID: 0}

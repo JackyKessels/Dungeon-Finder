@@ -23,8 +23,8 @@ MonoBehaviour:
     - Shadow
     Damage, Ice Damage & Debuffs'
   baseWeapons:
-  - {fileID: 11400000, guid: c5ca182b3eae2d14abe556750bf11f9e, type: 2}
-  - {fileID: 11400000, guid: 3e4b13cf8e9b30f4ab792728a94e9fb7, type: 2}
+  - {fileID: 11400000, guid: a552a5d7366c2d54e9822ba7a71a161d, type: 2}
+  - {fileID: 11400000, guid: 30bec75471ba076479910488069019a6, type: 2}
   primaryAbility: {fileID: 11400000, guid: caadc9f83fcd39346b8052c077b3b816, type: 2}
   secondaryAbility: {fileID: 11400000, guid: 2512a8a315c9f4a42b0ad8644b5513ab, type: 2}
   passiveAbility: {fileID: 11400000, guid: 98d2023bb93d8de40a169a504ed66917, type: 2}

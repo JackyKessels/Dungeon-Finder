@@ -39,7 +39,7 @@ public class SellSystem : MonoBehaviour
         if (inventorySlot != null)
         {
             sellSlotObject.GetComponent<Image>().sprite = slot.ItemObject.icon;
-            sellSlotObject.GetComponent<TooltipObject>().itemObject = slot.ItemObject;
+            sellSlotObject.GetComponent<TooltipObject>().item = slot.item;
             sellSlotObject.GetComponentInChildren<TextMeshProUGUI>().text = slot.amount == 1 ? "" : slot.amount.ToString("n0");
 
             if (sellAmount != null)
@@ -57,7 +57,7 @@ public class SellSystem : MonoBehaviour
         else
         {
             sellSlotObject.GetComponent<Image>().sprite = GameAssets.i.emptySlot;
-            sellSlotObject.GetComponent<TooltipObject>().itemObject = null;
+            sellSlotObject.GetComponent<TooltipObject>().item = null;
             sellSlotObject.GetComponent<TooltipObject>().active = new Active();
             sellSlotObject.GetComponentInChildren<TextMeshProUGUI>().text = "";
 

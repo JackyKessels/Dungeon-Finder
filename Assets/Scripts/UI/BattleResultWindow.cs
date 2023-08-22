@@ -56,7 +56,7 @@ public class BattleResultWindow : MonoBehaviour
             {
                 AddBattleReward(itemDrop);
 
-                InventoryManager.Instance.AddItemToInventory(itemDrop.itemObject, itemDrop.amount);
+                InventoryManager.Instance.AddItemToInventory(itemDrop.GetItem(), itemDrop.amount);
 
                 rewardCount++;
             }

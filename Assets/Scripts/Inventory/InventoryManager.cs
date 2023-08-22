@@ -119,21 +119,19 @@ public class InventoryManager : MonoBehaviour
         UpdateCharacterAttributes(HeroManager.Instance.CurrentHero(), attributeMenuIndex);
     }
 
-    public bool AddItemToInventory(ItemObject itemObject, int amount = 1)
+    public bool AddItemToInventory(Item item, int amount = 1)
     {
-        Item _item = new Item(itemObject);
-
         bool added = false;
 
         for (int i = 0; i < amount; i++)
         {
-            if (itemObject is Food)
+            if (item.itemObject is Food)
             {
-                added = consumablesObject.AddItem(_item, 1);
+                added = consumablesObject.AddItem(item, 1);
             }
             else
             {
-                added = inventoryObject.AddItem(_item, 1);
+                added = inventoryObject.AddItem(item, 1);
             }
         }
 

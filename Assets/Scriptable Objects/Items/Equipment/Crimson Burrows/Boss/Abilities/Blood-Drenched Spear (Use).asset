@@ -33,6 +33,7 @@ MonoBehaviour:
   initialCooldown: 0
   endTurn: 0
   resetChance: 0
+  singleUse: 0
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 0
@@ -43,10 +44,10 @@ MonoBehaviour:
     cannotMiss: 0
     ignorePassives: []
     school: 1
-    attributeType: 0
-    baseValue: 20
+    attributeType: 1
+    baseValue: 0
     levelBase: 0
-    scaling: 0
+    scaling: 0.5
     levelScaling: 0
     reductionType: 1
     modifier:

@@ -20,7 +20,7 @@ MonoBehaviour:
     to perceive their selfless nature as a sign of weakness. \n\n- Defensive Buffs
     & Physical Damage"
   baseWeapons:
-  - {fileID: 11400000, guid: ac073fa23c7cdb74fbc2b3cb80475c27, type: 2}
+  - {fileID: 11400000, guid: 72e0c0c038384b24e9aa0b524044b79e, type: 2}
   - {fileID: 11400000, guid: 01661fdad787cbf4f83e3bd3fb9a983c, type: 2}
   primaryAbility: {fileID: 11400000, guid: 25be23edac103e44eaa6a1dd3982da7b, type: 2}
   secondaryAbility: {fileID: 11400000, guid: 03af46dea0ac45e498a8bb6c2004f345, type: 2}

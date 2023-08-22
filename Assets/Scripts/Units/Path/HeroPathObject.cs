@@ -12,7 +12,7 @@ public class HeroPathObject : ScriptableObject
     public string description;
 
     [Header("[ Starter Path ]")]
-    public List<Equipment> baseWeapons;
+    public List<EquipmentObject> baseWeapons;
     public ActiveAbility primaryAbility;
     public ActiveAbility secondaryAbility;
     public PassiveAbility passiveAbility;

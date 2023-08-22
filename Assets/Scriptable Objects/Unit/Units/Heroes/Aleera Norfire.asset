@@ -22,9 +22,9 @@ MonoBehaviour:
   baseHealth: 100
   basePower: 20
   baseWisdom: 20
-  baseArmor: 0
-  baseResistance: 0
-  baseVitality: 0
+  armor: 0
+  resistance: 0
+  vitality: 0
   speed: 9
   accuracy: 85
   criticalHit: 15
@@ -41,8 +41,8 @@ MonoBehaviour:
   heroClass: 1
   dualWield: 0
   startingEquipment:
-  - {fileID: 11400000, guid: 8c4a14518f8bea5468fd9a59db361697, type: 2}
-  - {fileID: 11400000, guid: fa45401708c0d7b45a47efb68714e1be, type: 2}
+  - {fileID: 11400000, guid: 41ccce6dd97a1544a8835db0f51bba8a, type: 2}
+  - {fileID: 11400000, guid: 43b20a4173c0e194db596da0aa4472dd, type: 2}
   paths:
   - {fileID: 11400000, guid: c6e351aa3f5ba3545b692ef224f0863e, type: 2}
   - {fileID: 11400000, guid: 727ffb899d0d99d4aae676aedf629740, type: 2}

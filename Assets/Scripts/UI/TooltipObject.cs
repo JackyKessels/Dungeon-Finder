@@ -28,7 +28,7 @@ public class TooltipObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public Active active = null;
     public Passive passive = null;
     public Effect effect = null;
-    public ItemObject itemObject = null;
+    public Item item = null;
     public Attribute attribute = null;
     public Currency currency = null;
     public CurrentState state = CurrentState.Default;
@@ -47,7 +47,7 @@ public class TooltipObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         genericTooltip = tooltipObject.genericTooltip;
         active = tooltipObject.active;  
         effect = tooltipObject.effect;           
-        itemObject = tooltipObject.itemObject;
+        item = tooltipObject.item;
         attribute = tooltipObject.attribute;
         currency = tooltipObject.currency;
         state = tooltipObject.state;
@@ -61,9 +61,9 @@ public class TooltipObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             tooltipHandler.ShowTooltip(genericTooltip, transform.position);
         }
-        else if (itemObject != null)
+        else if (item != null && item.itemObject != null)
         {
-            tooltipHandler.ShowTooltip(itemObject, this, transform.position);
+            tooltipHandler.ShowTooltip(item, this, transform.position);
         }
         else if (active != null && active.activeAbility != null)
         {

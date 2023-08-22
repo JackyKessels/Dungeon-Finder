@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af0eb2a57c0a6284399350acff28371b, type: 3}
+  m_Name: Inner Ruins
+  m_EditorClassIdentifier: 
+  name: Inner Ruins
+  dungeonBackground: {fileID: 21300000, guid: 8ba0458efcf896b498ee5b03415fe5c7, type: 3}
+  battleBackground: {fileID: 21300000, guid: bdfa4d9161fe46944ac0ce31152b6d21, type: 3}
+  backgroundSound: {fileID: 0}
+  columns: 6
+  rows: 5
+  startingPoints: 1
+  endPoints: 1
+  removalThreshold: 2
+  minimumLocations: 12
+  maximumLocations: 30
+  addOffset: 0
+  forceBossCenter: 1
+  eliteCount: 2
+  campfireCount: 1
+  treasureCount: 1
+  mysteryCount: 1
+  wellRestedEffect: {fileID: 0}
+  wellRestedChance: 0
+  itemPool:
+  - itemObject: {fileID: 11400000, guid: ec3af5e8d3b29674793c7665102b479d, type: 2}
+    amount: 1
+    weight: 1
+  - itemObject: {fileID: 11400000, guid: f52243a338ebdbf4ab182eaced35d996, type: 2}
+    amount: 1
+    weight: 1
+  - itemObject: {fileID: 11400000, guid: 3dc8a6fa61c22d64a8b1c430c0c08c3f, type: 2}
+    amount: 1
+    weight: 1
+  - itemObject: {fileID: 11400000, guid: 85f6f2b7c99bf55428a0033f14755e9b, type: 2}
+    amount: 5
+    weight: 2
+  - itemObject: {fileID: 11400000, guid: 5621ba4d5fa078c4b83d03458d510ae6, type: 2}
+    amount: 1
+    weight: 2
+  trashEncounters:
+  - enemyObjects:
+    - {fileID: 11400000, guid: 0dd4bbfde238be6479975b797d721ea4, type: 2}
+    - {fileID: 11400000, guid: 0dd4bbfde238be6479975b797d721ea4, type: 2}
+    - {fileID: 11400000, guid: 0dd4bbfde238be6479975b797d721ea4, type: 2}
+    minimumLevel: 3
+    maximumLevel: 4
+    randomOrder: 1
+    weight: 1
+  - enemyObjects:
+    - {fileID: 11400000, guid: deee5678bba001b4e981c4bc21557db9, type: 2}
+    minimumLevel: 3
+    maximumLevel: 4
+    randomOrder: 0
+    weight: 1
+  eliteEncounters:
+  - enemyObjects:
+    - {fileID: 11400000, guid: aec1fe96cfac071458fb7d706b9d830d, type: 2}
+    minimumLevel: 4
+    maximumLevel: 4
+    randomOrder: 0
+    weight: 1
+  bossEncounter:
+    enemyObjects:
+    - {fileID: 11400000, guid: 4b03e6418cf01c742ae0d5a5757895c9, type: 2}
+    minimumLevel: 5
+    maximumLevel: 5
+    randomOrder: 0
+    weight: 1
+  mysteryEvents: {fileID: 11400000, guid: c0bbfb3b5c26c7043a6b3e391c2ae9ce, type: 2}

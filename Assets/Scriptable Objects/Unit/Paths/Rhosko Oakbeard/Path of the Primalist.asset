@@ -19,12 +19,12 @@ MonoBehaviour:
     their aggressive nature comes at a price, as their resilience falters in the
     face of relentless assaults.
 
-    
+
 
     - Physical Damage & Debuffs'
   baseWeapons:
-  - {fileID: 11400000, guid: c7ff259eb2100ac4b8f45c78db560063, type: 2}
-  - {fileID: 11400000, guid: c7ff259eb2100ac4b8f45c78db560063, type: 2}
+  - {fileID: 11400000, guid: 4e2bde43499808d4e826bc75fe5c7e50, type: 2}
+  - {fileID: 11400000, guid: 4e2bde43499808d4e826bc75fe5c7e50, type: 2}
   primaryAbility: {fileID: 11400000, guid: 86c55eee60feabb42846b26bcf9ab306, type: 2}
   secondaryAbility: {fileID: 11400000, guid: 6b9b49d4459a4534a9ecb9bdc34ce5c0, type: 2}
   passiveAbility: {fileID: 11400000, guid: cd4f0b4ca1eaa3b4390649c6a9c32e25, type: 2}

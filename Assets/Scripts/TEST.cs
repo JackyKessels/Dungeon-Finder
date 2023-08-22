@@ -106,7 +106,7 @@ public class TEST : MonoBehaviour
 
     public void SpawnTest()
     {
-        TeamManager.Instance.SpawnEnemy(testEnemy, true, null);
+        TeamManager.Instance.SpawnEnemy(testEnemy, 1, true, null);
     }
 
     public void Flee()

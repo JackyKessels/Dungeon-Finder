@@ -26,7 +26,7 @@ public class BattleRewardObject : MonoBehaviour
 
     public void Setup(ItemDrop itemDrop)
     {
-        tooltipObject.itemObject = itemDrop.itemObject;
+        tooltipObject.item = itemDrop.GetItem();
         tooltipObject.GetComponent<Image>().sprite = itemDrop.itemObject.icon;
         amount.text = itemDrop.amount.ToString();
     }

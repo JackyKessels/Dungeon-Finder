@@ -7,6 +7,7 @@ public class EffectSpawnEnemy : EffectObject
 {
     [Header("Spawn Enemy")]
     public EnemyObject enemyObject;
+    public int level;
     public bool two;
     public bool instant;
     public List<ParticleSystem> specialEffects = new List<ParticleSystem>();

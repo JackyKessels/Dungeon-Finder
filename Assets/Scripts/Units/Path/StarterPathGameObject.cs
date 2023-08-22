@@ -52,7 +52,7 @@ public class StarterPathGameObject : MonoBehaviour
         GameObject obj = ObjectUtilities.CreateSimplePrefab(tooltipIconPrefab, container);
 
         TooltipIcon icon = obj.GetComponent<TooltipIcon>();
-        icon.Setup(itemObject);
+        icon.Setup(itemObject, 1);
     }
 
     public void ChoosePath()

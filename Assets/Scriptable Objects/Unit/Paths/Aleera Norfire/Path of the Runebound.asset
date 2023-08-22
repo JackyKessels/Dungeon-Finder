@@ -20,7 +20,7 @@ MonoBehaviour:
     Through the use of mystical runes, they enhance their strikes and unleash devastating
     spells. \n\n- Physical, Fire, Ice & Arcane Damage"
   baseWeapons:
-  - {fileID: 11400000, guid: 7c7f0e7cd4041fa42b6b6217372b5dea, type: 2}
+  - {fileID: 11400000, guid: 7c9aa43890ebfd94f86e52b6ffbdd49a, type: 2}
   primaryAbility: {fileID: 11400000, guid: 4056f49a4ab9ef34589912ab64e10ccf, type: 2}
   secondaryAbility: {fileID: 11400000, guid: eaee3668bb003164f924ed4d6c645c72, type: 2}
   passiveAbility: {fileID: 11400000, guid: 54972a4f0757c6f4889942b421d18c3b, type: 2}
