@@ -26,11 +26,13 @@ public class InteractableItem : MonoBehaviour, IPointerClickHandler
         {
             if (eventData.button == PointerEventData.InputButton.Left)
             {
-
+                inventorySlot.item.LeftClick(this);
             }
 
             if (eventData.button == PointerEventData.InputButton.Right)
             {
+                inventorySlot.item.RightClick(this);
+
                 RightClick();
             }
         }
