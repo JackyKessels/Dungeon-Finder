@@ -31,7 +31,7 @@ public class Spellbook
 
         for (int i = 0; i < activeSpellbook.Length; i++)
         {
-            activeSpellbook[i] = new Active(null, 0);
+            activeSpellbook[i] = new Active();
         }
     }
 
@@ -94,7 +94,7 @@ public class Spellbook
                     }
                     else
                     {
-                        AddLearnedToActive(active, -1);
+                        AddLearnedToActive(active);
                         HeroManager.Instance.Refresh();
                     }
                 }
@@ -223,15 +223,15 @@ public class Spellbook
         return level;
     }
 
-    public void AddLearnedToActive(Active active, int index)
+    public void AddLearnedToActive(Active active, int? index = null)
     {
         if (active == null && active.activeAbility == null)
         {
             return;
         }
 
-        // -1 means add to first empty slot
-        if (index == -1)
+        // Null means add to first empty slot
+        if (index == null)
         {
             for (int i = 0; i < activeSpellbook.Length; i++)
             {
@@ -241,7 +241,7 @@ public class Spellbook
                 {
                     activeSpellbook[i] = active;
                     activeSpellbook[i].Initialize();
-                    return;
+                    break;
                 }
             }
         }
@@ -249,10 +249,15 @@ public class Spellbook
         {
             if (HasWeaponRequirement(active))
             {
-                activeSpellbook[index] = active;
-                activeSpellbook[index].Initialize();
+                activeSpellbook[(int)index] = active;
+                activeSpellbook[(int)index].Initialize();
             }
         }
+    }
+
+    public void ResetActiveSlot(int slot)
+    {
+        activeSpellbook[slot] = new Active();
     }
 
     public bool ItemAbilityLimit()

@@ -28,8 +28,8 @@ public class QuickSlot : MonoBehaviour, IPointerClickHandler
         {
             Hero hero = SpellbookManager.Instance.currentHero;
 
-            hero.spellbook.AddLearnedToActive(Ability, -1);
-            SpellbookManager.Instance.Setup(hero);
+            hero.spellbook.AddLearnedToActive(Ability);
+            SpellbookManager.Instance.UpdateActiveAbilities();
         }
     }
 }

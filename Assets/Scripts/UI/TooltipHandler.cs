@@ -134,7 +134,10 @@ public class TooltipHandler : MonoBehaviour
 
     public void HideTooltip()
     {
-        if (tooltip != null)
+        if (tooltip != null && tooltip.activeSelf)
+        {
+            Debug.Log("HIDING");
             tooltip.SetActive(false);
+        }
     }
 }

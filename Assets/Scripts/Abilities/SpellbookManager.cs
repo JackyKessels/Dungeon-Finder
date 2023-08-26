@@ -87,22 +87,27 @@ public class SpellbookManager : MonoBehaviour
             if ((!currentHero.spellbook.abilityCollection.Contains(currentHero.spellbook.activeSpellbook[i])) ||
                 (currentHero.spellbook.activeSpellbook[i].activeAbility != null && currentHero.spellbook.HasWeaponRequirement(currentHero.spellbook.activeSpellbook[i]) == false))
             {
-                currentHero.spellbook.activeSpellbook[i] = new Active(null, 0);
-                SetActiveSlotInactive(i);
+                ResetActiveSlot(i);
             }
         }
+    }
+
+    public void ResetActiveSlot(int slot)
+    {
+        currentHero.spellbook.ResetActiveSlot(slot);
+        SetActiveSlotInactive(slot);
     }
 
     public void SetActiveSlotInactive(int slot)
     {
         if (activeAbilities[slot].locked)
         {
-            activeAbilities[slot].tooltip.active = new Active(null, 0);
+            activeAbilities[slot].tooltip.active = new Active();
             activeAbilities[slot].icon.sprite = GameAssets.i.lockedAbility;
         }
         else
         {
-            activeAbilities[slot].tooltip.active = new Active(null, 0);
+            activeAbilities[slot].tooltip.active = new Active();
             activeAbilities[slot].icon.sprite = GameAssets.i.noAbility;
         }
     }
@@ -136,6 +141,7 @@ public class SpellbookManager : MonoBehaviour
             {
                 isInList = true;
                 Debug.Log("Already contains: " + ability.activeAbility.name);
+                break;
             }
         }
 

@@ -37,7 +37,8 @@ public class ActiveAbilitySlot : MonoBehaviour, IPointerClickHandler
 
     private void UnslotAbility()
     {
-        SpellbookManager.Instance.SetActiveSlotInactive(slot);
+        SpellbookManager.Instance.ResetActiveSlot(slot);
+        TooltipHandler.Instance.HideTooltip();
     }
 
     public void OnEnter(GameObject obj)

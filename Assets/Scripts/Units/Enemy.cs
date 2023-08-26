@@ -164,7 +164,7 @@ public class Enemy : Unit
             return chargedAbility[0];
         }
 
-        return new Active(null, 0);
+        return new Active();
     }
 
     public Active GetOffCooldownSwiftAbility()

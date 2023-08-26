@@ -19,6 +19,12 @@ public class Active
 
     private Active replacedAbility = null;
 
+    public Active()
+    {
+        activeAbility = null;
+        level = 0;
+    }
+
     public Active(ActiveAbility activeAbility, int abilityLevel)
     {
         this.activeAbility = activeAbility;
@@ -46,11 +52,7 @@ public class Active
         activeAbility.TriggerAbility(caster, target, level, effectiveness);
     }
 
-    public Active()
-    {
-        activeAbility = null;
-        level = 0;
-    }
+
 
     public void SetReplacedAbility(Active replacedAbility)
     {
