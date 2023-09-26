@@ -18,15 +18,11 @@ public class Passive
     public void ActivatePassive(Unit unit)
     {
         passiveAbility.ActivatePassive(unit);
-
-        unit.spellbook.AddPassive(this);
     }
 
     public void DeactivatePassive(Unit unit)
     {
         passiveAbility.DeactivatePassive(unit);
-
-        unit.spellbook.RemovePassive(this);
     }
 
 }

@@ -10,7 +10,7 @@ public class DungeonObject : MonoBehaviour, IDescribable
 
     private void Start()
     {
-        button.onClick.AddListener(delegate { TownManager.Instance.StartRun(dungeon); } );
+        button.onClick.AddListener(delegate { TownManager.Instance.StartDungeon(dungeon); } );
     }
 
     public string GetDescription(TooltipObject tooltipInfo)

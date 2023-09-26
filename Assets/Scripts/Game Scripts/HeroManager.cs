@@ -76,27 +76,36 @@ public class HeroManager : MonoBehaviour, IUserInterface
 
     private void Update()
     {
-        if (KeyboardHandler.OpenHeroInformationGeneral() && gameManager.gameState != GameState.NONE)
+        if (KeyboardHandler.OpenHeroInformationGeneral() && 
+            gameManager.gameState != GameState.NONE)
         {
             HeroInformationGeneralButton();
         }
 
-        if (KeyboardHandler.OpenHeroInformationPaths() && gameManager.gameState != GameState.NONE && ProgressionManager.Instance.unlockedPaths)
+        if (KeyboardHandler.OpenHeroInformationPaths() && 
+            gameManager.gameState != GameState.NONE &&
+            gameManager.gameMode == GameMode.Campaign &&
+            ProgressionManager.Instance.unlockedPaths)
         {
             HeroInformationPathButton();
         }
 
-        if (KeyboardHandler.PreviousHero() && gameManager.gameState != GameState.NONE && heroInformationObject.activeSelf)
+        if (KeyboardHandler.PreviousHero() && 
+            gameManager.gameState != GameState.NONE && 
+            heroInformationObject.activeSelf)
         {
             PreviousHero();
         }
 
-        if (KeyboardHandler.NextHero() && gameManager.gameState != GameState.NONE && heroInformationObject.activeSelf)
+        if (KeyboardHandler.NextHero() && 
+            gameManager.gameState != GameState.NONE && 
+            heroInformationObject.activeSelf)
         {
             NextHero();
         }
 
-        if (KeyboardHandler.Escape() && heroInformationObject.activeSelf)
+        if (KeyboardHandler.Escape() && 
+            heroInformationObject.activeSelf)
         {
             heroInformationObject.SetActive(false);
         }

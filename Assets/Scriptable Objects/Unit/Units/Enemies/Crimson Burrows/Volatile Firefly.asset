@@ -22,12 +22,12 @@ MonoBehaviour:
   baseHealth: 120
   basePower: 0
   baseWisdom: 18
-  baseArmor: 0
-  baseResistance: 0
-  baseVitality: 0
+  armor: 0
+  resistance: -5
+  vitality: 0
   speed: 13
   accuracy: 100
-  criticalHit: 15
+  criticalHit: 0
   healingMultiplier: 100
   crushingMultiplier: 100
   piercingMultiplier: 100
@@ -38,7 +38,6 @@ MonoBehaviour:
   holyMultiplier: 100
   shadowMultiplier: 100
   critMultiplier: 150
-  level: 1
   difficulty: 3
   experienceReward: 10
   currencyRewards:
@@ -46,6 +45,7 @@ MonoBehaviour:
     totalAmount: 15
   - currencyType: 1
     totalAmount: 1
+  dropEverything: 0
   itemDrops: []
   randomAbility: 1
   abilities:

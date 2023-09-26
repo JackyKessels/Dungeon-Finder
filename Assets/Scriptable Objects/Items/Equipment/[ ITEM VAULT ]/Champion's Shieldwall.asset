@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d318b60c43bbff540adf2168b0cccf9c, type: 3}
+  m_Name: Champion's Shieldwall
+  m_EditorClassIdentifier: 
+  name: Champion's Shieldwall
+  icon: {fileID: 21300000, guid: 7d16e49253058aa46bceea96d2c60838, type: 3}
+  value: 0
+  stackable: 0
+  maxStacks: 1
+  sellable: 1
+  item:
+    name: 
+    id: 62
+    itemObject: {fileID: 0}
+    level: 1
+  description: 
+  quality: 0
+  slot: 4
+  healthFactor: 0.55
+  powerFactor: 0
+  wisdomFactor: 0
+  armor: 20
+  resistance: 0
+  vitality: 0
+  speed: -1
+  accuracy: 0
+  crit: 0
+  healingMultiplier: 0
+  physicalMultiplier: 0
+  fireMultiplier: 0
+  iceMultiplier: 0
+  natureMultiplier: 0
+  arcaneMultiplier: 0
+  holyMultiplier: 0
+  shadowMultiplier: 0
+  critMultiplier: 0
+  passives:
+  - {fileID: 11400000, guid: d3763543c83a0ce48b4041e141c9b1d3, type: 2}
+  useAbility: {fileID: 0}

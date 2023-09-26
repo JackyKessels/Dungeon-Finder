@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f61bd7798258c684cb135bcc9f1f3cfd, type: 3}
+  m_Name: Thirst for Blood (Crit Increase)
+  m_EditorClassIdentifier: 
+  name: Thirst for Blood
+  icon: {fileID: 21300000, guid: c9a8c9fc4efe8034e92fff58ee38d92a, type: 3}
+  hidden: 0
+  description: Critical Chance increased by <1>% and attacks will focus the most
+    vulnerable target.
+  isBuff: 1
+  procType: 0
+  duration: 1
+  permanent: 1
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  removeEffects:
+  - {fileID: 11400000}
+  attributeModified: 8
+  isIncrease: 1
+  modifierType: 0
+  modifierSource:
+    ignoreMultipliers: 1
+    cannotCrit: 1
+    cannotMiss: 1
+    ignorePassives: []
+    school: 0
+    attributeType: 8
+    baseValue: 25
+    levelBase: 0
+    scaling: 0
+    levelScaling: 0
+    reductionType: 0
+    modifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      increasedAttribute: 0
+      increaseValue: 0
+      casterBased: 1
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+  multiplier: 0
+  multiplierPerLevel: 0
+  specialEffects:
+  - {fileID: 4394183197532057313, guid: 117db629d02d11243a0a6525313ac381, type: 3}

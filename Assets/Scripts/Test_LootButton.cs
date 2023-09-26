@@ -6,6 +6,7 @@ using UnityEngine;
 public class Test_LootButton : MonoBehaviour
 {
     public List<ItemObject> items = new List<ItemObject>();
+    public int level = 1;
 
     public void AddItemsFunction()
     {
@@ -29,7 +30,7 @@ public class Test_LootButton : MonoBehaviour
 
         foreach (ItemObject obj in randomItems)
         {
-            Item item = Item.CreateItem(obj, 1);
+            Item item = Item.CreateItem(obj, level);
 
             InventoryManager.Instance.AddItemToInventory(item);
         }

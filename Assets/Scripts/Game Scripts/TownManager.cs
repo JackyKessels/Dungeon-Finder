@@ -33,19 +33,10 @@ public class TownManager : MonoBehaviour, IUserInterface
     public AudioClip openMap;
     public AudioClip closeMap;
 
-    public Town tutorialTown;
-    public Town stratford;
-
     [Header("[ Manager Variables ]")]
-    public Canvas userInterface;
+    public GameObject campaignInterface;
+    public GameObject endlessInterface;
     public Camera cameraObject;
-
-    [Header("[ Tutorial ]")]
-    public Canvas tutorialInterface;
-    public TextMeshProUGUI tutorialTitle;
-    public Button tutorialRun;
-    public Dungeon tutorialDungeon;
-    public bool isTutorial;
 
     [Header("[ Town Variables ]")]
     public TextMeshProUGUI townName;
@@ -88,6 +79,7 @@ public class TownManager : MonoBehaviour, IUserInterface
 
         if (KeyboardHandler.OpenAbilityShop() && 
             gameManager.gameState == GameState.TOWN &&
+            gameManager.gameMode == GameMode.Campaign &&
             enchanter.ActiveButton())
         {
             OpenAbilityShop();
@@ -106,22 +98,7 @@ public class TownManager : MonoBehaviour, IUserInterface
         }
     }
 
-    public void StartTutorial()
-    {
-        gameManager.gameState = GameState.TOWN;
-
-        isTutorial = true;
-
-        TutorialUI(true);
-
-        tutorialTitle.text = tutorialTown.name;
-        townBackground.sprite = tutorialTown.background;
-
-        tutorialRun.onClick.AddListener(delegate { StartRun(tutorialDungeon); });
-    }
-
-    // Only runs once per game, after doing tutorial or on load.
-    public void SetupStratford()
+    public void SetupTown(Town town)
     {
         DamageMeterManager.Instance.InitializeDamageMeters();
 
@@ -129,28 +106,29 @@ public class TownManager : MonoBehaviour, IUserInterface
 
         gameManager.gameState = GameState.TOWN;
 
-        isTutorial = false;
-
         EnableUI(true);
 
         ProgressionManager.Instance.SetPathButtonState();
 
         GlyphManager.Instance.UnlockStarterGlyphs();
 
-        townName.text = stratford.name;
-        townBackground.sprite = stratford.background;
+        townName.text = town.name;
+        townBackground.sprite = town.background;
 
-        //townHall.Initialize();
-
-        //BuildShops();
 
         currencyHandler.UpdateCurrencies();
 
         gameManager.mapButton.UpdateButton(GameState.TOWN);
     }
 
-    public void StartRun(Dungeon dungeon)
+    public void StartDungeon(Dungeon dungeon)
     {
+        if (dungeon == null)
+        {
+            Debug.Log("Dungeon is null.");
+            return;
+        }
+
         if (dungeon.floors.Count == 0)
         {
             Debug.Log("Dungeon has no floors.");
@@ -159,7 +137,33 @@ public class TownManager : MonoBehaviour, IUserInterface
 
         gameManager.audioSourceAmbient.FadeOut(0.5f);
 
-        if (dungeon.floors[0].backgroundSound != null)
+        TooltipHandler.Instance.HideTooltip();
+
+        Floor floor = null;
+
+        switch (gameManager.gameMode)
+        {
+            case GameMode.Campaign:
+                {
+                    floor = dungeon.floors[0];
+
+                    mapObject.SetActive(false);
+                }
+                break;
+            case GameMode.Endless:
+                {
+                    floor = ProgressionManager.Instance.endlessManager.NextFloor();
+                }
+                break;
+        }
+
+        if (floor == null)
+        {
+            Debug.Log("Floor not generated properly.");
+            return;
+        }
+
+        if (floor.backgroundSound != null)
         {
             gameManager.audioSourceAmbient.clip = dungeon.floors[0].backgroundSound;
             gameManager.audioSourceAmbient.Play();
@@ -169,25 +173,18 @@ public class TownManager : MonoBehaviour, IUserInterface
             gameManager.audioSourceAmbient.Stop();
         }
 
-        TooltipHandler.Instance.HideTooltip();
-
-        mapObject.SetActive(false);
-
-        dungeonManager.StartDungeon(dungeon);
+        dungeonManager.BuildDungeon(dungeon, floor);
 
         gameManager.GoToRun();
 
         dungeonManager.EnableUI(true);
-        this.EnableUI(false);
-
-        if (isTutorial) TutorialUI(false);
     }
 
     public void SetupMap()
     {
-        mapObject.gameObject.SetActive(true);
+        mapObject.SetActive(true);
 
-        ProgressionManager.Instance.dungeonList.AddDungeonsToMap(mapContainer);
+        ProgressionManager.Instance.campaignManager.AddDungeonsToMap(mapContainer);
     }
 
     public void OpenAbilityShop()
@@ -273,23 +270,17 @@ public class TownManager : MonoBehaviour, IUserInterface
 
     public void EnableUI(bool show)
     {
-        userInterface.gameObject.SetActive(show);
-    }
-
-    public void TutorialUI(bool show)
-    {
-        tutorialInterface.gameObject.SetActive(show);
-    }
-
-    public void SKIP_TO_TOWN()
-    {
-        SetupStratford();
-
-        TutorialUI(false);
-
-        gameManager.mapButton.UpdateButton(GameState.TOWN);
-
-        //HeroManager.Instance.SetupStarterPath(teamManager.heroes.members[0] as Hero);
+        switch (gameManager.gameMode)
+        {
+            case GameMode.Campaign:
+                campaignInterface.SetActive(show);
+                break;
+            case GameMode.Endless:
+                endlessInterface.SetActive(show);
+                break;
+            default:
+                break;
+        } 
     }
 
     // Save & Load

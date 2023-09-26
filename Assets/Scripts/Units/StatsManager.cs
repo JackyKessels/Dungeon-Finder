@@ -149,7 +149,6 @@ public class StatsManager
 
     public void ModifyAttribute(AttributeType attributeType, AttributeValue attributeValue, float value)
     {
-
         float percentage = GetHealthPercentage();      
 
         switch (attributeValue)

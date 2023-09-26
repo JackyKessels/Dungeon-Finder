@@ -62,7 +62,7 @@ public class EffectAttributeModifier : EffectObject
             }
             else
             {
-                temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(modifierSource.attributeType) + ">{0}</color>%");
+                temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(attributeModified) + ">{0}</color>%");
 
                 temp = string.Format(temp, GeneralUtilities.RoundFloat(value * 100f, 1));
             }

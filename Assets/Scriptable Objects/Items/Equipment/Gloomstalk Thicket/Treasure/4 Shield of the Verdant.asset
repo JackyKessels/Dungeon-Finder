@@ -9,29 +9,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8484a72ad63a8f4089ff72b351b4ad1, type: 3}
+  m_Script: {fileID: 11500000, guid: d318b60c43bbff540adf2168b0cccf9c, type: 3}
   m_Name: 4 Shield of the Verdant
   m_EditorClassIdentifier: 
-  name: Shield of the Verdant
-  icon: {fileID: 21300000, guid: 173ce06bf0ba1f44791a2fac4032b402, type: 3}
-  value: 100
+  name: New Item
+  icon: {fileID: 0}
+  value: 0
   stackable: 0
   maxStacks: 1
   sellable: 1
   item:
     name: 
-    id: 69
+    id: -1
     itemObject: {fileID: 0}
-    attributes: []
+    level: 1
   description: 
   quality: 0
-  slot: 4
-  level: 1
-  health: 5
-  power: 2
-  wisdom: 0
-  armor: 5
-  resistance: 10
+  slot: 0
+  healthFactor: 0
+  powerFactor: 0
+  wisdomFactor: 0
+  armor: 0
+  resistance: 0
   vitality: 0
   speed: 0
   accuracy: 0
@@ -46,4 +45,4 @@ MonoBehaviour:
   shadowMultiplier: 0
   critMultiplier: 0
   passives: []
-  useAbility: {fileID: 11400000, guid: bfe975703a593f84eb26f4e08f94237e, type: 2}
+  useAbility: {fileID: 0}

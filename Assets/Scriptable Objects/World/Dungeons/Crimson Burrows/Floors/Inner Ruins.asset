@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Inner Ruins
   m_EditorClassIdentifier: 
   name: Inner Ruins
+  level: 3
   dungeonBackground: {fileID: 21300000, guid: 8ba0458efcf896b498ee5b03415fe5c7, type: 3}
   battleBackground: {fileID: 21300000, guid: bdfa4d9161fe46944ac0ce31152b6d21, type: 3}
   backgroundSound: {fileID: 0}
@@ -35,45 +36,42 @@ MonoBehaviour:
   - itemObject: {fileID: 11400000, guid: ec3af5e8d3b29674793c7665102b479d, type: 2}
     amount: 1
     weight: 1
+    level: 3
   - itemObject: {fileID: 11400000, guid: f52243a338ebdbf4ab182eaced35d996, type: 2}
     amount: 1
     weight: 1
+    level: 3
   - itemObject: {fileID: 11400000, guid: 3dc8a6fa61c22d64a8b1c430c0c08c3f, type: 2}
     amount: 1
     weight: 1
+    level: 3
   - itemObject: {fileID: 11400000, guid: 85f6f2b7c99bf55428a0033f14755e9b, type: 2}
     amount: 5
     weight: 2
+    level: 3
   - itemObject: {fileID: 11400000, guid: 5621ba4d5fa078c4b83d03458d510ae6, type: 2}
     amount: 1
     weight: 2
+    level: 3
   trashEncounters:
   - enemyObjects:
     - {fileID: 11400000, guid: 0dd4bbfde238be6479975b797d721ea4, type: 2}
     - {fileID: 11400000, guid: 0dd4bbfde238be6479975b797d721ea4, type: 2}
     - {fileID: 11400000, guid: 0dd4bbfde238be6479975b797d721ea4, type: 2}
-    minimumLevel: 3
-    maximumLevel: 4
     randomOrder: 1
     weight: 1
   - enemyObjects:
     - {fileID: 11400000, guid: deee5678bba001b4e981c4bc21557db9, type: 2}
-    minimumLevel: 3
-    maximumLevel: 4
     randomOrder: 0
     weight: 1
   eliteEncounters:
   - enemyObjects:
     - {fileID: 11400000, guid: aec1fe96cfac071458fb7d706b9d830d, type: 2}
-    minimumLevel: 4
-    maximumLevel: 4
     randomOrder: 0
     weight: 1
   bossEncounter:
     enemyObjects:
     - {fileID: 11400000, guid: 4b03e6418cf01c742ae0d5a5757895c9, type: 2}
-    minimumLevel: 5
-    maximumLevel: 5
     randomOrder: 0
     weight: 1
   mysteryEvents: {fileID: 11400000, guid: c0bbfb3b5c26c7043a6b3e391c2ae9ce, type: 2}

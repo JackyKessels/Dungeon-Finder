@@ -34,9 +34,9 @@ public class GridHandler : MonoBehaviour
 
     private List<int> bossColumns;
 
-    public void EnterDungeon(Dungeon dungeon, int floor)
+    public void GenerateFloor(Dungeon dungeon, Floor floor)
     {
-        if (dungeon.floors.Count == 0 || dungeon.floors[floor].columns == 0 || dungeon.floors[floor].rows == 0)
+        if (dungeon.floors.Count == 0 || floor.columns == 0 || floor.rows == 0)
         {
             Debug.Log("Invalid Dungeon");
             return;
@@ -44,24 +44,22 @@ public class GridHandler : MonoBehaviour
 
         int counter = 0;
 
-        while (counter > 1000 | RerollFloor(CreateDungeon(dungeon, floor), dungeon, floor))
+        while (counter > 1000 | RerollFloor(CreateFloor(dungeon, floor), floor))
         {
             counter++;
-            Debug.Log("Generated new dungeon layout after " + counter + " tries.");
+            Debug.Log($"Generated new floor layout after {counter} tries.");
         }
     }
 
-    private bool RerollFloor(int gridCount, Dungeon currentDungeon, int floor)
+    private bool RerollFloor(int gridCount, Floor floor)
     {
         if (gridCount == -1)
             return false;
 
-        Floor currentFloor = currentDungeon.floors[floor];
-
         // If conditions not met, reroll the floor
-        if (currentFloor.minimumLocations <= gridCount &&
-            gridCount <= currentFloor.maximumLocations &&
-            CountStartingPoints() == currentFloor.startingPoints)
+        if (floor.minimumLocations <= gridCount &&
+            gridCount <= floor.maximumLocations &&
+            CountStartingPoints() == floor.startingPoints)
         {
             return false; // DO NOT REROLL: All conditions are met
         }
@@ -71,28 +69,30 @@ public class GridHandler : MonoBehaviour
         }      
     }
 
-    private int CreateDungeon(Dungeon dungeon, int floor)
+    private int CreateFloor(Dungeon dungeon, Floor floor)
     {
-        columns = dungeon.floors[floor].columns;
-        rows = dungeon.floors[floor].rows;
-        startingPoints = dungeon.floors[floor].startingPoints;
-        endPoints = dungeon.floors[floor].endPoints;
-        removalThreshold = dungeon.floors[floor].removalThreshold;
+        int floorLevel = DungeonManager.GetDungeonLevel(floor);
 
-        Debug.Log("Generated " + dungeon.name + ", floor: " + floor);
+        columns = floor.columns;
+        rows = floor.rows;
+        startingPoints = floor.startingPoints;
+        endPoints = floor.endPoints;
+        removalThreshold = floor.removalThreshold;
+
+        Debug.Log($"Generated floor: {floor.name}, in dungeon: {dungeon.name}.");
 
         // Lock first locations
         startLocation.SetVisited();
 
         // Setup for array and fill the map with prefabs
-        CreateGrid(dungeon.floors[floor].addOffset);
+        CreateGrid(floor.addOffset);
 
         // Set the amount of locations in the first column
         SetLocationAmount(0, startingPoints);
 
         // Set the amount of locations in the last column
-        if (dungeon.floors[floor].forceBossCenter && dungeon.floors[floor].endPoints == 1)
-            CenterEnd(dungeon.floors[floor].rows);
+        if (floor.forceBossCenter && floor.endPoints == 1)
+            CenterEnd(floor.rows);
         else
             SetLocationAmount(columns - 1, endPoints);
 
@@ -115,22 +115,22 @@ public class GridHandler : MonoBehaviour
         SetupPaths();
 
         // Turn the last row into boss fights
-        AddBosses(dungeon.floors[floor].forceBossCenter);
+        AddBosses(floor.forceBossCenter);
 
         // Add elites to the map
-        AddNewType(dungeon.floors[floor].eliteCount, LocationType.Elite, false);
+        AddNewType(floor.eliteCount, LocationType.Elite, false);
 
         // Add treasures to the map
-        AddNewType(dungeon.floors[floor].treasureCount, LocationType.Treasure, false);
+        AddNewType(floor.treasureCount, LocationType.Treasure, false);
 
         // Add campfires to the map
-        AddNewType(dungeon.floors[floor].campfireCount, LocationType.Campfire, false);
+        AddNewType(floor.campfireCount, LocationType.Campfire, false);
 
         // Add mysteries to the map
-        AddNewType(dungeon.floors[floor].mysteryCount, LocationType.Mystery, false);
+        AddNewType(floor.mysteryCount, LocationType.Mystery, false);
 
         // Add enemies to battle/elite/boss locations
-        AddEnemiesToLocations(dungeon, floor);
+        AddEnemiesToLocations(floor, floorLevel);
 
         // Update the pan limitations for the camera
         backgroundWidthIncrease = GameManager.Instance.cameraScript.UpdatePanLimits((int)initialPosition.position.x, GetLastColumnX());
@@ -617,7 +617,7 @@ public class GridHandler : MonoBehaviour
         }
     }
 
-    private void AddEnemiesToLocations(Dungeon dungeon, int floor)
+    private void AddEnemiesToLocations(Floor floor, int level)
     {
         foreach (Location location in locations)
         {
@@ -625,15 +625,15 @@ public class GridHandler : MonoBehaviour
             {
                 if (location.locationType == LocationType.Battle)
                 {
-                    location.enemyUnits = Encounter.SetupUnitObjects(dungeon.floors[floor].trashEncounters);
+                    location.enemyUnits = Encounter.SetupUnitObjects(floor.trashEncounters, level, level + 1);
                 }
                 else if (location.locationType == LocationType.Elite)
                 {
-                    location.enemyUnits = Encounter.SetupUnitObjects(dungeon.floors[floor].eliteEncounters);
+                    location.enemyUnits = Encounter.SetupUnitObjects(floor.eliteEncounters, level + 1, level + 1);
                 }
                 else if (location.locationType == LocationType.Boss)
                 {
-                    location.enemyUnits = Encounter.SetupUnitObjects(dungeon.floors[floor].bossEncounter);
+                    location.enemyUnits = Encounter.SetupUnitObjects(floor.bossEncounter, level + 2, level + 2);
                 }
             }
         }

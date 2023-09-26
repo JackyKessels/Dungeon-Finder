@@ -94,7 +94,7 @@ public class RewardManager : MonoBehaviour
             {
                 foreach (ItemDrop itemDrop in enemy.enemyObject.itemDrops)
                 {
-                    itemDrops.Add(itemDrop);
+                    AddItemToDrops(ref itemDrops, itemDrop, enemy.Level);
                 }
             }
             else
@@ -105,7 +105,7 @@ public class RewardManager : MonoBehaviour
                 {
                     if (itemDrops.Count == 0)
                     {
-                        itemDrops.Add(droppedItem);
+                        AddItemToDrops(ref itemDrops, droppedItem, enemy.Level);
                     }
                     else
                     {
@@ -117,7 +117,7 @@ public class RewardManager : MonoBehaviour
                             }
                             else
                             {
-                                itemDrops.Add(droppedItem);
+                                AddItemToDrops(ref itemDrops, droppedItem, enemy.Level);
                             }
                         }
                     }
@@ -126,6 +126,12 @@ public class RewardManager : MonoBehaviour
         }
 
         return itemDrops;
+    }
+
+    private void AddItemToDrops(ref List<ItemDrop> itemDrops, ItemDrop itemDrop, int level)
+    {
+        itemDrop.level = level;
+        itemDrops.Add(itemDrop);
     }
 
 
@@ -164,7 +170,7 @@ public class RewardManager : MonoBehaviour
         return new Currency(currencyType, totalCurrency);
     }
 
-    public void GenerateLootTable(bool isChoice, List<ItemDrop> lootTable, int min, int max)
+    public void GenerateLootTable(bool isChoice, List<ItemDrop> lootTable, int minimumAmount, int maximumAmount, int level)
     {
         Setup();
 
@@ -175,11 +181,12 @@ public class RewardManager : MonoBehaviour
 
         // isChoice NYI
 
-        int amount = Random.Range(min, max + 1);
+        int amount = Random.Range(minimumAmount, maximumAmount + 1);
 
         while (rewards.Count < Mathf.Min(amount, lootTable.Count))
         {
             ItemDrop droppedItem = ItemDrop.WeightedDrops(lootTable);
+            droppedItem.level = level;
 
             if (droppedItem.itemObject != null)
             {

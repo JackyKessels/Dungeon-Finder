@@ -11,7 +11,8 @@ public class MapButton : MonoBehaviour
 
     private void Update()
     {
-        if (KeyboardHandler.OpenMap())
+        if (KeyboardHandler.OpenMap() &&
+            GameManager.Instance.gameMode == GameMode.Campaign)
         {
             ActivateButton();
         }

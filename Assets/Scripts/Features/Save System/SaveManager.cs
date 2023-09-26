@@ -143,7 +143,10 @@ public class SaveManager : MonoBehaviour
 
         GlyphManager.Instance.LoadGlyphs(data.unlockedGlyphs);
 
-        TownManager.Instance.SetupStratford();
+        GameMode gameMode = (GameMode)data.gameMode;
+        Town town = GameManager.Instance.GetTown(gameMode);
+
+        TownManager.Instance.SetupTown(town);
 
         //if (data.isTutorial)
         //{

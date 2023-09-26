@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Crystal Caverns
   m_EditorClassIdentifier: Assembly-CSharp::Floorx
   name: Crystal Caverns
+  level: 1
   dungeonBackground: {fileID: 21300000, guid: 1fa0130be285616419f7b0d2f082fee1, type: 3}
   battleBackground: {fileID: 21300000, guid: f730ced19bdb5d14ba784b46c6941f26, type: 3}
   backgroundSound: {fileID: 0}
@@ -35,63 +36,54 @@ MonoBehaviour:
   - itemObject: {fileID: 11400000, guid: 309044d6b6048974ba22997525062828, type: 2}
     amount: 1
     weight: 1
+    level: 1
   - itemObject: {fileID: 11400000, guid: 8f0bbf180b8c51445be5122df1020e79, type: 2}
     amount: 1
     weight: 1
+    level: 0
   - itemObject: {fileID: 11400000, guid: ec0a9724dbe106f419298058d381ce61, type: 2}
     amount: 1
     weight: 1
+    level: 1
   - itemObject: {fileID: 11400000, guid: 85f6f2b7c99bf55428a0033f14755e9b, type: 2}
     amount: 3
     weight: 2
+    level: 0
   - itemObject: {fileID: 11400000, guid: bbec155b5c72e7447b17fc0f15e34b28, type: 2}
     amount: 1
     weight: 2
+    level: 1
   trashEncounters:
   - enemyObjects:
     - {fileID: 11400000, guid: b79f6fd3029771744af58bab7f1a7fc5, type: 2}
     - {fileID: 11400000, guid: b79f6fd3029771744af58bab7f1a7fc5, type: 2}
-    minimumLevel: 1
-    maximumLevel: 2
     randomOrder: 1
     weight: 1
   - enemyObjects:
     - {fileID: 11400000, guid: b79f6fd3029771744af58bab7f1a7fc5, type: 2}
     - {fileID: 11400000, guid: af177f13bfef55248883d789e5d684bb, type: 2}
-    minimumLevel: 1
-    maximumLevel: 2
     randomOrder: 1
     weight: 1
   - enemyObjects:
     - {fileID: 11400000, guid: 7efd0ed442718c84c8b8be1d8fab97bb, type: 2}
-    minimumLevel: 1
-    maximumLevel: 2
     randomOrder: 1
     weight: 1
   - enemyObjects:
     - {fileID: 11400000, guid: 3a7b7aae6b0359c4c85d82a8df9bea3c, type: 2}
-    minimumLevel: 1
-    maximumLevel: 2
     randomOrder: 1
     weight: 1
   eliteEncounters:
   - enemyObjects:
     - {fileID: 11400000, guid: 1e885b4f05ab13844a9521dbe3bd51c3, type: 2}
-    minimumLevel: 2
-    maximumLevel: 2
     randomOrder: 0
     weight: 1
   - enemyObjects:
     - {fileID: 11400000, guid: 5b6ab52c59c62a449ada92c18a8900dc, type: 2}
-    minimumLevel: 2
-    maximumLevel: 2
     randomOrder: 0
     weight: 1
   bossEncounter:
     enemyObjects:
     - {fileID: 11400000, guid: a9200d19756006b48805609fa24ebf0a, type: 2}
-    minimumLevel: 3
-    maximumLevel: 3
     randomOrder: 0
     weight: 1
   mysteryEvents: {fileID: 11400000, guid: 2089a16aa5020c64c8e67ffe4962fabb, type: 2}

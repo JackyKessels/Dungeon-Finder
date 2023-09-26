@@ -22,7 +22,8 @@ public class ProgressionManager : MonoBehaviour
     }
     #endregion
 
-    public DungeonList dungeonList;
+    public CampaignManager campaignManager;
+    public EndlessManager endlessManager;
 
     [Header("[ Statistics ]")]
     public int totalVictories = 0;
@@ -30,6 +31,7 @@ public class ProgressionManager : MonoBehaviour
     public int totalBossesDefeated = 0;
     public int totalMonstersDefeated = 0;
 
+    [Header("[-- Campaign --]")]
     [Header("[ Events ]")]
     public bool firstDeath = false;
 
@@ -48,6 +50,11 @@ public class ProgressionManager : MonoBehaviour
     public bool unlockedEnchanterUpgrade = false;
     public Dungeon unlockedEnchanterUpgrade_Dungeon;
 
+    [Header("[-- Endless --]")]
+    public int endlessLevel;
+
+    public GameMode GameMode => GameManager.Instance.gameMode;
+
     public void ResetProgression()
     {
         totalVictories = 0;
@@ -55,11 +62,25 @@ public class ProgressionManager : MonoBehaviour
         totalBossesDefeated = 0;
         totalMonstersDefeated = 0;
 
-        firstDeath = false;
+        switch (GameMode)
+        {
+            case GameMode.Campaign:
+                {
+                    firstDeath = false;
 
-        unlockedPaths = false;
-        unlockedFourthAbility = false;
-        unlockedEnchanterUpgrade = false;
+                    unlockedPaths = false;
+                    unlockedFourthAbility = false;
+                    unlockedEnchanterUpgrade = false;
+                }
+                break;
+            case GameMode.Endless:
+                {
+                    endlessLevel = 1;
+                }
+                break;
+            default:
+                break;
+        }
     }
 
     public void FirstDeath()

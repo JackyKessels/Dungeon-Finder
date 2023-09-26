@@ -6,6 +6,7 @@ using UnityEngine;
 public class Floor : ScriptableObject
 {
     public new string name;
+    public int level;
     public Sprite dungeonBackground;
     public Sprite battleBackground;
     public AudioClip backgroundSound;

@@ -9,27 +9,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8484a72ad63a8f4089ff72b351b4ad1, type: 3}
+  m_Script: {fileID: 11500000, guid: d318b60c43bbff540adf2168b0cccf9c, type: 3}
   m_Name: 5 Bone Dice
   m_EditorClassIdentifier: 
-  name: Bone Dice
-  icon: {fileID: 21300000, guid: 8aa60a0b01ef022489c42fb8207d02ad, type: 3}
-  value: 120
+  name: New Item
+  icon: {fileID: 0}
+  value: 0
   stackable: 0
   maxStacks: 1
   sellable: 1
   item:
     name: 
-    id: 8
+    id: -1
     itemObject: {fileID: 0}
-    attributes: []
+    level: 1
   description: 
   quality: 0
-  slot: 8
-  level: 5
-  health: 0
-  power: 0
-  wisdom: 0
+  slot: 0
+  healthFactor: 0
+  powerFactor: 0
+  wisdomFactor: 0
   armor: 0
   resistance: 0
   vitality: 0
@@ -46,4 +45,4 @@ MonoBehaviour:
   shadowMultiplier: 0
   critMultiplier: 0
   passives: []
-  useAbility: {fileID: 11400000, guid: 26ac2244cbc4f4649bf8caec28789af3, type: 2}
+  useAbility: {fileID: 0}

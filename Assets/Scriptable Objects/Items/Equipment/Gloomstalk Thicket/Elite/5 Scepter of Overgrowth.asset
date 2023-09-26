@@ -9,34 +9,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8484a72ad63a8f4089ff72b351b4ad1, type: 3}
+  m_Script: {fileID: 11500000, guid: d318b60c43bbff540adf2168b0cccf9c, type: 3}
   m_Name: 5 Scepter of Overgrowth
   m_EditorClassIdentifier: 
-  name: Scepter of Overgrowth
-  icon: {fileID: 21300000, guid: d0c981bc08de0d540bc04423dd51bbde, type: 3}
-  value: 240
+  name: New Item
+  icon: {fileID: 0}
+  value: 0
   stackable: 0
   maxStacks: 1
   sellable: 1
   item:
     name: 
-    id: 66
+    id: -1
     itemObject: {fileID: 0}
-    attributes: []
+    level: 1
   description: 
   quality: 0
-  slot: 2
-  level: 5
-  health: 14
-  power: 0
-  wisdom: 5
+  slot: 0
+  healthFactor: 0
+  powerFactor: 0
+  wisdomFactor: 0
   armor: 0
   resistance: 0
   vitality: 0
   speed: 0
   accuracy: 0
   crit: 0
-  healingMultiplier: 10
+  healingMultiplier: 0
   physicalMultiplier: 0
   fireMultiplier: 0
   iceMultiplier: 0
@@ -46,4 +45,4 @@ MonoBehaviour:
   shadowMultiplier: 0
   critMultiplier: 0
   passives: []
-  useAbility: {fileID: 11400000, guid: 176ae01e18f1d044da049e5ae9e0ead2, type: 2}
+  useAbility: {fileID: 0}

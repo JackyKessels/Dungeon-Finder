@@ -33,9 +33,13 @@ public class Item : IDescribable
         {
             return new Equipment(equipmentObject, _level);
         }
-        else
+        else if (_itemObject.item.id != -1)
         {
             return new Item(_itemObject, _level);
+        }
+        else
+        {
+            return new Item();
         }
     }
 

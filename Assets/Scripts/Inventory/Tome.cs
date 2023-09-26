@@ -26,7 +26,7 @@ public class Tome : Consumable
                     {
                         Passive passive = new Passive(passiveAbilityLearned, 1);
 
-                        unit.spellbook.AddPassive(passive);
+                        unit.spellbook.LearnPassive(passive);
                     }
 
                     HeroManager.Instance.Refresh(unit);

@@ -32,11 +32,11 @@ public class MysteryEvent
 
     public List<MysteryAction> actions;
 
-    public void TriggerEvent(List<ConsequenceStructure> consequenceStructures)
+    public void TriggerEvent(List<ConsequenceStructure> consequenceStructures, int level)
     {
         foreach (MysteryAction mysteryAction in actions)
         {
-            mysteryAction.TriggerAction(consequenceStructures);
+            mysteryAction.TriggerAction(consequenceStructures, level);
 
         }
     }
@@ -73,7 +73,6 @@ public class MysteryAction
 
     [Header("Item")]
     public ItemObject itemObject;
-    public int equipmentLevel;
 
     [Header("Source")]
     public MysteryActionTarget sourceTargets; 
@@ -87,7 +86,7 @@ public class MysteryAction
     public Encounter encounter;
 
 
-    public void TriggerAction(List<ConsequenceStructure> consequenceStructures)
+    public void TriggerAction(List<ConsequenceStructure> consequenceStructures, int level)
     {
         Debug.Log("Mystery action: " + type.ToString());
 
@@ -135,7 +134,7 @@ public class MysteryAction
                     if (itemObject == null)
                         return;
 
-                    Item item = Item.CreateItem(itemObject, equipmentLevel);
+                    Item item = Item.CreateItem(itemObject, level);
                     InventoryManager.Instance.AddItemToInventory(item);
 
                     Debug.Log("You gained " + itemObject.name + ".");
@@ -237,7 +236,7 @@ public class MysteryAction
                 break;
             case MysteryActionType.Battle:
                 {
-                    List<(EnemyObject, int)> enemyUnits = Encounter.SetupUnitObjects(encounter);
+                    List<(EnemyObject, int)> enemyUnits = Encounter.SetupUnitObjects(encounter, level, level + 1);
                     BattleManager.Instance.StartBattle(enemyUnits);
                 }
                 break;

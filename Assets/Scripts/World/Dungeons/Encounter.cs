@@ -6,8 +6,6 @@ using UnityEngine;
 public class Encounter
 {
     public List<EnemyObject> enemyObjects;
-    public int minimumLevel = 1;
-    public int maximumLevel = 1;
     public bool randomOrder = true;
     public int weight = 1;
 
@@ -23,7 +21,7 @@ public class Encounter
         return encounters[GeneralUtilities.RandomWeighted(weights)];
     }
 
-    public static List<(EnemyObject, int)> SetupUnitObjects(List<Encounter> encounters)
+    public static List<(EnemyObject, int)> SetupUnitObjects(List<Encounter> encounters, int minimumLevel, int maximumLevel)
     {
         Encounter encounter = WeightedEncounter(encounters);
 
@@ -36,14 +34,14 @@ public class Encounter
 
         for (int i = 0; i < encounter.enemyObjects.Count; i++)
         {
-            int level = Random.Range(encounter.minimumLevel, encounter.maximumLevel + 1);
-            enemyObjects.Add((encounter.enemyObjects[i], level));
+            int encounterLevel = Random.Range(minimumLevel, maximumLevel + 1);
+            enemyObjects.Add((encounter.enemyObjects[i], encounterLevel));
         }
 
         return enemyObjects;
     }
 
-    public static List<(EnemyObject, int)> SetupUnitObjects(Encounter encounter)
+    public static List<(EnemyObject, int)> SetupUnitObjects(Encounter encounter, int minimumLevel, int maximumLevel)
     {
         List<(EnemyObject, int)> enemyObjects = new List<(EnemyObject, int)>();
 
@@ -54,8 +52,8 @@ public class Encounter
 
         for (int i = 0; i < encounter.enemyObjects.Count; i++)
         {
-            int level = Random.Range(encounter.minimumLevel, encounter.maximumLevel + 1);
-            enemyObjects.Add((encounter.enemyObjects[i], level));
+            int encounterLevel = Random.Range(minimumLevel, maximumLevel + 1);
+            enemyObjects.Add((encounter.enemyObjects[i], encounterLevel));
         }
 
         return enemyObjects;

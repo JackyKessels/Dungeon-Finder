@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sliver of Darkness
   m_EditorClassIdentifier: 
   name: Sliver of Darkness
-  icon: {fileID: 21300000, guid: 983e01965d8cb504cac06f067482b53b, type: 3}
+  icon: {fileID: 21300000, guid: c5d090d481741714fbe46c9cb094b4ea, type: 3}
   value: 0
   stackable: 0
   maxStacks: 1

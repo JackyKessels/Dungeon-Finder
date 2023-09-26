@@ -13,6 +13,12 @@ public enum GameState
     START_SCREEN
 }
 
+public enum GameMode
+{
+    Campaign,
+    Endless
+}
+
 public class GameManager : MonoBehaviour
 {
     #region Singleton
@@ -46,6 +52,7 @@ public class GameManager : MonoBehaviour
     public AudioSource audioSourceSFX;
 
     public GameState gameState;
+    public GameMode gameMode;
 
     [Header("TESTING STUFF")]
     public bool TEST_MODE = false;
@@ -74,17 +81,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject heroSelectionContainer;
     [SerializeField] GameObject heroSelectionPrefab;
 
+    [Header("[ Select Mode ]")]
+    [SerializeField] GameObject selectModeWindow;
+    [SerializeField] Town campaignTown;
+    [SerializeField] Town endlessTown;
+
     [Header("[ Story ]")]
     public HeroObject startHero;
     public HeroObject SECOND_TEST_HERO;
     public HeroObject THIRD_TEST_HERO;
     public Town startTown;
-
-    [Header("[ Hero Selection ]")]
-    public GameObject spawnPosition;
-    public HeroSelectionManager heroSelectionManager;
-    private Transform titleElements;
-    private Transform newGameElements;
 
     [Header("[ Main Systems ]")]
     public CameraScript cameraScript;
@@ -97,6 +103,9 @@ public class GameManager : MonoBehaviour
     public InventoryObject inventory;
 
     private Canvas currentUI;
+
+    private Transform titleElements;
+    private Transform newGameElements;
 
     private HeroSelectionObject heroSelectionObject_0;
     private HeroSelectionObject heroSelectionObject_1;
@@ -137,15 +146,6 @@ public class GameManager : MonoBehaviour
         currentUI = ui;
     }
 
-    public void ChooseTeam()
-    {
-        titleElements.gameObject.SetActive(false);
-
-        teamNameWindow.SetActive(true);
-
-        SetupTeamSelection();
-    }
-
     private void SetupTeamSelection()
     {
         // Hero 1 stands in the middle
@@ -168,8 +168,6 @@ public class GameManager : MonoBehaviour
                                                                             { new ConfirmationButton("Yes", Introduction1),
                                                                               new ConfirmationButton("No", ReactiveStartButton) });
     }
-
-
 
     private void ReactiveStartButton()
     {
@@ -202,15 +200,37 @@ public class GameManager : MonoBehaviour
         introductionWindow3.SetActive(true);
     }
 
-    // Start Story
-    public void StartStory()
+    public void ChooseTeam()
     {
-        gameState = GameState.TOWN;
+        ObjectUtilities.BlackTransition(true);
 
+        titleElements.gameObject.SetActive(false);
+
+        teamNameWindow.SetActive(true);
+
+        SetupTeamSelection();
+        heroManager.SetTeamName(teamName);
+    }
+
+    public void SelectMode()
+    {
         ObjectUtilities.BlackTransition(true);
 
         teamNameWindow.SetActive(false);
-        heroManager.SetTeamName(teamName);
+
+        selectModeWindow.SetActive(true);
+    }
+
+    // Start Story
+    public void StartCampaign()
+    {
+        ObjectUtilities.BlackTransition(true);
+        
+        gameState = GameState.TOWN;
+
+        gameMode = GameMode.Campaign;
+
+        selectModeWindow.SetActive(false);
 
         cameraScript.GoToCamera(townManager.cameraObject, false);
 
@@ -220,9 +240,32 @@ public class GameManager : MonoBehaviour
 
         progressionManager.ResetProgression();
 
-        townManager.SetupStratford();
+        townManager.SetupTown(campaignTown);
 
         StartCoroutine(StartIntroductionDialogue());
+
+        SaveManager.Instance.SaveGame();
+    }
+
+    public void StartEndless()
+    {
+        ObjectUtilities.BlackTransition(true);
+
+        gameState = GameState.TOWN;
+
+        gameMode = GameMode.Endless;
+
+        selectModeWindow.SetActive(false);
+
+        cameraScript.GoToCamera(townManager.cameraObject, false);
+
+        heroManager.EnableUI(true);
+
+        CreateTeam();
+
+        progressionManager.ResetProgression();
+
+        townManager.SetupTown(endlessTown);
 
         SaveManager.Instance.SaveGame();
     }
@@ -267,7 +310,7 @@ public class GameManager : MonoBehaviour
         TEST.gameObject.SetActive(true);
         SKIP_BUTTON.SetActive(true);
 
-        progressionManager.dungeonList.SetDungeonList(true);
+        progressionManager.campaignManager.SetDungeonList(true);
 
         progressionManager.firstDeath = true;
         progressionManager.unlockedPaths = true;
@@ -295,7 +338,7 @@ public class GameManager : MonoBehaviour
         //teamManager.CreateHero(2, 2);
 
         //townManager.StartTutorial();
-        townManager.SetupStratford();
+        townManager.SetupTown(campaignTown);
     }
 
     public void BackToTitle()
@@ -313,31 +356,51 @@ public class GameManager : MonoBehaviour
         // Won last location -> Map is finished so return back to town
         if (dungeonManager.player.currentLocation.x == dungeonManager.gridHandler.columns - 1)
         {
-            progressionManager.UnlockPaths(dungeonManager.currentDungeon, dungeonManager.currentFloor);
-
-            if (dungeonManager.IsLastFloor())
+            switch (gameMode)
             {
-                progressionManager.totalBossesDefeated++;
+                case GameMode.Campaign:
+                    {
+                        progressionManager.UnlockPaths(dungeonManager.currentDungeon, dungeonManager.currentFloor);
 
-                progressionManager.dungeonList.UnlockDungeon(dungeonManager.currentDungeon);
-                progressionManager.UnlockFourthAbility();
-                progressionManager.UnlockEnchanterUpgrade();
+                        if (dungeonManager.IsLastFloor())
+                        {
+                            progressionManager.totalBossesDefeated++;
 
-                GoToTown();
+                            progressionManager.campaignManager.UnlockDungeon(dungeonManager.currentDungeon);
+                            progressionManager.UnlockFourthAbility();
+                            progressionManager.UnlockEnchanterUpgrade();
 
-                dungeonManager.EnableUI(false);
+                            GoToTown();
 
-                RewardManager.Instance.SetupBattleResult();
+                            dungeonManager.EnableUI(false);
 
-                teamManager.heroes.FullRestoreTeam();
-            }
-            else
-            {
-                dungeonManager.NextFloor();
+                            RewardManager.Instance.SetupBattleResult();
 
-                RewardManager.Instance.SetupBattleResult();
+                            teamManager.heroes.FullRestoreTeam();
+                        }
+                        else
+                        {
+                            dungeonManager.NextFloor();
 
-                GoToRun();
+                            RewardManager.Instance.SetupBattleResult();
+
+                            GoToRun();
+                        }
+                    }
+                    break;
+                case GameMode.Endless:
+                    {
+                        GoToTown();
+
+                        dungeonManager.EnableUI(false);
+
+                        RewardManager.Instance.SetupBattleResult();
+
+                        teamManager.heroes.FullRestoreTeam();
+
+                        progressionManager.endlessManager.EndlessLevel++;
+                    }
+                    break;
             }
         }
         else
@@ -345,6 +408,19 @@ public class GameManager : MonoBehaviour
             RewardManager.Instance.SetupBattleResult();
 
             GoToRun();
+        }
+    }
+
+    public Town GetTown(GameMode gameMode)
+    {
+        switch (gameMode)
+        {
+            case GameMode.Campaign:
+                return campaignTown;
+            case GameMode.Endless:
+                return endlessTown;
+            default:
+                return null;
         }
     }
 
@@ -382,8 +458,7 @@ public class GameManager : MonoBehaviour
 
         cameraScript.GoToCamera(townManager.cameraObject, false);
 
-        if (townManager.isTutorial) townManager.TutorialUI(true);
-        else townManager.EnableUI(true);
+        townManager.EnableUI(true);
 
         mapButton.UpdateButton(gameState);
 
@@ -396,17 +471,27 @@ public class GameManager : MonoBehaviour
     {
         gameState = GameState.RUN;
 
-        //teamManager.Regroup(false);
-
-        currencyHandler.SetState(true);
-        currencyHandler.UpdateCurrencies();
-
         cameraScript.GoToCamera(dungeonManager.cameraObject, true);
         dungeonManager.EnableUI(true);
 
-        mapButton.UpdateButton(gameState);
+        switch (gameMode)
+        {
+            case GameMode.Campaign:
+                {
+                    currencyHandler.SetState(true);
+                    currencyHandler.UpdateCurrencies();
 
-        townManager.ShopButtonsState(false);
+                    mapButton.UpdateButton(gameState);
+
+                    townManager.ShopButtonsState(false);
+                }
+                break;
+            case GameMode.Endless:
+                {
+
+                }
+                break;
+        }
 
         SaveManager.Instance.SaveGame();
     }

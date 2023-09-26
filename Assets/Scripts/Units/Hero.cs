@@ -224,7 +224,7 @@ public class Hero : Unit
             {
                 Passive equipmentPassive = new Passive(equipment.equipmentObject.passives[i], 1);
 
-                equipmentPassive.ActivatePassive(this);
+                spellbook.LearnPassive(equipmentPassive);
             }
         }
 
@@ -305,7 +305,7 @@ public class Hero : Unit
             {
                 Passive equipmentPassive = new Passive(equipment.equipmentObject.passives[i], 1);
 
-                equipmentPassive.DeactivatePassive(this);
+                spellbook.UnlearnPassive(equipmentPassive);
             }
         }
 

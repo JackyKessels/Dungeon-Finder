@@ -10,7 +10,7 @@ public class ConsequenceObject : MonoBehaviour
     [SerializeField] private Image firstImage;
     [SerializeField] private Image secondImage;
 
-    public void Setup(ConsequenceStructure consequenceStructure)
+    public void Setup(ConsequenceStructure consequenceStructure, int level)
     {
         text.text = consequenceStructure.text;
 
@@ -44,7 +44,7 @@ public class ConsequenceObject : MonoBehaviour
             }
             else if (consequenceStructure.itemObject != null)
             {
-                tooltip.item = Item.CreateItem(consequenceStructure.itemObject, 1);
+                tooltip.item = Item.CreateItem(consequenceStructure.itemObject, level);
             }
         }
     }

@@ -123,8 +123,12 @@ public class Location : MonoBehaviour, IDescribable
         }
     }
 
-    public void StartEvent(Dungeon dungeon, int floor)
+    public void StartEvent(Dungeon dungeon, int floorLevel)
     {
+        Floor floor = dungeon.floors[floorLevel];
+
+        int mysteryLevel = DungeonManager.GetDungeonLevel(floor);
+
         dungeonManager.locationInformationObject.SetActive(false);
 
         switch (locationType)
@@ -151,7 +155,7 @@ public class Location : MonoBehaviour, IDescribable
                 }
             case LocationType.Treasure:
                 {
-                    RewardManager.Instance.GenerateLootTable(false, dungeon.floors[floor].itemPool, 3, 3);
+                    RewardManager.Instance.GenerateLootTable(false, floor.itemPool, 3, 3, mysteryLevel);
                     break;
                 }
             case LocationType.Campfire:
@@ -159,8 +163,8 @@ public class Location : MonoBehaviour, IDescribable
                     TeamManager.Instance.heroes.ReviveDeadMembers(false);
                     TeamManager.Instance.heroes.HealTeam(campfireHeal, true);
 
-                    EffectObject wellRestedEffect = dungeon.floors[floor].wellRestedEffect;
-                    int wellRestedChance = dungeon.floors[floor].wellRestedChance;
+                    EffectObject wellRestedEffect = floor.wellRestedEffect;
+                    int wellRestedChance = floor.wellRestedChance;
 
                     bool successfulWellFed;
 
@@ -195,7 +199,7 @@ public class Location : MonoBehaviour, IDescribable
             case LocationType.Mystery:
                 {
                     {
-                        EventWindow.SendEventWindow(dungeon.floors[floor].mysteryEvents.GetRandomEvent());
+                        EventWindow.SendEventWindow(floor.mysteryEvents.GetRandomEvent(), mysteryLevel);
                     }
                     break;
                 }

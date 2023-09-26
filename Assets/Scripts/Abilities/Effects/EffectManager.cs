@@ -87,7 +87,7 @@ public class EffectManager : MonoBehaviour
         {
             if (effectsList[i].effectObject.aura && effectsList[i].caster.statsManager.isDead)
             {
-                effectsList.RemoveAt(i);
+                OnExpiration(effectsList[i]);
             }
         }
     }
@@ -460,81 +460,98 @@ public class EffectManager : MonoBehaviour
             RemoveEffect(e.effectObject.removeEffects[i]);
         }
 
-        if (e.effectObject is EffectCrowdControl cc)
+        switch (e.effectObject)
         {
-            if (HasImmunity(cc.type))
-            {
-                string text = "Immune";
-
-                FCTData fctData = new FCTData(false, unit, text, Color.cyan);
-                unit.fctHandler.AddToFCTQueue(fctData);
-
-                return;
-            }
-        }
-        else if (e.effectObject is EffectCrowdControlImmunity immune)
-        {
-            for (int i = 0; i < immune.immuneTypes.Count; i++)
-            {
-                BreakCrowdControl(immune.immuneTypes[i]);
-            }
-        }
-        else if (e.effectObject is EffectOverTime)
-        {
-            foreach (TimedAction timedAction in e.timedActions)
-            {
-                if (timedAction.actionType == TimedActionType.OnApplication)
+            case EffectCrowdControl crowdControl:
                 {
-                    TriggerSource(timedAction, e);
+                    if (HasImmunity(crowdControl.type))
+                    {
+                        string text = "Immune";
+
+                        FCTData fctData = new FCTData(false, unit, text, Color.cyan);
+                        unit.fctHandler.AddToFCTQueue(fctData);
+
+                        return;
+                    }
+
+                    break;
                 }
-            }
-        }
-        else if (e.effectObject is EffectAttributeModifier modifier)
-        {
-            CreateSpecialEffect(e.target, modifier.specialEffects);
+            case EffectCrowdControlImmunity crowdControlImmunity:
+                {
+                    for (int i = 0; i < crowdControlImmunity.immuneTypes.Count; i++)
+                    {
+                        BreakCrowdControl(crowdControlImmunity.immuneTypes[i]);
+                    }
 
-            ModifyAttribute(e.target, modifier.attributeModified, e.storedModValue, modifier.isIncrease, true, modifier.modifierType);
-        }
-        else if (e.effectObject is EffectSpawnEnemy spawn)
-        {
-            TeamManager.Instance.SpawnEnemy(spawn.enemyObject, spawn.level, spawn.instant, spawn.specialEffects);
+                    break;
+                }
+            case EffectOverTime overTime:
+                {
+                    foreach (TimedAction timedAction in e.timedActions)
+                    {
+                        if (timedAction.actionType == TimedActionType.OnApplication)
+                        {
+                            TriggerSource(timedAction, e);
+                        }
+                    }
 
-            if (spawn.two)
-                TeamManager.Instance.SpawnEnemy(spawn.enemyObject, spawn.level, spawn.instant, spawn.specialEffects);
-        }
-        else if (e.effectObject is EffectActivatePassive passive)
-        {
-            CreateSpecialEffect(e.caster, passive.specialEffects);
+                    break;
+                }
+            case EffectAttributeModifier modifier:
+                {
+                    CreateSpecialEffect(e.target, modifier.specialEffects);
 
-            Passive effectPassive = new Passive(passive.passiveAbility, e.level);
+                    ModifyAttribute(e.target, modifier.attributeModified, e.storedModValue, modifier.isIncrease, true, modifier.modifierType);
 
-            effectPassive.ActivatePassive(unit);
+                    break;
+                }
+            case EffectSpawnEnemy spawn:
+                {
+                    TeamManager.Instance.SpawnEnemy(spawn.enemyObject, spawn.level, spawn.instant, spawn.specialEffects);
 
-            e.storedPassive = effectPassive;
-        }
-        else if (e.effectObject is EffectDamageTransfer)
-        {
-            //effectsList.Remove(GetDamageTransfer());
+                    if (spawn.two)
+                    {
+                        TeamManager.Instance.SpawnEnemy(spawn.enemyObject, spawn.level, spawn.instant, spawn.specialEffects);
+                    }
+
+                    return;
+                }
+            case EffectActivatePassive passive:
+                {
+                    CreateSpecialEffect(e.caster, passive.specialEffects);
+
+                    Passive effectPassive = new Passive(passive.passiveAbility, e.level);
+
+                    unit.spellbook.LearnPassive(effectPassive);
+
+                    e.storedPassive = effectPassive;
+
+                    break;
+                }
+            case EffectDamageTransfer damageTransfer:
+                {
+                    break;
+                }
+            case EffectConditionalTrigger conditional:
+                {
+                    TriggerConditionalEffect(e);
+
+                    return;
+                }
+            case EffectCooldownReduction cooldownReduction:
+                {
+                    cooldownReduction.ReduceCooldown(e.caster);
+
+                    return;
+                }
         }
 
-        // Effect Types below are not showing in the HUD
-        if (e.effectObject is EffectConditionalTrigger)
+        if (e.effectObject.unique)
         {
-            TriggerConditionalEffect(e);
+            RemoveApplications(e);
         }
-        else if (e.effectObject is EffectCooldownReduction cdr)
-        {
-            cdr.ReduceCooldown(e.caster);
-        }
-        else
-        {
-            if (e.effectObject.unique)
-            {
-                RemoveApplications(e);
-            }
 
-            effectsList.Add(e);
-        }
+        effectsList.Add(e);
     }
 
     public void OnActive(Effect e)
@@ -551,36 +568,47 @@ public class EffectManager : MonoBehaviour
         }
     }
 
-
-
     public void OnExpiration(Effect e, bool expireAll = false)
     {
         // Only remove the effect from the list one-by-one
         if (!expireAll)
             effectsList.Remove(e);
 
-        if (e.effectObject is EffectOverTime)
+        switch (e.effectObject)
         {
-            foreach (TimedAction timedAction in e.timedActions)
-            {
-                if (timedAction.actionType == TimedActionType.OnExpiration)
+            case EffectOverTime overTime:
                 {
-                    TriggerSource(timedAction, e);
+                    foreach (TimedAction timedAction in e.timedActions)
+                    {
+                        if (timedAction.actionType == TimedActionType.OnExpiration)
+                        {
+                            TriggerSource(timedAction, e);
+                        }
+                    }
+
+                    return;
                 }
-            }
-        }
-        else if (e.effectObject is EffectAttributeModifier modifier)
-        {
-            ModifyAttribute(e.target, modifier.attributeModified, e.storedModValue, modifier.isIncrease, false, modifier.modifierType);
-        }
-        else if (e.effectObject is EffectActivatePassive)
-        {
-            e.storedPassive.DeactivatePassive(unit);
-        }
-        else if (e.effectObject is EffectCrowdControl cc)
-        {
-            if (cc.addTauntImmune)
-                ApplyEffect(GameAssets.i.tauntImmune, unit, unit, 1, e.sourceAbility);
+            case EffectAttributeModifier modifier:
+                {
+                    ModifyAttribute(e.target, modifier.attributeModified, e.storedModValue, modifier.isIncrease, false, modifier.modifierType);
+
+                    return;
+                }
+            case EffectActivatePassive passive:
+                {
+                    unit.spellbook.UnlearnPassive(e.storedPassive);
+
+                    return;
+                }
+            case EffectCrowdControl crowdControl:
+                {
+                    if (crowdControl.addTauntImmune)
+                    {
+                        ApplyEffect(GameAssets.i.tauntImmune, unit, unit, 1, e.sourceAbility);
+                    }
+
+                    return;
+                }
         }
     }
 

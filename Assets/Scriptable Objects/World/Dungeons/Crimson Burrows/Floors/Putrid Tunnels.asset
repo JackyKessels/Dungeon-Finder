@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Putrid Tunnels
   m_EditorClassIdentifier: 
   name: Putrid Tunnels
+  level: 2
   dungeonBackground: {fileID: 21300000, guid: b67a70a02fd84bf4eaa90010212129a8, type: 3}
   battleBackground: {fileID: 21300000, guid: bb8ff09c2f651e34b864cee375f7e6a5, type: 3}
   backgroundSound: {fileID: 0}
@@ -35,82 +36,69 @@ MonoBehaviour:
   - itemObject: {fileID: 11400000, guid: a0db3ee41c33eef4dbc6a3840a9684c8, type: 2}
     amount: 1
     weight: 1
+    level: 0
   - itemObject: {fileID: 11400000, guid: d6beeb7bbb5426949ac3d95f32b8a37a, type: 2}
     amount: 1
     weight: 1
+    level: 0
   - itemObject: {fileID: 11400000, guid: fff4349331be5354ab963cd24c78cee7, type: 2}
     amount: 1
     weight: 1
+    level: 0
   - itemObject: {fileID: 11400000, guid: 85f6f2b7c99bf55428a0033f14755e9b, type: 2}
     amount: 4
     weight: 2
+    level: 0
   - itemObject: {fileID: 11400000, guid: a59beb3bea1f71645bb09ef59fa873a5, type: 2}
     amount: 3
     weight: 2
+    level: 0
   trashEncounters:
   - enemyObjects:
     - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
     - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
     - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
-    minimumLevel: 1
-    maximumLevel: 3
     randomOrder: 1
     weight: 1
   - enemyObjects:
-    - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
-    - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
     - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
-    minimumLevel: 1
-    maximumLevel: 2
+    - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
+    - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
     randomOrder: 1
     weight: 1
   - enemyObjects:
     - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
     - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
-    minimumLevel: 2
-    maximumLevel: 3
     randomOrder: 1
     weight: 1
   - enemyObjects:
     - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
     - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
-    minimumLevel: 2
-    maximumLevel: 3
     randomOrder: 1
     weight: 1
   - enemyObjects:
     - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
     - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
-    minimumLevel: 2
-    maximumLevel: 3
     randomOrder: 1
     weight: 1
   eliteEncounters:
   - enemyObjects:
     - {fileID: 11400000, guid: 685ad876308ddb84abc8e5287b8bc86b, type: 2}
-    minimumLevel: 3
-    maximumLevel: 3
     randomOrder: 0
     weight: 1
   - enemyObjects:
     - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
     - {fileID: 11400000, guid: 4ea0468a2e1668c4faf097a9cdda25e2, type: 2}
     - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
-    minimumLevel: 3
-    maximumLevel: 3
     randomOrder: 0
     weight: 1
   - enemyObjects:
     - {fileID: 11400000, guid: f2568653406671c48bea9b9ef4c74572, type: 2}
-    minimumLevel: 3
-    maximumLevel: 3
     randomOrder: 0
     weight: 1
   bossEncounter:
     enemyObjects:
     - {fileID: 11400000, guid: 81af47cd6e032b74d92ab8ef6860fe49, type: 2}
-    minimumLevel: 4
-    maximumLevel: 4
     randomOrder: 0
     weight: 1
   mysteryEvents: {fileID: 11400000, guid: 8de4c1806266c774f8e36f9432196a49, type: 2}

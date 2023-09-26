@@ -20,11 +20,11 @@ MonoBehaviour:
   attackAnimation: {fileID: 0}
   castAnimation: {fileID: 0}
   baseHealth: 350
-  basePower: 22
-  baseWisdom: 18
-  baseArmor: 18
-  baseResistance: -18
-  baseVitality: 0
+  basePower: 18
+  baseWisdom: 15
+  armor: 18
+  resistance: 0
+  vitality: 0
   speed: 8
   accuracy: 80
   criticalHit: 10
@@ -38,7 +38,6 @@ MonoBehaviour:
   holyMultiplier: 100
   shadowMultiplier: 100
   critMultiplier: 150
-  level: 1
   difficulty: 8
   experienceReward: 30
   currencyRewards:
@@ -46,13 +45,16 @@ MonoBehaviour:
     totalAmount: 30
   - currencyType: 1
     totalAmount: 2
+  dropEverything: 0
   itemDrops:
   - itemObject: {fileID: 0}
     amount: 0
     weight: 3
+    level: 0
   - itemObject: {fileID: 11400000, guid: 313f4790924acad4cbb951955ecdf1c4, type: 2}
     amount: 1
     weight: 1
+    level: 0
   randomAbility: 0
   abilities:
   - ability: {fileID: 11400000, guid: 8650ed4b320d23b4bb9da1651bcb7de9, type: 2}

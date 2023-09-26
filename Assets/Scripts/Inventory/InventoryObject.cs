@@ -267,10 +267,11 @@ public class InventoryObject : ScriptableObject
     {
         for (int i = 0; i < container.slots.Length; i++)
         {
-            Item item = Item.CreateItem(database.itemObjects[itemIDs[i].id], itemIDs[i].level);
-
             if (itemIDs[i].id != -1)
+            {
+                Item item = Item.CreateItem(database.itemObjects[itemIDs[i].id], itemIDs[i].level);
                 container.slots[i].UpdateSlot(item, itemIDs[i].amount);
+            }           
         }
     }
 

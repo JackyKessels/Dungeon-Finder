@@ -68,15 +68,21 @@ public class DungeonManager : MonoBehaviour, IUserInterface
         gridHandler = GetComponent<GridHandler>();
     }
 
-    public void StartDungeon(Dungeon dungeon)
+    public static int GetDungeonLevel(Floor floor)
     {
-        currentFloor = 0;
-
-        BuildDungeon(dungeon, currentFloor);
+        switch (GameManager.Instance.gameMode)
+        {
+            case GameMode.Campaign:
+                return floor.level;
+            case GameMode.Endless:
+                return ProgressionManager.Instance.endlessLevel;
+            default:
+                return 1;
+        }
     }
 
     // Main function that triggers all the other functions
-    private void BuildDungeon(Dungeon dungeon, int floor)
+    public void BuildDungeon(Dungeon dungeon, Floor floor)
     {
         locationInformationObject.SetActive(false);
 
@@ -94,32 +100,40 @@ public class DungeonManager : MonoBehaviour, IUserInterface
 
         SetDungeonNames(floor);
 
-        gridHandler.EnterDungeon(dungeon, floor);
+        gridHandler.GenerateFloor(dungeon, floor);
 
-        dungeonBackground.sprite = dungeon.floors[floor].dungeonBackground;
+        dungeonBackground.sprite = floor.dungeonBackground;
         dungeonBackground.size = new Vector2(initialSize.x + gridHandler.GetWidthIncrease(), initialSize.y);
 
-        if (dungeon.floors[floor].battleBackground != null)
-            EventManager.Instance.SetBackground(dungeon.floors[floor].battleBackground, true);
+        if (floor.battleBackground != null)
+            EventManager.Instance.SetBackground(floor.battleBackground, true);
     }
 
-    private void SetDungeonNames(int floor)
+    private void SetDungeonNames(Floor floor)
     {
         dungeonTitle.text = currentDungeon.name;
         dungeonTitle.color = currentDungeon.nameColor;
 
-        floorName.text = currentDungeon.floors[floor].name + " " + GetFloorString(floor);
+        floorName.text = $"{floor.name}{GetFloorString()}";
         floorName.color = currentDungeon.nameColor;
 
-        if (currentDungeon.floors[floor].name == "")
+        if (floor.name == "")
             floorBackground.SetActive(false);
         else
             floorBackground.SetActive(true);
     }
 
-    private string GetFloorString(int floor)
+    private string GetFloorString()
     {
-        return "(" + (floor + 1).ToString() + " / " + currentDungeon.floors.Count.ToString() + ")";
+        switch (gameManager.gameMode)
+        {
+            case GameMode.Campaign:
+                return $" ({currentFloor + 1} / {currentDungeon.floors.Count})";
+            case GameMode.Endless:
+                return "";
+            default:
+                return "";
+        }   
     }
 
     // Creates the movable player icon on the map
@@ -195,7 +209,9 @@ public class DungeonManager : MonoBehaviour, IUserInterface
         if (currentFloor >= currentDungeon.floors.Count)
             currentFloor = 0;
 
-        BuildDungeon(currentDungeon, currentFloor);
+        Floor floor = currentDungeon.floors[currentFloor];
+
+        BuildDungeon(currentDungeon, floor);
     }
 
     public bool IsLastFloor()

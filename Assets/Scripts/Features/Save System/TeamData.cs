@@ -9,6 +9,7 @@ public class TeamData
     // Tutorial or Stratford
     public bool isTutorial;
     public int gameState;
+    public int gameMode;
 
     // Progression
     public bool firstDeath;
@@ -93,8 +94,7 @@ public class TeamData
         TownManager townManager = TownManager.Instance;
         ProgressionManager progressionManager = ProgressionManager.Instance;
 
-        isTutorial = townManager.isTutorial;
-        gameState = (int)gameManager.gameState;
+        gameMode = (int)gameManager.gameMode;
 
         firstDeath = progressionManager.firstDeath;
         unlockedPaths = progressionManager.unlockedPaths;

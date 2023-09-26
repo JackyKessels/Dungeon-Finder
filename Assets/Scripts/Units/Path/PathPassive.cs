@@ -39,7 +39,7 @@ public class PathPassive : MonoBehaviour
 
             heroPathGameObject.heroPath.unlockedPassives[index] = false;
 
-            passive.DeactivatePassive(heroPathGameObject.hero);
+            heroPathGameObject.hero.spellbook.UnlearnPassive(passive);
         }
         // Learn
         else
@@ -50,7 +50,7 @@ public class PathPassive : MonoBehaviour
 
                 heroPathGameObject.heroPath.unlockedPassives[index] = true;
 
-                passive.ActivatePassive(heroPathGameObject.hero);
+                heroPathGameObject.hero.spellbook.LearnPassive(passive);
             }
             else
             {

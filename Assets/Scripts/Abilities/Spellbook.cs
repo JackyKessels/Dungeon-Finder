@@ -46,7 +46,9 @@ public class Spellbook
         {
             Passive passive = new Passive(p, 1);
 
-            passive.ActivatePassive(unit);
+            LearnPassive(passive);
+
+            
         }
     }
 
@@ -375,17 +377,21 @@ public class Spellbook
         return foundAbility;
     }
 
-    public void AddPassive(Passive passive)
+    public void LearnPassive(Passive passive)
     {
         passives.Add(passive);
+
+        passive.ActivatePassive(unit);
 
         if (unit is Hero h)
             SpellbookManager.Instance.Setup(h);
     }
 
-    public void RemovePassive(Passive passive)
+    public void UnlearnPassive(Passive passive)
     {
         RemovePassiveFromList(passive);
+
+        passive.DeactivatePassive(unit);
 
         if (unit is Hero h)
             SpellbookManager.Instance.Setup(h);
@@ -580,7 +586,8 @@ public class Spellbook
                 PassiveAbility p = DatabaseHandler.Instance.abilityDatabase.abilityObjects[id] as PassiveAbility;
 
                 Passive passive = new Passive(p, level);
-                passive.ActivatePassive(unit);
+
+                LearnPassive(passive);
             }
         }
     }
