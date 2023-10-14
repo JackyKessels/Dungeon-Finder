@@ -33,6 +33,7 @@ MonoBehaviour:
   initialCooldown: 0
   endTurn: 0
   resetChance: 0
+  singleUse: 0
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 0
@@ -49,13 +50,13 @@ MonoBehaviour:
     scaling: 0.9
     levelScaling: 0.24
     reductionType: 2
-    modifier:
+    abilityModifier:
       hasModifier: 1
       modification: 4
       condition: 5
-      thresholdType: 1
+      thresholdType: 0
       conditionThreshold: 0
-      increasedAttribute: 1
+      increasedAttribute: 0
       increaseValue: 0
       casterBased: 1
       attributeBase: 0
@@ -64,8 +65,7 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive:
-        - {fileID: 0}
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -73,9 +73,12 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 0
-      effectOnTarget: 0
+      effectOnTarget: 1
       conditionalEffect: {fileID: 11400000, guid: a1b06cb6e851ebb408c2b5e6bd7f5c8b,
         type: 2}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []

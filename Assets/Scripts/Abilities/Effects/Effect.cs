@@ -123,3 +123,41 @@ public class Effect
         return totalValue;
     }
 }
+
+[System.Serializable]
+public class ApplyEffectObject
+{
+    public EffectObject effectObject;
+    public AbilityTargets abilityTarget;
+    public AbilityObject sourceAbility;
+    public bool stacksBasedOnCooldown = false;
+
+    public void ApplyEffect(Unit caster, ActiveAbility activeAbility = null)
+    {
+        if (effectObject == null)
+        {
+            Debug.Log("No effect selected.");
+            return;
+        }
+
+        int level = caster.spellbook.GetAbilityLevel(sourceAbility);
+
+        List<Unit> targets = AbilityUtilities.GetAbilityTargets(abilityTarget, caster);
+
+        int stacks = 1;
+
+        if (activeAbility != null && effectObject.stackable)
+        {
+            stacks = activeAbility.cooldown + 1;
+        }
+
+        foreach (Unit target in targets)
+        {
+            for (int i = 0; i < stacks; i++)
+            {
+                EffectManager.ApplyEffect(effectObject, caster, target, level, sourceAbility);
+            }        
+        }
+    }
+}
+

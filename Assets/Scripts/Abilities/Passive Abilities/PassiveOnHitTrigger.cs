@@ -80,11 +80,11 @@ public class PassiveOnHitTrigger : PassiveAbility
             {
                 if (targetTrigger == TargetTrigger.Attacked)
                 {
-                    abilitySources[i].TriggerSource(this, true, false, attacked, attacked, attacked.spellbook.GetPassiveLevel(this), 1, triggersPassives, 1, abilityType);
+                    abilitySources[i].TriggerSource(this, true, false, attacked, attacked, attacked.spellbook.GetAbilityLevel(this), 1, triggersPassives, 1, abilityType);
                 }
                 else if (targetTrigger == TargetTrigger.Attacker)
                 {
-                    abilitySources[i].TriggerSource(this, true, false, attacked, attacker, attacked.spellbook.GetPassiveLevel(this), 1, triggersPassives, 1, abilityType);
+                    abilitySources[i].TriggerSource(this, true, false, attacked, attacker, attacked.spellbook.GetAbilityLevel(this), 1, triggersPassives, 1, abilityType);
                 }
             }
         }
@@ -119,11 +119,11 @@ public class PassiveOnHitTrigger : PassiveAbility
             {
                 if (targetTrigger == TargetTrigger.Attacked)
                 {
-                    abilitySources[i].TriggerSource(this, true, false, attacker, attacked, attacker.spellbook.GetPassiveLevel(this), 1, triggersPassives, 1, abilityType);
+                    abilitySources[i].TriggerSource(this, true, false, attacker, attacked, attacker.spellbook.GetAbilityLevel(this), 1, triggersPassives, 1, abilityType);
                 }
                 else if (targetTrigger == TargetTrigger.Attacker)
                 {
-                    abilitySources[i].TriggerSource(this, true, false, attacker, attacker, attacker.spellbook.GetPassiveLevel(this), 1, triggersPassives, 1, abilityType);
+                    abilitySources[i].TriggerSource(this, true, false, attacker, attacker, attacker.spellbook.GetAbilityLevel(this), 1, triggersPassives, 1, abilityType);
                 }
             }
         }
@@ -217,15 +217,7 @@ public class PassiveOnHitTrigger : PassiveAbility
     {
         string temp = base.ParseDescription(s, tooltipInfo);
 
-        // Ability Source Value
-        for (int i = 0; i < abilitySources.Count; i++)
-        {
-            temp = AbilityTooltipHandler.DetermineAbilityValue(temp, string.Format("<{0}>", i + 1), abilitySources[i], tooltipInfo);
-            temp = AbilityTooltipHandler.DetermineAbilityModifierBaseline(temp, string.Format("<{0}modV>", i + 1), abilitySources[i].modifier);
-            temp = AbilityTooltipHandler.DetermineAbilityModifierAttribute(temp, string.Format("<{0}modP>", i + 1), abilitySources[i].modifier);
-            temp = AbilityTooltipHandler.DetermineAbilityConditionValue(temp, string.Format("<{0}conV>", i + 1), abilitySources[i].modifier);
-
-        }
+        temp = AbilityTooltipHandler.ParseAllAbilitySourceTooltips(temp, tooltipInfo, abilitySources, "");
 
         for (int i = 0; i < castActiveAbilities.Count; i++)
         {

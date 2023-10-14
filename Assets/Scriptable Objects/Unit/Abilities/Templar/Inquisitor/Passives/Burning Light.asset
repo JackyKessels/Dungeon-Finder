@@ -36,7 +36,10 @@ MonoBehaviour:
   triggeredByEffects: 1
   procChance: 100
   abilitySources: []
-  castActiveAbilities: []
+  castActiveAbilities:
+  - activeAbility: {fileID: 0}
+    effectiveness: 0
+    abilityTarget: 0
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects:

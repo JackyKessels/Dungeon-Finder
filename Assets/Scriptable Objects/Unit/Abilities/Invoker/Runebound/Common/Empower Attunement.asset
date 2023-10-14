@@ -19,11 +19,11 @@ MonoBehaviour:
   description: 'Increase the effect of your current Attunement.
 
 
-    <targetTrigger1>
+    <t1trigger>
 
-    <targetTrigger2>
+    <t2trigger>
 
-    <targetTrigger3>'
+    <t3trigger>'
   icon: {fileID: 21300000, guid: ee8c9d1ba6407194a9b5148bcdd150d2, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
@@ -33,8 +33,10 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 0.5
   cooldown: 2
+  initialCooldown: 0
   endTurn: 0
   resetChance: 0
+  singleUse: 0
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 1

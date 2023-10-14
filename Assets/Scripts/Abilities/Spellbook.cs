@@ -209,22 +209,6 @@ public class Spellbook
         }
     }
 
-    public int LevelOfAbility(AbilityObject abilityObject)
-    {
-        int level = 0;
-
-        // If the spellbook already contains the learned spell then upgrade the level of that spell.
-        for (int i = 0; i < unit.spellbook.abilityCollection.Count; i++)
-        {
-            if (unit.spellbook.abilityCollection[i].activeAbility == abilityObject as ActiveAbility)
-            {
-                level = unit.spellbook.abilityCollection[i].level;
-            }
-        }
-
-        return level;
-    }
-
     public void AddLearnedToActive(Active active, int? index = null)
     {
         if (active == null && active.activeAbility == null)
@@ -409,17 +393,31 @@ public class Spellbook
         }
     }
 
-    public int GetPassiveLevel(PassiveAbility passiveAbility)
+    public int GetAbilityLevel(AbilityObject abilityObject)
     {
-        int level = 0;
-
-        for (int i = 0; i < passives.Count; i++)
+        if (abilityObject is ActiveAbility activeAbility)
         {
-            if (passives[i].passiveAbility == passiveAbility)
-                level = passives[i].level;
+            for (int i = 0; i < abilityCollection.Count; i++)
+            {
+                if (abilityCollection[i].activeAbility == activeAbility)
+                {
+                    return abilityCollection[i].level;
+                }
+            }
         }
 
-        return level;
+        if (abilityObject is PassiveAbility passiveAbility)
+        {
+            for (int i = 0; i < passives.Count; i++)
+            {
+                if (passives[i].passiveAbility == passiveAbility)
+                {
+                    return passives[i].level;
+                }
+            }
+        }
+
+        return 0;
     }
 
     public void SetActiveSpellbook()

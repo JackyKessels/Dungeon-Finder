@@ -47,7 +47,7 @@ public abstract class AbilityObject : ScriptableObject, IDescribable
     {
         string color = ColorDatabase.QualityColor(quality);
 
-        int currentLevel = tooltipInfo.active.level;
+        int currentLevel = tooltipInfo.GetAbilityLevel();
 
         if (currentLevel == 0 || !hasLevels)
         {
@@ -57,5 +57,12 @@ public abstract class AbilityObject : ScriptableObject, IDescribable
         {
             return string.Format("<smallcaps><b><color={0}>{1}</color></b></smallcaps>{2}\nLevel: {3}", color, name, AbilityTooltipHandler.ShowAbilityType(abilityType), currentLevel);
         }
+    }
+
+    public string DescriptionExcludeLevel()
+    {
+        string color = ColorDatabase.QualityColor(quality);
+
+        return string.Format("<smallcaps><b><color={0}>{1}</color></b></smallcaps>{2}", color, name, AbilityTooltipHandler.ShowAbilityType(abilityType));
     }
 }

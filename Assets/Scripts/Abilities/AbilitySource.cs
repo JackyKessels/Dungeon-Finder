@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public enum AbilitySchool
 {
@@ -41,7 +42,8 @@ public class AbilitySource
     public ReductionType reductionType;
 
     [Header("[ Extra ]")]
-    public AbilityModifier modifier;
+    public AbilityModifier abilityModifier;
+    public DrainModifier drainModifier;
 
     public AbilitySource(AbilitySchool abilitySchool, int value)
     {
@@ -56,7 +58,8 @@ public class AbilitySource
         levelScaling = 0;
         reductionType = GeneralUtilities.GetReductionType(school);
 
-        modifier = null;
+        abilityModifier = null;
+        drainModifier = null;
     }
 
     public AbilitySource (BonusAbilitySource bonusAbilitySource)
@@ -73,7 +76,8 @@ public class AbilitySource
         levelScaling = bonusAbilitySource.levelScaling;
         reductionType = bonusAbilitySource.reductionType;
 
-        modifier = null;
+        abilityModifier = null;
+        drainModifier = null;
     }
 
     // Gets the right value based on the current interface
@@ -91,9 +95,9 @@ public class AbilitySource
 
     public string GetTooltipValue(TooltipObject tooltipInfo)
     {
-        int totalBase = baseValue + levelBase * (tooltipInfo.active.level - 1);
+        int totalBase = baseValue + levelBase * (tooltipInfo.GetAbilityLevel() - 1);
 
-        float totalScaling = scaling + levelScaling * (tooltipInfo.active.level - 1);
+        float totalScaling = scaling + levelScaling * (tooltipInfo.GetAbilityLevel() - 1);
 
         if (totalBase > 0 && totalScaling > 0)
         {
@@ -115,9 +119,9 @@ public class AbilitySource
     // Used for ability tooltips
     public int CalculateValue(TooltipObject tooltipInfo)
     {
-        int totalBase = baseValue + levelBase * (tooltipInfo.active.level - 1);
+        int totalBase = baseValue + levelBase * (tooltipInfo.GetAbilityLevel() - 1);
 
-        float totalScaling = scaling + levelScaling * (tooltipInfo.active.level - 1);
+        float totalScaling = scaling + levelScaling * (tooltipInfo.GetAbilityLevel() - 1);
 
         int totalAttribute = GetCorrectAttribute(tooltipInfo);
 
@@ -177,12 +181,16 @@ public class AbilitySource
             abilityValue.value = target.statsManager.CalculateMitigatedDamage(value, reductionType);
         }
 
-        if (modifier != null)
-            modifier.TriggerModifier(abilityValue, level);
+        abilityValue.CalculateValue();
 
-        // No value were filled in, do not trigger it
-        if (value != -1)
+        abilityModifier.TriggerModifier(abilityValue, level);
+
+        if (value > 0)
+        {
             abilityValue.Trigger();
+
+            drainModifier.TriggerModifier(abilityValue);
+        }
     }
 
     // Uses stored value for effects
@@ -201,10 +209,16 @@ public class AbilitySource
             abilityValue.value = target.statsManager.CalculateMitigatedDamage(value, reductionType);
         }
 
-        if (modifier != null)
-            modifier.TriggerModifier(abilityValue);
+        abilityValue.CalculateValue();
 
-        abilityValue.Trigger();
+        abilityModifier.TriggerModifier(abilityValue);
+
+        if (value > 0)
+        {
+            abilityValue.Trigger();
+
+            drainModifier.TriggerModifier(abilityValue);
+        }
     }
 
     public static float AddSchoolMultiplier(float value, AbilitySchool school, Unit caster)
@@ -314,6 +328,26 @@ public class AbilityValue
         color = _color;
     }
 
+    public void CalculateValue()
+    {
+        if (isGlancing)
+        {
+            value *= 0.5f;
+        }
+        else
+        {
+            if (isCritical)
+            {
+                value *= (Mathf.Max(0, (float)critDamage) / 100);
+            }
+        }
+
+        if (value < 0)
+        {
+            value = 0;
+        }      
+    }
+
     public void SetGlancingChance()
     {
         if (cannotMiss)
@@ -338,25 +372,8 @@ public class AbilityValue
         return Random.Range(lowerRange, upperRange);
     }
 
-    public void Trigger(bool flatHeal = false)
+    public void Trigger()
     {
-        if (!flatHeal)
-        {
-            if (isGlancing)
-                value *= 0.5f;
-            else
-                if (isCritical)
-                    value = CriticalValue(value, critDamage);
-
-            if (value < 0)
-                value = 0;
-        }
-        else
-        {
-            isGlancing = false;
-            isCritical = false;
-        }
-
         if (school != AbilitySchool.Healing)
         {
             caster.statsManager.OnCauseUnitEvent?.Invoke(this);
@@ -367,11 +384,6 @@ public class AbilityValue
             caster.statsManager.OnCauseUnitEvent?.Invoke(this);
             target.statsManager.ReceiveHealing(this);
         }
-    }
-
-    private float CriticalValue(float value, int critMultiplier)
-    {
-        return value * (Mathf.Max(0, (float)critMultiplier) / 100);
     }
 
     public int Rounded()

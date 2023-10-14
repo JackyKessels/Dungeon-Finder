@@ -35,7 +35,7 @@ MonoBehaviour:
     cannotMiss: 0
     ignorePassives: []
     school: 0
-    attributeType: 0
+    attributeType: 1
     baseValue: 0
     levelBase: 0
     scaling: 0

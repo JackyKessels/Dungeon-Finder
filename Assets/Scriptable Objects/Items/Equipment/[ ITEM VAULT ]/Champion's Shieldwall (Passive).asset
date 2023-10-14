@@ -17,11 +17,11 @@ MonoBehaviour:
   quality: 0
   abilityType: 3
   description: Increase <power> of all allies by <s1modP>.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 7d16e49253058aa46bceea96d2c60838, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
-  hasLevels: 1
-  sellable: 1
+  hasLevels: 0
+  sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
   activationMoment: 0

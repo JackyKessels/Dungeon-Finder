@@ -100,7 +100,10 @@ public abstract class ActiveAbility : AbilityObject
             return "";
     }
 
-    public abstract void TriggerAbility(Unit caster, Unit target, int level, float effectiveness);
+    public virtual void TriggerAbility(Unit caster, Unit target, int level, float effectiveness)
+    {
+        caster.OnAbilityCast?.Invoke(caster, this);
+    }
 
     public void AbilityActions(Unit caster, Unit target, int level, bool selfEffectPerTarget, float adjacentModifier, float abilityMultiplier)
     {
@@ -159,26 +162,9 @@ public abstract class ActiveAbility : AbilityObject
 
         temp = AbilityTooltipHandler.ParseAbilityType(temp, "<primary>", "<assault>", "<protection>");
 
-        // Friendly Ability Values <a1> <a2> etc.
-        for (int i = 0; i < allyAbilitySources.Count; i++)
-        {
-            temp = AbilityTooltipHandler.DetermineAbilityValue(temp, string.Format("<a{0}>", i + 1), allyAbilitySources[i], tooltipInfo);
-            temp = AbilityTooltipHandler.DetermineAbilityModifierBaseline(temp, string.Format("<a{0}modV>", i + 1), allyAbilitySources[i].modifier);
-            temp = AbilityTooltipHandler.DetermineAbilityModifierAttribute(temp, string.Format("<a{0}modP>", i + 1), allyAbilitySources[i].modifier);
-            temp = AbilityTooltipHandler.DetermineAbilityValue(temp, string.Format("<a{0}modB>", i + 1), allyAbilitySources[i].modifier.bonusAbilitySource.GetAbilitySource(), tooltipInfo);
-            temp = AbilityTooltipHandler.DetermineAbilityConditionValue(temp, string.Format("<a{0}conV>", i + 1), allyAbilitySources[i].modifier);
-        }
+        temp = AbilityTooltipHandler.ParseAllAbilitySourceTooltips(temp, tooltipInfo, allyAbilitySources, "a");
 
-        // Hostile Ability Values <e1> <e2> etc.
-        for (int i = 0; i < enemyAbilitySources.Count; i++)
-        {
-            temp = AbilityTooltipHandler.DetermineAbilityValue(temp, string.Format("<e{0}>", i + 1), enemyAbilitySources[i], tooltipInfo);
-            temp = AbilityTooltipHandler.DetermineAbilityModifierBaseline(temp, string.Format("<e{0}modV>", i + 1), enemyAbilitySources[i].modifier);
-            temp = AbilityTooltipHandler.DetermineAbilityModifierAttribute(temp, string.Format("<e{0}modP>", i + 1), enemyAbilitySources[i].modifier);
-            temp = AbilityTooltipHandler.DetermineAbilityValue(temp, string.Format("<e{0}modB>", i + 1), enemyAbilitySources[i].modifier.bonusAbilitySource.GetAbilitySource(), tooltipInfo);
-            temp = AbilityTooltipHandler.DetermineAbilityConditionValue(temp, string.Format("<e{0}conV>", i + 1), enemyAbilitySources[i].modifier);
-            temp = AbilityTooltipHandler.ParseEffectTooltips(temp, string.Format("e{0}modCE", i + 1), new List<EffectObject>() { enemyAbilitySources[i].modifier.conditionalEffect }, tooltipInfo);
-        }
+        temp = AbilityTooltipHandler.ParseAllAbilitySourceTooltips(temp, tooltipInfo, enemyAbilitySources, "e");
 
         if (this is TargetAbility t)
         {
@@ -197,30 +183,6 @@ public abstract class ActiveAbility : AbilityObject
         temp = AbilityTooltipHandler.ColorAllSchools(temp);
 
         temp = AbilityTooltipHandler.ColorAllAttributes(temp);
-
-        for (int i = 0; i < selfEffects.Count; i++)
-        {
-            if (selfEffects[i] is EffectConditionalTrigger selfTrigger)
-            {
-                temp = GetConditionalTriggerDescription(temp, string.Format("<selfTrigger{0}>", i + 1), selfTrigger, tooltipInfo);
-            }
-            else if (selfEffects[i] is EffectActivatePassive passive)
-            {
-                temp = GetActivatedPassiveDescription(temp, string.Format("<selfPassive{0}>", i + 1), passive, tooltipInfo);
-            }
-        }
-
-        for (int i = 0; i < targetEffects.Count; i++)
-        {
-            if (targetEffects[i] is EffectConditionalTrigger targetTrigger)
-            {
-                temp = GetConditionalTriggerDescription(temp, string.Format("<targetTrigger{0}>", i + 1), targetTrigger, tooltipInfo);
-            }
-            else if (targetEffects[i] is EffectActivatePassive passive)
-            {
-                temp = GetActivatedPassiveDescription(temp, string.Format("<targetPassive{0}>", i + 1), passive, tooltipInfo);
-            }
-        }
 
         if (resetChance > 0)
             temp = AbilityTooltipHandler.ResetChance(temp, resetChance);
@@ -247,30 +209,6 @@ public abstract class ActiveAbility : AbilityObject
     public bool SuccessfulReset()
     {
         return Random.Range(0, 100) < resetChance;
-    }
-
-    private string GetConditionalTriggerDescription(string s, string check, EffectConditionalTrigger trigger, TooltipObject tooltipInfo)
-    {
-        string temp = s;
-
-        if (temp.Contains(check))
-        {
-            temp = temp.Replace(check, trigger.GetConditionalDescription(tooltipInfo));
-        }
-
-        return temp;
-    }
-
-    private string GetActivatedPassiveDescription(string s, string check, EffectActivatePassive passive, TooltipObject tooltipInfo)
-    {
-        string temp = s;
-
-        if (temp.Contains(check))
-        {
-            temp = temp.Replace(check, passive.passiveAbility.ParseDescription(passive.passiveAbility.description, tooltipInfo));
-        }
-
-        return temp;
     }
 }
 
@@ -320,8 +258,6 @@ public class CastActiveAbility
 
             abilityToCast.Trigger(caster, target, effectiveness);
         }
-
-        return;
     }
 }
 

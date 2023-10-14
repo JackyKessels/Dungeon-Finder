@@ -26,6 +26,24 @@ public static class AbilityTooltipHandler
             return "";
     }
 
+    public static string ParseAllAbilitySourceTooltips(string s, TooltipObject tooltipInfo, List<AbilitySource> abilitySources, string prefix)
+    {
+        string temp = s;
+
+        for (int i = 0; i < abilitySources.Count; i++)
+        {
+            temp = DetermineAbilityValue(temp, $"<{prefix}{i + 1}>", abilitySources[i], tooltipInfo);
+            temp = DetermineAbilityModifierBaseline(temp, $"<{prefix}{i + 1}modV>", abilitySources[i].abilityModifier);
+            temp = DetermineAbilityModifierAttribute(temp, $"<{prefix}{i + 1}modP>", abilitySources[i].abilityModifier);
+            temp = DetermineAbilityValue(temp, $"<{prefix}{i + 1}modB>", abilitySources[i].abilityModifier.bonusAbilitySource.GetAbilitySource(), tooltipInfo);
+            temp = DetermineAbilityConditionValue(temp, $"<{prefix}{i + 1}conV>", abilitySources[i].abilityModifier);
+            temp = ParseEffectTooltips(temp, $"{prefix}{i + 1}modCE", new List<EffectObject>() { abilitySources[i].abilityModifier.conditionalEffect }, tooltipInfo);
+            temp = DetermineFractionDrained(temp, $"<{prefix}{i + 1}drain>", abilitySources[i].drainModifier);
+        }
+
+        return temp;
+    }
+
     public static string ParseAllEffectTooltips(string s, TooltipObject tooltipInfo, List<EffectObject> selfEffects, List<EffectObject> targetEffects)
     {
         string temp = s;
@@ -33,6 +51,17 @@ public static class AbilityTooltipHandler
         temp = ParseEffectTooltips(temp, "s", selfEffects, tooltipInfo);
 
         temp = ParseEffectTooltips(temp, "t", targetEffects, tooltipInfo);
+
+        return temp;
+    }
+
+    public static string ParseApplyEffectTooltips(string s, TooltipObject tooltipInfo, List<ApplyEffectObject> applyEffects)
+    {
+        string temp = s;
+
+        List<EffectObject> applyEffectObjects = applyEffects.ConvertAll(a => a.effectObject);
+
+        temp = ParseEffectTooltips(temp, "apply", applyEffectObjects, tooltipInfo);
 
         return temp;
     }
@@ -50,7 +79,10 @@ public static class AbilityTooltipHandler
         {
             (bool hasAbility, int abilityLevel) = caster.spellbook.GetAbility(activeAbility);
 
-            if (hasAbility) level = abilityLevel;
+            if (hasAbility)
+            {
+                level = abilityLevel;
+            }
         }
 
         if (temp.Contains(checkInfo))
@@ -122,49 +154,83 @@ public static class AbilityTooltipHandler
         return temp;
     }
 
-    public static string ParseEffectTooltips(string temp, string check, List<EffectObject> effects, TooltipObject tooltipInfo)
+    public static string ParseEffectTooltips(string temp, string prefix, List<EffectObject> effects, TooltipObject tooltipInfo)
     {
         for (int i = 0; i < effects.Count; i++)
         {
-            temp = DetermineEffectName(temp, string.Format("<{1}{0}name>", i + 1, check), effects[i]);
-            temp = DetermineEffectDuration(temp, string.Format("<{1}{0}d>", i + 1, check), effects[i]);
-            temp = ParseStacking(temp, string.Format("<{1}{0}stacks>", i + 1, check), effects[i]);
-            temp = DoesNotRefresh(temp, string.Format("<{1}{0}refresh>", i + 1, check), effects[i]);
-            temp = UniqueEffect(temp, string.Format("<{1}{0}unique>", i + 1, check), effects[i]);
+            temp = DetermineEffectName(temp, $"<{prefix}{i + 1}name>", effects[i]);
+            temp = DetermineEffectDuration(temp, $"<{prefix}{i + 1}d>", effects[i]);
+            temp = ParseStacking(temp, $"<{prefix}{i + 1}stacks>", effects[i]);
+            temp = DoesNotRefresh(temp, $"<{prefix}{i + 1}refresh>", effects[i]);
+            temp = UniqueEffect(temp, $"<{prefix}{i + 1}unique>", effects[i]);
 
             if (effects[i] is EffectAttributeModifier attributeModifier)
             {
-                temp = DetermineAbilityValue(temp, string.Format("<{1}{0}modV>", i + 1, check), attributeModifier.modifierSource, tooltipInfo);
-                temp = DetermineModifierEffectPercentage(temp, string.Format("<{1}{0}modP>", i + 1, check), attributeModifier, tooltipInfo);
+                temp = DetermineAbilityValue(temp, $"<{prefix}{i + 1}modV>", attributeModifier.modifierSource, tooltipInfo);
+                temp = DetermineModifierEffectPercentage(temp, $"<{prefix}{i + 1}modP>", attributeModifier, tooltipInfo);
             }
 
             if (effects[i] is EffectAbilityModifier abilityModifier)
             {
-                temp = DetermineBonusMultipler(temp, string.Format("<{1}{0}bonus>", i + 1, check), abilityModifier, tooltipInfo.active.level);
+                temp = DetermineBonusMultipler(temp, $"<{prefix}{i + 1}bonus>", abilityModifier, tooltipInfo.GetAbilityLevel());
                 temp = DetermineSpecificAbilities(temp, "<specific>", abilityModifier);
             }
 
             if (effects[i] is EffectCooldownReduction cdr)
             {
-                temp = DetermineCooldownReduction(temp, string.Format("<{1}{0}cdr>", i + 1, check), cdr);
-                temp = DetermineCooldownReductionAbility(temp, string.Format("<{1}{0}cdrSpecific>", i + 1, check), cdr);
-                temp = DetermineCooldownReductionType(temp, string.Format("<{1}{0}type>", i + 1, check), cdr);
+                temp = DetermineCooldownReduction(temp, $"<{prefix}{i + 1}cdr>", cdr);
+                temp = DetermineCooldownReductionAbility(temp, $"<{prefix}{i + 1}cdrSpecific>", cdr);
+                temp = DetermineCooldownReductionType(temp, $"<{prefix}{i + 1}type>", cdr);
             }
 
             if (effects[i] is EffectDamageTransfer dmg)
             {
-                temp = DetermineTransferPercentage(temp, string.Format("<{1}{0}transfer>", i + 1, check), dmg);
+                temp = DetermineTransferPercentage(temp, $"<{prefix}{i + 1}transfer>", dmg);
             }
 
             if (effects[i] is EffectOverTime dot)
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    temp = DetermineAbilityValue(temp, string.Format("<{2}{0}timAp{1}>", i + 1, j + 1, check), dot.GetAbilitySource(TimedActionType.OnApplication, j), tooltipInfo);
-                    temp = DetermineAbilityValue(temp, string.Format("<{2}{0}timAc{1}>", i + 1, j + 1, check), dot.GetAbilitySource(TimedActionType.OnActive, j), tooltipInfo);
-                    temp = DetermineAbilityValue(temp, string.Format("<{2}{0}timEx{1}>", i + 1, j + 1, check), dot.GetAbilitySource(TimedActionType.OnExpiration, j), tooltipInfo);
+                    temp = DetermineAbilityValue(temp, $"<{prefix}{i + 1}timAp{j + 1}>", dot.GetAbilitySource(TimedActionType.OnApplication, j), tooltipInfo);
+                    temp = DetermineAbilityValue(temp, $"<{prefix}{i + 1}timAc{j + 1}>", dot.GetAbilitySource(TimedActionType.OnActive, j), tooltipInfo);
+                    temp = DetermineAbilityValue(temp, $"<{prefix}{i + 1}timEx{j + 1}>", dot.GetAbilitySource(TimedActionType.OnExpiration, j), tooltipInfo);
                 }
             }
+
+            if (effects[i] is EffectConditionalTrigger trigger)
+            {
+                temp = GetConditionalTriggerDescription(temp, $"<{prefix}{i + 1}trigger>", trigger, tooltipInfo);
+            }
+
+            if (effects[i] is EffectActivatePassive passive)
+            {
+                temp = GetActivatedPassiveDescription(temp, $"<{prefix}{i + 1}passive>", passive, tooltipInfo);
+            }
+        }
+
+        return temp;
+    }
+
+    private static string GetConditionalTriggerDescription(string s, string check, EffectConditionalTrigger trigger, TooltipObject tooltipInfo)
+    {
+        string temp = s;
+
+        if (temp.Contains(check))
+        {
+            temp = temp.Replace(check, trigger.GetConditionalDescription(tooltipInfo));
+        }
+
+        return temp;
+    }
+
+    private static string GetActivatedPassiveDescription(string s, string check, EffectActivatePassive passive, TooltipObject tooltipInfo)
+    {
+        string temp = s;
+
+        if (temp.Contains(check))
+        {
+            temp = temp.Replace(check, passive.passiveAbility.ParseDescription(passive.passiveAbility.description, tooltipInfo));
         }
 
         return temp;
@@ -479,48 +545,13 @@ public static class AbilityTooltipHandler
         return temp;
     }
 
-    //private static string DetermineModifierEffectValue(string temp, string check, EffectAttributeModifier effectAttributeModifier, TooltipObject tooltipInfo)
-    //{
-    //    if (temp.Contains(check))
-    //    {
-    //        AbilitySource currentSource = effectAttributeModifier.modifierSource;
-
-    //        if (tooltipInfo.state == CurrentState.Values)
-    //        {
-    //            if (!currentSource.HasAttributeScaling())
-    //            {
-    //                string color = "#FEF0AE";
-
-    //                temp = temp.Replace(check, "<color=" + color + ">{0}</color>");
-
-    //                return string.Format(temp, currentSource.GetTooltipValue(tooltipInfo));
-    //            }
-    //            else
-    //            {
-    //                temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(currentSource.attributeType) + ">({0} {1})</color>");
-
-    //                return string.Format(temp, currentSource.GetTooltipValue(tooltipInfo), GeneralUtilities.GetCorrectAttributeName(currentSource.attributeType));
-    //            }
-    //        }
-    //        else
-    //        {
-    //            temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(currentSource.attributeType) + ">{0}</color>");
-
-    //            return string.Format(temp, currentSource.CalculateValue(tooltipInfo));
-    //        }
-    //    }
-
-    //    return temp;
-    //}
-
-    private static string DetermineModifierEffectPercentage(string temp, string check, EffectAttributeModifier effectAttributeModifier, TooltipObject tooltipInfo)
+    public static string DetermineFractionDrained(string temp, string check, DrainModifier drainModifier)
     {
         if (temp.Contains(check))
         {
-            //temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(effectAttributeModifier.attributeModified) + ">{0}</color>%");
             temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>%");
 
-            float percentage = (effectAttributeModifier.multiplier + effectAttributeModifier.multiplierPerLevel * (tooltipInfo.active.level - 1)) * 100f;
+            float percentage = drainModifier.fractionDrained * 100f;
 
             double rounded = System.Math.Round((double)percentage, 1);
 
@@ -530,46 +561,22 @@ public static class AbilityTooltipHandler
         return temp;
     }
 
-    //private static string DetermineEffectValue(string temp, string check, EffectOverTime effectOverTime, TimedActionType actionType, int actionIndex, TooltipObject tooltipInfo)
-    //{
-    //    if (temp.Contains(check))
-    //    {
-    //        AbilitySource currentSource = effectOverTime.GetAbilitySource(actionType, actionIndex);
+    private static string DetermineModifierEffectPercentage(string temp, string check, EffectAttributeModifier effectAttributeModifier, TooltipObject tooltipInfo)
+    {
+        if (temp.Contains(check))
+        {
+            //temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(effectAttributeModifier.attributeModified) + ">{0}</color>%");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>%");
 
-    //        if (tooltipInfo.state == CurrentState.Values)
-    //        {
-    //            if (!currentSource.HasAttributeScaling())
-    //            {
-    //                temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>");
+            float percentage = (effectAttributeModifier.multiplier + effectAttributeModifier.multiplierPerLevel * (tooltipInfo.GetAbilityLevel() - 1)) * 100f;
 
-    //                return string.Format(temp, currentSource.GetTooltipValue(tooltipInfo));
-    //            }
-    //            else
-    //            {
-    //                temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(currentSource.attributeType) + ">({0} {1})</color>");
+            double rounded = System.Math.Round((double)percentage, 1);
 
-    //                return string.Format(temp, currentSource.GetTooltipValue(tooltipInfo), GeneralUtilities.GetCorrectAttributeName(currentSource.attributeType));
-    //            }
-    //        }
-    //        else
-    //        {
-    //            if (!currentSource.HasAttributeScaling())
-    //            {
-    //                temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>");
+            return string.Format(temp, rounded);
+        }
 
-    //                return string.Format(temp, currentSource.CalculateValue(tooltipInfo));
-    //            }
-    //            else
-    //            {
-    //                temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(currentSource.attributeType) + ">{0}</color>");
-
-    //                return string.Format(temp, currentSource.CalculateValue(tooltipInfo));
-    //            }
-    //        }
-    //    }
-
-    //    return temp;
-    //}
+        return temp;
+    }
 
     private static string DetermineEffectDuration(string temp, string check, EffectObject effectObject)
     {

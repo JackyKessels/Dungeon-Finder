@@ -64,7 +64,7 @@ public class ChapterShop : Shop
         foreach (AbilityObject ability in newList)
         {
             CurrentShopItem currentShopItem = new CurrentShopItem(new Reward(ability as ActiveAbility), new Currency(CurrencyType.Spirit, GetAbilityCost(ability, hero)));
-            currentShopItem.reward.ability.level = hero.spellbook.LevelOfAbility(ability);
+            currentShopItem.reward.ability.level = hero.spellbook.GetAbilityLevel(ability);
 
             currentChapterAbilities.Add(currentShopItem);
         }
@@ -79,7 +79,7 @@ public class ChapterShop : Shop
             AbilityObject abilityObject = currentShopItem.reward.ability.activeAbility;
 
             currentShopItem.cost.totalAmount = GetAbilityCost(abilityObject, hero);
-            currentShopItem.reward.ability.level = hero.spellbook.LevelOfAbility(abilityObject);
+            currentShopItem.reward.ability.level = hero.spellbook.GetAbilityLevel(abilityObject);
         }
     }
 

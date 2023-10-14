@@ -42,7 +42,7 @@ public class AbilityOptionsWindow : MonoBehaviour
 
         for (int i = 0; i < abilityShop.abilityOptions; i++)
         {
-            Active active = new Active(options[i], hero.spellbook.LevelOfAbility(options[i]) + 1);
+            Active active = new Active(options[i], hero.spellbook.GetAbilityLevel(options[i]) + 1);
 
             AddAbilityOption(active);
         }
@@ -51,7 +51,7 @@ public class AbilityOptionsWindow : MonoBehaviour
         {
             ActiveAbility activeAbility = hero.heroPathManager.GetRandomAbilityFromOtherPaths(heroPathObject);
 
-            Active active = new Active(activeAbility, hero.spellbook.LevelOfAbility(activeAbility) + 1);
+            Active active = new Active(activeAbility, hero.spellbook.GetAbilityLevel(activeAbility) + 1);
 
             AddAbilityOption(active);
         }

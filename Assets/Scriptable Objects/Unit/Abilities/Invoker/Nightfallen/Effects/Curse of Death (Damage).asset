@@ -46,7 +46,7 @@ MonoBehaviour:
       scaling: 1.8
       levelScaling: 0.36
       reductionType: 2
-      modifier:
+      abilityModifier:
         hasModifier: 1
         modification: 1
         condition: 4
@@ -54,7 +54,7 @@ MonoBehaviour:
         conditionThreshold: 50
         increasedAttribute: 4
         increaseValue: 35
-        casterBased: 0
+        casterBased: 1
         attributeBase: 0
         percentageIncrease: 0
         bonusAbilitySource:
@@ -71,6 +71,9 @@ MonoBehaviour:
           reductionType: 0
         effectOnTarget: 1
         conditionalEffect: {fileID: 0}
+      drainModifier:
+        hasModifier: 0
+        fractionDrained: 0
     specialEffects:
     - {fileID: 1714250380615941509, guid: fda14d47687d6a34a898ec1bb005d765, type: 3}
     storedValue: 0

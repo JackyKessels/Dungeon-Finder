@@ -34,6 +34,7 @@ MonoBehaviour:
   initialCooldown: 0
   endTurn: 1
   resetChance: 0
+  singleUse: 0
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 0
@@ -50,7 +51,7 @@ MonoBehaviour:
     scaling: 1
     levelScaling: 0.2
     reductionType: 2
-    modifier:
+    abilityModifier:
       hasModifier: 1
       modification: 3
       condition: 5
@@ -75,6 +76,9 @@ MonoBehaviour:
         reductionType: 2
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []

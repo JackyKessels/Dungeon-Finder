@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TESTING FLOOR
   m_EditorClassIdentifier: 
   name: TESTING FLOOR
+  level: 0
   dungeonBackground: {fileID: 21300000, guid: 911aa93669d9cf04cba48c4ba6d63a4f, type: 3}
   battleBackground: {fileID: 21300000, guid: 041bd19ad39bae34c85ee9ed415b6913, type: 3}
   backgroundSound: {fileID: 0}
@@ -34,17 +35,13 @@ MonoBehaviour:
   itemPool: []
   trashEncounters:
   - enemyObjects:
-    - {fileID: 11400000, guid: b79f6fd3029771744af58bab7f1a7fc5, type: 2}
-    minimumLevel: 11
-    maximumLevel: 11
+    - {fileID: 11400000, guid: e43675038dff24842ba1c38e89df82a2, type: 2}
     randomOrder: 0
     weight: 1
   eliteEncounters: []
   bossEncounter:
     enemyObjects:
     - {fileID: 11400000, guid: e43675038dff24842ba1c38e89df82a2, type: 2}
-    minimumLevel: 1
-    maximumLevel: 1
     randomOrder: 1
     weight: 1
   mysteryEvents: {fileID: 0}

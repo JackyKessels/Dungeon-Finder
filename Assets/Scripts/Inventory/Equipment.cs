@@ -163,10 +163,23 @@ public class Equipment : Item
         }
         else
         {
-
-            if (equipmentObject.passives.Count == 1)
+            if (equipmentObject.passives.Count >= 1)
             {
-                tooltip += "\n\nYou learn the following passive ability: " + "\n\n" + equipmentObject.passives[0].GetDescription(tooltipInfo);
+                int count = equipmentObject.passives.Count;
+
+                if (count == 1)
+                {
+                    tooltip += "\n\nYou learn the following passive ability: " + "\n\n" + equipmentObject.passives[0].GetEquipmentDescription(tooltipInfo);
+                }
+                else
+                {
+                    tooltip += "\n\nYou learn the following passive abilities: ";
+
+                    foreach (PassiveAbility passiveAbility in equipmentObject.passives)
+                    {
+                        tooltip += "\n\n" + passiveAbility.GetEquipmentDescription(tooltipInfo);
+                    }
+                }
             }
 
             if (equipmentObject.useAbility != null)

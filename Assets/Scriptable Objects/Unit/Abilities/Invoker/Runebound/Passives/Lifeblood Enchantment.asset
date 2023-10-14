@@ -48,23 +48,22 @@ MonoBehaviour:
     scaling: 0.03
     levelScaling: 0
     reductionType: 0
-    modifier:
+    abilityModifier:
       hasModifier: 1
       modification: 1
       condition: 2
       thresholdType: 1
-      conditionThreshold: 20
+      conditionThreshold: 35
       increasedAttribute: 4
       increaseValue: 100
-      casterBased: 0
+      casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive:
-        - {fileID: 0}
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -72,8 +71,11 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 0
-      effectOnTarget: 0
+      effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects: []

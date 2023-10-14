@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Thistle Shell
   quality: 0
   abilityType: 2
-  description: '<targetPassive1>
+  description: '<t1passive>
 
 
     <name> lasts for <t1d> Rounds.'
@@ -29,8 +29,10 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 4
+  initialCooldown: 0
   endTurn: 0
   resetChance: 0
+  singleUse: 0
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 1

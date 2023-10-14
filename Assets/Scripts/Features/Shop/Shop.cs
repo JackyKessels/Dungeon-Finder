@@ -80,7 +80,7 @@ public abstract class Shop : MonoBehaviour
 
     public static int GetAbilityCost(AbilityObject ability, Hero hero)
     {
-        int level = hero == null ? 0 : hero.spellbook.LevelOfAbility(ability);
+        int level = hero == null ? 0 : hero.spellbook.GetAbilityLevel(ability);
 
         return AbilityCost(ability, level);
     }

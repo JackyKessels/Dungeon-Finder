@@ -19,15 +19,15 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 4107283b838a9e1419cfb542cf934e00, type: 3}
   attackAnimation: {fileID: 0}
   castAnimation: {fileID: 0}
-  baseHealth: 200
+  baseHealth: 100
   basePower: 0
-  baseWisdom: 27
-  armor: 0
+  baseWisdom: 15
+  armor: 50
   resistance: 0
   vitality: 0
   speed: 9
   accuracy: 80
-  criticalHit: 40
+  criticalHit: 30
   healingMultiplier: 100
   crushingMultiplier: 100
   piercingMultiplier: 100

@@ -45,14 +45,14 @@ public class TooltipObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         useGenericTooltip = tooltipObject.useGenericTooltip;
         genericTooltip = tooltipObject.genericTooltip;
-        active = tooltipObject.active;  
+        active = tooltipObject.active;
+        passive = tooltipObject.passive;
         effect = tooltipObject.effect;           
         item = tooltipObject.item;
         attribute = tooltipObject.attribute;
         currency = tooltipObject.currency;
         state = tooltipObject.state;
         experience = tooltipObject.experience;
-
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -101,6 +101,35 @@ public class TooltipObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         else if (experience)
         {
             tooltipHandler.ShowTooltip("Experience points are required to level up your team.", transform.position);
+        }
+    }
+
+    public int GetAbilityLevel()
+    {
+        if ((active != null && active.activeAbility != null && passive != null && passive.passiveAbility != null && item != null && item.id != -1) ||
+            (active != null && active.activeAbility != null && passive != null && passive.passiveAbility != null) ||
+            (active != null && active.activeAbility != null && item != null && item.id != -1) ||
+            (passive != null && passive.passiveAbility != null && item != null && item.id != -1))
+        {
+            Debug.Log("Can only have one tooltip at a time.");
+        }
+
+        if (active != null && active.activeAbility != null)
+        {
+            return active.level;
+        }
+        else if (passive != null && passive.passiveAbility != null)
+        {
+            return passive.level;
+        }
+        else if (item != null && item.id != -1)
+        {
+            return item.level;
+        }
+        else
+        {
+            Debug.Log("No active or passive ability found in tooltip.");
+            return 0;
         }
     }
 

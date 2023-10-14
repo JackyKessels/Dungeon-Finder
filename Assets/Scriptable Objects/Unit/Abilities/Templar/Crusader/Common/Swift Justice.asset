@@ -16,7 +16,8 @@ MonoBehaviour:
   name: Swift Justice
   quality: 0
   abilityType: 2
-  description: Deal <e1> <H> damage to your target.
+  description: Deal <e1> <H> damage to your target and heal for <e1drain> of the
+    damage dealt.
   icon: {fileID: 21300000, guid: 17fd557b7847d9a4cae1d6b21b21df45, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
@@ -44,10 +45,10 @@ MonoBehaviour:
     attributeType: 0
     baseValue: 0
     levelBase: 0
-    scaling: 0.1
-    levelScaling: 0.02
+    scaling: 0.075
+    levelScaling: 0.015
     reductionType: 2
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
@@ -62,8 +63,7 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive:
-        - {fileID: 0}
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -73,6 +73,9 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 1
+      fractionDrained: 1
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []

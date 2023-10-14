@@ -24,6 +24,7 @@ MonoBehaviour:
   maxStacks: 0
   refreshes: 1
   aura: 0
+  unique: 0
   removeEffects: []
   attributeModified: 4
   isIncrease: 1
@@ -32,7 +33,7 @@ MonoBehaviour:
     ignoreMultipliers: 1
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 0
     attributeType: 4
     baseValue: 50
@@ -40,7 +41,7 @@ MonoBehaviour:
     scaling: 0
     levelScaling: 0
     reductionType: 0
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
@@ -48,14 +49,14 @@ MonoBehaviour:
       conditionThreshold: 0
       increasedAttribute: 0
       increaseValue: 0
-      casterBased: 1
+      casterBased: 0
       attributeBase: 0
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -65,6 +66,9 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   multiplier: 0
   multiplierPerLevel: 0
   specialEffects: []

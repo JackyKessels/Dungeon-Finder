@@ -14,6 +14,8 @@ public enum UnitType
 
 public delegate void EffectEvent(Unit unit);
 
+public delegate void AbilityEvent(Unit caster, ActiveAbility activeAbility);
+
 public class Unit : MonoBehaviour
 {
     [HideInInspector] public EffectManager effectManager;
@@ -45,6 +47,8 @@ public class Unit : MonoBehaviour
 
     [HideInInspector] public EffectEvent OnStartBattle;
     [HideInInspector] public EffectEvent OnRoundStart;
+
+    [HideInInspector] public AbilityEvent OnAbilityCast;
 
     public virtual UnitObject GetUnitObject()
     {

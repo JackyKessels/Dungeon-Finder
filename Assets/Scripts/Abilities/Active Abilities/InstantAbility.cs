@@ -10,6 +10,8 @@ public class InstantAbility : ActiveAbility
 
     public override void TriggerAbility(Unit caster, Unit target, int level, float effectiveness)
     {
+        base.TriggerAbility(caster, target, level, effectiveness);
+
         bool selfEffectBool = selfEffectsPerTarget;
 
         ObjectUtilities.CreateSpecialEffects(casterSpecialEffects, caster);

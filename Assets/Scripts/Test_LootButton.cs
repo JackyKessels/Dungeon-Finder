@@ -12,7 +12,7 @@ public class Test_LootButton : MonoBehaviour
     {
         foreach (ItemObject obj in items)
         {
-            Item item = Item.CreateItem(obj, 1);
+            Item item = Item.CreateItem(obj, level);
 
             InventoryManager.Instance.AddItemToInventory(item);
         }

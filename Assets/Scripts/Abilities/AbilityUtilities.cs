@@ -90,7 +90,14 @@ public static class AbilityUtilities
                 break;
             case AbilityTargets.Target:
                 {
-                    targets.Add(target);
+                    if (target != null)
+                    {
+                        targets.Add(target);
+                    }
+                    else
+                    {
+                        Debug.Log("[AbilityTargets.Target] selected but target is null.");
+                    }
                 }
                 break;
         }

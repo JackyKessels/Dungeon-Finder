@@ -40,7 +40,9 @@ public class Food : Consumable
         {
             AbilityValue abilityValue = new AbilityValue(null, false, false, healthRestore, AbilitySchool.Healing, AbilityType.Protection, true, true, unit, unit, Color.green, true, null);
 
-            abilityValue.Trigger(true);
+            abilityValue.CalculateValue();
+
+            abilityValue.Trigger();
         }
 
         if (preBattleEffects.Count > 0)

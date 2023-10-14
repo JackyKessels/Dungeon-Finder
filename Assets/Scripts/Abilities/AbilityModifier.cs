@@ -77,35 +77,37 @@ public class AbilityModifier
     public bool effectOnTarget = true;
     public EffectObject conditionalEffect;
 
-    public void TriggerModifier(AbilityValue _value, int level = 1)
+    public void TriggerModifier(AbilityValue abilityValue, int level = 1)
     {
         if (!hasModifier)
+        {
             return;
+        }
 
-        if (PassCondition(_value))
+        if (PassCondition(abilityValue))
         {
             if (modification == AbilityModification.IncreasedBaseline)
             {
                 if (increasedAttribute == AttributeIncrease.CritChance)
                 {
-                    _value.critChance += increaseValue;
-                    _value.SetCriticalChance();
+                    abilityValue.critChance += increaseValue;
+                    abilityValue.SetCriticalChance();
                 }
                 else if (increasedAttribute == AttributeIncrease.CritDamage)
-                    _value.critDamage += increaseValue;
+                    abilityValue.critDamage += increaseValue;
                 else if (increasedAttribute == AttributeIncrease.Accuracy)
                 {
-                    _value.accuracy += increaseValue;
-                    _value.SetGlancingChance();
+                    abilityValue.accuracy += increaseValue;
+                    abilityValue.SetGlancingChance();
                 }
                 else if (increasedAttribute == AttributeIncrease.TotalDamagePercentage)
                 {
-                    _value.value *= (1 + ((float)increaseValue / 100));
+                    abilityValue.value *= (1 + ((float)increaseValue / 100));
                 }
             }
             else if (modification == AbilityModification.AttributeBasedIncrease)
             {
-                Unit attributeBasedUnit = casterBased ? _value.caster : _value.target;
+                Unit attributeBasedUnit = casterBased ? abilityValue.caster : abilityValue.target;
 
                 float attributeValue = 0;
 
@@ -137,20 +139,20 @@ public class AbilityModifier
                     attributeValue = attributeBasedUnit.statsManager.GetAttributeValue(AttributeType.Resistance);
                 }
 
-                _value.value *= (1 + (attributeValue * percentageIncrease / 100));
+                abilityValue.value *= (1 + (attributeValue * percentageIncrease / 100));
             }
             else if (modification == AbilityModification.BonusAbilitySource)
             {
-                bonusAbilitySource.GetAbilitySource().TriggerSource(_value.sourceAbility, _value.isPassive, _value.isEffect, _value.caster, _value.target, level, 1, true, 1, AbilityType.Passive); 
+                bonusAbilitySource.GetAbilitySource().TriggerSource(abilityValue.sourceAbility, abilityValue.isPassive, abilityValue.isEffect, abilityValue.caster, abilityValue.target, level, 1, true, 1, AbilityType.Passive); 
             }
             else if (modification == AbilityModification.ConditionalEffect)
             {
                 if (conditionalEffect == null)
                     return;
 
-                Unit target = effectOnTarget ? _value.target : _value.caster;
+                Unit target = effectOnTarget ? abilityValue.target : abilityValue.caster;
 
-                EffectManager.ApplyEffect(conditionalEffect, _value.caster, target, level, _value.sourceAbility);
+                EffectManager.ApplyEffect(conditionalEffect, abilityValue.caster, target, level, abilityValue.sourceAbility);
             }
         }
         else
@@ -158,8 +160,6 @@ public class AbilityModifier
             // Condition not met so do nothing
             return;
         }
-
-
     }
 
     private bool PassCondition(AbilityValue value)

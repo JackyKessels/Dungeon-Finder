@@ -59,6 +59,13 @@ public enum MysteryActionTarget
     Random
 }
 
+public enum EncounterTeamSetup
+{
+    Team,
+    SoloPicked,
+    SoloRandom
+}
+
 [System.Serializable]
 public class MysteryAction
 {
@@ -84,7 +91,7 @@ public class MysteryAction
 
     [Header("Battle")]
     public Encounter encounter;
-
+    public EncounterTeamSetup teamSetup = EncounterTeamSetup.Team;
 
     public void TriggerAction(List<ConsequenceStructure> consequenceStructures, int level)
     {
@@ -236,8 +243,22 @@ public class MysteryAction
                 break;
             case MysteryActionType.Battle:
                 {
-                    List<(EnemyObject, int)> enemyUnits = Encounter.SetupUnitObjects(encounter, level, level + 1);
-                    BattleManager.Instance.StartBattle(enemyUnits);
+                    switch (teamSetup)
+                    {
+                        case EncounterTeamSetup.Team:
+                            {
+                                List<(EnemyObject, int)> enemyUnits = Encounter.SetupUnitObjects(encounter, level, level + 1);
+                                BattleManager.Instance.StartBattle(enemyUnits);
+                            }
+                            break;
+                        case EncounterTeamSetup.SoloPicked:
+                            break;
+                        case EncounterTeamSetup.SoloRandom:
+                            {
+                                Unit solo = AbilityUtilities.GetRandomUnit(TeamManager.Instance.heroes);
+                            }
+                            break;
+                    }
                 }
                 break;
             default:
