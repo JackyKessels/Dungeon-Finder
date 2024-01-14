@@ -16,10 +16,10 @@ MonoBehaviour:
   name: Corrupted Soul
   quality: 0
   abilityType: 3
-  description: 'Reduce your <resistance> by <s1modV> per Round.
+  description: 'Reduce your <resistance> by <effect1modV> per Round.
 
 
-    <s1stacks>'
+    <effect1stacks>'
   icon: {fileID: 21300000, guid: 08ee64ea91b837742b915281ac292cc5, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
@@ -36,3 +36,4 @@ MonoBehaviour:
   attributeType: 0
   attributeValue: 0
   cooldown: 0
+  castFirstRound: 0

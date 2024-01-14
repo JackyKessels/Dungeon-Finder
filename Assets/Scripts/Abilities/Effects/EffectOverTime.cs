@@ -93,7 +93,7 @@ public class TimedAction
         specialEffects = copyTimedAction.specialEffects;
     }
 
-    public static TimedAction StackTimedActions(TimedAction sameTimedAction, TimedAction applyTimedAction)
+    public static TimedAction ApplyStacksTimedActions(TimedAction sameTimedAction, TimedAction applyTimedAction)
     {
         // Missing a timed action
         if (sameTimedAction == null || applyTimedAction == null)
@@ -101,6 +101,14 @@ public class TimedAction
 
         TimedAction newTimedAction = new TimedAction(sameTimedAction);
         newTimedAction.storedValue = sameTimedAction.storedValue + applyTimedAction.storedValue;
+
+        return newTimedAction;
+    }
+
+    public static TimedAction DropStacksTimedAction(TimedAction timedAction, int stacks)
+    {
+        TimedAction newTimedAction = new TimedAction(timedAction);
+        newTimedAction.storedValue = GeneralUtilities.RoundFloat(newTimedAction.storedValue / stacks, 1);
 
         return newTimedAction;
     }

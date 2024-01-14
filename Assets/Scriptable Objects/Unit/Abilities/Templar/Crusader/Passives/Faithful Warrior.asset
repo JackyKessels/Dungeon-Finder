@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Faithful Warrior
   quality: 0
   abilityType: 3
-  description: Increase your <physicalmultiplier> by <s1modV>% while above <threshold>%
+  description: Increase your <physicalmultiplier> by <effect1modV>% while above <threshold>%
     Health.
   icon: {fileID: 21300000, guid: adda846d3f5d817499fb2288f8e5a949, type: 3}
   casterSpecialEffects: []
@@ -25,12 +25,13 @@ MonoBehaviour:
   sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
+  activationMoment: 2
   castActiveAbilities: []
   effects:
   - {fileID: 11400000, guid: d76a06e40b7d8554c8dc7d25c7754fe6, type: 2}
-  activationMoment: 2
   targets: 0
   healthPercentage: 80
   attributeType: 0
   attributeValue: 0
   cooldown: 0
+  castFirstRound: 0

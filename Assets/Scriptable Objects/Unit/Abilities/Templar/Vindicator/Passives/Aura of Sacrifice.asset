@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Aura of Sacrifice
   quality: 0
   abilityType: 3
-  description: Transfer <s1transfer> of damage taken by your allies to yourself.
+  description: Transfer <effect1transfer> of damage taken by your allies to yourself.
   icon: {fileID: 21300000, guid: 93c67676a81b2d747b28ba7d8b0d6e02, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []

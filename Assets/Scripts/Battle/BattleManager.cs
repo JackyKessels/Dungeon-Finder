@@ -804,9 +804,6 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
     private void CastAnimation(Active a)
     {
-        if (a.activeAbility.soundEffect != null)
-            gameManager.audioSourceSFX.PlayOneShot(a.activeAbility.soundEffect);
-
         if (a.activeAbility.animationType == AnimationType.Attack)
         {
             if (currentUnit.isEnemy)

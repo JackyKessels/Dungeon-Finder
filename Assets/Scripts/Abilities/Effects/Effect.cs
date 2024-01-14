@@ -65,7 +65,7 @@ public class Effect
         }
     }
 
-    public static Effect StackEffects(Effect sameEffect, Effect applyEffect)
+    public static Effect ApplyStacks(Effect sameEffect, Effect applyEffect)
     {
         // Missing an effect
         if (sameEffect == null || applyEffect == null)
@@ -95,17 +95,50 @@ public class Effect
 
             for (int i = 0; i < sameEffect.timedActions.Count; i++)
             {
-                timedActions[i] = TimedAction.StackTimedActions(timedActions[i], applyEffect.timedActions[i]);
+                timedActions[i] = TimedAction.ApplyStacksTimedActions(timedActions[i], applyEffect.timedActions[i]);
             }
         }
 
         Effect newEffect = new Effect(effectObject, newStacks, sameEffect.caster, sameEffect.target, level, sameEffect.sourceAbility);
         newEffect.storedModValue = storedValue;
         newEffect.timedActions = timedActions;
-        if (!effectObject.refreshes)   
+
+        if (!effectObject.refreshes)
+        {
             newEffect.duration = sameEffect.duration;
+        }
 
         return newEffect;
+    }
+
+    public static void DropStacks(Effect effect)
+    {
+        // DOES NOT WORK YET
+        // ApplyStacks should keep a list of every stack with its value in the effect
+        // Then the value should just sum up the values of the list
+        // If a stack is dropped, then this stack should also remove the stats from the actual unit
+
+        //int newStacks = effect.stacks - effect.effectObject.loseStacks;
+        //float storedValue = effect.storedModValue;
+        //List<TimedAction> timedActions = new List<TimedAction>(effect.timedActions);
+
+        //if (newStacks <= 0)
+        //{
+        //    newStacks = 0;
+        //}
+        //else // Drop effects
+        //{
+        //    storedValue = GeneralUtilities.RoundFloat(storedValue / newStacks, 1);
+
+        //    for (int i = 0; i < effect.timedActions.Count; i++)
+        //    {
+        //        timedActions[i] = TimedAction.DropStacksTimedAction(timedActions[i], newStacks);
+        //    }
+        //}
+
+        //effect.stacks = newStacks;
+        //effect.storedModValue = storedValue;
+        //effect.timedActions = timedActions;
     }
 
     public float CalculateModifiedValue(Effect e)

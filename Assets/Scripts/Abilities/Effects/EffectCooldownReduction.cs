@@ -7,7 +7,8 @@ public enum CooldownReductionType
     Random,
     Specific,
     All,
-    Typed
+    Typed,
+    Flask
 }
 
 [CreateAssetMenu(fileName = "New Cooldown Reduction", menuName = "Unit/Effect Object/Cooldown Reduction")]

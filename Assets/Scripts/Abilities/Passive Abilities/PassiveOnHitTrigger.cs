@@ -80,11 +80,11 @@ public class PassiveOnHitTrigger : PassiveAbility
             {
                 if (targetTrigger == TargetTrigger.Attacked)
                 {
-                    abilitySources[i].TriggerSource(this, true, false, attacked, attacked, attacked.spellbook.GetAbilityLevel(this), 1, triggersPassives, 1, abilityType);
+                    abilitySources[i].TriggerSource(this, attacked.spellbook.GetAbilityLevel(this), true, false, attacked, attacked, 1, triggersPassives, 1, abilityType);
                 }
                 else if (targetTrigger == TargetTrigger.Attacker)
                 {
-                    abilitySources[i].TriggerSource(this, true, false, attacked, attacker, attacked.spellbook.GetAbilityLevel(this), 1, triggersPassives, 1, abilityType);
+                    abilitySources[i].TriggerSource(this, attacked.spellbook.GetAbilityLevel(this), true, false, attacked, attacker, 1, triggersPassives, 1, abilityType);
                 }
             }
         }
@@ -93,7 +93,14 @@ public class PassiveOnHitTrigger : PassiveAbility
         {
             for (int i = 0; i < castActiveAbilities.Count; i++)
             {
-                castActiveAbilities[i].CastAbility(attacked, attacker);
+                if (targetTrigger == TargetTrigger.Attacked)
+                {
+                    castActiveAbilities[i].CastAbility(attacked, attacked);
+                }
+                else if (targetTrigger == TargetTrigger.Attacker)
+                {
+                    castActiveAbilities[i].CastAbility(attacked, attacker);
+                }
             }
         }
 
@@ -119,11 +126,11 @@ public class PassiveOnHitTrigger : PassiveAbility
             {
                 if (targetTrigger == TargetTrigger.Attacked)
                 {
-                    abilitySources[i].TriggerSource(this, true, false, attacker, attacked, attacker.spellbook.GetAbilityLevel(this), 1, triggersPassives, 1, abilityType);
+                    abilitySources[i].TriggerSource(this, attacker.spellbook.GetAbilityLevel(this), true, false, attacker, attacked, 1, triggersPassives, 1, abilityType);
                 }
                 else if (targetTrigger == TargetTrigger.Attacker)
                 {
-                    abilitySources[i].TriggerSource(this, true, false, attacker, attacker, attacker.spellbook.GetAbilityLevel(this), 1, triggersPassives, 1, abilityType);
+                    abilitySources[i].TriggerSource(this, attacker.spellbook.GetAbilityLevel(this), true, false, attacker, attacker, 1, triggersPassives, 1, abilityType);
                 }
             }
         }
@@ -132,7 +139,14 @@ public class PassiveOnHitTrigger : PassiveAbility
         {
             for (int i = 0; i < castActiveAbilities.Count; i++)
             {
-                castActiveAbilities[i].CastAbility(attacker, attacked);
+                if (targetTrigger == TargetTrigger.Attacked)
+                {
+                    castActiveAbilities[i].CastAbility(attacker, attacked);
+                }
+                else if (targetTrigger == TargetTrigger.Attacker)
+                {
+                    castActiveAbilities[i].CastAbility(attacker, attacker);
+                }
             }
         }
 

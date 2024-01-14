@@ -15,7 +15,7 @@ MonoBehaviour:
   id: -1
   name: Wither
   quality: 0
-  type: 3
+  abilityType: 0
   description: 
   icon: {fileID: 0}
   casterSpecialEffects: []
@@ -31,8 +31,11 @@ MonoBehaviour:
   typeRequirement: 0
   schoolTriggers: 020000000300000004000000050000000600000007000000
   triggersPassives: 0
+  triggeredByPassives: 1
+  triggeredByEffects: 0
   procChance: 100
   abilitySources: []
+  castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects:
   - {fileID: 11400000, guid: 603198c5cfbe4fe46aca7c3fd858522b, type: 2}

@@ -23,6 +23,7 @@ public class PassiveOnUse : PassiveAbility
     [Header("[ On Use Events ]")]
     public List<CastActiveAbility> castActiveAbilities;
     public List<ApplyEffectObject> applyEffectObjects;
+    public DoubleCastAbility doubleCastAbility;
 
     public override void ActivatePassive(Unit unit)
     {
@@ -34,9 +35,9 @@ public class PassiveOnUse : PassiveAbility
         unit.OnAbilityCast -= TriggerUseEvent;
     }
     
-    private void TriggerUseEvent(Unit caster, ActiveAbility activeAbility)
+    private void TriggerUseEvent(Unit caster, Unit target, Active active)
     {
-        if (!SuccessfulTrigger(activeAbility))
+        if (!SuccessfulTrigger(active.activeAbility))
             return;
 
         if (castActiveAbilities.Count > 0)
@@ -47,12 +48,26 @@ public class PassiveOnUse : PassiveAbility
             }
         }
 
+        if (doubleCastAbility.enableDoubleCast && !active.isDoubleCast && caster.GetComponent<MonoBehaviour>() != null)
+        {
+            caster.GetComponent<MonoBehaviour>().StartCoroutine(TriggerDoubleCast(caster, target, active));
+        }
+
         foreach (ApplyEffectObject applyEffectObject in applyEffectObjects)
         {
-            applyEffectObject.ApplyEffect(caster, activeAbility);
+            applyEffectObject.ApplyEffect(caster, active.activeAbility);
         }
 
         ObjectUtilities.CreateSpecialEffects(casterSpecialEffects, caster);
+    }
+
+    IEnumerator TriggerDoubleCast(Unit caster, Unit target, Active active)
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        Active doubleCastActive = new Active(active.activeAbility, active.level, isDoubleCast: true);
+
+        doubleCastActive.Trigger(caster, target, doubleCastAbility.GetEffectiveness(active.level));
     }
 
     private bool SuccessfulTrigger(ActiveAbility activeAbility)
@@ -108,6 +123,11 @@ public class PassiveOnUse : PassiveAbility
             temp = AbilityTooltipHandler.ParseCastAbility(temp, string.Format("<castInfo{0}>", i + 1), string.Format("<castTooltip{0}>", i + 1), tooltipInfo, castActiveAbilities[i].activeAbility);
         }
 
+        if (doubleCastAbility.enableDoubleCast)
+        {
+            temp = AbilityTooltipHandler.ParseDoubleCastEffectiveness(temp, $"<doubleEffect>", doubleCastAbility.GetEffectiveness(tooltipInfo.GetAbilityLevel()));
+        }
+
         temp = AbilityTooltipHandler.ParseApplyEffectTooltips(temp, tooltipInfo, applyEffectObjects);    
 
         temp = AbilityTooltipHandler.ParseProcChance(temp, "<%>", procChance);
@@ -115,5 +135,19 @@ public class PassiveOnUse : PassiveAbility
         temp = AbilityTooltipHandler.InsertRed(temp);
 
         return temp;
+    }
+}
+
+
+[System.Serializable]
+public class DoubleCastAbility
+{
+    public bool enableDoubleCast = false;
+    public float baseEffectiveness;
+    public float effectivenessPerLevel;
+
+    public float GetEffectiveness(int level)
+    {
+        return baseEffectiveness + ((level - 1) * effectivenessPerLevel);
     }
 }

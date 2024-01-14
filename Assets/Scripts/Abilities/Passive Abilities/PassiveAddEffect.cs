@@ -113,9 +113,11 @@ public class PassiveAddEffect : PassiveAbility
 
     private void AddEffect(Unit caster, Unit target)
     {
+        int level = caster.spellbook.GetAbilityLevel(this);
+
         foreach (EffectObject effectObject in effects)
         {
-            EffectManager.ApplyEffect(effectObject, caster, target, 1, this);
+            EffectManager.ApplyEffect(effectObject, caster, target, level, this);
         }
     }
 
@@ -129,10 +131,13 @@ public class PassiveAddEffect : PassiveAbility
 
     private void TriggerPassiveEvent(Unit caster)
     {
+        ObjectUtilities.CreateSpecialEffects(casterSpecialEffects, caster);
+
         foreach (Unit unit in AbilityUtilities.GetAbilityTargets(targets, caster))
         {
             CastActiveAbility(caster, unit);
             AddEffect(caster, unit);
+            ObjectUtilities.CreateSpecialEffects(targetSpecialEffects, unit);
         }
     }
 
@@ -251,7 +256,7 @@ public class PassiveAddEffect : PassiveAbility
     {
         string temp = base.ParseDescription(s, tooltipInfo);
 
-        temp = AbilityTooltipHandler.ParseAllEffectTooltips(temp, tooltipInfo, effects, new List<EffectObject>());
+        temp = AbilityTooltipHandler.ParseEffectTooltips(temp, "effect", effects, tooltipInfo);
 
         for (int i = 0; i < castActiveAbilities.Count; i++)
         {

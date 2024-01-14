@@ -17,7 +17,7 @@ MonoBehaviour:
   quality: 0
   abilityType: 3
   description: Every <cooldown> Rounds increase the damage of your next <primary>
-    ability by <s1bonus>.
+    ability by <effect1bonus>.
   icon: {fileID: 21300000, guid: 13d7db31af5858548a2100096590fbe3, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []

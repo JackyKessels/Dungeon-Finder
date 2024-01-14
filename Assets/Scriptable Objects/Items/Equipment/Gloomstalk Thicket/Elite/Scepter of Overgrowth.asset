@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d318b60c43bbff540adf2168b0cccf9c, type: 3}
+  m_Name: Scepter of Overgrowth
+  m_EditorClassIdentifier: 
+  name: Scepter of Overgrowth
+  icon: {fileID: 21300000, guid: d0c981bc08de0d540bc04423dd51bbde, type: 3}
+  value: 0
+  stackable: 0
+  maxStacks: 1
+  sellable: 1
+  item:
+    name: 
+    id: 74
+    itemObject: {fileID: 0}
+    level: 1
+  description: 
+  quality: 0
+  slot: 2
+  healthFactor: 0.3
+  powerFactor: 0
+  wisdomFactor: 0.45
+  armor: 0
+  resistance: 0
+  vitality: 0
+  speed: -1
+  accuracy: 0
+  crit: 0
+  healingMultiplier: 10
+  physicalMultiplier: 0
+  fireMultiplier: 0
+  iceMultiplier: 0
+  natureMultiplier: 10
+  arcaneMultiplier: 0
+  holyMultiplier: 0
+  shadowMultiplier: 0
+  critMultiplier: 0
+  passives: []
+  useAbility: {fileID: 11400000, guid: 176ae01e18f1d044da049e5ae9e0ead2, type: 2}

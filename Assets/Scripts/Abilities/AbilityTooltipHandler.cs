@@ -123,6 +123,23 @@ public static class AbilityTooltipHandler
         return temp;
     }
 
+    public static string ParseDoubleCastEffectiveness(string s, string check, float effectiveness)
+    {
+        string temp = s;
+        string color = ColorDatabase.GeneralInformation();
+
+        if (temp.Contains(check))
+        {
+            int percentage = GeneralUtilities.RoundFloat(100 * effectiveness, 0);
+
+            temp = temp.Replace(check, "<color={1}>{0}</color>% effectiveness");
+
+            temp = string.Format(temp, percentage, color);
+        }
+
+        return temp;
+    }
+
     public static string InsertRed(string s)
     {
         string pattern = @"\<r([^>]*)\>";

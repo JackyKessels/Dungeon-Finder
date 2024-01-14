@@ -15,7 +15,7 @@ MonoBehaviour:
   id: -1
   name: Inner Furnace
   quality: 0
-  type: 2
+  abilityType: 3
   description: 
   icon: {fileID: 0}
   casterSpecialEffects: []
@@ -24,8 +24,13 @@ MonoBehaviour:
   sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
+  activationMoment: 4
+  castActiveAbilities: []
   effects:
   - {fileID: 11400000, guid: c77806b51e3c05745a40170278e2d196, type: 2}
-  activationMoment: 4
   targets: 0
   healthPercentage: 0
+  attributeType: 0
+  attributeValue: 0
+  cooldown: 0
+  castFirstRound: 0

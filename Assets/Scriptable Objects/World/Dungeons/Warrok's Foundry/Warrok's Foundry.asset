@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5d8964ff6732a478daba8589bfd458, type: 3}
+  m_Name: Warrok's Foundry
+  m_EditorClassIdentifier: 
+  name: Warrok's Foundry
+  recommendedMinimumLevel: 5
+  recommendedMaximumLevel: 8
+  nameColor: {r: 1, g: 0.3483723, b: 0, a: 1}
+  floors:
+  - {fileID: 11400000, guid: ba2c6194df2e9b343a51c083479be6a2, type: 2}

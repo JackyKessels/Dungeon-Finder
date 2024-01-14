@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
+  m_Name: Hallow Ground
+  m_EditorClassIdentifier: 
+  id: 175
+  name: Hallow Ground
+  quality: 0
+  abilityType: 2
+  description: "Deal <e1> <H> to all enemies and afflict them with <t1name>. \n\n<t1name>
+    deals <t1timAc1> <H> damage every Round for <t1d> Rounds."
+  icon: {fileID: 21300000, guid: 45918e358ac2a0646b8978fc2e7993fa, type: 3}
+  casterSpecialEffects:
+  - {fileID: 5793683456844857093, guid: b60fe3f6cd6655845888fb59eb34f4f0, type: 3}
+  targetSpecialEffects: []
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  castTime: 0.75
+  cooldown: 6
+  initialCooldown: 0
+  endTurn: 1
+  resetChance: 0
+  singleUse: 0
+  weaponRequirement: 4
+  soundEffect: {fileID: 0}
+  animationType: 1
+  allyAbilitySources: []
+  enemyAbilitySources:
+  - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
+    school: 6
+    attributeType: 0
+    baseValue: 0
+    levelBase: 0
+    scaling: 0.06
+    levelScaling: 0.012
+    reductionType: 2
+    abilityModifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      increasedAttribute: 0
+      increaseValue: 0
+      casterBased: 0
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 0
+      conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
+  selfEffectsPerTarget: 0
+  selfEffects: []
+  targetEffects:
+  - {fileID: 11400000, guid: 56f36b7d759c87c4db21b8ad59f5d0c4, type: 2}
+  abilityTargets: 2

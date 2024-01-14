@@ -25,16 +25,24 @@ public class EffectManager : MonoBehaviour
         if (effectsList.Count <= 0)
             return;
 
-        foreach (EffectObject e in effectsList)
+        foreach (EffectObject effectObject in effectsList)
         {
             if (!target.statsManager.isDead)
             {
-                ApplyEffect(e, caster, target, level, sourceAbility);
+                ApplyEffect(effectObject, caster, target, level, sourceAbility);
             }
         }
     }
 
     public static void ApplyEffect(EffectObject effectObject, Unit caster, Unit target, int level, AbilityObject sourceAbility)
+    {
+        for (int i = 0; i < effectObject.applyStacks; i++)
+        {
+            ApplyAndStackEffect(effectObject, caster, target, level, sourceAbility);
+        }
+    }
+
+    private static void ApplyAndStackEffect(EffectObject effectObject, Unit caster, Unit target, int level, AbilityObject sourceAbility)
     {
         Effect sameEffect = target.effectManager.GetSameEffect(effectObject);
         Effect applyEffect = new Effect(effectObject, 1, caster, target, level, sourceAbility);
@@ -45,7 +53,7 @@ public class EffectManager : MonoBehaviour
         // Target has the same effect active already and the effect to be applied is stackable
         if (sameEffect != null && effectObject.stackable)
         {
-            Effect stackedEffect = Effect.StackEffects(sameEffect, applyEffect);
+            Effect stackedEffect = Effect.ApplyStacks(sameEffect, applyEffect);
             target.effectManager.OnApplication(stackedEffect);
 
             target.effectManager.OnExpiration(sameEffect);
@@ -206,7 +214,7 @@ public class EffectManager : MonoBehaviour
     }
 
     // Crowd Control Immunity
-    private bool HasImmunity(CrowdControlType ccType)
+    private bool HasCrownControlImmunity(CrowdControlType ccType)
     {
         for (int i = effectsList.Count; i-- > 0;)
         {
@@ -215,6 +223,11 @@ public class EffectManager : MonoBehaviour
         }
 
         return false;
+    }
+
+    public bool HasDamageImmunity()
+    {
+        return effectsList.Any(e => e.effectObject is EffectImmunity);
     }
 
     public Effect GetSameEffect(EffectObject effectObject)
@@ -387,7 +400,7 @@ public class EffectManager : MonoBehaviour
     {
         if (timedAction.actionTargets == TimedActionTargets.Single)
         {
-            timedAction.abilitySource.TriggerSource(e.sourceAbility, false, true, e.caster, e.target, timedAction.storedValue, timedAction.triggersPassives);
+            timedAction.abilitySource.TriggerSource(e.sourceAbility, e.level, false, true, e.caster, e.target, timedAction.storedValue, timedAction.triggersPassives);
 
             CreateSpecialEffect(e.target, timedAction.specialEffects);
         }
@@ -397,7 +410,7 @@ public class EffectManager : MonoBehaviour
 
             foreach (Unit unit in team.LivingMembers)
             {
-                timedAction.abilitySource.TriggerSource(e.sourceAbility, false, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.sourceAbility, e.level, false, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(unit, timedAction.specialEffects);
             }
@@ -408,7 +421,7 @@ public class EffectManager : MonoBehaviour
 
             foreach (Unit unit in AbilityUtilities.GetAdjacentUnits(e.target))
             {
-                timedAction.abilitySource.TriggerSource(e.sourceAbility, false, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.sourceAbility, e.level, false, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(unit, timedAction.specialEffects);
             }
@@ -421,7 +434,7 @@ public class EffectManager : MonoBehaviour
             {
                 Unit target = AbilityUtilities.GetRandomUnit(team);
 
-                timedAction.abilitySource.TriggerSource(e.sourceAbility, false, true, e.caster, target, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.sourceAbility, e.level, false, true, e.caster, target, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(target, timedAction.specialEffects);
             }
@@ -432,7 +445,7 @@ public class EffectManager : MonoBehaviour
 
             foreach (Unit unit in team.LivingMembers)
             {
-                timedAction.abilitySource.TriggerSource(e.sourceAbility, false, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.sourceAbility, e.level, false, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(unit, timedAction.specialEffects);
             }
@@ -445,7 +458,7 @@ public class EffectManager : MonoBehaviour
             {
                 Unit target = AbilityUtilities.GetRandomUnit(team);
 
-                timedAction.abilitySource.TriggerSource(e.sourceAbility, false, true, e.caster, target, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.sourceAbility, e.level, false, true, e.caster, target, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(target, timedAction.specialEffects);
             }
@@ -464,7 +477,7 @@ public class EffectManager : MonoBehaviour
         {
             case EffectCrowdControl crowdControl:
                 {
-                    if (HasImmunity(crowdControl.type))
+                    if (HasCrownControlImmunity(crowdControl.type))
                     {
                         string text = "Immune";
 
@@ -651,10 +664,14 @@ public class EffectManager : MonoBehaviour
         for (int i = effectsList.Count; i-- > 0;)
         {
             if (effectsList[i].procType == procType)
+            {
                 OnActive(effectsList[i]);
+            }
 
             if (unit.statsManager.isDead)
+            {
                 return;
+            }
         }
 
         ReduceDuration(procType);
@@ -665,22 +682,39 @@ public class EffectManager : MonoBehaviour
         // Reduce the duration and do expiration effect if duration is 0
         for (int i = effectsList.Count; i-- > 0;)
         {
-            if (!effectsList[i].effectObject.permanent)
+            if (effectsList[i].procType == procType)
             {
-                if (effectsList[i].procType == procType)
+                bool expireEffect = false;
+
+                if (!effectsList[i].effectObject.permanent)
                 {
                     effectsList[i].duration--;
 
                     if (effectsList[i].duration <= 0)
                     {
-                        OnExpiration(effectsList[i]);
+                        expireEffect = true;
                     }
+                }
+
+                if (effectsList[i].effectObject.loseStacks > 0)
+                {
+                    Effect.DropStacks(effectsList[i]);
+                    if (effectsList[i].stacks <= 0)
+                    {
+                        expireEffect = true;
+                    }
+                }
+
+                if (expireEffect)
+                {
+                    OnExpiration(effectsList[i]);
                 }
             }
 
-            if (unit.statsManager.isDead)           
+            if (unit.statsManager.isDead)
+            {
                 return;
-            
+            }          
         }
     }
 
@@ -701,7 +735,9 @@ public class EffectManager : MonoBehaviour
         for (int i = 0; i < effectsList.Count; i++)
         {
             if (effectsList[i].effectObject == effectObject)
+            {
                 hasEffect = true;
+            }    
         }
 
         return hasEffect;

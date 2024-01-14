@@ -24,6 +24,7 @@ public class DrainModifier
 
             AbilityValue drainedAbilityValue = new AbilityValue(
                 abilityValue.sourceAbility,
+                abilityValue.sourceLevel,
                 true,
                 false,
                 drainedValue,

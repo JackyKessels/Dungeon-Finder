@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
+  m_Name: Shade Claw (Passive)
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Shade Claws
+  quality: 0
+  abilityType: 3
+  description: 'Every <cooldown> Rounds apply <effect1name> to a random enemy.
+
+
+    <effect1name>
+    deals <effect1timAc1> <S> damage every Round for <effect1d> Rounds.'
+  icon: {fileID: 21300000, guid: d0414a60360fce14980b5f3b32596fec, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 7746833121361033911, guid: 3846e0aef203c184b80fb5b641707ac2, type: 3}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  activationMoment: 7
+  castActiveAbilities: []
+  effects:
+  - {fileID: 11400000, guid: ea5c198b281971b4fa69cee2ab616a5f, type: 2}
+  targets: 4
+  healthPercentage: 0
+  attributeType: 0
+  attributeValue: 0
+  cooldown: 1
+  castFirstRound: 0

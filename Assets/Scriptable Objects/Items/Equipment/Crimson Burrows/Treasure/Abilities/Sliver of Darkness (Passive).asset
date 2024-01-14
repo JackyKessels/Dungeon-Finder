@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Nightfall
   quality: 0
   abilityType: 3
-  description: Increase your <wisdom> by <s1modP> while above <threshold>% Health.
+  description: Increase your <wisdom> by <effect1modP> while above <threshold>% Health.
   icon: {fileID: 21300000, guid: c5d090d481741714fbe46c9cb094b4ea, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []

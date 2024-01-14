@@ -259,22 +259,13 @@ public class StatsManager
             //FCTData fctData = new FCTData(false, unit, "Invulnerable", color);
             //unit.fctHandler.AddToFCTQueue(fctData);
         }
+        else if (unit.effectManager.HasDamageImmunity())
+        {
+            OnReceiveUnitEvent?.Invoke(abilityValue);
+        }
         else
         {
-            Effect damageTransferEffect = unit.effectManager.GetHighestDamageTransfer();
-
-            if (damageTransferEffect != null && allowDamageTransfer)
-            {
-                EffectDamageTransfer damageTransfer = damageTransferEffect.effectObject as EffectDamageTransfer;
-
-                AbilityValue transferValue = new AbilityValue(abilityValue.sourceAbility, false, true, abilityValue.value * damageTransfer.percentage, abilityValue.school, abilityValue.abilityType, abilityValue.cannotCrit, abilityValue.cannotMiss, abilityValue.target, damageTransferEffect.caster, abilityValue.color, false, abilityValue.ignorePassives);
-
-                transferValue.value = unit.statsManager.CalculateMitigatedDamage(transferValue.value, GeneralUtilities.GetReductionType(transferValue.school));
-
-                damageTransferEffect.caster.statsManager.TakeDamage(transferValue, false);
-
-                abilityValue.value *= (1 - damageTransfer.percentage);
-            }
+            ApplyTransferDamage(abilityValue, allowDamageTransfer);
 
             currentHealth -= abilityValue.Rounded();
 
@@ -288,15 +279,38 @@ public class StatsManager
         }
     }
 
+    private void ApplyTransferDamage(AbilityValue abilityValue, bool allowDamageTransfer)
+    {
+        if (!allowDamageTransfer)
+        {
+            return;
+        }
+
+        Effect damageTransferEffect = unit.effectManager.GetHighestDamageTransfer();
+
+        if (damageTransferEffect != null)
+        {
+            EffectDamageTransfer damageTransfer = damageTransferEffect.effectObject as EffectDamageTransfer;
+
+            AbilityValue transferValue = new AbilityValue(abilityValue.sourceAbility, abilityValue.sourceLevel, false, true, abilityValue.value * damageTransfer.percentage, abilityValue.school, abilityValue.abilityType, abilityValue.cannotCrit, abilityValue.cannotMiss, abilityValue.target, damageTransferEffect.caster, abilityValue.color, false, abilityValue.ignorePassives);
+
+            transferValue.value = unit.statsManager.CalculateMitigatedDamage(transferValue.value, GeneralUtilities.GetReductionType(transferValue.school));
+
+            damageTransferEffect.caster.statsManager.TakeDamage(transferValue, false);
+
+            abilityValue.value *= (1 - damageTransfer.percentage);
+        }
+    }
+
     public void TakeDamage(AbilitySchool school, int amount)
     {
         AbilitySource abilitySource = new AbilitySource(school, amount);
-        abilitySource.TriggerSource(null, false, false, unit, unit, 1, 1, true, 1, AbilityType.Assault);
+        abilitySource.TriggerSource(null, 1, false, false, unit, unit, 1, true, 1, AbilityType.Assault);
     }
 
     public void TakeDamage(AbilitySource abilitySource, bool isUnitTrigger)
     {
-        abilitySource.TriggerSource(null, false, false, unit, unit, 1, 1, isUnitTrigger, 1, AbilityType.Assault);
+        abilitySource.TriggerSource(null, 1, false, false, unit, unit, 1, isUnitTrigger, 1, AbilityType.Assault);
     }
 
     private void BreakIncapacitate(AbilityValue abilityValue)

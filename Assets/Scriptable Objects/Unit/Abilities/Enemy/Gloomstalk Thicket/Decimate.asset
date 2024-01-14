@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Decimate
   m_EditorClassIdentifier: 
-  id: 158
+  id: 155
   name: Decimate
   quality: 0
-  type: 0
+  abilityType: 0
   description: 'Deal <e1> <A> damage to your target.
 
 
@@ -30,8 +30,10 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 0
+  initialCooldown: 0
   endTurn: 1
   resetChance: 0
+  singleUse: 0
   weaponRequirement: 4
   soundEffect: {fileID: 8300000, guid: 3cd47381abc8f05429b8d3a745b27946, type: 3}
   animationType: 0
@@ -40,6 +42,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
+    ignorePassives: []
     school: 5
     attributeType: 1
     baseValue: 0
@@ -47,7 +50,7 @@ MonoBehaviour:
     scaling: 1.2
     levelScaling: 0
     reductionType: 2
-    modifier:
+    abilityModifier:
       hasModifier: 1
       modification: 2
       condition: 0
@@ -55,11 +58,14 @@ MonoBehaviour:
       conditionThreshold: 0
       increasedAttribute: 0
       increaseValue: 0
-      casterBased: 0
+      casterBased: 1
       attributeBase: 1
       percentageIncrease: 0.5
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -67,12 +73,15 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 0
-      effectOnTarget: 0
+      effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   id: -1
   name: Twilight Devastation
   quality: 0
-  type: 2
+  abilityType: 0
   description: 
   icon: {fileID: 21300000, guid: 431c14f3d0fe40c4abfc341cd4578012, type: 3}
   casterSpecialEffects: []
@@ -26,8 +26,10 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 4
+  initialCooldown: 0
   endTurn: 1
   resetChance: 0
+  singleUse: 0
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 1
@@ -36,14 +38,15 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
+    ignorePassives: []
     school: 7
     attributeType: 2
     baseValue: 0
     levelBase: 0
-    scaling: 1.2
+    scaling: 2
     levelScaling: 0
     reductionType: 2
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
@@ -51,11 +54,14 @@ MonoBehaviour:
       conditionThreshold: 0
       increasedAttribute: 0
       increaseValue: 0
-      casterBased: 0
+      casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -63,9 +69,12 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 0
-      effectOnTarget: 0
+      effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []
-  instantTargets: 2
+  abilityTargets: 2

@@ -25,28 +25,28 @@ public class EquipmentObject : ItemObject
     public EquipmentSlot slot;
 
     [Header("[ General Attributes ]")]
-    public float healthFactor;
-    public float powerFactor;
-    public float wisdomFactor;
-    public int armor;
-    public int resistance;
-    public int vitality;
-    public int speed;
-    public int accuracy;
-    public int crit;
+    public float healthFactor = 0f;
+    public float powerFactor = 0f;
+    public float wisdomFactor = 0f;
+    public int armor = 0;
+    public int resistance = 0;
+    public int vitality = 0;
+    public int speed = 0;
+    public int accuracy = 0;
+    public int crit = 0;
 
     [Header("[ School Modifiers ]")]
-    public int healingMultiplier;
-    public int physicalMultiplier;
-    public int fireMultiplier;
-    public int iceMultiplier;
-    public int natureMultiplier;
-    public int arcaneMultiplier;
-    public int holyMultiplier;
-    public int shadowMultiplier;
-    public int critMultiplier;
+    public int healingMultiplier = 0;
+    public int physicalMultiplier = 0;
+    public int fireMultiplier = 0;
+    public int iceMultiplier = 0;
+    public int natureMultiplier = 0;
+    public int arcaneMultiplier = 0;
+    public int holyMultiplier = 0;
+    public int shadowMultiplier = 0;
+    public int critMultiplier = 0;
 
     [Header("[ Additional ]")]
-    public List<PassiveAbility> passives;
+    public List<PassiveAbility> passives = new List<PassiveAbility>();
     public ActiveAbility useAbility;
 }

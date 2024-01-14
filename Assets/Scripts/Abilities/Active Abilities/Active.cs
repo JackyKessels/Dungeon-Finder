@@ -17,6 +17,8 @@ public class Active
     public int cooldown;
     public int currentCooldown;
 
+    public bool isDoubleCast = false;
+
     private Active replacedAbility = null;
 
     public Active()
@@ -25,7 +27,7 @@ public class Active
         level = 0;
     }
 
-    public Active(ActiveAbility activeAbility, int abilityLevel)
+    public Active(ActiveAbility activeAbility, int abilityLevel, bool isDoubleCast = false)
     {
         this.activeAbility = activeAbility;
         level = abilityLevel;
@@ -45,14 +47,16 @@ public class Active
                 enemyAbilitySources.Add(source);
             }
         }
+
+        this.isDoubleCast = isDoubleCast;
     }
 
     public void Trigger(Unit caster, Unit target, float effectiveness)
     {
+        caster.OnAbilityCast?.Invoke(caster, target, this);
+
         activeAbility.TriggerAbility(caster, target, level, effectiveness);
     }
-
-
 
     public void SetReplacedAbility(Active replacedAbility)
     {

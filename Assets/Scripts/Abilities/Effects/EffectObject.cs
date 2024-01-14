@@ -25,6 +25,10 @@ public abstract class EffectObject : ScriptableObject, IDescribable
     public bool aura = false;
     [Tooltip("True = This effect can only be active on 1 target.\nFalse = No limitations.")]
     public bool unique = false;
+    [Tooltip("The number of stacks applied on effect application.")]
+    public int applyStacks = 1;
+    [Tooltip("The number of stacks lost per Turn/Round.")]
+    public int loseStacks = 0;
     public List<EffectObject> removeEffects;
 
     public string GetDescription(TooltipObject tooltipInfo)

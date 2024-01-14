@@ -23,6 +23,11 @@ public class EquipmentInspector : Editor
 
         EquipmentObject equipmentObject = (EquipmentObject)target;
 
+        if (equipmentObject == null)
+        {
+            return;
+        }
+
         float totalPercentage = 0f;
 
         totalPercentage += equipmentObject.healthFactor * 100f;

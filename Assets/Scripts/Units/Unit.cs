@@ -14,7 +14,7 @@ public enum UnitType
 
 public delegate void EffectEvent(Unit unit);
 
-public delegate void AbilityEvent(Unit caster, ActiveAbility activeAbility);
+public delegate void AbilityEvent(Unit caster, Unit target, Active active);
 
 public class Unit : MonoBehaviour
 {
