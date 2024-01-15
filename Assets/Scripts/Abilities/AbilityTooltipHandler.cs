@@ -142,7 +142,7 @@ public static class AbilityTooltipHandler
 
     public static string InsertRed(string s)
     {
-        string pattern = @"\<r([^>]*)\>";
+        string pattern = @"\<r!([^>]*)\>";
 
         string temp = Regex.Replace(s, pattern, "<color=#FF0000>$1</color>");
 
@@ -151,7 +151,7 @@ public static class AbilityTooltipHandler
 
     public static string InsertGeneric(string s)
     {
-        string pattern = @"\<g([^>]*)\>";
+        string pattern = @"\<g!([^>]*)\>";
 
         string color = ColorDatabase.GeneralInformation();
 
@@ -164,7 +164,7 @@ public static class AbilityTooltipHandler
 
     public static string InsertNonScaling(string s)
     {
-        string pattern = @"\<ns([^>]*)\>";
+        string pattern = @"\<ns!([^>]*)\>";
 
         string temp = Regex.Replace(s, pattern, "<color=" + ColorDatabase.NonScalingColor() + ">$1</color>");
 
@@ -397,6 +397,20 @@ public static class AbilityTooltipHandler
         if (temp.Contains(check))
         {
             temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(AttributeType.Crit) + ">Critical</color>");
+
+            return string.Format(temp, color);
+        }
+
+        return temp;
+    }
+
+    public static string GlancingHit(string temp, string check)
+    {
+        string color = ColorDatabase.NonScalingColor();
+
+        if (temp.Contains(check))
+        {
+            temp = temp.Replace(check, "<color=" + color + ">Glancing</color>");
 
             return string.Format(temp, color);
         }

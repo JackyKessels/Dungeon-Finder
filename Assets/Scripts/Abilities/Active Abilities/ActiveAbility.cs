@@ -198,6 +198,8 @@ public abstract class ActiveAbility : AbilityObject
 
         temp = AbilityTooltipHandler.CriticalHit(temp, "<critical>");
 
+        temp = AbilityTooltipHandler.GlancingHit(temp, "<glancing>");
+
         temp = AbilityTooltipHandler.InsertRed(temp);
 
         temp = AbilityTooltipHandler.InsertGeneric(temp);

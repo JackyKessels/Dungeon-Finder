@@ -10,18 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
-  m_Name: Resolve
+  m_Name: Frostbind Veil (Passive) (Damage)
   m_EditorClassIdentifier: 
-  id: 143
-  name: Resolve
+  id: -1
+  name: Cryoversion
   quality: 0
   abilityType: 3
-  description: 'Your Primary attacks Taunt the target for this Round.
-
-
-    Target
-    will be Taunt immune for <ns!1> Round after.'
-  icon: {fileID: 21300000, guid: faa194240041eea4ba6447aa156896e3, type: 3}
+  description: Dealing <critical> <M> damage, excluding <I> damage, deals <t1timAp1>
+    <I> damage to all enemies.
+  icon: {fileID: 21300000, guid: 8c10ac302af2c4a42bb598dc760d2ac7, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
   hasLevels: 0
@@ -29,11 +26,11 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   isPositive: 1
   triggerType: 1
-  hitType: 0
-  targetTrigger: 1
-  abilityTypeTrigger: 1
+  hitType: 1
+  targetTrigger: 0
+  abilityTypeTrigger: 0
   typeRequirement: 0
-  schoolTriggers: 01000000020000000300000004000000050000000600000007000000
+  schoolTriggers: 0200000004000000050000000600000007000000
   triggersPassives: 1
   triggeredByPassives: 1
   triggeredByEffects: 1
@@ -43,4 +40,4 @@ MonoBehaviour:
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects:
-  - {fileID: 11400000, guid: 72eea5308fb9c034b9247bbaef418217, type: 2}
+  - {fileID: 11400000, guid: 08434f4e1cc0f6d40add48906ac6aaed, type: 2}

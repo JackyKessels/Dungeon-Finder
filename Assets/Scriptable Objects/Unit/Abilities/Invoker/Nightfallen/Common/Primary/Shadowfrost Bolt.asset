@@ -20,7 +20,7 @@ MonoBehaviour:
 
 
     <name> deals
-    <e1modP>% more damage per <ns1>% of Health you are missing.
+    <e1modP>% more damage per <ns!1>% of Health you are missing.
 
 
     You take <s1timAp1>
@@ -37,6 +37,7 @@ MonoBehaviour:
   initialCooldown: 0
   endTurn: 1
   resetChance: 0
+  singleUse: 0
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 0
@@ -53,7 +54,7 @@ MonoBehaviour:
     scaling: 0.55
     levelScaling: 0.11
     reductionType: 2
-    modifier:
+    abilityModifier:
       hasModifier: 1
       modification: 2
       condition: 0
@@ -63,13 +64,12 @@ MonoBehaviour:
       increaseValue: 0
       casterBased: 1
       attributeBase: 2
-      percentageIncrease: 0.5
+      percentageIncrease: 1
       bonusAbilitySource:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive:
-        - {fileID: 0}
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -79,6 +79,9 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
@@ -90,7 +93,7 @@ MonoBehaviour:
     scaling: 0.55
     levelScaling: 0.11
     reductionType: 2
-    modifier:
+    abilityModifier:
       hasModifier: 1
       modification: 2
       condition: 0
@@ -100,13 +103,12 @@ MonoBehaviour:
       increaseValue: 0
       casterBased: 1
       attributeBase: 2
-      percentageIncrease: 0.5
+      percentageIncrease: 1
       bonusAbilitySource:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive:
-        - {fileID: 0}
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -116,6 +118,9 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects:
   - {fileID: 11400000, guid: 29e8ee3384cd21a4197cf1ad62f2516f, type: 2}

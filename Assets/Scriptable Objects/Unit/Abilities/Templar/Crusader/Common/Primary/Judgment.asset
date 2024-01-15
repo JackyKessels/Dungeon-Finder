@@ -20,7 +20,7 @@ MonoBehaviour:
 
 
     <name> deals <e1modP>%
-    increased damage per <ns1>% of Health the target is missing.'
+    increased damage per <ns!1>% of Health the target is missing.'
   icon: {fileID: 21300000, guid: 94e14614fae676e4581f60eea5075d46, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:

@@ -17,7 +17,7 @@ MonoBehaviour:
   quality: 0
   abilityType: 1
   description: 'Increase your target''s <resistance> by <t1modV> for the rest of
-    the <gBattle>.
+    the <g!Battle>.
 
 
     <t1unique>'
@@ -33,6 +33,7 @@ MonoBehaviour:
   initialCooldown: 0
   endTurn: 0
   resetChance: 0
+  singleUse: 0
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 1

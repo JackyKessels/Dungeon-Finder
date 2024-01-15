@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Tempest Blast
   m_EditorClassIdentifier: 
-  id: 167
+  id: 163
   name: Tempest Blast
   quality: 0
   abilityType: 2
   description: "Deal <e1> <N> and <e2> <I> damage to your target. \n\nFor the next
-    <s1d> Rounds, <N> damage reduces the cooldown of <name> by <ns1> Round."
+    <s1d> Rounds, <N> damage reduces the cooldown of <name> by <ns!1> Round."
   icon: {fileID: 21300000, guid: 61cbc8d6f407d6d42acfc243f38ebfed, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
@@ -29,8 +29,10 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 10
+  initialCooldown: 0
   endTurn: 1
   resetChance: 0
+  singleUse: 0
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 0
@@ -39,7 +41,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 4
     attributeType: 2
     baseValue: 0
@@ -47,7 +49,7 @@ MonoBehaviour:
     scaling: 1
     levelScaling: 0.2
     reductionType: 2
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
@@ -55,14 +57,14 @@ MonoBehaviour:
       conditionThreshold: 0
       increasedAttribute: 0
       increaseValue: 0
-      casterBased: 0
+      casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -70,12 +72,15 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 0
-      effectOnTarget: 0
+      effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 3
     attributeType: 2
     baseValue: 0
@@ -83,7 +88,7 @@ MonoBehaviour:
     scaling: 1
     levelScaling: 0.2
     reductionType: 2
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
@@ -91,14 +96,14 @@ MonoBehaviour:
       conditionThreshold: 0
       increasedAttribute: 0
       increaseValue: 0
-      casterBased: 0
+      casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -106,8 +111,11 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 0
-      effectOnTarget: 0
+      effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects:
   - {fileID: 11400000, guid: 8980948bb489dd147ac5cb43997bb92c, type: 2}

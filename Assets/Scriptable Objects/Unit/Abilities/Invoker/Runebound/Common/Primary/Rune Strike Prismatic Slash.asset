@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Rune Strike Prismatic Slash
   m_EditorClassIdentifier: 
-  id: 130
+  id: 44
   name: 'Rune Strike: Prismatic Slash'
   quality: 0
-  type: 0
+  abilityType: 0
   description: 'Deal <e1> <P> and <e2> <A> damage to your target.
 
 
     Gain <s1name>.
-    Increasing <arcanemultiplier> by <s1modV>%. Can only be Attuned to <r1> element.'
+    Increasing <arcanemultiplier> by <s1modV>%. Can only be Attuned to <r!1> element.'
   icon: {fileID: 21300000, guid: 5bb5447b0c5d4d94eb4c45eb089f39fa, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
@@ -31,14 +31,19 @@ MonoBehaviour:
   replacesAbility: {fileID: 0}
   castTime: 1
   cooldown: 0
+  initialCooldown: 0
   endTurn: 1
   resetChance: 0
+  singleUse: 0
   weaponRequirement: 0
   soundEffect: {fileID: 8300000, guid: 3cd47381abc8f05429b8d3a745b27946, type: 3}
   animationType: 0
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 1
     attributeType: 1
     baseValue: 0
@@ -46,7 +51,7 @@ MonoBehaviour:
     scaling: 0.75
     levelScaling: 0.15
     reductionType: 1
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
@@ -59,6 +64,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -68,7 +76,13 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 5
     attributeType: 2
     baseValue: 0
@@ -76,7 +90,7 @@ MonoBehaviour:
     scaling: 0.5
     levelScaling: 0.1
     reductionType: 2
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
@@ -89,6 +103,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -98,6 +115,9 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects:
   - {fileID: 11400000, guid: 7dc0c7f2fa9672843835c8b41501c119, type: 2}
@@ -105,4 +125,4 @@ MonoBehaviour:
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

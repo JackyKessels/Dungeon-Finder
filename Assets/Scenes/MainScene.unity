@@ -16279,6 +16279,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3e2960d195fed364394a455a7481f794, type: 2}
   - {fileID: 11400000, guid: 508878bb68d58b447a0a67fe02ce07a8, type: 2}
   - {fileID: 11400000, guid: b805096b9b0e1b848ab665388d6b382d, type: 2}
+  - {fileID: 11400000, guid: 5ef76b14e2a9a9648a4c49e1a215f115, type: 2}
   level: 3
 --- !u!114 &662710071
 MonoBehaviour:
@@ -61246,6 +61247,74 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1001 &6852768421493685880
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7657492904064636151, guid: b3937f81500a91c4bb8929225f42fdd8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20.841
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657492904064636151, guid: b3937f81500a91c4bb8929225f42fdd8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657492904064636151, guid: b3937f81500a91c4bb8929225f42fdd8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657492904064636151, guid: b3937f81500a91c4bb8929225f42fdd8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657492904064636151, guid: b3937f81500a91c4bb8929225f42fdd8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657492904064636151, guid: b3937f81500a91c4bb8929225f42fdd8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657492904064636151, guid: b3937f81500a91c4bb8929225f42fdd8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657492904064636151, guid: b3937f81500a91c4bb8929225f42fdd8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657492904064636151, guid: b3937f81500a91c4bb8929225f42fdd8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657492904064636151, guid: b3937f81500a91c4bb8929225f42fdd8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176641884851666834, guid: b3937f81500a91c4bb8929225f42fdd8,
+        type: 3}
+      propertyPath: m_Name
+      value: Snow Blast - Small 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b3937f81500a91c4bb8929225f42fdd8, type: 3}
 --- !u!1 &7089241392329812562
 GameObject:
   m_ObjectHideFlags: 0
@@ -62243,3 +62312,4 @@ SceneRoots:
   - {fileID: 856584161}
   - {fileID: 1040465019}
   - {fileID: 1511800296}
+  - {fileID: 6852768421493685880}

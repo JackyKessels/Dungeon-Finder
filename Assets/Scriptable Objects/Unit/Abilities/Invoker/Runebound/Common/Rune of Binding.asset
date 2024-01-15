@@ -20,7 +20,7 @@ MonoBehaviour:
 
 
     <name> deals <e1modB>
-    <A> damage if the target is at <nsfull> Health.
+    <A> damage if the target is at <ns!full> Health.
 
 
     <t1unique>'
@@ -36,6 +36,7 @@ MonoBehaviour:
   initialCooldown: 0
   endTurn: 1
   resetChance: 0
+  singleUse: 0
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 0
@@ -52,15 +53,15 @@ MonoBehaviour:
     scaling: 0
     levelScaling: 0
     reductionType: 0
-    modifier:
-      hasModifier: 1
-      modification: 3
-      condition: 3
-      thresholdType: 1
-      conditionThreshold: 100
+    abilityModifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
       increasedAttribute: 0
       increaseValue: 0
-      casterBased: 0
+      casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
       bonusAbilitySource:
@@ -68,15 +69,18 @@ MonoBehaviour:
         cannotCrit: 0
         cannotMiss: 0
         ignorePassive: []
-        school: 5
+        school: 0
         attributeType: 0
         baseValue: 0
         levelBase: 0
-        scaling: 0.3
-        levelScaling: 0.06
-        reductionType: 2
-      effectOnTarget: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects:

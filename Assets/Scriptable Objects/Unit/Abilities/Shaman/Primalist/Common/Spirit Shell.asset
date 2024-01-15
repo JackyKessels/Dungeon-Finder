@@ -20,7 +20,7 @@ MonoBehaviour:
     for <s1d> Rounds.
 
 
-    <name> heals <a1modP>% more per <ns1>% of Health you
+    <name> heals <a1modP>% more per <ns!1>% of Health you
     are missing.'
   icon: {fileID: 21300000, guid: dc1b17ffd20a9404cb05a7f48cb54894, type: 3}
   casterSpecialEffects:

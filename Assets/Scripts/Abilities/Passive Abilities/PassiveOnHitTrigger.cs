@@ -244,6 +244,8 @@ public class PassiveOnHitTrigger : PassiveAbility
 
         temp = AbilityTooltipHandler.CriticalHit(temp, "<critical>");
 
+        temp = AbilityTooltipHandler.GlancingHit(temp, "<glancing>");
+
         temp = AbilityTooltipHandler.InsertRed(temp);
 
         if (!triggersPassives || !triggeredByPassives || !triggeredByEffects)

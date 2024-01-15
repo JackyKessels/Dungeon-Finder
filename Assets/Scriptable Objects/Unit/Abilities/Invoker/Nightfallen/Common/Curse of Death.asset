@@ -20,7 +20,7 @@ MonoBehaviour:
 
 
     <name> deals
-    <ns35>% more damage if the target is below <ns50>% Health.
+    <ns!35>% more damage if the target is below <ns!50>% Health.
 
 
     <name> cannot
@@ -37,6 +37,7 @@ MonoBehaviour:
   initialCooldown: 0
   endTurn: 1
   resetChance: 0
+  singleUse: 0
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 0
