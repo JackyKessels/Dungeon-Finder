@@ -18,8 +18,8 @@ MonoBehaviour:
   description: 'Take <1> <S> damage on expiration.
 
 
-    Take <r35>% more damage
-    if the target is below <r50>% Health.'
+    Take <r!35>% more damage
+    if the target is below <r!50>% Health.'
   isBuff: 0
   procType: 1
   duration: 3
@@ -29,6 +29,8 @@ MonoBehaviour:
   refreshes: 1
   aura: 0
   unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects: []
   timedActions:
   - actionType: 2

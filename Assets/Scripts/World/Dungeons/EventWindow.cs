@@ -54,7 +54,7 @@ public class EventWindow : MonoBehaviour
         }
     }
 
-    public static void SendEventWindow(MysteryEvent mysteryEvent, int level)
+    public static void CreateEventWindow(MysteryEvent mysteryEvent, int level)
     {
         GameObject container = GameObject.Find("Event Container");
 

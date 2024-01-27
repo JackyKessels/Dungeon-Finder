@@ -50,6 +50,10 @@ public class SaveManager : MonoBehaviour
 
     public void LoadTeam(string id, TeamData data)
     {
+        gameManager.LoadParticleSystems();
+
+        ObjectUtilities.BlackTransition(true);
+
         gameManager.SetupTown();
 
         //gameManager.optionsManager.LoadAmbientVolume();
@@ -147,26 +151,6 @@ public class SaveManager : MonoBehaviour
         Town town = GameManager.Instance.GetTown(gameMode);
 
         TownManager.Instance.SetupTown(town);
-
-        //if (data.isTutorial)
-        //{
-        //    townManager.StartTutorial();
-        //}
-        //else
-        //{
-
-
-
-
-        //    //townManager.blacksmith.LoadShop(data.itemShop, data.itemShopCosts, data.itemShopRotation);
-        //    //townManager.trophyHunter.LoadShop(data.chapterShop);
-
-        //    //townManager.UpdateRotationDisplay();
-        //}
-
-
-
-        //gameManager.interfaceBar.SetCorrectButton((GameState)data.gameState);
     }
 
     public void OpenSaveSlots()

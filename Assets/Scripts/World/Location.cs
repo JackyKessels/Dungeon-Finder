@@ -161,7 +161,7 @@ public class Location : MonoBehaviour, IDescribable
             case LocationType.Campfire:
                 {
                     TeamManager.Instance.heroes.ReviveDeadMembers(false);
-                    TeamManager.Instance.heroes.HealTeam(campfireHeal, true);
+                    TeamManager.Instance.heroes.HealTeam(campfireHeal, true, true, "Campfire");
 
                     EffectObject wellRestedEffect = floor.wellRestedEffect;
                     int wellRestedChance = floor.wellRestedChance;
@@ -192,14 +192,14 @@ public class Location : MonoBehaviour, IDescribable
                     foreach (Unit unit in TeamManager.Instance.heroes.Members)
                     {
                         ActiveAbility abilityReward = RewardManager.Instance.GenerateRandomAbility(unit, RewardManager.Instance.database.abilityRewards);
-                        NotificationObject.SendNotification(unit.name + " has learned " + abilityReward.name + ".", new List<Reward>() { new Reward(abilityReward) });
+                        NotificationObject.CreateNotification(unit.name + " has learned " + abilityReward.name + ".", 500, 200, new List<Reward>() { new Reward(abilityReward) });
                     }
                     break;
                 }
             case LocationType.Mystery:
                 {
                     {
-                        EventWindow.SendEventWindow(floor.mysteryEvents.GetRandomEvent(), mysteryLevel);
+                        EventWindow.CreateEventWindow(floor.mysteryEvents.GetRandomEvent(), mysteryLevel);
                     }
                     break;
                 }

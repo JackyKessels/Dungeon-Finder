@@ -29,7 +29,7 @@ MonoBehaviour:
   effects:
   - {fileID: 11400000, guid: 33fabdf39e6654a47b6b80604d3a306c, type: 2}
   targets: 0
-  healthPercentage: 75
+  healthPercentage: 50
   attributeType: 0
   attributeValue: 0
   cooldown: 0

@@ -34,6 +34,7 @@ public class GameAssets : MonoBehaviour
     public GameObject rewardPrefab;
     public Transform shortMessage;
     public GameObject blackTransition;
+    public TextWindow textWindow;
 
     public Sprite oneMember;
     public Sprite threeMembers;

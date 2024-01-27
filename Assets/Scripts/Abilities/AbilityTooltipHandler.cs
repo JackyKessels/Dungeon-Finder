@@ -718,7 +718,7 @@ public static class AbilityTooltipHandler
 
             List<string> strings = abilityModifier.specificAbilities.Select(x => x.name).ToList();
 
-            return temp.Replace(check, JoinString(strings, ", ", " or ", color));
+            return temp.Replace(check, GeneralUtilities.JoinString(strings, ", ", " or ", color));
         }
 
         return temp;
@@ -755,36 +755,5 @@ public static class AbilityTooltipHandler
         }
 
         return temp;
-    }
-
-    // Turns a list of strings into a string where each element is seperated by a string
-    // The last two elements are seperated with a different string
-    // Each seperate element (not the commas or and) is also colored
-    public static string JoinString(List<string> strings, string separator, string finalSeparator, string color)
-    {
-        if (strings == null || strings.Count == 0)
-            return "";
-
-        string fullString;
-
-        if (strings.Count > 1)
-        {
-            List<string> stringList = new List<string>();
-
-            for (int i = 0; i < strings.Count - 1; i++)
-            {
-                stringList.Add(string.Format("<color={1}>{0}</color>", strings[i], color));
-            }
-
-            fullString = string.Join(separator, stringList);
-
-            fullString += finalSeparator + string.Format("<color={1}>{0}</color>", strings[strings.Count - 1], color);
-        }
-        else
-        {
-            fullString = string.Format("<color={1}>{0}</color>", strings[0], color);
-        }
-
-        return fullString;
     }
 }

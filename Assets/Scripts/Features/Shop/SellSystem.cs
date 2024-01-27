@@ -105,7 +105,7 @@ public class SellSystem : MonoBehaviour
             }
             else
             {
-                NotificationObject.SendNotification("Can only sell abilities when you have more than 4.");
+                NotificationObject.CreateNotification("Can only sell abilities when you have more than 4.", 500, 200);
             }
         }
     }

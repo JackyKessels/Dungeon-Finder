@@ -565,6 +565,8 @@ public class EffectManager : MonoBehaviour
         }
 
         effectsList.Add(e);
+
+        SortEffectDurations(unit.isEnemy);
     }
 
     public void OnActive(Effect e)

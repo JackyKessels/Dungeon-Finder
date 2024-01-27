@@ -19,12 +19,12 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 102fecd5f282a9f49acac209214db848, type: 3}
   attackAnimation: {fileID: 0}
   castAnimation: {fileID: 0}
-  baseHealth: 700
-  basePower: 25
-  baseWisdom: 25
-  baseArmor: 18
-  baseResistance: -18
-  baseVitality: 0
+  baseHealth: 500
+  basePower: 19
+  baseWisdom: 19
+  armor: -11
+  resistance: 11
+  vitality: 0
   speed: 5
   accuracy: 50
   criticalHit: 50
@@ -38,19 +38,21 @@ MonoBehaviour:
   holyMultiplier: 100
   shadowMultiplier: 100
   critMultiplier: 150
-  level: 3
   difficulty: 8
   experienceReward: 75
   currencyRewards:
   - currencyType: 1
     totalAmount: 5
+  dropEverything: 0
   itemDrops:
   - itemObject: {fileID: 11400000, guid: a59beb3bea1f71645bb09ef59fa873a5, type: 2}
     amount: 1
     weight: 2
+    level: 0
   - itemObject: {fileID: 11400000, guid: 61e92c3157b2fb441967761ec8664631, type: 2}
     amount: 1
     weight: 1
+    level: 0
   randomAbility: 0
   abilities:
   - ability: {fileID: 11400000, guid: 3f726a4b3f9fcf34babb8d410b8e83fe, type: 2}

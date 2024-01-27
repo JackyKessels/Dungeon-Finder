@@ -36,23 +36,23 @@ MonoBehaviour:
   - itemObject: {fileID: 11400000, guid: a0db3ee41c33eef4dbc6a3840a9684c8, type: 2}
     amount: 1
     weight: 1
-    level: 0
+    level: 2
   - itemObject: {fileID: 11400000, guid: d6beeb7bbb5426949ac3d95f32b8a37a, type: 2}
     amount: 1
     weight: 1
-    level: 0
+    level: 2
   - itemObject: {fileID: 11400000, guid: fff4349331be5354ab963cd24c78cee7, type: 2}
     amount: 1
     weight: 1
-    level: 0
+    level: 2
   - itemObject: {fileID: 11400000, guid: 85f6f2b7c99bf55428a0033f14755e9b, type: 2}
     amount: 4
     weight: 2
-    level: 0
+    level: 2
   - itemObject: {fileID: 11400000, guid: a59beb3bea1f71645bb09ef59fa873a5, type: 2}
     amount: 3
     weight: 2
-    level: 0
+    level: 2
   trashEncounters:
   - enemyObjects:
     - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
@@ -61,9 +61,8 @@ MonoBehaviour:
     randomOrder: 1
     weight: 1
   - enemyObjects:
+    - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
     - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
-    - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
-    - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
     randomOrder: 1
     weight: 1
   - enemyObjects:
@@ -77,8 +76,8 @@ MonoBehaviour:
     randomOrder: 1
     weight: 1
   - enemyObjects:
-    - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
     - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
+    - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
     randomOrder: 1
     weight: 1
   eliteEncounters:

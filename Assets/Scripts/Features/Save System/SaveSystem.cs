@@ -68,7 +68,7 @@ public static class SaveSystem
 
         if (File.Exists(path))
         {
-           return File.GetLastWriteTime(path).ToString();
+           return File.GetLastWriteTime(path).ToShortDateString();
         }
         else
         {

@@ -281,7 +281,7 @@ public class Enemy : Unit
 
     private bool MeetsCastCondition(ActiveAbility ability)
     {
-        CastCondition castCondition = GetCastCondition(ability);
+        (CastCondition castCondition, int healthThreshold) = GetCastCondition(ability);
 
         switch (castCondition)
         {
@@ -289,20 +289,20 @@ public class Enemy : Unit
                 {
                     return true;
                 }
-            case CastCondition.BelowHalfHealth:
+            case CastCondition.BelowHealthThreshold:
                 {
-                    float threshold = statsManager.GetAttributeValue(AttributeType.Health) * .5f;
+                    float threshold = statsManager.GetAttributeValue(AttributeType.Health) * (float)healthThreshold / 100;
 
-                    if (statsManager.currentHealth < threshold)
+                    if (statsManager.currentHealth <= threshold)
                         return true;
                     else
                         return false;
                 }
-            case CastCondition.AboveHalfHealth:
+            case CastCondition.AboveHealthThreshold:
                 {
-                    float threshold = statsManager.GetAttributeValue(AttributeType.Health) * .5f;
+                    float threshold = statsManager.GetAttributeValue(AttributeType.Health) * (float)healthThreshold / 100;
 
-                    if (statsManager.currentHealth > threshold)
+                    if (statsManager.currentHealth >= threshold)
                         return true;
                     else
                         return false;
@@ -325,17 +325,17 @@ public class Enemy : Unit
         return (TargetCondition.Random, TargetAttribute.CurrentHealth);
     }
 
-    private CastCondition GetCastCondition(ActiveAbility ability)
+    private (CastCondition, int) GetCastCondition(ActiveAbility ability)
     {
         foreach (AbilityBehavior abilityBehavior in enemyObject.abilities)
         {
             if (abilityBehavior.ability == ability)
             {
-                return abilityBehavior.condition;
+                return (abilityBehavior.condition, abilityBehavior.healthThreshold);
             }
         }
 
-        return CastCondition.Nothing;
+        return (CastCondition.Nothing, 0);
     }
 
     public void SetStartCooldowns()

@@ -19,11 +19,11 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 19c0fd5e35112da48a0b0d7f7aa66f9c, type: 3}
   attackAnimation: {fileID: 0}
   castAnimation: {fileID: 0}
-  baseHealth: 300
-  basePower: 18
-  baseWisdom: 18
-  armor: 0
-  resistance: 0
+  baseHealth: 225
+  basePower: 15
+  baseWisdom: 15
+  armor: -11
+  resistance: 11
   vitality: 0
   speed: 12
   accuracy: 80
@@ -59,12 +59,14 @@ MonoBehaviour:
     target: 0
     targetAttribute: 0
     condition: 2
+    healthThreshold: 50
     startCooldown: 0
     charged: 0
   - ability: {fileID: 11400000, guid: a69b8f3a390da054aa02303c7e619c27, type: 2}
     target: 1
     targetAttribute: 0
     condition: 1
+    healthThreshold: 50
     startCooldown: 0
     charged: 0
   passiveAbilities:

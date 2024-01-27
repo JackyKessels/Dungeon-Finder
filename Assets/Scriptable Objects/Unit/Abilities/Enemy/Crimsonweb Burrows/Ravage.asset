@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Ravage
   m_EditorClassIdentifier: 
-  id: 172
+  id: 169
   name: Ravage
   quality: 0
   abilityType: 0
@@ -21,7 +21,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 86e3f8910e3bf5248b1cb424539477e2, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
-  - {fileID: 7746833121361033911, guid: 3846e0aef203c184b80fb5b641707ac2, type: 3}
+  - {fileID: 5248838835281936956, guid: 3051850a10fb96c4e8a7672a426c5a67, type: 3}
   hasLevels: 0
   sellable: 0
   replacesAbility: {fileID: 0}
@@ -30,6 +30,7 @@ MonoBehaviour:
   initialCooldown: 0
   endTurn: 1
   resetChance: 0
+  singleUse: 0
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 0
@@ -38,7 +39,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 1
     attributeType: 1
     baseValue: 0
@@ -46,7 +47,7 @@ MonoBehaviour:
     scaling: 1
     levelScaling: 0
     reductionType: 1
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
@@ -54,14 +55,14 @@ MonoBehaviour:
       conditionThreshold: 0
       increasedAttribute: 0
       increaseValue: 0
-      casterBased: 0
+      casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -71,6 +72,9 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []

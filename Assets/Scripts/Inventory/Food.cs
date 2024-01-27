@@ -83,7 +83,7 @@ public class Food : Consumable
             else
                 text = "Use: Apply {0} to all members at the start of the next battle.";
 
-            effectText = string.Format("<color={1}>\n" + text + "</color>", AbilityTooltipHandler.JoinString(effectNames, ", ", " and ", ColorDatabase.EffectColor()), ColorDatabase.EffectColor());
+            effectText = string.Format("<color={1}>\n" + text + "</color>", GeneralUtilities.JoinString(effectNames, ", ", " and ", ColorDatabase.EffectColor()), ColorDatabase.EffectColor());
 
             foreach (EffectObject effectObject in preBattleEffects)
             {

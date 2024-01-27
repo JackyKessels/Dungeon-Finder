@@ -183,13 +183,19 @@ public class AbilitySource
 
         abilityValue.CalculateValue();
 
-        abilityModifier.TriggerModifier(abilityValue, level);
+        if (abilityModifier != null)
+        {
+            abilityModifier.TriggerModifier(abilityValue, level);
+        }
 
         if (value > 0)
         {
             abilityValue.Trigger();
 
-            drainModifier.TriggerModifier(abilityValue);
+            if (drainModifier != null)
+            {
+                drainModifier.TriggerModifier(abilityValue);
+            }
         }
     }
 

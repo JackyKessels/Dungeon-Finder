@@ -54,7 +54,7 @@ public class CampaignManager : MonoBehaviour
 
         if (unlockedDungeons.Count > 0)
         {
-            NotificationObject.SendNotification("You have unlocked " + AbilityTooltipHandler.JoinString(unlockedDungeons, ", ", " and ", ColorDatabase.MagicalColor()));
+            NotificationObject.CreateNotification("You have unlocked " + GeneralUtilities.JoinString(unlockedDungeons, ", ", " and ", ColorDatabase.MagicalColor()), 500, 300);
         }
     }
 }

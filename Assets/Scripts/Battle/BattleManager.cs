@@ -74,6 +74,9 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
     public bool activeBattle = false;
 
+    private readonly float _timeBetweenTurns = 0.45f;
+    private readonly float _timeEnemyDecision = 0.9f;
+
     void Start()
     {
         battleHUD = BattleHUD.Instance;
@@ -304,7 +307,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
         {
             //announcerText.SetText("Next round!");
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(_timeBetweenTurns);
 
             // NEW ROUND //
 
@@ -392,7 +395,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
         Enemy currentEnemy = currentUnit as Enemy;
 
         // "Thinking"
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(_timeEnemyDecision);
 
         // Checks if the unit is stunned, yes = pass, no = try ability cast
         if (!currentUnit.effectManager.IsCrowdControlled(CrowdControlType.Stun) && !currentUnit.effectManager.IsCrowdControlled(CrowdControlType.Incapacitate))
@@ -623,7 +626,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
         battleHUD.Refresh();
 
-        // Wait to show damage taken
+        // Wait to show healing taken
         yield return new WaitForSeconds(1.2f);
 
         //-- Turn ends --//  

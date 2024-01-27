@@ -23,8 +23,8 @@ public enum TargetAttribute
 public enum CastCondition
 {
     Nothing,
-    BelowHalfHealth,
-    AboveHalfHealth
+    BelowHealthThreshold,
+    AboveHealthThreshold
 }
 
 [System.Serializable]
@@ -34,6 +34,8 @@ public class AbilityBehavior
     public TargetCondition target;
     public TargetAttribute targetAttribute;
     public CastCondition condition;
+    [Range(0, 100)]
+    public int healthThreshold = 100;
     public int startCooldown = 0;
     public bool charged = false;
 }

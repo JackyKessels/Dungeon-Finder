@@ -36,7 +36,7 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 1
-        modifier:
+        abilityModifier:
           hasModifier: 0
           modification: 0
           condition: 0
@@ -44,15 +44,14 @@ MonoBehaviour:
           conditionThreshold: 0
           increasedAttribute: 0
           increaseValue: 0
-          casterBased: 0
+          casterBased: 1
           attributeBase: 0
           percentageIncrease: 0
           bonusAbilitySource:
             ignoreMultipliers: 0
             cannotCrit: 0
             cannotMiss: 0
-            ignorePassive:
-            - {fileID: 0}
+            ignorePassive: []
             school: 0
             attributeType: 0
             baseValue: 0
@@ -60,14 +59,18 @@ MonoBehaviour:
             scaling: 0
             levelScaling: 0
             reductionType: 0
-          effectOnTarget: 0
+          effectOnTarget: 1
           conditionalEffect: {fileID: 0}
+        drainModifier:
+          hasModifier: 0
+          fractionDrained: 0
       effectTargets: 0
       effect: {fileID: 0}
       encounter:
         enemyObjects: []
         randomOrder: 1
         weight: 1
+      teamSetup: 0
     - type: 3
       currencyAmount: 7
       currencyType: 1
@@ -86,7 +89,7 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 1
-        modifier:
+        abilityModifier:
           hasModifier: 0
           modification: 0
           condition: 0
@@ -94,15 +97,14 @@ MonoBehaviour:
           conditionThreshold: 0
           increasedAttribute: 0
           increaseValue: 0
-          casterBased: 0
+          casterBased: 1
           attributeBase: 0
           percentageIncrease: 0
           bonusAbilitySource:
             ignoreMultipliers: 0
             cannotCrit: 0
             cannotMiss: 0
-            ignorePassive:
-            - {fileID: 0}
+            ignorePassive: []
             school: 0
             attributeType: 0
             baseValue: 0
@@ -110,16 +112,20 @@ MonoBehaviour:
             scaling: 0
             levelScaling: 0
             reductionType: 0
-          effectOnTarget: 0
+          effectOnTarget: 1
           conditionalEffect: {fileID: 0}
+        drainModifier:
+          hasModifier: 0
+          fractionDrained: 0
       effectTargets: 0
       effect: {fileID: 0}
       encounter:
         enemyObjects: []
         randomOrder: 1
         weight: 1
+      teamSetup: 0
   - eventWeight: 1
-    flavorText: Upon the ground lies a desiccated corpse, its lifeless hands gripping
+    flavorText: On the ground lies a desiccated corpse, its lifeless hands gripping
       a chest of untold wonders. The mere sight hints at a treacherous tale, igniting
       a mix of anticipation and caution within the party.
     actions:
@@ -141,7 +147,7 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 1
-        modifier:
+        abilityModifier:
           hasModifier: 0
           modification: 0
           condition: 0
@@ -149,15 +155,14 @@ MonoBehaviour:
           conditionThreshold: 0
           increasedAttribute: 0
           increaseValue: 0
-          casterBased: 0
+          casterBased: 1
           attributeBase: 0
           percentageIncrease: 0
           bonusAbilitySource:
             ignoreMultipliers: 0
             cannotCrit: 0
             cannotMiss: 0
-            ignorePassive:
-            - {fileID: 0}
+            ignorePassive: []
             school: 0
             attributeType: 0
             baseValue: 0
@@ -165,14 +170,18 @@ MonoBehaviour:
             scaling: 0
             levelScaling: 0
             reductionType: 0
-          effectOnTarget: 0
+          effectOnTarget: 1
           conditionalEffect: {fileID: 0}
+        drainModifier:
+          hasModifier: 0
+          fractionDrained: 0
       effectTargets: 0
       effect: {fileID: 0}
       encounter:
         enemyObjects: []
         randomOrder: 1
         weight: 1
+      teamSetup: 0
   - eventWeight: 2
     flavorText: Hidden within the shadows, a mesmerizing rock emanates a peculiar
       energy, its glow enchanting and perilous. As the party discovers it, a captivating
@@ -197,7 +206,7 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 1
-        modifier:
+        abilityModifier:
           hasModifier: 0
           modification: 0
           condition: 0
@@ -205,15 +214,14 @@ MonoBehaviour:
           conditionThreshold: 0
           increasedAttribute: 0
           increaseValue: 0
-          casterBased: 0
+          casterBased: 1
           attributeBase: 0
           percentageIncrease: 0
           bonusAbilitySource:
             ignoreMultipliers: 0
             cannotCrit: 0
             cannotMiss: 0
-            ignorePassive:
-            - {fileID: 0}
+            ignorePassive: []
             school: 0
             attributeType: 0
             baseValue: 0
@@ -221,14 +229,18 @@ MonoBehaviour:
             scaling: 0
             levelScaling: 0
             reductionType: 0
-          effectOnTarget: 0
+          effectOnTarget: 1
           conditionalEffect: {fileID: 0}
+        drainModifier:
+          hasModifier: 0
+          fractionDrained: 0
       effectTargets: 0
       effect: {fileID: 11400000, guid: d7dcafdf06bc96949b5fbaacd4e28bd4, type: 2}
       encounter:
         enemyObjects: []
         randomOrder: 1
         weight: 1
+      teamSetup: 0
     - type: 3
       currencyAmount: 0
       currencyType: 0
@@ -247,7 +259,7 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 1
-        modifier:
+        abilityModifier:
           hasModifier: 0
           modification: 0
           condition: 0
@@ -255,15 +267,14 @@ MonoBehaviour:
           conditionThreshold: 0
           increasedAttribute: 0
           increaseValue: 0
-          casterBased: 0
+          casterBased: 1
           attributeBase: 0
           percentageIncrease: 0
           bonusAbilitySource:
             ignoreMultipliers: 0
             cannotCrit: 0
             cannotMiss: 0
-            ignorePassive:
-            - {fileID: 0}
+            ignorePassive: []
             school: 0
             attributeType: 0
             baseValue: 0
@@ -271,11 +282,15 @@ MonoBehaviour:
             scaling: 0
             levelScaling: 0
             reductionType: 0
-          effectOnTarget: 0
+          effectOnTarget: 1
           conditionalEffect: {fileID: 0}
+        drainModifier:
+          hasModifier: 0
+          fractionDrained: 0
       effectTargets: 0
       effect: {fileID: 11400000, guid: d7dcafdf06bc96949b5fbaacd4e28bd4, type: 2}
       encounter:
         enemyObjects: []
         randomOrder: 1
         weight: 1
+      teamSetup: 0

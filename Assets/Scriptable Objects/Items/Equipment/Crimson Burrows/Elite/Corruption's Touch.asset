@@ -42,7 +42,7 @@ MonoBehaviour:
   natureMultiplier: 0
   arcaneMultiplier: 0
   holyMultiplier: 0
-  shadowMultiplier: 0
+  shadowMultiplier: 10
   critMultiplier: 15
   passives:
   - {fileID: 11400000, guid: 5b36d0421307f644584b9f906664e0f4, type: 2}

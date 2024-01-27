@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor;
 
 public enum GameState
 {
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
     public bool TEST_MODE = false;
     public Canvas TEST;
     public GameObject SKIP_BUTTON;
+    public Unit SFX_TARGET;
 
     [Header("[ Start & End Screen ]")]
     public Canvas startUI;
@@ -136,6 +138,21 @@ public class GameManager : MonoBehaviour
 
         //if (SaveSystem.LoadTeam() == null)
         //    loadButton.interactable = false;
+    }
+
+    public void LoadParticleSystems()
+    {
+        var guids = AssetDatabase.FindAssets("", new string[] { "Assets/Prefabs/Particle Effects" });
+        foreach (var guid in guids)
+        {
+            var path = AssetDatabase.GUIDToAssetPath(guid);
+            ParticleSystem specialEffect = AssetDatabase.LoadAssetAtPath<ParticleSystem>(path);
+            if (specialEffect != null)
+            {
+                ObjectUtilities.CreateSpecialEffects(new() { specialEffect }, SFX_TARGET);
+                Debug.Log($"Loaded: {specialEffect.name}");
+            }
+        }
     }
 
     public void EnableUI(Canvas ui)
@@ -224,6 +241,8 @@ public class GameManager : MonoBehaviour
     // Start Story
     public void StartCampaign()
     {
+        LoadParticleSystems();
+
         ObjectUtilities.BlackTransition(true);
         
         gameState = GameState.TOWN;
@@ -249,6 +268,8 @@ public class GameManager : MonoBehaviour
 
     public void StartEndless()
     {
+        LoadParticleSystems();
+
         ObjectUtilities.BlackTransition(true);
 
         gameState = GameState.TOWN;
@@ -301,7 +322,7 @@ public class GameManager : MonoBehaviour
 
     public void TestGame()
     {
-        SaveManager.Instance.currentId = "1";
+        SaveManager.Instance.currentId = "3";
 
         gameState = GameState.TOWN;
 
@@ -318,9 +339,6 @@ public class GameManager : MonoBehaviour
         progressionManager.UnlockFourthAbility();
         progressionManager.UnlockEnchanterUpgrade();
 
-
-
-
         tutorialManager.SkipTutorials = true;
 
         titleElements.gameObject.SetActive(false);
@@ -332,12 +350,6 @@ public class GameManager : MonoBehaviour
         SetupTeamSelection();
         CreateTeam();     
 
-        //// Create 3 Heroes
-        //teamManager.CreateHero(0, 0);
-        //teamManager.CreateHero(1, 1);
-        //teamManager.CreateHero(2, 2);
-
-        //townManager.StartTutorial();
         townManager.SetupTown(campaignTown);
     }
 
@@ -430,8 +442,6 @@ public class GameManager : MonoBehaviour
 
         progressionManager.FirstDeath();
 
-        teamManager.heroes.FullRestoreTeam();
-
         GoToTown();
 
         RewardManager.Instance.SetupBattleResult();
@@ -449,9 +459,9 @@ public class GameManager : MonoBehaviour
 
     public void GoToTown()
     {
-        gameState = GameState.TOWN;
+        teamManager.heroes.FullRestoreTeam();
 
-        //teamManager.Regroup(true);
+        gameState = GameState.TOWN;
 
         currencyHandler.SetState(false);
         currencyHandler.UpdateCurrencies();
@@ -514,6 +524,4 @@ public class GameManager : MonoBehaviour
 
         progressionManager.ResetProgression();
     }
-
-
 }

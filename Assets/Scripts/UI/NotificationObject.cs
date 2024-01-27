@@ -20,13 +20,17 @@ public class NotificationObject : MonoBehaviour
         }
     }
 
-    public void Setup(GameObject containerObject, string message, List<Reward> rewards = null)
+    public void Setup(GameObject containerObject, string message, float windowWidth, float windowHeight, List<Reward> rewards = null)
     {
         container = containerObject;
 
         transform.SetParent(containerObject.transform);
         transform.localPosition = new Vector3(0, NotificationsInContainer() * -20);
         name = "Notification";
+
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        rectTransform.sizeDelta = new Vector2(windowWidth, windowHeight - 64);
+        rectTransform.localScale = Vector3.one;
 
         this.message.text = message;
 
@@ -41,14 +45,14 @@ public class NotificationObject : MonoBehaviour
         continueButton.onClick.AddListener(CloseNotification);
     }
 
-    public static void SendNotification(string message, List<Reward> rewards = null)
+    public static void CreateNotification(string message, float windowWidth, float windowHeight, List<Reward> rewards = null)
     {
         GameObject container = GameObject.Find("Notification Container");
 
         GameObject obj = ObjectUtilities.CreateSimplePrefab(GameAssets.i.notificationPrefab.gameObject, container);
 
         NotificationObject notification = obj.GetComponent<NotificationObject>();
-        notification.Setup(container, message, rewards);
+        notification.Setup(container, message, windowWidth, windowHeight, rewards);
     }
 
     private void CloseNotification()

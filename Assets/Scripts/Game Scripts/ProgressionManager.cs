@@ -95,7 +95,7 @@ public class ProgressionManager : MonoBehaviour
         // Give ability currency for now
         GameManager.Instance.currencyHandler.IncreaseCurrency(new Currency(CurrencyType.Spirit, 30));
 
-        NotificationObject.SendNotification("That was rough... maybe these 30 Spirit Fragments will help you.", new List<Reward>() { new Reward(new Currency(CurrencyType.Spirit, 30)) });
+        NotificationObject.CreateNotification("Failure is just a stepping stone to success! Take these 30 Spirit Fragments and conquer the next attempt!", 500, 350, new List<Reward>() { new Reward(new Currency(CurrencyType.Spirit, 30)) });
 
         Debug.Log("This is your first death.");   
     }
@@ -111,7 +111,7 @@ public class ProgressionManager : MonoBehaviour
 
             SetPathButtonState();
 
-            NotificationObject.SendNotification("The Path system has been unlocked.");
+            NotificationObject.CreateNotification("The Path system has been unlocked.", 500, 200);
         }
     }
 
@@ -147,7 +147,7 @@ public class ProgressionManager : MonoBehaviour
 
         SpellbookManager.Instance.activeAbilities[3].locked = false;
 
-        NotificationObject.SendNotification("Your fourth ability slot has been unlocked.");
+        NotificationObject.CreateNotification("Your fourth ability slot has been unlocked.", 500, 200);
     }
 
     public void UnlockEnchanterUpgrade()

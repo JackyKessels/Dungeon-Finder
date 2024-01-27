@@ -45,4 +45,4 @@ MonoBehaviour:
   shadowMultiplier: 0
   critMultiplier: 0
   passives: []
-  useAbility: {fileID: 11400000, guid: 03af46dea0ac45e498a8bb6c2004f345, type: 2}
+  useAbility: {fileID: 11400000, guid: 888cc1394ea204b43922ba9598e5491a, type: 2}

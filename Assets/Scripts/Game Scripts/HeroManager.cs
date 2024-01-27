@@ -76,38 +76,38 @@ public class HeroManager : MonoBehaviour, IUserInterface
 
     private void Update()
     {
-        if (KeyboardHandler.OpenHeroInformationGeneral() && 
-            gameManager.gameState != GameState.NONE)
+        if (gameManager.gameState == GameState.TOWN ||
+            gameManager.gameState == GameState.RUN)
         {
-            HeroInformationGeneralButton();
-        }
+            if (KeyboardHandler.OpenHeroInformationGeneral())
+            {
+                HeroInformationGeneralButton();
+            }
 
-        if (KeyboardHandler.OpenHeroInformationPaths() && 
-            gameManager.gameState != GameState.NONE &&
-            gameManager.gameMode == GameMode.Campaign &&
-            ProgressionManager.Instance.unlockedPaths)
-        {
-            HeroInformationPathButton();
-        }
+            if (KeyboardHandler.OpenHeroInformationPaths() && 
+                gameManager.gameMode == GameMode.Campaign &&
+                ProgressionManager.Instance.unlockedPaths)
+            {
+                HeroInformationPathButton();
+            }
 
-        if (KeyboardHandler.PreviousHero() && 
-            gameManager.gameState != GameState.NONE && 
-            heroInformationObject.activeSelf)
-        {
-            PreviousHero();
-        }
+            if (KeyboardHandler.PreviousHero() && 
+                heroInformationObject.activeSelf)
+            {
+                PreviousHero();
+            }
 
-        if (KeyboardHandler.NextHero() && 
-            gameManager.gameState != GameState.NONE && 
-            heroInformationObject.activeSelf)
-        {
-            NextHero();
-        }
+            if (KeyboardHandler.NextHero() && 
+                heroInformationObject.activeSelf)
+            {
+                NextHero();
+            }
 
-        if (KeyboardHandler.Escape() && 
-            heroInformationObject.activeSelf)
-        {
-            heroInformationObject.SetActive(false);
+            if (KeyboardHandler.Escape() && 
+                heroInformationObject.activeSelf)
+            {
+                heroInformationObject.SetActive(false);
+            }
         }
     }
 

@@ -118,8 +118,10 @@ public class Team
         QueueManager.Instance.AddToSpeedList(unit);
     }
 
-    public void HealTeam(float factor, bool missingHealth)
+    public void HealTeam(float factor, bool missingHealth, bool showWindow, string titleText = null)
     {
+        List<string> messages = new();
+
         foreach (Unit unit in LivingMembers)
         {
             int restoreValue;
@@ -136,8 +138,12 @@ public class Team
                 unit.statsManager.currentHealth = unit.statsManager.GetAttributeValue((int)AttributeType.Health);
             }
 
-            Debug.Log(unit + " restored " + restoreValue + " health.");
+            messages.Add($"{unit.name} restored <color={ColorDatabase.SchoolColor(AbilitySchool.Healing)}>{restoreValue}</color> Health");
         }
+
+        string fullMessage = GeneralUtilities.JoinString(messages, "\n", "\n");
+
+        TextWindow.CreateTextWindow(titleText, fullMessage, 500, 400);
     }
 
     public void ReviveDeadMembers(bool fullRestore)

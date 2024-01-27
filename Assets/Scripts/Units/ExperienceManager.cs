@@ -69,7 +69,7 @@ public class ExperienceManager
     public void LevelUpTeam(bool showNotification)
     {
         if (showNotification)
-            NotificationObject.SendNotification("Level Up! Maximum Health of all party members increased by " + StatsManager.levelUpHealth + ".");
+            NotificationObject.CreateNotification("Level Up! Maximum Health of all party members increased by " + StatsManager.levelUpHealth + ".", 500, 300);
 
         if (currentLevel < maxLevel)
         {
