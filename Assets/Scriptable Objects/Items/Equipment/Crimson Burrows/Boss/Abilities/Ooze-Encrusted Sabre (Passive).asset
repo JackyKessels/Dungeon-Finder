@@ -38,7 +38,7 @@ MonoBehaviour:
   abilitySources:
   - ignoreMultipliers: 0
     cannotCrit: 0
-    cannotMiss: 0
+    cannotMiss: 1
     ignorePassives: []
     school: 4
     attributeType: 0

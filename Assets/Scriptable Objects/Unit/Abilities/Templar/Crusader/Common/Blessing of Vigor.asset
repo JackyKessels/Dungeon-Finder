@@ -20,7 +20,7 @@ MonoBehaviour:
     Rounds.
 
 
-    <name> does not stack.'
+    <name> does not stack and can only be active on <g!1> target.'
   icon: {fileID: 21300000, guid: 642fe455a19cddf4d9e971655413e149, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
@@ -29,10 +29,11 @@ MonoBehaviour:
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 0.5
-  cooldown: 3
+  cooldown: 1
   initialCooldown: 0
   endTurn: 1
   resetChance: 0
+  singleUse: 0
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 1

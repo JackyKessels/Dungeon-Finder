@@ -142,6 +142,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadParticleSystems()
     {
+#if DEBUG
         var guids = AssetDatabase.FindAssets("", new string[] { "Assets/Prefabs/Particle Effects" });
         foreach (var guid in guids)
         {
@@ -153,6 +154,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log($"Loaded: {specialEffect.name}");
             }
         }
+#endif
     }
 
     public void EnableUI(Canvas ui)

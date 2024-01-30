@@ -202,7 +202,7 @@ public class PassiveOnHitTrigger : PassiveAbility
         if (hitType == HitType.Critical && !abilityValue.isGlancing && abilityValue.isCritical)
             return true;
 
-        if (hitType == HitType.Glancing && abilityValue.isGlancing && !abilityValue.isCritical)
+        if (hitType == HitType.Glancing && abilityValue.isGlancing)
             return true;
 
         return false;

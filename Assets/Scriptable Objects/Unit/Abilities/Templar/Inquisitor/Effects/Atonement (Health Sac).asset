@@ -25,6 +25,8 @@ MonoBehaviour:
   refreshes: 1
   aura: 0
   unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects: []
   timedActions:
   - actionType: 0
@@ -34,17 +36,17 @@ MonoBehaviour:
       ignoreMultipliers: 1
       cannotCrit: 1
       cannotMiss: 1
-      ignorePassive: {fileID: 0}
+      ignorePassives: []
       school: 8
       attributeType: 0
       baseValue: 0
       levelBase: 0
-      scaling: 0.15
+      scaling: 0.12
       levelScaling: -0.01
       reductionType: 0
-      modifier:
-        hasModifier: 1
-        modification: 1
+      abilityModifier:
+        hasModifier: 0
+        modification: 0
         condition: 0
         thresholdType: 0
         conditionThreshold: 0
@@ -57,7 +59,7 @@ MonoBehaviour:
           ignoreMultipliers: 0
           cannotCrit: 0
           cannotMiss: 0
-          ignorePassive: {fileID: 0}
+          ignorePassive: []
           school: 0
           attributeType: 0
           baseValue: 0
@@ -67,5 +69,8 @@ MonoBehaviour:
           reductionType: 0
         effectOnTarget: 1
         conditionalEffect: {fileID: 0}
+      drainModifier:
+        hasModifier: 0
+        fractionDrained: 0
     specialEffects: []
     storedValue: 0
