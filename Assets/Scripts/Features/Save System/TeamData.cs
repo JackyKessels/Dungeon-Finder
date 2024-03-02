@@ -87,6 +87,9 @@ public class TeamData
     // Stratford Shops
     public List<int> unlockedGlyphs;
 
+    // Codex
+    public List<int> discoveredItems;
+
     public TeamData(Team team)
     {
         GameManager gameManager = GameManager.Instance;
@@ -100,6 +103,7 @@ public class TeamData
         unlockedPaths = progressionManager.unlockedPaths;
         unlockedFourthAbility = progressionManager.unlockedFourthAbility;
         unlockedEnchanterUpgrade = progressionManager.unlockedEnchanterUpgrade;
+        discoveredItems = progressionManager.discoveredItems;
 
         showTutorialLearningAbilities = gameManager.tutorialManager.ShowLearningAbilities;
         showTutorialPathSystem = gameManager.tutorialManager.ShowUsingPathSystem;

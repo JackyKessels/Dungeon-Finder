@@ -14,57 +14,148 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   events:
   - eventWeight: 1
-    flavorText: "As the party presses onward through the dense forest, an eerie sensation
-      settles upon them\u2014an unshakeable certainty that they are being watched.
-      Suddenly, a fearsome, monstrous shape emerges before them."
-    actions:
-    - type: 6
-      currencyAmount: 1
-      currencyType: 1
-      experienceAmount: 0
-      itemObject: {fileID: 0}
-      sourceTargets: 0
-      abilitySource:
-        ignoreMultipliers: 0
-        cannotCrit: 0
-        cannotMiss: 0
-        ignorePassives: []
-        school: 0
-        attributeType: 0
-        baseValue: 0
-        levelBase: 0
-        scaling: 0
-        levelScaling: 0
-        reductionType: 0
-        modifier:
-          hasModifier: 0
-          modification: 0
-          condition: 0
-          thresholdType: 0
-          conditionThreshold: 0
-          increasedAttribute: 0
-          increaseValue: 0
-          casterBased: 0
-          attributeBase: 0
-          percentageIncrease: 0
-          bonusAbilitySource:
-            ignoreMultipliers: 0
-            cannotCrit: 0
-            cannotMiss: 0
-            ignorePassive: []
-            school: 0
-            attributeType: 0
-            baseValue: 0
-            levelBase: 0
-            scaling: 0
-            levelScaling: 0
-            reductionType: 0
-          effectOnTarget: 0
-          conditionalEffect: {fileID: 0}
-      effectTargets: 0
-      effect: {fileID: 0}
-      encounter:
-        enemyObjects:
-        - {fileID: 11400000, guid: 7e770a08fed917144b5101bb41314679, type: 2}
-        randomOrder: 1
-        weight: 1
+    results:
+    - conditions: []
+      flavorText: "As the party presses onward through the dense forest, an eerie
+        sensation settles upon them\u2014an unshakeable certainty that they are being
+        watched. Suddenly, a fearsome, monstrous shape emerges before them.\r"
+      actions:
+      - type: 6
+        condition:
+          type: 0
+          target: 0
+          itemObject: {fileID: 0}
+          consumeItem: 0
+        currencyAmount: 0
+        currencyType: 0
+        experienceAmount: 0
+        itemObject: {fileID: 0}
+        sourceTargets: 0
+        abilitySource:
+          ignoreMultipliers: 0
+          cannotCrit: 0
+          cannotMiss: 0
+          ignorePassives: []
+          school: 0
+          attributeType: 0
+          baseValue: 0
+          levelBase: 0
+          scaling: 0
+          levelScaling: 0
+          reductionType: 0
+          abilityModifier:
+            hasModifier: 0
+            modification: 0
+            condition: 0
+            thresholdType: 0
+            conditionThreshold: 0
+            increasedAttribute: 0
+            increaseValue: 0
+            casterBased: 0
+            attributeBase: 0
+            percentageIncrease: 0
+            bonusAbilitySource:
+              ignoreMultipliers: 0
+              cannotCrit: 0
+              cannotMiss: 0
+              ignorePassive: []
+              school: 0
+              attributeType: 0
+              baseValue: 0
+              levelBase: 0
+              scaling: 0
+              levelScaling: 0
+              reductionType: 0
+            effectOnTarget: 0
+            conditionalEffect: {fileID: 0}
+          drainModifier:
+            hasModifier: 0
+            fractionDrained: 0
+        effectTargets: 0
+        effect: {fileID: 0}
+        encounter:
+          enemyObjects:
+          - {fileID: 11400000, guid: 7e770a08fed917144b5101bb41314679, type: 2}
+          randomOrder: 0
+          weight: 1
+        teamSetup: 0
+  - eventWeight: 100
+    results:
+    - conditions:
+      - type: 1
+        target: 1
+        itemObject: {fileID: 11400000, guid: 969bb07dd1229614f9d139246b0a9a33, type: 2}
+        consumeItem: 1
+      flavorText: 'You encounter a spoopy guy in the woods, he''s asking if you have
+        a fancy stick.
+
+
+        You hand him the fancy stick and he gives you a
+        different stick back.'
+      actions:
+      - type: 2
+        condition:
+          type: 0
+          target: 0
+          itemObject: {fileID: 0}
+          consumeItem: 0
+        currencyAmount: 0
+        currencyType: 0
+        experienceAmount: 0
+        itemObject: {fileID: 11400000, guid: 8d67ba34ac4dfb7469a497c0a46e1e04, type: 2}
+        sourceTargets: 0
+        abilitySource:
+          ignoreMultipliers: 0
+          cannotCrit: 0
+          cannotMiss: 0
+          ignorePassives: []
+          school: 0
+          attributeType: 0
+          baseValue: 0
+          levelBase: 0
+          scaling: 0
+          levelScaling: 0
+          reductionType: 0
+          abilityModifier:
+            hasModifier: 0
+            modification: 0
+            condition: 0
+            thresholdType: 0
+            conditionThreshold: 0
+            increasedAttribute: 0
+            increaseValue: 0
+            casterBased: 0
+            attributeBase: 0
+            percentageIncrease: 0
+            bonusAbilitySource:
+              ignoreMultipliers: 0
+              cannotCrit: 0
+              cannotMiss: 0
+              ignorePassive: []
+              school: 0
+              attributeType: 0
+              baseValue: 0
+              levelBase: 0
+              scaling: 0
+              levelScaling: 0
+              reductionType: 0
+            effectOnTarget: 0
+            conditionalEffect: {fileID: 0}
+          drainModifier:
+            hasModifier: 0
+            fractionDrained: 0
+        effectTargets: 0
+        effect: {fileID: 0}
+        encounter:
+          enemyObjects: []
+          randomOrder: 0
+          weight: 0
+        teamSetup: 0
+    - conditions:
+      - type: 1
+        target: 0
+        itemObject: {fileID: 11400000, guid: 969bb07dd1229614f9d139246b0a9a33, type: 2}
+        consumeItem: 0
+      flavorText: "You encounter a spoopy guy in the woods, he's asking if you have
+        a fancy stick. \n\nYou do not have a fancy stick :("
+      actions: []

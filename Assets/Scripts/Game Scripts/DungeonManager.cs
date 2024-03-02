@@ -82,7 +82,7 @@ public class DungeonManager : MonoBehaviour, IUserInterface
     }
 
     // Main function that triggers all the other functions
-    public void BuildDungeon(Dungeon dungeon, Floor floor)
+    public void BuildFloor(Dungeon dungeon, Floor floor)
     {
         locationInformationObject.SetActive(false);
 
@@ -211,7 +211,7 @@ public class DungeonManager : MonoBehaviour, IUserInterface
 
         Floor floor = currentDungeon.floors[currentFloor];
 
-        BuildDungeon(currentDungeon, floor);
+        BuildFloor(currentDungeon, floor);
     }
 
     public bool IsLastFloor()
@@ -222,8 +222,20 @@ public class DungeonManager : MonoBehaviour, IUserInterface
             return false;
     }
 
+    public bool IsLastLocation()
+    {
+        return player.currentLocation.x == gridHandler.columns - 1;
+    }
+
     public void EnableUI(bool show)
     {
         userInterface.gameObject.SetActive(show);
+    }
+
+    public bool IsCurrentLocationBoss()
+    {
+        Location currentLocation = gridHandler.GetLocation(player.currentLocation.x, player.currentLocation.y);
+
+        return currentLocation.locationType == LocationType.Boss;
     }
 }

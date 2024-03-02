@@ -338,8 +338,10 @@ public class GameManager : MonoBehaviour
         progressionManager.firstDeath = true;
         progressionManager.unlockedPaths = true;
         progressionManager.SetPathButtonState();
-        progressionManager.UnlockFourthAbility();
-        progressionManager.UnlockEnchanterUpgrade();
+        progressionManager.SetFourthAbilityStatus(true);
+        progressionManager.SetEnchantUpgradeStatus(true);
+
+        progressionManager.discoveredItems = new List<int>();
 
         tutorialManager.SkipTutorials = true;
 
@@ -368,7 +370,7 @@ public class GameManager : MonoBehaviour
         progressionManager.totalVictories++;
 
         // Won last location -> Map is finished so return back to town
-        if (dungeonManager.player.currentLocation.x == dungeonManager.gridHandler.columns - 1)
+        if (dungeonManager.IsLastLocation())
         {
             switch (gameMode)
             {
@@ -381,8 +383,8 @@ public class GameManager : MonoBehaviour
                             progressionManager.totalBossesDefeated++;
 
                             progressionManager.campaignManager.UnlockDungeon(dungeonManager.currentDungeon);
-                            progressionManager.UnlockFourthAbility();
-                            progressionManager.UnlockEnchanterUpgrade();
+                            progressionManager.UnlockFourthAbility(dungeonManager.currentDungeon, true);
+                            progressionManager.UnlockEnchanterUpgrade(dungeonManager.currentDungeon, true);
 
                             GoToTown();
 
@@ -404,15 +406,15 @@ public class GameManager : MonoBehaviour
                     break;
                 case GameMode.Endless:
                     {
+                        RewardManager.Instance.SetupBattleResult();
+
                         GoToTown();
 
                         dungeonManager.EnableUI(false);
 
-                        RewardManager.Instance.SetupBattleResult();
-
                         teamManager.heroes.FullRestoreTeam();
 
-                        progressionManager.endlessManager.EndlessLevel++;
+                        progressionManager.endlessManager.endlessLevel++;
                     }
                     break;
             }
@@ -440,13 +442,13 @@ public class GameManager : MonoBehaviour
 
     public void BattleLost()
     {
+        RewardManager.Instance.SetupBattleResult();
+
         progressionManager.totalDefeats++;
 
         progressionManager.FirstDeath();
 
         GoToTown();
-
-        RewardManager.Instance.SetupBattleResult();
     }
 
 

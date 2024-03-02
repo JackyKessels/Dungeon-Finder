@@ -9,7 +9,7 @@ public class Team
     private Unit[] members;
 
     // Only for enemies
-    public List<Unit> killedMembers;
+    public List<Unit> defeatedMembers;
 
     public Team(int size)
     {
@@ -74,7 +74,7 @@ public class Team
 
     public void Setup(UnitPosition[] positions, bool isEnemy)
     {
-        killedMembers = new List<Unit>();
+        defeatedMembers = new List<Unit>();
 
         foreach (UnitPosition position in positions)
         {
@@ -186,7 +186,7 @@ public class Team
 
     public void KillEnemy(Unit unit)
     {
-        killedMembers.Add(unit);
+        defeatedMembers.Add(unit);
         members[unit.battleNumber] = null;
     }
 

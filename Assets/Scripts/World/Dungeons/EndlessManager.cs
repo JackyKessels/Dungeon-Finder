@@ -9,18 +9,7 @@ public class EndlessManager : MonoBehaviour
     public Dungeon endlessDungeon;
     public TextMeshProUGUI levelCounter;
 
-    public int EndlessLevel 
-    {
-        get
-        {
-            return ProgressionManager.Instance.endlessLevel;
-        }
-        set
-        {
-            ProgressionManager.Instance.endlessLevel = value;
-            UpdateCounter();
-        }
-    }
+    public int endlessLevel = 1;
 
     private Floor lastFloor;
 
@@ -47,8 +36,16 @@ public class EndlessManager : MonoBehaviour
         return nextFloor;
     }
 
+    public void CompleteFloor()
+    {
+        endlessLevel++;
+        UpdateCounter();
+        // max lvl is currently 50, probably uncap for endless
+        TeamManager.Instance.experienceManager.LevelUpTeam(true);
+    }
+
     private void UpdateCounter()
     {
-        levelCounter.text = EndlessLevel.ToString();
+        levelCounter.text = endlessLevel.ToString();
     }
 }

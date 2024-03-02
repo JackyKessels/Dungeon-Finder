@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c6ceb8c6d2f364890991805e84e47b, type: 3}
+  m_Name: Codex Database
+  m_EditorClassIdentifier: 
+  dungeonEntries:
+  - dungeon: {fileID: 11400000, guid: dc6996d45d25c0d438907341f35d65a3, type: 2}
+    equipments:
+    - {fileID: 11400000, guid: ad4d72fbf4442d942942755c813a7c08, type: 2}
+    - {fileID: 11400000, guid: 2fd74b68355f617418891cd4ca276275, type: 2}
+    - {fileID: 11400000, guid: 1b677da83272f904c9c47a92f070c498, type: 2}
+    - {fileID: 11400000, guid: 309044d6b6048974ba22997525062828, type: 2}
+    - {fileID: 11400000, guid: ec3af5e8d3b29674793c7665102b479d, type: 2}
+    - {fileID: 11400000, guid: 4a5da500e6191904d911691bf6330968, type: 2}
+    - {fileID: 11400000, guid: fbf6a738f3bdb6f47b54175a4bc82628, type: 2}
+    - {fileID: 11400000, guid: f3469f88b0dc25b4484bfa50995c890b, type: 2}
+    - {fileID: 11400000, guid: a0db3ee41c33eef4dbc6a3840a9684c8, type: 2}
+    - {fileID: 11400000, guid: acdb4f3da0147e84085f2b8fdbe1bc09, type: 2}
+    - {fileID: 11400000, guid: 8f0bbf180b8c51445be5122df1020e79, type: 2}
+    - {fileID: 11400000, guid: b100b78b2f0928e4e9587480157ca09f, type: 2}
+    - {fileID: 11400000, guid: d54e85951334f0d4789b4ab447524654, type: 2}
+    - {fileID: 11400000, guid: 61e92c3157b2fb441967761ec8664631, type: 2}
+    - {fileID: 11400000, guid: 208b6673db131fb44ae31518e7c4444e, type: 2}
+    - {fileID: 11400000, guid: d6beeb7bbb5426949ac3d95f32b8a37a, type: 2}
+    - {fileID: 11400000, guid: db43b75b6180e064598310693230ca7d, type: 2}
+    - {fileID: 11400000, guid: 313f4790924acad4cbb951955ecdf1c4, type: 2}
+    - {fileID: 11400000, guid: fee08737e3382da4cad72139df036ce7, type: 2}
+    - {fileID: 11400000, guid: f52243a338ebdbf4ab182eaced35d996, type: 2}
+    - {fileID: 11400000, guid: 0e1a87c451710bb4b90483ac36cae661, type: 2}
+    - {fileID: 11400000, guid: 3dc8a6fa61c22d64a8b1c430c0c08c3f, type: 2}
+    - {fileID: 11400000, guid: ec0a9724dbe106f419298058d381ce61, type: 2}
+    - {fileID: 11400000, guid: 9551c5fc36c479540b6f46d561b21b7c, type: 2}
+    - {fileID: 11400000, guid: fff4349331be5354ab963cd24c78cee7, type: 2}
+    - {fileID: 11400000, guid: 38c70f5c05c5d2249b579482d0845527, type: 2}
+    - {fileID: 11400000, guid: edfb06ae9132ebc4c975c716d9d58b1e, type: 2}
+    consumables:
+    - {fileID: 11400000, guid: bbec155b5c72e7447b17fc0f15e34b28, type: 2}
+    - {fileID: 11400000, guid: a59beb3bea1f71645bb09ef59fa873a5, type: 2}
+    - {fileID: 11400000, guid: 5621ba4d5fa078c4b83d03458d510ae6, type: 2}
+    - {fileID: 11400000, guid: 85f6f2b7c99bf55428a0033f14755e9b, type: 2}
+  - dungeon: {fileID: 11400000, guid: 6b5fe543dc302914a9dce4e18be8c28f, type: 2}
+    equipments:
+    - {fileID: 11400000, guid: e7de7b2a7a37de943b9e9b64a190d5a4, type: 2}
+    - {fileID: 11400000, guid: 8d67ba34ac4dfb7469a497c0a46e1e04, type: 2}
+    - {fileID: 11400000, guid: 0810c68dda8cb5e43985dafefedfe6aa, type: 2}
+    - {fileID: 11400000, guid: 25c3a5f31d8a1f24d81fb0212b7f4518, type: 2}
+    - {fileID: 11400000, guid: a31424e9327f4da4a8e7b1de63951535, type: 2}
+    - {fileID: 11400000, guid: 9636dcb6d6b4fde4fa0e4a2c3bf9d0fa, type: 2}
+    - {fileID: 11400000, guid: abca1ab87bbb901479a184a485c67532, type: 2}
+    - {fileID: 11400000, guid: 35cdd114b3c66a64ab38f10ac5c884b9, type: 2}
+    - {fileID: 11400000, guid: ab57594b34c8d1f4a9b670d053ac3f73, type: 2}
+    - {fileID: 11400000, guid: 30070842ffdd55c4d9fc17cfeff4920c, type: 2}
+    - {fileID: 11400000, guid: 296e7d66c6cd359418a792a1c2c1669f, type: 2}
+    - {fileID: 11400000, guid: 281ad6faa1e3f4f46a223e307541baba, type: 2}
+    - {fileID: 11400000, guid: aac92a78a6d3e35428bab44f80d0249e, type: 2}
+    - {fileID: 11400000, guid: 672709d438a07224bb239ba8dbf5fe7f, type: 2}
+    - {fileID: 11400000, guid: 4972d846ec24962429d8346a526ff15c, type: 2}
+    consumables:
+    - {fileID: 11400000, guid: 680f58a69b417964ab295b35969ba4fc, type: 2}
+    - {fileID: 11400000, guid: 969bb07dd1229614f9d139246b0a9a33, type: 2}
+    - {fileID: 11400000, guid: f9e1364aab200e24e9799ecd232bab94, type: 2}

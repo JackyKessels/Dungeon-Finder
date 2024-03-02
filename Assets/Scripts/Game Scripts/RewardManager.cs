@@ -86,7 +86,7 @@ public class RewardManager : MonoBehaviour
     {
         List<ItemDrop> itemDrops = new List<ItemDrop>();
 
-        foreach (Unit unit in teamManager.enemies.killedMembers)
+        foreach (Unit unit in teamManager.enemies.defeatedMembers)
         {
             Enemy enemy = unit as Enemy;
 
@@ -138,16 +138,27 @@ public class RewardManager : MonoBehaviour
     // Calculates the total experience points from all defeated enemies.
     public int GetTotalExperienceReward()
     {
-        if (teamManager.enemies.killedMembers.Count == 0)
+        if (teamManager.enemies.defeatedMembers.Count == 0 && !DungeonManager.Instance.IsCurrentLocationBoss())
+        {
             return 0;
+        }
 
         int totalExperience = 0;
 
-        foreach (Unit unit in teamManager.enemies.killedMembers)
+        int teamLevel = teamManager.experienceManager.currentLevel;
+
+        foreach (Unit unit in teamManager.enemies.defeatedMembers)
         {
             Enemy enemy = unit as Enemy;
 
-            totalExperience += enemy.enemyObject.experienceReward;
+            totalExperience += ExperienceManager.EnemyExperience(teamLevel, enemy, true);
+        }
+
+        foreach (Unit unit in teamManager.enemies.LivingMembers)
+        {
+            Enemy enemy = unit as Enemy;
+
+            totalExperience += ExperienceManager.EnemyExperience(teamLevel, enemy, false);
         }
 
         return totalExperience;
@@ -155,12 +166,12 @@ public class RewardManager : MonoBehaviour
 
     public Currency GetCurrencyReward(CurrencyType currencyType)
     {
-        if (teamManager.enemies.killedMembers.Count == 0)
+        if (teamManager.enemies.defeatedMembers.Count == 0)
             return new Currency(currencyType, 0);
 
         int totalCurrency = 0;
 
-        foreach (Unit unit in teamManager.enemies.killedMembers)
+        foreach (Unit unit in teamManager.enemies.defeatedMembers)
         {
             Enemy enemy = unit as Enemy;
 

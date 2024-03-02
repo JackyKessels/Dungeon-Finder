@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Gloomstalk Thicket
   m_EditorClassIdentifier: 
   name: Gloomstalk Thicket
-  recommendedMinimumLevel: 4
+  recommendedMinimumLevel: 5
   recommendedMaximumLevel: 8
   nameColor: {r: 0.64921534, g: 0.41117835, b: 0.8301887, a: 1}
   floors:

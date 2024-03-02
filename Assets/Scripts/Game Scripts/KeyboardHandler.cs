@@ -24,12 +24,12 @@ public class KeyboardHandler
 
     // --- UI --- //
     // Menus //
-    public static bool PreviousHero()
+    public static bool PreviousPage()
     {
         return Input.GetKeyDown(KeyCode.A);
     }
 
-    public static bool NextHero()
+    public static bool NextPage()
     {
         return Input.GetKeyDown(KeyCode.D);
     }
@@ -57,6 +57,11 @@ public class KeyboardHandler
     public static bool OpenGlyphShop()
     {
         return Input.GetKeyDown(KeyCode.T);
+    }
+
+    public static bool OpenCodex()
+    {
+        return Input.GetKeyDown(KeyCode.C);
     }
 
     //public static bool OpenItemShop()

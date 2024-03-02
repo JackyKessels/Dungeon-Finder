@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+public delegate void ItemEvent(ItemObject itemObject);
+
 public class InventoryManager : MonoBehaviour
 {
     #region Singleton
@@ -44,12 +46,16 @@ public class InventoryManager : MonoBehaviour
     public DynamicInterface inventory;
     public DynamicInterface consumables;
 
+    public ItemEvent OnItemObtained;
+
     private void Start()
     {
         ResetInventories();
 
         teamManager = TeamManager.Instance;
         currencyHandler = GameManager.Instance.currencyHandler;
+
+        OnItemObtained += TownManager.Instance.codex.DiscoverItem;
 
         // Initialize the Inventory, the Consumable slots and the Equipment slots
         inventory.Setup(inventoryObject);
@@ -121,7 +127,20 @@ public class InventoryManager : MonoBehaviour
 
     public bool AddItemToInventory(Item item, int amount = 1)
     {
+        if (item == null)
+        {
+            return false;
+        }
+
         bool added = false;
+
+        if (item.itemObject != null && item.itemObject.unique && 
+            (inventoryObject.ContainsItemObject(item.itemObject) || 
+            consumablesObject.ContainsItemObject(item.itemObject)))
+        {
+            Debug.Log($"{item.itemObject.name} is unique and already in your inventory.");
+            return false;
+        }
 
         for (int i = 0; i < amount; i++)
         {
@@ -133,9 +152,59 @@ public class InventoryManager : MonoBehaviour
             {
                 added = inventoryObject.AddItem(item, 1);
             }
+
+            if (added)
+            {
+                OnItemObtained?.Invoke(item.itemObject);
+            }
         }
 
         return added;
+    }
+
+    public void RemoveItemFromInventory(ItemObject itemObject, int amount = 1)
+    {
+        if (itemObject == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < amount; i++)
+        {
+            if (itemObject is Food)
+            {
+                try
+                {
+                    consumablesObject.RemoveItem(itemObject, 1);
+                }
+                catch
+                {
+                    Debug.Log($"Could not remove {itemObject} from consumables.");
+                }
+            }
+            else
+            {
+                try
+                {
+                    inventoryObject.RemoveItem(itemObject, 1);
+                }
+                catch
+                {
+                    Debug.Log($"Could not remove {itemObject} from inventory.");
+                }              
+            }
+        }
+    }
+
+    public bool HasItemInInventory(ItemObject itemObject)
+    {
+        bool checkInventory = inventoryObject.ContainsItemObject(itemObject);
+        bool checkConsumables = consumablesObject.ContainsItemObject(itemObject);
+        bool checkHero1 = equipmentObjects[0] != null ? equipmentObjects[0].ContainsItemObject(itemObject) : false;
+        bool checkHero2 = equipmentObjects[1] != null ? equipmentObjects[1].ContainsItemObject(itemObject) : false;
+        bool checkHero3 = equipmentObjects[2] != null ? equipmentObjects[2].ContainsItemObject(itemObject) : false;
+
+        return checkInventory || checkConsumables || checkHero1 || checkHero2 || checkHero3;
     }
 
     private void ResetInventories()

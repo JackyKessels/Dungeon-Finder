@@ -139,8 +139,9 @@ public class SaveManager : MonoBehaviour
 
         progressionManager.firstDeath = data.firstDeath;
         progressionManager.unlockedPaths = data.unlockedPaths;
-        progressionManager.unlockedFourthAbility = data.unlockedFourthAbility;
-        progressionManager.unlockedEnchanterUpgrade = data.unlockedEnchanterUpgrade;
+        progressionManager.SetFourthAbilityStatus(data.unlockedFourthAbility);
+        progressionManager.SetEnchantUpgradeStatus(data.unlockedEnchanterUpgrade);
+        progressionManager.discoveredItems = data.discoveredItems;
 
         gameManager.tutorialManager.ShowLearningAbilities = data.showTutorialLearningAbilities;
         gameManager.tutorialManager.ShowUsingPathSystem = data.showTutorialPathSystem;

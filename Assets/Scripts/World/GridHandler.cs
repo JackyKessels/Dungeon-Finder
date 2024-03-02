@@ -152,6 +152,11 @@ public class GridHandler : MonoBehaviour
         return total;
     }
 
+    public Location GetLocation(int x, int y)
+    {
+        return locations[x, y];
+    }
+
     public float GetWidthIncrease()
     {
         return backgroundWidthIncrease;

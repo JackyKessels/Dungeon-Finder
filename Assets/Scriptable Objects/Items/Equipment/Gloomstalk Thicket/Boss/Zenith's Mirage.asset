@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d318b60c43bbff540adf2168b0cccf9c, type: 3}
-  m_Name: Ferakir's Mirage
+  m_Name: Zenith's Mirage
   m_EditorClassIdentifier: 
-  name: Ferakir's Mirage
+  name: Zenith's Mirage
   icon: {fileID: 21300000, guid: 03d9032ff17414d49b252b38666626eb, type: 3}
   value: 0
   stackable: 0
   maxStacks: 1
   sellable: 1
+  unique: 0
   item:
     name: 
     id: 66

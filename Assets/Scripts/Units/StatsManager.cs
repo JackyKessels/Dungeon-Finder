@@ -44,8 +44,6 @@ public class StatsManager
     public static readonly int levelUpHealth = 5;
     public static readonly float levelScaling = 0.2f;
 
-
-
     public int currentHealth;
     public bool isDead = false;
     public bool isInvulnerable = false;

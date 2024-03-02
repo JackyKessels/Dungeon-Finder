@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public enum CrowdControlType
 {
@@ -14,8 +12,8 @@ public class EffectCrowdControl : EffectObject
 {
     [Header("Crowd Control")]
     public CrowdControlType type;
-    [Tooltip("True = When Taunt fades, make target immune to taunt for 1 Round.\nFalse = No taunt immunity.")]
-    public bool addTauntImmune;
+    [Tooltip("True = When crowd control fades, make target immune to it for 1 Round.\nFalse = No immunity.")]
+    public bool addTypeImmunity;
 
     protected override string ParseDescription(string s, TooltipObject tooltipInfo)
     {

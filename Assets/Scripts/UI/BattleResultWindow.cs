@@ -54,11 +54,14 @@ public class BattleResultWindow : MonoBehaviour
         {
             foreach (ItemDrop itemDrop in itemDrops)
             {
-                AddBattleReward(itemDrop);
+                bool addedSuccessfully = InventoryManager.Instance.AddItemToInventory(itemDrop.GetItem(), itemDrop.amount);
 
-                InventoryManager.Instance.AddItemToInventory(itemDrop.GetItem(), itemDrop.amount);
+                if (addedSuccessfully)
+                {
+                    AddBattleReward(itemDrop);
 
-                rewardCount++;
+                    rewardCount++;
+                }
             }
         }
 

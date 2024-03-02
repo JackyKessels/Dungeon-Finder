@@ -16,7 +16,11 @@ MonoBehaviour:
   name: Landslide
   quality: 0
   abilityType: 2
-  description: Deal <e1> <P> to all enemies and stun them for <t1d> Rounds.
+  description: 'Deal <e1> <P> to all enemies and stun them for <t1d> Rounds.
+
+
+    Target
+    will be Stun immune for <ns!1> Round after.'
   icon: {fileID: 21300000, guid: ecd2c3715ff4116449d3e94c0b3d3283, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
@@ -30,6 +34,7 @@ MonoBehaviour:
   initialCooldown: 0
   endTurn: 1
   resetChance: 0
+  singleUse: 0
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 0
@@ -46,7 +51,7 @@ MonoBehaviour:
     scaling: 0.16
     levelScaling: 0.032
     reductionType: 1
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
@@ -61,8 +66,7 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive:
-        - {fileID: 0}
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -72,6 +76,9 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects:

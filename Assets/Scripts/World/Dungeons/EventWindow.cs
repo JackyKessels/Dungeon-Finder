@@ -33,24 +33,32 @@ public class EventWindow : MonoBehaviour
 
         consequenceStructures = new List<ConsequenceStructure>();
 
-        mysteryEvent.TriggerEvent(consequenceStructures, level);
-
-        if (consequenceStructures.Count > 0)
+        MysteryResult mysteryResult = mysteryEvent.TriggerEvent(consequenceStructures, level);
+        if (mysteryResult != null)
         {
-            textOnly.SetActive(false);
-
-            textAndConsequenceText.SetText(mysteryEvent.flavorText);
-
-            foreach (ConsequenceStructure consequenceStructure in consequenceStructures)
+            if (consequenceStructures.Count > 0)
             {
-                CreateConsequence(consequenceStructure, level);
+                textOnly.SetActive(false);
+
+                textAndConsequenceText.SetText(mysteryResult.flavorText);
+
+                foreach (ConsequenceStructure consequenceStructure in consequenceStructures)
+                {
+                    CreateConsequence(consequenceStructure, level);
+                }
+            }
+            else
+            {
+                textAndConsequence.SetActive(false);
+
+                textOnlyText.SetText(mysteryResult.flavorText);
             }
         }
         else
         {
             textAndConsequence.SetActive(false);
 
-            textOnlyText.SetText(mysteryEvent.flavorText);
+            textOnlyText.SetText("Nothing of interest occurred.");
         }
     }
 

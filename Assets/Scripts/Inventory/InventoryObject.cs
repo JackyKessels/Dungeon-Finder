@@ -5,6 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Runtime.Serialization;
 using UnityEngine.UI;
+using System;
 
 public enum InterfaceType
 {
@@ -32,6 +33,17 @@ public class InventoryObject : ScriptableObject
 
     public bool AddItem(Item _item, int _amount)
     {
+        if (_item.id == -1)
+        {
+            Debug.Log("The item you are trying to add has not yet been added to the item database.");
+            return false;
+        }
+
+        if (_item == null)
+        {
+            return false;
+        }
+
         // Find all items that are the same in the inventory
         List<InventorySlot> sameItems = FindAllItems(_item);
 
@@ -190,6 +202,22 @@ public class InventoryObject : ScriptableObject
         }
     }
 
+    public bool ContainsItemObject(ItemObject itemObject)
+    {
+        bool contains = false;
+
+        for (int i = 0; i < GetSlots.Length; i++)
+        {
+            if (GetSlots[i].item.itemObject == itemObject)
+            {
+                contains = true;
+                break;
+            }
+        }
+
+        return contains;
+    }
+
     private List<InventorySlot> FindAllItems(Item _item)
     {
         List<InventorySlot> slots = new List<InventorySlot>();
@@ -220,13 +248,21 @@ public class InventoryObject : ScriptableObject
         return null;
     }
 
-    public void RemoveItem(Item _item)
+    public void RemoveItem(ItemObject itemObject, int amount)
     {
         for (int i = 0; i < GetSlots.Length; i++)
         {
-            if (GetSlots[i].item == _item)
+            if (GetSlots[i].item.itemObject == itemObject)
             {
-                GetSlots[i].UpdateSlot(null, 0);
+                int resultingAmount = GetSlots[i].amount - amount;
+                if (resultingAmount <= 0)
+                {
+                    GetSlots[i].RemoveItem();
+                }
+                else
+                {
+                    GetSlots[i].UpdateSlot(null, resultingAmount);
+                }
             }
         }
     }

@@ -12,6 +12,16 @@ public class ExperienceManager
     private static readonly float baseExperienceRequirement = 66.6666f;
     private static readonly float experienceCoefficient = 1.5f;
 
+    private static readonly Dictionary<int, float> levelExperienceGains = new Dictionary<int, float>()
+    {
+        { 1, 1.00f },
+        { 2, 1.00f },
+        { 3, 1.00f },
+        { 4, 0.75f },
+        { 5, 0.50f },
+        { 6, 0.25f },
+    };
+
     public int currentLevel;
     public int currentExperience;
     public int totalExperienceGained;
@@ -50,6 +60,36 @@ public class ExperienceManager
         {
             LevelUpTeam(showNotification);
         }
+    }
+
+    public static int EnemyExperience(int teamLevel, Enemy enemy, bool defeated)
+    {
+        int experience = enemy.enemyObject.experienceReward;
+        int levelDifference = Mathf.Abs(teamLevel - enemy.Level);
+
+        int totalExperience = 0;
+
+        if (levelExperienceGains.TryGetValue(levelDifference, out float experienceFactor))
+        {
+            totalExperience = (int)(experience * experienceFactor);
+        }
+
+        if (defeated)
+        {
+            return totalExperience;
+        }
+        else
+        {
+            if (DungeonManager.Instance.IsCurrentLocationBoss())
+            {
+                float healthPercentage = 1f - enemy.statsManager.GetHealthPercentage();
+                totalExperience = GeneralUtilities.RoundFloat(totalExperience * healthPercentage, 0);
+                Debug.Log(totalExperience);
+                return totalExperience;
+            }
+        }
+
+        return 0;
     }
 
     public void GainExperience(int value, bool showNotification = false)

@@ -91,13 +91,13 @@ public class HeroManager : MonoBehaviour, IUserInterface
                 HeroInformationPathButton();
             }
 
-            if (KeyboardHandler.PreviousHero() && 
+            if (KeyboardHandler.PreviousPage() && 
                 heroInformationObject.activeSelf)
             {
                 PreviousHero();
             }
 
-            if (KeyboardHandler.NextHero() && 
+            if (KeyboardHandler.NextPage() && 
                 heroInformationObject.activeSelf)
             {
                 NextHero();

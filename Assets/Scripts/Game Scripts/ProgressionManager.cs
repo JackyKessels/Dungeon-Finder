@@ -53,6 +53,9 @@ public class ProgressionManager : MonoBehaviour
     [Header("[-- Endless --]")]
     public int endlessLevel;
 
+    [Header("[-- Codex --]")]
+    public List<int> discoveredItems = new List<int>();
+
     public GameMode GameMode => GameManager.Instance.gameMode;
 
     public void ResetProgression()
@@ -61,6 +64,8 @@ public class ProgressionManager : MonoBehaviour
         totalDefeats = 0;
         totalBossesDefeated = 0;
         totalMonstersDefeated = 0;
+
+        discoveredItems = new List<int>();
 
         switch (GameMode)
         {
@@ -76,6 +81,13 @@ public class ProgressionManager : MonoBehaviour
             case GameMode.Endless:
                 {
                     endlessLevel = 1;
+
+                    firstDeath = true;
+
+                    unlockedPaths = true;
+
+                    SetFourthAbilityStatus(true);
+                    SetEnchantUpgradeStatus(true);
                 }
                 break;
             default:
@@ -138,24 +150,54 @@ public class ProgressionManager : MonoBehaviour
         }
     }
 
-    public void UnlockFourthAbility()
+    public void UnlockFourthAbility(Dungeon dungeon, bool notification = false)
     {
         if (unlockedFourthAbility)
             return;
 
-        unlockedFourthAbility = true;
+        if (dungeon != unlockedFourthAbility_Dungeon)
+        {
+            return;
+        }
 
-        SpellbookManager.Instance.activeAbilities[3].locked = false;
-
-        NotificationObject.CreateNotification("Your fourth ability slot has been unlocked.", 500, 200);
+        SetFourthAbilityStatus(true);
+        
+        if (notification)
+        {
+            NotificationObject.CreateNotification("Your fourth ability slot has been unlocked.", 500, 200);
+        }
     }
 
-    public void UnlockEnchanterUpgrade()
+    public void SetFourthAbilityStatus(bool unlocked)
+    {
+        unlockedFourthAbility = unlocked;
+
+        SpellbookManager.Instance.activeAbilities[3].locked = !unlocked;
+    }
+
+    public void UnlockEnchanterUpgrade(Dungeon dungeon, bool notification = false)
     {
         if (unlockedEnchanterUpgrade)
+        {
             return;
+        }
 
-        unlockedEnchanterUpgrade = true;
+        if (dungeon != unlockedEnchanterUpgrade_Dungeon)
+        {
+            return;
+        }
+
+        SetFourthAbilityStatus(true);
+
+        if (notification)
+        {
+            NotificationObject.CreateNotification("The enchanter now an additional ability option for the chosen Path.", 500, 200);
+        }
+    }
+
+    public void SetEnchantUpgradeStatus(bool unlocked)
+    {
+        unlockedEnchanterUpgrade = unlocked;
 
         TownManager.Instance.enchanter.abilityOptions = 3;
     }

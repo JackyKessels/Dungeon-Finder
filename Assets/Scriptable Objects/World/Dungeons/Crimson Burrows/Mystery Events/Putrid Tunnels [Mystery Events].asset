@@ -14,170 +14,197 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   events:
   - eventWeight: 3
-    flavorText: As the group traverses near a sludge river, acidic droplets rain
-      upon them, sizzling upon impact. The hiss of corrosion fills the air, and they
-      hurriedly shield themselves from the corrosive onslaught, wary of the perilous
-      nature of their surroundings.
-    actions:
-    - type: 4
-      currencyAmount: 10
-      currencyType: 1
-      experienceAmount: 0
-      itemObject: {fileID: 0}
-      sourceTargets: 1
-      abilitySource:
-        ignoreMultipliers: 1
-        cannotCrit: 0
-        cannotMiss: 0
-        ignorePassives: []
-        school: 1
-        attributeType: 0
-        baseValue: 20
-        levelBase: 0
-        scaling: 0
-        levelScaling: 0
-        reductionType: 1
-        modifier:
-          hasModifier: 0
-          modification: 0
-          condition: 0
-          thresholdType: 0
-          conditionThreshold: 0
-          increasedAttribute: 0
-          increaseValue: 0
-          casterBased: 0
-          attributeBase: 0
-          percentageIncrease: 0
-          bonusAbilitySource:
-            ignoreMultipliers: 0
-            cannotCrit: 0
-            cannotMiss: 0
-            ignorePassive:
-            - {fileID: 0}
-            school: 0
-            attributeType: 0
-            baseValue: 0
-            levelBase: 0
-            scaling: 0
-            levelScaling: 0
-            reductionType: 0
-          effectOnTarget: 0
-          conditionalEffect: {fileID: 0}
-      effectTargets: 0
-      effect: {fileID: 11400000, guid: 26fc2105314497343b6d1fc043fd3ae0, type: 2}
-      encounter:
-        enemyObjects: []
-        randomOrder: 1
-        weight: 1
+    results:
+    - conditions: []
+      flavorText: "As the group traverses near a sludge river, acidic droplets rain
+        upon them, sizzling upon impact. The hiss of corrosion fills the air, and
+        they hurriedly shield themselves from the corrosive onslaught, wary of the
+        perilous nature of their surroundings.\r"
+      actions:
+      - type: 4
+        condition:
+          type: 0
+          target: 0
+          itemObject: {fileID: 0}
+        currencyAmount: 0
+        currencyType: 0
+        experienceAmount: 0
+        itemObject: {fileID: 0}
+        sourceTargets: 0
+        abilitySource:
+          ignoreMultipliers: 0
+          cannotCrit: 0
+          cannotMiss: 0
+          ignorePassives: []
+          school: 0
+          attributeType: 0
+          baseValue: 0
+          levelBase: 0
+          scaling: 0
+          levelScaling: 0
+          reductionType: 0
+          abilityModifier:
+            hasModifier: 0
+            modification: 0
+            condition: 0
+            thresholdType: 0
+            conditionThreshold: 0
+            increasedAttribute: 0
+            increaseValue: 0
+            casterBased: 0
+            attributeBase: 0
+            percentageIncrease: 0
+            bonusAbilitySource:
+              ignoreMultipliers: 0
+              cannotCrit: 0
+              cannotMiss: 0
+              ignorePassive: []
+              school: 0
+              attributeType: 0
+              baseValue: 0
+              levelBase: 0
+              scaling: 0
+              levelScaling: 0
+              reductionType: 0
+            effectOnTarget: 0
+            conditionalEffect: {fileID: 0}
+          drainModifier:
+            hasModifier: 0
+            fractionDrained: 0
+        effectTargets: 0
+        effect: {fileID: 11400000, guid: 26fc2105314497343b6d1fc043fd3ae0, type: 2}
+        encounter:
+          enemyObjects: []
+          randomOrder: 0
+          weight: 0
+        teamSetup: 0
   - eventWeight: 1
-    flavorText: Within the cave's depths, a sword protrudes from the wall, its blade
-      embedded and encased in a viscous green slime. The eerie presence emanating
-      from the weapon hints at both its potential as a formidable ally and the dangers
-      that lie within its enigmatic origins.
-    actions:
-    - type: 2
-      currencyAmount: 0
-      currencyType: 1
-      experienceAmount: 0
-      itemObject: {fileID: 11400000, guid: 208b6673db131fb44ae31518e7c4444e, type: 2}
-      sourceTargets: 1
-      abilitySource:
-        ignoreMultipliers: 1
-        cannotCrit: 0
-        cannotMiss: 0
-        ignorePassives: []
-        school: 1
-        attributeType: 0
-        baseValue: 20
-        levelBase: 0
-        scaling: 0
-        levelScaling: 0
-        reductionType: 1
-        modifier:
-          hasModifier: 0
-          modification: 0
-          condition: 0
-          thresholdType: 0
-          conditionThreshold: 0
-          increasedAttribute: 0
-          increaseValue: 0
-          casterBased: 0
-          attributeBase: 0
-          percentageIncrease: 0
-          bonusAbilitySource:
-            ignoreMultipliers: 0
-            cannotCrit: 0
-            cannotMiss: 0
-            ignorePassive:
-            - {fileID: 0}
-            school: 0
-            attributeType: 0
-            baseValue: 0
-            levelBase: 0
-            scaling: 0
-            levelScaling: 0
-            reductionType: 0
-          effectOnTarget: 0
-          conditionalEffect: {fileID: 0}
-      effectTargets: 0
-      effect: {fileID: 0}
-      encounter:
-        enemyObjects: []
-        randomOrder: 1
-        weight: 1
+    results:
+    - conditions: []
+      flavorText: "Within the cave's depths, a sword protrudes from the wall, its
+        blade embedded and encased in a viscous green slime. The eerie presence emanating
+        from the weapon hints at both its potential as a formidable ally and the
+        dangers that lie within its enigmatic origins.\r"
+      actions:
+      - type: 2
+        condition:
+          type: 0
+          target: 0
+          itemObject: {fileID: 0}
+        currencyAmount: 0
+        currencyType: 0
+        experienceAmount: 0
+        itemObject: {fileID: 11400000, guid: 208b6673db131fb44ae31518e7c4444e, type: 2}
+        sourceTargets: 0
+        abilitySource:
+          ignoreMultipliers: 0
+          cannotCrit: 0
+          cannotMiss: 0
+          ignorePassives: []
+          school: 0
+          attributeType: 0
+          baseValue: 0
+          levelBase: 0
+          scaling: 0
+          levelScaling: 0
+          reductionType: 0
+          abilityModifier:
+            hasModifier: 0
+            modification: 0
+            condition: 0
+            thresholdType: 0
+            conditionThreshold: 0
+            increasedAttribute: 0
+            increaseValue: 0
+            casterBased: 0
+            attributeBase: 0
+            percentageIncrease: 0
+            bonusAbilitySource:
+              ignoreMultipliers: 0
+              cannotCrit: 0
+              cannotMiss: 0
+              ignorePassive: []
+              school: 0
+              attributeType: 0
+              baseValue: 0
+              levelBase: 0
+              scaling: 0
+              levelScaling: 0
+              reductionType: 0
+            effectOnTarget: 0
+            conditionalEffect: {fileID: 0}
+          drainModifier:
+            hasModifier: 0
+            fractionDrained: 0
+        effectTargets: 0
+        effect: {fileID: 0}
+        encounter:
+          enemyObjects: []
+          randomOrder: 0
+          weight: 0
+        teamSetup: 0
   - eventWeight: 2
-    flavorText: In an unexpected twist, the ground beneath the party gives way, plunging
-      them all into a treacherous sinkhole. The uncertainty of their destination
-      looms ahead, as they brace themselves for a journey into the unknown, a path
-      fraught with mysteries and unforeseen challenges.
-    actions:
-    - type: 5
-      currencyAmount: 0
-      currencyType: 1
-      experienceAmount: 0
-      itemObject: {fileID: 11400000, guid: 208b6673db131fb44ae31518e7c4444e, type: 2}
-      sourceTargets: 1
-      abilitySource:
-        ignoreMultipliers: 1
-        cannotCrit: 0
-        cannotMiss: 0
-        ignorePassives: []
-        school: 1
-        attributeType: 0
-        baseValue: 20
-        levelBase: 0
-        scaling: 0
-        levelScaling: 0
-        reductionType: 1
-        modifier:
-          hasModifier: 0
-          modification: 0
-          condition: 0
-          thresholdType: 0
-          conditionThreshold: 0
-          increasedAttribute: 0
-          increaseValue: 0
-          casterBased: 0
-          attributeBase: 0
-          percentageIncrease: 0
-          bonusAbilitySource:
-            ignoreMultipliers: 0
-            cannotCrit: 0
-            cannotMiss: 0
-            ignorePassive:
-            - {fileID: 0}
-            school: 0
-            attributeType: 0
-            baseValue: 0
-            levelBase: 0
-            scaling: 0
-            levelScaling: 0
-            reductionType: 0
-          effectOnTarget: 0
-          conditionalEffect: {fileID: 0}
-      effectTargets: 0
-      effect: {fileID: 0}
-      encounter:
-        enemyObjects: []
-        randomOrder: 1
-        weight: 1
+    results:
+    - conditions: []
+      flavorText: "In an unexpected twist, the ground beneath the party gives way,
+        plunging them all into a treacherous sinkhole. The uncertainty of their destination
+        looms ahead, as they brace themselves for a journey into the unknown, a path
+        fraught with mysteries and unforeseen challenges.\r"
+      actions:
+      - type: 5
+        condition:
+          type: 0
+          target: 0
+          itemObject: {fileID: 0}
+        currencyAmount: 0
+        currencyType: 0
+        experienceAmount: 0
+        itemObject: {fileID: 0}
+        sourceTargets: 0
+        abilitySource:
+          ignoreMultipliers: 0
+          cannotCrit: 0
+          cannotMiss: 0
+          ignorePassives: []
+          school: 0
+          attributeType: 0
+          baseValue: 0
+          levelBase: 0
+          scaling: 0
+          levelScaling: 0
+          reductionType: 0
+          abilityModifier:
+            hasModifier: 0
+            modification: 0
+            condition: 0
+            thresholdType: 0
+            conditionThreshold: 0
+            increasedAttribute: 0
+            increaseValue: 0
+            casterBased: 0
+            attributeBase: 0
+            percentageIncrease: 0
+            bonusAbilitySource:
+              ignoreMultipliers: 0
+              cannotCrit: 0
+              cannotMiss: 0
+              ignorePassive: []
+              school: 0
+              attributeType: 0
+              baseValue: 0
+              levelBase: 0
+              scaling: 0
+              levelScaling: 0
+              reductionType: 0
+            effectOnTarget: 0
+            conditionalEffect: {fileID: 0}
+          drainModifier:
+            hasModifier: 0
+            fractionDrained: 0
+        effectTargets: 0
+        effect: {fileID: 0}
+        encounter:
+          enemyObjects: []
+          randomOrder: 0
+          weight: 0
+        teamSetup: 0

@@ -54,11 +54,11 @@ MonoBehaviour:
     levelScaling: 0
     reductionType: 0
     abilityModifier:
-      hasModifier: 0
-      modification: 0
-      condition: 0
-      thresholdType: 0
-      conditionThreshold: 0
+      hasModifier: 1
+      modification: 3
+      condition: 1
+      thresholdType: 1
+      conditionThreshold: 100
       increasedAttribute: 0
       increaseValue: 0
       casterBased: 1
@@ -69,13 +69,13 @@ MonoBehaviour:
         cannotCrit: 0
         cannotMiss: 0
         ignorePassive: []
-        school: 0
+        school: 5
         attributeType: 0
         baseValue: 0
         levelBase: 0
-        scaling: 0
-        levelScaling: 0
-        reductionType: 0
+        scaling: 0.3
+        levelScaling: 0.06
+        reductionType: 2
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
     drainModifier:

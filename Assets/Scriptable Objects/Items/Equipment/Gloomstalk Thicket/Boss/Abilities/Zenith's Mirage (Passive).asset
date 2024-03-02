@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a26b23a231d47340bad7e45f2dfb390, type: 3}
-  m_Name: Ferakir's Mirage (Passive)
+  m_Name: Zenith's Mirage (Passive)
   m_EditorClassIdentifier: 
   id: -1
   name: Mirage Strike

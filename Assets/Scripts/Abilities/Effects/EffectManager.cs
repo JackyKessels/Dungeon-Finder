@@ -615,9 +615,16 @@ public class EffectManager : MonoBehaviour
                 }
             case EffectCrowdControl crowdControl:
                 {
-                    if (crowdControl.addTauntImmune)
+                    if (crowdControl.addTypeImmunity)
                     {
-                        ApplyEffect(GameAssets.i.tauntImmune, unit, unit, 1, e.sourceAbility);
+                        if (crowdControl.type == CrowdControlType.Stun)
+                        {
+                            ApplyEffect(GameAssets.i.stunImmune, unit, unit, 1, e.sourceAbility);
+                        } 
+                        else if (crowdControl.type == CrowdControlType.Taunt)
+                        {
+                            ApplyEffect(GameAssets.i.tauntImmune, unit, unit, 1, e.sourceAbility);
+                        }
                     }
 
                     return;

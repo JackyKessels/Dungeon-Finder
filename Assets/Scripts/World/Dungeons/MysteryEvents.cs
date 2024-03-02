@@ -28,17 +28,94 @@ public class MysteryEvent
 {
     public int eventWeight = 1;
 
+    public List<MysteryResult> results;
+
+    public MysteryResult TriggerEvent(List<ConsequenceStructure> consequenceStructures, int level)
+    {
+        foreach (MysteryResult mysteryResult in results)
+        {
+            if (mysteryResult.MeetAllConditions())
+            {
+                foreach (MysteryAction mysteryAction in mysteryResult.actions)
+                {
+                    mysteryAction.TriggerAction(consequenceStructures, level);
+                }
+
+                return mysteryResult;
+            }
+        }
+
+        return null;
+    }
+}
+
+[System.Serializable]
+public class MysteryResult
+{
+    public List<MysteryEventCondition> conditions;
+
     [TextArea(5, 5)] public string flavorText;
 
     public List<MysteryAction> actions;
 
-    public void TriggerEvent(List<ConsequenceStructure> consequenceStructures, int level)
+    public bool MeetAllConditions()
     {
-        foreach (MysteryAction mysteryAction in actions)
+        if (conditions == null || conditions.Count == 0)
         {
-            mysteryAction.TriggerAction(consequenceStructures, level);
-
+            return true;
         }
+        else
+        {
+            return conditions.TrueForAll(c => c.MeetCondition());
+        }
+    }
+}
+
+public enum MysteryEventConditionType
+{
+    None = 0,
+    HasItem = 1,
+}
+
+[System.Serializable]
+public class MysteryEventCondition
+{
+    public MysteryEventConditionType type;
+    public bool target;
+
+    [Header("Have Item")]
+    public ItemObject itemObject;
+    public bool consumeItem = false;
+
+    public bool MeetCondition()
+    {
+        switch (type)
+        {
+            case MysteryEventConditionType.None:
+                {
+                    return true;
+                }
+            case MysteryEventConditionType.HasItem:
+                {
+                    bool meetCondition = InventoryManager.Instance.HasItemInInventory(itemObject) == target;
+
+                    if (meetCondition)
+                    {
+                        if (consumeItem)
+                        {
+                            InventoryManager.Instance.RemoveItemFromInventory(itemObject, 1);
+                        }
+
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+        }
+
+        return false;
     }
 }
 
@@ -70,6 +147,8 @@ public enum EncounterTeamSetup
 public class MysteryAction
 {
     public MysteryActionType type;
+
+    public MysteryEventCondition condition;
 
     [Header("Currency")]
     public int currencyAmount;
@@ -274,3 +353,5 @@ public class MysteryAction
         }
     }
 }
+
+

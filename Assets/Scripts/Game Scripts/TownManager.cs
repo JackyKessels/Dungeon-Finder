@@ -56,7 +56,7 @@ public class TownManager : MonoBehaviour, IUserInterface
     public AbilityShop enchanter;
     // Glyph Shop
     public GlyphShop glyphweaver;
-
+    public Codex codex;
 
     public GameObject shopItemPrefab;
 
@@ -79,7 +79,7 @@ public class TownManager : MonoBehaviour, IUserInterface
 
         if (KeyboardHandler.OpenAbilityShop() && 
             gameManager.gameState == GameState.TOWN &&
-            gameManager.gameMode == GameMode.Campaign &&
+            //gameManager.gameMode == GameMode.Campaign &&
             enchanter.ActiveButton())
         {
             OpenAbilityShop();
@@ -173,7 +173,8 @@ public class TownManager : MonoBehaviour, IUserInterface
             gameManager.audioSourceAmbient.Stop();
         }
 
-        dungeonManager.BuildDungeon(dungeon, floor);
+        dungeonManager.currentFloor = 0;
+        dungeonManager.BuildFloor(dungeon, floor);
 
         gameManager.GoToRun();
 

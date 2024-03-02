@@ -35,6 +35,7 @@ public class GameAssets : MonoBehaviour
     public Transform shortMessage;
     public GameObject blackTransition;
     public TextWindow textWindow;
+    public Sprite unknownIcon;
 
     public Sprite oneMember;
     public Sprite threeMembers;
@@ -46,6 +47,7 @@ public class GameAssets : MonoBehaviour
     public Sprite genericAttackAnimation;
     public EffectObject chargeTargetEffect;
     public EffectObject chargeInstantEffect;
+    public EffectObject stunImmune;
     public EffectObject tauntImmune;
 
     [Header("Inventory")]

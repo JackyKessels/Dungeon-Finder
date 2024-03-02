@@ -18,7 +18,7 @@ MonoBehaviour:
   abilityType: 3
   description: 'Using a <protection> ability increases your Armor for <apply1d> Rounds.
     Armor increased by <apply1modV> per stack. The amount of stacks applied is equal
-    to the cooldown of the ability plus <ns1>.
+    to the cooldown of the ability plus <ns!1>.
 
 
     <apply1stacks>

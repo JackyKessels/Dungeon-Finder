@@ -15,19 +15,21 @@ MonoBehaviour:
   id: -1
   name: Strike
   quality: 0
-  type: 0
+  abilityType: 0
   description: 
-  icon: {fileID: 21300000, guid: 991513c0cfae6224493a5c2d2c8ed8cd, type: 3}
+  icon: {fileID: 21300000, guid: 03d9032ff17414d49b252b38666626eb, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
-  - {fileID: 4026310735571667732, guid: 3400d98f08bfc514dbe081f0a8d534b7, type: 3}
+  - {fileID: 2831954499792000571, guid: 4992c8e714498f942bcc73a0ef8f285c, type: 3}
   hasLevels: 0
   sellable: 0
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 0
+  initialCooldown: 0
   endTurn: 1
   resetChance: 0
+  singleUse: 0
   weaponRequirement: 4
   soundEffect: {fileID: 8300000, guid: 3cd47381abc8f05429b8d3a745b27946, type: 3}
   animationType: 0
@@ -36,6 +38,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
+    ignorePassives: []
     school: 1
     attributeType: 1
     baseValue: 0
@@ -43,7 +46,7 @@ MonoBehaviour:
     scaling: 1
     levelScaling: 0
     reductionType: 1
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
@@ -51,11 +54,14 @@ MonoBehaviour:
       conditionThreshold: 0
       increasedAttribute: 0
       increaseValue: 0
-      casterBased: 0
+      casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -63,12 +69,15 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 0
-      effectOnTarget: 0
+      effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

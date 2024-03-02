@@ -173,8 +173,8 @@ public class TEST : MonoBehaviour
         ProgressionManager.Instance.FirstDeath();
         ProgressionManager.Instance.unlockedPaths = true;
         ProgressionManager.Instance.SetPathButtonState();
-        ProgressionManager.Instance.UnlockFourthAbility();
-        ProgressionManager.Instance.UnlockEnchanterUpgrade();
+        ProgressionManager.Instance.SetFourthAbilityStatus(true);
+        ProgressionManager.Instance.SetEnchantUpgradeStatus(true);
         ProgressionManager.Instance.campaignManager.SetDungeonList(true);
 
         gameManager.currencyHandler.IncreaseCurrency(new Currency(CurrencyType.Spirit, spiritShards));
