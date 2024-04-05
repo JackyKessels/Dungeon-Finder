@@ -20,7 +20,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 6e83269a36fb39a489af1492c6716b17, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
-  - {fileID: 2679745637704831307, guid: 17ac547be4eaab74888e4a9778168459, type: 3}
+  - {fileID: 515493193318688113, guid: 2e17b09aeab09a64399e0306184c4319, type: 3}
   hasLevels: 0
   sellable: 0
   replacesAbility: {fileID: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
     scaling: 0.25
     levelScaling: 0
     reductionType: 2
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
@@ -54,15 +54,14 @@ MonoBehaviour:
       conditionThreshold: 0
       increasedAttribute: 0
       increaseValue: 0
-      casterBased: 0
+      casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive:
-        - {fileID: 0}
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -72,6 +71,9 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []

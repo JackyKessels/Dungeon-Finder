@@ -14,6 +14,7 @@ public class ExperienceManager
 
     private static readonly Dictionary<int, float> levelExperienceGains = new Dictionary<int, float>()
     {
+        { 0, 1.00f },
         { 1, 1.00f },
         { 2, 1.00f },
         { 3, 1.00f },
@@ -72,6 +73,7 @@ public class ExperienceManager
         if (levelExperienceGains.TryGetValue(levelDifference, out float experienceFactor))
         {
             totalExperience = (int)(experience * experienceFactor);
+            Debug.Log($"Total Experience: {totalExperience} - Difference: {levelDifference} - Factor: {experienceFactor}");
         }
 
         if (defeated)

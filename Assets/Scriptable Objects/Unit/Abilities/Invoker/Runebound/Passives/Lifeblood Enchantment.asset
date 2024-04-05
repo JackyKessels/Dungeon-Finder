@@ -9,74 +9,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a26b23a231d47340bad7e45f2dfb390, type: 3}
   m_Name: Lifeblood Enchantment
   m_EditorClassIdentifier: 
   id: 159
   name: Lifeblood Enchantment
   quality: 0
   abilityType: 3
-  description: "Dealing <M> damage has a <%> to heal yourself for <1>. \n\n<name>
-    is increased by <1modV>% while under <1conV>% Health."
+  description: You heal for <apply1timAp1> when using a <primary> ability.
   icon: {fileID: 21300000, guid: 8a2ce676b5f7cfd4bab83283a433df3d, type: 3}
-  casterSpecialEffects:
-  - {fileID: 4698229947461908415, guid: 89e9d26c5d80d7541b62c61f74ac189b, type: 3}
+  casterSpecialEffects: []
   targetSpecialEffects: []
-  hasLevels: 0
-  sellable: 0
+  hasLevels: 1
+  sellable: 1
   replacesAbility: {fileID: 0}
   isPositive: 1
   triggerType: 1
-  hitType: 0
-  targetTrigger: 0
-  abilityTypeTrigger: 0
   typeRequirement: 0
-  schoolTriggers: 020000000300000004000000050000000600000007000000
-  triggersPassives: 1
-  triggeredByPassives: 1
-  triggeredByEffects: 1
-  procChance: 35
-  abilitySources:
-  - ignoreMultipliers: 0
-    cannotCrit: 0
-    cannotMiss: 1
-    ignorePassives: []
-    school: 0
-    attributeType: 0
-    baseValue: 0
-    levelBase: 0
-    scaling: 0.03
-    levelScaling: 0
-    reductionType: 0
-    abilityModifier:
-      hasModifier: 1
-      modification: 1
-      condition: 2
-      thresholdType: 1
-      conditionThreshold: 35
-      increasedAttribute: 4
-      increaseValue: 100
-      casterBased: 1
-      attributeBase: 0
-      percentageIncrease: 0
-      bonusAbilitySource:
-        ignoreMultipliers: 0
-        cannotCrit: 0
-        cannotMiss: 0
-        ignorePassive: []
-        school: 0
-        attributeType: 0
-        baseValue: 0
-        levelBase: 0
-        scaling: 0
-        levelScaling: 0
-        reductionType: 0
-      effectOnTarget: 1
-      conditionalEffect: {fileID: 0}
-    drainModifier:
-      hasModifier: 0
-      fractionDrained: 0
+  specificActiveAbilityList: []
+  procChance: 100
   castActiveAbilities: []
-  selfEffectsPerTarget: 0
-  selfEffects: []
-  targetEffects: []
+  applyEffectObjects:
+  - effectObject: {fileID: 11400000, guid: d4dc75c966c2401409a9679db6a11483, type: 2}
+    abilityTarget: 0
+    sourceAbility: {fileID: 11400000}
+    stacksBasedOnCooldown: 0
+  doubleCastAbility:
+    enableDoubleCast: 0
+    baseEffectiveness: 0
+    effectivenessPerLevel: 0

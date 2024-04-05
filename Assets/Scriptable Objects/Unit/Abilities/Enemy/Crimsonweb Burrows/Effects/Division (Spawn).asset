@@ -20,8 +20,16 @@ MonoBehaviour:
   procType: 0
   duration: 1
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects: []
   enemyObject: {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
+  level: 1
   two: 1
   instant: 1
   specialEffects:

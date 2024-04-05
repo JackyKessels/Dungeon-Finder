@@ -19,6 +19,7 @@ public class Codex : MonoBehaviour
     public GameObject consumablesContainer;
 
     private int nextDungeon = 0;
+    private int itemLevel = 1;
 
     private void Start()
     {
@@ -118,13 +119,13 @@ public class Codex : MonoBehaviour
 
         CodexItem codexItem = obj.GetComponent<CodexItem>();
 
-        if (progressionManager.discoveredItems.Contains(itemObject.item.id))
+        if (progressionManager.discoveredItems.Contains(itemObject.item.id) || GameManager.Instance.TEST_MODE)
         {
-            codexItem.Setup(true, itemObject, 1);
+            codexItem.Setup(true, itemObject, itemLevel);
         }
         else
         {
-            codexItem.Setup(false, itemObject, 1);
+            codexItem.Setup(false, itemObject, itemLevel);
         }
     }
 
@@ -133,6 +134,15 @@ public class Codex : MonoBehaviour
         if (!progressionManager.discoveredItems.Contains(itemObject.item.id))
         {
             progressionManager.discoveredItems.Add(itemObject.item.id);
+        }
+    }
+
+    public void UpdateItemLevel(string input)
+    {
+        if (int.TryParse(input, out int result))
+        {
+            itemLevel = result;
+            Setup();
         }
     }
 }

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5656ac5e4bcf63e49b484de02f06fb42, type: 3}
-  m_Name: Release Essence (Heal)
+  m_Name: Lifeblood Enchantment (Heal)
   m_EditorClassIdentifier: 
-  name: Release Essence
-  icon: {fileID: 21300000, guid: a420529f8be853a4dbd1faa3dd62bc71, type: 3}
+  name: Lifeblood Enchantment
+  icon: {fileID: 0}
   hidden: 1
   description: 
-  isBuff: 1
+  isBuff: 0
   procType: 0
-  duration: 1
+  duration: 0
   permanent: 0
   stackable: 0
   maxStacks: 0
@@ -31,30 +31,30 @@ MonoBehaviour:
   timedActions:
   - actionType: 0
     actionTargets: 0
-    triggersPassives: 0
+    triggersPassives: 1
     abilitySource:
-      ignoreMultipliers: 1
-      cannotCrit: 1
-      cannotMiss: 1
+      ignoreMultipliers: 0
+      cannotCrit: 0
+      cannotMiss: 0
       ignorePassives: []
       school: 0
       attributeType: 0
-      baseValue: 40
+      baseValue: 0
       levelBase: 0
-      scaling: 0
+      scaling: 0.05
       levelScaling: 0
       reductionType: 0
       abilityModifier:
-        hasModifier: 1
-        modification: 2
+        hasModifier: 0
+        modification: 0
         condition: 0
         thresholdType: 0
         conditionThreshold: 0
         increasedAttribute: 0
         increaseValue: 0
-        casterBased: 0
-        attributeBase: 2
-        percentageIncrease: 1
+        casterBased: 1
+        attributeBase: 0
+        percentageIncrease: 0
         bonusAbilitySource:
           ignoreMultipliers: 0
           cannotCrit: 0
@@ -73,5 +73,5 @@ MonoBehaviour:
         hasModifier: 0
         fractionDrained: 0
     specialEffects:
-    - {fileID: 3686565400780137071, guid: 645ea75bc83af7b4281cc9af664611a4, type: 3}
+    - {fileID: 4698229947461908415, guid: 89e9d26c5d80d7541b62c61f74ac189b, type: 3}
     storedValue: 0
