@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
+  m_Name: Outlash
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Outlash
+  quality: 0
+  abilityType: 3
+  description: 
+  icon: {fileID: 21300000, guid: 4d5f3f58ee98e16408f072f202bed8f8, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  missile: {fileID: 0}
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  activationMoment: 4
+  castActiveAbilities:
+  - activeAbility: {fileID: 0}
+    effectiveness: 0
+    abilityTarget: 0
+  effects: []
+  targets: 0
+  healthPercentage: 0
+  attributeType: 0
+  attributeValue: 0
+  cooldown: 0
+  castFirstRound: 0

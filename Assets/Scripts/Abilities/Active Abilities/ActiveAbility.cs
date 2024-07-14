@@ -16,6 +16,7 @@ public abstract class ActiveAbility : AbilityObject
     public int initialCooldown = 0;
     public bool endTurn = true;
     public int resetChance = 0;
+    public string resetText = "Reset!";
     public bool singleUse = false;
     public readonly static int SINGLE_USE_COOLDOWN = 999;
 
@@ -111,6 +112,9 @@ public abstract class ActiveAbility : AbilityObject
     public void AbilityActions(Unit caster, Unit target, int level, bool selfEffectPerTarget, float adjacentModifier, float abilityMultiplier)
     {
         ObjectUtilities.CreateSpecialEffects(targetSpecialEffects, target);
+
+        if (missile != null) { 
+        }
 
         if (caster.IsTargetEnemy(target))
         {

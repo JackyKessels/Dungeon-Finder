@@ -17,10 +17,10 @@ MonoBehaviour:
   dungeonBackground: {fileID: 21300000, guid: 911aa93669d9cf04cba48c4ba6d63a4f, type: 3}
   battleBackground: {fileID: 21300000, guid: 041bd19ad39bae34c85ee9ed415b6913, type: 3}
   backgroundSound: {fileID: 0}
-  columns: 3
-  rows: 1
-  startingPoints: 1
-  endPoints: 1
+  columns: 5
+  rows: 5
+  startingPoints: 5
+  endPoints: 5
   removalThreshold: 0
   minimumLocations: 1
   maximumLocations: 30
@@ -38,6 +38,10 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 1e885b4f05ab13844a9521dbe3bd51c3, type: 2}
     randomOrder: 0
     weight: 1
+  - enemyObjects:
+    - {fileID: 11400000, guid: e43675038dff24842ba1c38e89df82a2, type: 2}
+    randomOrder: 0
+    weight: 2
   eliteEncounters: []
   bossEncounter:
     enemyObjects:

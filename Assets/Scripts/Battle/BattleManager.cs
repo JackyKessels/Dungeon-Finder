@@ -730,6 +730,11 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
                 CastAnimation(currentAbility);
 
+                if (currentAbility.activeAbility.missile != null)
+                {
+                    yield return StartCoroutine(currentAbility.activeAbility.missile.LaunchMissile(currentUnit, currentTarget));
+                }
+
                 currentAbility.Trigger(currentUnit, currentTarget, 1f);
 
                 battleHUD.Refresh();
@@ -913,12 +918,18 @@ public class BattleManager : MonoBehaviour, IUserInterface
         {
             Color color = GeneralUtilities.ConvertString2Color("#9DD8FF");
 
-            FCTData fctData = new FCTData(false, currentUnit, "Reset!", color);
+            FCTData fctData = new FCTData(false, currentUnit, active.activeAbility.resetText, color);
             currentUnit.fctHandler.AddToFCTQueue(fctData);
         }
         else
         {
             active.PutOnCooldown();           
+        }
+
+        if (currentUnit.statsManager.isDead)
+        {
+            actionBar.SetInteractable(false);
+            EndTurn();
         }
     }
 

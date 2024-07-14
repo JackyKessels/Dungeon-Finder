@@ -37,6 +37,7 @@ public abstract class AbilityObject : ScriptableObject, IDescribable
     public Sprite icon;
     public List<ParticleSystem> casterSpecialEffects;
     public List<ParticleSystem> targetSpecialEffects;
+    public MissileObject missile;
 
     [Header("[ Extra ]")]
     public bool hasLevels = true;

@@ -95,9 +95,9 @@ public class AbilitySource
 
     public string GetTooltipValue(TooltipObject tooltipInfo)
     {
-        int totalBase = baseValue + levelBase * (tooltipInfo.GetAbilityLevel() - 1);
+        int totalBase = baseValue + levelBase * Mathf.Max(tooltipInfo.GetAbilityLevel() - 1, 0);
 
-        float totalScaling = scaling + levelScaling * (tooltipInfo.GetAbilityLevel() - 1);
+        float totalScaling = scaling + levelScaling * Mathf.Max(tooltipInfo.GetAbilityLevel() - 1, 0);
 
         if (totalBase > 0 && totalScaling > 0)
         {

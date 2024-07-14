@@ -43,13 +43,30 @@ public static class ObjectUtilities
     {
         if (specialEffects.Count > 0)
         {
+            SpriteRenderer sprite = target.GetComponentInChildren<SpriteRenderer>();
+
             foreach (ParticleSystem specialEffect in specialEffects)
             {
-                SpriteRenderer sprite = target.GetComponentInChildren<SpriteRenderer>();
-
                 ParticleSystem particle = Object.Instantiate(specialEffect, target.transform.position, Quaternion.identity);
                 particle.transform.SetParent(sprite.transform);
                 particle.transform.localScale = Vector3.one;
+            }
+        }
+    }
+
+    public static void LaunchSpecialEffects(List<ParticleSystem> specialEffects, Unit caster, Unit target, float travelTime)
+    {
+        if (specialEffects.Count > 0)
+        {
+            SpriteRenderer sprite = target.GetComponentInChildren<SpriteRenderer>();
+
+            foreach (ParticleSystem specialEffect in specialEffects)
+            {
+                ParticleSystem particle = Object.Instantiate(specialEffect, target.transform.position, Quaternion.identity);
+                particle.transform.SetParent(sprite.transform);
+                particle.transform.localScale = Vector3.one;
+                Missile missile = particle.gameObject.AddComponent<Missile>();
+                missile.Setup(caster, target, travelTime);
             }
         }
     }

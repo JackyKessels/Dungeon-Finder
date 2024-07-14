@@ -22,11 +22,12 @@ public class TEST : MonoBehaviour
     public Button hero_0_button;
     public Button hero_1_button;
     public Button hero_2_button;
+    public Button hero_3_button;
 
     public HeroObject hero_0;
     public HeroObject hero_1;
     public HeroObject hero_2;
-
+    public HeroObject hero_3;
 
     public HeroObject currentHero = null;
 
@@ -37,6 +38,7 @@ public class TEST : MonoBehaviour
         hero_0_button.onClick.AddListener(delegate { OpenAbilityWindow(hero_0); });
         hero_1_button.onClick.AddListener(delegate { OpenAbilityWindow(hero_1); });
         hero_2_button.onClick.AddListener(delegate { OpenAbilityWindow(hero_2); });
+        hero_3_button.onClick.AddListener(delegate { OpenAbilityWindow(hero_3); });
     }
 
     public void AddCurrency()

@@ -25,11 +25,12 @@ MonoBehaviour:
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
-  castTime: 1
+  castTime: 0.75
   cooldown: 6
   initialCooldown: 0
   endTurn: 1
   resetChance: 0
+  singleUse: 0
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 1

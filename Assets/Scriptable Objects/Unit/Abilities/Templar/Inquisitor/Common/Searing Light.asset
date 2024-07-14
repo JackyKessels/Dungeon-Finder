@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Searing Light
   m_EditorClassIdentifier: 
-  id: 156
+  id: 153
   name: Searing Light
   quality: 0
   abilityType: 2
@@ -26,10 +26,12 @@ MonoBehaviour:
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
-  castTime: 1
+  castTime: 0.75
   cooldown: 4
+  initialCooldown: 0
   endTurn: 1
   resetChance: 0
+  singleUse: 0
   weaponRequirement: 4
   soundEffect: {fileID: 8300000, guid: 9e1b8cfb60efb58489b5cf5c5a6d8dcb, type: 3}
   animationType: 0
@@ -38,7 +40,7 @@ MonoBehaviour:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 6
     attributeType: 0
     baseValue: 0
@@ -46,7 +48,7 @@ MonoBehaviour:
     scaling: 0.1
     levelScaling: 0.02
     reductionType: 2
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
@@ -61,7 +63,7 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -71,10 +73,13 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 2
     attributeType: 0
     baseValue: 0
@@ -82,7 +87,7 @@ MonoBehaviour:
     scaling: 0.2
     levelScaling: 0.04
     reductionType: 2
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
@@ -97,7 +102,7 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -107,6 +112,9 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects:
   - {fileID: 11400000, guid: e856735588f88384fab58b6c96b7526e, type: 2}

@@ -22,13 +22,29 @@ public class HeroAbilityOverview : MonoBehaviour
     {
         heroName.text = hero.name;
 
-        SetupSpecialization(hero.heroPathManager.paths[0].path, spec1, container1);
-        SetupSpecialization(hero.heroPathManager.paths[1].path, spec2, container2);
-        SetupSpecialization(hero.heroPathManager.paths[2].path, spec3, container3);
+        if (hero.heroPathManager.paths.Count > 0)
+        {
+            SetupSpecialization(hero.heroPathManager.paths[0]?.path, spec1, container1);
+        }
+
+        if (hero.heroPathManager.paths.Count > 1)
+        {
+            SetupSpecialization(hero.heroPathManager.paths[1]?.path, spec2, container2);
+        }
+
+        if (hero.heroPathManager.paths.Count > 2)
+        {
+            SetupSpecialization(hero.heroPathManager.paths[2]?.path, spec3, container3);
+        }
     }
 
     private void SetupSpecialization(HeroPathObject heroPathObject, TextMeshProUGUI spec, GameObject container)
     {
+        if (heroPathObject == null)
+        {
+            return;
+        }
+
         spec.text = heroPathObject.name;
 
         foreach (ActiveAbility activeAbility in heroPathObject.activeAbilities)

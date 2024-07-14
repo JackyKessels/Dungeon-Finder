@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5014144d4fda58540b2546e0da4965b6, type: 3}
+  m_Name: Scorch
+  m_EditorClassIdentifier: 
+  travelTime: 0.4
+  casterEffects: []
+  missileEffects:
+  - {fileID: 4981829686381596005, guid: 9f24418e2c64ae542a50d31035497425, type: 3}
+  impactEffects: []

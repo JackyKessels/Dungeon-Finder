@@ -51,9 +51,12 @@ public class AbilityOptionsWindow : MonoBehaviour
         {
             ActiveAbility activeAbility = hero.heroPathManager.GetRandomAbilityFromOtherPaths(heroPathObject);
 
-            Active active = new Active(activeAbility, hero.spellbook.GetAbilityLevel(activeAbility) + 1);
+            if (activeAbility != null)
+            {
+                Active active = new Active(activeAbility, hero.spellbook.GetAbilityLevel(activeAbility) + 1);
 
-            AddAbilityOption(active);
+                AddAbilityOption(active);
+            }
         }
     }
 

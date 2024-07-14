@@ -27,7 +27,7 @@ MonoBehaviour:
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
-  castTime: 0.75
+  castTime: 0.5
   cooldown: 4
   initialCooldown: 0
   endTurn: 0

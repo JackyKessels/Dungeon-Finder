@@ -160,7 +160,10 @@ public class ActionBar : MonoBehaviour
 
     public void UpdateCooldowns(Hero currentHero)
     {
-        SetInteractable(true);
+        if (!currentHero.statsManager.isDead)
+        {
+            SetInteractable(true);
+        }
 
         for (int i = 0; i < currentHero.spellbook.activeSpellbook.Length; i++)
         {

@@ -6,10 +6,11 @@ using UnityEngine.UI;
 
 public enum HeroClass
 {
-    Templar,
-    Invoker,
-    Shaman,
-    None
+    None    = 0,
+    Templar = 1,
+    Invoker = 2,
+    Shaman  = 4,
+    Reaver  = 8,
 }
 
 public class Hero : Unit

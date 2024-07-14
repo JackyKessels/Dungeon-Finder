@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -69,13 +70,24 @@ public class HeroPathManager
                 otherPaths.Add(paths[i].path);
         }
 
-        int randomPath = Random.Range(0, otherPaths.Count);
+        if (otherPaths.Count > 0)
+        {
+            int randomPath = Random.Range(0, otherPaths.Count);
 
-        int abilityCount = otherPaths[randomPath].activeAbilities.Count;
+            int abilityCount = otherPaths[randomPath].activeAbilities.Count;
 
-        int randomAbility = Random.Range(0, abilityCount);
+            int randomAbility = Random.Range(0, abilityCount);
 
-        return otherPaths[randomPath].activeAbilities[randomAbility];
+            return otherPaths[randomPath].activeAbilities[randomAbility];
+        }
+        else if (paths.Count == 1)
+        {
+            return paths[0].path.GetRandomActiveAbilities(1).FirstOrDefault();
+        }
+        else
+        {
+            return null;
+        }
     }
 
     public void SelectStarterPath(int index)

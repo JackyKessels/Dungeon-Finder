@@ -38,7 +38,7 @@ MonoBehaviour:
   holyMultiplier: 100
   shadowMultiplier: 100
   critMultiplier: 150
-  heroClass: 0
+  heroClass: 1
   dualWield: 0
   startingEquipment:
   - {fileID: 11400000, guid: b2cff4ee4edba184d80675f0c0ac1552, type: 2}

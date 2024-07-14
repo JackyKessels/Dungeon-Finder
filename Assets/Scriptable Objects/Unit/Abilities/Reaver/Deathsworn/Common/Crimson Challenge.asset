@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
+  m_Name: Crimson Challenge
+  m_EditorClassIdentifier: 
+  id: 186
+  name: Crimson Challenge
+  quality: 0
+  abilityType: 1
+  description: Taunt all enemies for <t1d> Rounds and increase your <health> by <s1modP>
+    for the same duration.
+  icon: {fileID: 21300000, guid: 7acd36bb895f4344d8e224b2ee7e3fb2, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 1113202232680056904, guid: 841a66f23fdf55c4ba07d25d85279778, type: 3}
+  - {fileID: 7810963353081329420, guid: 7606b2a4b1ad11a43a691674551be3c4, type: 3}
+  missile: {fileID: 0}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  castTime: 0.75
+  cooldown: 4
+  initialCooldown: 0
+  endTurn: 1
+  resetChance: 0
+  resetText: Reset!
+  singleUse: 0
+  weaponRequirement: 4
+  soundEffect: {fileID: 0}
+  animationType: 1
+  allyAbilitySources: []
+  enemyAbilitySources: []
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: 044d6e685060d904895fe658ea19815c, type: 2}
+  targetEffects:
+  - {fileID: 11400000, guid: 2c70647037df1c5488558e0df5777ea9, type: 2}
+  abilityTargets: 2
