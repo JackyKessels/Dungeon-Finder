@@ -24,7 +24,8 @@ public enum AttributeType
     ArcaneMultiplier,
     HolyMultiplier,
     ShadowMultiplier,
-    CritMultiplier
+    CritMultiplier,
+    SacrificialMultiplier
 }
 
 public enum AttributeValue
@@ -58,8 +59,6 @@ public class StatsManager
     private bool deathEventTriggered = false;
 
     private Unit unit;
-
-
 
     public StatsManager(Unit u, UnitObject data, int level = 1)
     {
@@ -140,6 +139,9 @@ public class StatsManager
                     break;
                 case AttributeType.CritMultiplier:
                     a.baseValue = data.critMultiplier;
+                    break;
+                case AttributeType.SacrificialMultiplier:
+                    a.baseValue = data.sacrificialMultiplier;
                     break;
             }
         }
@@ -290,7 +292,7 @@ public class StatsManager
         {
             EffectDamageTransfer damageTransfer = damageTransferEffect.effectObject as EffectDamageTransfer;
 
-            AbilityValue transferValue = new AbilityValue(abilityValue.sourceAbility, abilityValue.sourceLevel, false, true, abilityValue.value * damageTransfer.percentage, abilityValue.school, abilityValue.abilityType, abilityValue.cannotCrit, abilityValue.cannotMiss, abilityValue.target, damageTransferEffect.caster, abilityValue.color, false, abilityValue.ignorePassives);
+            AbilityValue transferValue = new AbilityValue(abilityValue.triggerSource, abilityValue.sourceAbility, abilityValue.sourceLevel, false, true, abilityValue.value * damageTransfer.percentage, abilityValue.school, abilityValue.abilityType, abilityValue.cannotCrit, abilityValue.cannotMiss, abilityValue.target, damageTransferEffect.caster, abilityValue.color, false, abilityValue.ignorePassives);
 
             transferValue.value = unit.statsManager.CalculateMitigatedDamage(transferValue.value, GeneralUtilities.GetReductionType(transferValue.school));
 
@@ -303,12 +305,12 @@ public class StatsManager
     public void TakeDamage(AbilitySchool school, int amount)
     {
         AbilitySource abilitySource = new AbilitySource(school, amount);
-        abilitySource.TriggerSource(null, 1, false, false, unit, unit, 1, true, 1, AbilityType.Assault);
+        abilitySource.TriggerSource(null, null, 1, false, false, unit, unit, 1, true, 1, AbilityType.Assault);
     }
 
     public void TakeDamage(AbilitySource abilitySource, bool isUnitTrigger)
     {
-        abilitySource.TriggerSource(null, 1, false, false, unit, unit, 1, isUnitTrigger, 1, AbilityType.Assault);
+        abilitySource.TriggerSource(null, null, 1, false, false, unit, unit, 1, isUnitTrigger, 1, AbilityType.Assault);
     }
 
     private void BreakIncapacitate(AbilityValue abilityValue)
@@ -327,8 +329,6 @@ public class StatsManager
 
         CheckHealthStatus(abilityValue);
     }
-
-
 
     // Pretty much check if dead
     public void CheckHealthStatus(AbilityValue abilityValue) 

@@ -87,5 +87,10 @@ public class TestSpec : MonoBehaviour
         {
             info.passive.passiveAbility = p;
         }
+
+        if (!DatabaseHandler.Instance.abilityDatabase.abilityObjects.Contains(ability))
+        {
+            Debug.Log($"{ability.name} is not in the ability database.");
+        }
     }
 }

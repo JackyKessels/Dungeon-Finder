@@ -38,7 +38,7 @@ public class Food : Consumable
     {
         if (healthRestore > 0)
         {
-            AbilityValue abilityValue = new AbilityValue(null, 1, false, false, healthRestore, AbilitySchool.Healing, AbilityType.Protection, true, true, unit, unit, Color.green, true, null);
+            AbilityValue abilityValue = new AbilityValue(null, null, 1, false, false, healthRestore, AbilitySchool.Healing, AbilityType.Protection, true, true, unit, unit, Color.green, true, null);
 
             abilityValue.CalculateValue();
 

@@ -45,6 +45,7 @@ public class EquipmentObject : ItemObject
     public int holyMultiplier = 0;
     public int shadowMultiplier = 0;
     public int critMultiplier = 0;
+    public int sacrificialMultiplier = 0;
 
     [Header("[ Additional ]")]
     public List<PassiveAbility> passives = new List<PassiveAbility>();

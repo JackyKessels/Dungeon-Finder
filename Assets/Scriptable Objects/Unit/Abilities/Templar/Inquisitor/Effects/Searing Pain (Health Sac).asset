@@ -25,16 +25,18 @@ MonoBehaviour:
   refreshes: 1
   aura: 0
   unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects: []
   timedActions:
   - actionType: 0
     actionTargets: 0
     triggersPassives: 1
     abilitySource:
-      ignoreMultipliers: 1
-      cannotCrit: 1
-      cannotMiss: 1
-      ignorePassive: {fileID: 0}
+      ignoreMultipliers: 0
+      cannotCrit: 0
+      cannotMiss: 0
+      ignorePassives: []
       school: 8
       attributeType: 0
       baseValue: 0
@@ -42,12 +44,12 @@ MonoBehaviour:
       scaling: 0.25
       levelScaling: 0
       reductionType: 0
-      modifier:
-        hasModifier: 1
-        modification: 3
-        condition: 2
-        thresholdType: 1
-        conditionThreshold: 50
+      abilityModifier:
+        hasModifier: 0
+        modification: 0
+        condition: 0
+        thresholdType: 0
+        conditionThreshold: 0
         increasedAttribute: 0
         increaseValue: 0
         casterBased: 1
@@ -57,16 +59,19 @@ MonoBehaviour:
           ignoreMultipliers: 0
           cannotCrit: 0
           cannotMiss: 0
-          ignorePassive: {fileID: 0}
+          ignorePassive: []
           school: 0
           attributeType: 0
           baseValue: 0
           levelBase: 0
-          scaling: 0.25
+          scaling: 0
           levelScaling: 0
           reductionType: 0
         effectOnTarget: 1
         conditionalEffect: {fileID: 0}
+      drainModifier:
+        hasModifier: 0
+        fractionDrained: 0
     specialEffects:
     - {fileID: 7033329743914822064, guid: 81cb1b0fd421d6149bfc0046902a9746, type: 3}
     storedValue: 0

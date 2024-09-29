@@ -7,17 +7,20 @@ public class MissileObject : ScriptableObject
 {
     public float travelTime;
     public List<ParticleSystem> casterEffects;
-    public List<ParticleSystem> missileEffects;
+    public ParticleSystem missileEffect;
+    public List<ParticleSystem> trailingEffects;
     public List<ParticleSystem> impactEffects;
 
     public IEnumerator LaunchMissile(Unit caster, Unit target)
     {
         ObjectUtilities.CreateSpecialEffects(casterEffects, caster);
 
-        ObjectUtilities.LaunchSpecialEffects(missileEffects, caster, target, travelTime);
+        ObjectUtilities.LaunchSpecialEffects(new List<ParticleSystem>() { missileEffect }, caster, target, travelTime, false);
+
+        ObjectUtilities.LaunchSpecialEffects(trailingEffects, caster, target, travelTime, true);
 
         yield return new WaitForSeconds(travelTime);
 
-        ObjectUtilities.CreateSpecialEffects(impactEffects, caster);
+        ObjectUtilities.CreateSpecialEffects(impactEffects, target);
     }
 }

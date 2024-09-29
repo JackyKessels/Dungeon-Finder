@@ -16,6 +16,7 @@ public class EquipmentInspector : Editor
     private readonly float critWeight = 3f;
     private readonly float critPowerWeight = 1f;
     private readonly float schoolWeight = 2f;
+    private readonly float sacrificialWeight = -1f;
 
     public override void OnInspectorGUI()
     {
@@ -50,6 +51,7 @@ public class EquipmentInspector : Editor
         totalPercentage += equipmentObject.holyMultiplier * schoolWeight;
         totalPercentage += equipmentObject.shadowMultiplier * schoolWeight;
         totalPercentage += equipmentObject.critMultiplier * critPowerWeight;
+        totalPercentage += equipmentObject.sacrificialMultiplier * sacrificialWeight;
 
         if (equipmentObject.useAbility == null && equipmentObject.passives.Count == 0)
         {

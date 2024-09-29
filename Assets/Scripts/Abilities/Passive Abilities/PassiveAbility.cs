@@ -55,7 +55,7 @@ public abstract class PassiveAbility : AbilityObject
         string temp = s;
 
         temp = AbilityTooltipHandler.ParseName(temp, "<name>", this);
-        temp = AbilityTooltipHandler.ParseAbilityType(temp, "<primary>", "<assault>", "<protection>");
+        temp = AbilityTooltipHandler.ParseAbilityType(temp);
 
         temp = AbilityTooltipHandler.ColorAllSchools(temp);
 

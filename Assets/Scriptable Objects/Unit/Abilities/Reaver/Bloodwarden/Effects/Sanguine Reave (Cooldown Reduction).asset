@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c757ceacaa4e895418313d13693b4a92, type: 3}
+  m_Name: Sanguine Reave (Cooldown Reduction)
+  m_EditorClassIdentifier: 
+  name: Sanguine Reave
+  icon: {fileID: 0}
+  hidden: 1
+  description: 
+  isBuff: 1
+  procType: 0
+  duration: 1
+  permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  applyStacks: 1
+  loseStacks: 0
+  removeEffects: []
+  type: 3
+  roundsReduction: 1
+  casterSpecialEffects:
+  - {fileID: 7648480845599885585, guid: 120e0ab06077dfd4c9f443234fcef031, type: 3}
+  specificAbility: {fileID: 0}
+  abilityType: 2

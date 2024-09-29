@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public enum ProcType { Turn, Round }
 
 [System.Serializable]
-public abstract class EffectObject : ScriptableObject, IDescribable
+public abstract class EffectObject : ScriptableObject, IDescribable, ITriggerSource
 {
     [Header("[ General ]")]
     public new string name = "New Effect";
@@ -69,5 +70,10 @@ public abstract class EffectObject : ScriptableObject, IDescribable
                 }
             }   
         }
+    }
+
+    public ITriggerSource GetTriggerSource()
+    {
+        return this;
     }
 }

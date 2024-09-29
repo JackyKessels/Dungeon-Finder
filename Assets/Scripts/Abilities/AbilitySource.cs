@@ -164,13 +164,13 @@ public class AbilitySource
     }
 
     // Does all the functionality
-    public void TriggerSource(AbilityObject sourceAbility, int level, bool isPassive, bool isEffect, Unit caster, Unit target, float adjacentModifier, bool isUnitTrigger, float abilityMultiplier, AbilityType abilityType)
+    public void TriggerSource(ITriggerSource triggerSource, AbilityObject sourceAbility, int level, bool isPassive, bool isEffect, Unit caster, Unit target, float adjacentModifier, bool isUnitTrigger, float abilityMultiplier, AbilityType abilityType)
     {
         Color color = GeneralUtilities.ConvertString2Color(ColorDatabase.SchoolColor(school));
 
         float value = CalculateValue(caster, level, adjacentModifier, abilityMultiplier);
 
-        AbilityValue abilityValue = new AbilityValue(sourceAbility, level, isPassive, isEffect, value, school, abilityType, cannotCrit, cannotMiss, caster, target, color, isUnitTrigger, ignorePassives);
+        AbilityValue abilityValue = new AbilityValue(triggerSource, sourceAbility, level, isPassive, isEffect, value, school, abilityType, cannotCrit, cannotMiss, caster, target, color, isUnitTrigger, ignorePassives);
 
         if (school == AbilitySchool.Healing)
         {
@@ -200,11 +200,11 @@ public class AbilitySource
     }
 
     // Uses stored value for effects
-    public void TriggerSource(AbilityObject sourceAbility, int level, bool isPassive, bool isEffect, Unit caster, Unit target, float value, bool isUnitTrigger)
+    public void TriggerSource(ITriggerSource triggerSource, AbilityObject sourceAbility, int level, bool isPassive, bool isEffect, Unit caster, Unit target, float value, bool isUnitTrigger)
     {
         Color color = GeneralUtilities.ConvertString2Color(ColorDatabase.SchoolColor(school));
 
-        AbilityValue abilityValue = new AbilityValue(sourceAbility, level, isPassive, isEffect, value, school, AbilityType.Assault, cannotCrit, cannotMiss, caster, target, color, isUnitTrigger, ignorePassives);
+        AbilityValue abilityValue = new AbilityValue(triggerSource, sourceAbility, level, isPassive, isEffect, value, school, AbilityType.Assault, cannotCrit, cannotMiss, caster, target, color, isUnitTrigger, ignorePassives);
 
         if (school == AbilitySchool.Healing)
         {
@@ -257,6 +257,9 @@ public class AbilitySource
             case AbilitySchool.Shadow:
                 multiplier = caster.statsManager.GetAttributeValue(AttributeType.ShadowMultiplier);
                 break;
+            case AbilitySchool.Sacrificial:
+                multiplier = caster.statsManager.GetAttributeValue(AttributeType.SacrificialMultiplier);
+                break;
             default:
                 multiplier = 100;
                 break;
@@ -280,6 +283,8 @@ public class AbilitySource
 
 public class AbilityValue
 {
+    public ITriggerSource triggerSource;
+
     public AbilityObject sourceAbility;
     public int sourceLevel;
 
@@ -307,8 +312,10 @@ public class AbilityValue
 
     public Color color;
 
-    public AbilityValue(AbilityObject _sourceAbility, int _sourceLevel, bool _isPassive, bool _isEffect, float _value, AbilitySchool _school, AbilityType _abilityType, bool _cannotCrit, bool _cannotMiss, Unit _caster, Unit _target, Color _color, bool _isUnitTrigger, List<PassiveAbility> _ignorePassive)
+    public AbilityValue(ITriggerSource _triggerSource, AbilityObject _sourceAbility, int _sourceLevel, bool _isPassive, bool _isEffect, float _value, AbilitySchool _school, AbilityType _abilityType, bool _cannotCrit, bool _cannotMiss, Unit _caster, Unit _target, Color _color, bool _isUnitTrigger, List<PassiveAbility> _ignorePassive)
     {
+        triggerSource = _triggerSource;
+
         sourceAbility = _sourceAbility;
         sourceLevel = _sourceLevel;
 

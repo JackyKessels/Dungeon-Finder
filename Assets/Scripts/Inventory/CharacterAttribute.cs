@@ -48,7 +48,8 @@ public class CharacterAttribute : MonoBehaviour, IDescribable
                  (a.attributeType == AttributeType.ArcaneMultiplier)    ||
                  (a.attributeType == AttributeType.HolyMultiplier)      ||
                  (a.attributeType == AttributeType.ShadowMultiplier)    ||
-                 (a.attributeType == AttributeType.CritMultiplier))
+                 (a.attributeType == AttributeType.CritMultiplier)      ||
+                 (a.attributeType == AttributeType.SacrificialMultiplier))
         {
             if (value <= 0)
             {
@@ -122,7 +123,8 @@ public class CharacterAttribute : MonoBehaviour, IDescribable
                 return "Shadow Damage: Determines damage done by this school.";
             case AttributeType.CritMultiplier:
                 return "Determines the power of a critical hit.";
-
+            case AttributeType.SacrificialMultiplier:
+                return "Sacrificial Damage: Determines the damage done by this school.";
             default:
                 return "No tooltip.";
         }       

@@ -30,25 +30,22 @@ public class TargetAbility : ActiveAbility
 
         base.TriggerAbility(caster, target, level, effectiveness);
 
-        bool selfEffectBool = selfEffectsPerTarget;
-
-        ObjectUtilities.CreateSpecialEffects(casterSpecialEffects, caster);
-
         float abilityMultiplier = (1 + caster.effectManager.ApplyMultipliers(this, target)) * effectiveness;
 
-        AbilityActions(caster, target, level, selfEffectBool, 1, abilityMultiplier);
+        AbilityActions(caster, target, level, 1, abilityMultiplier);
 
         if (targetTargets == TargetTargets.Adjacent)
         {
-            foreach (Unit unit in AbilityUtilities.GetAdjacentUnits(target))
+            List<Unit> targets = AbilityUtilities.GetAdjacentUnits(target);
+
+            foreach (Unit unit in targets)
             {
                 abilityMultiplier = 1 + caster.effectManager.ApplyMultipliers(this, unit);
 
-                AbilityActions(caster, unit, level, selfEffectBool, adjacentModifier, abilityMultiplier);
+                AbilityActions(caster, unit, level, adjacentModifier, abilityMultiplier);
             }
-        }
 
-        // Do self effects after the actions
-        SelfEffectOnly(caster, level, selfEffectBool);
+            TriggerSelfEffects(targets.Count, caster, level);
+        }
     }
 }

@@ -18,6 +18,18 @@ public static class AbilityTooltipHandler
         return temp;
     }
 
+    public static string ParseName(string temp, string check, EffectObject effectObject)
+    {
+        if (temp.Contains(check))
+        {
+            temp = temp.Replace(check, "<color=" + ColorDatabase.GeneralInformation() + ">{0}</color>");
+
+            return string.Format(temp, effectObject.name);
+        }
+
+        return temp;
+    }
+
     public static string ShowAbilityType(AbilityType abilityType)
     {
         if (abilityType != AbilityType.Passive)
@@ -180,6 +192,7 @@ public static class AbilityTooltipHandler
             temp = ParseStacking(temp, $"<{prefix}{i + 1}stacks>", effects[i]);
             temp = DoesNotRefresh(temp, $"<{prefix}{i + 1}refresh>", effects[i]);
             temp = UniqueEffect(temp, $"<{prefix}{i + 1}unique>", effects[i]);
+            temp = ParseAbilityType(temp);
 
             if (effects[i] is EffectAttributeModifier attributeModifier)
             {
@@ -189,7 +202,7 @@ public static class AbilityTooltipHandler
 
             if (effects[i] is EffectAbilityModifier abilityModifier)
             {
-                temp = DetermineBonusMultipler(temp, $"<{prefix}{i + 1}bonus>", abilityModifier, tooltipInfo.GetAbilityLevel());
+                temp = DetermineBonusMultipler(temp, $"<{prefix}{i + 1}bonus>", tooltipInfo.effect.storedModValue);
                 temp = DetermineSpecificAbilities(temp, "<specific>", abilityModifier);
             }
 
@@ -358,8 +371,12 @@ public static class AbilityTooltipHandler
         return temp;
     }
 
-    public static string ParseAbilityType(string temp, string checkPrimary, string checkAssault, string checkProtection)
+    public static string ParseAbilityType(string temp)
     {
+        string checkPrimary = "<primary>";
+        string checkAssault = "<assault>";
+        string checkProtection = "<protection>";
+
         if (temp.Contains(checkPrimary))
         {
             string color = ColorDatabase.AbilityTypeColor(AbilityType.Primary);
@@ -385,6 +402,20 @@ public static class AbilityTooltipHandler
             temp = temp.Replace(checkProtection, "<color={1}>{0}</color>");
 
             temp = string.Format(temp, AbilityType.Protection.ToString(), color);
+        }
+
+        return temp;
+    }
+
+    public static string DetermineTypedEffect(string temp, string check, AbilityType abilityType)
+    {
+        if (temp.Contains(check))
+        {
+            string color = ColorDatabase.AbilityTypeColor(abilityType);
+
+            temp = temp.Replace(check, "<color={1}>{0}</color>");
+
+            temp = string.Format(temp, abilityType.ToString(), color);
         }
 
         return temp;
@@ -691,13 +722,13 @@ public static class AbilityTooltipHandler
     }
 
 
-    public static string DetermineBonusMultipler(string temp, string check, EffectAbilityModifier abilityModifier, int level)
+    public static string DetermineBonusMultipler(string temp, string check, float value)
     {
         if (temp.Contains(check))
         {
             string color = ColorDatabase.NonScalingColor();
 
-            float fullValue = abilityModifier.GetBonusMultiplier(level) * 100;
+            float fullValue = value * 100;
 
             temp = temp.Replace(check, "<color={1}>{0}</color>%");
 

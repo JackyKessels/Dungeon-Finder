@@ -22,9 +22,9 @@ MonoBehaviour:
   baseHealth: 55
   basePower: 0
   baseWisdom: 1
-  baseArmor: 0
-  baseResistance: 0
-  baseVitality: 0
+  armor: 0
+  resistance: 0
+  vitality: 0
   speed: 5
   accuracy: 80
   criticalHit: 0
@@ -38,12 +38,19 @@ MonoBehaviour:
   holyMultiplier: 100
   shadowMultiplier: 100
   critMultiplier: 150
-  level: 1
+  sacrificialMultiplier: 100
   difficulty: 0
   experienceReward: 0
   currencyRewards: []
   dropEverything: 0
   itemDrops: []
   randomAbility: 1
-  abilities: []
+  abilities:
+  - ability: {fileID: 11400000, guid: 24e417410c624124497d3993a0486c3a, type: 2}
+    target: 0
+    targetAttribute: 0
+    condition: 0
+    healthThreshold: 0
+    startCooldown: 0
+    charged: 0
   passiveAbilities: []

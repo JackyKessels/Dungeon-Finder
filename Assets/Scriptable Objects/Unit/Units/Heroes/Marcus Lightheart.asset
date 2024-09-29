@@ -38,6 +38,7 @@ MonoBehaviour:
   holyMultiplier: 100
   shadowMultiplier: 100
   critMultiplier: 150
+  sacrificialMultiplier: 100
   heroClass: 1
   dualWield: 0
   startingEquipment:

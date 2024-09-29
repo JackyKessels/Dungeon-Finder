@@ -12,18 +12,8 @@ public class InstantAbility : ActiveAbility
     {
         base.TriggerAbility(caster, target, level, effectiveness);
 
-        bool selfEffectBool = selfEffectsPerTarget;
+        float abilityMultiplier = (1 + caster.effectManager.ApplyMultipliers(this, target)) * effectiveness;
 
-        ObjectUtilities.CreateSpecialEffects(casterSpecialEffects, caster);
-
-        foreach (Unit unit in AbilityUtilities.GetAbilityTargets(abilityTargets, caster))
-        {
-            float abilityMultiplier = (1 + caster.effectManager.ApplyMultipliers(this, unit)) * effectiveness;
-
-            AbilityActions(caster, unit, level, selfEffectBool, 1, abilityMultiplier);
-        }
-
-        // Do self effects after the actions
-        SelfEffectOnly(caster, level, selfEffectBool);
+        AbilityActions(caster, target, level, 1, abilityMultiplier);
     }
 }

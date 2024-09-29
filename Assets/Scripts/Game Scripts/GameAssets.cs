@@ -86,6 +86,7 @@ public class GameAssets : MonoBehaviour
     public Sprite holyMultiplier;
     public Sprite shadowMultiplier;
     public Sprite critMultiplier;
+    public Sprite sacrificialMultiplier;
 
     [Header("Events")]
     public Sprite fightEvent;

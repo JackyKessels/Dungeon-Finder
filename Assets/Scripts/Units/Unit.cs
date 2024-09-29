@@ -158,6 +158,15 @@ public class Unit : MonoBehaviour
         }
     }
 
+    public void PositionUnit(int i)
+    {
+        UnitPosition[] positions = isEnemy ? TeamManager.Instance.enemyPositions : TeamManager.Instance.heroPositions;
+
+        transform.position = new Vector3(positions[i].transform.position.x,
+                                         positions[i].transform.position.y + (sprite.bounds.size.y * unitRenderer.transform.localScale.y) / 2,
+                                         positions[i].transform.position.z);
+    }
+
     public void ReviveUnit(bool fullRestore)
     {       
         statsManager.currentHealth = fullRestore ? statsManager.GetAttributeValue((int)AttributeType.Health) : 1;

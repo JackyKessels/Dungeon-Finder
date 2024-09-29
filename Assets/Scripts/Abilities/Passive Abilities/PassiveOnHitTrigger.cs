@@ -30,6 +30,7 @@ public class PassiveOnHitTrigger : PassiveAbility
     public TargetTrigger targetTrigger;
     public AffectedAbility abilityTypeTrigger;
     public AbilityType typeRequirement;
+    public EffectObject specificEffect;
 
     public List<AbilitySchool> schoolTriggers;
     public bool triggersPassives = true;
@@ -80,11 +81,11 @@ public class PassiveOnHitTrigger : PassiveAbility
             {
                 if (targetTrigger == TargetTrigger.Attacked)
                 {
-                    abilitySources[i].TriggerSource(this, attacked.spellbook.GetAbilityLevel(this), true, false, attacked, attacked, 1, triggersPassives, 1, abilityType);
+                    abilitySources[i].TriggerSource(this, this, attacked.spellbook.GetAbilityLevel(this), true, false, attacked, attacked, 1, triggersPassives, 1, abilityType);
                 }
                 else if (targetTrigger == TargetTrigger.Attacker)
                 {
-                    abilitySources[i].TriggerSource(this, attacked.spellbook.GetAbilityLevel(this), true, false, attacked, attacker, 1, triggersPassives, 1, abilityType);
+                    abilitySources[i].TriggerSource(this, this, attacked.spellbook.GetAbilityLevel(this), true, false, attacked, attacker, 1, triggersPassives, 1, abilityType);
                 }
             }
         }
@@ -126,11 +127,11 @@ public class PassiveOnHitTrigger : PassiveAbility
             {
                 if (targetTrigger == TargetTrigger.Attacked)
                 {
-                    abilitySources[i].TriggerSource(this, attacker.spellbook.GetAbilityLevel(this), true, false, attacker, attacked, 1, triggersPassives, 1, abilityType);
+                    abilitySources[i].TriggerSource(this, this, attacker.spellbook.GetAbilityLevel(this), true, false, attacker, attacked, 1, triggersPassives, 1, abilityType);
                 }
                 else if (targetTrigger == TargetTrigger.Attacker)
                 {
-                    abilitySources[i].TriggerSource(this, attacker.spellbook.GetAbilityLevel(this), true, false, attacker, attacker, 1, triggersPassives, 1, abilityType);
+                    abilitySources[i].TriggerSource(this, this, attacker.spellbook.GetAbilityLevel(this), true, false, attacker, attacker, 1, triggersPassives, 1, abilityType);
                 }
             }
         }
@@ -174,7 +175,7 @@ public class PassiveOnHitTrigger : PassiveAbility
         if (!IsTriggeredByHitType(abilityValue))
             return false;
 
-        if (!IsTriggeredByAbilityType(abilityValue.abilityType))
+        if (!IsTriggeredByAbilityType(abilityValue))
             return false;
 
         if (!IsTriggeredBySchool(abilityValue.school))
@@ -208,13 +209,22 @@ public class PassiveOnHitTrigger : PassiveAbility
         return false;
     }
 
-    private bool IsTriggeredByAbilityType(AbilityType abilityType)
+    private bool IsTriggeredByAbilityType(AbilityValue abilityValue)
     {
         if (abilityTypeTrigger == AffectedAbility.AnyAbility)
+        {
             return true;
+        }
 
         if (abilityTypeTrigger == AffectedAbility.TypedAbility && 
-            typeRequirement == abilityType)
+            typeRequirement == abilityValue.abilityType)
+        {
+            return true;
+        }
+
+        if (abilityTypeTrigger == AffectedAbility.SpecificEffect &&
+            abilityValue.triggerSource is EffectObject triggerEffect &&
+            specificEffect == triggerEffect)
         {
             return true;
         }
@@ -247,6 +257,8 @@ public class PassiveOnHitTrigger : PassiveAbility
         temp = AbilityTooltipHandler.GlancingHit(temp, "<glancing>");
 
         temp = AbilityTooltipHandler.InsertRed(temp);
+
+        temp = AbilityTooltipHandler.ParseName(temp, "<specific>", specificEffect);
 
         if (!triggersPassives || !triggeredByPassives || !triggeredByEffects)
             temp = AbilityTooltipHandler.TriggerPassive(temp, triggersPassives, triggeredByPassives, triggeredByEffects);

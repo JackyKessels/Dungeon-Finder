@@ -26,7 +26,7 @@ public enum WeaponRequirement
     Nothing
 }
 
-public abstract class AbilityObject : ScriptableObject, IDescribable
+public abstract class AbilityObject : ScriptableObject, IDescribable, ITriggerSource
 {
     [Header("[ General ]")]
     public int id = -1;
@@ -65,5 +65,10 @@ public abstract class AbilityObject : ScriptableObject, IDescribable
         string color = ColorDatabase.QualityColor(quality);
 
         return string.Format("<smallcaps><b><color={0}>{1}</color></b></smallcaps>{2}", color, name, AbilityTooltipHandler.ShowAbilityType(abilityType));
+    }
+
+    public ITriggerSource GetTriggerSource()
+    {
+        return this;
     }
 }

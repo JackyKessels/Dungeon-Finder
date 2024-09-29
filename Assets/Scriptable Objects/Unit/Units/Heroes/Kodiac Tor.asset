@@ -38,6 +38,7 @@ MonoBehaviour:
   holyMultiplier: 100
   shadowMultiplier: 100
   critMultiplier: 200
+  sacrificialMultiplier: 100
   heroClass: 8
   dualWield: 0
   startingEquipment:
@@ -45,5 +46,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 43b20a4173c0e194db596da0aa4472dd, type: 2}
   paths:
   - {fileID: 11400000, guid: f4f075ebe40eaf0408eb2e95b035caf1, type: 2}
+  - {fileID: 11400000, guid: 3a96af841f3904e4b88bffb1ddf6255e, type: 2}
   startingAbilities:
   - {fileID: 11400000, guid: 09e1b4ff8f30a624bbb8fa268f1d5300, type: 2}

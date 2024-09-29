@@ -9,7 +9,8 @@ public enum AbilityCondition
     CasterBelowThreshold,
     TargetAboveThreshold,
     TargetBelowThreshold,
-    CriticalHit
+    CriticalHit,
+    Chance
 }
 
 public enum ThresholdType
@@ -59,6 +60,7 @@ public class AbilityModifier
     public AbilityCondition condition = AbilityCondition.None;
     public ThresholdType thresholdType;
     public int conditionThreshold;
+    public float conditionChance;
 
     [Header("[ Increased Baseline ]")]
     public AttributeIncrease increasedAttribute;
@@ -143,7 +145,7 @@ public class AbilityModifier
             }
             else if (modification == AbilityModification.BonusAbilitySource)
             {
-                bonusAbilitySource.GetAbilitySource().TriggerSource(abilityValue.sourceAbility, level, abilityValue.isPassive, abilityValue.isEffect, abilityValue.caster, abilityValue.target, 1, true, 1, AbilityType.Passive); 
+                bonusAbilitySource.GetAbilitySource().TriggerSource(abilityValue.triggerSource, abilityValue.sourceAbility, level, abilityValue.isPassive, abilityValue.isEffect, abilityValue.caster, abilityValue.target, 1, true, 1, AbilityType.Passive); 
             }
             else if (modification == AbilityModification.ConditionalEffect)
             {
@@ -195,6 +197,10 @@ public class AbilityModifier
             {
                 if (value.isCritical && !value.isGlancing)
                     return true;
+            }
+            else if (condition == AbilityCondition.Chance)
+            {
+                return Random.Range(0f, 100f) < conditionChance;         
             }
 
             // No condition met

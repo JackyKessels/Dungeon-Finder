@@ -109,6 +109,8 @@ public static class ColorDatabase
                 return SchoolColor(AbilitySchool.Shadow);
             case AttributeType.CritMultiplier:
                 return ScalingColor(AttributeType.Crit);
+            case AttributeType.SacrificialMultiplier:
+                return SchoolColor(AbilitySchool.Sacrificial);
             default:
                 return "#FFFFFF";
         }
@@ -194,6 +196,10 @@ public static class ColorDatabase
     {
         return "#FF0000";
     }
+
+    public static string Positive => "#1FFF00";
+
+    public static string Negative => "#FF0000";
 
     public static Color ConvertString2Color(string s)
     {

@@ -114,6 +114,8 @@ MonoBehaviour:
   holyMultiplier: {fileID: 21300000, guid: 1b2a9a7155aad6944b3cfd4d8a8f97f5, type: 3}
   shadowMultiplier: {fileID: 21300000, guid: 765cbd4126b95bf469415f72b5a2100d, type: 3}
   critMultiplier: {fileID: 21300000, guid: 6700a6196b0f8754f89920cded1ca85c, type: 3}
+  sacrificialMultiplier: {fileID: 21300000, guid: 29f21582c0f5b8c49918f775dce611b4,
+    type: 3}
   fightEvent: {fileID: 21300000, guid: 730bf9db8250ad54f8b5894572ea39c1, type: 3}
   bossEvent: {fileID: 21300000, guid: a3dfd5a8a9406104aabb0e5432d03214, type: 3}
   mysteryEvent: {fileID: 21300000, guid: 3fe915b7c50dac54bbf8ccb7eea01213, type: 3}

@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a26b23a231d47340bad7e45f2dfb390, type: 3}
+  m_Name: Rising Fury
+  m_EditorClassIdentifier: 
+  id: 193
+  name: Rising Fury
+  quality: 0
+  abilityType: 3
+  description: 'Your <primary> attacks increase the damage of your next <assault>
+    ability by <apply1bonus>.
+
+
+    <apply1stacks>'
+  icon: {fileID: 21300000, guid: bc6e3d667d2c7fe4abd6aaee76350fe1, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  missile: {fileID: 0}
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  triggerType: 1
+  typeRequirement: 0
+  specificActiveAbilityList: []
+  procChance: 100
+  castActiveAbilities: []
+  applyEffectObjects:
+  - effectObject: {fileID: 11400000, guid: 11a38c41f8d32604e80dc31be896c104, type: 2}
+    abilityTarget: 0
+    sourceAbility: {fileID: 11400000}
+    stacksBasedOnCooldown: 0
+  doubleCastAbility:
+    enableDoubleCast: 0
+    baseEffectiveness: 0
+    effectivenessPerLevel: 0

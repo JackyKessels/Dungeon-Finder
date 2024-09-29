@@ -6,7 +6,8 @@ public enum AffectedAbility
 {
     AnyAbility,
     TypedAbility,
-    SpecificAbility
+    SpecificAbility,
+    SpecificEffect
 }
 
 //public enum ModifierType
@@ -47,9 +48,11 @@ public class EffectAbilityModifier : EffectObject
             temp = string.Format(temp, tooltipInfo.effect.caster.name);
         }
 
-        temp = AbilityTooltipHandler.DetermineBonusMultipler(temp, "<bonus>", this, tooltipInfo.effect.level);
+        temp = AbilityTooltipHandler.DetermineBonusMultipler(temp, "<bonus>", tooltipInfo.effect.storedModValue);
 
         temp = AbilityTooltipHandler.DetermineSpecificAbilities(temp, "<specific>", this);
+
+        temp = AbilityTooltipHandler.DetermineTypedEffect(temp, "<typed>", abilityType);
 
         return temp;
     }

@@ -18,3 +18,5 @@ MonoBehaviour:
   nameColor: {r: 0.64921534, g: 0.41117835, b: 0.8301887, a: 1}
   floors:
   - {fileID: 11400000, guid: a4a250bd35caf894da248f0b3a436d2f, type: 2}
+  - {fileID: 11400000, guid: 86d204cd5a944504faf657c6af28bc8c, type: 2}
+  - {fileID: 11400000, guid: 3c319e8544713494f820625c333f6fa0, type: 2}

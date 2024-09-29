@@ -284,7 +284,7 @@ public class EffectManager : MonoBehaviour
                (modifier.affectedAbility == AffectedAbility.TypedAbility && activeAbility.abilityType == modifier.abilityType) ||
                (modifier.affectedAbility == AffectedAbility.SpecificAbility && modifier.IsValidAbility(activeAbility)))
             {
-                bonus += modifier.GetBonusMultiplier(modifiers[i].level);
+                bonus += modifiers[i].storedModValue;
 
                 if (modifier.getConsumed)
                     OnExpiration(modifiers[i]);
@@ -400,7 +400,7 @@ public class EffectManager : MonoBehaviour
     {
         if (timedAction.actionTargets == TimedActionTargets.Single)
         {
-            timedAction.abilitySource.TriggerSource(e.sourceAbility, e.level, false, true, e.caster, e.target, timedAction.storedValue, timedAction.triggersPassives);
+            timedAction.abilitySource.TriggerSource(e.effectObject, e.sourceAbility, e.level, false, true, e.caster, e.target, timedAction.storedValue, timedAction.triggersPassives);
 
             CreateSpecialEffect(e.target, timedAction.specialEffects);
         }
@@ -410,7 +410,7 @@ public class EffectManager : MonoBehaviour
 
             foreach (Unit unit in team.LivingMembers)
             {
-                timedAction.abilitySource.TriggerSource(e.sourceAbility, e.level, false, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.effectObject, e.sourceAbility, e.level, false, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(unit, timedAction.specialEffects);
             }
@@ -421,7 +421,7 @@ public class EffectManager : MonoBehaviour
 
             foreach (Unit unit in AbilityUtilities.GetAdjacentUnits(e.target))
             {
-                timedAction.abilitySource.TriggerSource(e.sourceAbility, e.level, false, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.effectObject, e.sourceAbility, e.level, false, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(unit, timedAction.specialEffects);
             }
@@ -434,7 +434,7 @@ public class EffectManager : MonoBehaviour
             {
                 Unit target = AbilityUtilities.GetRandomUnit(team);
 
-                timedAction.abilitySource.TriggerSource(e.sourceAbility, e.level, false, true, e.caster, target, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.effectObject, e.sourceAbility, e.level, false, true, e.caster, target, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(target, timedAction.specialEffects);
             }
@@ -445,7 +445,7 @@ public class EffectManager : MonoBehaviour
 
             foreach (Unit unit in team.LivingMembers)
             {
-                timedAction.abilitySource.TriggerSource(e.sourceAbility, e.level, false, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.effectObject, e.sourceAbility, e.level, false, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(unit, timedAction.specialEffects);
             }
@@ -458,7 +458,7 @@ public class EffectManager : MonoBehaviour
             {
                 Unit target = AbilityUtilities.GetRandomUnit(team);
 
-                timedAction.abilitySource.TriggerSource(e.sourceAbility, e.level, false, true, e.caster, target, timedAction.storedValue, timedAction.triggersPassives);
+                timedAction.abilitySource.TriggerSource(e.effectObject, e.sourceAbility, e.level, false, true, e.caster, target, timedAction.storedValue, timedAction.triggersPassives);
 
                 CreateSpecialEffect(target, timedAction.specialEffects);
             }
@@ -472,6 +472,8 @@ public class EffectManager : MonoBehaviour
         {
             RemoveEffect(e.effectObject.removeEffects[i]);
         }
+
+        //CreateSpecialEffect(e.target, e.effectObject.happy);
 
         switch (e.effectObject)
         {
@@ -554,6 +556,12 @@ public class EffectManager : MonoBehaviour
             case EffectCooldownReduction cooldownReduction:
                 {
                     cooldownReduction.ReduceCooldown(e.caster);
+
+                    return;
+                }
+            case EffectSpriteChange spriteChange:
+                {
+                    spriteChange.ChangeSprite(unit);
 
                     return;
                 }

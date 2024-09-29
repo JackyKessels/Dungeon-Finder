@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
+  m_Name: Vorpal Edge
+  m_EditorClassIdentifier: 
+  id: 192
+  name: Vorpal Edge
+  quality: 0
+  abilityType: 3
+  description: '<critical> hits increase your <critmultiplier> by <s1modV>%.
+
+
+    <s1stacks>'
+  icon: {fileID: 21300000, guid: 17fd557b7847d9a4cae1d6b21b21df45, type: 3}
+  casterSpecialEffects:
+  - {fileID: 1393997828066109123, guid: 4f0493f924af11047bed1d79ad80d8dd, type: 3}
+  targetSpecialEffects: []
+  missile: {fileID: 0}
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  triggerType: 1
+  hitType: 1
+  targetTrigger: 0
+  abilityTypeTrigger: 0
+  typeRequirement: 0
+  specificEffect: {fileID: 0}
+  schoolTriggers: 01000000020000000300000004000000050000000600000007000000
+  triggersPassives: 1
+  triggeredByPassives: 1
+  triggeredByEffects: 1
+  procChance: 100
+  abilitySources: []
+  castActiveAbilities: []
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: 223e0775d335b7f41a5adedb955a887f, type: 2}
+  targetEffects: []

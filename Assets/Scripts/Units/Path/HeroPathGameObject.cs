@@ -188,6 +188,8 @@ public class HeroPathGameObject : MonoBehaviour, IDescribable
                 return "%";
             case AttributeType.CritMultiplier:
                 return "%";
+            case AttributeType.SacrificialMultiplier:
+                return "%";
             default:
                 return "";
         }

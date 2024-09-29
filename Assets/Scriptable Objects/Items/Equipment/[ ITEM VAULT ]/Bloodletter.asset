@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d318b60c43bbff540adf2168b0cccf9c, type: 3}
-  m_Name: Blunt Reaver's Cleaver
+  m_Name: Bloodletter
   m_EditorClassIdentifier: 
-  name: Blunt Reaver's Cleaver
-  icon: {fileID: 21300000, guid: 64989c783d0b37949b699988babc272b, type: 3}
+  name: Bloodletter
+  icon: {fileID: 21300000, guid: 7bd8612f07cd6084494bb6ad7f471b8e, type: 3}
   value: 0
   stackable: 0
   maxStacks: 1
@@ -21,23 +21,23 @@ MonoBehaviour:
   unique: 0
   item:
     name: 
-    id: 85
+    id: 87
     itemObject: {fileID: 0}
     level: 1
   description: 
   quality: 0
   slot: 2
-  healthFactor: 0
-  powerFactor: 1
+  healthFactor: 0.2
+  powerFactor: 0.5
   wisdomFactor: 0
   armor: 0
   resistance: 0
   vitality: 0
   speed: 0
   accuracy: 0
-  crit: 0
+  crit: 10
   healingMultiplier: 0
-  physicalMultiplier: 0
+  physicalMultiplier: 10
   fireMultiplier: 0
   iceMultiplier: 0
   natureMultiplier: 0
@@ -45,5 +45,6 @@ MonoBehaviour:
   holyMultiplier: 0
   shadowMultiplier: 0
   critMultiplier: 0
+  sacrificialMultiplier: 20
   passives: []
-  useAbility: {fileID: 0}
+  useAbility: {fileID: 11400000, guid: a98dc0ed3d6962d4e85c7dd763a0a342, type: 2}

@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
+  m_Name: Shadow Rend
+  m_EditorClassIdentifier: 
+  id: 188
+  name: Shadow Rend
+  quality: 0
+  abilityType: 0
+  description: 'Deal <e1> <S> damage to your target.
+
+
+    When used at <ns!full>
+    Health, <name> deals <e1modV>% increased damage, but you take <e2modCE1timAp1>
+    <sac> damage.'
+  icon: {fileID: 21300000, guid: 914c175a20526b343ab3c2d5b83d865f, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 1592801574206095678, guid: 0ef6ad9bf6de3834e823d0b889a90278, type: 3}
+  missile: {fileID: 0}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  castTime: 1
+  cooldown: 0
+  initialCooldown: 0
+  endTurn: 1
+  resetChance: 0
+  resetText: Reset!
+  singleUse: 0
+  weaponRequirement: 4
+  soundEffect: {fileID: 8300000, guid: d897198dbcaef654594ec08c2e6ae88c, type: 3}
+  animationType: 0
+  allyAbilitySources: []
+  enemyAbilitySources:
+  - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
+    school: 7
+    attributeType: 0
+    baseValue: 0
+    levelBase: 0
+    scaling: 0.2
+    levelScaling: 0.04
+    reductionType: 2
+    abilityModifier:
+      hasModifier: 1
+      modification: 1
+      condition: 1
+      thresholdType: 1
+      conditionThreshold: 100
+      increasedAttribute: 4
+      increaseValue: 100
+      casterBased: 1
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 0
+      conditionalEffect: {fileID: 11400000, guid: ef37e0f1c4bba6f42bb5caeb2a7cc252,
+        type: 2}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0.2
+  - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
+    school: 7
+    attributeType: 0
+    baseValue: 0
+    levelBase: 0
+    scaling: 0
+    levelScaling: 0
+    reductionType: 2
+    abilityModifier:
+      hasModifier: 1
+      modification: 4
+      condition: 1
+      thresholdType: 1
+      conditionThreshold: 100
+      increasedAttribute: 4
+      increaseValue: 100
+      casterBased: 1
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 0
+      conditionalEffect: {fileID: 11400000, guid: ef37e0f1c4bba6f42bb5caeb2a7cc252,
+        type: 2}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0.2
+  selfEffectsPerTarget: 0
+  selfEffects: []
+  targetEffects: []
+  targetsAllies: 0
+  targetsEnemies: 1
+  targetTargets: 0
+  adjacentModifier: 0

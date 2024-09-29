@@ -36,4 +36,5 @@ public class UnitObject : ScriptableObject
     public int holyMultiplier = 100;
     public int shadowMultiplier = 100;
     public int critMultiplier = 150;
+    public int sacrificialMultiplier = 100;
 }

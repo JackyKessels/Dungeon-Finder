@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7301d6b2e8e6d5f4caae063d10e60b00, type: 3}
-  m_Name: less sac more vit
+  m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
+  m_Name: Arcane Transformation (Passive)
   m_EditorClassIdentifier: 
-  id: 185
-  name: New Ability
+  id: -1
+  name: Arcane Transformation
   quality: 0
   abilityType: 3
   description: 
-  icon: {fileID: 21300000, guid: ac6a770947f917143b904697d95817ab, type: 3}
+  icon: {fileID: 0}
   casterSpecialEffects: []
   targetSpecialEffects: []
   missile: {fileID: 0}
@@ -25,14 +25,13 @@ MonoBehaviour:
   sellable: 1
   replacesAbility: {fileID: 0}
   isPositive: 1
-  modifications:
-  - attributeModified: 5
-    isIncrease: 1
-    modifierType: 0
-    flatValue: 20
-    multiplierValue: 0
-  - attributeModified: 17
-    isIncrease: 1
-    modifierType: 0
-    flatValue: 0
-    multiplierValue: 0
+  activationMoment: 1
+  castActiveAbilities: []
+  effects:
+  - {fileID: 11400000, guid: 640d8d67daf935a4a828efdd0c86e50c, type: 2}
+  targets: 0
+  healthPercentage: 50
+  attributeType: 0
+  attributeValue: 0
+  cooldown: 0
+  castFirstRound: 0

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public enum AbilityTargets
@@ -11,7 +12,9 @@ public enum AbilityTargets
     RandomEnemy,
     All,
     AlliesNotSelf,
-    Target
+    Target,
+    TwoRandomAllies,
+    TwoRandomEnemies
 }
 
 public static class AbilityUtilities
@@ -100,6 +103,20 @@ public static class AbilityUtilities
                     }
                 }
                 break;
+            case AbilityTargets.TwoRandomAllies:
+                {
+                    Team team = caster.isEnemy ? teamManager.enemies : teamManager.heroes;
+
+                    targets.AddRange(GetRandomUnits(team, 2));
+                }
+                break;
+            case AbilityTargets.TwoRandomEnemies:
+                {
+                    Team team = caster.isEnemy ? teamManager.heroes : teamManager.enemies;
+
+                    targets.AddRange(GetRandomUnits(team, 2));
+                }
+                break;
         }
 
         return targets;
@@ -140,5 +157,27 @@ public static class AbilityUtilities
         int randomTarget = Random.Range(0, team.LivingMembers.Count);
 
         return team.LivingMembers[randomTarget];
+    }
+
+    public static List<Unit> GetRandomUnits(Team team, int amount)
+    {
+        if (team.LivingMembers.Count > amount)
+        {
+            List<Unit> randomUnits = new List<Unit>();
+
+            List<int> targetNumbers = Enumerable.Range(0, team.LivingMembers.Count).ToList();
+            targetNumbers.Shuffle();
+
+            for (int i = 0; i < amount; i++)
+            {
+                randomUnits.Add(team.LivingMembers[targetNumbers[i]]);
+            }
+
+            return randomUnits;
+        }
+        else
+        {
+            return team.LivingMembers;
+        }
     }
 }

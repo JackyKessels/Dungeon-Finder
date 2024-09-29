@@ -468,22 +468,47 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
         CastAnimation(active);
 
-        if (active.activeAbility is TargetAbility t)
+        if (active.activeAbility is TargetAbility targetAbility)
         {
-            int targetNumber = castingEnemy.CheckTarget(t);
+            targetAbility.TriggerPreCast(currentUnit);
+
+            int targetNumber = castingEnemy.CheckTarget(targetAbility);
 
             Unit target = teamManager.heroes.LivingMembers[targetNumber];
 
+            if (targetAbility.missile != null)
+            {
+                yield return StartCoroutine(targetAbility.missile.LaunchMissile(currentUnit, target));
+            }
+
             active.Trigger(currentUnit, target, 1f);
+
+            targetAbility.TriggerPostCast(currentUnit, active.level);
 
             if (!swift)
             {
                 castingEnemy.ResetChargedAbility(target);
             }
         }
-        else if (active.activeAbility is InstantAbility i)
+        else if (active.activeAbility is InstantAbility instantAbility)
         {
-            active.Trigger(currentUnit, null, 1f);
+            instantAbility.TriggerPreCast(currentUnit);
+
+            List<Unit> targets = AbilityUtilities.GetAbilityTargets(instantAbility.abilityTargets, currentUnit);
+
+            foreach (Unit target in targets)
+            {
+                if (instantAbility.missile != null)
+                {
+                    yield return StartCoroutine(instantAbility.missile.LaunchMissile(currentUnit, target));
+                }
+
+                active.Trigger(currentUnit, target, 1f);
+            }
+
+            instantAbility.TriggerSelfEffects(targets.Count, currentUnit, active.level);
+
+            instantAbility.TriggerPostCast(currentUnit, active.level);
 
             if (!swift)
             {
@@ -620,6 +645,8 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
         CastAnimation(currentAbility);
 
+        currentAbility.activeAbility.TriggerPreCast(currentUnit);
+
         currentAbility.Trigger(currentUnit, currentTarget, 1f);
 
         currentAbility.PutOnCooldown();
@@ -694,10 +721,10 @@ public class BattleManager : MonoBehaviour, IUserInterface
         }
 
         //-- Do Spell things --//
-        if (currentAbility.activeAbility is TargetAbility t)
+        if (currentAbility.activeAbility is TargetAbility targetAbility)
         {
             // Hero is taunted
-            if (currentUnit.effectManager.TauntedBy() != null && t.targetsEnemies)
+            if (currentUnit.effectManager.TauntedBy() != null && targetAbility.targetsEnemies)
             {
                 int targetNumber = currentUnit.effectManager.TauntedBy().battleNumber;
                 currentTarget = teamManager.enemies.GetUnit(targetNumber);
@@ -713,7 +740,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
                 targetingText.gameObject.SetActive(true);
                 targetingText.text = "Choose a target";
 
-                yield return StartCoroutine(WaitForTarget(t, spellNumber, isHeroAbility));
+                yield return StartCoroutine(WaitForTarget(targetAbility, spellNumber, isHeroAbility));
             }
 
             // Result of WaitForTarget
@@ -726,16 +753,20 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
                 CastAbility(currentAbility);
 
-                yield return new WaitForSeconds(t.castTime);
+                yield return new WaitForSeconds(targetAbility.castTime);
 
                 CastAnimation(currentAbility);
 
-                if (currentAbility.activeAbility.missile != null)
+                targetAbility.TriggerPreCast(currentUnit);
+
+                if (targetAbility.missile != null)
                 {
-                    yield return StartCoroutine(currentAbility.activeAbility.missile.LaunchMissile(currentUnit, currentTarget));
+                    yield return StartCoroutine(targetAbility.missile.LaunchMissile(currentUnit, currentTarget));
                 }
 
                 currentAbility.Trigger(currentUnit, currentTarget, 1f);
+
+                targetAbility.TriggerPostCast(currentUnit, currentAbility.level);
 
                 battleHUD.Refresh();
                 //-----------------------//
@@ -745,17 +776,33 @@ public class BattleManager : MonoBehaviour, IUserInterface
                 succesfulCast = false;
             }
         }
-        else if (currentAbility.activeAbility is InstantAbility i)
+        else if (currentAbility.activeAbility is InstantAbility instantAbility)
         {
             succesfulCast = true;
 
             CastAbility(currentAbility);
 
-            yield return new WaitForSeconds(i.castTime);
+            yield return new WaitForSeconds(instantAbility.castTime);
 
             CastAnimation(currentAbility);
 
-            currentAbility.Trigger(currentUnit, currentTarget, 1f);
+            instantAbility.TriggerPreCast(currentUnit);
+
+            List<Unit> targets = AbilityUtilities.GetAbilityTargets(instantAbility.abilityTargets, currentUnit);
+
+            foreach (Unit target in targets)
+            {
+                if (instantAbility.missile != null)
+                {
+                    yield return StartCoroutine(instantAbility.missile.LaunchMissile(currentUnit, target));
+                }
+
+                currentAbility.Trigger(currentUnit, target, 1f);
+            }
+
+            instantAbility.TriggerSelfEffects(targets.Count, currentUnit, currentAbility.level);
+
+            instantAbility.TriggerPostCast(currentUnit, currentAbility.level);
 
             battleHUD.Refresh();
         }

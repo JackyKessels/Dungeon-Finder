@@ -23,6 +23,7 @@ public class DrainModifier
             float drainedValue = abilityValue.value * fractionDrained;
 
             AbilityValue drainedAbilityValue = new AbilityValue(
+                abilityValue.triggerSource,
                 abilityValue.sourceAbility,
                 abilityValue.sourceLevel,
                 true,

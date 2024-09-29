@@ -75,6 +75,8 @@ public static class GeneralUtilities
                 return "Shadow Damage";
             case AttributeType.CritMultiplier:
                 return "Critical Power";
+            case AttributeType.SacrificialMultiplier:
+                return "Sacrificial Damage";
             default:
                 return attributeType.ToString();
         }
@@ -123,7 +125,8 @@ public static class GeneralUtilities
                 return GameAssets.i.shadowMultiplier;
             case AttributeType.CritMultiplier:
                 return GameAssets.i.critMultiplier;
-
+            case AttributeType.SacrificialMultiplier:
+                return GameAssets.i.sacrificialMultiplier;
             default:
                 return null;
         }
@@ -150,8 +153,7 @@ public static class GeneralUtilities
             case AbilitySchool.Shadow:
                 return GameAssets.i.shadowMultiplier;
             case AbilitySchool.Sacrificial:
-                // Replace this
-                return GameAssets.i.shadowMultiplier;
+                return GameAssets.i.sacrificialMultiplier;
             default:
                 return null;
         }

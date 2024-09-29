@@ -79,7 +79,7 @@ public class GridHandler : MonoBehaviour
         endPoints = floor.endPoints;
         removalThreshold = floor.removalThreshold;
 
-        Debug.Log($"Generated floor: {floor.name}, in dungeon: {dungeon.name}.");
+        Debug.Log($"Generated floor: {floor.name} - {dungeon.name}");
 
         // Lock first locations
         startLocation.SetVisited();

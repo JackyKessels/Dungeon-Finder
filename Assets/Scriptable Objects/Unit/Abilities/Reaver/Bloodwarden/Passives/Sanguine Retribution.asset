@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
+  m_Name: Sanguine Retribution
+  m_EditorClassIdentifier: 
+  id: 190
+  name: Sanguine Retribution
+  quality: 0
+  abilityType: 3
+  description: 'Taking <P> damage inflicts the target with <t1name>.
+
+
+    <t1name>
+    deals <t1timAc1> <S> damage every Round for <t1d> Rounds'
+  icon: {fileID: 21300000, guid: 25daa683df493a14aa765740752e5e26, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  missile: {fileID: 0}
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  triggerType: 0
+  hitType: 0
+  targetTrigger: 0
+  abilityTypeTrigger: 0
+  typeRequirement: 0
+  specificEffect: {fileID: 0}
+  schoolTriggers: 01000000
+  triggersPassives: 1
+  triggeredByPassives: 1
+  triggeredByEffects: 1
+  procChance: 100
+  abilitySources: []
+  castActiveAbilities: []
+  selfEffectsPerTarget: 0
+  selfEffects: []
+  targetEffects:
+  - {fileID: 11400000, guid: 0409017471b1ce54fad67a6267322d58, type: 2}

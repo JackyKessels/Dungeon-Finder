@@ -99,7 +99,7 @@ public class InventoryManager : MonoBehaviour
         // Show school multipliers
         else if (menuIndex == 1)
         {
-            for (int i = 9; i < 18; i++)
+            for (int i = 9; i < 19; i++)
             {
                 CreateCharacterAttribute(hero.statsManager.GetAttributes()[i], hero);
             }

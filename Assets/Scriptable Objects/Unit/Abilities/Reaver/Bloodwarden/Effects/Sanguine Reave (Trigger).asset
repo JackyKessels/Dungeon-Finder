@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51850a8b11733b04f9956814f3c60d35, type: 3}
+  m_Name: Sanguine Reave (Trigger)
+  m_EditorClassIdentifier: 
+  name: Sanguine Reave
+  icon: {fileID: 0}
+  hidden: 1
+  description: If your target is affected by <specific1name>, reduce the cooldown
+    of all <assault> abilities by <applied1cdr>.
+  isBuff: 0
+  procType: 0
+  duration: 1
+  permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  applyStacks: 1
+  loseStacks: 0
+  removeEffects: []
+  conditionalEffectType: 2
+  appliedEffects:
+  - {fileID: 11400000, guid: d0fb3457cf5889d4da2bf7d998e303f0, type: 2}
+  ccTypes: 
+  specificEffects:
+  - {fileID: 11400000, guid: 0409017471b1ce54fad67a6267322d58, type: 2}
+  hasAllEffects: 0
+  checkTarget: 0
+  effectTarget: 1
+  consumeEffect: 0

@@ -54,7 +54,7 @@ public static class ObjectUtilities
         }
     }
 
-    public static void LaunchSpecialEffects(List<ParticleSystem> specialEffects, Unit caster, Unit target, float travelTime)
+    public static void LaunchSpecialEffects(List<ParticleSystem> specialEffects, Unit caster, Unit target, float travelTime, bool trailing)
     {
         if (specialEffects.Count > 0)
         {
@@ -62,11 +62,11 @@ public static class ObjectUtilities
 
             foreach (ParticleSystem specialEffect in specialEffects)
             {
-                ParticleSystem particle = Object.Instantiate(specialEffect, target.transform.position, Quaternion.identity);
-                particle.transform.SetParent(sprite.transform);
+                ParticleSystem particle = Object.Instantiate(specialEffect, caster.transform.position, Quaternion.identity);
+                particle.transform.SetParent(caster.transform);
                 particle.transform.localScale = Vector3.one;
                 Missile missile = particle.gameObject.AddComponent<Missile>();
-                missile.Setup(caster, target, travelTime);
+                missile.Setup(caster, target, travelTime, trailing);
             }
         }
     }

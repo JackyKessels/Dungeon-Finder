@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5014144d4fda58540b2546e0da4965b6, type: 3}
+  m_Name: Arcane Bolt
+  m_EditorClassIdentifier: 
+  travelTime: 0.35
+  casterEffects: []
+  missileEffect: {fileID: 6868948173305620598, guid: 80c97d92298410f4b88f29ee687e6f77,
+    type: 3}
+  trailingEffects:
+  - {fileID: 9212676214379047857, guid: b14e7d0d6c7be4b42855e073d7d1d258, type: 3}
+  impactEffects:
+  - {fileID: 1068813345954862006, guid: c14a0b7cf263ec046a3df3d399d0c937, type: 3}

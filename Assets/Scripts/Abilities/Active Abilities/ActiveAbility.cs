@@ -101,6 +101,11 @@ public abstract class ActiveAbility : AbilityObject
             return "";
     }
 
+    public virtual void TriggerPreCast(Unit caster)
+    {
+        ObjectUtilities.CreateSpecialEffects(casterSpecialEffects, caster);
+    }
+
     public virtual void TriggerAbility(Unit caster, Unit target, int level, float effectiveness)
     {
         if (soundEffect != null)
@@ -109,7 +114,25 @@ public abstract class ActiveAbility : AbilityObject
         }
     }
 
-    public void AbilityActions(Unit caster, Unit target, int level, bool selfEffectPerTarget, float adjacentModifier, float abilityMultiplier)
+    public void TriggerSelfEffects(int count, Unit caster, int level)
+    {
+        int effectCount = selfEffectsPerTarget ? count : 1;
+
+        for (int i = 0; i < effectCount; i++)
+        {
+            if (selfEffects.Count > 0)
+            {
+                EffectManager.ApplyEffects(selfEffects, caster, caster, level, this);
+            }
+        }
+    }
+
+    public virtual void TriggerPostCast(Unit caster, int level)
+    {
+
+    }
+
+    public void AbilityActions(Unit caster, Unit target, int level, float adjacentModifier, float abilityMultiplier)
     {
         ObjectUtilities.CreateSpecialEffects(targetSpecialEffects, target);
 
@@ -121,7 +144,7 @@ public abstract class ActiveAbility : AbilityObject
             // Trigger the ability's hostile sources to do damage/heal
             foreach (AbilitySource source in enemyAbilitySources)
             {
-                source.TriggerSource(this, level, false, false, caster, target, adjacentModifier, true, abilityMultiplier, abilityType);
+                source.TriggerSource(this, this, level, false, false, caster, target, adjacentModifier, true, abilityMultiplier, abilityType);
             }
         }
         else
@@ -129,16 +152,7 @@ public abstract class ActiveAbility : AbilityObject
             // Trigger the ability's friendly sources to do damage/heal
             foreach (AbilitySource source in allyAbilitySources)
             {
-                source.TriggerSource(this, level, false, false, caster, target, adjacentModifier, true, abilityMultiplier, abilityType);
-            }
-        }
-
-        // Apply self effects to the caster
-        if (selfEffectPerTarget)
-        {
-            if (selfEffects.Count > 0)
-            {
-                EffectManager.ApplyEffects(selfEffects, caster, caster, level, this);
+                source.TriggerSource(this, this, level, false, false, caster, target, adjacentModifier, true, abilityMultiplier, abilityType);
             }
         }
 
@@ -167,7 +181,7 @@ public abstract class ActiveAbility : AbilityObject
 
         temp = AbilityTooltipHandler.ParseName(temp, "<name>", this);
 
-        temp = AbilityTooltipHandler.ParseAbilityType(temp, "<primary>", "<assault>", "<protection>");
+        temp = AbilityTooltipHandler.ParseAbilityType(temp);
 
         temp = AbilityTooltipHandler.ParseAllAbilitySourceTooltips(temp, tooltipInfo, allyAbilitySources, "a");
 

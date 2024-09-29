@@ -41,15 +41,15 @@ public class Effect
         stacks = _stacks;
         sourceAbility = _sourceAbility;
 
-        if (effectObject is EffectAttributeModifier modifier)
+        if (effectObject is EffectAttributeModifier attributeModifier)
         {
-            if (modifier.modifierType == ModifierType.Flat)
+            if (attributeModifier.modifierType == ModifierType.Flat)
             {
                 storedModValue = CalculateModifiedValue(this);
             }
             else
             {
-                storedModValue = modifier.multiplier + modifier.multiplierPerLevel * (level - 1);
+                storedModValue = attributeModifier.multiplier + attributeModifier.multiplierPerLevel * (level - 1);
             }
         }
 
@@ -62,6 +62,11 @@ public class Effect
 
                 timedActions.Add(applyTimedAction);
             }
+        }
+
+        if (effectObject is EffectAbilityModifier abilityModifier)
+        {
+            storedModValue = abilityModifier.GetBonusMultiplier(level);
         }
     }
 

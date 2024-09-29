@@ -97,9 +97,7 @@ public class Team
         positions[i].currentTurn.SetActive(false);
 
         // Set the unit at the correct position, offset by his sprite
-        unit.transform.position = new Vector3(positions[i].transform.position.x,
-                                              positions[i].transform.position.y + (unit.sprite.bounds.size.y * unit.unitRenderer.transform.localScale.y) / 2,
-                                              positions[i].transform.position.z);
+        unit.PositionUnit(i);
 
         unit.SetState(i, isEnemy);
         unit.battleNumber = i;
@@ -117,6 +115,8 @@ public class Team
         unit.hasTurn = true;
         QueueManager.Instance.AddToSpeedList(unit);
     }
+
+
 
     public void HealTeam(float factor, bool missingHealth, bool showWindow, string titleText = null)
     {

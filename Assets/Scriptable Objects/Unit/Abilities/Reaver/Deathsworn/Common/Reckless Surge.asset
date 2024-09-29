@@ -28,6 +28,7 @@ MonoBehaviour:
   casterSpecialEffects:
   - {fileID: 5340406953859964535, guid: 8037759fd4e543a48a7fe39d76e44af9, type: 3}
   targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}

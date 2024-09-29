@@ -93,6 +93,9 @@ public class Equipment : Item
                 case AttributeType.CritMultiplier:
                     a.baseValue = equipmentObject.critMultiplier;
                     break;
+                case AttributeType.SacrificialMultiplier:
+                    a.baseValue = equipmentObject.sacrificialMultiplier;
+                    break;
             }
         }
     }
@@ -235,6 +238,7 @@ public class Equipment : Item
         ParseAttribute(AttributeType.HolyMultiplier, true);
         ParseAttribute(AttributeType.ShadowMultiplier, true);
         ParseAttribute(AttributeType.CritMultiplier, true);
+        ParseAttribute(AttributeType.SacrificialMultiplier, true);
 
         return positiveAttributes + AddLine() + negativeAttributes;
     }
@@ -249,8 +253,19 @@ public class Equipment : Item
 
     private void ParseAttribute(AttributeType attributeType, bool percentage)
     {
-        string plus = "#1FFF00";
-        string minus = "#FF0000";
+        string positive;
+        string negative;
+
+        if (attributeType == AttributeType.SacrificialMultiplier)
+        {
+            positive = ColorDatabase.Negative;
+            negative = ColorDatabase.Positive;
+        }
+        else
+        {
+            positive = ColorDatabase.Positive;
+            negative = ColorDatabase.Negative;
+        }
 
         string percentageSign = percentage ? "%" : "";
 
@@ -259,9 +274,9 @@ public class Equipment : Item
         if (attributeValue != 0)
         {
             if (attributeValue > 0)
-                positiveAttributes += string.Format("\n<color={1}>+</color> {0}{2} {3}", Math.Abs(attributeValue), plus, percentageSign, GeneralUtilities.GetCorrectAttributeName(attributeType));
+                positiveAttributes += $"\n<color={positive}>+</color> {Math.Abs(attributeValue)}{percentageSign} {GeneralUtilities.GetCorrectAttributeName(attributeType)}";
             else
-                negativeAttributes += string.Format("\n<color={1}>-</color> {0}{2} {3}", Math.Abs(attributeValue), minus, percentageSign, GeneralUtilities.GetCorrectAttributeName(attributeType));
+                negativeAttributes += $"\n<color={negative}>-</color> {Math.Abs(attributeValue)}{percentageSign} {GeneralUtilities.GetCorrectAttributeName(attributeType)}";
         }
     }
 
