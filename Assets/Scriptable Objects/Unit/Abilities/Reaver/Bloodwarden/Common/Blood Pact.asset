@@ -10,38 +10,46 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
-  m_Name: Intervene
+  m_Name: Blood Pact
   m_EditorClassIdentifier: 
-  id: 6969
-  name: Intervene
+  id: 195
+  name: Blood Pact
   quality: 0
   abilityType: 1
-  description: Transfer <t1transfer> of the target's damage taken to the caster.
-    Lasts for this Round.
-  icon: {fileID: 21300000, guid: b930b5afba681e04a94c36703d40cf78, type: 3}
+  description: 'Transfer <t1transfer> of damage taken by your targeted ally to yourself
+    for <t1d> Rounds.
+
+
+    You and your ally will restore <s1timAc1> <health> every
+    Round while <name> is active.
+
+
+    <r!Cannot target self.>'
+  icon: {fileID: 21300000, guid: 7acd36bb895f4344d8e224b2ee7e3fb2, type: 3}
   casterSpecialEffects: []
-  targetSpecialEffects:
-  - {fileID: 3486972645575669235, guid: 2df6ed8bfa2542e47ab901b1eac932fe, type: 3}
+  targetSpecialEffects: []
   missile: {fileID: 0}
-  hasLevels: 0
-  sellable: 0
+  hasLevels: 1
+  sellable: 1
   replacesAbility: {fileID: 0}
-  castTime: 0.5
-  cooldown: 3
+  castTime: 0.75
+  cooldown: 5
   initialCooldown: 0
-  endTurn: 0
+  endTurn: 1
   resetChance: 0
   resetText: Reset!
   singleUse: 0
-  weaponRequirement: 2
+  weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 1
   allyAbilitySources: []
   enemyAbilitySources: []
   selfEffectsPerTarget: 0
-  selfEffects: []
+  selfEffects:
+  - {fileID: 11400000, guid: 147696f042271e444b66c3186dab199d, type: 2}
   targetEffects:
-  - {fileID: 11400000, guid: 631eaa827539651409c24692194ce4f4, type: 2}
+  - {fileID: 11400000, guid: 885c29387363fa64ab40b4b4587a161b, type: 2}
+  - {fileID: 11400000, guid: 147696f042271e444b66c3186dab199d, type: 2}
   cannotTargetSelf: 1
   targetsAllies: 1
   targetsEnemies: 0

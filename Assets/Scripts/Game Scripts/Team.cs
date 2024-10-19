@@ -104,7 +104,7 @@ public class Team
 
         if (isEnemy)
         {
-            unit.spellbook.SetActiveSpellbook();
+            //unit.spellbook.SetActiveSpellbook();
             (unit as Enemy).SetStartCooldowns();
         }
         else

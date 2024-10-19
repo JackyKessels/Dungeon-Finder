@@ -13,6 +13,7 @@ public enum TargetTargets
 public class TargetAbility : ActiveAbility
 {
     [Header("Targeting")]
+    public bool cannotTargetSelf = false;
     public bool targetsAllies = false;
     public bool targetsEnemies = true;
 

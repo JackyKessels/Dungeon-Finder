@@ -84,7 +84,7 @@ public class ActionBarButton : MonoBehaviour
                 // Swift ability
                 if (active.currentCooldown > active.cooldown)
                 {
-                    cooldownText.SetText("F");
+                    cooldownText.SetText("");
                 }
                 else
                 {

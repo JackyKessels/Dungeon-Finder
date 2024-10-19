@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public enum ActivationMoment
@@ -24,6 +25,8 @@ public class PassiveAddEffect : PassiveAbility
     [Space(10)]
     public List<EffectObject> effects;
     [Space(10)]
+    public List<PassiveAbility> passives;
+    [Space(10)]
 
     public AbilityTargets targets;
 
@@ -41,9 +44,12 @@ public class PassiveAddEffect : PassiveAbility
     public override void ActivatePassive(Unit unit)
     {
         if (activationMoment == ActivationMoment.StartBattle)
+        {
             unit.OnStartBattle += TriggerPassiveEvent;
+        }
         else if (activationMoment == ActivationMoment.BelowHealthThreshold || activationMoment == ActivationMoment.AboveHealthThreshold)
         {
+            // Only remove passives and effects on Self
             unit.OnStartBattle += CheckHealthThreshold;
             unit.statsManager.OnReceiveUnitEvent += TriggerHealthThreshold;
         }
@@ -57,6 +63,7 @@ public class PassiveAddEffect : PassiveAbility
         }
         else if (activationMoment == ActivationMoment.BelowAttributeValue || activationMoment == ActivationMoment.AboveAttributeValue)
         {
+            // Only remove passives and effects on Self
             unit.OnStartBattle += TriggerAttributeValue;
             unit.statsManager.OnReceiveUnitEvent += TriggerAttributeValue;
             unit.OnRoundStart += TriggerAttributeValue;
@@ -111,34 +118,92 @@ public class PassiveAddEffect : PassiveAbility
         }
     }
 
-    private void AddEffect(Unit caster, Unit target)
+    private void AddEffects(Unit caster, Unit target, bool checkHasEffect = false)
     {
+        if (effects.Count == 0)
+        {
+            return;
+        }
+
         int level = caster.spellbook.GetAbilityLevel(this);
 
         foreach (EffectObject effectObject in effects)
         {
-            EffectManager.ApplyEffect(effectObject, caster, target, level, this);
+            if (!checkHasEffect || !target.effectManager.HasEffect(effectObject))
+            {
+                EffectManager.ApplyEffect(effectObject, caster, target, level, this);
+            }
         }
     }
 
-    private void RemoveEffect(Unit target)
+    private void RemoveEffects(Unit caster, bool checkHasEffect = false)
     {
+        if (effects.Count == 0)
+        {
+            return;
+        }
+
         foreach (EffectObject effectObject in effects)
         {
-            target.effectManager.RemoveEffect(effectObject);
+            if (!checkHasEffect || caster.effectManager.HasEffect(effectObject))
+            {
+                caster.effectManager.RemoveEffect(effectObject);
+            }
         }
+    }
+
+    private void AddPassives(Unit caster, Unit target, bool checkHasPassive = false)
+    {
+        if (passives.Count == 0)
+        {
+            return;
+        }
+
+        int level = caster.spellbook.GetAbilityLevel(this);
+
+        var passivesList = checkHasPassive ? passives.Where(p => !caster.spellbook.HasPassiveAbility(p, level)).ToList() : passives;
+
+        target.spellbook.LearnPassives(passivesList.ConvertAll(p => (p, level)));
+    }
+
+    private void RemovePassives(Unit caster, bool checkHasPassive = false)
+    {
+        if (passives.Count == 0)
+        {
+            return;
+        }
+
+        int level = caster.spellbook.GetAbilityLevel(this);
+
+        var passivesList = checkHasPassive ? passives.Where(p => !caster.spellbook.HasPassiveAbility(p, level)).ToList() : passives;
+
+        caster.spellbook.UnlearnPassives(passivesList.ConvertAll(p => (p, level)));
     }
 
     private void TriggerPassiveEvent(Unit caster)
     {
         ObjectUtilities.CreateSpecialEffects(casterSpecialEffects, caster);
 
-        foreach (Unit unit in AbilityUtilities.GetAbilityTargets(targets, caster))
+        foreach (Unit target in AbilityUtilities.GetAbilityTargets(targets, caster))
         {
-            CastActiveAbility(caster, unit);
-            AddEffect(caster, unit);
-            ObjectUtilities.CreateSpecialEffects(targetSpecialEffects, unit);
+            CastActiveAbility(caster, target);
+            AddEffects(caster, target);
+            AddPassives(caster, target);
+            ObjectUtilities.CreateSpecialEffects(targetSpecialEffects, target);
         }
+    }
+
+    private void ApplySelfEvent(Unit caster)
+    {
+        ObjectUtilities.CreateSpecialEffects(casterSpecialEffects, caster);
+        AddEffects(caster, caster, true);
+        AddPassives(caster, caster, true);
+    }
+
+    private void ReverseSelfEvent(Unit caster)
+    {
+        RemoveEffects(caster, true);
+        RemovePassives(caster, true);
     }
 
     private void TriggerHealthThreshold(AbilityValue abilityValue)
@@ -178,12 +243,12 @@ public class PassiveAddEffect : PassiveAbility
         {
             if (unit.statsManager.GetHealthPercentage() <= (healthPercentage / 100) && !unit.effectManager.HasEffect(effects[0]))
             {
-                TriggerPassiveEvent(unit);
+                ApplySelfEvent(unit);
             }
 
             if (unit.statsManager.GetHealthPercentage() > (healthPercentage / 100) && unit.effectManager.HasEffect(effects[0]))
             {
-                RemoveEffect(unit);
+                ReverseSelfEvent(unit);
             }
         }
         else if (activationMoment == ActivationMoment.AboveHealthThreshold) 
@@ -195,7 +260,7 @@ public class PassiveAddEffect : PassiveAbility
 
             if (unit.statsManager.GetHealthPercentage() < (healthPercentage / 100) && unit.effectManager.HasEffect(effects[0]))
             {
-                RemoveEffect(unit);
+                ReverseSelfEvent(unit);
             }
         }
     }
@@ -210,7 +275,7 @@ public class PassiveAddEffect : PassiveAbility
             }
             else if (unit.statsManager.GetAttributeValue(attributeType) > attributeValue && unit.effectManager.HasEffect(effects[0]))
             {
-                RemoveEffect(unit);
+                ReverseSelfEvent(unit);
             }
         }
         else if (activationMoment == ActivationMoment.AboveAttributeValue)
@@ -221,7 +286,7 @@ public class PassiveAddEffect : PassiveAbility
             }
             else if (unit.statsManager.GetAttributeValue(attributeType) < attributeValue && unit.effectManager.HasEffect(effects[0]))
             {
-                RemoveEffect(unit);
+                ReverseSelfEvent(unit);
             }
         }
     }

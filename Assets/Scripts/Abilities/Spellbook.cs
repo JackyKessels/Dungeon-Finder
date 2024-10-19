@@ -47,8 +47,6 @@ public class Spellbook
             Passive passive = new Passive(p, 1);
 
             LearnPassive(passive);
-
-            
         }
     }
 
@@ -122,13 +120,28 @@ public class Spellbook
         return hasAbility;
     }
 
-    private bool HasAbility(Active active, List<Active> targetCollection)
+    public bool HasActive(Active active, List<Active> targetCollection)
     {
         bool hasAbility = false;
 
         for (int i = 0; i < targetCollection.Count; i++)
         {
             if (targetCollection[i].activeAbility == active.activeAbility)
+            {
+                hasAbility = true;
+            }
+        }
+
+        return hasAbility;
+    }
+
+    public bool HasPassiveAbility(PassiveAbility passiveAbility, int level)
+    {
+        bool hasAbility = false;
+
+        for (int i = 0; i < passives.Count; i++)
+        {
+            if (passives[i].passiveAbility == passiveAbility && passives[i].level == level)
             {
                 hasAbility = true;
             }
@@ -200,7 +213,7 @@ public class Spellbook
         }
         else
         {
-            if (HasAbility(active, abilityCollection))
+            if (HasActive(active, abilityCollection))
             {
                 return true;
             }
@@ -221,7 +234,7 @@ public class Spellbook
         {
             for (int i = 0; i < activeSpellbook.Length; i++)
             {
-                if (activeSpellbook[i].activeAbility == null && 
+                if (activeSpellbook[i].activeAbility == null &&
                     HasWeaponRequirement(active) &&
                     !SpellbookManager.Instance.activeAbilities[i].locked)
                 {
@@ -297,7 +310,7 @@ public class Spellbook
                 {
                     return true;
                 }
-            }          
+            }
         }
     }
 
@@ -368,7 +381,9 @@ public class Spellbook
         passive.ActivatePassive(unit);
 
         if (unit is Hero h)
+        {
             SpellbookManager.Instance.Setup(h);
+        }
     }
 
     public void UnlearnPassive(Passive passive)
@@ -378,7 +393,9 @@ public class Spellbook
         passive.DeactivatePassive(unit);
 
         if (unit is Hero h)
+        {
             SpellbookManager.Instance.Setup(h);
+        }
     }
 
     private void RemovePassiveFromList(Passive passive)
@@ -432,7 +449,7 @@ public class Spellbook
 
     public void CooldownAbilities()
     {
-        foreach (Active a in activeSpellbook)
+        foreach (Active a in abilityCollection)
         {
             if (a.activeAbility != null)
                 a.CoolDown(1);
@@ -452,13 +469,13 @@ public class Spellbook
 
     public void SetCooldowns()
     {
-        foreach (Active ability in activeSpellbook)
+        foreach (Active ability in abilityCollection)
         {
             if (ability != null && ability.activeAbility != null)
             {
                 ability.currentCooldown = ability.activeAbility.initialCooldown;
             }
-            
+
         }
 
         foreach (Active ability in itemAbilities)
@@ -472,7 +489,7 @@ public class Spellbook
         if (flaskAbility != null && flaskAbility.activeAbility != null)
         {
             flaskAbility.currentCooldown = flaskAbility.activeAbility.initialCooldown;
-        }      
+        }
     }
 
     // Save & Load System
@@ -572,7 +589,7 @@ public class Spellbook
         return completeList;
     }
 
-    public void LearnPassives(List<(int, int)> passivesList)
+    public void LearnPassives(List<(int Id, int Level)> passivesList)
     {
         for (int i = 0; i < passivesList.Count; i++)
         {
@@ -586,6 +603,54 @@ public class Spellbook
                 Passive passive = new Passive(p, level);
 
                 LearnPassive(passive);
+            }
+        }
+    }
+
+    public void LearnPassives(List<(PassiveAbility passiveAbility, int Level)> passivesList)
+    {
+        for (int i = 0; i < passivesList.Count; i++)
+        {
+            (PassiveAbility passiveAbility, int level) = passivesList[i];
+
+            if (passiveAbility != null)
+            {
+                Passive passive = new Passive(passiveAbility, level);
+
+                LearnPassive(passive);
+            }        
+        }
+    }
+
+    public void UnlearnPassives(List<(int Id, int Level)> passivesList)
+    {
+        for (int i = 0; i < passivesList.Count; i++)
+        {
+            (int id, int level) = passivesList[i];
+
+            // Skip item passives
+            if (id != -1)
+            {
+                PassiveAbility p = DatabaseHandler.Instance.abilityDatabase.abilityObjects[id] as PassiveAbility;
+
+                Passive passive = new Passive(p, level);
+
+                UnlearnPassive(passive);
+            }
+        }
+    }
+
+    public void UnlearnPassives(List<(PassiveAbility passiveAbility, int Level)> passivesList)
+    {
+        for (int i = 0; i < passivesList.Count; i++)
+        {
+            (PassiveAbility passiveAbility, int level) = passivesList[i];
+
+            if (passiveAbility != null)
+            {
+                Passive passive = new Passive(passiveAbility, level);
+
+                UnlearnPassive(passive);
             }
         }
     }

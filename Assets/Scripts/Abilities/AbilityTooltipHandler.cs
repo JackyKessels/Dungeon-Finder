@@ -202,7 +202,7 @@ public static class AbilityTooltipHandler
 
             if (effects[i] is EffectAbilityModifier abilityModifier)
             {
-                temp = DetermineBonusMultipler(temp, $"<{prefix}{i + 1}bonus>", tooltipInfo.effect.storedModValue);
+                temp = DetermineBonusMultipler(temp, $"<{prefix}{i + 1}bonus>", abilityModifier.GetBonusMultiplier(tooltipInfo.GetAbilityLevel()));
                 temp = DetermineSpecificAbilities(temp, "<specific>", abilityModifier);
             }
 

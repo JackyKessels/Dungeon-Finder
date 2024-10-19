@@ -8555,7 +8555,6 @@ MonoBehaviour:
   heroPositionsContainer: {fileID: 1074945400}
   enemyPositionsContainer: {fileID: 756493131}
   heroObjects:
-  - {fileID: 11400000, guid: 0a80ecc0168f41a478b5db1ceaf28083, type: 2}
   - {fileID: 11400000, guid: de4bff313bc1b06428cae4f08332f567, type: 2}
   - {fileID: 11400000, guid: 92cf6baaecd8a124b80da02ec76b3d4a, type: 2}
   - {fileID: 11400000, guid: 3e3d5b9c326045d4881c53050278a430, type: 2}

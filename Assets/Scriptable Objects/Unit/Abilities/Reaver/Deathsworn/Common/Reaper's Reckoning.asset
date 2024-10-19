@@ -10,30 +10,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
-  m_Name: Umbral Claws
+  m_Name: Reaper's Reckoning
   m_EditorClassIdentifier: 
-  id: -1
-  name: Umbral Claws
+  id: 196
+  name: Unyielding Raze
   quality: 0
-  abilityType: 0
-  description: 
-  icon: {fileID: 21300000, guid: 86e3f8910e3bf5248b1cb424539477e2, type: 3}
+  abilityType: 2
+  description: 'Deal <e1> <S> damage to your target.
+
+
+    <name> deals <e1modP>%
+    increased damage per <ns!1>% of Health the caster is missing.'
+  icon: {fileID: 21300000, guid: b1639434bd6373f4e80ef519059643b7, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
-  - {fileID: 7746833121361033911, guid: 3846e0aef203c184b80fb5b641707ac2, type: 3}
+  - {fileID: 2690532230784736612, guid: efb3f537697c0444784dd8c4abc78c12, type: 3}
   missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 0.75
-  cooldown: 0
+  cooldown: 4
   initialCooldown: 0
   endTurn: 1
   resetChance: 0
   resetText: Reset!
   singleUse: 0
   weaponRequirement: 4
-  soundEffect: {fileID: 0}
+  soundEffect: {fileID: 8300000, guid: 3cd47381abc8f05429b8d3a745b27946, type: 3}
   animationType: 0
   allyAbilitySources: []
   enemyAbilitySources:
@@ -41,25 +45,25 @@ MonoBehaviour:
     cannotCrit: 0
     cannotMiss: 0
     ignorePassives: []
-    school: 5
-    attributeType: 2
+    school: 7
+    attributeType: 1
     baseValue: 0
     levelBase: 0
-    scaling: 0.5
-    levelScaling: 0
+    scaling: 1.5
+    levelScaling: 0.3
     reductionType: 2
     abilityModifier:
-      hasModifier: 0
-      modification: 0
-      condition: 0
+      hasModifier: 1
+      modification: 2
+      condition: 5
       thresholdType: 0
       conditionThreshold: 0
       conditionChance: 0
       increasedAttribute: 0
       increaseValue: 0
       casterBased: 1
-      attributeBase: 0
-      percentageIncrease: 0
+      attributeBase: 1
+      percentageIncrease: 1.5
       bonusAbilitySource:
         ignoreMultipliers: 0
         cannotCrit: 0
@@ -72,48 +76,8 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 0
-      effectOnTarget: 1
-      conditionalEffect: {fileID: 0}
-    drainModifier:
-      hasModifier: 0
-      fractionDrained: 0
-  - ignoreMultipliers: 0
-    cannotCrit: 0
-    cannotMiss: 0
-    ignorePassives: []
-    school: 7
-    attributeType: 2
-    baseValue: 0
-    levelBase: 0
-    scaling: 0.5
-    levelScaling: 0
-    reductionType: 2
-    abilityModifier:
-      hasModifier: 1
-      modification: 4
-      condition: 6
-      thresholdType: 0
-      conditionThreshold: 0
-      conditionChance: 20
-      increasedAttribute: 0
-      increaseValue: 0
-      casterBased: 1
-      attributeBase: 0
-      percentageIncrease: 0
-      bonusAbilitySource:
-        ignoreMultipliers: 0
-        cannotCrit: 0
-        cannotMiss: 0
-        ignorePassive: []
-        school: 0
-        attributeType: 0
-        baseValue: 0
-        levelBase: 0
-        scaling: 0
-        levelScaling: 0
-        reductionType: 0
-      effectOnTarget: 1
-      conditionalEffect: {fileID: 11400000, guid: 9443022b653f9544980406cbd5d1037f,
+      effectOnTarget: 0
+      conditionalEffect: {fileID: 11400000, guid: 7c76e88a97952064a89f75146d9eaf79,
         type: 2}
     drainModifier:
       hasModifier: 0
@@ -121,6 +85,7 @@ MonoBehaviour:
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []
+  cannotTargetSelf: 0
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0

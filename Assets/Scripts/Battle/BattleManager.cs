@@ -483,6 +483,8 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
             active.Trigger(currentUnit, target, 1f);
 
+            targetAbility.TriggerSelfEffects(1, currentUnit, currentAbility.level);
+
             targetAbility.TriggerPostCast(currentUnit, active.level);
 
             if (!swift)
@@ -647,7 +649,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
         currentAbility.activeAbility.TriggerPreCast(currentUnit);
 
-        currentAbility.Trigger(currentUnit, currentTarget, 1f);
+        currentAbility.Trigger(currentUnit, currentUnit, 1f);
 
         currentAbility.PutOnCooldown();
 
@@ -765,6 +767,8 @@ public class BattleManager : MonoBehaviour, IUserInterface
                 }
 
                 currentAbility.Trigger(currentUnit, currentTarget, 1f);
+
+                targetAbility.TriggerSelfEffects(1, currentUnit, currentAbility.level);
 
                 targetAbility.TriggerPostCast(currentUnit, currentAbility.level);
 
@@ -892,15 +896,17 @@ public class BattleManager : MonoBehaviour, IUserInterface
                 {
                     if (hit.collider.gameObject.tag == "Unit")
                     {
-                        if (hit.collider.gameObject.GetComponent<Unit>().isEnemy && t.targetsEnemies)
+                        var targetedUnit = hit.collider.gameObject.GetComponent<Unit>();
+
+                        if (targetedUnit.isEnemy && t.targetsEnemies)
                         {
-                            currentTarget = hit.collider.GetComponent<Unit>();
+                            currentTarget = targetedUnit;
                             actionBar.SetInteractable(false);
                             yield break;
                         }
-                        else if (!hit.collider.gameObject.GetComponent<Unit>().isEnemy && t.targetsAllies)
+                        else if (!targetedUnit.isEnemy && t.targetsAllies && (!t.cannotTargetSelf || currentUnit != targetedUnit))
                         {
-                            currentTarget = hit.collider.GetComponent<Unit>();
+                            currentTarget = targetedUnit;
                             actionBar.SetInteractable(false);
                             yield break;
                         }

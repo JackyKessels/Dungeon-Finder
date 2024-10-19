@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5656ac5e4bcf63e49b484de02f06fb42, type: 3}
-  m_Name: Touch of Light (Heal)
+  m_Name: Essence Leak (DoT)
   m_EditorClassIdentifier: 
-  name: Touch of Light
-  icon: {fileID: 21300000, guid: 225618e3e8207734caa3799e11dd1915, type: 3}
-  hidden: 1
-  description: 
+  name: Essence Leak
+  icon: {fileID: 21300000, guid: bb6db85d2b341924a916e20601bb220b, type: 3}
+  hidden: 0
+  description: Take <1> <A> damage every Round.
   specialEffects: []
   isBuff: 0
   procType: 0
-  duration: 0
+  duration: 4
   permanent: 0
   stackable: 0
   maxStacks: 0
@@ -30,33 +30,33 @@ MonoBehaviour:
   loseStacks: 0
   removeEffects: []
   timedActions:
-  - actionType: 0
-    actionTargets: 3
+  - actionType: 1
+    actionTargets: 0
     triggersPassives: 1
     abilitySource:
       ignoreMultipliers: 0
       cannotCrit: 0
       cannotMiss: 0
       ignorePassives: []
-      school: 0
+      school: 5
       attributeType: 0
       baseValue: 0
       levelBase: 0
-      scaling: 0.03
+      scaling: 0.005
       levelScaling: 0
       reductionType: 0
       abilityModifier:
-        hasModifier: 1
-        modification: 2
+        hasModifier: 0
+        modification: 0
         condition: 0
         thresholdType: 0
         conditionThreshold: 0
         conditionChance: 0
         increasedAttribute: 0
         increaseValue: 0
-        casterBased: 0
-        attributeBase: 2
-        percentageIncrease: 2
+        casterBased: 1
+        attributeBase: 0
+        percentageIncrease: 0
         bonusAbilitySource:
           ignoreMultipliers: 0
           cannotCrit: 0
@@ -75,5 +75,5 @@ MonoBehaviour:
         hasModifier: 0
         fractionDrained: 0
     specialEffects:
-    - {fileID: 6755934199333603486, guid: 0215324f09c70e940b4d8ff3572295ab, type: 3}
+    - {fileID: 2713841293799122520, guid: 75f46330e82698f4faae1a3a6e9cf989, type: 3}
     storedValue: 0

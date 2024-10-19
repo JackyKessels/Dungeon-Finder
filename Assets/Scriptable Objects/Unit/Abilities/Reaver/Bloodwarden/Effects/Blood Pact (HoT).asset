@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5656ac5e4bcf63e49b484de02f06fb42, type: 3}
-  m_Name: Touch of Light (Heal)
+  m_Name: Blood Pact (HoT)
   m_EditorClassIdentifier: 
-  name: Touch of Light
-  icon: {fileID: 21300000, guid: 225618e3e8207734caa3799e11dd1915, type: 3}
-  hidden: 1
-  description: 
+  name: Blood Pact
+  icon: {fileID: 21300000, guid: 7acd36bb895f4344d8e224b2ee7e3fb2, type: 3}
+  hidden: 0
+  description: Receive <1> <Heal> every Round.
   specialEffects: []
-  isBuff: 0
-  procType: 0
-  duration: 0
+  isBuff: 1
+  procType: 1
+  duration: 3
   permanent: 0
   stackable: 0
   maxStacks: 0
@@ -30,8 +30,8 @@ MonoBehaviour:
   loseStacks: 0
   removeEffects: []
   timedActions:
-  - actionType: 0
-    actionTargets: 3
+  - actionType: 1
+    actionTargets: 0
     triggersPassives: 1
     abilitySource:
       ignoreMultipliers: 0
@@ -42,12 +42,12 @@ MonoBehaviour:
       attributeType: 0
       baseValue: 0
       levelBase: 0
-      scaling: 0.03
-      levelScaling: 0
+      scaling: 0.02
+      levelScaling: 0.004
       reductionType: 0
       abilityModifier:
-        hasModifier: 1
-        modification: 2
+        hasModifier: 0
+        modification: 0
         condition: 0
         thresholdType: 0
         conditionThreshold: 0
@@ -55,8 +55,8 @@ MonoBehaviour:
         increasedAttribute: 0
         increaseValue: 0
         casterBased: 0
-        attributeBase: 2
-        percentageIncrease: 2
+        attributeBase: 0
+        percentageIncrease: 0
         bonusAbilitySource:
           ignoreMultipliers: 0
           cannotCrit: 0
@@ -69,11 +69,11 @@ MonoBehaviour:
           scaling: 0
           levelScaling: 0
           reductionType: 0
-        effectOnTarget: 1
+        effectOnTarget: 0
         conditionalEffect: {fileID: 0}
       drainModifier:
         hasModifier: 0
         fractionDrained: 0
     specialEffects:
-    - {fileID: 6755934199333603486, guid: 0215324f09c70e940b4d8ff3572295ab, type: 3}
+    - {fileID: 3965164872149049446, guid: 427917c9047e15442b1a0a77d58459a0, type: 3}
     storedValue: 0

@@ -402,7 +402,7 @@ public class EffectManager : MonoBehaviour
         {
             timedAction.abilitySource.TriggerSource(e.effectObject, e.sourceAbility, e.level, false, true, e.caster, e.target, timedAction.storedValue, timedAction.triggersPassives);
 
-            CreateSpecialEffect(e.target, timedAction.specialEffects);
+            ObjectUtilities.CreateSpecialEffects(timedAction.specialEffects, e.target, true);
         }
         else if (timedAction.actionTargets == TimedActionTargets.Team)
         {
@@ -412,7 +412,7 @@ public class EffectManager : MonoBehaviour
             {
                 timedAction.abilitySource.TriggerSource(e.effectObject, e.sourceAbility, e.level, false, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
 
-                CreateSpecialEffect(unit, timedAction.specialEffects);
+                ObjectUtilities.CreateSpecialEffects(timedAction.specialEffects, unit, true);
             }
         }
         else if (timedAction.actionTargets == TimedActionTargets.Adjacent)
@@ -423,7 +423,7 @@ public class EffectManager : MonoBehaviour
             {
                 timedAction.abilitySource.TriggerSource(e.effectObject, e.sourceAbility, e.level, false, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
 
-                CreateSpecialEffect(unit, timedAction.specialEffects);
+                ObjectUtilities.CreateSpecialEffects(timedAction.specialEffects, unit, true);
             }
         }
         else if (timedAction.actionTargets == TimedActionTargets.RandomAlly)
@@ -436,7 +436,7 @@ public class EffectManager : MonoBehaviour
 
                 timedAction.abilitySource.TriggerSource(e.effectObject, e.sourceAbility, e.level, false, true, e.caster, target, timedAction.storedValue, timedAction.triggersPassives);
 
-                CreateSpecialEffect(target, timedAction.specialEffects);
+                ObjectUtilities.CreateSpecialEffects(timedAction.specialEffects, target, true);
             }
         }
         else if (timedAction.actionTargets == TimedActionTargets.EnemyTeam)
@@ -447,7 +447,7 @@ public class EffectManager : MonoBehaviour
             {
                 timedAction.abilitySource.TriggerSource(e.effectObject, e.sourceAbility, e.level, false, true, e.caster, unit, timedAction.storedValue, timedAction.triggersPassives);
 
-                CreateSpecialEffect(unit, timedAction.specialEffects);
+                ObjectUtilities.CreateSpecialEffects(timedAction.specialEffects, unit, true);
             }
         }
         else if (timedAction.actionTargets == TimedActionTargets.RandomEnemy)
@@ -460,7 +460,7 @@ public class EffectManager : MonoBehaviour
 
                 timedAction.abilitySource.TriggerSource(e.effectObject, e.sourceAbility, e.level, false, true, e.caster, target, timedAction.storedValue, timedAction.triggersPassives);
 
-                CreateSpecialEffect(target, timedAction.specialEffects);
+                ObjectUtilities.CreateSpecialEffects(timedAction.specialEffects, target, true);
             }
         }
     }
@@ -473,7 +473,7 @@ public class EffectManager : MonoBehaviour
             RemoveEffect(e.effectObject.removeEffects[i]);
         }
 
-        //CreateSpecialEffect(e.target, e.effectObject.happy);
+        ObjectUtilities.CreateSpecialEffects(e.effectObject.specialEffects, e.target, true);
 
         switch (e.effectObject)
         {
@@ -514,7 +514,7 @@ public class EffectManager : MonoBehaviour
                 }
             case EffectAttributeModifier modifier:
                 {
-                    CreateSpecialEffect(e.target, modifier.specialEffects);
+                    ObjectUtilities.CreateSpecialEffects(modifier.specialEffects, e.target, true);
 
                     ModifyAttribute(e.target, modifier.attributeModified, e.storedModValue, modifier.isIncrease, true, modifier.modifierType);
 
@@ -533,7 +533,7 @@ public class EffectManager : MonoBehaviour
                 }
             case EffectActivatePassive passive:
                 {
-                    CreateSpecialEffect(e.caster, passive.specialEffects);
+                    ObjectUtilities.CreateSpecialEffects(passive.specialEffects, e.caster, true);
 
                     Passive effectPassive = new Passive(passive.passiveAbility, e.level);
 
@@ -563,7 +563,7 @@ public class EffectManager : MonoBehaviour
                 {
                     spriteChange.ChangeSprite(unit);
 
-                    return;
+                    break;
                 }
         }
 
@@ -637,20 +637,6 @@ public class EffectManager : MonoBehaviour
 
                     return;
                 }
-        }
-    }
-
-    public static void CreateSpecialEffect(Unit target, List<ParticleSystem> specialEffects)
-    {
-        if (target.statsManager.isDead)
-            return;
-
-        if (specialEffects != null && specialEffects.Count > 0)
-        {
-            foreach (ParticleSystem specialEffect in specialEffects)
-            {
-                Instantiate(specialEffect, target.transform.position, Quaternion.identity);
-            }
         }
     }
 

@@ -29,6 +29,8 @@ MonoBehaviour:
   castActiveAbilities: []
   effects:
   - {fileID: 11400000, guid: 640d8d67daf935a4a828efdd0c86e50c, type: 2}
+  passives:
+  - {fileID: 11400000, guid: 7579b7017518a3c49ba5a6d5cd202062, type: 2}
   targets: 0
   healthPercentage: 50
   attributeType: 0

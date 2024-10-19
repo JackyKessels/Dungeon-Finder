@@ -53,6 +53,13 @@ MonoBehaviour:
     healthThreshold: 50
     startCooldown: 3
     charged: 0
+  - ability: {fileID: 11400000, guid: 4accf51f90813eb4cbb0be9a70016d44, type: 2}
+    target: 1
+    targetAttribute: 0
+    condition: 2
+    healthThreshold: 50
+    startCooldown: 2
+    charged: 0
   - ability: {fileID: 11400000, guid: 081732413a789844087b54f6f2f6de9a, type: 2}
     target: 2
     targetAttribute: 0
@@ -67,6 +74,13 @@ MonoBehaviour:
     healthThreshold: 50
     startCooldown: 0
     charged: 0
+  - ability: {fileID: 11400000, guid: 45e8259ef771b9b4c90bfc731e980ded, type: 2}
+    target: 0
+    targetAttribute: 0
+    condition: 1
+    healthThreshold: 50
+    startCooldown: 0
+    charged: 1
   - ability: {fileID: 11400000, guid: e44df2ec84ef41a488700958e8356f38, type: 2}
     target: 1
     targetAttribute: 5

@@ -25,7 +25,7 @@ MonoBehaviour:
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 0.25
-  cooldown: 0
+  cooldown: 1
   initialCooldown: 0
   endTurn: 0
   resetChance: 0
@@ -53,6 +53,7 @@ MonoBehaviour:
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
+      conditionChance: 0
       increasedAttribute: 0
       increaseValue: 0
       casterBased: 1

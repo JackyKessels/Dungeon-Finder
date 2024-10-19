@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "New Spawn Effect", menuName = "Unit/Effect Object/Spawn Enemy")]
 public class EffectSpawnEnemy : EffectObject
@@ -10,7 +11,6 @@ public class EffectSpawnEnemy : EffectObject
     public int level;
     public bool two;
     public bool instant;
-    public List<ParticleSystem> specialEffects = new List<ParticleSystem>();
 
     protected override string ParseDescription(string s, TooltipObject tooltipInfo)
     {

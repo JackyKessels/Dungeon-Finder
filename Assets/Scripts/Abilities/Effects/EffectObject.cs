@@ -13,6 +13,7 @@ public abstract class EffectObject : ScriptableObject, IDescribable, ITriggerSou
     public Sprite icon;
     public bool hidden = false;
     [TextArea(10, 10)] public string description;
+    public List<ParticleSystem> specialEffects = new List<ParticleSystem>();
 
     [Header("[ Mechanics ]")]
     public bool isBuff;

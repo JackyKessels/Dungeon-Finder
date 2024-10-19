@@ -323,6 +323,7 @@ public class AbilityValue
         isEffect = _isEffect;
 
         value = _value;// GetVarianceValue(_value);
+
         school = _school;
         abilityType = _abilityType;
         cannotCrit = _cannotCrit;

@@ -10,42 +10,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
-  m_Name: Umbral Claws
+  m_Name: Twisted Drain
   m_EditorClassIdentifier: 
   id: -1
-  name: Umbral Claws
+  name: Twisted Drain
   quality: 0
-  abilityType: 0
+  abilityType: 2
   description: 
-  icon: {fileID: 21300000, guid: 86e3f8910e3bf5248b1cb424539477e2, type: 3}
+  icon: {fileID: 21300000, guid: e28a7e5ba93078744b36bfb4f5d65a07, type: 3}
   casterSpecialEffects: []
-  targetSpecialEffects:
-  - {fileID: 7746833121361033911, guid: 3846e0aef203c184b80fb5b641707ac2, type: 3}
-  missile: {fileID: 0}
+  targetSpecialEffects: []
+  missile: {fileID: 11400000, guid: b1923eaf92217b54aa7de0ae9d68cd97, type: 2}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 0.75
-  cooldown: 0
+  cooldown: 4
   initialCooldown: 0
   endTurn: 1
   resetChance: 0
   resetText: Reset!
   singleUse: 0
   weaponRequirement: 4
-  soundEffect: {fileID: 0}
-  animationType: 0
+  soundEffect: {fileID: 8300000, guid: d897198dbcaef654594ec08c2e6ae88c, type: 3}
+  animationType: 1
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
     ignorePassives: []
-    school: 5
+    school: 7
     attributeType: 2
     baseValue: 0
     levelBase: 0
-    scaling: 0.5
+    scaling: 1.5
     levelScaling: 0
     reductionType: 2
     abilityModifier:
@@ -75,49 +74,8 @@ MonoBehaviour:
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
     drainModifier:
-      hasModifier: 0
-      fractionDrained: 0
-  - ignoreMultipliers: 0
-    cannotCrit: 0
-    cannotMiss: 0
-    ignorePassives: []
-    school: 7
-    attributeType: 2
-    baseValue: 0
-    levelBase: 0
-    scaling: 0.5
-    levelScaling: 0
-    reductionType: 2
-    abilityModifier:
       hasModifier: 1
-      modification: 4
-      condition: 6
-      thresholdType: 0
-      conditionThreshold: 0
-      conditionChance: 20
-      increasedAttribute: 0
-      increaseValue: 0
-      casterBased: 1
-      attributeBase: 0
-      percentageIncrease: 0
-      bonusAbilitySource:
-        ignoreMultipliers: 0
-        cannotCrit: 0
-        cannotMiss: 0
-        ignorePassive: []
-        school: 0
-        attributeType: 0
-        baseValue: 0
-        levelBase: 0
-        scaling: 0
-        levelScaling: 0
-        reductionType: 0
-      effectOnTarget: 1
-      conditionalEffect: {fileID: 11400000, guid: 9443022b653f9544980406cbd5d1037f,
-        type: 2}
-    drainModifier:
-      hasModifier: 0
-      fractionDrained: 0
+      fractionDrained: 1
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []

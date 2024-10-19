@@ -39,8 +39,13 @@ public static class ObjectUtilities
         trigger.triggers.Add(eventTrigger);
     }
 
-    public static void CreateSpecialEffects(List<ParticleSystem> specialEffects, Unit target)
+    public static void CreateSpecialEffects(List<ParticleSystem> specialEffects, Unit target, bool checkIsDead = false)
     {
+        if (checkIsDead && target.statsManager.isDead)
+        {
+            return;
+        }
+
         if (specialEffects.Count > 0)
         {
             SpriteRenderer sprite = target.GetComponentInChildren<SpriteRenderer>();

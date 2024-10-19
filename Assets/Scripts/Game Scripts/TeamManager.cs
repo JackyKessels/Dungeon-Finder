@@ -141,7 +141,7 @@ public class TeamManager : MonoBehaviour
         }
         else
         {
-            EffectManager.CreateSpecialEffect(enemy, specialEffects);
+            ObjectUtilities.CreateSpecialEffects(specialEffects, enemy, true);
         }
 
         BattleHUD.Instance.Refresh();

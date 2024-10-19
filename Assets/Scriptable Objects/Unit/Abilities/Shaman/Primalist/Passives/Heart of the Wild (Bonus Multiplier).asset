@@ -16,10 +16,18 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 43eb2a5b06d853e4a90b40d64f72f14b, type: 3}
   hidden: 0
   description: Your Primary attacks deal <bonus> more damage.
+  specialEffects: []
   isBuff: 1
   procType: 1
   duration: 3
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects:
   - {fileID: 11400000}
   affectedAbility: 1
@@ -28,4 +36,3 @@ MonoBehaviour:
   specificAbilities: []
   bonusMultiplier: 0.25
   bonusPerLevel: 0
-  specialEffects: []

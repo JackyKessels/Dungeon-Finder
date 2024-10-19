@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public enum AffectedAbility
 {
@@ -33,8 +34,7 @@ public class EffectAbilityModifier : EffectObject
     [Header("[ Modification ]")]
     public float bonusMultiplier;
     public float bonusPerLevel;
-    public List<ParticleSystem> specialEffects;
-    
+
     protected override string ParseDescription(string s, TooltipObject tooltipInfo)
     {
         string temp = s;

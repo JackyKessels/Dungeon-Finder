@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "New Attribute Modifier", menuName = "Unit/Effect Object/Attribute Modifier")]
 public class EffectAttributeModifier : EffectObject
@@ -16,8 +17,6 @@ public class EffectAttributeModifier : EffectObject
     [Header("[ Multiplier ]")]
     public float multiplier;
     public float multiplierPerLevel;
-
-    public List<ParticleSystem> specialEffects = new List<ParticleSystem>();
 
     protected override string ParseDescription(string s, TooltipObject tooltipInfo)
     {

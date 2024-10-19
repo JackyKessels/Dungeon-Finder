@@ -344,6 +344,7 @@ public class Enemy : Unit
         {
             Active active = spellbook.FindCollectionAbility(abilityBehavior.ability);
 
+            active.cooldown = active.activeAbility.cooldown;
             active.SetCurrentCooldown(abilityBehavior.startCooldown);
         }
     }

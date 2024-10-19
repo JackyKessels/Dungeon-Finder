@@ -9,16 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6636a0f11d8a1b4aa0a66ae21358448, type: 3}
-  m_Name: Umbral Claws (Incap)
+  m_Script: {fileID: 11500000, guid: c4d19544ffa5f2c48bceeeea5a478624, type: 3}
+  m_Name: Blood Pact (Damage Transfer)
   m_EditorClassIdentifier: 
-  name: New Effect
-  icon: {fileID: 0}
+  name: Blood Pact
+  icon: {fileID: 21300000, guid: 7acd36bb895f4344d8e224b2ee7e3fb2, type: 3}
   hidden: 0
-  description: Stunned, but damage will break the effect.
-  isBuff: 0
+  description: Transfer <1> of damage taken to <caster>.
+  specialEffects: []
+  isBuff: 1
   procType: 1
-  duration: 2
+  duration: 3
   permanent: 0
   stackable: 0
   maxStacks: 0
@@ -28,5 +29,4 @@ MonoBehaviour:
   applyStacks: 1
   loseStacks: 0
   removeEffects: []
-  type: 2
-  addTypeImmunity: 0
+  percentage: 0.5
