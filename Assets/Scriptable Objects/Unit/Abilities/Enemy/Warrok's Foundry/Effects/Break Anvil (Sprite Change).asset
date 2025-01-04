@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1ff5b6653ac01a45bdd0d35c076f4b8, type: 3}
+  m_Name: Break Anvil (Sprite Change)
+  m_EditorClassIdentifier: 
+  name: Break Anvil
+  icon: {fileID: 0}
+  hidden: 1
+  description: 
+  applicationSpecialEffects:
+  - {fileID: 7356303517211428145, guid: fa204db3936d94b4e9067eceb815a3d9, type: 3}
+  expirationSpecialEffects: []
+  isBuff: 0
+  procType: 0
+  duration: 1
+  permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  applyStacks: 1
+  loseStacks: 0
+  removeEffects: []
+  newSprite: {fileID: 21300000, guid: 172789e6707682047ac3ff34b464673c, type: 3}
+  newIcon: {fileID: 21300000, guid: 3578798792026fc4780a5ba577828f2a, type: 3}

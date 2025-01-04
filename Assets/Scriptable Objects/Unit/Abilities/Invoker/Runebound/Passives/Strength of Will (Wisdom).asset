@@ -16,6 +16,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 51807fa17ecf38a43b0aa164cca58689, type: 3}
   hidden: 0
   description: Wisdom increased by <1>.
+  applicationSpecialEffects:
+  - {fileID: 7745865136803197230, guid: 155acad553c50704b905c80112ff71fe, type: 3}
+  expirationSpecialEffects: []
   isBuff: 1
   procType: 1
   duration: 2
@@ -25,6 +28,8 @@ MonoBehaviour:
   refreshes: 1
   aura: 0
   unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects:
   - {fileID: 11400000}
   attributeModified: 2
@@ -34,7 +39,7 @@ MonoBehaviour:
     ignoreMultipliers: 1
     cannotCrit: 0
     cannotMiss: 0
-    ignorePassive: {fileID: 0}
+    ignorePassives: []
     school: 0
     attributeType: 1
     baseValue: 0
@@ -42,12 +47,13 @@ MonoBehaviour:
     scaling: 0.5
     levelScaling: 0
     reductionType: 0
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
+      conditionChance: 0
       increasedAttribute: 0
       increaseValue: 0
       casterBased: 1
@@ -57,7 +63,7 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive: {fileID: 0}
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -67,7 +73,8 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   multiplier: 0
   multiplierPerLevel: 0
-  specialEffects:
-  - {fileID: 7745865136803197230, guid: 155acad553c50704b905c80112ff71fe, type: 3}

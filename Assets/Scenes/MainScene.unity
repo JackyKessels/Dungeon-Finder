@@ -999,7 +999,7 @@ GameObject:
   - component: {fileID: 41089053}
   - component: {fileID: 41089052}
   m_Layer: 5
-  m_Name: Consumables - Gloomstalk Thicket
+  m_Name: Consumables - Gloomstalk Enclave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1679,6 +1679,7 @@ Transform:
   m_Children:
   - {fileID: 509667699}
   - {fileID: 434878509}
+  - {fileID: 1103229802}
   m_Father: {fileID: 293645124}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &67672996
@@ -2976,7 +2977,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 106120377}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7523,6 +7524,8 @@ Transform:
   - {fileID: 1601990033}
   - {fileID: 605970870}
   - {fileID: 774693228}
+  - {fileID: 1653976028}
+  - {fileID: 762701926}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &297269092
@@ -8313,7 +8316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Boss - Gloomstalk Thicket
+  m_text: Boss - Gloomstalk Enclave
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02a595d32217990488a92337279e774f, type: 2}
   m_sharedMaterial: {fileID: 2834418323826619090, guid: 02a595d32217990488a92337279e774f,
@@ -17709,6 +17712,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b805096b9b0e1b848ab665388d6b382d, type: 2}
   - {fileID: 11400000, guid: 5ef76b14e2a9a9648a4c49e1a215f115, type: 2}
   - {fileID: 11400000, guid: fd0512465e1256e41bce15da2399c7ec, type: 2}
+  - {fileID: 11400000, guid: 8cd1d2e39ab10a64aa14244467958e1e, type: 2}
+  - {fileID: 11400000, guid: 7ed2a39186e0e1e4a936a3d7f98111ba, type: 2}
+  - {fileID: 11400000, guid: 73855f0b24621e44aaa5418071148d6c, type: 2}
   level: 3
 --- !u!114 &662710071
 MonoBehaviour:
@@ -19788,6 +19794,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 760046242}
   m_CullTransparentMesh: 0
+--- !u!1 &762701925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 762701926}
+  m_Layer: 0
+  m_Name: Single Location Event Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &762701926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762701925}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 28, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 293645124}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &765165497 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6516001982608085754, guid: 4b1d55659468c5548a28959800c50604,
@@ -20378,9 +20415,9 @@ GameObject:
   m_Component:
   - component: {fileID: 774693228}
   m_Layer: 0
-  m_Name: Initial Position
+  m_Name: First Location Position
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -20393,7 +20430,7 @@ Transform:
   m_GameObject: {fileID: 774693227}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.661999, y: -0.024000123, z: 0}
+  m_LocalPosition: {x: 17.661999, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20456,7 +20493,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Treasure / Other - Gloomstalk Thicket
+  m_text: Treasure / Other - Gloomstalk Enclave
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02a595d32217990488a92337279e774f, type: 2}
   m_sharedMaterial: {fileID: 2834418323826619090, guid: 02a595d32217990488a92337279e774f,
@@ -20939,7 +20976,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Elite - Gloomstalk Thicket
+  m_text: Elite - Gloomstalk Enclave
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02a595d32217990488a92337279e774f, type: 2}
   m_sharedMaterial: {fileID: 2834418323826619090, guid: 02a595d32217990488a92337279e774f,
@@ -27023,7 +27060,7 @@ GameObject:
   - component: {fileID: 979123974}
   - component: {fileID: 979123973}
   m_Layer: 5
-  m_Name: Boss - Gloomstalk Thicket
+  m_Name: Boss - Gloomstalk Enclave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30603,6 +30640,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1103229801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1103229802}
+  m_Layer: 0
+  m_Name: Player Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1103229802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103229801}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.008, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 61773287}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1105060646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34365,7 +34433,10 @@ MonoBehaviour:
   locationContainer: {fileID: 605970869}
   pathsContainer: {fileID: 1601990032}
   startLocation: {fileID: 2144350109}
-  initialPosition: {fileID: 774693228}
+  playerPosition: {fileID: 1103229802}
+  firstLocationPosition: {fileID: 774693228}
+  singleLocationPlayerPosition: {fileID: 1653976028}
+  singleLocationEventPosition: {fileID: 762701926}
   columns: 8
   rows: 6
   totalWidth: 15
@@ -45076,7 +45147,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Consumables - Gloomstalk Thicket
+  m_text: Consumables - Gloomstalk Enclave
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02a595d32217990488a92337279e774f, type: 2}
   m_sharedMaterial: {fileID: 2834418323826619090, guid: 02a595d32217990488a92337279e774f,
@@ -45154,6 +45225,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645941059}
   m_CullTransparentMesh: 0
+--- !u!1 &1653976027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1653976028}
+  m_Layer: 0
+  m_Name: Single Location Player Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1653976028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653976027}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 20, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 293645124}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1658870047
 GameObject:
   m_ObjectHideFlags: 0
@@ -45767,7 +45869,7 @@ GameObject:
   - component: {fileID: 1686442960}
   - component: {fileID: 1686442959}
   m_Layer: 5
-  m_Name: Treasure / Other - Gloomstalk Thicket
+  m_Name: Treasure / Other - Gloomstalk Enclave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45810,6 +45912,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 25c3a5f31d8a1f24d81fb0212b7f4518, type: 2}
   - {fileID: 11400000, guid: 35cdd114b3c66a64ab38f10ac5c884b9, type: 2}
   - {fileID: 11400000, guid: 296e7d66c6cd359418a792a1c2c1669f, type: 2}
+  - {fileID: 11400000, guid: 8d67ba34ac4dfb7469a497c0a46e1e04, type: 2}
   level: 5
 --- !u!114 &1686442960
 MonoBehaviour:
@@ -53067,7 +53170,7 @@ GameObject:
   - component: {fileID: 1970926567}
   - component: {fileID: 1970926566}
   m_Layer: 5
-  m_Name: Elite - Gloomstalk Thicket
+  m_Name: Elite - Gloomstalk Enclave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57087,7 +57190,7 @@ PrefabInstance:
     - target: {fileID: 781341197400367127, guid: a418e436342c42947a96620ccc793edd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.024
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 781341197400367127, guid: a418e436342c42947a96620ccc793edd,
         type: 3}

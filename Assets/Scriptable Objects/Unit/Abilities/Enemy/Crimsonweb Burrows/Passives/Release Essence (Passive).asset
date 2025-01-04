@@ -15,17 +15,24 @@ MonoBehaviour:
   id: -1
   name: Release Essence
   quality: 0
-  type: 3
+  abilityType: 0
   description: 
   icon: {fileID: 0}
   casterSpecialEffects: []
   targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   isPositive: 1
+  activationMoment: 3
+  castActiveAbilities: []
   effects:
   - {fileID: 11400000, guid: d8202b8faf80c9447a555da6fdca0c17, type: 2}
-  activationMoment: 3
+  passives: []
   targets: 2
   healthPercentage: 0
+  attributeType: 0
+  attributeValue: 0
+  cooldown: 0
+  castFirstRound: 0

@@ -12,22 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
   m_Name: Reckless Blow
   m_EditorClassIdentifier: 
+  id: -1
   name: Reckless Blow
   quality: 0
+  abilityType: 0
   description: Deal <1> <C> damage to a random enemy target.
   icon: {fileID: 21300000, guid: a4342bd1d5047d442a9bb6195c617262, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  missile: {fileID: 0}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
   castTime: 1.5
   cooldown: 0
+  initialCooldown: 0
+  endTurn: 1
+  singleUse: 0
+  resetType: 0
+  resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
-  type: 0
-  abilitySources:
-  - school: 1
-    attributeType: 1
-    baseValue: 0
-    levelBase: 0
-    scaling: 1.1
-    levelScaling: 0.22
-    reductionType: 1
+  soundEffect: {fileID: 0}
+  animationType: 0
+  allyAbilitySources: []
+  enemyAbilitySources: []
+  selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []
-  target: 4
+  abilityTargets: 0

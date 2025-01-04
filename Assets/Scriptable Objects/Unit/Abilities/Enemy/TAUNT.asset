@@ -12,24 +12,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: TAUNT
   m_EditorClassIdentifier: 
+  id: -1
   name: TAUNT
   quality: 0
+  abilityType: 0
   description: 
   icon: {fileID: 21300000, guid: cfc62a550b7942646bd6a5ad77b61a70, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  missile: {fileID: 0}
+  hasLevels: 1
+  sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 0
+  initialCooldown: 0
   endTurn: 1
+  singleUse: 0
+  resetType: 0
+  resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
-  type: 0
-  specialEffects: []
+  soundEffect: {fileID: 0}
+  animationType: 0
   allyAbilitySources: []
   enemyAbilitySources: []
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects:
   - {fileID: 11400000, guid: d45dd711f85bf28499f940d4cb1882e7, type: 2}
+  cannotTargetSelf: 0
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

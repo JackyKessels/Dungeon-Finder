@@ -16,9 +16,19 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: b1639434bd6373f4e80ef519059643b7, type: 3}
   hidden: 0
   description: Stunned, but damage will break the effect.
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 0
   procType: 1
   duration: 1
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects: []
   type: 2
+  addTypeImmunity: 0

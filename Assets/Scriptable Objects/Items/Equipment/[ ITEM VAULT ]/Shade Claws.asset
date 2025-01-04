@@ -18,6 +18,7 @@ MonoBehaviour:
   stackable: 0
   maxStacks: 1
   sellable: 1
+  unique: 0
   item:
     name: 
     id: 68
@@ -44,6 +45,7 @@ MonoBehaviour:
   holyMultiplier: 0
   shadowMultiplier: 0
   critMultiplier: 0
+  sacrificialMultiplier: 0
   passives:
   - {fileID: 11400000, guid: c7d2206b2904863458517bebe91fa212, type: 2}
   useAbility: {fileID: 0}

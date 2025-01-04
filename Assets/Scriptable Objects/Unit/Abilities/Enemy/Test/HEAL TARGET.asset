@@ -15,25 +15,35 @@ MonoBehaviour:
   id: 11331
   name: HEAL TARGET
   quality: 0
+  abilityType: 0
   description: 'damage ally
 
     heal enemy'
   icon: {fileID: 21300000, guid: 4b06f7cb1308ac8469f508aeac378e2b, type: 3}
-  specialEffects:
-  - {fileID: 2461129845761171758, guid: 042397d138ddf9d4d9e3b80cce95a98f, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 0
   sellable: 0
   replacesAbility: {fileID: 0}
   castTime: 0
   cooldown: 0
+  initialCooldown: 0
   endTurn: 0
+  singleUse: 0
+  resetType: 0
   resetChance: 100
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
-  type: 0
   soundEffect: {fileID: 0}
   animationType: 1
   allyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 7
     attributeType: 0
     baseValue: 10
@@ -41,19 +51,40 @@ MonoBehaviour:
     scaling: 0
     levelScaling: 0
     reductionType: 0
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
+      conditionChance: 0
       increasedAttribute: 0
       increaseValue: 0
-      casterBased: 0
+      casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 0
     attributeType: 0
     baseValue: 10
@@ -61,21 +92,40 @@ MonoBehaviour:
     scaling: 0
     levelScaling: 0
     reductionType: 0
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
+      conditionChance: 0
       increasedAttribute: 0
       increaseValue: 0
-      casterBased: 0
+      casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []
+  cannotTargetSelf: 0
   targetsAllies: 1
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

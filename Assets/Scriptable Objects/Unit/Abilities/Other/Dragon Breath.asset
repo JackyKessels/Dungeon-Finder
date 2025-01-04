@@ -12,29 +12,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
   m_Name: Dragon Breath
   m_EditorClassIdentifier: 
+  id: -1
   name: Dragon Breath
   quality: 2
+  abilityType: 0
   description: Deal <e1> <F> damage to all enemies, and an additional <t1timAc1>
     <F> damage per Turn for <t1d> Turns.
   icon: {fileID: 21300000, guid: 4730016d52654ae4491f01c2253c303b, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  missile: {fileID: 0}
+  hasLevels: 1
+  sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 3
+  initialCooldown: 0
   endTurn: 1
+  singleUse: 0
+  resetType: 0
+  resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
-  type: 2
-  specialEffects: []
+  soundEffect: {fileID: 0}
+  animationType: 0
   allyAbilitySources: []
   enemyAbilitySources:
-  - school: 3
+  - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
+    school: 3
     attributeType: 2
     baseValue: 0
     levelBase: 0
     scaling: 0.5
     levelScaling: 0.01
     reductionType: 2
+    abilityModifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      conditionChance: 0
+      increasedAttribute: 0
+      increaseValue: 0
+      casterBased: 1
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects:
   - {fileID: 11400000, guid: 72a079a0707c967458f4ae04125efb87, type: 2}
-  instantTargets: 2
+  abilityTargets: 0

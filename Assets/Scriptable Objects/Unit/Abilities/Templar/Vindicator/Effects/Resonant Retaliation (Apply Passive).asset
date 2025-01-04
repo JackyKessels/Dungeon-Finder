@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7f64fb437ed6b04abae5401db567c56, type: 3}
+  m_Name: Resonant Retaliation (Apply Passive)
+  m_EditorClassIdentifier: 
+  name: Resonant Retaliation
+  icon: {fileID: 0}
+  hidden: 1
+  description: 
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
+  isBuff: 0
+  procType: 1
+  duration: 3
+  permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  applyStacks: 1
+  loseStacks: 0
+  removeEffects:
+  - {fileID: 11400000}
+  passiveAbility: {fileID: 11400000, guid: c2ed1a5fab5720f4eb250e7e89f977bf, type: 2}

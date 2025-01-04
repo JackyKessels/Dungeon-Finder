@@ -230,6 +230,8 @@ public class StatsManager
                 return GetAttributeValue(AttributeType.Resistance);
             case TargetAttribute.Speed:
                 return GetAttributeValue(AttributeType.Speed);
+            case TargetAttribute.Vitality:
+                return GetAttributeValue(AttributeType.Vitality);
             default:
                 return 0;
         }
@@ -286,19 +288,28 @@ public class StatsManager
             return;
         }
 
-        Effect damageTransferEffect = unit.effectManager.GetHighestDamageTransfer();
-
-        if (damageTransferEffect != null)
+        Effect damageTransferEffectToCaster = unit.effectManager.GetHighestDamageTransfer(DamageTransferDirection.TargetToCaster);
+        if (damageTransferEffectToCaster != null && damageTransferEffectToCaster.effectObject is EffectDamageTransfer damageTransferToCaster)
         {
-            EffectDamageTransfer damageTransfer = damageTransferEffect.effectObject as EffectDamageTransfer;
-
-            AbilityValue transferValue = new AbilityValue(abilityValue.triggerSource, abilityValue.sourceAbility, abilityValue.sourceLevel, false, true, abilityValue.value * damageTransfer.percentage, abilityValue.school, abilityValue.abilityType, abilityValue.cannotCrit, abilityValue.cannotMiss, abilityValue.target, damageTransferEffect.caster, abilityValue.color, false, abilityValue.ignorePassives);
+            AbilityValue transferValue = new AbilityValue(abilityValue.triggerSource, abilityValue.sourceAbility, abilityValue.sourceLevel, false, true, abilityValue.value * damageTransferToCaster.percentage, abilityValue.school, abilityValue.abilityType, abilityValue.cannotCrit, abilityValue.cannotMiss, abilityValue.target, damageTransferEffectToCaster.caster, abilityValue.color, false, abilityValue.ignorePassives);
 
             transferValue.value = unit.statsManager.CalculateMitigatedDamage(transferValue.value, GeneralUtilities.GetReductionType(transferValue.school));
 
-            damageTransferEffect.caster.statsManager.TakeDamage(transferValue, false);
+            damageTransferEffectToCaster.caster.statsManager.TakeDamage(transferValue, false);
 
-            abilityValue.value *= (1 - damageTransfer.percentage);
+            abilityValue.value *= (1 - damageTransferToCaster.percentage);
+        }
+
+        Effect damageTransferEffectToTarget = EffectManager.GetDamageTransferToTarget(unit);
+        if (damageTransferEffectToTarget != null && damageTransferEffectToTarget.effectObject is EffectDamageTransfer damageTransferToTarget)
+        {
+            AbilityValue transferValue = new AbilityValue(abilityValue.triggerSource, abilityValue.sourceAbility, abilityValue.sourceLevel, false, true, abilityValue.value * damageTransferToTarget.percentage, abilityValue.school, abilityValue.abilityType, abilityValue.cannotCrit, abilityValue.cannotMiss, abilityValue.target, damageTransferEffectToTarget.caster, abilityValue.color, false, abilityValue.ignorePassives);
+
+            transferValue.value = unit.statsManager.CalculateMitigatedDamage(transferValue.value, GeneralUtilities.GetReductionType(transferValue.school));
+
+            damageTransferEffectToTarget.target.statsManager.TakeDamage(transferValue, false);
+
+            abilityValue.value *= (1 - damageTransferToTarget.percentage);
         }
     }
 

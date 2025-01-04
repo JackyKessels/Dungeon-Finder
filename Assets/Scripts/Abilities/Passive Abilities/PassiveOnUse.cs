@@ -68,6 +68,8 @@ public class PassiveOnUse : PassiveAbility
         Active doubleCastActive = new Active(active.activeAbility, active.level, isDoubleCast: true);
 
         doubleCastActive.Trigger(caster, target, doubleCastAbility.GetEffectiveness(active.level));
+
+        active.activeAbility.PlaySound();
     }
 
     private bool SuccessfulTrigger(ActiveAbility activeAbility)

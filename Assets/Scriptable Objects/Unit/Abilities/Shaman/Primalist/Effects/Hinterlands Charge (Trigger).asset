@@ -17,15 +17,25 @@ MonoBehaviour:
   hidden: 1
   description: If the target is Crowd Controlled, deal an additional <1timAp1> <P>
     damage.
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 0
   procType: 0
   duration: 1
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects: []
   conditionalEffectType: 1
-  conditionalEffect: {fileID: 11400000, guid: 5c3728e89471c524397c82f28e0a1f65, type: 2}
+  appliedEffects: []
   ccTypes: 020000000100000000000000
   specificEffects: []
+  hasAllEffects: 0
   checkTarget: 0
   effectTarget: 0
   consumeEffect: 0

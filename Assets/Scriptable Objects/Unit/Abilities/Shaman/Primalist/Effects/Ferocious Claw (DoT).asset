@@ -16,10 +16,19 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 06264afa70e582c42b72adae6b088536, type: 3}
   hidden: 0
   description: Take <1> <P> damage every Turn.
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 0
   procType: 0
   duration: 4
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects: []
   timedActions:
   - actionType: 1
@@ -29,6 +38,7 @@ MonoBehaviour:
       ignoreMultipliers: 0
       cannotCrit: 0
       cannotMiss: 0
+      ignorePassives: []
       school: 1
       attributeType: 1
       baseValue: 0
@@ -36,12 +46,13 @@ MonoBehaviour:
       scaling: 0.1
       levelScaling: 0.02
       reductionType: 0
-      modifier:
+      abilityModifier:
         hasModifier: 0
         modification: 0
         condition: 0
         thresholdType: 0
         conditionThreshold: 0
+        conditionChance: 0
         increasedAttribute: 0
         increaseValue: 0
         casterBased: 1
@@ -49,6 +60,9 @@ MonoBehaviour:
         percentageIncrease: 0
         bonusAbilitySource:
           ignoreMultipliers: 0
+          cannotCrit: 0
+          cannotMiss: 0
+          ignorePassive: []
           school: 0
           attributeType: 0
           baseValue: 0
@@ -58,6 +72,9 @@ MonoBehaviour:
           reductionType: 0
         effectOnTarget: 1
         conditionalEffect: {fileID: 0}
+      drainModifier:
+        hasModifier: 0
+        fractionDrained: 0
     specialEffects:
     - {fileID: 6989958480090594355, guid: 302323a4b201d354fbbf4fce065b84d3, type: 3}
     storedValue: 0

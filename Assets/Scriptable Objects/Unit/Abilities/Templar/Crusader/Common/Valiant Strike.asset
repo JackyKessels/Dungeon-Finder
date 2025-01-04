@@ -24,6 +24,7 @@ MonoBehaviour:
   - {fileID: 7767681858348924222, guid: d51b58a120b00a0448441daef591d431, type: 3}
   - {fileID: 2573472640096037833, guid: b209f1ec8fb54cf4dbbe800981b8ae14, type: 3}
   - {fileID: 8281471397819581700, guid: 06b0f4c0972891e4bad09b073174485a, type: 3}
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
@@ -31,7 +32,12 @@ MonoBehaviour:
   cooldown: 2
   initialCooldown: 0
   endTurn: 1
+  singleUse: 0
+  resetType: 0
   resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 0
   soundEffect: {fileID: 8300000, guid: 3cd47381abc8f05429b8d3a745b27946, type: 3}
   animationType: 0
@@ -48,12 +54,13 @@ MonoBehaviour:
     scaling: 0.75
     levelScaling: 0.15
     reductionType: 1
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
+      conditionChance: 0
       increasedAttribute: 0
       increaseValue: 0
       casterBased: 1
@@ -63,8 +70,7 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive:
-        - {fileID: 0}
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -74,6 +80,9 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   - ignoreMultipliers: 0
     cannotCrit: 0
     cannotMiss: 0
@@ -85,12 +94,13 @@ MonoBehaviour:
     scaling: 0.75
     levelScaling: 0.15
     reductionType: 2
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
+      conditionChance: 0
       increasedAttribute: 0
       increaseValue: 0
       casterBased: 1
@@ -100,8 +110,7 @@ MonoBehaviour:
         ignoreMultipliers: 0
         cannotCrit: 0
         cannotMiss: 0
-        ignorePassive:
-        - {fileID: 0}
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -111,10 +120,14 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects:
   - {fileID: 11400000, guid: fa8c24b52aa16e24db2327a250e86b21, type: 2}
   targetEffects: []
+  cannotTargetSelf: 0
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0

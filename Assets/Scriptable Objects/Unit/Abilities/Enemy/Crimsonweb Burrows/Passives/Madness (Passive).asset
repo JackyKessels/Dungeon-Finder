@@ -15,19 +15,24 @@ MonoBehaviour:
   id: -1
   name: Madness
   quality: 0
-  type: 3
+  abilityType: 0
   description: 
   icon: {fileID: 0}
   casterSpecialEffects: []
   targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 0
   sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
+  activationMoment: 5
+  castActiveAbilities: []
   effects:
   - {fileID: 11400000, guid: a86cd23c4c8ecc044b6a080db51a6350, type: 2}
-  activationMoment: 5
+  passives: []
   targets: 0
   healthPercentage: 0
   attributeType: 4
   attributeValue: -1
+  cooldown: 0
+  castFirstRound: 0

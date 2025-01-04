@@ -16,6 +16,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 7acd36bb895f4344d8e224b2ee7e3fb2, type: 3}
   hidden: 0
   description: Health increased by <1>.
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 1
   procType: 1
   duration: 3
@@ -49,6 +51,7 @@ MonoBehaviour:
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
+      conditionChance: 0
       increasedAttribute: 0
       increaseValue: 0
       casterBased: 1
@@ -73,4 +76,3 @@ MonoBehaviour:
       fractionDrained: 0
   multiplier: 0.2
   multiplierPerLevel: 0.04
-  specialEffects: []

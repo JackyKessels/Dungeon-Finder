@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Sentinel Fir
   m_EditorClassIdentifier: 
   name: Sentinel Fir
+  lastName: 
   unitType: 0
   icon: {fileID: 21300000, guid: 765cbd4126b95bf469415f72b5a2100d, type: 3}
   sprite: {fileID: 21300000, guid: 6543194a24d86194f8b2f85662e69456, type: 3}
@@ -21,9 +22,9 @@ MonoBehaviour:
   baseHealth: 5
   basePower: 5
   baseWisdom: 5
-  baseArmor: 0
-  baseResistance: 0
-  baseVitality: 0
+  armor: 0
+  resistance: 0
+  vitality: 0
   speed: 5
   accuracy: 75
   criticalHit: 0
@@ -37,13 +38,19 @@ MonoBehaviour:
   holyMultiplier: 100
   shadowMultiplier: 100
   critMultiplier: 150
-  level: 1
+  sacrificialMultiplier: 100
   difficulty: 0
   experienceReward: 0
   currencyRewards: []
+  dropEverything: 0
+  itemDrops: []
   randomAbility: 1
   abilities:
   - ability: {fileID: 11400000, guid: 9be50d3cfbb457646847643430744cab, type: 2}
     target: 0
-    cast: 0
+    targetAttribute: 0
+    condition: 0
+    healthThreshold: 100
+    startCooldown: 0
+    charged: 0
   passiveAbilities: []

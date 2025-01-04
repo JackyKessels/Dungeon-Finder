@@ -7,18 +7,15 @@ public class ResourceContainer : Consumable
 {
     public Currency currency;
 
-    public override void Consume(int i)
+    public override bool Consume(int i)
     {
-        GameManager.Instance.currencyHandler.IncreaseCurrency(currency);      
+        GameManager.Instance.currencyHandler.IncreaseCurrency(currency);
+
+        return true;
     }
 
-    public string GetDescription(TooltipObject tooltipInfo, string itemName, string itemDescription)
+    public override string GetTooltip(TooltipObject tooltipInfo)
     {
-        return itemName + 
-               string.Format("\nUse: Gain {1} <color={0}>{2}</color>.", 
-                             Currency.GetCurrencyColor(currency.currencyType),
-                             currency.totalAmount, 
-                             Currency.GetCurrencyName(currency.currencyType)) +
-               itemDescription;
+        return $"\nUse: Gain {currency.totalAmount} <color={Currency.GetCurrencyColor(currency.currencyType)}>{Currency.GetCurrencyName(currency.currencyType)}</color>.";
     }
 }

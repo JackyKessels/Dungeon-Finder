@@ -451,14 +451,14 @@ public class BattleManager : MonoBehaviour, IUserInterface
         }
 
         // Wait to show damage taken
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.0f);
 
         EndTurn();
     }
 
     IEnumerator EnemyCastAbility(Active active, bool swift)
     {
-        HandleCooldown(active);
+        HandleCooldown(active, currentUnit);
 
         Enemy castingEnemy = (currentUnit as Enemy);
 
@@ -483,7 +483,9 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
             active.Trigger(currentUnit, target, 1f);
 
-            targetAbility.TriggerSelfEffects(1, currentUnit, currentAbility.level);
+            targetAbility.PlaySound();
+
+            targetAbility.TriggerSelfEffects(1, currentUnit, active.level);
 
             targetAbility.TriggerPostCast(currentUnit, active.level);
 
@@ -507,6 +509,8 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
                 active.Trigger(currentUnit, target, 1f);
             }
+
+            instantAbility.PlaySound();
 
             instantAbility.TriggerSelfEffects(targets.Count, currentUnit, active.level);
 
@@ -600,7 +604,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
         FCTData fctData = new FCTData(false, currentUnit, "Stunned", passColor);
         currentUnit.fctHandler.AddToFCTQueue(fctData);
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.0f);
 
         EndTurn();
     }
@@ -651,12 +655,18 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
         currentAbility.Trigger(currentUnit, currentUnit, 1f);
 
+        currentAbility.activeAbility.PlaySound();
+
+        currentAbility.activeAbility.TriggerSelfEffects(1, currentUnit, currentAbility.level);
+
+        currentAbility.activeAbility.TriggerPostCast(currentUnit, currentAbility.level);
+
         currentAbility.PutOnCooldown();
 
         battleHUD.Refresh();
 
         // Wait to show healing taken
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(0.75f);
 
         //-- Turn ends --//  
         // Only end turn if the ability expends the turn.
@@ -768,6 +778,8 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
                 currentAbility.Trigger(currentUnit, currentTarget, 1f);
 
+                targetAbility.PlaySound();
+
                 targetAbility.TriggerSelfEffects(1, currentUnit, currentAbility.level);
 
                 targetAbility.TriggerPostCast(currentUnit, currentAbility.level);
@@ -804,6 +816,8 @@ public class BattleManager : MonoBehaviour, IUserInterface
                 currentAbility.Trigger(currentUnit, target, 1f);
             }
 
+            instantAbility.PlaySound();
+
             instantAbility.TriggerSelfEffects(targets.Count, currentUnit, currentAbility.level);
 
             instantAbility.TriggerPostCast(currentUnit, currentAbility.level);
@@ -822,10 +836,10 @@ public class BattleManager : MonoBehaviour, IUserInterface
             else
                 actionBar.itemAbilities[spellNumber].isActive = true;
 
-            HandleCooldown(currentAbility);
+            HandleCooldown(currentAbility, currentUnit);
 
             // Wait to show damage taken
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1.0f);
 
             //-- Turn ends --//  
             // Only end turn if the ability expends the turn.
@@ -964,10 +978,10 @@ public class BattleManager : MonoBehaviour, IUserInterface
         }
     }
 
-    private void HandleCooldown(Active active)
+    private void HandleCooldown(Active active, Unit caster)
     {
         // Ability procced successful reset
-        if (active.activeAbility.resetChance > 0 && active.activeAbility.SuccessfulReset())
+        if (active.activeAbility.resetType != ResetType.None && active.activeAbility.SuccessfulReset(caster))
         {
             Color color = GeneralUtilities.ConvertString2Color("#9DD8FF");
 

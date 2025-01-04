@@ -35,9 +35,12 @@ MonoBehaviour:
   cooldown: 10
   initialCooldown: 2
   endTurn: 1
-  resetChance: 0
-  resetText: Reset!
   singleUse: 1
+  resetType: 0
+  resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 0
@@ -60,6 +63,7 @@ MonoBehaviour:
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
+      conditionChance: 0
       increasedAttribute: 0
       increaseValue: 0
       casterBased: 0
@@ -86,6 +90,7 @@ MonoBehaviour:
   selfEffects:
   - {fileID: 11400000, guid: ce625522c83ffd446acc2707ba585419, type: 2}
   targetEffects: []
+  cannotTargetSelf: 0
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0

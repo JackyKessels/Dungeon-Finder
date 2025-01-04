@@ -16,6 +16,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 73231d271c950cf47b2c1590e826fac7, type: 3}
   hidden: 0
   description: Take <1> <P> damage every Round.
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 0
   procType: 1
   duration: 3

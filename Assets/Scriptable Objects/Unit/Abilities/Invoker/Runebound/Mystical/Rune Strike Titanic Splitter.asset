@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 45
   name: 'Rune Strike: Titanic Splitter'
   quality: 1
-  type: 2
+  abilityType: 0
   description: 'Deal <e1> <P> damage to your target and increase your <physicalmultiplier>
     by <s1modV>% for <s1d> Rounds.
 
@@ -25,19 +25,29 @@ MonoBehaviour:
   casterSpecialEffects: []
   targetSpecialEffects:
   - {fileID: 9097769298752660269, guid: 976c4b98877a37e40be695f22e716c70, type: 3}
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 5
+  initialCooldown: 0
   endTurn: 1
+  singleUse: 0
+  resetType: 0
   resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 0
   soundEffect: {fileID: 8300000, guid: 3cd47381abc8f05429b8d3a745b27946, type: 3}
   animationType: 0
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 1
     attributeType: 1
     baseValue: 0
@@ -45,19 +55,23 @@ MonoBehaviour:
     scaling: 2.25
     levelScaling: 0.45
     reductionType: 0
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
+      conditionChance: 0
       increasedAttribute: 0
       increaseValue: 0
-      casterBased: 0
+      casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -67,11 +81,15 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects:
   - {fileID: 11400000, guid: 89e5aeb124e92994099064a02141e66a, type: 2}
   targetEffects: []
+  cannotTargetSelf: 0
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

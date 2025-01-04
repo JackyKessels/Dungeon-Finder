@@ -16,7 +16,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 43eb2a5b06d853e4a90b40d64f72f14b, type: 3}
   hidden: 0
   description: Your Primary attacks deal <bonus> more damage.
-  specialEffects: []
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 1
   procType: 1
   duration: 3

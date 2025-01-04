@@ -238,9 +238,6 @@ public class TownManager : MonoBehaviour, IUserInterface
 
             mapObject.SetActive(true);
 
-            if (HeroManager.Instance.heroInformationObject.activeSelf)
-                HeroManager.Instance.heroInformationObject.SetActive(false);
-
             SetupMap();
 
             gameManager.audioSourceSFX.PlayOneShot(openMap, 0.75f);
@@ -259,8 +256,17 @@ public class TownManager : MonoBehaviour, IUserInterface
         glyphweaver.SetButton(state);
     }
 
-    private void CloseAllWindows()
+    private void CloseHeroInformation()
     {
+        if (HeroManager.Instance.heroInformationObject.activeSelf)
+        {
+            HeroManager.Instance.heroInformationObject.SetActive(false);
+        }
+    }
+
+    public void CloseAllWindows()
+    {
+        CloseHeroInformation();
         mapObject.SetActive(false);
 
         enchanter.SetActive(false);

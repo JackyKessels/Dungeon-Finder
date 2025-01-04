@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
   m_Name: Justicar's Wrath
   m_EditorClassIdentifier: 
-  id: 60
+  id: 111
   name: Justicar's Wrath
   quality: 1
-  type: 2
+  abilityType: 0
   description: 'Deal <e1> <H> damage to all enemies but your <speed> is reduced by
     <s1modV> for <s1d> Rounds.
 
@@ -26,19 +26,29 @@ MonoBehaviour:
   casterSpecialEffects: []
   targetSpecialEffects:
   - {fileID: 160716665914067414, guid: 9f3ae9a8115f49945b82f064c8388be7, type: 3}
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 1
   cooldown: 6
+  initialCooldown: 0
   endTurn: 1
+  singleUse: 0
+  resetType: 0
   resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 0
   soundEffect: {fileID: 0}
   animationType: 0
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 6
     attributeType: 1
     baseValue: 0
@@ -46,19 +56,23 @@ MonoBehaviour:
     scaling: 2.2
     levelScaling: 0.44
     reductionType: 2
-    modifier:
-      hasModifier: 1
-      modification: 1
-      condition: 2
-      thresholdType: 1
-      conditionThreshold: 50
-      increasedAttribute: 1
-      increaseValue: 100
+    abilityModifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      conditionChance: 0
+      increasedAttribute: 0
+      increaseValue: 0
       casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -68,8 +82,11 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects:
   - {fileID: 11400000, guid: 3b01ade295811f64893be33dc4911cf1, type: 2}
   targetEffects: []
-  instantTargets: 2
+  abilityTargets: 0

@@ -25,6 +25,7 @@ MonoBehaviour:
   - {fileID: 7267515126571012338, guid: c8f0362712588ca4d826b0cc447c0901, type: 3}
   - {fileID: 6989958480090594355, guid: 302323a4b201d354fbbf4fce065b84d3, type: 3}
   - {fileID: 6989958480090594355, guid: adf2c4f0d4395ec48acb76c8eb3c8848, type: 3}
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
@@ -32,8 +33,12 @@ MonoBehaviour:
   cooldown: 3
   initialCooldown: 0
   endTurn: 1
-  resetChance: 0
   singleUse: 0
+  resetType: 0
+  resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 0
@@ -56,6 +61,7 @@ MonoBehaviour:
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
+      conditionChance: 0
       increasedAttribute: 0
       increaseValue: 0
       casterBased: 1
@@ -95,6 +101,7 @@ MonoBehaviour:
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
+      conditionChance: 0
       increasedAttribute: 0
       increaseValue: 0
       casterBased: 1
@@ -121,6 +128,7 @@ MonoBehaviour:
   selfEffects: []
   targetEffects:
   - {fileID: 11400000, guid: 1753d97b02064ef47adb12958a5df69f, type: 2}
+  cannotTargetSelf: 0
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0

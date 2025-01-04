@@ -12,31 +12,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Tempest Flash
   m_EditorClassIdentifier: 
-  id: 51
+  id: 94
   name: Tempest Flash
   quality: 1
-  type: 2
+  abilityType: 0
   description: 'Deal <e1> <N> damage to your target.
 
 
     Tempest Flash has a <e1modV>%
     increased chance to critically hit.'
   icon: {fileID: 21300000, guid: 40bb886ed5d74aa428488a85d659d3f1, type: 3}
-  specialEffects:
-  - {fileID: 3469184291438029475, guid: 7b8e1f12d57cb5043a55575de5c17ec7, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 0.5
   cooldown: 2
+  initialCooldown: 0
   endTurn: 0
+  singleUse: 0
+  resetType: 0
   resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 0
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 4
     attributeType: 2
     baseValue: 0
@@ -44,19 +54,23 @@ MonoBehaviour:
     scaling: 0.8
     levelScaling: 0.16
     reductionType: 2
-    modifier:
-      hasModifier: 1
-      modification: 1
+    abilityModifier:
+      hasModifier: 0
+      modification: 0
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
-      increasedAttribute: 2
-      increaseValue: 100
+      conditionChance: 0
+      increasedAttribute: 0
+      increaseValue: 0
       casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -64,11 +78,17 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects:
   - {fileID: 11400000, guid: f2f2d6518cc251d468e75613fbd370ec, type: 2}
   targetEffects: []
+  cannotTargetSelf: 0
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

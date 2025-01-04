@@ -16,6 +16,8 @@ MonoBehaviour:
   icon: {fileID: 0}
   hidden: 1
   description: 
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 0
   procType: 0
   duration: 0
@@ -50,6 +52,7 @@ MonoBehaviour:
         condition: 0
         thresholdType: 0
         conditionThreshold: 0
+        conditionChance: 0
         increasedAttribute: 0
         increaseValue: 0
         casterBased: 0

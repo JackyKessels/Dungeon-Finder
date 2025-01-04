@@ -16,10 +16,18 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 7434b6209ca803d419f81d14c664ed0c, type: 3}
   hidden: 0
   description: <passive>
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 1
   procType: 1
   duration: 4
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects: []
   passiveAbility: {fileID: 11400000, guid: e5bd36482694ac842868348a32932fcb, type: 2}
-  specialEffects: []

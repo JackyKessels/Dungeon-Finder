@@ -45,5 +45,6 @@ MonoBehaviour:
   holyMultiplier: 0
   shadowMultiplier: 0
   critMultiplier: 0
+  sacrificialMultiplier: 0
   passives: []
   useAbility: {fileID: 0}

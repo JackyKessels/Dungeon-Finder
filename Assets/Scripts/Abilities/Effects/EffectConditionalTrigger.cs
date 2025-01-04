@@ -40,15 +40,9 @@ public class EffectConditionalTrigger : EffectObject
     {
         string temp = description;
 
-        for (int i = 0; i < appliedEffects.Count; i++)
-        {
-            temp = AbilityTooltipHandler.ParseEffectTooltips(temp, "applied", appliedEffects, tooltipInfo);
-        }
-
-        for (int i = 0; i < specificEffects.Count; i++)
-        {
-            temp = AbilityTooltipHandler.ParseEffectTooltips(temp, "specific", specificEffects, tooltipInfo);
-        }
+        temp = AbilityTooltipHandler.ParseEffectTooltips(temp, "applied", appliedEffects, tooltipInfo);
+        
+        temp = AbilityTooltipHandler.ParseEffectTooltips(temp, "specific", specificEffects, tooltipInfo);  
 
         temp = AbilityTooltipHandler.ColorAllSchools(temp);
         temp = AbilityTooltipHandler.ColorAllAttributes(temp);

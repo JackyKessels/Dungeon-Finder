@@ -23,5 +23,7 @@ MonoBehaviour:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
+  dualWield: 0

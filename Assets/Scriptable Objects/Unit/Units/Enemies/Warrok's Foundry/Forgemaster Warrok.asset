@@ -16,15 +16,15 @@ MonoBehaviour:
   lastName: 
   unitType: 0
   icon: {fileID: 21300000, guid: d7613b6989e3204448f1031c0f8387eb, type: 3}
-  sprite: {fileID: 21300000, guid: 62364f762b0743249abe9732abe044c1, type: 3}
+  sprite: {fileID: 21300000, guid: e3df7ab3133a25d4ea5493de4bb89b2f, type: 3}
   attackAnimation: {fileID: 0}
   castAnimation: {fileID: 0}
   baseHealth: 1000
   basePower: 20
   baseWisdom: 20
-  baseArmor: 0
-  baseResistance: 0
-  baseVitality: 0
+  armor: 0
+  resistance: 0
+  vitality: 0
   speed: 5
   accuracy: 80
   criticalHit: 0
@@ -38,24 +38,48 @@ MonoBehaviour:
   holyMultiplier: 100
   shadowMultiplier: 100
   critMultiplier: 150
-  level: 7
+  sacrificialMultiplier: 100
   difficulty: 8
   experienceReward: 200
   currencyRewards: []
-  itemDrops: []
+  dropEverything: 0
+  itemDrops:
+  - itemObject: {fileID: 11400000, guid: 7ed2a39186e0e1e4a936a3d7f98111ba, type: 2}
+    amount: 1
+    weight: 1
+    level: 0
+  - itemObject: {fileID: 11400000, guid: 8932b423be452224181c531c8ee42cf9, type: 2}
+    amount: 1
+    weight: 1
+    level: 0
+  - itemObject: {fileID: 11400000, guid: 73855f0b24621e44aaa5418071148d6c, type: 2}
+    amount: 1
+    weight: 1
+    level: 0
   randomAbility: 1
   abilities:
   - ability: {fileID: 11400000, guid: 0538178edaaad3c47a64df7f82be67db, type: 2}
     target: 0
+    targetAttribute: 0
     condition: 0
+    healthThreshold: 100
     startCooldown: 4
+    charged: 0
   - ability: {fileID: 11400000, guid: a7dbf1717bbb059499350c45260beb43, type: 2}
     target: 2
+    targetAttribute: 0
     condition: 0
+    healthThreshold: 100
     startCooldown: 2
+    charged: 0
   - ability: {fileID: 11400000, guid: 5dfc6f26f5baa1146ad18585306412a5, type: 2}
     target: 0
+    targetAttribute: 0
     condition: 0
+    healthThreshold: 100
     startCooldown: 0
+    charged: 0
   passiveAbilities:
   - {fileID: 11400000, guid: 0c57d837042f7e84b9b81d4156374430, type: 2}
+  - {fileID: 11400000, guid: 325b9d8760f4d8a42aa397d06b01cad1, type: 2}
+  - {fileID: 11400000, guid: 6163c801d6c85c645b96d67107fdddf7, type: 2}

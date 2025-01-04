@@ -16,6 +16,8 @@ MonoBehaviour:
   icon: {fileID: 0}
   hidden: 1
   description: '<I>: Ice Damage increased by <applied1modV>% for <applied1d> Rounds.'
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 0
   procType: 0
   duration: 1
@@ -25,6 +27,8 @@ MonoBehaviour:
   refreshes: 1
   aura: 0
   unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects: []
   conditionalEffectType: 2
   appliedEffects:

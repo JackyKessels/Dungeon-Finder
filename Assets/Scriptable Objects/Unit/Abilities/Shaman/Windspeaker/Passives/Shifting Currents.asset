@@ -26,6 +26,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: c22dc18a9449ef445a15e48f21c6c638, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 0
   sellable: 0
   replacesAbility: {fileID: 0}
@@ -34,6 +35,7 @@ MonoBehaviour:
   castActiveAbilities: []
   effects:
   - {fileID: 11400000, guid: 4b47eac870fc8784b92b5541d047ffba, type: 2}
+  passives: []
   targets: 0
   healthPercentage: 0
   attributeType: 0

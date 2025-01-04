@@ -14,16 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Skull of Gar'skur
   icon: {fileID: 21300000, guid: 7131abd9d50c1964e864b7269ccd8225, type: 3}
+  value: 0
   stackable: 0
+  maxStacks: 1
+  sellable: 1
+  unique: 0
   item:
     name: 
-    id: 33
+    id: 5
     itemObject: {fileID: 0}
-    attributes: []
+    level: 1
   description: The skull of a powerful demon. It contains a large amount of magical
     power.
   quality: 1
   consumptionType: 1
+  usableOnDead: 0
   currency:
     currencyType: 1
     totalAmount: 125

@@ -16,18 +16,29 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: d778297a5df465441b293a4db1833d48, type: 3}
   hidden: 1
   description: 
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 0
   procType: 0
   duration: 1
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects: []
   timedActions:
   - actionType: 0
     actionTargets: 1
+    triggersPassives: 0
     abilitySource:
       ignoreMultipliers: 0
       cannotCrit: 0
       cannotMiss: 0
+      ignorePassives: []
       school: 1
       attributeType: 0
       baseValue: 0
@@ -35,19 +46,23 @@ MonoBehaviour:
       scaling: 0.03
       levelScaling: 0
       reductionType: 1
-      modifier:
+      abilityModifier:
         hasModifier: 0
         modification: 0
         condition: 0
         thresholdType: 0
         conditionThreshold: 0
+        conditionChance: 0
         increasedAttribute: 0
         increaseValue: 0
-        casterBased: 0
+        casterBased: 1
         attributeBase: 0
         percentageIncrease: 0
         bonusAbilitySource:
           ignoreMultipliers: 0
+          cannotCrit: 0
+          cannotMiss: 0
+          ignorePassive: []
           school: 0
           attributeType: 0
           baseValue: 0
@@ -55,8 +70,11 @@ MonoBehaviour:
           scaling: 0
           levelScaling: 0
           reductionType: 0
-        effectOnTarget: 0
+        effectOnTarget: 1
         conditionalEffect: {fileID: 0}
+      drainModifier:
+        hasModifier: 0
+        fractionDrained: 0
     specialEffects:
     - {fileID: 2212743482932073729, guid: bd140bb95fbed754b9067f142ea280c4, type: 3}
     storedValue: 0

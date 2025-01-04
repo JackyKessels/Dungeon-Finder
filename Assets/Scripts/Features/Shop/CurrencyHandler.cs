@@ -116,7 +116,7 @@ public class CurrencyHandler : MonoBehaviour
 }
 
 [System.Serializable]
-public class Currency : IDescribable
+public class Currency : IHasTooltip
 {
     public CurrencyType currencyType;
     public int totalAmount;
@@ -127,7 +127,7 @@ public class Currency : IDescribable
         totalAmount = amount;
     }
 
-    public string GetDescription(TooltipObject tooltipInfo)
+    public string GetCompleteTooltip(TooltipObject tooltipInfo)
     {
         switch (currencyType)
         {

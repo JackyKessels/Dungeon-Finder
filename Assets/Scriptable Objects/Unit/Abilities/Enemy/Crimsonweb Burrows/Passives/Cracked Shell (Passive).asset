@@ -21,6 +21,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 42e15a86b7a0c6d4194bad40a967bcdc, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 0
   sellable: 0
   replacesAbility: {fileID: 0}
@@ -30,6 +31,7 @@ MonoBehaviour:
   targetTrigger: 1
   abilityTypeTrigger: 0
   typeRequirement: 0
+  specificEffect: {fileID: 0}
   schoolTriggers: 01000000020000000300000004000000050000000600000007000000
   triggersPassives: 0
   triggeredByPassives: 1

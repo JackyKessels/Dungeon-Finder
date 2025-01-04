@@ -16,6 +16,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 255e5f9d51a81e34194674709898dc01, type: 3}
   hidden: 0
   description: Stunned.
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 0
   procType: 1
   duration: 1
@@ -25,7 +27,9 @@ MonoBehaviour:
   refreshes: 1
   aura: 0
   unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects:
   - {fileID: 11400000}
   type: 1
-  addTauntImmune: 0
+  addTypeImmunity: 0

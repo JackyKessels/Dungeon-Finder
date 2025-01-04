@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HeroPathGameObject : MonoBehaviour, IDescribable
+public class HeroPathGameObject : MonoBehaviour, IHasTooltip
 {
     [SerializeField] Button pathButton;
     [SerializeField] TextMeshProUGUI pathLevel;
@@ -147,7 +147,7 @@ public class HeroPathGameObject : MonoBehaviour, IDescribable
 
 
 
-    public string GetDescription(TooltipObject tooltipInfo)
+    public string GetCompleteTooltip(TooltipObject tooltipInfo)
     {
         string pathColor = "#FFEEA8";
 

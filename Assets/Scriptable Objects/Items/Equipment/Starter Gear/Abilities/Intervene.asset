@@ -30,9 +30,12 @@ MonoBehaviour:
   cooldown: 3
   initialCooldown: 0
   endTurn: 0
-  resetChance: 0
-  resetText: Reset!
   singleUse: 0
+  resetType: 0
+  resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 2
   soundEffect: {fileID: 0}
   animationType: 1

@@ -17,6 +17,8 @@ MonoBehaviour:
   hidden: 0
   description: Take <1> <F> damage every Round and deal <2> <F> damage to all enemies
     on expiration.
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 0
   procType: 1
   duration: 3
@@ -26,6 +28,8 @@ MonoBehaviour:
   refreshes: 1
   aura: 0
   unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects: []
   timedActions:
   - actionType: 1
@@ -43,12 +47,13 @@ MonoBehaviour:
       scaling: 0.1
       levelScaling: 0.02
       reductionType: 2
-      modifier:
+      abilityModifier:
         hasModifier: 0
         modification: 0
         condition: 0
         thresholdType: 0
         conditionThreshold: 0
+        conditionChance: 0
         increasedAttribute: 0
         increaseValue: 0
         casterBased: 1
@@ -68,6 +73,9 @@ MonoBehaviour:
           reductionType: 0
         effectOnTarget: 1
         conditionalEffect: {fileID: 0}
+      drainModifier:
+        hasModifier: 0
+        fractionDrained: 0
     specialEffects:
     - {fileID: 7033329743914822064, guid: 81cb1b0fd421d6149bfc0046902a9746, type: 3}
     storedValue: 0
@@ -86,12 +94,13 @@ MonoBehaviour:
       scaling: 0.8
       levelScaling: 0.16
       reductionType: 2
-      modifier:
+      abilityModifier:
         hasModifier: 0
         modification: 0
         condition: 0
         thresholdType: 0
         conditionThreshold: 0
+        conditionChance: 0
         increasedAttribute: 0
         increaseValue: 0
         casterBased: 1
@@ -111,6 +120,9 @@ MonoBehaviour:
           reductionType: 0
         effectOnTarget: 1
         conditionalEffect: {fileID: 0}
+      drainModifier:
+        hasModifier: 0
+        fractionDrained: 0
     specialEffects:
     - {fileID: 4499078562151275408, guid: f272b6b00f09e4f449efeb5a76da47f5, type: 3}
     storedValue: 0

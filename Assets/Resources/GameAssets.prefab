@@ -59,7 +59,7 @@ MonoBehaviour:
     type: 3}
   notificationPrefab: {fileID: 9121554783208046700, guid: 78ff1c9ba0469e645bf30eacad166669,
     type: 3}
-  eventPrefab: {fileID: 4444770060124871078, guid: 15b94bd48afe1384f8d6bc541293af77,
+  eventPrefab: {fileID: 2613298747401931972, guid: 816ec73a6af6e104887e1b5ea2853e6f,
     type: 3}
   battleResultPrefab: {fileID: -2817953078798187384, guid: 36d854c4e64cb1a4ba02f0457746430e,
     type: 3}

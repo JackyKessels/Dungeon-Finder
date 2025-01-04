@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Mystery Event", menuName = "World/Mystery Event")]
@@ -159,6 +158,8 @@ public class MysteryAction
 
     [Header("Item")]
     public ItemObject itemObject;
+    [Tooltip("Having the item will instead upgrade it by this amount.")]
+    public int upgradeAmount;
 
     [Header("Source")]
     public MysteryActionTarget sourceTargets; 
@@ -220,12 +221,32 @@ public class MysteryAction
                     if (itemObject == null)
                         return;
 
-                    Item item = Item.CreateItem(itemObject, level);
-                    InventoryManager.Instance.AddItemToInventory(item);
+                    if (InventoryManager.Instance.HasItemInInventory(itemObject))
+                    {
+                        Item currentItem = InventoryManager.Instance.FindItemInInventory(itemObject);
+                        int currentLevel = currentItem.level;
 
-                    Debug.Log("You gained " + itemObject.name + ".");
+                        int upgradedLevel = currentLevel + upgradeAmount;
 
-                    consequenceStructures.Add(new ConsequenceStructure("1", itemObject.icon, null, true, null, itemObject));
+                        InventoryManager.Instance.RemoveItemFromInventory(itemObject, 1);
+                        Item upgradedItem = Item.CreateItem(itemObject, upgradedLevel);
+                        InventoryManager.Instance.AddItemToInventory(upgradedItem);
+
+                        Debug.Log($"You upgraded {itemObject.name} from Level {currentLevel} to Level {upgradedLevel}.");
+
+                        consequenceStructures.Add(new ConsequenceStructure("+", itemObject.icon, null, true, null, itemObject, upgradedLevel));
+                    }
+                    else
+                    {
+                        int itemLevel = level;
+
+                        Item item = Item.CreateItem(itemObject, itemLevel);
+                        InventoryManager.Instance.AddItemToInventory(item);
+
+                        Debug.Log($"You gained {itemObject.name} - Level {itemLevel}.");
+
+                        consequenceStructures.Add(new ConsequenceStructure("1", itemObject.icon, null, true, null, itemObject, itemLevel));
+                    }                    
                 }
                 break;
             case MysteryActionType.Source:

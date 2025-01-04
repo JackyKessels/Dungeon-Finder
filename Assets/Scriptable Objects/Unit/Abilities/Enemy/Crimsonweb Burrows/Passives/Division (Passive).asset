@@ -15,19 +15,26 @@ MonoBehaviour:
   id: -1
   name: Division
   quality: 0
-  type: 3
+  abilityType: 0
   description: 
   icon: {fileID: 0}
   casterSpecialEffects: []
   targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   isPositive: 1
+  activationMoment: 1
+  castActiveAbilities: []
   effects:
   - {fileID: 11400000, guid: cfdfee0add4d18e45a175ccee9e3fff6, type: 2}
   - {fileID: 11400000, guid: ccd02d0aac29ecf4888b504aae4acf85, type: 2}
   - {fileID: 11400000, guid: 1d627b4674c248f438380460c8ad429f, type: 2}
-  activationMoment: 1
+  passives: []
   targets: 0
   healthPercentage: 50
+  attributeType: 0
+  attributeValue: 0
+  cooldown: 0
+  castFirstRound: 0

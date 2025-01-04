@@ -17,6 +17,8 @@ MonoBehaviour:
   hidden: 1
   description: If the target is Stunned, deal an additional <applied1timAp1> <I>
     damage.
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 0
   procType: 0
   duration: 1
@@ -26,6 +28,8 @@ MonoBehaviour:
   refreshes: 1
   aura: 0
   unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects: []
   conditionalEffectType: 1
   appliedEffects:

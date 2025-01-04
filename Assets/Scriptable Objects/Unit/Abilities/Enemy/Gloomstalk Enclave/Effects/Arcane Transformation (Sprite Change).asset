@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1ff5b6653ac01a45bdd0d35c076f4b8, type: 3}
+  m_Name: Arcane Transformation (Sprite Change)
+  m_EditorClassIdentifier: 
+  name: Arcane Transformation
+  icon: {fileID: 0}
+  hidden: 1
+  description: 
+  applicationSpecialEffects:
+  - {fileID: 128538463781829324, guid: a740c4344729ee7449e8524ec764462f, type: 3}
+  - {fileID: 627634472650655377, guid: 056ba6c7ac2a1af4eba19253b91ff241, type: 3}
+  expirationSpecialEffects: []
+  isBuff: 0
+  procType: 0
+  duration: 1
+  permanent: 1
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  applyStacks: 1
+  loseStacks: 0
+  removeEffects: []
+  newSprite: {fileID: 21300000, guid: 7a76e1b7dc271ff4c88144f9e9599b8f, type: 3}
+  newIcon: {fileID: 21300000, guid: e28a7e5ba93078744b36bfb4f5d65a07, type: 3}

@@ -16,16 +16,30 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: bee2d6578bcbbc44b9c5965a56d49566, type: 3}
   hidden: 0
   description: Holy Damage increased by <1>%.
+  applicationSpecialEffects:
+  - {fileID: 9150501680642970016, guid: acbd44dfd6d09c245b58716a0b779763, type: 3}
+  expirationSpecialEffects: []
   isBuff: 1
   procType: 1
   duration: 3
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects:
   - {fileID: 11400000}
   attributeModified: 15
   isIncrease: 1
+  modifierType: 0
   modifierSource:
     ignoreMultipliers: 1
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 0
     attributeType: 15
     baseValue: 25
@@ -33,12 +47,13 @@ MonoBehaviour:
     scaling: 0
     levelScaling: 0
     reductionType: 0
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
+      conditionChance: 0
       increasedAttribute: 0
       increaseValue: 0
       casterBased: 1
@@ -46,6 +61,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -55,5 +73,8 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
-  specialEffects:
-  - {fileID: 9150501680642970016, guid: acbd44dfd6d09c245b58716a0b779763, type: 3}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
+  multiplier: 0
+  multiplierPerLevel: 0

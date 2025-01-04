@@ -31,7 +31,6 @@ RectTransform:
   - {fileID: 4444770058892440813}
   - {fileID: 4444770059484864431}
   m_Father: {fileID: 4444770060124871081}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -70,7 +69,6 @@ RectTransform:
   m_Children:
   - {fileID: 4444770059787809324}
   m_Father: {fileID: 4444770060124871081}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -147,7 +145,6 @@ RectTransform:
   m_Children:
   - {fileID: 4444770059470900249}
   m_Father: {fileID: 5860677638387481542}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -223,7 +220,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4444770058892440813}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -363,7 +359,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5860677638387481542}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -465,7 +460,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4444770058480281547}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -605,7 +599,6 @@ RectTransform:
   - {fileID: 2622285669894567328}
   - {fileID: 6874733465743263425}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -671,7 +664,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2622285669894567328}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -706,7 +698,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Something has happened, which causes A and B.
+  m_text: "The old man greets your party with a knowing smile as he steps out of
+    the mist, his gaze fixed on the staff you carry.\n\n\"Ah, it has grown strong
+    in your care,\" he says, extending his hands. \"But strength is never complete\u2014it
+    can always be refined.\"\n\nWith a nod of encouragement, he takes the staff.
+    A soft green glow radiates through the wood as he works, weaving the forest\u2019s
+    essence into its core. When he returns it, the staff hums with even greater power.\n\"There.
+    It has become more than it was. Let it guide you as you journey onward.\"\n\nHe
+    steps back into the shadows, his presence dissolving into the whispers of the
+    forest.The old man greets your party with a knowing smile as he steps out of
+    the mist, his gaze fixed on the staff you carry.\n\n\"Ah, it has grown strong
+    in your care,\" he says, extending his hands. \"But strength is never complete\u2014it
+    can always be refined.\"\n\nWith a nod of encouragement, he takes the staff.
+    A soft green glow radiates through the wood as he works, weaving the forest\u2019s
+    essence into its core. When he returns it, the staff hums with even greater power.\n\"There.
+    It has become more than it was. Let it guide you as you journey onward.\"\n\nHe
+    steps back into the shadows, his presence dissolving into the whispers of the
+    forest."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02a595d32217990488a92337279e774f, type: 2}
   m_sharedMaterial: {fileID: 2834418323826619090, guid: 02a595d32217990488a92337279e774f,
@@ -734,7 +742,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
+  m_fontSize: 18
   m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -808,7 +816,6 @@ RectTransform:
   m_Children:
   - {fileID: 8310741028715130373}
   m_Father: {fileID: 4444770060124871081}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -858,6 +865,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4444770060124871081}
     m_Modifications:
     - target: {fileID: 6511990365665899675, guid: 4cf22d704bc766246aee77b0f6e759c4,
@@ -1006,6 +1014,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cf22d704bc766246aee77b0f6e759c4, type: 3}
 --- !u!224 &6874733465743263425 stripped
 RectTransform:

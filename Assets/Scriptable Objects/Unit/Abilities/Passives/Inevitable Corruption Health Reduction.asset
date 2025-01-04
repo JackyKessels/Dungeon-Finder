@@ -15,13 +15,14 @@ MonoBehaviour:
   id: -1
   name: Corrupted Heart
   quality: 2
+  abilityType: 0
   description: Decrease Health by 10%.
   icon: {fileID: 0}
-  specialEffects: []
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   isPositive: 0
-  attribute: 0
-  value: 0.1
-  isIncrease: 0
+  modifications: []

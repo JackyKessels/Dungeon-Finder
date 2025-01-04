@@ -12,29 +12,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Smash
   m_EditorClassIdentifier: 
-  id: 90
+  id: 149
   name: Smash
   quality: 0
-  type: 0
+  abilityType: 0
   description: Deal <e1> <P> damage to your target.
   icon: {fileID: 21300000, guid: a9357b63b0988744589978693a888351, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
   - {fileID: 2977591347156237868, guid: 6159e687b2820434fbdd268a5a2f7ade, type: 3}
   - {fileID: 2008858717682663217, guid: dd373cb19f42030499868a94b37a9224, type: 3}
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 1
   cooldown: 0
+  initialCooldown: 0
   endTurn: 1
+  singleUse: 0
+  resetType: 0
   resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
   soundEffect: {fileID: 8300000, guid: fcc8f4ec16dffa74a80e45a111658a12, type: 3}
   animationType: 0
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 1
     attributeType: 1
     baseValue: 0
@@ -42,19 +52,23 @@ MonoBehaviour:
     scaling: 1
     levelScaling: 0.2
     reductionType: 1
-    modifier:
+    abilityModifier:
       hasModifier: 0
-      modification: 2
+      modification: 0
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
+      conditionChance: 0
       increasedAttribute: 0
       increaseValue: 0
-      casterBased: 0
-      attributeBase: 2
-      percentageIncrease: 0.5
+      casterBased: 1
+      attributeBase: 0
+      percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -64,10 +78,14 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []
+  cannotTargetSelf: 0
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

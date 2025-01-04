@@ -20,6 +20,8 @@ MonoBehaviour:
 
     Take <r!35>% more damage
     if the target is below <r!50>% Health.'
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 0
   procType: 1
   duration: 3
@@ -54,6 +56,7 @@ MonoBehaviour:
         condition: 4
         thresholdType: 1
         conditionThreshold: 50
+        conditionChance: 0
         increasedAttribute: 4
         increaseValue: 35
         casterBased: 1

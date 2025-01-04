@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Deathwalker Rezzar
   m_EditorClassIdentifier: 
   name: Deathwalker Rezzar
+  lastName: 
   unitType: 2
   icon: {fileID: 21300000, guid: f675ab33178036d4d91b705f98400abd, type: 3}
   sprite: {fileID: 21300000, guid: 61f3705895e82cd40b2a4818d3838512, type: 3}
@@ -21,18 +22,28 @@ MonoBehaviour:
   baseHealth: 30
   basePower: 0
   baseWisdom: 4
-  baseSpirit: 0
-  baseArmor: 0
-  baseResistance: 0
-  baseVitality: 0
+  armor: 0
+  resistance: 0
+  vitality: 0
   speed: 4
+  accuracy: 80
   criticalHit: 0
-  activeAbilities:
-  - {fileID: 11400000, guid: 942230ffbedb9534697d07c6d419dfea, type: 2}
-  - {fileID: 11400000, guid: 1108a6ef232647442b2e68621d4ffdc5, type: 2}
-  passiveAbilities: []
+  healingMultiplier: 100
+  crushingMultiplier: 100
+  piercingMultiplier: 100
+  fireMultiplier: 100
+  iceMultiplier: 100
+  natureMultiplier: 100
+  arcaneMultiplier: 100
+  holyMultiplier: 100
+  shadowMultiplier: 100
+  critMultiplier: 150
+  sacrificialMultiplier: 100
   difficulty: 0
-  experience: 60
-  healthPerLevel: 0
-  powerPerLevel: 0
-  wisdomPerLevel: 0
+  experienceReward: 0
+  currencyRewards: []
+  dropEverything: 0
+  itemDrops: []
+  randomAbility: 1
+  abilities: []
+  passiveAbilities: []

@@ -18,13 +18,15 @@ MonoBehaviour:
   stackable: 1
   maxStacks: 3
   sellable: 1
+  unique: 0
   item:
     name: 
     id: 3
     itemObject: {fileID: 0}
-    attributes: []
+    level: 1
   description: A filling, yet unsatisfying, meal.
   quality: 0
   consumptionType: 1
+  usableOnDead: 0
   healthRestore: 20
-  preBattleEffect: {fileID: 0}
+  preBattleEffects: []

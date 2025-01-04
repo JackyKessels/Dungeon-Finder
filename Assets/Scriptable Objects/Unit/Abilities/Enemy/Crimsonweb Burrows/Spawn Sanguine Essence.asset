@@ -15,18 +15,25 @@ MonoBehaviour:
   id: 1111223
   name: Spawn Sanguine Essence
   quality: 0
-  type: 1
+  abilityType: 0
   description: 
   icon: {fileID: 21300000, guid: ac6a770947f917143b904697d95817ab, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 0
   sellable: 0
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 100000000
+  initialCooldown: 0
   endTurn: 1
+  singleUse: 0
+  resetType: 0
   resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 1
@@ -37,4 +44,4 @@ MonoBehaviour:
   targetEffects:
   - {fileID: 11400000, guid: 369ca88811d718e4685966815f9d537b, type: 2}
   - {fileID: 11400000, guid: 369ca88811d718e4685966815f9d537b, type: 2}
-  instantTargets: 0
+  abilityTargets: 0

@@ -14,16 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Inevitable Doom
   icon: {fileID: 21300000, guid: 7834c5f8ed1b3724c969e22ac2c9f0d5, type: 3}
+  hidden: 0
   description: Take <1> <S> damage on expiration.
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 0
   procType: 1
   duration: 2
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects: []
   timedActions:
   - actionType: 2
     actionTargets: 0
+    triggersPassives: 0
     abilitySource:
+      ignoreMultipliers: 0
+      cannotCrit: 0
+      cannotMiss: 0
+      ignorePassives: []
       school: 8
       attributeType: 2
       baseValue: 0
@@ -31,6 +46,35 @@ MonoBehaviour:
       scaling: 1.5
       levelScaling: 0
       reductionType: 2
+      abilityModifier:
+        hasModifier: 0
+        modification: 0
+        condition: 0
+        thresholdType: 0
+        conditionThreshold: 0
+        conditionChance: 0
+        increasedAttribute: 0
+        increaseValue: 0
+        casterBased: 1
+        attributeBase: 0
+        percentageIncrease: 0
+        bonusAbilitySource:
+          ignoreMultipliers: 0
+          cannotCrit: 0
+          cannotMiss: 0
+          ignorePassive: []
+          school: 0
+          attributeType: 0
+          baseValue: 0
+          levelBase: 0
+          scaling: 0
+          levelScaling: 0
+          reductionType: 0
+        effectOnTarget: 1
+        conditionalEffect: {fileID: 0}
+      drainModifier:
+        hasModifier: 0
+        fractionDrained: 0
     specialEffects:
     - {fileID: 6567313668751786087, guid: 90cb60d146f7f9c46b43b3d8a3d963f4, type: 3}
-    StoredValue: 0
+    storedValue: 0

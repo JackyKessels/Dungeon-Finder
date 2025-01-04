@@ -15,18 +15,25 @@ MonoBehaviour:
   id: -1
   name: Nervous Expansion
   quality: 0
-  type: 0
+  abilityType: 0
   description: 
   icon: {fileID: 21300000, guid: e8d73f4a0e211e24fa24ca699de418ad, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 0.5
   cooldown: 0
+  initialCooldown: 0
   endTurn: 1
+  singleUse: 0
+  resetType: 0
   resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 1
@@ -36,4 +43,4 @@ MonoBehaviour:
   selfEffects:
   - {fileID: 11400000, guid: 756d746349b9c7d44aad01f98fe3f3e6, type: 2}
   targetEffects: []
-  instantTargets: 0
+  abilityTargets: 0

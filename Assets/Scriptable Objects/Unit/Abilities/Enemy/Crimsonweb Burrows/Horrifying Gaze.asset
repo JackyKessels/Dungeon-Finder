@@ -15,19 +15,26 @@ MonoBehaviour:
   id: -1
   name: Horrifying Gaze
   quality: 0
-  type: 1
+  abilityType: 0
   description: 
   icon: {fileID: 21300000, guid: 6632b5496bc056a4cb935459e1fc97ab, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
   - {fileID: 1284665599588034542, guid: 002ea6adcd82b35469d4d437e0700710, type: 3}
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 3
+  initialCooldown: 0
   endTurn: 1
+  singleUse: 0
+  resetType: 0
   resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 0
@@ -37,7 +44,8 @@ MonoBehaviour:
   selfEffects: []
   targetEffects:
   - {fileID: 11400000, guid: ee31a8d313f81594da43f08aacb8df8e, type: 2}
+  cannotTargetSelf: 0
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

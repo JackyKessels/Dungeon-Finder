@@ -16,6 +16,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 00152f83547c6b24bb6e5bbd47abecb0, type: 3}
   hidden: 0
   description: Immune to stun.
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 1
   procType: 1
   duration: 1

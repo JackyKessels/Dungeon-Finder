@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Wretched Ghoul
   m_EditorClassIdentifier: 
   name: Wretched Ghoul
+  lastName: 
   unitType: 2
   icon: {fileID: 21300000, guid: 59e1c8ae76a17b44bb8ce042983b1924, type: 3}
   sprite: {fileID: 21300000, guid: 62c4947be974efa42ba909cfdbb0944c, type: 3}
@@ -21,17 +22,28 @@ MonoBehaviour:
   baseHealth: 5
   basePower: 2
   baseWisdom: 0
-  baseSpirit: 0
-  baseArmor: 0
-  baseResistance: 0
-  baseVitality: 0
+  armor: 0
+  resistance: 0
+  vitality: 0
   speed: 4
+  accuracy: 80
   criticalHit: 0
-  activeAbilities:
-  - {fileID: 11400000, guid: 5d11cbb9bb2c87246965100cc9169ccd, type: 2}
-  passiveAbilities: []
+  healingMultiplier: 100
+  crushingMultiplier: 100
+  piercingMultiplier: 100
+  fireMultiplier: 100
+  iceMultiplier: 100
+  natureMultiplier: 100
+  arcaneMultiplier: 100
+  holyMultiplier: 100
+  shadowMultiplier: 100
+  critMultiplier: 150
+  sacrificialMultiplier: 100
   difficulty: 2
-  experience: 60
-  healthPerLevel: 0
-  powerPerLevel: 0
-  wisdomPerLevel: 0
+  experienceReward: 0
+  currencyRewards: []
+  dropEverything: 0
+  itemDrops: []
+  randomAbility: 1
+  abilities: []
+  passiveAbilities: []

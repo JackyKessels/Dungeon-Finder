@@ -16,12 +16,22 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 8ee62b300f3ecd746842095f537cf25d, type: 3}
   hidden: 1
   description: 
+  applicationSpecialEffects:
+  - {fileID: 2679745637704831307, guid: 17ac547be4eaab74888e4a9778168459, type: 3}
+  expirationSpecialEffects: []
   isBuff: 0
   procType: 0
   duration: 1
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects: []
   enemyObject: {fileID: 11400000, guid: a6769e1030ef6b64397fd62dafab1eae, type: 2}
+  level: 0
+  two: 0
   instant: 1
-  specialEffects:
-  - {fileID: 2679745637704831307, guid: 17ac547be4eaab74888e4a9778168459, type: 3}

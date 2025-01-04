@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
+  m_Name: Verdant Crush
+  m_EditorClassIdentifier: 
+  id: 198
+  name: Verdant Crush
+  quality: 0
+  abilityType: 2
+  description: Deal <e1> <N> damage to your target and reduce their <resistance>
+    by <t1modV> for <t1d> Rounds.
+  icon: {fileID: 21300000, guid: 5034fe278ed3c4942a9059fe4e670142, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 8660821132266489283, guid: 7b9586029340b404a93ec6b3d64e0491, type: 3}
+  - {fileID: 7642363655058371880, guid: bc0f25e572a3cb94299ea1f4ca0eda06, type: 3}
+  missile: {fileID: 0}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  castTime: 0.75
+  cooldown: 4
+  initialCooldown: 0
+  endTurn: 1
+  singleUse: 0
+  resetType: 0
+  resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
+  weaponRequirement: 4
+  soundEffect: {fileID: 0}
+  animationType: 0
+  allyAbilitySources: []
+  enemyAbilitySources:
+  - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
+    school: 4
+    attributeType: 1
+    baseValue: 0
+    levelBase: 0
+    scaling: 1.75
+    levelScaling: 0.35
+    reductionType: 2
+    abilityModifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      conditionChance: 0
+      increasedAttribute: 0
+      increaseValue: 0
+      casterBased: 1
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
+  selfEffectsPerTarget: 0
+  selfEffects: []
+  targetEffects:
+  - {fileID: 11400000, guid: 6c0083e4a42c89c4bacd9bb8d0248ef2, type: 2}
+  cannotTargetSelf: 0
+  targetsAllies: 0
+  targetsEnemies: 1
+  targetTargets: 0
+  adjacentModifier: 0

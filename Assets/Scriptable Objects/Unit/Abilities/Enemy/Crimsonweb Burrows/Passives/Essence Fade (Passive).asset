@@ -15,19 +15,24 @@ MonoBehaviour:
   id: -1
   name: Essence Fade
   quality: 0
-  type: 3
+  abilityType: 0
   description: 
   icon: {fileID: 0}
   casterSpecialEffects: []
   targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   isPositive: 1
+  activationMoment: 3
+  castActiveAbilities: []
   effects:
   - {fileID: 11400000, guid: 99aeb93dcecddcb458491cdbb9d60d08, type: 2}
-  activationMoment: 3
+  passives: []
   targets: 1
   healthPercentage: 0
   attributeType: 0
   attributeValue: 0
+  cooldown: 0
+  castFirstRound: 0

@@ -93,14 +93,14 @@ public class DungeonManager : MonoBehaviour, IUserInterface
         Vector3 camPos = new Vector3(mapObject.transform.position.x, mapObject.transform.position.y, -10);
         cameraObject.transform.position = camPos;
 
-        // Create player on the map
-        CreatePlayer(gridHandler.startLocation);
-
         currentDungeon = dungeon;
 
         SetDungeonNames(floor);
 
         gridHandler.GenerateFloor(dungeon, floor);
+
+        // Create player on the map
+        CreatePlayer(gridHandler);
 
         dungeonBackground.sprite = floor.dungeonBackground;
         dungeonBackground.size = new Vector2(initialSize.x + gridHandler.GetWidthIncrease(), initialSize.y);
@@ -137,12 +137,12 @@ public class DungeonManager : MonoBehaviour, IUserInterface
     }
 
     // Creates the movable player icon on the map
-    private void CreatePlayer(Location initialLocation)
+    private void CreatePlayer(GridHandler gridHandler)
     {
         GameObject playerObject = Instantiate(playerPrefab);
         player = playerObject.GetComponent<PlayerController>();
         player.transform.SetParent(objects.transform);
-        player.SetCurrentLocation(initialLocation);
+        player.SetCurrentLocation(gridHandler.startLocation);
     }
 
     private void RemovePlayer()

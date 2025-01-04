@@ -16,6 +16,8 @@ MonoBehaviour:
   icon: {fileID: 0}
   hidden: 1
   description: 
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 0
   procType: 0
   duration: 1

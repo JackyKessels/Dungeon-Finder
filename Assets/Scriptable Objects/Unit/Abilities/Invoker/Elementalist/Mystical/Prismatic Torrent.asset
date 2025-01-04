@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Prismatic Torrent
   m_EditorClassIdentifier: 
-  id: 23
+  id: 8
   name: Prismatic Torrent
   quality: 1
-  type: 2
+  abilityType: 0
   description: 'Deal <e1> <A> damage 3 times to your target.
 
 
@@ -25,19 +25,29 @@ MonoBehaviour:
   casterSpecialEffects: []
   targetSpecialEffects:
   - {fileID: 7745865136803197230, guid: 8a539f12bfde3a2488f2126d46bd3751, type: 3}
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 1.5
   cooldown: 3
+  initialCooldown: 0
   endTurn: 1
+  singleUse: 0
+  resetType: 0
   resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 0
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 5
     attributeType: 2
     baseValue: 0
@@ -45,19 +55,23 @@ MonoBehaviour:
     scaling: 0.6
     levelScaling: 0.12
     reductionType: 2
-    modifier:
-      hasModifier: 1
-      modification: 1
-      condition: 4
-      thresholdType: 3
-      conditionThreshold: -15
-      increasedAttribute: 4
-      increaseValue: 75
+    abilityModifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      conditionChance: 0
+      increasedAttribute: 0
+      increaseValue: 0
       casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -67,7 +81,13 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 5
     attributeType: 2
     baseValue: 0
@@ -75,19 +95,23 @@ MonoBehaviour:
     scaling: 0.8
     levelScaling: 0.16
     reductionType: 2
-    modifier:
-      hasModifier: 1
-      modification: 1
-      condition: 4
-      thresholdType: 3
-      conditionThreshold: -10
-      increasedAttribute: 4
-      increaseValue: 50
+    abilityModifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      conditionChance: 0
+      increasedAttribute: 0
+      increaseValue: 0
       casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -97,7 +121,13 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 5
     attributeType: 2
     baseValue: 0
@@ -105,19 +135,23 @@ MonoBehaviour:
     scaling: 0.8
     levelScaling: 0.16
     reductionType: 2
-    modifier:
-      hasModifier: 1
-      modification: 1
-      condition: 4
-      thresholdType: 3
-      conditionThreshold: -10
-      increasedAttribute: 4
-      increaseValue: 50
+    abilityModifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      conditionChance: 0
+      increasedAttribute: 0
+      increaseValue: 0
       casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -127,10 +161,14 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []
+  cannotTargetSelf: 0
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

@@ -17,36 +17,4 @@ MonoBehaviour:
   recommendedMaximumLevel: 0
   nameColor: {r: 0.23113209, g: 0.8006639, b: 1, a: 1}
   floors:
-  - name: 
-    background: {fileID: 21300000, guid: a716699cadd80854ca49b048c611e03b, type: 3}
-    backgroundSound: {fileID: 8300000, guid: 44ed059bf5e39e241b820b15ef31469d, type: 3}
-    columns: 6
-    rows: 5
-    startingPoints: 2
-    endPoints: 1
-    removalThreshold: 2
-    minimumLocations: 10
-    addOffset: 0
-    forceBossCenter: 1
-    eliteCount: 0
-    campfireCount: 0
-    treasureCount: 0
-    mysteryCount: 0
-    spiritColumns: 
-    itemPool: []
-    trashEncounters:
-    - enemyObjects:
-      - {fileID: 11400000, guid: 28ed9080c5a07564f983f078014f1ea6, type: 2}
-      weight: 3
-    - enemyObjects:
-      - {fileID: 11400000, guid: 35427bca9c38d794d84e7e0850e23ec8, type: 2}
-      weight: 2
-    - enemyObjects:
-      - {fileID: 11400000, guid: 79335a39103b9ea43bd983b218bd5496, type: 2}
-      weight: 1
-    eliteEncounters: []
-    bossEncounter:
-      enemyObjects:
-      - {fileID: 11400000, guid: 773416ae7e1d1e14d8487c39119158f4, type: 2}
-      - {fileID: 11400000, guid: 474be453ea7b3b84eb963f63934265b8, type: 2}
-    mysteryEvents: {fileID: 0}
+  - {fileID: 0}

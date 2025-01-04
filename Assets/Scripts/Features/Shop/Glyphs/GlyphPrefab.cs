@@ -72,7 +72,7 @@ public class GlyphPrefab : MonoBehaviour
     {
         string tooltip = "";
 
-        tooltip += effectObject.GetDescription(tooltipIcon.tooltipObject);
+        tooltip += effectObject.GetCompleteTooltip(tooltipIcon.tooltipObject);
         tooltip += "\nDuration: " + EffectObject.DurationText(effectObject);
 
         tooltipIcon.tooltipObject.state = CurrentState.Values;

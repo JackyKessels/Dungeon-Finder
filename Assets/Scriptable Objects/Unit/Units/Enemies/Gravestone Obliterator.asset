@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Gravestone Obliterator
   m_EditorClassIdentifier: 
   name: Gravestone Obliterator
+  lastName: 
   unitType: 2
   icon: {fileID: 21300000, guid: 7131abd9d50c1964e864b7269ccd8225, type: 3}
   sprite: {fileID: 21300000, guid: 15cd7019cdb5ec1458ecb27b79e69190, type: 3}
@@ -21,9 +22,9 @@ MonoBehaviour:
   baseHealth: 55
   basePower: 25
   baseWisdom: 0
-  baseArmor: 10
-  baseResistance: -20
-  baseVitality: 0
+  armor: 0
+  resistance: 0
+  vitality: 0
   speed: 3
   accuracy: 50
   criticalHit: 10
@@ -37,17 +38,26 @@ MonoBehaviour:
   holyMultiplier: 100
   shadowMultiplier: 100
   critMultiplier: 150
+  sacrificialMultiplier: 100
+  difficulty: 1
+  experienceReward: 0
+  currencyRewards: []
+  dropEverything: 0
+  itemDrops: []
   randomAbility: 0
   abilities:
   - ability: {fileID: 11400000, guid: a419464823a480343b9d65b86f54f0e4, type: 2}
     target: 2
-    cast: 0
+    targetAttribute: 0
+    condition: 0
+    healthThreshold: 100
+    startCooldown: 0
+    charged: 0
   - ability: {fileID: 11400000, guid: 762ed90fff0f22a43abb8319a640d150, type: 2}
     target: 1
-    cast: 0
+    targetAttribute: 0
+    condition: 0
+    healthThreshold: 100
+    startCooldown: 0
+    charged: 0
   passiveAbilities: []
-  difficulty: 1
-  experience: 200
-  healthPerLevel: 0
-  powerPerLevel: 0
-  wisdomPerLevel: 0

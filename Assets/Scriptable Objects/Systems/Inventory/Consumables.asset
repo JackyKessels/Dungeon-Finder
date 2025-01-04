@@ -20,46 +20,46 @@ MonoBehaviour:
     - allowedItems: 
       restricted: 0
       item:
-        name: Bountiful Sea Feast
-        id: 28
-        itemObject: {fileID: 11400000, guid: 66add9680a011084288d170e7ca5c438, type: 2}
-        attributes: []
-      amount: 1
+        name: 
+        id: -1
+        itemObject: {fileID: 0}
+        level: 1
+      amount: 0
       foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
-        name: Flavorless Boar Stew
-        id: 29
-        itemObject: {fileID: 11400000, guid: bf723fae6dc39b747b4966a4dd65c443, type: 2}
-        attributes: []
-      amount: 1
+        name: 
+        id: -1
+        itemObject: {fileID: 0}
+        level: 1
+      amount: 0
       foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
-        name: Pickled Rock
-        id: 30
-        itemObject: {fileID: 11400000, guid: baa2870ae30d02b4ca69f3f2cb71d746, type: 2}
-        attributes: []
-      amount: 1
+        name: 
+        id: -1
+        itemObject: {fileID: 0}
+        level: 1
+      amount: 0
       foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
-        name: Bountiful Sea Feast
-        id: 28
-        itemObject: {fileID: 11400000, guid: 66add9680a011084288d170e7ca5c438, type: 2}
-        attributes: []
-      amount: 1
+        name: 
+        id: -1
+        itemObject: {fileID: 0}
+        level: 1
+      amount: 0
       foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
-        name: Flavorless Boar Stew
-        id: 29
-        itemObject: {fileID: 11400000, guid: bf723fae6dc39b747b4966a4dd65c443, type: 2}
-        attributes: []
-      amount: 1
+        name: 
+        id: -1
+        itemObject: {fileID: 0}
+        level: 1
+      amount: 0
       foodOnly: 0
   dualWield: 0

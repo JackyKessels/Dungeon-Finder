@@ -12,12 +12,12 @@ public abstract class PassiveAbility : AbilityObject
     public abstract void DeactivatePassive(Unit unit);
 
 
-    public override string GetDescription(TooltipObject tooltipInfo)
+    public override string GetCompleteTooltip(TooltipObject tooltipInfo)
     {
         string positiveColor = "#70FF62";
         string negativeColor = "#FF1717";
 
-        string temp = base.GetDescription(tooltipInfo);
+        string temp = base.GetCompleteTooltip(tooltipInfo);
 
         if (isPositive)
         {

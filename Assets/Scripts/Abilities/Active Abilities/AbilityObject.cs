@@ -15,6 +15,7 @@ public enum AbilityType
     Protection,
     Assault,
     Passive,
+    Flask
 }
 
 public enum WeaponRequirement
@@ -26,7 +27,7 @@ public enum WeaponRequirement
     Nothing
 }
 
-public abstract class AbilityObject : ScriptableObject, IDescribable, ITriggerSource
+public abstract class AbilityObject : ScriptableObject, IHasTooltip, ITriggerSource
 {
     [Header("[ General ]")]
     public int id = -1;
@@ -44,7 +45,7 @@ public abstract class AbilityObject : ScriptableObject, IDescribable, ITriggerSo
     public bool sellable = true;
     public AbilityObject replacesAbility = null;
     
-    public virtual string GetDescription(TooltipObject tooltipInfo)
+    public virtual string GetCompleteTooltip(TooltipObject tooltipInfo)
     {
         string color = ColorDatabase.QualityColor(quality);
 

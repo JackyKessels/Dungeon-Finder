@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
   m_Name: Revel In Fire
   m_EditorClassIdentifier: 
-  id: 157
+  id: 154
   name: Revel In Fire
   quality: 0
   abilityType: 3
@@ -24,6 +24,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: d689e7781d2e8a147acc8499766dd0d5, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 0
   sellable: 0
   replacesAbility: {fileID: 0}
@@ -33,6 +34,7 @@ MonoBehaviour:
   targetTrigger: 0
   abilityTypeTrigger: 0
   typeRequirement: 0
+  specificEffect: {fileID: 0}
   schoolTriggers: 02000000
   triggersPassives: 1
   triggeredByPassives: 1

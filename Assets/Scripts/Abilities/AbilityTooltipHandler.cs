@@ -187,9 +187,15 @@ public static class AbilityTooltipHandler
     {
         for (int i = 0; i < effects.Count; i++)
         {
+            if (effects[i] == null)
+            {
+                continue;
+            }
+
             temp = DetermineEffectName(temp, $"<{prefix}{i + 1}name>", effects[i]);
             temp = DetermineEffectDuration(temp, $"<{prefix}{i + 1}d>", effects[i]);
             temp = ParseStacking(temp, $"<{prefix}{i + 1}stacks>", effects[i]);
+            temp = ParseStackEffects(temp, $"{prefix}{i + 1}stackEffect", effects[i], tooltipInfo);
             temp = DoesNotRefresh(temp, $"<{prefix}{i + 1}refresh>", effects[i]);
             temp = UniqueEffect(temp, $"<{prefix}{i + 1}unique>", effects[i]);
             temp = ParseAbilityType(temp);
@@ -285,11 +291,53 @@ public static class AbilityTooltipHandler
         return temp;
     }
 
-    public static string ResetChance(string temp, int chance)
+    public static string ResetChance(string temp, ActiveAbility activeAbility, TooltipObject tooltipInfo)
     {
-        string color = ColorDatabase.GeneralInformation();
+        string chance;
+        if (tooltipInfo.state == CurrentState.Values)
+        {
+            switch (activeAbility.resetType)
+            {
+                case ResetType.None:
+                    return string.Empty;
+                case ResetType.Flat:
+                    {
+                        string value = $"{activeAbility.resetChance}";
+                        chance = $"<color={ColorDatabase.NonScalingColor()}>{value}</color>";
+                    }
+                    break;
+                case ResetType.Attribute:
+                    {
+                        string value = $"({Mathf.RoundToInt(activeAbility.attributeScaling * 100)}% {GeneralUtilities.GetCorrectAttributeName(activeAbility.resetAttribute)})";
+                        chance = $"<color={ColorDatabase.ScalingColor(activeAbility.resetAttribute)}>{value}</color>";
+                    }
+                    break;
+                case ResetType.FlatPlusAttribute:
+                    {
+                        string value = $"({activeAbility.resetChance} + {Mathf.RoundToInt(activeAbility.attributeScaling * 100)}% {GeneralUtilities.GetCorrectAttributeName(activeAbility.resetAttribute)})";
+                        chance = $"<color={ColorDatabase.ScalingColor(activeAbility.resetAttribute)}>{value}</color>";
+                    }
+                    break;
+                default:
+                    return temp;
+            }
+        }
+        else
+        {
+            int value = ActiveAbility.CalculateResetChance(activeAbility, GeneralUtilities.GetCorrectUnit(tooltipInfo));
 
-        temp += string.Format("\n\nHas a <color={0}>{1}</color>% chance to reset its cooldown.", color, chance);
+            if (activeAbility.resetType == ResetType.Attribute || activeAbility.resetType == ResetType.FlatPlusAttribute)
+            {
+                chance = $"<color={ColorDatabase.ScalingColor(activeAbility.resetAttribute)}>{value}</color>";
+            }
+            else
+            {
+                chance = $"<color={ColorDatabase.NonScalingColor()}>{value}</color>";
+            }
+
+        }
+
+        temp += $"\n\nHas a {chance}% chance to reset its cooldown.";
 
         return temp;
     }
@@ -376,6 +424,7 @@ public static class AbilityTooltipHandler
         string checkPrimary = "<primary>";
         string checkAssault = "<assault>";
         string checkProtection = "<protection>";
+        string checkFlask = "<flask>";
 
         if (temp.Contains(checkPrimary))
         {
@@ -402,6 +451,15 @@ public static class AbilityTooltipHandler
             temp = temp.Replace(checkProtection, "<color={1}>{0}</color>");
 
             temp = string.Format(temp, AbilityType.Protection.ToString(), color);
+        }
+
+        if (temp.Contains(checkFlask))
+        {
+            string color = ColorDatabase.AbilityTypeColor(AbilityType.Flask);
+
+            temp = temp.Replace(checkFlask, "<color={1}>{0}</color>");
+
+            temp = string.Format(temp, AbilityType.Flask.ToString(), color);
         }
 
         return temp;
@@ -688,6 +746,35 @@ public static class AbilityTooltipHandler
 
                 return string.Format(temp, effectObject.name);
             }
+        }
+
+        return temp;
+    }
+
+    public static string ParseStackEffects(string temp, string prefix, EffectObject effectObject, TooltipObject tooltipInfo)
+    {
+        if (effectObject.stackable && effectObject.stackEffects != null && effectObject.stackEffects.Count > 0)
+        {
+            for (int i = 0; i < effectObject.stackEffects.Count; i++)
+            {
+                temp = DetermineStackEffectStacksToTrigger(temp, $"<{prefix}{i + 1}stacksToTrigger>", effectObject.stackEffects[i]);
+            }
+
+            temp = ParseEffectTooltips(temp, prefix, effectObject.stackEffects.Select(s => s.effectObject).ToList(), tooltipInfo);
+        }
+
+        return temp;
+    }
+
+    private static string DetermineStackEffectStacksToTrigger(string temp, string check, StackEffect stackEffect)
+    {
+        string durationColor = ColorDatabase.Gray();
+
+        if (temp.Contains(check))
+        {
+            int stacks = stackEffect.stacksToTrigger;
+
+            return temp.Replace(check, $"<color={durationColor}>{stacks}</color>");
         }
 
         return temp;

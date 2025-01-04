@@ -21,6 +21,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: cce7f3db2abb8b046ac40fc8316a7851, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
@@ -34,3 +35,8 @@ MonoBehaviour:
   - effectObject: {fileID: 11400000, guid: 47208beb4a00627459974078b3abf36b, type: 2}
     abilityTarget: 0
     sourceAbility: {fileID: 11400000}
+    stacksBasedOnCooldown: 0
+  doubleCastAbility:
+    enableDoubleCast: 0
+    baseEffectiveness: 0
+    effectivenessPerLevel: 0

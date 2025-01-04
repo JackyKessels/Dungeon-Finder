@@ -17,7 +17,8 @@ public enum TargetAttribute
     Wisdom,
     Armor,
     Resistance,
-    Speed
+    Speed,
+    Vitality
 }
 
 public enum CastCondition

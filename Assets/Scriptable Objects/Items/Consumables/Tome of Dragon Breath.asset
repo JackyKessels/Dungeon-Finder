@@ -14,16 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Tome of Dragon Breath
   icon: {fileID: 21300000, guid: bb44dcd437c7c3745ab33d66d8318607, type: 3}
+  value: 0
   stackable: 0
+  maxStacks: 1
+  sellable: 1
+  unique: 0
   item:
     name: 
-    id: -1
+    id: 6
     itemObject: {fileID: 0}
-    attributes: []
+    level: 1
   description: A magical book that once belonged to the Elder Magus Gramorian. It
     is rumored to contain knowledge about obtaining powers of the dragons.
   quality: 2
   consumptionType: 0
+  usableOnDead: 0
   activeAbilityLearned: {fileID: 11400000, guid: bdac46be54478a04aac7f9162e0b0efc,
     type: 2}
   passiveAbilityLearned: {fileID: 0}

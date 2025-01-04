@@ -184,7 +184,7 @@ public class ApplyEffectObject
 
         int stacks = 1;
 
-        if (activeAbility != null && effectObject.stackable)
+        if (activeAbility != null && effectObject.stackable && stacksBasedOnCooldown)
         {
             stacks = activeAbility.cooldown + 1;
         }

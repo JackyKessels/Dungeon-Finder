@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65caad74ac8a56045ad833b616779ac4, type: 3}
+  m_Name: '[Boss] Visage of Ig''thar'
+  m_EditorClassIdentifier: 
+  name: Visage of Ig'thar
+  lastName: 
+  unitType: 0
+  icon: {fileID: 21300000, guid: 378b0532ad8e90b4eae3804d15750362, type: 3}
+  sprite: {fileID: 21300000, guid: 47eb4ab1865d3f540b8269bf38f5d0a3, type: 3}
+  attackAnimation: {fileID: 0}
+  castAnimation: {fileID: 0}
+  baseHealth: 1000
+  basePower: 30
+  baseWisdom: 5
+  armor: 0
+  resistance: 0
+  vitality: 0
+  speed: 5
+  accuracy: 80
+  criticalHit: 0
+  healingMultiplier: 100
+  crushingMultiplier: 100
+  piercingMultiplier: 100
+  fireMultiplier: 100
+  iceMultiplier: 100
+  natureMultiplier: 100
+  arcaneMultiplier: 100
+  holyMultiplier: 100
+  shadowMultiplier: 100
+  critMultiplier: 150
+  sacrificialMultiplier: 100
+  difficulty: 9
+  experienceReward: 0
+  currencyRewards: []
+  dropEverything: 0
+  itemDrops: []
+  randomAbility: 1
+  abilities:
+  - ability: {fileID: 11400000, guid: c440b43ea0015b14889132d59e34c7fe, type: 2}
+    target: 0
+    targetAttribute: 0
+    condition: 0
+    healthThreshold: 100
+    startCooldown: 0
+    charged: 0
+  passiveAbilities:
+  - {fileID: 11400000, guid: 83763b64294c1dd4b8d5fbe1f1d55ef5, type: 2}

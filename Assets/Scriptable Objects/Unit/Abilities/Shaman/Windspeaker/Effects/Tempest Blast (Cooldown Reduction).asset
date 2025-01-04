@@ -16,10 +16,19 @@ MonoBehaviour:
   icon: {fileID: 0}
   hidden: 1
   description: 
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 1
   procType: 0
   duration: 1
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects: []
   type: 1
   roundsReduction: 1

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DungeonObject : MonoBehaviour, IDescribable
+public class DungeonObject : MonoBehaviour, IHasTooltip
 {
     public Dungeon dungeon;
     public Button button;
@@ -13,7 +13,7 @@ public class DungeonObject : MonoBehaviour, IDescribable
         button.onClick.AddListener(delegate { TownManager.Instance.StartDungeon(dungeon); } );
     }
 
-    public string GetDescription(TooltipObject tooltipInfo)
+    public string GetCompleteTooltip(TooltipObject tooltipInfo)
     {
         return dungeon.name;
     }

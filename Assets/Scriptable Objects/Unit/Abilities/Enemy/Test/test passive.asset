@@ -15,11 +15,23 @@ MonoBehaviour:
   id: -1
   name: New Ability
   quality: 0
+  abilityType: 0
   description: 
   icon: {fileID: 0}
-  specialEffects: []
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   isPositive: 1
-  effectObject: {fileID: 11400000, guid: 177a537576216f74d9cfed6996800a9c, type: 2}
+  activationMoment: 0
+  castActiveAbilities: []
+  effects: []
+  passives: []
+  targets: 0
+  healthPercentage: 0
+  attributeType: 0
+  attributeValue: 0
+  cooldown: 0
+  castFirstRound: 0

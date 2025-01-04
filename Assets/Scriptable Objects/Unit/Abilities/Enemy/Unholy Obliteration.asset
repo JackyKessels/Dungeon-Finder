@@ -12,34 +12,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Unholy Obliteration
   m_EditorClassIdentifier: 
+  id: -1
   name: Unholy Obliteration
   quality: 0
+  abilityType: 0
   description: Deal <1> <S> to your target and reduce their Armor by <t1modV> for
     <t1d> Rounds.
   icon: {fileID: 21300000, guid: 54f54f9163edc4b428c419332fb0f0fc, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  missile: {fileID: 0}
+  hasLevels: 1
+  sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 1.5
   cooldown: 3
+  initialCooldown: 0
   endTurn: 1
+  singleUse: 0
+  resetType: 0
+  resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
-  type: 0
-  specialEffects:
-  - {fileID: 9073442964815636342, guid: 02c75201d2739804d98222dd0235bbb6, type: 3}
-  - {fileID: 366435334366886106, guid: 84f10e76d8e447c4e8e7762614b515b3, type: 3}
+  soundEffect: {fileID: 0}
+  animationType: 0
   allyAbilitySources: []
   enemyAbilitySources:
-  - school: 8
+  - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
+    school: 8
     attributeType: 1
     baseValue: 0
     levelBase: 0
     scaling: 1.5
     levelScaling: 0.4
     reductionType: 2
+    abilityModifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      conditionChance: 0
+      increasedAttribute: 0
+      increaseValue: 0
+      casterBased: 1
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects:
   - {fileID: 11400000, guid: d56f62150811c78429d1af2f85b3f6e2, type: 2}
+  cannotTargetSelf: 0
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

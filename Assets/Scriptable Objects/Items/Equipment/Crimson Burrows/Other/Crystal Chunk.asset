@@ -18,14 +18,16 @@ MonoBehaviour:
   stackable: 0
   maxStacks: 1
   sellable: 1
+  unique: 0
   item:
     name: 
-    id: 65
+    id: 13
     itemObject: {fileID: 0}
-    attributes: []
+    level: 1
   description: Cracking open this chuck of crystal reveals a glowing core.
   quality: 0
   consumptionType: 1
+  usableOnDead: 0
   currency:
     currencyType: 1
     totalAmount: 10

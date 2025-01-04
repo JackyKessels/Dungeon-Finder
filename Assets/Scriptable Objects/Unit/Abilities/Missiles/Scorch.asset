@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5014144d4fda58540b2546e0da4965b6, type: 3}
   m_Name: Scorch
   m_EditorClassIdentifier: 
+  missileMovement: 0
   travelTime: 0.4
   casterEffects: []
-  missileEffects:
-  - {fileID: 4981829686381596005, guid: 9f24418e2c64ae542a50d31035497425, type: 3}
+  missileEffect: {fileID: 0}
+  trailingEffects: []
   impactEffects: []

@@ -21,6 +21,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 1aee60a3c30e00a4eaa04d029a172eab, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
@@ -30,6 +31,7 @@ MonoBehaviour:
   targetTrigger: 0
   abilityTypeTrigger: 0
   typeRequirement: 0
+  specificEffect: {fileID: 0}
   schoolTriggers: 01000000
   triggersPassives: 1
   triggeredByPassives: 1
@@ -53,6 +55,7 @@ MonoBehaviour:
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
+      conditionChance: 0
       increasedAttribute: 0
       increaseValue: 0
       casterBased: 0
@@ -76,10 +79,6 @@ MonoBehaviour:
       hasModifier: 1
       fractionDrained: 1
   castActiveAbilities: []
-  doubleCastAbility:
-    enableDoubleCast: 0
-    baseEffectiveness: 0
-    effectivenessPerLevel: 0
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []

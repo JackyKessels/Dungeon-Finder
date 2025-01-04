@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
   m_Name: Dire Bear Spirit
   m_EditorClassIdentifier: 
-  id: 47
+  id: 78
   name: Dire Bear Spirit
   quality: 1
-  type: 2
+  abilityType: 0
   description: 'Increase your <physicalmultiplier> by <t1modV>% and your <health>
     by <t2modV> for <t1d> Rounds.
 
@@ -24,13 +24,20 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 771e6088c62641847a9621972dc85f41, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 1.5
   cooldown: 8
+  initialCooldown: 0
   endTurn: 1
+  singleUse: 0
+  resetType: 0
   resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 1
@@ -42,4 +49,4 @@ MonoBehaviour:
   targetEffects:
   - {fileID: 11400000, guid: d52639ae68e0b9549b66ae41f4dc6d17, type: 2}
   - {fileID: 11400000, guid: 15c47b5926e66e74582af6798c7f2b4f, type: 2}
-  instantTargets: 0
+  abilityTargets: 0

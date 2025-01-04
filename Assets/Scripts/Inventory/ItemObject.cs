@@ -20,4 +20,21 @@ public abstract class ItemObject : ScriptableObject
     [TextArea(5, 5)] public string description;
 
     public Quality quality = Quality.Common;
+
+    public string GetName()
+    {
+        return $"<smallcaps><b><color={ColorDatabase.QualityColor(quality)}>{name}</color></b></smallcaps>";
+    }
+
+    public string GetDescription()
+    {
+        if (description != "")
+        {
+            return $"<color={ColorDatabase.Description()}>\n\n\"{description}\"</color>";
+        }
+        else
+        {
+            return "";
+        }
+    }
 }

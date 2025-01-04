@@ -50,4 +50,20 @@ public class EquipmentObject : ItemObject
     [Header("[ Additional ]")]
     public List<PassiveAbility> passives = new List<PassiveAbility>();
     public ActiveAbility useAbility;
+
+    public string ParseSlot()
+    {
+        if (slot == EquipmentSlot.OneHand)
+        {
+            return string.Format("\nSlot: One-hand");
+        }
+        else if (slot == EquipmentSlot.TwoHand)
+        {
+            return string.Format("\nSlot: Two-hand");
+        }
+        else
+        {
+            return string.Format("\nSlot: {0}", slot);
+        }
+    }
 }

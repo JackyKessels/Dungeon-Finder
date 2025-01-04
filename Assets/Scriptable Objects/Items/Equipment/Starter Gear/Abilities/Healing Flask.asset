@@ -15,7 +15,7 @@ MonoBehaviour:
   id: -1
   name: Healing Flask
   quality: 0
-  abilityType: 1
+  abilityType: 4
   description: Heal for <a1>.
   icon: {fileID: 21300000, guid: e6f3e6f03f046334faa260c86e763434, type: 3}
   casterSpecialEffects:
@@ -29,9 +29,12 @@ MonoBehaviour:
   cooldown: 3
   initialCooldown: 2
   endTurn: 0
-  resetChance: 0
-  resetText: Reset!
   singleUse: 0
+  resetType: 0
+  resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 1

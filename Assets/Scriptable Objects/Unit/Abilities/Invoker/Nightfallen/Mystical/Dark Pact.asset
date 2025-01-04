@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
   m_Name: Dark Pact
   m_EditorClassIdentifier: 
-  id: 18
+  id: 29
   name: Dark Pact
   quality: 1
-  type: 2
+  abilityType: 0
   description: 'Deal <e1> <S> damage to all enemies and increase <shadowmultiplier>
     by <s1modV>% for <s1d> Rounds.
 
@@ -27,19 +27,29 @@ MonoBehaviour:
   - {fileID: 783405983644232427, guid: fab2f435cd9207f488c3b7fd94fdc897, type: 3}
   targetSpecialEffects:
   - {fileID: 3539588227484926766, guid: 201b698a441a62f4c8128ee4438b0da9, type: 3}
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 8
+  initialCooldown: 0
   endTurn: 1
+  singleUse: 0
+  resetType: 0
   resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 1
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 7
     attributeType: 2
     baseValue: 0
@@ -47,19 +57,23 @@ MonoBehaviour:
     scaling: 1
     levelScaling: 0.2
     reductionType: 2
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
+      conditionChance: 0
       increasedAttribute: 0
       increaseValue: 0
-      casterBased: 0
+      casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -69,9 +83,12 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects:
   - {fileID: 11400000, guid: ed541b07b93069a48a8d16a0ab008fc7, type: 2}
   - {fileID: 11400000, guid: bb81e088f4fc9a443b272e4ce593f99b, type: 2}
   targetEffects: []
-  instantTargets: 2
+  abilityTargets: 0

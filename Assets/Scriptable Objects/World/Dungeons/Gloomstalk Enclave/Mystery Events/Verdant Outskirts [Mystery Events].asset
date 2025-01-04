@@ -1,0 +1,250 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f0c950dd9b1944884020e632343d94, type: 3}
+  m_Name: Verdant Outskirts [Mystery Events]
+  m_EditorClassIdentifier: 
+  events:
+  - eventWeight: 1
+    results:
+    - conditions: []
+      flavorText: "As the party presses onward through the dense forest, an eerie
+        sensation settles upon them\u2014an unshakeable certainty that they are being
+        watched. Suddenly, a fearsome, monstrous shape emerges before them.\r"
+      actions:
+      - type: 6
+        condition:
+          type: 0
+          target: 0
+          itemObject: {fileID: 0}
+          consumeItem: 0
+        currencyAmount: 0
+        currencyType: 0
+        experienceAmount: 0
+        itemObject: {fileID: 0}
+        upgradeAmount: 0
+        sourceTargets: 0
+        abilitySource:
+          ignoreMultipliers: 0
+          cannotCrit: 0
+          cannotMiss: 0
+          ignorePassives: []
+          school: 0
+          attributeType: 0
+          baseValue: 0
+          levelBase: 0
+          scaling: 0
+          levelScaling: 0
+          reductionType: 0
+          abilityModifier:
+            hasModifier: 0
+            modification: 0
+            condition: 0
+            thresholdType: 0
+            conditionThreshold: 0
+            conditionChance: 0
+            increasedAttribute: 0
+            increaseValue: 0
+            casterBased: 0
+            attributeBase: 0
+            percentageIncrease: 0
+            bonusAbilitySource:
+              ignoreMultipliers: 0
+              cannotCrit: 0
+              cannotMiss: 0
+              ignorePassive: []
+              school: 0
+              attributeType: 0
+              baseValue: 0
+              levelBase: 0
+              scaling: 0
+              levelScaling: 0
+              reductionType: 0
+            effectOnTarget: 0
+            conditionalEffect: {fileID: 0}
+          drainModifier:
+            hasModifier: 0
+            fractionDrained: 0
+        effectTargets: 0
+        effect: {fileID: 0}
+        encounter:
+          enemyObjects:
+          - {fileID: 11400000, guid: 7e770a08fed917144b5101bb41314679, type: 2}
+          randomOrder: 0
+          weight: 1
+        teamSetup: 0
+  - eventWeight: 100
+    results:
+    - conditions:
+      - type: 1
+        target: 1
+        itemObject: {fileID: 11400000, guid: 8d67ba34ac4dfb7469a497c0a46e1e04, type: 2}
+        consumeItem: 0
+      flavorText: "The old man greets your party with a knowing smile as he steps
+        out of the mist, his gaze fixed on the staff you carry.\n\n\"Ah, it has grown
+        strong in your care,\" he says, extending his hands. \"But strength is never
+        complete\u2014it can always be refined.\"\n\nWith a nod of encouragement,
+        he takes the staff. A soft green glow radiates through the wood as he works,
+        weaving the forest\u2019s essence into its core. When he returns it, the
+        staff hums with even greater power.\n\"There. It has become more than it
+        was. Let it guide you as you journey onward.\"\n\nHe steps back into the
+        shadows, his presence dissolving into the whispers of the forest."
+      actions:
+      - type: 2
+        condition:
+          type: 0
+          target: 0
+          itemObject: {fileID: 0}
+          consumeItem: 0
+        currencyAmount: 0
+        currencyType: 0
+        experienceAmount: 0
+        itemObject: {fileID: 11400000, guid: 8d67ba34ac4dfb7469a497c0a46e1e04, type: 2}
+        upgradeAmount: 1
+        sourceTargets: 0
+        abilitySource:
+          ignoreMultipliers: 0
+          cannotCrit: 0
+          cannotMiss: 0
+          ignorePassives: []
+          school: 0
+          attributeType: 0
+          baseValue: 0
+          levelBase: 0
+          scaling: 0
+          levelScaling: 0
+          reductionType: 0
+          abilityModifier:
+            hasModifier: 0
+            modification: 0
+            condition: 0
+            thresholdType: 0
+            conditionThreshold: 0
+            conditionChance: 0
+            increasedAttribute: 0
+            increaseValue: 0
+            casterBased: 0
+            attributeBase: 0
+            percentageIncrease: 0
+            bonusAbilitySource:
+              ignoreMultipliers: 0
+              cannotCrit: 0
+              cannotMiss: 0
+              ignorePassive: []
+              school: 0
+              attributeType: 0
+              baseValue: 0
+              levelBase: 0
+              scaling: 0
+              levelScaling: 0
+              reductionType: 0
+            effectOnTarget: 0
+            conditionalEffect: {fileID: 0}
+          drainModifier:
+            hasModifier: 0
+            fractionDrained: 0
+        effectTargets: 0
+        effect: {fileID: 0}
+        encounter:
+          enemyObjects: []
+          randomOrder: 0
+          weight: 0
+        teamSetup: 0
+    - conditions:
+      - type: 1
+        target: 1
+        itemObject: {fileID: 11400000, guid: 969bb07dd1229614f9d139246b0a9a33, type: 2}
+        consumeItem: 1
+      flavorText: "The forest feels alive as the old man steps into your path, his
+        eyes immediately locking onto the branch one of you carries.\n\n\"Ah, so
+        you\u2019ve found it,\" he says, his voice laced with approval. \"This branch
+        may seem ordinary, but it carries the forest\u2019s forgotten strength. Let
+        me help you awaken it.\"\n\nHe takes the branch, murmuring a song that feels
+        older than the trees themselves. The branch glows faintly and shifts, reshaping
+        into a staff alive with power. He returns it to you, his expression serene.\n\"Its
+        true potential has been revealed. Protect it, and it will protect you.\"\n\nWith
+        a rustle of leaves, he retreats into the forest, his presence fading like
+        a dream."
+      actions:
+      - type: 2
+        condition:
+          type: 0
+          target: 0
+          itemObject: {fileID: 0}
+          consumeItem: 0
+        currencyAmount: 0
+        currencyType: 0
+        experienceAmount: 0
+        itemObject: {fileID: 11400000, guid: 8d67ba34ac4dfb7469a497c0a46e1e04, type: 2}
+        upgradeAmount: 0
+        sourceTargets: 0
+        abilitySource:
+          ignoreMultipliers: 0
+          cannotCrit: 0
+          cannotMiss: 0
+          ignorePassives: []
+          school: 0
+          attributeType: 0
+          baseValue: 0
+          levelBase: 0
+          scaling: 0
+          levelScaling: 0
+          reductionType: 0
+          abilityModifier:
+            hasModifier: 0
+            modification: 0
+            condition: 0
+            thresholdType: 0
+            conditionThreshold: 0
+            conditionChance: 0
+            increasedAttribute: 0
+            increaseValue: 0
+            casterBased: 0
+            attributeBase: 0
+            percentageIncrease: 0
+            bonusAbilitySource:
+              ignoreMultipliers: 0
+              cannotCrit: 0
+              cannotMiss: 0
+              ignorePassive: []
+              school: 0
+              attributeType: 0
+              baseValue: 0
+              levelBase: 0
+              scaling: 0
+              levelScaling: 0
+              reductionType: 0
+            effectOnTarget: 0
+            conditionalEffect: {fileID: 0}
+          drainModifier:
+            hasModifier: 0
+            fractionDrained: 0
+        effectTargets: 0
+        effect: {fileID: 0}
+        encounter:
+          enemyObjects: []
+          randomOrder: 0
+          weight: 0
+        teamSetup: 0
+    - conditions:
+      - type: 1
+        target: 0
+        itemObject: {fileID: 11400000, guid: 969bb07dd1229614f9d139246b0a9a33, type: 2}
+        consumeItem: 0
+      flavorText: "As you move through the shadowed forest, an old man emerges from
+        the undergrowth, his robes woven with leaves and moss. Leaning on a twisted
+        wooden staff, he greets you with a faint smile.\n\n\"Travelers,\" he begins,
+        his voice carrying the weight of ancient wisdom, \"there is something of
+        importance hidden in these woods. A branch\u2014oddly shaped, unassuming,
+        but brimming with potential. If it should find its way into your hands, bring
+        it to me.\"\n\nWith a dip of his head, he vanishes back into the trees, leaving
+        only the sound of the wind stirring the leaves."
+      actions: []

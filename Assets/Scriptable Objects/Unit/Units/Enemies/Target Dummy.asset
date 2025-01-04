@@ -38,6 +38,7 @@ MonoBehaviour:
   holyMultiplier: 100
   shadowMultiplier: 100
   critMultiplier: 150
+  sacrificialMultiplier: 100
   difficulty: 1
   experienceReward: 0
   currencyRewards: []
@@ -49,6 +50,7 @@ MonoBehaviour:
     target: 2
     targetAttribute: 4
     condition: 0
+    healthThreshold: 100
     startCooldown: 0
     charged: 0
   passiveAbilities:

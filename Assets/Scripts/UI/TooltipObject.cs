@@ -126,6 +126,10 @@ public class TooltipObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             return item.level;
         }
+        else if (effect != null)
+        {
+            return effect.level;
+        }
         else
         {
             Debug.Log("No active or passive ability found in tooltip.");

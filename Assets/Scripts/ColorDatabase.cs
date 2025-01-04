@@ -29,6 +29,8 @@ public static class ColorDatabase
                 return "#97FF9A";
             case AbilityType.Assault:
                 return "#C76868";
+            case AbilityType.Flask:
+                return "#FDFF8F";
             default:
                 return "#FFFFFF";
         }
@@ -195,6 +197,11 @@ public static class ColorDatabase
     public static string Red()
     {
         return "#FF0000";
+    }
+
+    public static string Description()
+    {
+        return "#FFD78B";
     }
 
     public static string Positive => "#1FFF00";

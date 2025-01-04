@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Rock Tomb
   m_EditorClassIdentifier: 
-  id: 54
+  id: 61
   name: Rock Tomb
   quality: 1
-  type: 2
+  abilityType: 0
   description: 'Deal <t1timAc1> <P> damage every Round. Lasts for <t1d> Rounds.
 
 
@@ -30,13 +30,20 @@ MonoBehaviour:
   targetSpecialEffects:
   - {fileID: 1860630900979772943, guid: 9967e6689aa5fb64489f022c7427918d, type: 3}
   - {fileID: 1511822872825318299, guid: fb1bb3b1cc652044f8f05978901d5396, type: 3}
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 5
+  initialCooldown: 0
   endTurn: 1
+  singleUse: 0
+  resetType: 0
   resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 0
@@ -47,7 +54,8 @@ MonoBehaviour:
   targetEffects:
   - {fileID: 11400000, guid: 6abcecfc1141c844bba5a841fb8641b7, type: 2}
   - {fileID: 11400000, guid: 03f1cb8b64455a6418e4427d88d31251, type: 2}
+  cannotTargetSelf: 0
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

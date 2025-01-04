@@ -26,7 +26,7 @@ public class TooltipHandler : MonoBehaviour
     public TextMeshProUGUI tooltipText;
     public TooltipObject tempTooltip;
 
-    private IDescribable lastObj;
+    private IHasTooltip lastObj;
     private TooltipObject lastTooltip;
     private Vector3 lastPosition;
 
@@ -49,7 +49,7 @@ public class TooltipHandler : MonoBehaviour
         }
     }
 
-    public void ShowTooltip(IDescribable obj, TooltipObject tooltipInfo, Vector3 position)
+    public void ShowTooltip(IHasTooltip obj, TooltipObject tooltipInfo, Vector3 position)
     {
         if (obj == null)
             return;
@@ -59,7 +59,7 @@ public class TooltipHandler : MonoBehaviour
         lastPosition = position;
 
         tooltip.SetActive(true);
-        tooltipText.text = obj.GetDescription(tooltipInfo);
+        tooltipText.text = obj.GetCompleteTooltip(tooltipInfo);
         SetPosition(position);
     }
 
@@ -70,7 +70,7 @@ public class TooltipHandler : MonoBehaviour
 
         tempTooltip.SetTooltip(lastTooltip);
         tempTooltip.state = CurrentState.Values;
-        tooltipText.text = lastObj.GetDescription(tempTooltip);
+        tooltipText.text = lastObj.GetCompleteTooltip(tempTooltip);
         SetPosition(lastPosition);
     }
 

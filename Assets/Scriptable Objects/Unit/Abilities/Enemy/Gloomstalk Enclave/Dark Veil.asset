@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
+  m_Name: Dark Veil
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Dark Veil
+  quality: 0
+  abilityType: 1
+  description: 
+  icon: {fileID: 21300000, guid: eb70d92bb54531b429aa7d6971f64237, type: 3}
+  casterSpecialEffects:
+  - {fileID: 5873885159255308216, guid: 743b0733a36ff8049970761b8169917a, type: 3}
+  targetSpecialEffects: []
+  missile: {fileID: 0}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  castTime: 0.5
+  cooldown: 5
+  initialCooldown: 0
+  endTurn: 0
+  singleUse: 0
+  resetType: 0
+  resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
+  weaponRequirement: 4
+  soundEffect: {fileID: 0}
+  animationType: 1
+  allyAbilitySources: []
+  enemyAbilitySources: []
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: 95c16bfc66a60c64ca32e959a14825d7, type: 2}
+  - {fileID: 11400000, guid: b98ca4dd6918ee14bbf791c4512b694c, type: 2}
+  targetEffects: []
+  abilityTargets: 0

@@ -16,6 +16,9 @@ MonoBehaviour:
   icon: {fileID: 0}
   hidden: 1
   description: 
+  applicationSpecialEffects:
+  - {fileID: 2091712331739202793, guid: 4a6d5d7cc214ec24fa5785f39c5550cc, type: 3}
+  expirationSpecialEffects: []
   isBuff: 0
   procType: 0
   duration: 1
@@ -32,5 +35,3 @@ MonoBehaviour:
   level: 1
   two: 1
   instant: 1
-  specialEffects:
-  - {fileID: 2091712331739202793, guid: 4a6d5d7cc214ec24fa5785f39c5550cc, type: 3}

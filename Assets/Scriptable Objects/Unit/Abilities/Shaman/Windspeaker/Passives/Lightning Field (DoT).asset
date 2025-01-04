@@ -16,10 +16,19 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 1e541bb3fd8b18242b044539fd88f0d6, type: 3}
   hidden: 0
   description: Deal <1> <N> damage to a random enemy every Round.
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 1
   procType: 1
   duration: 1
   permanent: 1
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects: []
   timedActions:
   - actionType: 1
@@ -29,6 +38,7 @@ MonoBehaviour:
       ignoreMultipliers: 0
       cannotCrit: 0
       cannotMiss: 0
+      ignorePassives: []
       school: 4
       attributeType: 2
       baseValue: 0
@@ -36,19 +46,23 @@ MonoBehaviour:
       scaling: 0.25
       levelScaling: 0
       reductionType: 2
-      modifier:
+      abilityModifier:
         hasModifier: 0
         modification: 0
         condition: 0
         thresholdType: 0
         conditionThreshold: 0
+        conditionChance: 0
         increasedAttribute: 0
         increaseValue: 0
-        casterBased: 0
+        casterBased: 1
         attributeBase: 0
         percentageIncrease: 0
         bonusAbilitySource:
           ignoreMultipliers: 0
+          cannotCrit: 0
+          cannotMiss: 0
+          ignorePassive: []
           school: 0
           attributeType: 0
           baseValue: 0
@@ -56,8 +70,11 @@ MonoBehaviour:
           scaling: 0
           levelScaling: 0
           reductionType: 0
-        effectOnTarget: 0
+        effectOnTarget: 1
         conditionalEffect: {fileID: 0}
+      drainModifier:
+        hasModifier: 0
+        fractionDrained: 0
     specialEffects:
     - {fileID: 3469184291438029475, guid: 7b8e1f12d57cb5043a55575de5c17ec7, type: 3}
     storedValue: 0

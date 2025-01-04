@@ -38,6 +38,7 @@ MonoBehaviour:
   holyMultiplier: 100
   shadowMultiplier: 100
   critMultiplier: 150
+  sacrificialMultiplier: 100
   difficulty: 8
   experienceReward: 30
   currencyRewards:
@@ -61,12 +62,14 @@ MonoBehaviour:
     target: 0
     targetAttribute: 0
     condition: 0
+    healthThreshold: 100
     startCooldown: 1
     charged: 0
   - ability: {fileID: 11400000, guid: 18cf3aebb12d38a4f800fab9a5106435, type: 2}
     target: 2
     targetAttribute: 0
     condition: 0
+    healthThreshold: 100
     startCooldown: 0
     charged: 0
   passiveAbilities:

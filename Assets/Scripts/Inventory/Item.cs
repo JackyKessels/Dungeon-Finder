@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Item : IDescribable
+public class Item : IHasTooltip
 {
     public string name;
     public int id = -1;
@@ -43,42 +43,22 @@ public class Item : IDescribable
         }
     }
 
-    public virtual string GetDescription(TooltipObject tooltipInfo)
+    public string GetName()
     {
-        string color = ColorDatabase.QualityColor(itemObject.quality);
-
-        string itemName = string.Format("<smallcaps><b><color={0}>{1}</color></b></smallcaps>", color, name);
-
-        if (itemObject is Food food)
-        {
-            return food.GetDescription(tooltipInfo, itemName, GetItemDescription());
-        }
-
-        if (itemObject is Tome tome)
-        {
-            return tome.GetDescription(tooltipInfo, itemName, GetItemDescription());
-        }
-
-        if (itemObject is ResourceContainer container)
-        {
-            return container.GetDescription(tooltipInfo, itemName, GetItemDescription());
-        }
-
-        return itemName;
+        return $"<smallcaps><b><color={ColorDatabase.QualityColor(itemObject.quality)}>{name}</color></b></smallcaps>";
     }
 
-    protected string GetItemDescription()
+    public virtual string GetCompleteTooltip(TooltipObject tooltipInfo)
     {
-        string color = "#FFD78B";
+        if (itemObject is Consumable consumable)
+        {
+            return itemObject.GetName() +
+                   consumable.GetTooltip(tooltipInfo) +
+                   itemObject.GetDescription() +
+                   consumable.HowToUseText();
+        }
 
-        if (itemObject.description != "")
-        {
-            return string.Format("<color={0}>\n\n\"{1}\"</color>", color, itemObject.description);
-        }
-        else
-        {
-            return "";
-        }
+        return itemObject.GetName();
     }
 
     public virtual void LeftClick(InteractableItem interactableItem)

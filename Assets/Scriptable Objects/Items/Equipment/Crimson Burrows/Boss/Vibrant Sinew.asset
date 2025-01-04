@@ -18,9 +18,10 @@ MonoBehaviour:
   stackable: 0
   maxStacks: 1
   sellable: 1
+  unique: 0
   item:
     name: 
-    id: -1
+    id: 55
     itemObject: {fileID: 0}
     level: 1
   description: 
@@ -44,5 +45,6 @@ MonoBehaviour:
   holyMultiplier: 0
   shadowMultiplier: 0
   critMultiplier: 0
+  sacrificialMultiplier: 0
   passives: []
   useAbility: {fileID: 0}

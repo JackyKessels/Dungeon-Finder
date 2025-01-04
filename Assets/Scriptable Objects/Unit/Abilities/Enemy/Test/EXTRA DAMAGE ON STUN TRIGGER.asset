@@ -16,14 +16,25 @@ MonoBehaviour:
   icon: {fileID: 0}
   hidden: 1
   description: 
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 0
   procType: 0
   duration: 1
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects: []
   conditionalEffectType: 1
-  conditionalEffect: {fileID: 11400000, guid: ff61c312a50b70b479947799ec1aa1be, type: 2}
+  appliedEffects: []
   ccTypes: 01000000
   specificEffects: []
-  conditionalEffectTarget: 0
+  hasAllEffects: 0
+  checkTarget: 0
+  effectTarget: 0
   consumeEffect: 0

@@ -25,6 +25,7 @@ MonoBehaviour:
           type: 0
           target: 0
           itemObject: {fileID: 0}
+          consumeItem: 0
         currencyAmount: 0
         currencyType: 0
         experienceAmount: 0
@@ -48,6 +49,7 @@ MonoBehaviour:
             condition: 0
             thresholdType: 0
             conditionThreshold: 0
+            conditionChance: 0
             increasedAttribute: 0
             increaseValue: 0
             casterBased: 0
@@ -82,6 +84,7 @@ MonoBehaviour:
           type: 0
           target: 0
           itemObject: {fileID: 0}
+          consumeItem: 0
         currencyAmount: 0
         currencyType: 0
         experienceAmount: 0
@@ -105,6 +108,7 @@ MonoBehaviour:
             condition: 0
             thresholdType: 0
             conditionThreshold: 0
+            conditionChance: 0
             increasedAttribute: 0
             increaseValue: 0
             casterBased: 0
@@ -147,6 +151,7 @@ MonoBehaviour:
           type: 0
           target: 0
           itemObject: {fileID: 0}
+          consumeItem: 0
         currencyAmount: 0
         currencyType: 0
         experienceAmount: 0
@@ -170,6 +175,7 @@ MonoBehaviour:
             condition: 0
             thresholdType: 0
             conditionThreshold: 0
+            conditionChance: 0
             increasedAttribute: 0
             increaseValue: 0
             casterBased: 0

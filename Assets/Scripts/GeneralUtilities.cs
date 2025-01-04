@@ -14,6 +14,11 @@ public static class GeneralUtilities
 
     public static Unit GetCorrectUnit(TooltipObject tooltipInfo)
     {
+        if (tooltipInfo.effect?.caster != null)
+        {
+            return tooltipInfo.effect.caster;
+        }
+
         switch (tooltipInfo.state)
         {
             case CurrentState.Battle:
@@ -28,6 +33,22 @@ public static class GeneralUtilities
                 return null;
             default:
                 return null;
+        }
+    }
+
+    public static int GetUnitLevel(Unit unit)
+    {
+        if (unit.isEnemy && unit is Enemy enemy)
+        {
+            return enemy.Level;
+        }
+        else if (unit is Hero)
+        {
+            return TeamManager.Instance.experienceManager.currentLevel;
+        }
+        else
+        {
+            return 1;
         }
     }
 

@@ -311,6 +311,19 @@ public class InventoryObject : ScriptableObject
         }
     }
 
+    public Item FindFirstMatchingItem(ItemObject itemObject)
+    {
+        for (int i = 0; i < GetSlots.Length; i++)
+        {
+            if (GetSlots[i].ItemObject == itemObject)
+            {
+                return GetSlots[i].item;
+            }
+        }
+
+        return null;
+    }
+
     [ContextMenu("Clear")]
     public void Clear()
     {

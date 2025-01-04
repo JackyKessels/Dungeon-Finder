@@ -23,3 +23,5 @@ MonoBehaviour:
     text: Did you really just do that?
   - speaker: {fileID: 11400000, guid: 3e3d5b9c326045d4881c53050278a430, type: 2}
     text: Haha! Oh yes I did.
+  problem: {fileID: 0}
+  nextConversation: {fileID: 0}

@@ -8,7 +8,7 @@ public class Tome : Consumable
     public ActiveAbility activeAbilityLearned;
     public PassiveAbility passiveAbilityLearned;
 
-    public override void Consume(int i)
+    public override bool Consume(int i)
     {
         switch (consumptionType)
         {
@@ -37,17 +37,21 @@ public class Tome : Consumable
             case ConsumptionType.None:
                 break;
         }
+
+        return true;
     }
 
-    public string GetDescription(TooltipObject tooltipInfo, string itemName, string itemDescription)
+    public override string GetTooltip(TooltipObject tooltipInfo)
     {
         if (activeAbilityLearned != null)
         {
-            return itemName + string.Format("<color={1}>\nUse: Learn the {0} ability.</color>", activeAbilityLearned.name, ColorDatabase.EffectColor()) + "\n\n" + activeAbilityLearned.GetDescription(tooltipInfo) + itemDescription + HowToUseText();
+            return $"\nUse: Learn the {activeAbilityLearned.name} ability." + 
+                   $"\n\n{activeAbilityLearned.GetCompleteTooltip(tooltipInfo)}";
         }
         else if (passiveAbilityLearned != null)
         {
-            return itemName + string.Format("<color={1}>\nUse: Learn the {0} ability.</color>", passiveAbilityLearned.name, ColorDatabase.EffectColor()) + itemDescription + HowToUseText();
+            return $"\nUse: Learn the {passiveAbilityLearned.name} ability." +
+                   $"\n\n{passiveAbilityLearned.GetCompleteTooltip(tooltipInfo)}";
         }
         else
         {

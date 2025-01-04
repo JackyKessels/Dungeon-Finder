@@ -10,7 +10,7 @@ public class Food : Consumable
 
     public List<EffectObject> preBattleEffects;
 
-    public override void Consume(int i)
+    public override bool Consume(int i)
     {
         switch (consumptionType)
         {
@@ -32,6 +32,8 @@ public class Food : Consumable
         }
 
         InventoryManager.Instance.UpdateCharacterAttributes(HeroManager.Instance.CurrentHero(), -1);
+
+        return true;
     }
 
     private void ConsumeFood(Unit unit)
@@ -54,7 +56,7 @@ public class Food : Consumable
         }
     }
 
-    public string GetDescription(TooltipObject tooltipInfo, string itemName, string itemDescription)
+    public override string GetTooltip(TooltipObject tooltipInfo)
     {
         string healthRestoreText = "";
         string effectText = "";
@@ -87,7 +89,7 @@ public class Food : Consumable
 
             foreach (EffectObject effectObject in preBattleEffects)
             {
-                effectDescriptions += string.Format("\n\n{0}", effectObject.GetDescription(tooltipInfo));
+                effectDescriptions += string.Format("\n\n{0}", effectObject.GetCompleteTooltip(tooltipInfo));
                 effectDescriptions += "\nDuration: " + EffectObject.DurationText(effectObject);
             }          
         }
@@ -99,12 +101,9 @@ public class Food : Consumable
         else
             stacks = "\nMaximum Stacks: 1";
 
-        return itemName +                           // Name
-               stacks +                             // Max stacks
-               healthRestoreText +                  // Health Restore             
-               effectText +                         // Effect description
-               effectDescriptions +                     // Effect duration
-               itemDescription +               // Item description
-               HowToUseText();                      // Right-click to use
+        return stacks +
+               healthRestoreText +         
+               effectText + 
+               effectDescriptions;
     }
 }

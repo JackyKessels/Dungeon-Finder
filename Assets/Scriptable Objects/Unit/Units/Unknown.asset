@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Unknown
   m_EditorClassIdentifier: 
   name: Unknown
+  lastName: 
   unitType: 0
   icon: {fileID: 21300000, guid: 3de08c1d203f40e4d9585df728817efa, type: 3}
   sprite: {fileID: 21300000, guid: 3de08c1d203f40e4d9585df728817efa, type: 3}
@@ -21,12 +22,25 @@ MonoBehaviour:
   baseHealth: 0
   basePower: 0
   baseWisdom: 0
-  baseSpirit: 0
-  baseArmor: 0
-  baseResistance: 0
-  baseVitality: 0
+  armor: 0
+  resistance: 0
+  vitality: 0
   speed: 0
+  accuracy: 80
   criticalHit: 0
+  healingMultiplier: 100
+  crushingMultiplier: 100
+  piercingMultiplier: 100
+  fireMultiplier: 100
+  iceMultiplier: 100
+  natureMultiplier: 100
+  arcaneMultiplier: 100
+  holyMultiplier: 100
+  shadowMultiplier: 100
+  critMultiplier: 150
+  sacrificialMultiplier: 100
   heroClass: 3
-  classAbilities: []
-  specializations: []
+  dualWield: 0
+  startingEquipment: []
+  paths: []
+  startingAbilities: []

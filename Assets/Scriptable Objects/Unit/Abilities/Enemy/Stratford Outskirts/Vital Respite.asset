@@ -15,17 +15,27 @@ MonoBehaviour:
   id: 6
   name: Vital Respite
   quality: 0
+  abilityType: 0
   description: For <s1d> Rounds you are Stunned and have Armor reduced by <s2modV>,
     but heal for <s1timAc1> per Round.
   icon: {fileID: 21300000, guid: 4b06f7cb1308ac8469f508aeac378e2b, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 1
+  sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 1
   cooldown: 5
+  initialCooldown: 0
   endTurn: 1
+  singleUse: 0
+  resetType: 0
+  resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
-  type: 0
-  specialEffects: []
   soundEffect: {fileID: 0}
   animationType: 1
   allyAbilitySources: []
@@ -36,4 +46,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4e445fde853ccdd4ba80fe39d6348105, type: 2}
   - {fileID: 11400000, guid: 86938cf45fa9d1643994a6dda7dc18a3, type: 2}
   targetEffects: []
-  instantTargets: 0
+  abilityTargets: 0

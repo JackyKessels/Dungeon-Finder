@@ -17,16 +17,26 @@ MonoBehaviour:
   hidden: 0
   description: Consumes <spec1name> to increase your Power by <1modV> for the duration
     of Dire Bear Spirit.
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 0
   procType: 0
   duration: 1
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects: []
   conditionalEffectType: 2
-  conditionalEffect: {fileID: 11400000, guid: d9f28fe680091614abc8b005e46c82e0, type: 2}
+  appliedEffects: []
   ccTypes: 
   specificEffects:
   - {fileID: 11400000, guid: 9a1d88bda4e0f034ba1a1e07a6b1b791, type: 2}
+  hasAllEffects: 0
   checkTarget: 1
   effectTarget: 1
   consumeEffect: 1

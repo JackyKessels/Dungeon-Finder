@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public enum CooldownReductionType
@@ -8,7 +9,8 @@ public enum CooldownReductionType
     Specific,
     All,
     Typed,
-    Flask
+    Flask,
+    RandomTyped
 }
 
 [CreateAssetMenu(fileName = "New Cooldown Reduction", menuName = "Unit/Effect Object/Cooldown Reduction")]
@@ -75,6 +77,18 @@ public class EffectCooldownReduction : EffectObject
                     {
                         if (validAbilities[i].activeAbility.abilityType == abilityType)
                             ReduceCooldown(caster, validAbilities[i]);
+                    }
+                }
+                break;
+            case CooldownReductionType.RandomTyped:
+                {
+                    var typedAbilities = validAbilities.Where(a => a.activeAbility.abilityType == abilityType).ToList();
+
+                    if (typedAbilities.Count > 0)
+                    {
+                        int randomAbility = Random.Range(0, typedAbilities.Count);
+
+                        ReduceCooldown(caster, typedAbilities[randomAbility]);
                     }
                 }
                 break;

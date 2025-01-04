@@ -34,6 +34,7 @@ MonoBehaviour:
   targetTrigger: 1
   abilityTypeTrigger: 0
   typeRequirement: 0
+  specificEffect: {fileID: 0}
   schoolTriggers: 01000000020000000300000004000000050000000600000007000000
   triggersPassives: 1
   triggeredByPassives: 0

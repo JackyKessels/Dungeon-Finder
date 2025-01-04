@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
+  m_Name: Revitalize (Passive)
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Revitalize
+  quality: 0
+  abilityType: 3
+  description: 
+  icon: {fileID: 0}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  missile: {fileID: 0}
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  isPositive: 0
+  triggerType: 0
+  hitType: 0
+  targetTrigger: 1
+  abilityTypeTrigger: 0
+  typeRequirement: 0
+  specificEffect: {fileID: 0}
+  schoolTriggers: 04000000
+  triggersPassives: 1
+  triggeredByPassives: 1
+  triggeredByEffects: 0
+  procChance: 100
+  abilitySources: []
+  castActiveAbilities: []
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: 1806d26cfc625d64fae66e587a16e0bd, type: 2}
+  targetEffects: []

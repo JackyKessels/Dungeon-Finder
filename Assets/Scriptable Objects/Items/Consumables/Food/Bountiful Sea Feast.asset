@@ -18,13 +18,16 @@ MonoBehaviour:
   stackable: 0
   maxStacks: 1
   sellable: 1
+  unique: 0
   item:
     name: 
     id: 1
     itemObject: {fileID: 0}
-    attributes: []
+    level: 1
   description: An incredible platter filled with fish, shrimp, lobster and other
     delicacies of the sea.
   quality: 1
   consumptionType: 1
+  usableOnDead: 0
   healthRestore: 35
+  preBattleEffects: []

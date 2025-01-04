@@ -18,12 +18,15 @@ MonoBehaviour:
   stackable: 1
   maxStacks: 8
   sellable: 1
+  unique: 0
   item:
     name: 
     id: 0
     itemObject: {fileID: 0}
-    attributes: []
+    level: 1
   description: 
   quality: 0
   consumptionType: 0
+  usableOnDead: 0
   healthRestore: 5
+  preBattleEffects: []

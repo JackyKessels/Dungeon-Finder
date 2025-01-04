@@ -8,6 +8,14 @@ public enum AnimationType
     None
 }
 
+public enum ResetType
+{
+    None,
+    Flat,
+    Attribute,
+    FlatPlusAttribute
+}
+
 public abstract class ActiveAbility : AbilityObject
 {
     [Header("[ Base Functionality ]")]
@@ -15,10 +23,15 @@ public abstract class ActiveAbility : AbilityObject
     public int cooldown = 0;
     public int initialCooldown = 0;
     public bool endTurn = true;
-    public int resetChance = 0;
-    public string resetText = "Reset!";
     public bool singleUse = false;
     public readonly static int SINGLE_USE_COOLDOWN = 999;
+
+    [Header("[ Reset Functionality ]")]
+    public ResetType resetType = ResetType.None;
+    public int resetChance = 0;
+    public AttributeType resetAttribute = AttributeType.Crit;
+    public float attributeScaling = 0f;
+    public string resetText = "Reset!";
 
     [Header("[ Additional Variables ]")]
     public WeaponRequirement weaponRequirement = WeaponRequirement.Nothing;
@@ -35,9 +48,9 @@ public abstract class ActiveAbility : AbilityObject
     public List<EffectObject> selfEffects;
     public List<EffectObject> targetEffects;
 
-    public override string GetDescription(TooltipObject tooltipInfo)
+    public override string GetCompleteTooltip(TooltipObject tooltipInfo)
     {
-        return base.GetDescription(tooltipInfo) + // Name + Level
+        return base.GetCompleteTooltip(tooltipInfo) + // Name + Level
                FormatWeaponRequirement() + // Weapon Requirement
                CooldownTooltip() + // Cooldown
                InitialCooldownTooltip() + // Initial Cooldown
@@ -107,6 +120,11 @@ public abstract class ActiveAbility : AbilityObject
     }
 
     public virtual void TriggerAbility(Unit caster, Unit target, int level, float effectiveness)
+    {
+
+    }
+
+    public void PlaySound()
     {
         if (soundEffect != null)
         {
@@ -205,14 +223,20 @@ public abstract class ActiveAbility : AbilityObject
 
         temp = AbilityTooltipHandler.ColorAllAttributes(temp);
 
-        if (resetChance > 0)
-            temp = AbilityTooltipHandler.ResetChance(temp, resetChance);
+        if (resetType != ResetType.None)
+        {
+            temp = AbilityTooltipHandler.ResetChance(temp, this, tooltipInfo);
+        }
 
         if (!endTurn)
+        {
             temp = AbilityTooltipHandler.DoesNotEndTurn(temp);
+        }
 
         if (replacesAbility != null)
+        {
             temp = AbilityTooltipHandler.ReplacesAbility(temp, replacesAbility);
+        }
 
         temp = AbilityTooltipHandler.CriticalHit(temp, "<critical>");
 
@@ -229,9 +253,23 @@ public abstract class ActiveAbility : AbilityObject
         return temp;
     }
 
-    public bool SuccessfulReset()
+    public bool SuccessfulReset(Unit caster)
     {
-        return Random.Range(0, 100) < resetChance;
+        return Random.Range(0, 100) < CalculateResetChance(this, caster);
+    }
+
+    public static int CalculateResetChance(ActiveAbility activeAbility, Unit caster)
+    {
+        float attributeValue = activeAbility.attributeScaling * caster.statsManager.GetAttributeValue(activeAbility.resetAttribute);
+
+        return activeAbility.resetType switch
+        {
+            ResetType.None => 0,
+            ResetType.Flat => activeAbility.resetChance,
+            ResetType.Attribute => GeneralUtilities.RoundFloat(attributeValue, 0),
+            ResetType.FlatPlusAttribute => activeAbility.resetChance + GeneralUtilities.RoundFloat(attributeValue, 0),
+            _ => 0,
+        };
     }
 }
 
@@ -253,7 +291,7 @@ public class CastActiveAbility
             return;
         }
 
-        if (activeAbility is TargetAbility t)
+        if (activeAbility is TargetAbility targetAbility)
         {
             if (target == null)
             {
@@ -263,7 +301,7 @@ public class CastActiveAbility
 
             (bool _, int level) = caster.spellbook.GetAbility(activeAbility);
 
-            Active abilityToCast = new Active(t, level);
+            Active abilityToCast = new Active(targetAbility, level);
 
             List<Unit> targets = AbilityUtilities.GetAbilityTargets(abilityTarget, caster, target);
 
@@ -271,15 +309,32 @@ public class CastActiveAbility
             {
                 abilityToCast.Trigger(caster, u, effectiveness);
             }
+
+            targetAbility.PlaySound();
+
+            targetAbility.TriggerSelfEffects(targets.Count, caster, abilityToCast.level);
+
+            targetAbility.TriggerPostCast(caster, abilityToCast.level);
         }
 
-        if (activeAbility is InstantAbility i)
+        if (activeAbility is InstantAbility instantAbility)
         {
             (bool _, int level) = caster.spellbook.GetAbility(activeAbility);
 
-            Active abilityToCast = new Active(i, level);
+            Active abilityToCast = new Active(instantAbility, level);
 
-            abilityToCast.Trigger(caster, target, effectiveness);
+            List<Unit> targets = AbilityUtilities.GetAbilityTargets(instantAbility.abilityTargets, caster, target);
+
+            foreach (Unit t in targets)
+            {
+                abilityToCast.Trigger(caster, t, effectiveness);
+            }
+
+            instantAbility.PlaySound();
+
+            instantAbility.TriggerSelfEffects(targets.Count, caster, abilityToCast.level);
+
+            instantAbility.TriggerPostCast(caster, abilityToCast.level);
         }
     }
 }

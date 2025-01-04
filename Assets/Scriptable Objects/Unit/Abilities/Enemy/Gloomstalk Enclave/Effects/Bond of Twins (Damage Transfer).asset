@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d19544ffa5f2c48bceeeea5a478624, type: 3}
+  m_Name: Bond of Twins (Damage Transfer)
+  m_EditorClassIdentifier: 
+  name: Bond of Twins
+  icon: {fileID: 21300000, guid: 655c7dd7fb552624e8ca1c5e9b60b850, type: 3}
+  hidden: 0
+  description: Transfer <1> of damage taken to <caster>.
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
+  isBuff: 1
+  procType: 0
+  duration: 1
+  permanent: 1
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  applyStacks: 1
+  loseStacks: 0
+  removeEffects: []
+  direction: 0
+  percentage: 0.5

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
   m_Name: Zeal
   m_EditorClassIdentifier: 
-  id: 64
+  id: 112
   name: Zeal
   quality: 1
-  type: 2
+  abilityType: 0
   description: Increase your <crit> by <t1modV>% and your <critmultiplier> by <t2modV>%
     for this Turn.
   icon: {fileID: 21300000, guid: fe6d5d7fc7b6689439404a109d4d9e8e, type: 3}
@@ -23,13 +23,20 @@ MonoBehaviour:
   - {fileID: 2003023566564984859, guid: a7ce6f4c4a0a94241987ba0fa7c5357d, type: 3}
   - {fileID: 6755934199333603486, guid: 66f9d5db29823f246a3e752fc7824245, type: 3}
   targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 0.5
   cooldown: 3
+  initialCooldown: 0
   endTurn: 0
+  singleUse: 0
+  resetType: 0
   resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 1
@@ -40,4 +47,4 @@ MonoBehaviour:
   targetEffects:
   - {fileID: 11400000, guid: a169b487df3b75f41976e08a8b69b70a, type: 2}
   - {fileID: 11400000, guid: 051b4cd890364164d8aca2f34b072c6b, type: 2}
-  instantTargets: 0
+  abilityTargets: 0

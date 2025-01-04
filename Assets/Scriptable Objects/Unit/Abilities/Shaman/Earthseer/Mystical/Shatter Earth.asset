@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
   m_Name: Shatter Earth
   m_EditorClassIdentifier: 
-  id: -1
+  id: 62
   name: Shatter Earth
   quality: 1
-  type: 2
+  abilityType: 0
   description: 'Deal <e1> <P> damage to your target.
 
 
@@ -26,19 +26,29 @@ MonoBehaviour:
   targetSpecialEffects:
   - {fileID: 1860630900979772943, guid: 9967e6689aa5fb64489f022c7427918d, type: 3}
   - {fileID: 1156605734371989052, guid: e18b974458d82ca478eb904f8d52c7e5, type: 3}
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 3
+  initialCooldown: 0
   endTurn: 1
+  singleUse: 0
+  resetType: 0
   resetChance: 20
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 0
   soundEffect: {fileID: 0}
   animationType: 0
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 1
     attributeType: 1
     baseValue: 0
@@ -46,32 +56,40 @@ MonoBehaviour:
     scaling: 2
     levelScaling: 0.4
     reductionType: 1
-    modifier:
-      hasModifier: 1
-      modification: 3
-      condition: 4
-      thresholdType: 2
-      conditionThreshold: -15
+    abilityModifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      conditionChance: 0
       increasedAttribute: 0
       increaseValue: 0
-      casterBased: 0
+      casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
-        school: 4
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
+        school: 0
         attributeType: 0
         baseValue: 0
         levelBase: 0
-        scaling: 0.2
-        levelScaling: 0.04
-        reductionType: 2
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []
+  cannotTargetSelf: 0
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

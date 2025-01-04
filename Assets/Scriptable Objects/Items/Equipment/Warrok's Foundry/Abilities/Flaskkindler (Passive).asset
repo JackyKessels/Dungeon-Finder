@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a26b23a231d47340bad7e45f2dfb390, type: 3}
+  m_Name: Flaskkindler (Passive)
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Blazing Brew
+  quality: 0
+  abilityType: 3
+  description: Using a <flask> increases your <crit> for <apply1d> Round. Gain <apply1modV>%
+    <crit> per cooldown of the <flask>, plus an additional <apply1modV>%.
+  icon: {fileID: 21300000, guid: f0cfe30da6d220c44a7e38f476ed498a, type: 3}
+  casterSpecialEffects:
+  - {fileID: 7149734489938936104, guid: 24adb89b3ab41084a8cbc7382a6c3358, type: 3}
+  targetSpecialEffects: []
+  missile: {fileID: 0}
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  triggerType: 1
+  typeRequirement: 4
+  specificActiveAbilityList: []
+  procChance: 100
+  castActiveAbilities: []
+  applyEffectObjects:
+  - effectObject: {fileID: 11400000, guid: 6a5a1d8abf1204a40bd955b7305affba, type: 2}
+    abilityTarget: 0
+    sourceAbility: {fileID: 11400000}
+    stacksBasedOnCooldown: 1
+  doubleCastAbility:
+    enableDoubleCast: 0
+    baseEffectiveness: 0
+    effectivenessPerLevel: 0

@@ -20,7 +20,6 @@ MonoBehaviour:
     face of relentless assaults.
 
 
-
     - Physical Damage & Debuffs'
   baseWeapons:
   - {fileID: 11400000, guid: 4e2bde43499808d4e826bc75fe5c7e50, type: 2}
@@ -38,10 +37,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5249c77f3f6551543ada97a588bce604, type: 2}
   - {fileID: 11400000, guid: b80ebac702fc4f14ca9d191a3a659c1f, type: 2}
   - {fileID: 11400000, guid: a4a52c98162babf45b6776bba77e8ec8, type: 2}
+  - {fileID: 11400000, guid: c51897e5075b5474b858beb3dfc17810, type: 2}
   passiveAbilities:
   - {fileID: 11400000, guid: 888d8f3be6b2a424291c28690d67c016, type: 2}
   - {fileID: 11400000, guid: bdac9670f6f3a5c47bb7095cba59b84e, type: 2}
-  - {fileID: 11400000, guid: 6822a27ceb205f647a0e39882c7471d7, type: 2}
+  - {fileID: 11400000, guid: 366e4c8d2e070a9419c65f98d3c87d51, type: 2}
   - {fileID: 11400000, guid: e086828873aae4243b0876186fc8c25a, type: 2}
   - {fileID: 11400000, guid: 7d459b628ed48a944a4b73de6663aa14, type: 2}
   attributes:

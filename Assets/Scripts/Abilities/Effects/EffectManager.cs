@@ -54,13 +54,46 @@ public class EffectManager : MonoBehaviour
         if (sameEffect != null && effectObject.stackable)
         {
             Effect stackedEffect = Effect.ApplyStacks(sameEffect, applyEffect);
-            target.effectManager.OnApplication(stackedEffect);
 
-            target.effectManager.OnExpiration(sameEffect);
+            int index = target.effectManager.effectsList.IndexOf(sameEffect);
+            if (index != -1)
+            {
+                target.effectManager.OnExpiration(sameEffect, removeEffectFromList: false, triggerEffect: sameEffect.effectObject is not EffectOverTime);
+
+                target.effectManager.effectsList[index] = stackedEffect;
+
+                target.effectManager.OnApplication(stackedEffect, false);
+
+                TriggerStackEffect(stackedEffect);
+            }
         }
         else
         {
             target.effectManager.OnApplication(applyEffect);
+        }
+    }
+
+    private static void TriggerStackEffect(Effect effect)
+    {
+        var stackEffects = effect.effectObject.stackEffects;
+        if (stackEffects.Count == 0)
+        {
+            return;
+        }
+
+        var consume = false;
+        foreach (var stackEffect in stackEffects)
+        {
+            if (effect.stacks == stackEffect.stacksToTrigger)
+            {
+                ApplyEffect(stackEffect.effectObject, effect.caster, effect.target, effect.level, effect.sourceAbility);
+                consume = true;
+            }
+        }
+
+        if (consume)
+        {
+            effect.target.effectManager.OnExpiration(effect);
         }
     }
 
@@ -121,10 +154,7 @@ public class EffectManager : MonoBehaviour
 
     private bool NoEffects()
     {
-        if (effectsList.Count == 0)
-            return true;
-        else
-            return false;
+        return effectsList.Count == 0;
     }
 
     private void TriggerConditionalEffect(Effect effect)
@@ -289,7 +319,7 @@ public class EffectManager : MonoBehaviour
                 if (modifier.getConsumed)
                     OnExpiration(modifiers[i]);
 
-                ObjectUtilities.CreateSpecialEffects(modifier.specialEffects, target);
+                ObjectUtilities.CreateSpecialEffects(modifier.applicationSpecialEffects, target);
             } 
         }
 
@@ -298,45 +328,76 @@ public class EffectManager : MonoBehaviour
 
     private List<Effect> GetAbilityModifiers()
     {
-        List<Effect> list = new List<Effect>();
+        return effectsList.Where(e => e.effectObject is EffectAbilityModifier).ToList();
+    }
 
-        for (int i = 0; i < effectsList.Count; i++)
+    public static Effect GetDamageTransferToTarget(Unit caster)
+    {
+        List<Effect> effects = new List<Effect>();
+
+        foreach (var hero in TeamManager.Instance.heroes.LivingMembers)
         {
-            if (effectsList[i].effectObject is EffectAbilityModifier)
+            if (hero == caster)
             {
-                list.Add(effectsList[i]);
+                continue;
+            }
+
+            var damageTransfer = hero.effectManager.GetDamageTransfers(DamageTransferDirection.CasterToTarget)
+                .Where(t => t.caster == caster)
+                .OrderByDescending(e => (e.effectObject as EffectDamageTransfer).percentage)
+                .FirstOrDefault();
+
+            if (damageTransfer != null)
+            {
+                effects.Add(damageTransfer);
             }
         }
 
-        return list;
+        foreach (var enemy in TeamManager.Instance.enemies.LivingMembers)
+        {
+            if (enemy == caster)
+            {
+                continue;
+            }
+
+            var damageTransfer = enemy.effectManager.GetDamageTransfers(DamageTransferDirection.CasterToTarget)
+                .Where(t => t.caster == caster)
+                .OrderByDescending(e => (e.effectObject as EffectDamageTransfer).percentage)
+                .FirstOrDefault();
+
+            if (damageTransfer != null)
+            {
+                effects.Add(damageTransfer);
+            }
+        }
+
+        if (effects.Count > 1)
+        {
+            Debug.Log("Not yet implemented for more than 1 effect.");
+        }
+
+        return effects.FirstOrDefault();
     }
 
-    public Effect GetHighestDamageTransfer()
+
+
+    public Effect GetHighestDamageTransfer(DamageTransferDirection damageTransferDirection)
     {
         if (NoEffects())
             return null;
 
-        Effect highestEffect = (from e in GetDamageTransfers()
-                                let maxPercentage = GetDamageTransfers().Max(m => (m.effectObject as EffectDamageTransfer).percentage)
-                                where (e.effectObject as EffectDamageTransfer).percentage == maxPercentage
-                                select e).FirstOrDefault();
+        Effect highestEffect = GetDamageTransfers(damageTransferDirection)
+                               .OrderByDescending(e => (e.effectObject as EffectDamageTransfer).percentage)
+                               .FirstOrDefault();
 
         return highestEffect;
     }
 
-    private List<Effect> GetDamageTransfers()
+    private List<Effect> GetDamageTransfers(DamageTransferDirection damageTransferDirection)
     {
-        List<Effect> list = new List<Effect>();
-
-        for (int i = 0; i < effectsList.Count; i++)
-        {
-            if (effectsList[i].effectObject is EffectDamageTransfer && !effectsList[i].caster.statsManager.isDead)
-            {
-                list.Add(effectsList[i]);
-            }
-        }
-
-        return list;
+        return effectsList.Where(e => e.effectObject is EffectDamageTransfer damageTransfer && 
+                                      damageTransfer.direction == damageTransferDirection && 
+                                      !e.caster.statsManager.isDead).ToList();
     }
 
     public Unit TauntedBy()
@@ -465,7 +526,7 @@ public class EffectManager : MonoBehaviour
         }
     }
 
-    public void OnApplication(Effect e)
+    public void OnApplication(Effect e, bool addEffectToList = true)
     {
         // Check if effect has any effects that it removes and do so
         for (int i = 0; i < e.effectObject.removeEffects.Count; i++)
@@ -473,7 +534,7 @@ public class EffectManager : MonoBehaviour
             RemoveEffect(e.effectObject.removeEffects[i]);
         }
 
-        ObjectUtilities.CreateSpecialEffects(e.effectObject.specialEffects, e.target, true);
+        ObjectUtilities.CreateSpecialEffects(e.effectObject.applicationSpecialEffects, e.target, true);
 
         switch (e.effectObject)
         {
@@ -514,7 +575,7 @@ public class EffectManager : MonoBehaviour
                 }
             case EffectAttributeModifier modifier:
                 {
-                    ObjectUtilities.CreateSpecialEffects(modifier.specialEffects, e.target, true);
+                    ObjectUtilities.CreateSpecialEffects(modifier.applicationSpecialEffects, e.target, true);
 
                     ModifyAttribute(e.target, modifier.attributeModified, e.storedModValue, modifier.isIncrease, true, modifier.modifierType);
 
@@ -522,18 +583,20 @@ public class EffectManager : MonoBehaviour
                 }
             case EffectSpawnEnemy spawn:
                 {
-                    TeamManager.Instance.SpawnEnemy(spawn.enemyObject, spawn.level, spawn.instant, spawn.specialEffects);
+                    var spawnLevel = spawn.level == 0 ? GeneralUtilities.GetUnitLevel(e.caster) : spawn.level;
+
+                    TeamManager.Instance.SpawnEnemy(spawn.enemyObject, spawnLevel, spawn.instant, spawn.applicationSpecialEffects);
 
                     if (spawn.two)
                     {
-                        TeamManager.Instance.SpawnEnemy(spawn.enemyObject, spawn.level, spawn.instant, spawn.specialEffects);
+                        TeamManager.Instance.SpawnEnemy(spawn.enemyObject, spawnLevel, spawn.instant, spawn.applicationSpecialEffects);
                     }
 
                     return;
                 }
             case EffectActivatePassive passive:
                 {
-                    ObjectUtilities.CreateSpecialEffects(passive.specialEffects, e.caster, true);
+                    ObjectUtilities.CreateSpecialEffects(passive.applicationSpecialEffects, e.caster, true);
 
                     Passive effectPassive = new Passive(passive.passiveAbility, e.level);
 
@@ -572,7 +635,10 @@ public class EffectManager : MonoBehaviour
             RemoveApplications(e);
         }
 
-        effectsList.Add(e);
+        if (addEffectToList)
+        {
+            effectsList.Add(e);
+        }
     }
 
     public void OnActive(Effect e)
@@ -589,21 +655,30 @@ public class EffectManager : MonoBehaviour
         }
     }
 
-    public void OnExpiration(Effect e, bool expireAll = false)
+    public void OnExpiration(Effect effect, bool removeEffectFromList = true, bool triggerEffect = true)
     {
         // Only remove the effect from the list one-by-one
-        if (!expireAll)
-            effectsList.Remove(e);
+        if (removeEffectFromList)
+        {
+            effectsList.Remove(effect);
+        }
 
-        switch (e.effectObject)
+        if (!triggerEffect)
+        {
+            return;
+        }
+        
+        ObjectUtilities.CreateSpecialEffects(effect.effectObject.expirationSpecialEffects, effect.target, true);
+        
+        switch (effect.effectObject)
         {
             case EffectOverTime overTime:
                 {
-                    foreach (TimedAction timedAction in e.timedActions)
+                    foreach (TimedAction timedAction in effect.timedActions)
                     {
                         if (timedAction.actionType == TimedActionType.OnExpiration)
                         {
-                            TriggerSource(timedAction, e);
+                            TriggerSource(timedAction, effect);
                         }
                     }
 
@@ -611,13 +686,13 @@ public class EffectManager : MonoBehaviour
                 }
             case EffectAttributeModifier modifier:
                 {
-                    ModifyAttribute(e.target, modifier.attributeModified, e.storedModValue, modifier.isIncrease, false, modifier.modifierType);
+                    ModifyAttribute(effect.target, modifier.attributeModified, effect.storedModValue, modifier.isIncrease, false, modifier.modifierType);
 
                     return;
                 }
             case EffectActivatePassive passive:
                 {
-                    unit.spellbook.UnlearnPassive(e.storedPassive);
+                    unit.spellbook.UnlearnPassive(effect.storedPassive);
 
                     return;
                 }
@@ -627,11 +702,11 @@ public class EffectManager : MonoBehaviour
                     {
                         if (crowdControl.type == CrowdControlType.Stun)
                         {
-                            ApplyEffect(GameAssets.i.stunImmune, unit, unit, 1, e.sourceAbility);
+                            ApplyEffect(GameAssets.i.stunImmune, unit, unit, 1, effect.sourceAbility);
                         } 
                         else if (crowdControl.type == CrowdControlType.Taunt)
                         {
-                            ApplyEffect(GameAssets.i.tauntImmune, unit, unit, 1, e.sourceAbility);
+                            ApplyEffect(GameAssets.i.tauntImmune, unit, unit, 1, effect.sourceAbility);
                         }
                     }
 

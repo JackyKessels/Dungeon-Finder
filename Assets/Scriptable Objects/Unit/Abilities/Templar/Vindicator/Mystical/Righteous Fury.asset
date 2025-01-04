@@ -12,23 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
   m_Name: Righteous Fury
   m_EditorClassIdentifier: 
-  id: 46
+  id: 142
   name: Righteous Fury
   quality: 1
-  type: 2
+  abilityType: 0
   description: "Reduce the <health> all enemies by <t1modV> for <t1d> Rounds. \n\nIn
     addition, deal <s1timAc1> <H> damage to a random enemy every Turn. Lasts for
     <s1d> Turns."
   icon: {fileID: 21300000, guid: b3ab5c9ca98078d4d90053ba927a9a5b, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 4
+  initialCooldown: 0
   endTurn: 1
+  singleUse: 0
+  resetType: 0
   resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 1
@@ -39,4 +46,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 078db6db7c40491449fbd38edce77af9, type: 2}
   targetEffects:
   - {fileID: 11400000, guid: 82d98db0518ea0d49b591b9c125ca077, type: 2}
-  instantTargets: 2
+  abilityTargets: 0

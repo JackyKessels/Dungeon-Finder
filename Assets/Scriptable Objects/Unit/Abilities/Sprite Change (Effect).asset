@@ -16,6 +16,9 @@ MonoBehaviour:
   icon: {fileID: 0}
   hidden: 1
   description: 
+  applicationSpecialEffects:
+  - {fileID: 3430423594172702568, guid: 9aeac47eef9297e4d9b22b6a2efb7478, type: 3}
+  expirationSpecialEffects: []
   isBuff: 0
   procType: 0
   duration: 1
@@ -30,5 +33,3 @@ MonoBehaviour:
   removeEffects: []
   newSprite: {fileID: 21300000, guid: 15cd7019cdb5ec1458ecb27b79e69190, type: 3}
   newIcon: {fileID: 21300000, guid: 7131abd9d50c1964e864b7269ccd8225, type: 3}
-  specialEffects:
-  - {fileID: 3430423594172702568, guid: 9aeac47eef9297e4d9b22b6a2efb7478, type: 3}

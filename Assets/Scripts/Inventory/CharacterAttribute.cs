@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 [System.Serializable]
-public class CharacterAttribute : MonoBehaviour, IDescribable
+public class CharacterAttribute : MonoBehaviour, IHasTooltip
 {
     public Attribute attribute;
     public int value = 0;
@@ -80,7 +80,7 @@ public class CharacterAttribute : MonoBehaviour, IDescribable
         }
     }
 
-    public string GetDescription(TooltipObject tooltipInfo)
+    public string GetCompleteTooltip(TooltipObject tooltipInfo)
     {
         switch (attribute.attributeType)
         {

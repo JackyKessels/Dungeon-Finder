@@ -15,18 +15,26 @@ MonoBehaviour:
   id: 2344
   name: New Ability
   quality: 0
+  abilityType: 0
   description: stun
   icon: {fileID: 21300000, guid: fb430576c43b66841a7f98b30b77518f, type: 3}
-  specialEffects: []
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 0
   cooldown: 0
+  initialCooldown: 0
   endTurn: 0
+  singleUse: 0
+  resetType: 0
   resetChance: 100
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
-  type: 0
   soundEffect: {fileID: 0}
   animationType: 0
   allyAbilitySources: []
@@ -35,7 +43,8 @@ MonoBehaviour:
   selfEffects: []
   targetEffects:
   - {fileID: 11400000, guid: 80627fa0659967f4d97a7b17b0ce6629, type: 2}
+  cannotTargetSelf: 0
   targetsAllies: 0
   targetsEnemies: 1
   targetTargets: 0
-  adjacentReduction: 0
+  adjacentModifier: 0

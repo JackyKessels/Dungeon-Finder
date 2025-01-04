@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5014144d4fda58540b2546e0da4965b6, type: 3}
   m_Name: Ice Bolt
   m_EditorClassIdentifier: 
+  missileMovement: 0
   travelTime: 0.3
   casterEffects: []
   missileEffect: {fileID: 1873203583270419367, guid: ab88de9ee554fcd4bab83627d624d6ca,

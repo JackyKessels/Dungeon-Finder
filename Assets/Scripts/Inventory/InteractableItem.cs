@@ -84,15 +84,14 @@ public class InteractableItem : MonoBehaviour, IPointerClickHandler
     {
         if (itemObject is Consumable c)
         {
-            if (c.consumptionType == ConsumptionType.Party)
+            int amount = c.consumptionType == ConsumptionType.Party ? 0 : i;
+            if (c.Consume(amount))
             {
-                c.Consume(0);
                 inventorySlot.ReduceAmount(1);
             }
-            else if (c.consumptionType == ConsumptionType.Single)
+            else
             {
-                c.Consume(i);
-                inventorySlot.ReduceAmount(1);
+                ShortMessage.SendMessage(Input.mousePosition, "Cannot consume item.", 24, Color.red);
             }
         }
 

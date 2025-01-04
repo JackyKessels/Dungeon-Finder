@@ -20,10 +20,11 @@ MonoBehaviour:
     every Round for <s1d> Rounds.
 
 
-    <name> not stack.'
+    <name> does not stack.'
   icon: {fileID: 21300000, guid: 655c7dd7fb552624e8ca1c5e9b60b850, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 0
   sellable: 0
   replacesAbility: {fileID: 0}
@@ -33,6 +34,7 @@ MonoBehaviour:
   targetTrigger: 0
   abilityTypeTrigger: 0
   typeRequirement: 0
+  specificEffect: {fileID: 0}
   schoolTriggers: 02000000030000000400000005000000060000000700000008000000
   triggersPassives: 1
   triggeredByPassives: 1

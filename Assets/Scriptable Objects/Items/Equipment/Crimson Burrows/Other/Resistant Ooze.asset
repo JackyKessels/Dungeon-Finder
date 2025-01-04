@@ -18,11 +18,12 @@ MonoBehaviour:
   stackable: 1
   maxStacks: 3
   sellable: 1
+  unique: 0
   item:
     name: 
-    id: 74
+    id: 10
     itemObject: {fileID: 0}
-    attributes: []
+    level: 1
   description: 
   quality: 0
   consumptionType: 0

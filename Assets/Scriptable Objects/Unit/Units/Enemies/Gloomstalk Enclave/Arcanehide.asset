@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65caad74ac8a56045ad833b616779ac4, type: 3}
+  m_Name: Arcanehide
+  m_EditorClassIdentifier: 
+  name: Arcanehide
+  lastName: 
+  unitType: 1
+  icon: {fileID: 21300000, guid: d39f9cd39cd93f14db81b078e76ef5e7, type: 3}
+  sprite: {fileID: 21300000, guid: b4ff1377fe2ab4a4bbcab3f661443cc1, type: 3}
+  attackAnimation: {fileID: 0}
+  castAnimation: {fileID: 0}
+  baseHealth: 175
+  basePower: 16
+  baseWisdom: 0
+  armor: 0
+  resistance: 0
+  vitality: 0
+  speed: 12
+  accuracy: 80
+  criticalHit: 20
+  healingMultiplier: 100
+  crushingMultiplier: 100
+  piercingMultiplier: 100
+  fireMultiplier: 100
+  iceMultiplier: 100
+  natureMultiplier: 100
+  arcaneMultiplier: 100
+  holyMultiplier: 100
+  shadowMultiplier: 100
+  critMultiplier: 150
+  sacrificialMultiplier: 100
+  difficulty: 3
+  experienceReward: 0
+  currencyRewards: []
+  dropEverything: 0
+  itemDrops: []
+  randomAbility: 1
+  abilities:
+  - ability: {fileID: 11400000, guid: 0d34c3d26a4a2284d8e042a7742bb7d9, type: 2}
+    target: 0
+    targetAttribute: 0
+    condition: 0
+    healthThreshold: 100
+    startCooldown: 0
+    charged: 0
+  passiveAbilities: []

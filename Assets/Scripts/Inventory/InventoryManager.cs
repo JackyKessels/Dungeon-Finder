@@ -207,6 +207,22 @@ public class InventoryManager : MonoBehaviour
         return checkInventory || checkConsumables || checkHero1 || checkHero2 || checkHero3;
     }
 
+    public Item FindItemInInventory(ItemObject itemObject)
+    {
+        if (!HasItemInInventory(itemObject))
+        {
+            return null;
+        }
+
+        var checkInventory = inventoryObject.FindFirstMatchingItem(itemObject);
+        var checkConsumables = consumablesObject.FindFirstMatchingItem(itemObject);
+        var checkHero1 = equipmentObjects[0] != null ? equipmentObjects[0].FindFirstMatchingItem(itemObject) : null;
+        var checkHero2 = equipmentObjects[1] != null ? equipmentObjects[1].FindFirstMatchingItem(itemObject) : null;
+        var checkHero3 = equipmentObjects[2] != null ? equipmentObjects[2].FindFirstMatchingItem(itemObject) : null;
+
+        return checkInventory ?? checkConsumables ?? checkHero1 ?? checkHero2 ?? checkHero3;
+    }
+
     private void ResetInventories()
     {
         foreach (InventoryObject inventory in equipmentObjects)

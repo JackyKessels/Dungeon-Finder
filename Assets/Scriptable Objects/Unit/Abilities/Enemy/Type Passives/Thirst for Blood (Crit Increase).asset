@@ -17,6 +17,9 @@ MonoBehaviour:
   hidden: 0
   description: Critical Chance increased by <1>% and attacks will focus the most
     vulnerable target.
+  applicationSpecialEffects:
+  - {fileID: 4394183197532057313, guid: 117db629d02d11243a0a6525313ac381, type: 3}
+  expirationSpecialEffects: []
   isBuff: 1
   procType: 0
   duration: 1
@@ -26,6 +29,8 @@ MonoBehaviour:
   refreshes: 1
   aura: 0
   unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects:
   - {fileID: 11400000}
   attributeModified: 8
@@ -43,12 +48,13 @@ MonoBehaviour:
     scaling: 0
     levelScaling: 0
     reductionType: 0
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
+      conditionChance: 0
       increasedAttribute: 0
       increaseValue: 0
       casterBased: 1
@@ -68,7 +74,8 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   multiplier: 0
   multiplierPerLevel: 0
-  specialEffects:
-  - {fileID: 4394183197532057313, guid: 117db629d02d11243a0a6525313ac381, type: 3}

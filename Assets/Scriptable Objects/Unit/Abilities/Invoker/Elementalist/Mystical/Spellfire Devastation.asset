@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
   m_Name: Spellfire Devastation
   m_EditorClassIdentifier: 
-  id: 24
+  id: 10
   name: Spellfire Devastation
   quality: 1
-  type: 2
+  abilityType: 0
   description: 'Deal <e1> <F> and <e2> <A> damage to a random enemy.
 
 
@@ -24,19 +24,29 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 2fe111456cd48894fa27a7982287a1ac, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 1.5
   cooldown: 4
+  initialCooldown: 0
   endTurn: 1
+  singleUse: 0
+  resetType: 0
   resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 0
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 2
     attributeType: 2
     baseValue: 0
@@ -44,19 +54,23 @@ MonoBehaviour:
     scaling: 1.6
     levelScaling: 0.32
     reductionType: 2
-    modifier:
-      hasModifier: 1
-      modification: 1
+    abilityModifier:
+      hasModifier: 0
+      modification: 0
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
-      increasedAttribute: 3
-      increaseValue: 100
+      conditionChance: 0
+      increasedAttribute: 0
+      increaseValue: 0
       casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -66,7 +80,13 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 5
     attributeType: 2
     baseValue: 0
@@ -74,19 +94,23 @@ MonoBehaviour:
     scaling: 1.6
     levelScaling: 0.32
     reductionType: 2
-    modifier:
-      hasModifier: 1
-      modification: 1
+    abilityModifier:
+      hasModifier: 0
+      modification: 0
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
-      increasedAttribute: 3
-      increaseValue: 100
+      conditionChance: 0
+      increasedAttribute: 0
+      increaseValue: 0
       casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -96,7 +120,10 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   selfEffectsPerTarget: 0
   selfEffects: []
   targetEffects: []
-  instantTargets: 4
+  abilityTargets: 0

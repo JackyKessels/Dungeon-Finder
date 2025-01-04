@@ -15,18 +15,26 @@ MonoBehaviour:
   id: 1451222
   name: stun immune
   quality: 0
+  abilityType: 0
   description: 
   icon: {fileID: 21300000, guid: 3f72f473e8e29e84f92ad72f4fc038f5, type: 3}
-  specialEffects:
-  - {fileID: 4023380291342889100, guid: 2efcd3852d2756e49ba515443863ae57, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  missile: {fileID: 0}
   hasLevels: 0
   sellable: 0
   replacesAbility: {fileID: 0}
   castTime: 1
   cooldown: 0
+  initialCooldown: 0
   endTurn: 1
+  singleUse: 0
+  resetType: 0
+  resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
-  type: 0
   soundEffect: {fileID: 0}
   animationType: 0
   allyAbilitySources: []
@@ -35,4 +43,4 @@ MonoBehaviour:
   selfEffects:
   - {fileID: 11400000, guid: 177a537576216f74d9cfed6996800a9c, type: 2}
   targetEffects: []
-  instantTargets: 0
+  abilityTargets: 0

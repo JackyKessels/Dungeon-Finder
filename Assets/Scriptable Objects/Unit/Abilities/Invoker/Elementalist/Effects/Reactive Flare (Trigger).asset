@@ -17,13 +17,22 @@ MonoBehaviour:
   hidden: 0
   description: If the target is affected by any <F> damage over time effects, then
     the target is also stunned for <1d> Rounds.
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 0
   procType: 0
   duration: 1
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects: []
   conditionalEffectType: 2
-  conditionalEffect: {fileID: 11400000, guid: 59173b136fc97cc4c8c37d6db43b2b50, type: 2}
+  appliedEffects: []
   ccTypes: 
   specificEffects:
   - {fileID: 11400000, guid: 5ce6e82e5c94a804682d80da7996ca02, type: 2}
@@ -32,6 +41,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ccb5a7ef0d898cd41b236a96a89a8d30, type: 2}
   - {fileID: 11400000, guid: 3f1e401ab38c57645a9c12b1cf86ecc5, type: 2}
   - {fileID: 11400000, guid: 40ebb1cd52db53848af295073c4e86cd, type: 2}
+  hasAllEffects: 0
   checkTarget: 0
   effectTarget: 0
   consumeEffect: 0

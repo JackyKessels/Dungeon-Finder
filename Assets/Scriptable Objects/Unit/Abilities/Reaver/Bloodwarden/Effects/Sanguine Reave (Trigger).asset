@@ -17,6 +17,8 @@ MonoBehaviour:
   hidden: 1
   description: If your target is affected by <specific1name>, reduce the cooldown
     of all <assault> abilities by <applied1cdr>.
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 0
   procType: 0
   duration: 1

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5014144d4fda58540b2546e0da4965b6, type: 3}
   m_Name: Arcane Bolt
   m_EditorClassIdentifier: 
+  missileMovement: 0
   travelTime: 0.35
   casterEffects: []
   missileEffect: {fileID: 6868948173305620598, guid: 80c97d92298410f4b88f29ee687e6f77,

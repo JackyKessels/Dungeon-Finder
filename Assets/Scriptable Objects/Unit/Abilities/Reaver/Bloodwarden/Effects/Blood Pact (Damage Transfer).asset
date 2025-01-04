@@ -16,7 +16,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 7acd36bb895f4344d8e224b2ee7e3fb2, type: 3}
   hidden: 0
   description: Transfer <1> of damage taken to <caster>.
-  specialEffects: []
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 1
   procType: 1
   duration: 3
@@ -29,4 +30,5 @@ MonoBehaviour:
   applyStacks: 1
   loseStacks: 0
   removeEffects: []
+  direction: 0
   percentage: 0.5

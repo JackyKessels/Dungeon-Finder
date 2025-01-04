@@ -20,344 +20,226 @@ MonoBehaviour:
     - allowedItems: 
       restricted: 0
       item:
-        name: Ragged Vanguard Battlegear
-        id: 0
-        itemObject: {fileID: 11400000, guid: c01d7aa4d5f094e4c9cb5e73e66520dc, type: 2}
-        attributes:
-        - attributeType: 0
-          baseValue: 3
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 1
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 2
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 3
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 4
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 5
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 6
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 7
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 8
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 9
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 10
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 11
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 12
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 13
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 14
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 15
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 16
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 17
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-      amount: 1
+        name: 
+        id: -1
+        itemObject: {fileID: 0}
+        level: 1
+      amount: 0
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
-    - allowedItems: 
-      restricted: 0
-      item:
-        name: Dull Vanguard Shortsword
-        id: 8
-        itemObject: {fileID: 11400000, guid: ac073fa23c7cdb74fbc2b3cb80475c27, type: 2}
-        attributes:
-        - attributeType: 0
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 1
-          baseValue: 1
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 2
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 3
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 4
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 5
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 6
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 7
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 8
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 9
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 10
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 11
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 12
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 13
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 14
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 15
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 16
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-        - attributeType: 17
-          baseValue: 0
-          bonusValue: 0
-          mulitplier: 1
-      amount: 1
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
     - allowedItems: 
       restricted: 0
       item:
         name: 
         id: -1
         itemObject: {fileID: 0}
-        attributes: []
+        level: 1
       amount: 0
+      foodOnly: 0
+    - allowedItems: 
+      restricted: 0
+      item:
+        name: 
+        id: -1
+        itemObject: {fileID: 0}
+        level: 1
+      amount: 0
+      foodOnly: 0
+  dualWield: 0

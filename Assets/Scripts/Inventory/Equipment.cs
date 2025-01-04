@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Equipment : Item
@@ -23,14 +24,12 @@ public class Equipment : Item
         this.equipmentObject = equipmentObject;
         this.level = level;
 
-        attributes = new List<Attribute>();
-
         float totalValue = TotalValue(equipmentObject.slot, equipmentObject.quality);
 
-        foreach (AttributeType type in (AttributeType[])Enum.GetValues(typeof(AttributeType)))
-        {
-            attributes.Add(new Attribute(type));
-        }
+        attributes = Enum.GetValues(typeof(AttributeType))
+                         .Cast<AttributeType>()
+                         .Select(type => new Attribute(type))
+                         .ToList();
 
         foreach (Attribute a in attributes)
         {
@@ -149,13 +148,13 @@ public class Equipment : Item
         }
     }
 
-    public override string GetDescription(TooltipObject tooltipInfo)
+    public override string GetCompleteTooltip(TooltipObject tooltipInfo)
     {
-        string tooltip = base.GetDescription(tooltipInfo) + 
-                         string.Format("\nLevel: {0}", level) + 
-                         ParseSlot() + 
+        string tooltip = equipmentObject.GetName() + 
+                         string.Format("\nLevel: {0}", level) +
+                         equipmentObject.ParseSlot() + 
                          ParseAttributes() + 
-                         GetItemDescription();
+                         equipmentObject.GetDescription();
 
         if (equipmentObject.slot == EquipmentSlot.Flask)
         {
@@ -187,7 +186,7 @@ public class Equipment : Item
 
             if (equipmentObject.useAbility != null)
             {
-                tooltip += "\n\nYou learn the following active ability: " + "\n\n" + equipmentObject.useAbility.GetDescription(tooltipInfo);
+                tooltip += "\n\nYou learn the following active ability: " + "\n\n" + equipmentObject.useAbility.GetCompleteTooltip(tooltipInfo);
             }
 
 
@@ -196,21 +195,7 @@ public class Equipment : Item
         return tooltip;
     }
 
-    private string ParseSlot()
-    {
-        if (equipmentObject.slot == EquipmentSlot.OneHand)
-        {
-            return string.Format("\nSlot: One-hand");
-        }
-        else if (equipmentObject.slot == EquipmentSlot.TwoHand)
-        {
-            return string.Format("\nSlot: Two-hand");
-        }
-        else
-        {
-            return string.Format("\nSlot: {0}", equipmentObject.slot);
-        }
-    }
+
 
     private string ParseAttributes()
     {

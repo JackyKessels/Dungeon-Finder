@@ -29,7 +29,9 @@ public class Floor : ScriptableObject
     public int mysteryCount = 0;
 
     [Header("[ Campfires ]")]
+    public bool campfireBeforeBoss = true;
     public EffectObject wellRestedEffect;
+    [Range(0, 100)]
     [Tooltip("Value in percentages (integer)")]
     public int wellRestedChance;
 

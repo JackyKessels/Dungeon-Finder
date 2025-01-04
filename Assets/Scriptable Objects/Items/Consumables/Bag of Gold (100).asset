@@ -18,14 +18,16 @@ MonoBehaviour:
   stackable: 0
   maxStacks: 1
   sellable: 1
+  unique: 0
   item:
     name: 
-    id: 62
+    id: 4
     itemObject: {fileID: 0}
-    attributes: []
+    level: 1
   description: This bag contains some gold coins.
   quality: 0
   consumptionType: 1
+  usableOnDead: 0
   currency:
     currencyType: 0
     totalAmount: 100

@@ -16,6 +16,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 90c518b29f36fa940b8db384b02ccdfa, type: 3}
   hidden: 0
   description: Taunted by <caster>.
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 0
   procType: 1
   duration: 3
@@ -25,7 +27,9 @@ MonoBehaviour:
   refreshes: 1
   aura: 1
   unique: 1
+  applyStacks: 1
+  loseStacks: 0
   removeEffects:
   - {fileID: 11400000}
   type: 0
-  addTauntImmune: 0
+  addTypeImmunity: 0

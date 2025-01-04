@@ -17,7 +17,7 @@ MonoBehaviour:
   dungeonBackground: {fileID: 21300000, guid: 1fa0130be285616419f7b0d2f082fee1, type: 3}
   battleBackground: {fileID: 21300000, guid: bdfa4d9161fe46944ac0ce31152b6d21, type: 3}
   backgroundSound: {fileID: 0}
-  columns: 3
+  columns: 1
   rows: 1
   startingPoints: 1
   endPoints: 1
@@ -30,6 +30,7 @@ MonoBehaviour:
   campfireCount: 0
   treasureCount: 0
   mysteryCount: 0
+  campfireBeforeBoss: 0
   wellRestedEffect: {fileID: 0}
   wellRestedChance: 0
   itemPool: []
@@ -41,7 +42,8 @@ MonoBehaviour:
   eliteEncounters: []
   bossEncounter:
     enemyObjects:
-    - {fileID: 11400000, guid: a9200d19756006b48805609fa24ebf0a, type: 2}
+    - {fileID: 11400000, guid: a401d806e596eaf4bb79f1af9ae6b10f, type: 2}
+    - {fileID: 11400000, guid: 6ce95a10a91101946b85ad2553a6e54b, type: 2}
     randomOrder: 1
     weight: 1
   mysteryEvents: {fileID: 0}

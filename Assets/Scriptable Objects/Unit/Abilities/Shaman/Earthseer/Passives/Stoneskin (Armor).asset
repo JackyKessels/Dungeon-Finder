@@ -16,10 +16,20 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: e48aa75680a578347b70f86f310f42e8, type: 3}
   hidden: 0
   description: Armor increased by <1>.
+  applicationSpecialEffects:
+  - {fileID: 2238203533684590784, guid: 685f44b3e8f5a884995c69733aac0a41, type: 3}
+  expirationSpecialEffects: []
   isBuff: 1
   procType: 1
   duration: 3
   permanent: 0
+  stackable: 0
+  maxStacks: 0
+  refreshes: 1
+  aura: 0
+  unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects:
   - {fileID: 0}
   - {fileID: 11400000}
@@ -29,6 +39,8 @@ MonoBehaviour:
   modifierSource:
     ignoreMultipliers: 1
     cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
     school: 0
     attributeType: 3
     baseValue: 20
@@ -36,12 +48,13 @@ MonoBehaviour:
     scaling: 0
     levelScaling: 0
     reductionType: 0
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
+      conditionChance: 0
       increasedAttribute: 0
       increaseValue: 0
       casterBased: 1
@@ -49,6 +62,9 @@ MonoBehaviour:
       percentageIncrease: 0
       bonusAbilitySource:
         ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
         school: 0
         attributeType: 0
         baseValue: 0
@@ -58,7 +74,8 @@ MonoBehaviour:
         reductionType: 0
       effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   multiplier: 0
   multiplierPerLevel: 0
-  specialEffects:
-  - {fileID: 2238203533684590784, guid: 685f44b3e8f5a884995c69733aac0a41, type: 3}

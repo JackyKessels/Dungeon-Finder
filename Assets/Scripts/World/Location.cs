@@ -17,7 +17,7 @@ public enum LocationType
     Mystery,
 }
 
-public class Location : MonoBehaviour, IDescribable
+public class Location : MonoBehaviour, IHasTooltip
 {
     private GameManager gameManager;
     private DungeonManager dungeonManager;
@@ -160,31 +160,7 @@ public class Location : MonoBehaviour, IDescribable
                 }
             case LocationType.Campfire:
                 {
-                    TeamManager.Instance.heroes.ReviveDeadMembers(false);
-                    TeamManager.Instance.heroes.HealTeam(campfireHeal, true, true, "Campfire");
-
-                    EffectObject wellRestedEffect = floor.wellRestedEffect;
-                    int wellRestedChance = floor.wellRestedChance;
-
-                    bool successfulWellFed;
-
-                    if (wellRestedEffect == null || wellRestedChance <= 0)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        successfulWellFed = Random.Range(0, 100) < wellRestedChance;
-
-                        if (successfulWellFed)
-                        {
-                            foreach (Unit hero in TeamManager.Instance.heroes.LivingMembers)
-                            {
-                                hero.effectManager.PreparePreBattleEffect(wellRestedEffect);
-                            }
-                        }
-                    }
-
+                    TriggerCampfireEvent(floor, true);
                     break;
                 }
             case LocationType.Spirit:
@@ -210,6 +186,63 @@ public class Location : MonoBehaviour, IDescribable
         dungeonManager.player.movementLocked = false;
     }
 
+    public void TriggerCampfireEvent(Floor floor, bool missingHealth)
+    {
+        TeamManager.Instance.heroes.ReviveDeadMembers(false);
+
+        EffectObject wellRestedEffect = floor.wellRestedEffect;
+        int wellRestedChance = floor.wellRestedChance;
+
+        bool successfulWellRested = false;
+
+        if (wellRestedEffect != null)
+        {
+            successfulWellRested = Random.Range(0, 100) < wellRestedChance;
+
+            if (successfulWellRested)
+            {
+                foreach (Unit hero in TeamManager.Instance.heroes.LivingMembers)
+                {
+                    hero.effectManager.PreparePreBattleEffect(wellRestedEffect);
+                }
+            }
+        }
+
+        List<string> messages = new();
+
+        foreach (Unit unit in TeamManager.Instance.heroes.LivingMembers)
+        {
+            int restoreValue;
+
+            if (missingHealth)
+            {
+                restoreValue = (int)((unit.statsManager.GetAttributeValue(AttributeType.Health) - unit.statsManager.currentHealth) * campfireHeal);
+            }
+            else
+            {
+                restoreValue = (int)(unit.statsManager.GetAttributeValue(AttributeType.Health) * campfireHeal);
+            }
+
+            unit.statsManager.currentHealth += restoreValue;
+
+            if (unit.statsManager.currentHealth > unit.statsManager.GetAttributeValue((int)AttributeType.Health))
+            {
+                unit.statsManager.currentHealth = unit.statsManager.GetAttributeValue((int)AttributeType.Health);
+            }
+
+            messages.Add($"{unit.name} restored <color={ColorDatabase.SchoolColor(AbilitySchool.Healing)}>{restoreValue}</color> Health");
+        }
+
+        string fullMessage = GeneralUtilities.JoinString(messages, "\n", "\n");
+
+        if (successfulWellRested)
+        {
+            fullMessage += "\n\nYour party is also well-rested.";
+        }
+
+        TextWindow.CreateTextWindow("Campfire", fullMessage, 500, 400);   
+    }
+
     public void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
@@ -232,7 +265,7 @@ public class Location : MonoBehaviour, IDescribable
 
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            tooltipHandler.ShowTooltip(GetDescription(null), cameraCoords);
+            tooltipHandler.ShowTooltip(GetCompleteTooltip(null), cameraCoords);
         }
     }
 
@@ -245,7 +278,7 @@ public class Location : MonoBehaviour, IDescribable
     }
 
     // Tooltip
-    public string GetDescription(TooltipObject tooltipInfo)
+    public string GetCompleteTooltip(TooltipObject tooltipInfo)
     {
         return LocationName() + "\n" + TypeDescription() + PreviewEnemies();
     }

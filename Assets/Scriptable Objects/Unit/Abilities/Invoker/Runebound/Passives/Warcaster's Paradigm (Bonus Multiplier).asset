@@ -16,6 +16,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 13d7db31af5858548a2100096590fbe3, type: 3}
   hidden: 0
   description: Your next Primary ability deals <bonus> more damage.
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
   isBuff: 1
   procType: 1
   duration: 1
@@ -25,6 +27,8 @@ MonoBehaviour:
   refreshes: 1
   aura: 0
   unique: 0
+  applyStacks: 1
+  loseStacks: 0
   removeEffects:
   - {fileID: 11400000}
   affectedAbility: 1
@@ -33,4 +37,3 @@ MonoBehaviour:
   specificAbilities: []
   bonusMultiplier: 0.5
   bonusPerLevel: 0
-  specialEffects: []

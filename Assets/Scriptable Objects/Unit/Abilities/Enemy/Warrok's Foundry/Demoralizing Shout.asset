@@ -15,19 +15,26 @@ MonoBehaviour:
   id: -1
   name: Demoralizing Shout
   quality: 0
-  type: 2
+  abilityType: 0
   description: Reduce the Health of every enemy by <t1modV> for <t1d> Rounds.
   icon: {fileID: 21300000, guid: 14cf010af0425934d8e2953fb342dbd0, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
   - {fileID: 5377429174701404347, guid: 638814ffefff28b468524ac80bb8e7fd, type: 3}
+  missile: {fileID: 0}
   hasLevels: 0
   sellable: 0
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 7
+  initialCooldown: 0
   endTurn: 1
+  singleUse: 0
+  resetType: 0
   resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
   weaponRequirement: 4
   soundEffect: {fileID: 0}
   animationType: 1
@@ -37,4 +44,4 @@ MonoBehaviour:
   selfEffects: []
   targetEffects:
   - {fileID: 11400000, guid: d765675102b6ce942837a07629d33429, type: 2}
-  instantTargets: 2
+  abilityTargets: 2

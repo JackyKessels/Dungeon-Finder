@@ -26,6 +26,7 @@ MonoBehaviour:
   casterSpecialEffects: []
   targetSpecialEffects:
   - {fileID: 6989958480090594355, guid: 1adf049dbad4a7247ae8d301b804e025, type: 3}
+  missile: {fileID: 0}
   hasLevels: 0
   sellable: 0
   replacesAbility: {fileID: 0}
@@ -35,6 +36,7 @@ MonoBehaviour:
   targetTrigger: 1
   abilityTypeTrigger: 1
   typeRequirement: 0
+  specificEffect: {fileID: 0}
   schoolTriggers: 01000000020000000300000004000000050000000600000007000000
   triggersPassives: 0
   triggeredByPassives: 1
@@ -52,15 +54,16 @@ MonoBehaviour:
     scaling: 0.2
     levelScaling: 0
     reductionType: 1
-    modifier:
+    abilityModifier:
       hasModifier: 0
       modification: 0
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
+      conditionChance: 0
       increasedAttribute: 0
       increaseValue: 0
-      casterBased: 0
+      casterBased: 1
       attributeBase: 0
       percentageIncrease: 0
       bonusAbilitySource:
@@ -75,8 +78,11 @@ MonoBehaviour:
         scaling: 0
         levelScaling: 0
         reductionType: 0
-      effectOnTarget: 0
+      effectOnTarget: 1
       conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
   castActiveAbilities: []
   selfEffectsPerTarget: 0
   selfEffects: []

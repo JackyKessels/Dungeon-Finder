@@ -44,8 +44,13 @@ public class DamageMeterObject : MonoBehaviour
 
     public void UpdateRecord(AbilityValue abilityValue)
     {
-        if (abilityValue == null || abilityValue.sourceAbility == null)
+        if (abilityValue == null || 
+            abilityValue.sourceAbility == null || 
+            abilityValue.target.statsManager.isInvulnerable ||
+            abilityValue.target.effectManager.HasDamageImmunity())
+        {
             return;
+        }
 
         DamageMeterRecord record = GetRecord(abilityValue.sourceAbility);
 

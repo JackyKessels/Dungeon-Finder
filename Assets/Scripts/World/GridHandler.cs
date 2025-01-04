@@ -10,7 +10,11 @@ public class GridHandler : MonoBehaviour
     public GameObject pathsContainer;
 
     public Location startLocation;
-    public Transform initialPosition;
+
+    public Transform playerPosition;
+    public Transform firstLocationPosition;
+    public Transform singleLocationPlayerPosition;
+    public Transform singleLocationEventPosition;
 
     [Header("Overall Grid Dimensions")]
     public int columns;
@@ -81,6 +85,8 @@ public class GridHandler : MonoBehaviour
 
         Debug.Log($"Generated floor: {floor.name} - {dungeon.name}");
 
+        SetPlayerLocationPosition();
+
         // Lock first locations
         startLocation.SetVisited();
 
@@ -115,7 +121,7 @@ public class GridHandler : MonoBehaviour
         SetupPaths();
 
         // Turn the last row into boss fights
-        AddBosses(floor.forceBossCenter);
+        AddBosses(floor.campfireBeforeBoss);
 
         // Add elites to the map
         AddNewType(floor.eliteCount, LocationType.Elite, false);
@@ -133,7 +139,7 @@ public class GridHandler : MonoBehaviour
         AddEnemiesToLocations(floor, floorLevel);
 
         // Update the pan limitations for the camera
-        backgroundWidthIncrease = GameManager.Instance.cameraScript.UpdatePanLimits((int)initialPosition.position.x, GetLastColumnX());
+        backgroundWidthIncrease = GameManager.Instance.cameraScript.UpdatePanLimits((int)firstLocationPosition.position.x, GetLastColumnX());
 
         // Return the total number of locations in the current map
         return CountGrid();
@@ -204,6 +210,18 @@ public class GridHandler : MonoBehaviour
         return battles;
     }
 
+    public void SetPlayerLocationPosition()
+    {
+        if (columns == 1)
+        {
+            startLocation.transform.position = singleLocationPlayerPosition.position;
+        }
+        else
+        {
+            startLocation.transform.position = playerPosition.position;
+        }
+    }
+
     private void CreateGrid(bool addOffset)
     {
         if (columns == 0 || rows == 0)
@@ -235,11 +253,24 @@ public class GridHandler : MonoBehaviour
                 }
 
                 if (columns <= 8)
+                {
                     columnWidth = totalWidth / columns;
+                }
                 else
+                {
                     columnWidth = 2;
+                }
 
-                Vector3 position = new Vector3(initialPosition.position.x + col * columnWidth, initialPosition.position.y + row * height - offsetY, 0);
+                Vector3 position;
+                if (columns == 1)
+                {
+                    position = new Vector3(singleLocationEventPosition.position.x, singleLocationEventPosition.position.y, 0);
+                }
+                else
+                {
+                    position = new Vector3(firstLocationPosition.position.x + col * columnWidth, firstLocationPosition.position.y + row * height - offsetY, 0);
+                }
+
                 // Randomly offset the positions to give a more natural look
                 if (addOffset)
                     position = NoiseOffset(position);
@@ -582,7 +613,7 @@ public class GridHandler : MonoBehaviour
         }
     }
 
-    private void AddBosses(bool centered)
+    private void AddBosses(bool campfireBeforeBoss)
     {
         for (int i = 0; i < rows; i++)
         {
@@ -592,10 +623,13 @@ public class GridHandler : MonoBehaviour
                 locations[columns - 1, i].SetLocationType(LocationType.Boss);
             }
 
-            // Change second last column to campfire
-            if (locations[columns - 2, i] != null)
+            if (campfireBeforeBoss)
             {
-                locations[columns - 2, i].SetLocationType(LocationType.Campfire);
+                // Change second last column to campfire
+                if (locations[columns - 2, i] != null)
+                {
+                    locations[columns - 2, i].SetLocationType(LocationType.Campfire);
+                }
             }
         }
     }

@@ -16,6 +16,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 82da951337de0aa48ace942446d18a67, type: 3}
   hidden: 0
   description: Critical Chance increased by <1>.
+  applicationSpecialEffects:
+  - {fileID: 8928992226432338762, guid: a2ecc85cc1e26bb42b42a795fcd541df, type: 3}
+  expirationSpecialEffects: []
   isBuff: 1
   procType: 1
   duration: 5
@@ -49,6 +52,7 @@ MonoBehaviour:
       condition: 0
       thresholdType: 0
       conditionThreshold: 0
+      conditionChance: 0
       increasedAttribute: 0
       increaseValue: 0
       casterBased: 1
@@ -73,5 +77,3 @@ MonoBehaviour:
       fractionDrained: 0
   multiplier: 0
   multiplierPerLevel: 0
-  specialEffects:
-  - {fileID: 8928992226432338762, guid: a2ecc85cc1e26bb42b42a795fcd541df, type: 3}
