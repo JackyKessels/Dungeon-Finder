@@ -50,7 +50,7 @@ public class EffectAbilityModifier : EffectObject
 
         temp = AbilityTooltipHandler.DetermineBonusMultipler(temp, "<bonus>", tooltipInfo.effect.storedModValue);
 
-        temp = AbilityTooltipHandler.DetermineSpecificAbilities(temp, "<specific>", this);
+        temp = AbilityTooltipHandler.DetermineSpecificAbilities(temp, "<specific>", specificAbilities);
 
         temp = AbilityTooltipHandler.DetermineTypedEffect(temp, "<typed>", abilityType);
 

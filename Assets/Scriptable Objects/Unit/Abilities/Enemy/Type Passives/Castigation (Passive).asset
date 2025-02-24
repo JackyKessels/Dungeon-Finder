@@ -16,8 +16,11 @@ MonoBehaviour:
   name: Castigation
   quality: 0
   abilityType: 3
-  description: 
-  icon: {fileID: 0}
+  description: 'Taking <H> damage reduces your <armor> by <s1modV>.
+
+
+    <s1stacks>'
+  icon: {fileID: 21300000, guid: 42e15a86b7a0c6d4194bad40a967bcdc, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
   missile: {fileID: 0}
@@ -32,7 +35,7 @@ MonoBehaviour:
   typeRequirement: 0
   specificEffect: {fileID: 0}
   schoolTriggers: 06000000
-  triggersPassives: 0
+  triggersPassives: 1
   triggeredByPassives: 1
   triggeredByEffects: 1
   procChance: 100

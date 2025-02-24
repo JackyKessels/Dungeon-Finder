@@ -15,15 +15,17 @@ MonoBehaviour:
   id: -1
   name: Viscous Sludge
   quality: 0
-  abilityType: 0
-  description: 
+  abilityType: 2
+  description: Deal <e1> <N> damage to your target and reduce their <speed> by <t1modV>
+    for <t1d> Rounds.
   icon: {fileID: 21300000, guid: fd7977934d49fdd4f97fab5b3433c9cb, type: 3}
   casterSpecialEffects:
   - {fileID: 6327161823130969639, guid: 713f6bb02646bb04e92724a0a1471334, type: 3}
+  - {fileID: 8972987736342272854, guid: dd0501ae1ea466348a1c7c1a0be76de0, type: 3}
   targetSpecialEffects: []
   missile: {fileID: 0}
-  hasLevels: 1
-  sellable: 1
+  hasLevels: 0
+  sellable: 0
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 4

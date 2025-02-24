@@ -15,14 +15,18 @@ MonoBehaviour:
   id: -1
   name: Release Essence
   quality: 0
-  abilityType: 0
-  description: 
-  icon: {fileID: 0}
+  abilityType: 3
+  description: 'Explode on death, healing all enemies for <effect1timAp1>.
+
+
+    <name>
+    deals <ns!1>% increased healing per <ns!1>% of Health the target is missing.'
+  icon: {fileID: 21300000, guid: ac6a770947f917143b904697d95817ab, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
   missile: {fileID: 0}
-  hasLevels: 1
-  sellable: 1
+  hasLevels: 0
+  sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
   activationMoment: 3

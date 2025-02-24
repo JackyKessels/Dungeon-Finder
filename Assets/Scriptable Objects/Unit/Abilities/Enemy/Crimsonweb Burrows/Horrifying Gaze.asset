@@ -15,15 +15,15 @@ MonoBehaviour:
   id: -1
   name: Horrifying Gaze
   quality: 0
-  abilityType: 0
-  description: 
+  abilityType: 1
+  description: Reduce your target's <power> by <t1modP> for <t1d> Rounds.
   icon: {fileID: 21300000, guid: 6632b5496bc056a4cb935459e1fc97ab, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
   - {fileID: 1284665599588034542, guid: 002ea6adcd82b35469d4d437e0700710, type: 3}
   missile: {fileID: 0}
-  hasLevels: 1
-  sellable: 1
+  hasLevels: 0
+  sellable: 0
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 3

@@ -15,7 +15,7 @@ MonoBehaviour:
   id: -1
   name: Entangle
   quality: 0
-  abilityType: 2
+  abilityType: 1
   description: Reduce the target's <speed> by <t1modV> for <t1d> Rounds.
   icon: {fileID: 21300000, guid: 3f08532c3a629174ebfe706158a9e32b, type: 3}
   casterSpecialEffects: []

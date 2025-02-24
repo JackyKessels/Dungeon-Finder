@@ -15,8 +15,8 @@ MonoBehaviour:
   id: 1111223
   name: Spawn Sanguine Essence
   quality: 0
-  abilityType: 0
-  description: 
+  abilityType: 1
+  description: Spawn 2 <g!Sanguine Essences>.
   icon: {fileID: 21300000, guid: ac6a770947f917143b904697d95817ab, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
@@ -25,10 +25,10 @@ MonoBehaviour:
   sellable: 0
   replacesAbility: {fileID: 0}
   castTime: 0.75
-  cooldown: 100000000
+  cooldown: 0
   initialCooldown: 0
   endTurn: 1
-  singleUse: 0
+  singleUse: 1
   resetType: 0
   resetChance: 0
   resetAttribute: 8

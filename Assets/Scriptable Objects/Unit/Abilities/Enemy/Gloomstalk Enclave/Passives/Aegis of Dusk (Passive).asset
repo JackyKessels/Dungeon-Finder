@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
+  m_Name: Aegis of Dusk (Passive)
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Aegis of Dusk
+  quality: 0
+  abilityType: 3
+  description: Increase the <armor> of your allies by <effect1modV>.
+  icon: {fileID: 21300000, guid: 375de5491e3042b4fbf26b63b99e16a4, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 8290633093955281576, guid: 06c670ec27681e84bad58e3f7f19ca61, type: 3}
+  missile: {fileID: 0}
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  activationMoment: 0
+  castActiveAbilities: []
+  effects:
+  - {fileID: 11400000, guid: 6f3e3472dcb57d648bbdbd5f8085069f, type: 2}
+  passives: []
+  targets: 6
+  healthPercentage: 0
+  attributeType: 0
+  attributeValue: 0
+  cooldown: 0
+  castFirstRound: 0

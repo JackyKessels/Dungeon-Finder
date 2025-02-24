@@ -51,9 +51,12 @@ public class Active
         this.isDoubleCast = isDoubleCast;
     }
 
-    public void Trigger(Unit caster, Unit target, float effectiveness)
+    public void Trigger(Unit caster, Unit target, float effectiveness, bool triggerOnAbilityCastEvent = true)
     {
-        caster.OnAbilityCast?.Invoke(caster, target, this);
+        if (triggerOnAbilityCastEvent)
+        {
+            caster.OnAbilityCast?.Invoke(caster, target, this);
+        }
 
         activeAbility.TriggerAbility(caster, target, level, effectiveness);
     }

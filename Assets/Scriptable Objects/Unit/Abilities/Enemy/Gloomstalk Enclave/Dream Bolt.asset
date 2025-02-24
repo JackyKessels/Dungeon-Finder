@@ -16,14 +16,14 @@ MonoBehaviour:
   name: Dream Bolt
   quality: 0
   abilityType: 0
-  description: Deal <1> <N> damage to your target.
+  description: Deal <e1> <N> damage to your target.
   icon: {fileID: 21300000, guid: 095282657c6ffde4aa1da4e66a51f16a, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
   - {fileID: 9074000832993143769, guid: 6b47940445fd5f440856ecc64e153525, type: 3}
   missile: {fileID: 0}
-  hasLevels: 1
-  sellable: 1
+  hasLevels: 0
+  sellable: 0
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 0

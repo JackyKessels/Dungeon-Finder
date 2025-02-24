@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bbe676d996b2840ab0535654618b14, type: 3}
+  m_Name: Curse of Death
+  m_EditorClassIdentifier: 
+  id: 18
+  name: Curse of Death
+  quality: 0
+  abilityType: 2
+  description: 'Deal <t1timEx1> <S> damage after <t1d> Rounds.
+
+
+    <name> deals
+    <ns!35>% more damage if the target is below <ns!50>% Health.
+
+
+    <name> cannot
+    critically hit.'
+  icon: {fileID: 21300000, guid: ba9bc9b4d38fd73409d78e166f077a66, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 1388926048353821277, guid: d8f4cc38c10bcc84289e078a3ea21f77, type: 3}
+  missile: {fileID: 0}
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  castTime: 1
+  cooldown: 3
+  initialCooldown: 0
+  endTurn: 1
+  singleUse: 0
+  resetType: 0
+  resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
+  weaponRequirement: 4
+  soundEffect: {fileID: 0}
+  animationType: 0
+  allyAbilitySources: []
+  enemyAbilitySources: []
+  selfEffectsPerTarget: 0
+  selfEffects: []
+  targetEffects:
+  - {fileID: 11400000, guid: 220596a048253074eb4f7babc973c440, type: 2}
+  cannotTargetSelf: 0
+  targetsAllies: 0
+  targetsEnemies: 1
+  targetTargets: 0
+  adjacentModifier: 0

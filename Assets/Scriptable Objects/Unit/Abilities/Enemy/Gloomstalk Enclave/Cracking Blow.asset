@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Cracking Blow
   quality: 0
   abilityType: 0
-  description: 
+  description: Deal <e1> <P> damage to your target.
   icon: {fileID: 21300000, guid: e0f8d9af521ec2841addc433b5723242, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:

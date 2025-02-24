@@ -16,13 +16,13 @@ MonoBehaviour:
   name: Nervous Expansion
   quality: 0
   abilityType: 0
-  description: 
+  description: Increase your <naturemultiplier> by <s1modV>%.
   icon: {fileID: 21300000, guid: e8d73f4a0e211e24fa24ca699de418ad, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
   missile: {fileID: 0}
-  hasLevels: 1
-  sellable: 1
+  hasLevels: 0
+  sellable: 0
   replacesAbility: {fileID: 0}
   castTime: 0.5
   cooldown: 0

@@ -15,9 +15,9 @@ MonoBehaviour:
   id: -1
   name: Cracked Shell
   quality: 0
-  abilityType: 0
-  description: Taking damage has a 33% chance to crack your shell, reducing your
-    Armor by 10 for 2 Rounds.
+  abilityType: 3
+  description: Taking damage has a <%> chance to crack your shell, reducing your
+    <armor> by <s1modV> for <s1d> Rounds.
   icon: {fileID: 21300000, guid: 42e15a86b7a0c6d4194bad40a967bcdc, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []

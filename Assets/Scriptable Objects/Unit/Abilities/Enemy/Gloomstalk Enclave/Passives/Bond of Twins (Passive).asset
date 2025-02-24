@@ -16,8 +16,8 @@ MonoBehaviour:
   name: Bond of Twins
   quality: 0
   abilityType: 3
-  description: 
-  icon: {fileID: 0}
+  description: Transfer <effect1transfer> of damage taken by you to your Twin.
+  icon: {fileID: 21300000, guid: 655c7dd7fb552624e8ca1c5e9b60b850, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
   missile: {fileID: 0}

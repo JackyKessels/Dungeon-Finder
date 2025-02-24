@@ -30,6 +30,7 @@ MonoBehaviour:
   campfireCount: 1
   treasureCount: 1
   mysteryCount: 1
+  campfireBeforeBoss: 1
   wellRestedEffect: {fileID: 0}
   wellRestedChance: 0
   itemPool:
@@ -60,18 +61,22 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 0dd4bbfde238be6479975b797d721ea4, type: 2}
     randomOrder: 1
     weight: 1
+    conversation: {fileID: 0}
   - enemyObjects:
     - {fileID: 11400000, guid: deee5678bba001b4e981c4bc21557db9, type: 2}
     randomOrder: 0
     weight: 1
+    conversation: {fileID: 0}
   eliteEncounters:
   - enemyObjects:
     - {fileID: 11400000, guid: aec1fe96cfac071458fb7d706b9d830d, type: 2}
     randomOrder: 0
     weight: 1
+    conversation: {fileID: 0}
   bossEncounter:
     enemyObjects:
     - {fileID: 11400000, guid: 4b03e6418cf01c742ae0d5a5757895c9, type: 2}
     randomOrder: 0
     weight: 1
+    conversation: {fileID: 11400000, guid: 96f1386b8d1b20649a46c829609a7a1d, type: 2}
   mysteryEvents: {fileID: 11400000, guid: c0bbfb3b5c26c7043a6b3e391c2ae9ce, type: 2}

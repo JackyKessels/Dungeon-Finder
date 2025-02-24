@@ -67,7 +67,7 @@ MonoBehaviour:
     healthThreshold: 100
     startCooldown: 0
     charged: 0
-  - ability: {fileID: 11400000, guid: 0f46e9e5fd3684f4abdcc772593744f6, type: 2}
+  - ability: {fileID: 11400000, guid: 776aca8a3d8a10741a2bbe8c7586a48d, type: 2}
     target: 1
     targetAttribute: 0
     condition: 1

@@ -16,7 +16,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 7dc444cf62853614891d3e0a23e5905c, type: 3}
   hidden: 1
   description: 
-  applicationSpecialEffects: []
+  applicationSpecialEffects:
+  - {fileID: 7356303517211428145, guid: fa204db3936d94b4e9067eceb815a3d9, type: 3}
   expirationSpecialEffects: []
   isBuff: 0
   procType: 0

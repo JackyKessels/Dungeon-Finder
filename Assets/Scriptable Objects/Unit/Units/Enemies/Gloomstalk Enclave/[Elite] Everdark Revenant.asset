@@ -25,7 +25,7 @@ MonoBehaviour:
   armor: 0
   resistance: 0
   vitality: 0
-  speed: 5
+  speed: 10
   accuracy: 80
   criticalHit: 10
   healingMultiplier: 100
@@ -56,6 +56,13 @@ MonoBehaviour:
     level: 0
   randomAbility: 0
   abilities:
+  - ability: {fileID: 11400000, guid: 3c17b792708518d448814b0c838948a7, type: 2}
+    target: 1
+    targetAttribute: 0
+    condition: 0
+    healthThreshold: 100
+    startCooldown: 1
+    charged: 0
   - ability: {fileID: 11400000, guid: b505c1982531d4b4b989e44c104a7d4e, type: 2}
     target: 2
     targetAttribute: 7
@@ -63,4 +70,5 @@ MonoBehaviour:
     healthThreshold: 100
     startCooldown: 0
     charged: 0
-  passiveAbilities: []
+  passiveAbilities:
+  - {fileID: 11400000, guid: 5f183d926ea3ea74a9fa5aac07ed6184, type: 2}

@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Venomous Fangs
   quality: 0
   abilityType: 0
-  description: 
+  description: Deal <e1> <N> damage to your target.
   icon: {fileID: 21300000, guid: 73003969133e3d642aea17fc348307f6, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:

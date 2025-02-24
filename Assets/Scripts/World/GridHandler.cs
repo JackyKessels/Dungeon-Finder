@@ -664,15 +664,15 @@ public class GridHandler : MonoBehaviour
             {
                 if (location.locationType == LocationType.Battle)
                 {
-                    location.enemyUnits = Encounter.SetupUnitObjects(floor.trashEncounters, level, level + 1);
+                    Encounter.SetupUnitObjects(location, floor.trashEncounters, level, level + 1);
                 }
                 else if (location.locationType == LocationType.Elite)
                 {
-                    location.enemyUnits = Encounter.SetupUnitObjects(floor.eliteEncounters, level + 1, level + 1);
+                    Encounter.SetupUnitObjects(location, floor.eliteEncounters, level + 1, level + 1);
                 }
                 else if (location.locationType == LocationType.Boss)
                 {
-                    location.enemyUnits = Encounter.SetupUnitObjects(floor.bossEncounter, level + 2, level + 2);
+                    Encounter.SetupUnitObjects(location, floor.bossEncounter, level + 2, level + 2);
                 }
             }
         }

@@ -16,14 +16,14 @@ MonoBehaviour:
   name: Arcane Smite
   quality: 0
   abilityType: 0
-  description: Deal <1> <A> damage to your target.
+  description: Deal <e1> <A> damage to your target.
   icon: {fileID: 21300000, guid: 095282657c6ffde4aa1da4e66a51f16a, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
   - {fileID: 1068813345954862006, guid: 5ba24566e3b082c4993ba32ba8ad7152, type: 3}
   missile: {fileID: 0}
-  hasLevels: 1
-  sellable: 1
+  hasLevels: 0
+  sellable: 0
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 0

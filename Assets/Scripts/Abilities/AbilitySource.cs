@@ -399,7 +399,7 @@ public class AbilityValue
         else
         {
             caster.statsManager.OnCauseUnitEvent?.Invoke(this);
-            target.statsManager.ReceiveHealing(this);
+            target.statsManager.ReceiveHealing(this, true);
         }
     }
 

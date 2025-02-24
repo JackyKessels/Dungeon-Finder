@@ -72,6 +72,8 @@ MonoBehaviour:
   textWindow: {fileID: 1657531973785738348, guid: e4ab4330bf12a064ea472e5a19492a02,
     type: 3}
   unknownIcon: {fileID: 21300000, guid: 3de08c1d203f40e4d9585df728817efa, type: 3}
+  tooltipIconPrefab: {fileID: 2573059051103095228, guid: f8a9064244008e94bb3fe7808ec1b0a5,
+    type: 3}
   oneMember: {fileID: 21300000, guid: e518fd1e6892fcf46afbfc065e54b472, type: 3}
   threeMembers: {fileID: 21300000, guid: 9b8e5dab7810bf4449a6d0e07d11c055, type: 3}
   cancelIcon: {fileID: 21300000, guid: 00152f83547c6b24bb6e5bbd47abecb0, type: 3}

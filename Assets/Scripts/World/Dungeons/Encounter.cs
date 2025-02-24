@@ -8,6 +8,7 @@ public class Encounter
     public List<EnemyObject> enemyObjects;
     public bool randomOrder = true;
     public int weight = 1;
+    public Conversation conversation;
 
     private static Encounter WeightedEncounter(List<Encounter> encounters)
     {
@@ -21,7 +22,7 @@ public class Encounter
         return encounters[GeneralUtilities.RandomWeighted(weights)];
     }
 
-    public static List<(EnemyObject, int)> SetupUnitObjects(List<Encounter> encounters, int minimumLevel, int maximumLevel)
+    public static void SetupUnitObjects(Location location, List<Encounter> encounters, int minimumLevel, int maximumLevel)
     {
         Encounter encounter = WeightedEncounter(encounters);
 
@@ -38,10 +39,11 @@ public class Encounter
             enemyObjects.Add((encounter.enemyObjects[i], encounterLevel));
         }
 
-        return enemyObjects;
+        location.enemyUnits = enemyObjects;
+        location.encounter = encounter;
     }
 
-    public static List<(EnemyObject, int)> SetupUnitObjects(Encounter encounter, int minimumLevel, int maximumLevel)
+    public static void SetupUnitObjects(Location location, Encounter encounter, int minimumLevel, int maximumLevel)
     {
         List<(EnemyObject, int)> enemyObjects = new List<(EnemyObject, int)>();
 
@@ -56,7 +58,8 @@ public class Encounter
             enemyObjects.Add((encounter.enemyObjects[i], encounterLevel));
         }
 
-        return enemyObjects;
+        location.enemyUnits = enemyObjects;
+        location.encounter = encounter;
     }
 }
 

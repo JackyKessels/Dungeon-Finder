@@ -15,8 +15,10 @@ MonoBehaviour:
   id: 100000
   name: Devour
   quality: 0
-  abilityType: 0
-  description: 
+  abilityType: 2
+  description: "Deal <e1> <P> damage to your target. \n\n<name> deals <t1timAc1>
+    <N> damage to the target and heals the caster for <s1timAc1> every Round for
+    <t1d> Rounds.\n\nThe target and caster are stunned for <t1d> Rounds."
   icon: {fileID: 21300000, guid: 4d5f3f58ee98e16408f072f202bed8f8, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:

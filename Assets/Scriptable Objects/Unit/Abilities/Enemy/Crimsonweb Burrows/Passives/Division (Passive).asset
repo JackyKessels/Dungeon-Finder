@@ -15,14 +15,15 @@ MonoBehaviour:
   id: -1
   name: Division
   quality: 0
-  abilityType: 0
-  description: 
-  icon: {fileID: 0}
+  abilityType: 3
+  description: Spawn 2 <g!Sludgelings> and reduce your <armor> and <resistance> by
+    <effect1modV> when reduced below <threshold>% Health.
+  icon: {fileID: 21300000, guid: ec5a26371b229374aa1dbfa2291f4a5a, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
   missile: {fileID: 0}
-  hasLevels: 1
-  sellable: 1
+  hasLevels: 0
+  sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
   activationMoment: 1

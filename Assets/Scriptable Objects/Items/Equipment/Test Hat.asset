@@ -46,5 +46,6 @@ MonoBehaviour:
   shadowMultiplier: 0
   critMultiplier: 0
   sacrificialMultiplier: 0
-  passives: []
-  useAbility: {fileID: 11400000, guid: 1a02fe7d0e7ca7b4392ee98341726dab, type: 2}
+  passives:
+  - {fileID: 11400000, guid: 8d9dd215c3e1653469b16aabed96eb7c, type: 2}
+  useAbility: {fileID: 0}

@@ -29,7 +29,7 @@ public class MysteryEvent
 
     public List<MysteryResult> results;
 
-    public MysteryResult TriggerEvent(List<ConsequenceStructure> consequenceStructures, int level)
+    public MysteryResult TriggerEvent(List<ConsequenceStructure> consequenceStructures, int level, Location sourceLocation)
     {
         foreach (MysteryResult mysteryResult in results)
         {
@@ -37,7 +37,7 @@ public class MysteryEvent
             {
                 foreach (MysteryAction mysteryAction in mysteryResult.actions)
                 {
-                    mysteryAction.TriggerAction(consequenceStructures, level);
+                    mysteryAction.TriggerAction(consequenceStructures, level, sourceLocation);
                 }
 
                 return mysteryResult;
@@ -173,7 +173,7 @@ public class MysteryAction
     public Encounter encounter;
     public EncounterTeamSetup teamSetup = EncounterTeamSetup.Team;
 
-    public void TriggerAction(List<ConsequenceStructure> consequenceStructures, int level)
+    public void TriggerAction(List<ConsequenceStructure> consequenceStructures, int level, Location sourceLocation)
     {
         Debug.Log("Mystery action: " + type.ToString());
 
@@ -347,8 +347,8 @@ public class MysteryAction
                     {
                         case EncounterTeamSetup.Team:
                             {
-                                List<(EnemyObject, int)> enemyUnits = Encounter.SetupUnitObjects(encounter, level, level + 1);
-                                BattleManager.Instance.StartBattle(enemyUnits);
+                                Encounter.SetupUnitObjects(sourceLocation, encounter, level, level + 1);
+                                BattleManager.Instance.StartBattle(sourceLocation);
                             }
                             break;
                         case EncounterTeamSetup.SoloPicked:

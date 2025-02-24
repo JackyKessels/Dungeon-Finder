@@ -267,7 +267,7 @@ public class StatsManager
         }
         else
         {
-            ApplyTransferDamage(abilityValue, allowDamageTransfer);
+            ApplyTransferDamageEffect(abilityValue, allowDamageTransfer);
 
             currentHealth -= abilityValue.Rounded();
 
@@ -278,38 +278,6 @@ public class StatsManager
             OnReceiveUnitEvent?.Invoke(abilityValue);
 
             CheckHealthStatus(abilityValue);
-        }
-    }
-
-    private void ApplyTransferDamage(AbilityValue abilityValue, bool allowDamageTransfer)
-    {
-        if (!allowDamageTransfer)
-        {
-            return;
-        }
-
-        Effect damageTransferEffectToCaster = unit.effectManager.GetHighestDamageTransfer(DamageTransferDirection.TargetToCaster);
-        if (damageTransferEffectToCaster != null && damageTransferEffectToCaster.effectObject is EffectDamageTransfer damageTransferToCaster)
-        {
-            AbilityValue transferValue = new AbilityValue(abilityValue.triggerSource, abilityValue.sourceAbility, abilityValue.sourceLevel, false, true, abilityValue.value * damageTransferToCaster.percentage, abilityValue.school, abilityValue.abilityType, abilityValue.cannotCrit, abilityValue.cannotMiss, abilityValue.target, damageTransferEffectToCaster.caster, abilityValue.color, false, abilityValue.ignorePassives);
-
-            transferValue.value = unit.statsManager.CalculateMitigatedDamage(transferValue.value, GeneralUtilities.GetReductionType(transferValue.school));
-
-            damageTransferEffectToCaster.caster.statsManager.TakeDamage(transferValue, false);
-
-            abilityValue.value *= (1 - damageTransferToCaster.percentage);
-        }
-
-        Effect damageTransferEffectToTarget = EffectManager.GetDamageTransferToTarget(unit);
-        if (damageTransferEffectToTarget != null && damageTransferEffectToTarget.effectObject is EffectDamageTransfer damageTransferToTarget)
-        {
-            AbilityValue transferValue = new AbilityValue(abilityValue.triggerSource, abilityValue.sourceAbility, abilityValue.sourceLevel, false, true, abilityValue.value * damageTransferToTarget.percentage, abilityValue.school, abilityValue.abilityType, abilityValue.cannotCrit, abilityValue.cannotMiss, abilityValue.target, damageTransferEffectToTarget.caster, abilityValue.color, false, abilityValue.ignorePassives);
-
-            transferValue.value = unit.statsManager.CalculateMitigatedDamage(transferValue.value, GeneralUtilities.GetReductionType(transferValue.school));
-
-            damageTransferEffectToTarget.target.statsManager.TakeDamage(transferValue, false);
-
-            abilityValue.value *= (1 - damageTransferToTarget.percentage);
         }
     }
 
@@ -324,21 +292,129 @@ public class StatsManager
         abilitySource.TriggerSource(null, null, 1, false, false, unit, unit, 1, isUnitTrigger, 1, AbilityType.Assault);
     }
 
+    public void ReceiveHealing(AbilityValue abilityValue, bool allowDamageTransfer = true)
+    {
+        if (isInvulnerable)
+        {
+
+        }
+        else
+        {
+            ApplyTransferHealingEffect(abilityValue, allowDamageTransfer);
+
+            FCTData fctData = new FCTData(true, unit, abilityValue.Rounded().ToString(), abilityValue.isGlancing, abilityValue.isCritical, abilityValue.color, abilityValue.color);
+            unit.fctHandler.AddToFCTQueue(fctData);
+
+            currentHealth += abilityValue.Rounded();
+
+            OnReceiveUnitEvent?.Invoke(abilityValue);
+
+            CheckHealthStatus(abilityValue);
+        }
+    }
+
+    private void ApplyTransferDamageEffect(AbilityValue abilityValue, bool allowDamageTransfer)
+    {
+        if (!allowDamageTransfer)
+        {
+            return;
+        }
+
+        Effect damageTransferToCaster = unit.effectManager.GetHighestTransfer(TransferDirection.TargetToCaster, TransferType.Damage);
+        if (damageTransferToCaster != null)
+        {
+            ApplyTransfer(abilityValue, damageTransferToCaster, damageTransferToCaster.target, damageTransferToCaster.caster);
+        }
+
+        Effect damageTransferToTarget = EffectManager.GetTransferToTarget(unit, TransferType.Damage);
+        if (damageTransferToTarget != null)
+        {
+            ApplyTransfer(abilityValue, damageTransferToTarget, damageTransferToTarget.caster, damageTransferToTarget.target);
+        }
+    }
+
+    private void ApplyTransferHealingEffect(AbilityValue abilityValue, bool allowDamageTransfer)
+    {
+        if (!allowDamageTransfer)
+        {
+            return;
+        }
+
+        Effect healingTransferToCaster = unit.effectManager.GetHighestTransfer(TransferDirection.TargetToCaster, TransferType.Healing);
+        if (healingTransferToCaster != null)
+        {
+            ApplyTransfer(abilityValue, healingTransferToCaster, healingTransferToCaster.target, healingTransferToCaster.caster);
+        }
+
+        Effect healingTransferToTarget = EffectManager.GetTransferToTarget(unit, TransferType.Healing);
+        if (healingTransferToTarget != null)
+        {
+            ApplyTransfer(abilityValue, healingTransferToTarget, healingTransferToTarget.caster, healingTransferToTarget.target);
+        }
+    }
+
+    private void ApplyTransfer(AbilityValue abilityValue, Effect transferEffect, Unit transferFrom, Unit transferTo)
+    {
+        if (transferEffect.effectObject == null)
+        {
+            return;
+        }
+
+        if (transferEffect.effectObject is not EffectDamageTransfer transfer)
+        {
+            return;
+        }
+
+        AbilityValue transferValue = new AbilityValue(
+            abilityValue.triggerSource,
+            abilityValue.sourceAbility,
+            abilityValue.sourceLevel,
+            false,
+            true,
+            abilityValue.value * transfer.percentage,
+            abilityValue.school,
+            abilityValue.abilityType,
+            abilityValue.cannotCrit,
+            abilityValue.cannotMiss,
+            abilityValue.caster,
+            transferTo,
+            abilityValue.color,
+            false,
+            abilityValue.ignorePassives
+        );
+
+        switch (transfer.transferType)
+        {
+            case TransferType.Damage:
+                {
+                    transferValue.value = transferFrom.statsManager.CalculateMitigatedDamage(transferValue.value, GeneralUtilities.GetReductionType(transferValue.school));
+
+                    transferTo.statsManager.TakeDamage(transferValue, false);
+
+                    if (transfer.mode == TransferMode.Split)
+                    {
+                        abilityValue.value *= (1 - transfer.percentage);
+                    }
+                }
+                break;
+            case TransferType.Healing:
+                {
+                    transferValue.value = transferFrom.statsManager.CalculateVitalityHealing(transferValue.value);
+
+                    transferTo.statsManager.ReceiveHealing(transferValue, false);
+
+                    if (transfer.mode == TransferMode.Split)
+                    {
+                        abilityValue.value *= (1 - transfer.percentage);
+                    }
+                }
+                break;
+        }
+    }
+
     private void BreakIncapacitate(AbilityValue abilityValue)
     {
         unit.effectManager.BreakCrowdControl(CrowdControlType.Incapacitate);
-    }
-
-    public void ReceiveHealing(AbilityValue abilityValue)
-    {
-        FCTData fctData = new FCTData(true, unit, abilityValue.Rounded().ToString(), abilityValue.isGlancing, abilityValue.isCritical, abilityValue.color, abilityValue.color);
-        unit.fctHandler.AddToFCTQueue(fctData);
-
-        currentHealth += abilityValue.Rounded();
-
-        OnReceiveUnitEvent?.Invoke(abilityValue);
-
-        CheckHealthStatus(abilityValue);
     }
 
     // Pretty much check if dead

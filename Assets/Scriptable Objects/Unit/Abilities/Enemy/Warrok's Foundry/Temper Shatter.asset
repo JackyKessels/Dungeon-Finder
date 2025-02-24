@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
+  m_Name: Temper Shatter
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Temper Shatter
+  quality: 0
+  abilityType: 2
+  description: 
+  icon: {fileID: 21300000, guid: bb44dcd437c7c3745ab33d66d8318607, type: 3}
+  casterSpecialEffects:
+  - {fileID: 3915675307003250425, guid: cfe50364b95588e4c80b23211df70005, type: 3}
+  targetSpecialEffects: []
+  missile: {fileID: 0}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  castTime: 0.75
+  cooldown: 0
+  initialCooldown: 0
+  endTurn: 1
+  singleUse: 0
+  resetType: 0
+  resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
+  weaponRequirement: 4
+  soundEffect: {fileID: 8300000, guid: 9e1b8cfb60efb58489b5cf5c5a6d8dcb, type: 3}
+  animationType: 1
+  allyAbilitySources:
+  - ignoreMultipliers: 0
+    cannotCrit: 1
+    cannotMiss: 1
+    ignorePassives:
+    - {fileID: 11400000, guid: 327ac024207749c418894491843326f8, type: 2}
+    school: 2
+    attributeType: 2
+    baseValue: 0
+    levelBase: 0
+    scaling: 10
+    levelScaling: 0
+    reductionType: 2
+    abilityModifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      conditionChance: 0
+      increasedAttribute: 0
+      increaseValue: 0
+      casterBased: 0
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 0
+      conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
+  enemyAbilitySources: []
+  selfEffectsPerTarget: 0
+  selfEffects: []
+  targetEffects:
+  - {fileID: 11400000, guid: 4188fcbe241b132449db0ca8bf7646e4, type: 2}
+  abilityTargets: 1

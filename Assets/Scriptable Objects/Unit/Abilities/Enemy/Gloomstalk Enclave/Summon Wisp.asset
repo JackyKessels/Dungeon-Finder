@@ -15,14 +15,14 @@ MonoBehaviour:
   id: -1
   name: Summon Wisp
   quality: 0
-  abilityType: 0
-  description: 
+  abilityType: 2
+  description: Summons an <g!Erratic Wisp>.
   icon: {fileID: 21300000, guid: e28a7e5ba93078744b36bfb4f5d65a07, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
   missile: {fileID: 0}
-  hasLevels: 1
-  sellable: 1
+  hasLevels: 0
+  sellable: 0
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 1

@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Strike
   quality: 0
   abilityType: 0
-  description: 
+  description: Deal <e1> <P> damage to your target.
   icon: {fileID: 21300000, guid: 03d9032ff17414d49b252b38666626eb, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:

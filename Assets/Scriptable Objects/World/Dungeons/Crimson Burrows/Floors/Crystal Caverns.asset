@@ -26,10 +26,11 @@ MonoBehaviour:
   maximumLocations: 18
   addOffset: 0
   forceBossCenter: 1
-  eliteCount: 1
+  eliteCount: 2
   campfireCount: 1
   treasureCount: 1
   mysteryCount: 3
+  campfireBeforeBoss: 1
   wellRestedEffect: {fileID: 0}
   wellRestedChance: 0
   itemPool:
@@ -48,7 +49,7 @@ MonoBehaviour:
   - itemObject: {fileID: 11400000, guid: 85f6f2b7c99bf55428a0033f14755e9b, type: 2}
     amount: 3
     weight: 2
-    level: 0
+    level: 1
   - itemObject: {fileID: 11400000, guid: bbec155b5c72e7447b17fc0f15e34b28, type: 2}
     amount: 1
     weight: 2

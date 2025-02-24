@@ -15,8 +15,8 @@ MonoBehaviour:
   id: -1
   name: Alpha Presence
   quality: 0
-  abilityType: 0
-  description: 
+  abilityType: 3
+  description: Increase the <armor> of your allies by <effect1modV>.
   icon: {fileID: 21300000, guid: 15ed668b03f95dc4a9f2e4af8f338ec1, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []

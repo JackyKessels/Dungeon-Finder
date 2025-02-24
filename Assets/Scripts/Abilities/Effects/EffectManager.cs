@@ -9,9 +9,15 @@ public class EffectManager : MonoBehaviour
     // In-battle effect list
     public List<Effect> effectsList = new List<Effect>();
 
+    public IEnumerable<Effect> PositiveEffects => effectsList.Where(e => e.effectObject.isBuff);
+    public IEnumerable<Effect> NegativeEffects => effectsList.Where(e => !e.effectObject.isBuff);
+
     // Effects that will be applied at the start of the next battle
     public List<EffectObject> preBattleEffects = new List<EffectObject>();
 
+    /// <summary>
+    /// The unit that this effect manager belongs to.
+    /// </summary>
     private Unit unit;
 
     private void Start()
@@ -86,8 +92,20 @@ public class EffectManager : MonoBehaviour
         {
             if (effect.stacks == stackEffect.stacksToTrigger)
             {
-                ApplyEffect(stackEffect.effectObject, effect.caster, effect.target, effect.level, effect.sourceAbility);
-                consume = true;
+                if (stackEffect.effectObject != null)
+                {
+                    ApplyEffect(stackEffect.effectObject, effect.caster, effect.target, effect.level, effect.sourceAbility);
+                }
+
+                if (stackEffect.castActiveAbility.activeAbility != null)
+                {
+                    stackEffect.castActiveAbility.CastAbility(effect.caster, effect.target);
+                }
+
+                if (stackEffect.consumeEffect)
+                {
+                    consume = true;
+                }
             }
         }
 
@@ -95,6 +113,11 @@ public class EffectManager : MonoBehaviour
         {
             effect.target.effectManager.OnExpiration(effect);
         }
+    }
+
+    public void DispelEffect(Effect effect)
+    {
+        OnExpiration(effect, triggerEffect: effect.effectObject is not EffectOverTime);
     }
 
     public void ApplyPreBattleEffects()
@@ -331,7 +354,7 @@ public class EffectManager : MonoBehaviour
         return effectsList.Where(e => e.effectObject is EffectAbilityModifier).ToList();
     }
 
-    public static Effect GetDamageTransferToTarget(Unit caster)
+    public static Effect GetTransferToTarget(Unit caster, TransferType transferType)
     {
         List<Effect> effects = new List<Effect>();
 
@@ -342,7 +365,7 @@ public class EffectManager : MonoBehaviour
                 continue;
             }
 
-            var damageTransfer = hero.effectManager.GetDamageTransfers(DamageTransferDirection.CasterToTarget)
+            var damageTransfer = hero.effectManager.GetTransfers(TransferDirection.CasterToTarget, transferType)
                 .Where(t => t.caster == caster)
                 .OrderByDescending(e => (e.effectObject as EffectDamageTransfer).percentage)
                 .FirstOrDefault();
@@ -360,7 +383,7 @@ public class EffectManager : MonoBehaviour
                 continue;
             }
 
-            var damageTransfer = enemy.effectManager.GetDamageTransfers(DamageTransferDirection.CasterToTarget)
+            var damageTransfer = enemy.effectManager.GetTransfers(TransferDirection.CasterToTarget, transferType)
                 .Where(t => t.caster == caster)
                 .OrderByDescending(e => (e.effectObject as EffectDamageTransfer).percentage)
                 .FirstOrDefault();
@@ -379,24 +402,23 @@ public class EffectManager : MonoBehaviour
         return effects.FirstOrDefault();
     }
 
-
-
-    public Effect GetHighestDamageTransfer(DamageTransferDirection damageTransferDirection)
+    public Effect GetHighestTransfer(TransferDirection damageTransferDirection, TransferType transferType)
     {
         if (NoEffects())
             return null;
 
-        Effect highestEffect = GetDamageTransfers(damageTransferDirection)
+        Effect highestEffect = GetTransfers(damageTransferDirection, transferType)
                                .OrderByDescending(e => (e.effectObject as EffectDamageTransfer).percentage)
                                .FirstOrDefault();
 
         return highestEffect;
     }
 
-    private List<Effect> GetDamageTransfers(DamageTransferDirection damageTransferDirection)
+    private List<Effect> GetTransfers(TransferDirection damageTransferDirection, TransferType transferType)
     {
         return effectsList.Where(e => e.effectObject is EffectDamageTransfer damageTransfer && 
                                       damageTransfer.direction == damageTransferDirection && 
+                                      damageTransfer.transferType == transferType &&
                                       !e.caster.statsManager.isDead).ToList();
     }
 
@@ -627,6 +649,12 @@ public class EffectManager : MonoBehaviour
                     spriteChange.ChangeSprite(unit);
 
                     break;
+                }
+            case EffectDispel dispel:
+                {
+                    dispel.DispelEffects(unit);
+
+                    return;
                 }
         }
 

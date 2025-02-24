@@ -297,7 +297,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
 
-        DialogueManager.Instance.Setup(introductionSpeech);
+        DialogueManager.Instance.StartConversation(introductionSpeech);
     }
 
     private void CreateTeam()

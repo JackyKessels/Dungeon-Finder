@@ -16,7 +16,7 @@ public class TooltipIcon : MonoBehaviour
         tooltipObject.genericTooltip = genericTooltip;
     }
 
-    public void Setup(AbilityObject abilityObject)
+    public void Setup(AbilityObject abilityObject, int level = 1)
     {
         if (abilityObject == null)
             return;      
@@ -24,10 +24,10 @@ public class TooltipIcon : MonoBehaviour
         icon.sprite = abilityObject.icon;
 
         if (abilityObject is ActiveAbility active)
-            tooltipObject.active = new Active(active, 1);
+            tooltipObject.active = new Active(active, level);
 
         if (abilityObject is PassiveAbility passive)
-            tooltipObject.passive = new Passive(passive, 1);
+            tooltipObject.passive = new Passive(passive, level);
     }
 
     public void Setup(EffectObject effectObject)

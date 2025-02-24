@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Etheric Whirlwind
   quality: 0
   abilityType: 2
-  description: 
+  description: Deal <e1> <A> damage <g!3> times to all enemies.
   icon: {fileID: 21300000, guid: 54f54f9163edc4b428c419332fb0f0fc, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
@@ -24,8 +24,8 @@ MonoBehaviour:
   - {fileID: 6253941508908294806, guid: d76ef1dab2a6ae54b9817f9c9d69fad4, type: 3}
   - {fileID: 3229693554272019835, guid: 87879a4e902e4884a9be9c85e5e85ded, type: 3}
   missile: {fileID: 0}
-  hasLevels: 1
-  sellable: 1
+  hasLevels: 0
+  sellable: 0
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 4

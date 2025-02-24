@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Thirst for Blood
   quality: 0
   abilityType: 3
-  description: 
+  description: Increase your <crit> by <effect1modV>% while above <threshold>% Health.
   icon: {fileID: 21300000, guid: c9a8c9fc4efe8034e92fff58ee38d92a, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []

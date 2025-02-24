@@ -15,8 +15,11 @@ MonoBehaviour:
   id: -1
   name: Corrupting Presence
   quality: 0
-  abilityType: 0
-  description: 
+  abilityType: 3
+  description: 'Every Round reduce the <vitality> of all enemies by <effect1modV>.
+
+
+    <effect1stacks>'
   icon: {fileID: 21300000, guid: 1aee60a3c30e00a4eaa04d029a172eab, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []

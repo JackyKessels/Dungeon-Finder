@@ -15,8 +15,9 @@ MonoBehaviour:
   id: -1
   name: Stance Dance
   quality: 0
-  abilityType: 0
-  description: 
+  abilityType: 1
+  description: "Gain <g!Way of the Blade> and lose <g!Counterattack>. \n\n<g!Way
+    of the Blade>\n<s1passive>"
   icon: {fileID: 21300000, guid: 35980aa4f2872b444a18aba2024dc3e2, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []

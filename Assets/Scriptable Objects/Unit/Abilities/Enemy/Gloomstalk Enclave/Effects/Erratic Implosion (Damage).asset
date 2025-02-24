@@ -22,14 +22,16 @@ MonoBehaviour:
   procType: 0
   duration: 1
   permanent: 0
-  stackable: 0
-  maxStacks: 0
-  refreshes: 1
   aura: 0
   unique: 0
+  dispellable: 1
+  removeEffects: []
+  stackable: 0
+  refreshes: 1
   applyStacks: 1
   loseStacks: 0
-  removeEffects: []
+  maxStacks: 0
+  stackEffects: []
   timedActions:
   - actionType: 0
     actionTargets: 0

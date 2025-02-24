@@ -16,7 +16,8 @@ MonoBehaviour:
   name: Spectral Swipe
   quality: 0
   abilityType: 0
-  description: Deal <e1> <S> damage to your target.
+  description: Deal <e1> <S> damage to your target and reduce their <wisdom> by <t1modV>
+    for <t1d> Rounds.
   icon: {fileID: 21300000, guid: 86e3f8910e3bf5248b1cb424539477e2, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:

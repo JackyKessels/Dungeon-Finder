@@ -16,8 +16,9 @@ MonoBehaviour:
   name: Kindling
   quality: 0
   abilityType: 3
-  description: 
-  icon: {fileID: 0}
+  description: Taking <F> damage afflicts the attacker with <name>, dealing <s1timAc1>
+    <F> damage per Round for <s1d> Rounds.
+  icon: {fileID: 21300000, guid: bc6e3d667d2c7fe4abd6aaee76350fe1, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
   missile: {fileID: 0}

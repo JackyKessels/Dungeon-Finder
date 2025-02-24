@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 557
   name: Crystallize
   quality: 0
-  abilityType: 0
+  abilityType: 2
   description: Deal <e1> <N> damage to all enemies and Incapacitate them for <t1d>
     Rounds.
   icon: {fileID: 21300000, guid: ecc0b73fa5633824abfe816028b2ef62, type: 3}

@@ -16,13 +16,18 @@ MonoBehaviour:
   name: Witherstrike
   quality: 0
   abilityType: 0
-  description: 
+  description: 'Deal <e1> <S> damage to your target and reduce their <vitality> by
+    <t1modV> for <t1d> Rounds.
+
+
+    <t1stacks>'
   icon: {fileID: 21300000, guid: b8a242ac4c60af84fa1afe760e5e426f, type: 3}
   casterSpecialEffects: []
-  targetSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 2152786453590781495, guid: 6ce9cecedf8422748952c18f8efccd98, type: 3}
   missile: {fileID: 0}
-  hasLevels: 1
-  sellable: 1
+  hasLevels: 0
+  sellable: 0
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 0

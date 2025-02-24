@@ -14,6 +14,11 @@ public static class GeneralUtilities
 
     public static Unit GetCorrectUnit(TooltipObject tooltipInfo)
     {
+        if (tooltipInfo.source != null)
+        {
+            return tooltipInfo.source;
+        }
+
         if (tooltipInfo.effect?.caster != null)
         {
             return tooltipInfo.effect.caster;

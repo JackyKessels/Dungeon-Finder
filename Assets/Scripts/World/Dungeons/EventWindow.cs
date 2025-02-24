@@ -27,13 +27,13 @@ public class EventWindow : MonoBehaviour
         }
     }
 
-    public void Setup(MysteryEvent mysteryEvent, int level)
+    public void Setup(MysteryEvent mysteryEvent, int level, Location sourceLocation)
     {
         ObjectUtilities.ClearContainer(consequencesContainer);
 
         consequenceStructures = new List<ConsequenceStructure>();
 
-        MysteryResult mysteryResult = mysteryEvent.TriggerEvent(consequenceStructures, level);
+        MysteryResult mysteryResult = mysteryEvent.TriggerEvent(consequenceStructures, level, sourceLocation);
         if (mysteryResult != null)
         {
             if (consequenceStructures.Count > 0)
@@ -62,14 +62,14 @@ public class EventWindow : MonoBehaviour
         }
     }
 
-    public static void CreateEventWindow(MysteryEvent mysteryEvent, int level)
+    public static void CreateEventWindow(MysteryEvent mysteryEvent, int level, Location sourceLocation)
     {
         GameObject container = GameObject.Find("Event Container");
 
         GameObject obj = ObjectUtilities.CreateSimplePrefab(GameAssets.i.eventPrefab.gameObject, container);
 
         EventWindow eventWindow = obj.GetComponent<EventWindow>();
-        eventWindow.Setup(mysteryEvent, level);
+        eventWindow.Setup(mysteryEvent, level, sourceLocation);
     }
 
     private void CreateConsequence(ConsequenceStructure consequenceStructure, int level)

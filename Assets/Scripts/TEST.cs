@@ -103,7 +103,7 @@ public class TEST : MonoBehaviour
 
     public void TestDialogue()
     {
-        DialogueManager.Instance.Setup(testConversation);
+        DialogueManager.Instance.StartConversation(testConversation);
     }
 
     public void SpawnTest()

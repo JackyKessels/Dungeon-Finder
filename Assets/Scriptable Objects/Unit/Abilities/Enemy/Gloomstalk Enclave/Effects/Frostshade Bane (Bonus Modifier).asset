@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ada0ff3ca2662c64c891e6cc278c1157, type: 3}
+  m_Name: Frostshade Bane (Bonus Modifier)
+  m_EditorClassIdentifier: 
+  name: Frostshade Bane
+  icon: {fileID: 21300000, guid: 9730d2546b4ad67479ad2528145ba1ef, type: 3}
+  hidden: 0
+  description: Your next <typed> ability deals <bonus> less damage.
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
+  isBuff: 0
+  procType: 1
+  duration: 2
+  permanent: 0
+  aura: 0
+  unique: 0
+  dispellable: 1
+  removeEffects: []
+  stackable: 0
+  refreshes: 1
+  applyStacks: 1
+  loseStacks: 0
+  maxStacks: 0
+  stackEffects: []
+  affectedAbility: 0
+  getConsumed: 1
+  abilityType: 2
+  specificAbilities: []
+  bonusMultiplier: -0.5
+  bonusPerLevel: 0

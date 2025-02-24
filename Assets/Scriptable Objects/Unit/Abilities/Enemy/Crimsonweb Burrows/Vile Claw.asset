@@ -16,7 +16,8 @@ MonoBehaviour:
   name: Vile Claw
   quality: 0
   abilityType: 0
-  description: 
+  description: Deal <e1> <P> damage to your target and reduce their <vitality> by
+    <t1modV> for <t1d> Rounds.
   icon: {fileID: 21300000, guid: b5f137b6f33bc3a47830a8bac0ac976d, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:

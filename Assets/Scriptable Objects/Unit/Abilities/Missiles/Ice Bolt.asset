@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ice Bolt
   m_EditorClassIdentifier: 
   missileMovement: 0
-  travelTime: 0.3
+  travelTime: 0.25
   casterEffects: []
   missileEffect: {fileID: 1873203583270419367, guid: ab88de9ee554fcd4bab83627d624d6ca,
     type: 3}

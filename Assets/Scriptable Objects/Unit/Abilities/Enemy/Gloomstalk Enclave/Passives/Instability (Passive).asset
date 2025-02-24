@@ -15,9 +15,9 @@ MonoBehaviour:
   id: -1
   name: Instability
   quality: 0
-  abilityType: 0
-  description: 
-  icon: {fileID: 0}
+  abilityType: 3
+  description: Taking <P> damage reduces your <wisdom> by <s1modV>% for <s1d> Round.
+  icon: {fileID: 21300000, guid: 67ddbe5f491a80c48b329a50567fc49d, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
   missile: {fileID: 0}
@@ -32,8 +32,8 @@ MonoBehaviour:
   typeRequirement: 0
   specificEffect: {fileID: 0}
   schoolTriggers: 01000000
-  triggersPassives: 0
-  triggeredByPassives: 1
+  triggersPassives: 1
+  triggeredByPassives: 0
   triggeredByEffects: 1
   procChance: 100
   abilitySources: []

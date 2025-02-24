@@ -15,14 +15,14 @@ MonoBehaviour:
   id: 1123441
   name: Volatile Explosion
   quality: 0
-  abilityType: 0
-  description: 
-  icon: {fileID: 0}
+  abilityType: 3
+  description: Explode on death, dealing <effect1timAp1> <N> damage to all enemies.
+  icon: {fileID: 21300000, guid: 6e83269a36fb39a489af1492c6716b17, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
   missile: {fileID: 0}
-  hasLevels: 1
-  sellable: 1
+  hasLevels: 0
+  sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
   activationMoment: 3

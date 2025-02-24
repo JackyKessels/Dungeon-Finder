@@ -127,7 +127,7 @@ public static class AbilityTooltipHandler
         {
             int percentage = GeneralUtilities.RoundFloat(100 * castActiveAbility.effectiveness, 0);
 
-            temp = temp.Replace(check, "<color={1}>{0}</color>% effectiveness");
+            temp = temp.Replace(check, "<color={1}>{0}</color>% damage effectiveness");
 
             temp = string.Format(temp, percentage, color);
         }
@@ -200,49 +200,64 @@ public static class AbilityTooltipHandler
             temp = UniqueEffect(temp, $"<{prefix}{i + 1}unique>", effects[i]);
             temp = ParseAbilityType(temp);
 
-            if (effects[i] is EffectAttributeModifier attributeModifier)
+            switch (effects[i])
             {
-                temp = DetermineAbilityValue(temp, $"<{prefix}{i + 1}modV>", attributeModifier.modifierSource, tooltipInfo);
-                temp = DetermineModifierEffectPercentage(temp, $"<{prefix}{i + 1}modP>", attributeModifier, tooltipInfo);
+                case EffectAttributeModifier attributeModifier:
+                    {
+                        temp = DetermineAbilityValue(temp, $"<{prefix}{i + 1}modV>", attributeModifier.modifierSource, tooltipInfo);
+                        temp = DetermineModifierEffectPercentage(temp, $"<{prefix}{i + 1}modP>", attributeModifier, tooltipInfo);
+                    }
+                    break;
+                case EffectAbilityModifier abilityModifier:
+                    {
+                        temp = DetermineBonusMultipler(temp, $"<{prefix}{i + 1}bonus>", abilityModifier.GetBonusMultiplier(tooltipInfo.GetAbilityLevel()));
+                        temp = DetermineSpecificAbilities(temp, $"<{prefix}{i + 1}specific>", abilityModifier.specificAbilities);
+                        temp = DetermineTypedEffect(temp, $"<{prefix}{i + 1}typed>", abilityModifier.abilityType);
+                    }
+                    break;
+                case EffectCooldownReduction cooldownReduction:
+                    {
+                        temp = DetermineCooldownReduction(temp, $"<{prefix}{i + 1}cdr>", cooldownReduction);
+                        temp = DetermineCooldownReductionAbility(temp, $"<{prefix}{i + 1}cdrSpecific>", cooldownReduction);
+                        temp = DetermineCooldownReductionType(temp, $"<{prefix}{i + 1}type>", cooldownReduction);
+                    }
+                    break;
+                case EffectDamageTransfer damageTransfer:
+                    {
+                        temp = DetermineTransferPercentage(temp, $"<{prefix}{i + 1}transfer>", damageTransfer);
+                    }
+                    break;
+                case EffectOverTime overTime:
+                    {
+                        for (int j = 0; j < 3; j++)
+                        {
+                            temp = DetermineAbilityValue(temp, $"<{prefix}{i + 1}timAp{j + 1}>", overTime.GetAbilitySource(TimedActionType.OnApplication, j), tooltipInfo);
+                            temp = DetermineAbilityValue(temp, $"<{prefix}{i + 1}timAc{j + 1}>", overTime.GetAbilitySource(TimedActionType.OnActive, j), tooltipInfo);
+                            temp = DetermineAbilityValue(temp, $"<{prefix}{i + 1}timEx{j + 1}>", overTime.GetAbilitySource(TimedActionType.OnExpiration, j), tooltipInfo);
+                        }
+                    }
+                    break;
+                case EffectConditionalTrigger conditionalTrigger:
+                    {
+                        temp = GetConditionalTriggerDescription(temp, $"<{prefix}{i + 1}trigger>", conditionalTrigger, tooltipInfo);
+                    }
+                    break;
+                case EffectActivatePassive activatePassive:
+                    {
+                        temp = GetActivatedPassiveDescription(temp, $"<{prefix}{i + 1}passive>", activatePassive, tooltipInfo);
+                    }
+                    break;
+                case EffectDispel dispel:
+                    {
+                        temp = ParseProcChance(temp, $"<{prefix}{i + 1}%>", dispel.dispelChance);
+                        temp = ParseNonScalingNumber(temp, $"<{prefix}{i + 1}count>", dispel.dispelCount);
+                    }
+                    break;
+                default:
+                    break;
             }
 
-            if (effects[i] is EffectAbilityModifier abilityModifier)
-            {
-                temp = DetermineBonusMultipler(temp, $"<{prefix}{i + 1}bonus>", abilityModifier.GetBonusMultiplier(tooltipInfo.GetAbilityLevel()));
-                temp = DetermineSpecificAbilities(temp, "<specific>", abilityModifier);
-            }
 
-            if (effects[i] is EffectCooldownReduction cdr)
-            {
-                temp = DetermineCooldownReduction(temp, $"<{prefix}{i + 1}cdr>", cdr);
-                temp = DetermineCooldownReductionAbility(temp, $"<{prefix}{i + 1}cdrSpecific>", cdr);
-                temp = DetermineCooldownReductionType(temp, $"<{prefix}{i + 1}type>", cdr);
-            }
-
-            if (effects[i] is EffectDamageTransfer dmg)
-            {
-                temp = DetermineTransferPercentage(temp, $"<{prefix}{i + 1}transfer>", dmg);
-            }
-
-            if (effects[i] is EffectOverTime dot)
-            {
-                for (int j = 0; j < 3; j++)
-                {
-                    temp = DetermineAbilityValue(temp, $"<{prefix}{i + 1}timAp{j + 1}>", dot.GetAbilitySource(TimedActionType.OnApplication, j), tooltipInfo);
-                    temp = DetermineAbilityValue(temp, $"<{prefix}{i + 1}timAc{j + 1}>", dot.GetAbilitySource(TimedActionType.OnActive, j), tooltipInfo);
-                    temp = DetermineAbilityValue(temp, $"<{prefix}{i + 1}timEx{j + 1}>", dot.GetAbilitySource(TimedActionType.OnExpiration, j), tooltipInfo);
-                }
-            }
-
-            if (effects[i] is EffectConditionalTrigger trigger)
-            {
-                temp = GetConditionalTriggerDescription(temp, $"<{prefix}{i + 1}trigger>", trigger, tooltipInfo);
-            }
-
-            if (effects[i] is EffectActivatePassive passive)
-            {
-                temp = GetActivatedPassiveDescription(temp, $"<{prefix}{i + 1}passive>", passive, tooltipInfo);
-            }
         }
 
         return temp;
@@ -281,6 +296,14 @@ public static class AbilityTooltipHandler
         return temp;
     }
 
+    public static string CannotBeDispelled(string temp)
+    {
+        string color = ColorDatabase.Red();
+
+        temp += string.Format("<color={0}>\n\nCannot be dispelled.</color>", color);
+
+        return temp;
+    }
 
     public static string ReplacesAbility(string temp, AbilityObject abilityObject)
     {
@@ -758,6 +781,8 @@ public static class AbilityTooltipHandler
             for (int i = 0; i < effectObject.stackEffects.Count; i++)
             {
                 temp = DetermineStackEffectStacksToTrigger(temp, $"<{prefix}{i + 1}stacksToTrigger>", effectObject.stackEffects[i]);
+                temp = ParseCastAbility(temp, $"<{prefix}{i + 1}castInfo>", $"<{prefix}{i + 1}castTooltip>", tooltipInfo, effectObject.stackEffects[i].castActiveAbility.activeAbility);
+                temp = ParseCastAbilityEffectiveness(temp, $"<{prefix}{i + 1}castEffect>", effectObject.stackEffects[i].castActiveAbility);
             }
 
             temp = ParseEffectTooltips(temp, prefix, effectObject.stackEffects.Select(s => s.effectObject).ToList(), tooltipInfo);
@@ -768,7 +793,7 @@ public static class AbilityTooltipHandler
 
     private static string DetermineStackEffectStacksToTrigger(string temp, string check, StackEffect stackEffect)
     {
-        string durationColor = ColorDatabase.Gray();
+        string durationColor = ColorDatabase.GeneralInformation();
 
         if (temp.Contains(check))
         {
@@ -815,26 +840,24 @@ public static class AbilityTooltipHandler
         {
             string color = ColorDatabase.NonScalingColor();
 
-            float fullValue = value * 100;
+            float fullValue = Mathf.Abs(value * 100);
 
-            temp = temp.Replace(check, "<color={1}>{0}</color>%");
-
-            return string.Format(temp, fullValue, color);
+            return temp.Replace(check, $"<color={color}>{fullValue}</color>%");
         }
 
         return temp;
     }
 
-    public static string DetermineSpecificAbilities(string temp, string check, EffectAbilityModifier abilityModifier)
+    public static string DetermineSpecificAbilities(string temp, string check, IEnumerable<AbilityObject> specificAbilities)
     {
-        if (abilityModifier.specificAbilities.Count == 0)
+        if (specificAbilities.Count() == 0)
             return temp;
 
         if (temp.Contains(check))
         {
             string color = ColorDatabase.GeneralInformation();
 
-            List<string> strings = abilityModifier.specificAbilities.Select(x => x.name).ToList();
+            List<string> strings = specificAbilities.Select(x => x.name).ToList();
 
             return temp.Replace(check, GeneralUtilities.JoinString(strings, ", ", " or ", color));
         }
@@ -870,6 +893,20 @@ public static class AbilityTooltipHandler
 
                 return string.Format(temp, color, caster.statsManager.GetAttributeValue(AttributeType.Armor));
             }   
+        }
+
+        return temp;
+    }
+
+    public static string ParseNonScalingNumber(string temp, string check, int number)
+    {
+        string color = ColorDatabase.NonScalingColor();
+
+        if (temp.Contains(check))
+        {
+            temp = temp.Replace(check, "<color={1}>{0}</color>");
+
+            return string.Format(temp, number, color);
         }
 
         return temp;

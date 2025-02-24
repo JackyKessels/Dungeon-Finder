@@ -46,6 +46,8 @@ public class Location : MonoBehaviour, IHasTooltip
     public List<Location> connectedLocations;
     public List<(EnemyObject enemyObject, int level)> enemyUnits = new List<(EnemyObject, int)>();
 
+    public Encounter encounter;
+
     // Pathfinder Data
     [HideInInspector] public float gCost;
     [HideInInspector] public float hCost;
@@ -138,19 +140,19 @@ public class Location : MonoBehaviour, IHasTooltip
             case LocationType.Battle:
                 {
                     eventManager.SetBackground(RandomBackground(), true);
-                    BattleManager.Instance.StartBattle(enemyUnits);
+                    BattleManager.Instance.StartBattle(this);
                     break;
                 }
             case LocationType.Elite:
                 {
                     eventManager.SetBackground(RandomBackground(), true);
-                    BattleManager.Instance.StartBattle(enemyUnits);
+                    BattleManager.Instance.StartBattle(this);
                     break;
                 }
             case LocationType.Boss:
                 {
                     eventManager.SetBackground(RandomBackground(), true);
-                    BattleManager.Instance.StartBattle(enemyUnits);
+                    BattleManager.Instance.StartBattle(this);
                     break;
                 }
             case LocationType.Treasure:
@@ -175,7 +177,7 @@ public class Location : MonoBehaviour, IHasTooltip
             case LocationType.Mystery:
                 {
                     {
-                        EventWindow.CreateEventWindow(floor.mysteryEvents.GetRandomEvent(), mysteryLevel);
+                        EventWindow.CreateEventWindow(floor.mysteryEvents.GetRandomEvent(), mysteryLevel, this);
                     }
                     break;
                 }

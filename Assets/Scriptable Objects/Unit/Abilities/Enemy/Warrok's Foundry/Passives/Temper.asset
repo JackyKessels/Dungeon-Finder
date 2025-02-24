@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
+  m_Name: Temper
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Temper
+  quality: 0
+  abilityType: 3
+  description: 
+  icon: {fileID: 0}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  missile: {fileID: 0}
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  activationMoment: 0
+  castActiveAbilities: []
+  effects:
+  - {fileID: 11400000, guid: 981695be826447448b3b7406317ae3ef, type: 2}
+  passives: []
+  targets: 6
+  healthPercentage: 0
+  attributeType: 0
+  attributeValue: 0
+  cooldown: 0
+  castFirstRound: 0

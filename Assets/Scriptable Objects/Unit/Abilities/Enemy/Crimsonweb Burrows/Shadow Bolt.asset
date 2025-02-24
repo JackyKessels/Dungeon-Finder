@@ -16,14 +16,14 @@ MonoBehaviour:
   name: Shadow Bolt
   quality: 0
   abilityType: 0
-  description: 
+  description: Deal <e1> <S> damage to your target.
   icon: {fileID: 21300000, guid: f675ab33178036d4d91b705f98400abd, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
   - {fileID: 1066406203321369846, guid: 9e02d2444ef184c45a9878c90ae9e5d1, type: 3}
   missile: {fileID: 0}
-  hasLevels: 1
-  sellable: 1
+  hasLevels: 0
+  sellable: 0
   replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 0

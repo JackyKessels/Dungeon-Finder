@@ -15,8 +15,8 @@ MonoBehaviour:
   id: -1
   name: Twilight Rejuvenation
   quality: 0
-  abilityType: 0
-  description: 
+  abilityType: 1
+  description: Heal all allies for <a1>.
   icon: {fileID: 21300000, guid: e85d329a90c45e343ae02334056f2c76, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:

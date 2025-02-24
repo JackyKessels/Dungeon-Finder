@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Thrash
   quality: 0
   abilityType: 0
-  description: 
+  description: Deal <e1> <P> damage to your target.
   icon: {fileID: 21300000, guid: 4d5f3f58ee98e16408f072f202bed8f8, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
@@ -26,7 +26,7 @@ MonoBehaviour:
   hasLevels: 0
   sellable: 0
   replacesAbility: {fileID: 0}
-  castTime: 1
+  castTime: 0.75
   cooldown: 0
   initialCooldown: 0
   endTurn: 1

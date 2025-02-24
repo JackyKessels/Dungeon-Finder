@@ -15,8 +15,8 @@ MonoBehaviour:
   id: -1
   name: Glimmer
   quality: 0
-  abilityType: 0
-  description: 
+  abilityType: 1
+  description: "Increase your <armor> by <s1modV>. \n\nRemoves <resistance> <name>."
   icon: {fileID: 21300000, guid: 6f727da2dc9862642ac5f0f1fd6242e2, type: 3}
   casterSpecialEffects:
   - {fileID: 6563310663538812998, guid: b844eb5eaad623e488abd46058f37253, type: 3}

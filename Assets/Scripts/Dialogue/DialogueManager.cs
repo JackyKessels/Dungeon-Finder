@@ -23,11 +23,12 @@ public class DialogueManager : MonoBehaviour
     #endregion
 
     private ActManager actManager;
+    private TeamManager teamManager;
 
     [Header("[ Dialogue ]")]
     public GameObject dialogueContainer;
-    public Speaker leftSpeaker;
-    public Speaker rightSpeaker;
+    public SpeakerObject leftSpeaker;
+    public SpeakerObject rightSpeaker;
 
     [Header("[ Problem ]")]
     public ProblemController problemController;
@@ -40,6 +41,7 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         actManager = ActManager.Instance;
+        teamManager = TeamManager.Instance;
     }
 
     private void Update()
@@ -50,46 +52,47 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void Setup(Conversation conversation)
+    public void StartConversation(Conversation conversation)
     {
         activeLineIndex = 0;
         activeConversation = true;
 
         currentConversation = conversation;
 
-        DialogueStatus(true);
-
-        if (currentConversation.leftSpeaker != null)
-        {
-            leftSpeaker.Show(true);
-            leftSpeaker.Setup(currentConversation.leftSpeaker);
-        }
-        else
-        {
-            leftSpeaker.Show(false);
-        }
-
-        if (currentConversation.rightSpeaker != null)
-        {
-            rightSpeaker.Show(true);
-            rightSpeaker.Setup(currentConversation.rightSpeaker);
-        }
-        else
-        {
-            rightSpeaker.Show(false);
-        }
+        DialogueVisibility(true);
 
         AdvanceLine();
     }
 
+    private UnitObject GetSpeakerUnitObject(Speaker activeSpeaker)
+    {
+        switch (activeSpeaker)
+        {
+            case Speaker.Hero1:
+                return teamManager.heroes.Members[0].GetUnitObject();
+            case Speaker.Hero2:
+                return teamManager.heroes.Members[1].GetUnitObject();
+            case Speaker.Hero3:
+                return teamManager.heroes.Members[2].GetUnitObject();
+            case Speaker.Enemy1:
+                return teamManager.enemies.Members[0].GetUnitObject();
+            case Speaker.Enemy2:
+                return teamManager.enemies.Members[1].GetUnitObject();
+            case Speaker.Enemy3:
+                return teamManager.enemies.Members[2].GetUnitObject();
+            default:
+                return null;
+        }
+    }
+
     // Shows and hides the dialogue
-    private void DialogueStatus(bool setActive)
+    private void DialogueVisibility(bool setActive)
     {
         dialogueContainer.SetActive(setActive);
     }
 
     // Shows the next line if there is one, otherwise turn off the objects and reset the index
-    public void AdvanceLine()
+    private void AdvanceLine()
     {
         if (activeLineIndex < currentConversation.lines.Length)
         {
@@ -101,36 +104,56 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    // Handles the correct positioning of the speakers
     private void DisplayLine()
     {
         Line line = currentConversation.lines[activeLineIndex];
-        UnitObject speaker = line.speaker;
+        UnitObject leftUnit = GetSpeakerUnitObject(line.leftSpeaker);
+        UnitObject rightUnit = GetSpeakerUnitObject(line.rightSpeaker);
 
-        if (leftSpeaker.SpeakerIs(speaker))
+        if (line.leftSpeaker != Speaker.None)
         {
-            SetDialogue(leftSpeaker, rightSpeaker, line.text);
+            leftSpeaker.Show(true);
+            leftSpeaker.Setup(leftUnit);
+
+            if (line.activeSpeaker == ActiveSpeaker.Left)
+            {
+                leftSpeaker.SetActiveSpeaker();
+                rightSpeaker.SetInactiveSpeaker();
+
+                leftSpeaker.SetText(line.text);
+            }
         }
         else
         {
-            SetDialogue(rightSpeaker, leftSpeaker, line.text);
+            leftSpeaker.Show(false);
+        }
+
+        if (line.rightSpeaker != Speaker.None)
+        {
+            rightSpeaker.Show(true);
+            rightSpeaker.Setup(rightUnit);
+
+            if (line.activeSpeaker == ActiveSpeaker.Right)
+            {
+                rightSpeaker.SetActiveSpeaker();
+                leftSpeaker.SetInactiveSpeaker();
+
+                rightSpeaker.SetText(line.text);
+            }
+        }
+        else
+        {
+            rightSpeaker.Show(false);
         }
 
         activeLineIndex++;
     }
 
-    // Go to the problem if there is one, go to the next conversation if there is one, 
-    // or end the current conversation
     private void AdvanceConversation()
     {
-        if (currentConversation.problem != null)
+        if (currentConversation.nextConversation != null)
         {
-            problemController.Setup(currentConversation.problem);
-            EndConversation();
-        }
-        else if (currentConversation.nextConversation != null)
-        {
-            Setup(currentConversation.nextConversation);
+            StartConversation(currentConversation.nextConversation);
         }
         else
         {
@@ -138,122 +161,10 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    // End the current conversation
     private void EndConversation()
     {
         currentConversation = null;
-        DialogueStatus(false);
+        DialogueVisibility(false);
         activeConversation = false;
     }
-
-    // Sets the content of the speakers and deactivates the one that is not speaking
-    private void SetDialogue(Speaker activeSpeaker, Speaker inactiveSpeaker, string text)
-    {
-        activeSpeaker.SetText(text);
-
-        activeSpeaker.SetActiveSpeaker();
-
-        inactiveSpeaker.SetInactiveSpeaker();
-    }
-
-
-
-
-
-
-
-
-
-
-
-    //public void ChangeConversation(Conversation nextConversation)
-    //{
-    //    conversationStarted = false;
-    //    currentConversation = nextConversation;
-    //    AdvanceLine();
-    //}
-
-    //private void EndConversation()
-    //{
-    //    currentConversation = null;
-    //    conversationStarted = false;
-    //    DialogueStatus(false);
-    //}
-
-    //private void Initialize()
-    //{
-    //    conversationStarted = true;
-    //    activeLineIndex = 0;
-
-    //    if (currentConversation.leftSpeaker != null)
-    //    {
-    //        leftSpeaker.Setup(currentConversation.leftSpeaker);
-    //        leftSpeaker.Show(true);
-    //    }
-    //    else
-    //    {
-    //        leftSpeaker.Show(false);
-    //    }
-
-    //    if (currentConversation.rightSpeaker != null)
-    //    {
-    //        rightSpeaker.Setup(currentConversation.rightSpeaker);
-    //        rightSpeaker.Show(true);
-    //    }
-    //    else
-    //    {
-    //        rightSpeaker.Show(false);
-    //    }
-    //}
-
-    //private void AdvanceLine()
-    //{
-    //    if (currentConversation = null) return;
-    //    if (!conversationStarted) Initialize();
-
-    //    if (activeLineIndex < currentConversation.lines.Length)
-    //    {
-    //        DisplayLine();
-    //    }
-    //    else
-    //    {
-    //        AdvanceConversation();
-    //    }
-    //}
-
-    //private void DisplayLine()
-    //{
-    //    Line line = currentConversation.lines[activeLineIndex];
-    //    UnitObject speaker = line.speaker;
-
-    //    if (leftSpeaker.SpeakerIs(speaker))
-    //    {
-    //        SetDialogue(leftSpeaker, rightSpeaker, line.text);
-    //    }
-    //    else
-    //    {
-    //        SetDialogue(rightSpeaker, leftSpeaker, line.text);
-    //    }
-
-    //    activeLineIndex++;
-    //}
-
-    //private void AdvanceConversation()
-    //{
-    //    if (currentConversation.problem != null)
-    //    {
-    //        problemEvent.Invoke
-    //    }
-    //    else if (currentConversation.nextConversation != null)
-    //    {
-    //        ChangeConversation(currentConversation.nextConversation);
-    //    }
-    //    else
-    //    {
-    //        EndConversation();
-    //    }
-    //}
-
-
-
 }

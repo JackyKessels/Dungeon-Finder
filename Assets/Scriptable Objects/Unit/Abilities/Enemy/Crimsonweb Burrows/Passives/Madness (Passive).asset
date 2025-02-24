@@ -15,9 +15,10 @@ MonoBehaviour:
   id: -1
   name: Madness
   quality: 0
-  abilityType: 0
-  description: 
-  icon: {fileID: 0}
+  abilityType: 3
+  description: Every Round deal <effect1timAc1> <S> damage to all enemies while below
+    <threshold>% Health.
+  icon: {fileID: 21300000, guid: ba9bc9b4d38fd73409d78e166f077a66, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
   missile: {fileID: 0}
@@ -31,7 +32,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a86cd23c4c8ecc044b6a080db51a6350, type: 2}
   passives: []
   targets: 0
-  healthPercentage: 0
+  healthPercentage: 20
   attributeType: 4
   attributeValue: -1
   cooldown: 0

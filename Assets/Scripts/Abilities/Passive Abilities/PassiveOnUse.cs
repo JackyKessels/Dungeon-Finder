@@ -44,7 +44,7 @@ public class PassiveOnUse : PassiveAbility
         {
             for (int i = 0; i < castActiveAbilities.Count; i++)
             {
-                castActiveAbilities[i].CastAbility(caster, null);
+                castActiveAbilities[i].CastAbility(caster, target, false);
             }
         }
 
@@ -74,10 +74,7 @@ public class PassiveOnUse : PassiveAbility
 
     private bool SuccessfulTrigger(ActiveAbility activeAbility)
     {
-        if (!IsTriggeredBySpecificAbility(activeAbility))
-            return false;
-
-        if (!IsTriggeredByAbilityType(activeAbility.abilityType))
+        if (!IsTriggeredByAbilityType(activeAbility))
             return false;
 
         if (!IsProcced())
@@ -86,24 +83,19 @@ public class PassiveOnUse : PassiveAbility
         return true;
     }
 
-    private bool IsTriggeredBySpecificAbility(ActiveAbility activeAbility)
-    {
-        if (triggerType == OnUseTriggerType.SpecificAbility &&
-            !specificActiveAbilityList.Contains(activeAbility))
-        {
-            return false;
-        }
-
-        return true; 
-    }
-
-    private bool IsTriggeredByAbilityType(AbilityType abilityType)
+    private bool IsTriggeredByAbilityType(ActiveAbility activeAbility)
     {
         if (triggerType == OnUseTriggerType.AnyAbility)
+        {
             return true;
+        }
 
-        if (triggerType == OnUseTriggerType.TypedAbility && 
-            typeRequirement == abilityType)
+        if (triggerType == OnUseTriggerType.TypedAbility && typeRequirement == activeAbility.abilityType)
+        {
+            return true;
+        }
+
+        if (triggerType == OnUseTriggerType.SpecificAbility && specificActiveAbilityList.Contains(activeAbility))
         {
             return true;
         }
@@ -123,6 +115,7 @@ public class PassiveOnUse : PassiveAbility
         for (int i = 0; i < castActiveAbilities.Count; i++)
         {
             temp = AbilityTooltipHandler.ParseCastAbility(temp, string.Format("<castInfo{0}>", i + 1), string.Format("<castTooltip{0}>", i + 1), tooltipInfo, castActiveAbilities[i].activeAbility);
+            temp = AbilityTooltipHandler.ParseCastAbilityEffectiveness(temp, string.Format("<castEffect{0}>", i + 1), castActiveAbilities[i]);
         }
 
         if (doubleCastAbility.enableDoubleCast)
@@ -135,6 +128,8 @@ public class PassiveOnUse : PassiveAbility
         temp = AbilityTooltipHandler.ParseProcChance(temp, "<%>", procChance);
 
         temp = AbilityTooltipHandler.InsertRed(temp);
+
+        temp = AbilityTooltipHandler.DetermineSpecificAbilities(temp, $"<specific>", specificActiveAbilityList);
 
         return temp;
     }

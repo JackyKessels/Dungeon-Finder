@@ -171,7 +171,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
         }
     }
 
-    public void StartBattle(List<(EnemyObject, int)> enemies)
+    public void StartBattle(Location location)
     {
         gameManager.gameState = GameState.BATTLE;
         activeBattle = true;
@@ -184,13 +184,18 @@ public class BattleManager : MonoBehaviour, IUserInterface
         DamageMeterManager.Instance.ClearDamageMeters();
 
         // Setup both teams
-        TeamManager.Instance.SetupBattle(enemies);
+        TeamManager.Instance.SetupBattle(location.enemyUnits);
 
         // Go to correct camera and interface
         gameManager.cameraScript.GoToCamera(cameraObject, false);
         EnableUI(true);
         HeroManager.Instance.EnableUI(false);
         DungeonManager.Instance.EnableUI(false);
+
+        if (location.encounter != null && location.encounter.conversation != null)
+        {
+            DialogueManager.Instance.StartConversation(location.encounter.conversation);
+        }
 
         // Setup the fight logistics
         StartCoroutine(SetupBattle());

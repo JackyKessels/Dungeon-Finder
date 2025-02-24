@@ -15,9 +15,9 @@ MonoBehaviour:
   id: -1
   name: Pulsing Dread
   quality: 0
-  abilityType: 0
-  description: 
-  icon: {fileID: 21300000, guid: 66850040104a09e43b673f0e15e25b4c, type: 3}
+  abilityType: 3
+  description: Every Round deal <effect1timAc1> <S> damage to all enemies.
+  icon: {fileID: 21300000, guid: 1aee60a3c30e00a4eaa04d029a172eab, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
   missile: {fileID: 0}

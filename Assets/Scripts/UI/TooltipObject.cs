@@ -25,6 +25,7 @@ public class TooltipObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public string genericTooltip;
 
     [Header("[ Specific Tooltips ]")]
+    public Unit source = null;
     public Active active = null;
     public Passive passive = null;
     public Effect effect = null;

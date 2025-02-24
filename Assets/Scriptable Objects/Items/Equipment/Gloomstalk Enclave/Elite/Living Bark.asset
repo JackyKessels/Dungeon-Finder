@@ -47,5 +47,5 @@ MonoBehaviour:
   critMultiplier: 0
   sacrificialMultiplier: 0
   passives:
-  - {fileID: 11400000, guid: 9ea75142b28fdf0449a20b81d80bd6bb, type: 2}
+  - {fileID: 11400000, guid: b82f7b4e95d79bf4189636ebf6a44034, type: 2}
   useAbility: {fileID: 0}

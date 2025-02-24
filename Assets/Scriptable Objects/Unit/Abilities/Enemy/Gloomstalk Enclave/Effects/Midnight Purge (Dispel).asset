@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24912d236e0e42140894aa0b76e20f10, type: 3}
+  m_Name: Midnight Purge (Dispel)
+  m_EditorClassIdentifier: 
+  name: Midnight Purge
+  icon: {fileID: 21300000, guid: cb2529dc123bd4c4480e24e920a97042, type: 3}
+  hidden: 1
+  description: 
+  applicationSpecialEffects:
+  - {fileID: 3382790864649819875, guid: 5d2431126dc026440b62c5f85af47bc0, type: 3}
+  expirationSpecialEffects: []
+  isBuff: 0
+  procType: 0
+  duration: 1
+  permanent: 0
+  aura: 0
+  unique: 0
+  dispellable: 0
+  removeEffects: []
+  stackable: 0
+  refreshes: 1
+  applyStacks: 1
+  loseStacks: 0
+  maxStacks: 0
+  stackEffects: []
+  targetType: 2
+  selectionMethod: 1
+  dispelChance: 50
+  dispelCount: 1

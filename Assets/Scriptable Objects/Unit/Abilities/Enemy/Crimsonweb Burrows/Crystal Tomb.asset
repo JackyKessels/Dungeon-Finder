@@ -15,8 +15,8 @@ MonoBehaviour:
   id: 5512341
   name: Crystal Tomb
   quality: 0
-  abilityType: 0
-  description: Stun a target.
+  abilityType: 2
+  description: Stun the target for <t1d> Rounds.
   icon: {fileID: 21300000, guid: c17ca8fbf1c727446baa9f5f666a4073, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:

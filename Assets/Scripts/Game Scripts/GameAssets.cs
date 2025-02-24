@@ -36,6 +36,7 @@ public class GameAssets : MonoBehaviour
     public GameObject blackTransition;
     public TextWindow textWindow;
     public Sprite unknownIcon;
+    public GameObject tooltipIconPrefab;
 
     public Sprite oneMember;
     public Sprite threeMembers;

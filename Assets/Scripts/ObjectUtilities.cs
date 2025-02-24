@@ -30,6 +30,15 @@ public static class ObjectUtilities
         return obj;
     }
 
+    public static TooltipIcon CreateTooltipIcon(GameObject parent)
+    {
+        var obj = CreateSimplePrefab(GameAssets.i.tooltipIconPrefab, parent);
+
+        TooltipIcon tooltip = obj.GetComponent<TooltipIcon>();
+
+        return tooltip;
+    }
+
     public static void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
     {
         EventTrigger trigger = obj.GetComponent<EventTrigger>();

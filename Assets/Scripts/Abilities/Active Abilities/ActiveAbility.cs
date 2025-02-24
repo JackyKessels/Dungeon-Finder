@@ -283,7 +283,7 @@ public class CastActiveAbility
     [Header("Target Ability Only")]
     public AbilityTargets abilityTarget;
 
-    public void CastAbility(Unit caster, Unit target = null)
+    public void CastAbility(Unit caster, Unit target = null, bool triggerOnAbilityCastEvent = true)
     {
         if (activeAbility == null)
         {
@@ -305,9 +305,11 @@ public class CastActiveAbility
 
             List<Unit> targets = AbilityUtilities.GetAbilityTargets(abilityTarget, caster, target);
 
+            targetAbility.TriggerPreCast(caster);
+
             foreach (Unit u in targets)
             {
-                abilityToCast.Trigger(caster, u, effectiveness);
+                abilityToCast.Trigger(caster, u, effectiveness, triggerOnAbilityCastEvent);
             }
 
             targetAbility.PlaySound();
@@ -325,9 +327,11 @@ public class CastActiveAbility
 
             List<Unit> targets = AbilityUtilities.GetAbilityTargets(instantAbility.abilityTargets, caster, target);
 
+            instantAbility.TriggerPreCast(caster);
+
             foreach (Unit t in targets)
             {
-                abilityToCast.Trigger(caster, t, effectiveness);
+                abilityToCast.Trigger(caster, t, effectiveness, triggerOnAbilityCastEvent);
             }
 
             instantAbility.PlaySound();

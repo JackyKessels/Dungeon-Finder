@@ -2,16 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum DamageTransferDirection
+public enum TransferType
+{
+    Damage,
+    Healing
+}
+
+public enum TransferDirection
 {
     TargetToCaster,
     CasterToTarget
 }
 
-[CreateAssetMenu(fileName = "New Damage Transfer", menuName = "Unit/Effect Object/Damage Transfer")]
+public enum TransferMode
+{
+    Split,
+    Duplicate
+}
+
+[CreateAssetMenu(fileName = "New Transfer", menuName = "Unit/Effect Object/Transfer")]
 public class EffectDamageTransfer : EffectObject
 {
-    public DamageTransferDirection direction = DamageTransferDirection.TargetToCaster;
+    [Header("[ Transfer Specific ]")]
+    public TransferType transferType = TransferType.Damage;
+    public TransferDirection direction = TransferDirection.TargetToCaster;
+    public TransferMode mode = TransferMode.Split;
     public float percentage;
 
     protected override string ParseDescription(string s, TooltipObject tooltipInfo)

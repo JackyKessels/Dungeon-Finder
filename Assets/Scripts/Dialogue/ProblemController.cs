@@ -66,7 +66,7 @@ public class ProblemController : MonoBehaviour
     {
         if (problem.choices[choiceIndex].conversation != null)
         {
-            DialogueManager.Instance.Setup(problem.choices[choiceIndex].conversation);
+            DialogueManager.Instance.StartConversation(problem.choices[choiceIndex].conversation);
         }
         else if (problem.actIndex >= 0)
         {

@@ -26,6 +26,7 @@ public abstract class EffectObject : ScriptableObject, IHasTooltip, ITriggerSour
     public bool aura = false;
     [Tooltip("True = This effect can only be active on 1 target.\nFalse = No limitations.")]
     public bool unique = false;
+    public bool dispellable = true;
     public List<EffectObject> removeEffects;
 
     [Header("[ Stacking ]")]
@@ -49,8 +50,15 @@ public abstract class EffectObject : ScriptableObject, IHasTooltip, ITriggerSour
     private string ParseEffectObjectTooltip(TooltipObject tooltipInfo)
     {
         string temp = ParseDescription(description, tooltipInfo);
-        
-        return AbilityTooltipHandler.ParseStackEffects(temp, "stackEffect", this, tooltipInfo);
+
+        temp = AbilityTooltipHandler.ParseStackEffects(temp, "stackEffect", this, tooltipInfo);
+
+        if (!dispellable)
+        {
+            temp = AbilityTooltipHandler.CannotBeDispelled(temp);
+        }
+
+        return temp;
     }
 
     protected abstract string ParseDescription(string s, TooltipObject tooltipInfo);
@@ -98,6 +106,7 @@ public abstract class EffectObject : ScriptableObject, IHasTooltip, ITriggerSour
 public class StackEffect
 {
     public EffectObject effectObject;
+    public CastActiveAbility castActiveAbility;
     public int stacksToTrigger = 0;
     public bool consumeEffect = false;
 }

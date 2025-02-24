@@ -15,19 +15,19 @@ MonoBehaviour:
   id: -1
   name: Erratic Implosion
   quality: 0
-  abilityType: 0
-  description: 
+  abilityType: 2
+  description: Deal <e1> <A> damage to all enemies. Caster is destroyed on cast.
   icon: {fileID: 21300000, guid: 5c6e400310a2cfc45929ed36b6123ada, type: 3}
   casterSpecialEffects:
   - {fileID: 658504684767274273, guid: 760a0fa6a28f5e946a24a578b5c877d6, type: 3}
   targetSpecialEffects:
   - {fileID: 8446175851869036358, guid: 8974549aa760426419c0178e9f1f001f, type: 3}
   missile: {fileID: 0}
-  hasLevels: 1
-  sellable: 1
+  hasLevels: 0
+  sellable: 0
   replacesAbility: {fileID: 0}
   castTime: 0.75
-  cooldown: 0
+  cooldown: 6
   initialCooldown: 0
   endTurn: 1
   singleUse: 0
@@ -85,4 +85,4 @@ MonoBehaviour:
   selfEffects:
   - {fileID: 11400000, guid: d345f5f94b40a3d458b32bc53ec5c447, type: 2}
   targetEffects: []
-  abilityTargets: 7
+  abilityTargets: 2

@@ -49,7 +49,7 @@ MonoBehaviour:
   - itemObject: {fileID: 11400000, guid: ab57594b34c8d1f4a9b670d053ac3f73, type: 2}
     amount: 1
     weight: 1
-    level: 4
+    level: 5
   - itemObject: {fileID: 11400000, guid: 969bb07dd1229614f9d139246b0a9a33, type: 2}
     amount: 1
     weight: 2
@@ -71,6 +71,6 @@ MonoBehaviour:
     startCooldown: 0
     charged: 0
   passiveAbilities:
-  - {fileID: 11400000, guid: 489101c02fa52b243a27cfef6661a3f3, type: 2}
-  - {fileID: 11400000, guid: b604ca95735b0bf4cb0f9a9054654d77, type: 2}
   - {fileID: 11400000, guid: 9ea75142b28fdf0449a20b81d80bd6bb, type: 2}
+  - {fileID: 11400000, guid: b604ca95735b0bf4cb0f9a9054654d77, type: 2}
+  - {fileID: 11400000, guid: 489101c02fa52b243a27cfef6661a3f3, type: 2}

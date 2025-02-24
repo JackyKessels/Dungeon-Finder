@@ -22,10 +22,10 @@ MonoBehaviour:
   baseHealth: 1000
   basePower: 20
   baseWisdom: 20
-  armor: 0
+  armor: 10
   resistance: 0
   vitality: 0
-  speed: 5
+  speed: 9
   accuracy: 80
   criticalHit: 0
   healingMultiplier: 100

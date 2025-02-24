@@ -16,8 +16,8 @@ MonoBehaviour:
   name: Enraged
   quality: 0
   abilityType: 3
-  description: 
-  icon: {fileID: 0}
+  description: Increase your <power> by <effect1modP> while below <threshold>% Health
+  icon: {fileID: 21300000, guid: de257591fb51a954c9fd43f259eac561, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
   missile: {fileID: 0}

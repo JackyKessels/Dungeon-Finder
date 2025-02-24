@@ -16,7 +16,8 @@ MonoBehaviour:
   name: Chomp
   quality: 0
   abilityType: 0
-  description: 
+  description: Deal <e1> <P> damage to your target and reduce their <health> by <t1modP>
+    for <t1d> Rounds.
   icon: {fileID: 21300000, guid: c9a8c9fc4efe8034e92fff58ee38d92a, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
