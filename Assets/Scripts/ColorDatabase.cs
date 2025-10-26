@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -61,11 +62,6 @@ public static class ColorDatabase
             default:
                 return "#FFFFFF";
         }
-    }
-
-    public static string MagicalColor()
-    {
-        return "#BF87FF";
     }
 
     public static string ScalingColor(AttributeType attributeType)
@@ -169,49 +165,39 @@ public static class ColorDatabase
         }
     }
 
-    public static string NonScalingColor()
+    public static string MagicalColor => "#BF87FF";
+
+    public static string NonScalingColor => "#FEF0AE";
+
+    public static string EffectColor => "#70FF62";
+
+    public static string Gray => "#C0C0C0";
+
+    public static string CasterColor => "#66CCFF";
+
+    public static string GeneralInformation => "#DBFF73";
+    
+    public static string Description => "#FFD78B";
+
+    public static string Green => "#1FFF00";
+
+    public static string Red => "#FF0000";
+
+    public static string Positive => "#70FF62";
+
+    public static string Negative => "#FF1717";
+
+    public static string ReachedCheckpoint => "#00FF81";
+
+    public static string UnreachedCheckpoint => "#444444";
+
+    public static Color ConvertStringToColor(string s)
     {
-        return "#FEF0AE";
-    }
+        if (ColorUtility.TryParseHtmlString(s, out Color color))
+        {
+            return color;
+        }
 
-    public static string EffectColor()
-    {
-        return "#70FF62";
-    }
-
-    public static string Gray()
-    {
-        return "#C0C0C0";
-    }
-
-    public static string CasterColor()
-    {
-        return "#66CCFF";
-    }
-
-    public static string GeneralInformation()
-    {
-        return "#DBFF73";
-    }
-
-    public static string Red()
-    {
-        return "#FF0000";
-    }
-
-    public static string Description()
-    {
-        return "#FFD78B";
-    }
-
-    public static string Positive => "#1FFF00";
-
-    public static string Negative => "#FF0000";
-
-    public static Color ConvertString2Color(string s)
-    {
-        ColorUtility.TryParseHtmlString(s, out Color c);
-
-        return c;
+        throw new ArgumentException($"String '{s}' cannot be parsed as Color.");
     }
 }

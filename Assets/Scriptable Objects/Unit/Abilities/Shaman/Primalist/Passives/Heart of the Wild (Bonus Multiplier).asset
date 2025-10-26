@@ -22,17 +22,22 @@ MonoBehaviour:
   procType: 1
   duration: 3
   permanent: 0
-  stackable: 0
-  maxStacks: 0
-  refreshes: 1
   aura: 0
   unique: 0
-  applyStacks: 1
-  loseStacks: 0
+  dispellable: 1
   removeEffects:
   - {fileID: 11400000}
+  stackable: 0
+  refreshes: 1
+  applyStacks: 1
+  loseStacks: 0
+  maxStacks: 0
+  stackEffects: []
+  modifierType: 0
   affectedAbility: 1
   getConsumed: 0
+  targetSpecialEffects:
+  - {fileID: 5184363016182735696, guid: c92c00bdc9fb4ad4483a0626afafd10c, type: 3}
   abilityType: 0
   specificAbilities: []
   bonusMultiplier: 0.25

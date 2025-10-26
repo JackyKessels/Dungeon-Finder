@@ -42,7 +42,6 @@ public delegate void AttributesEvent(Unit unit, AttributeType attributeType);
 [System.Serializable]
 public class StatsManager
 {
-    public static readonly int levelUpHealth = 5;
     public static readonly float levelScaling = 0.2f;
 
     public int currentHealth;
@@ -418,7 +417,7 @@ public class StatsManager
     }
 
     // Pretty much check if dead
-    public void CheckHealthStatus(AbilityValue abilityValue) 
+    public void CheckHealthStatus(AbilityValue abilityValue = null) 
     {
         if (isDead)
             return;
@@ -432,7 +431,11 @@ public class StatsManager
             {
                 if (!deathEventTriggered)
                 {
-                    OnDeathEvent?.Invoke(abilityValue);
+                    if (abilityValue != null)
+                    {
+                        OnDeathEvent?.Invoke(abilityValue);
+                    }
+
                     deathEventTriggered = true;
                 }
 
@@ -504,8 +507,9 @@ public class StatsManager
         return value * (1 + targetVitality / 100);
     }
 
-    public void LevelUp()
+    public void InstantDeath()
     {
-        ModifyAttribute(AttributeType.Health, AttributeValue.bonusValue, levelUpHealth);
+        currentHealth = 0;
+        CheckHealthStatus();
     }
 }

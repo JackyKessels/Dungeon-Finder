@@ -111,13 +111,18 @@ public class ExperienceManager
     public void LevelUpTeam(bool showNotification)
     {
         if (showNotification)
-            NotificationObject.CreateNotification("Level Up! Maximum Health of all party members increased by " + StatsManager.levelUpHealth + ".", 500, 300);
+        {
+            var levelUpText = ProgressionManager.Instance.unlockedPaths
+                ? "Level up! Each member gained 1 Path Point."
+                : "Level up! Path progression will unlock after defeating the first boss.";
+
+
+            NotificationObject.CreateNotification(levelUpText, 500, 300);
+        }
 
         if (currentLevel < maxLevel)
         {
             currentLevel++;
-
-            //TownManager.Instance.BuildShops();
 
             foreach (Hero hero in TeamManager.Instance.heroes.Members)
             {
@@ -146,8 +151,6 @@ public class ExperienceManager
 
     public void LevelUp(Hero hero)
     {
-        hero.statsManager.LevelUp();
-
         if (currentLevel >= pathPointLevelRequirement)
         {
             hero.heroPathManager.points++;

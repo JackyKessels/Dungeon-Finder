@@ -44,13 +44,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 366e4c8d2e070a9419c65f98d3c87d51, type: 2}
   - {fileID: 11400000, guid: e086828873aae4243b0876186fc8c25a, type: 2}
   - {fileID: 11400000, guid: 7d459b628ed48a944a4b73de6663aa14, type: 2}
+  - {fileID: 11400000, guid: 0966aef1c1835a94eb4895b9a02d677d, type: 2}
   attributes:
   - attributeType: 0
-    baseValue: 2
+    baseValue: 6
     bonusValue: 0
     multiplier: 0
   - attributeType: 1
-    baseValue: 2
+    baseValue: 1
     bonusValue: 0
     multiplier: 0
   - attributeType: 10

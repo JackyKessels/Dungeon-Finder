@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Gloomclaw
   lastName: 
   unitType: 1
-  icon: {fileID: 21300000, guid: 7fa1921414af9d448a985bb53e72b319, type: 3}
+  icon: {fileID: 21300000, guid: ba9bc9b4d38fd73409d78e166f077a66, type: 3}
   sprite: {fileID: 21300000, guid: 78fd0431c1d1c9441a17ab37d91d9866, type: 3}
   attackAnimation: {fileID: 0}
   castAnimation: {fileID: 0}
@@ -52,8 +52,15 @@ MonoBehaviour:
     amount: 1
     weight: 1
     level: 0
-  randomAbility: 1
+  randomAbility: 0
   abilities:
+  - ability: {fileID: 11400000, guid: cb7c45a3a5597aa44832ceac7f534b36, type: 2}
+    target: 0
+    targetAttribute: 0
+    condition: 1
+    healthThreshold: 35
+    startCooldown: 0
+    charged: 0
   - ability: {fileID: 11400000, guid: c440b43ea0015b14889132d59e34c7fe, type: 2}
     target: 2
     targetAttribute: 0
@@ -61,4 +68,6 @@ MonoBehaviour:
     healthThreshold: 100
     startCooldown: 0
     charged: 0
-  passiveAbilities: []
+  passiveAbilities:
+  - {fileID: 11400000, guid: 4d63604d6da659841a65979d51bc78e2, type: 2}
+  - {fileID: 11400000, guid: 158fd3a0acacc434e836f2c0db754b6b, type: 2}

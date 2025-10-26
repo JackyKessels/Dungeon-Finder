@@ -67,7 +67,7 @@ MonoBehaviour:
       increaseValue: 0
       casterBased: 1
       attributeBase: 3
-      percentageIncrease: 2
+      percentageIncrease: 3
       bonusAbilitySource:
         ignoreMultipliers: 0
         cannotCrit: 0

@@ -99,7 +99,7 @@ public class EffectDispel : EffectObject
         }
         else
         {
-            FCTData fctData = new FCTData(false, unit, "Resisted", ColorDatabase.ConvertString2Color(ColorDatabase.MagicalColor()));
+            FCTData fctData = new FCTData(false, unit, "Resisted", ColorDatabase.ConvertStringToColor(ColorDatabase.MagicalColor));
             unit.fctHandler.AddToFCTQueue(fctData);
         }
     }

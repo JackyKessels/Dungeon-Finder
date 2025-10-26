@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEditor;
+using Unity.Services.Analytics;
+using Unity.Services.Core;
 
 public enum GameState
 {
@@ -113,7 +115,7 @@ public class GameManager : MonoBehaviour
     private HeroSelectionObject heroSelectionObject_1;
     private HeroSelectionObject heroSelectionObject_2;
 
-    private void Start()
+    private async void Start()
     {
         DatabaseHandler.Instance.itemDatabase.UpdateId();
         DatabaseHandler.Instance.abilityDatabase.UpdateId();
@@ -136,8 +138,11 @@ public class GameManager : MonoBehaviour
         titleElements = startUI.transform.GetChild(0);
         newGameElements = startUI.transform.GetChild(1);
 
-        //if (SaveSystem.LoadTeam() == null)
-        //    loadButton.interactable = false;
+        await UnityServices.InitializeAsync();
+        Debug.Log("Unity Services Initialized");
+        AnalyticsService.Instance.StartDataCollection();
+
+        Application.targetFrameRate = 60;
     }
 
     public void LoadParticleSystems()
@@ -369,14 +374,13 @@ public class GameManager : MonoBehaviour
     {
         progressionManager.totalVictories++;
 
-        // Won last location -> Map is finished so return back to town
-        if (dungeonManager.IsLastLocation())
+        if (dungeonManager.IsBossLocation())
         {
             switch (gameMode)
             {
                 case GameMode.Campaign:
                     {
-                        progressionManager.UnlockPaths(dungeonManager.currentDungeon, dungeonManager.currentFloor);
+                        progressionManager.UnlockPaths(dungeonManager.currentDungeon, dungeonManager.currentFloorIndex);
 
                         if (dungeonManager.IsLastFloor())
                         {

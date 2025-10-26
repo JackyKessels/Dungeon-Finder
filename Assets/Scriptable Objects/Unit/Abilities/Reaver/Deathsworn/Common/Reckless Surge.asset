@@ -37,7 +37,7 @@ MonoBehaviour:
   initialCooldown: 0
   endTurn: 0
   singleUse: 0
-  resetType: 0
+  resetType: 1
   resetChance: 100
   resetAttribute: 8
   attributeScaling: 0

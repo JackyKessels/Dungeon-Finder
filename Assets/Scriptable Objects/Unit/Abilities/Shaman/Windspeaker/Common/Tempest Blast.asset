@@ -17,7 +17,8 @@ MonoBehaviour:
   quality: 0
   abilityType: 2
   description: "Deal <e1> <N> and <e2> <I> damage to your target. \n\nFor the next
-    <s1d> Rounds, <N> damage reduces the cooldown of <name> by <ns!1> Round."
+    <t1d> Rounds, dealing <N> damage to the target reduces the cooldown of <name>
+    by <ns!1> Round."
   icon: {fileID: 21300000, guid: 61cbc8d6f407d6d42acfc243f38ebfed, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects:
@@ -29,7 +30,7 @@ MonoBehaviour:
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 0.75
-  cooldown: 10
+  cooldown: 8
   initialCooldown: 0
   endTurn: 1
   singleUse: 0
@@ -39,7 +40,7 @@ MonoBehaviour:
   attributeScaling: 0
   resetText: Reset!
   weaponRequirement: 4
-  soundEffect: {fileID: 0}
+  soundEffect: {fileID: 8300000, guid: 4ad139dd19101074b8d6bc61c9a7a07b, type: 3}
   animationType: 0
   allyAbilitySources: []
   enemyAbilitySources:
@@ -124,9 +125,9 @@ MonoBehaviour:
       hasModifier: 0
       fractionDrained: 0
   selfEffectsPerTarget: 0
-  selfEffects:
+  selfEffects: []
+  targetEffects:
   - {fileID: 11400000, guid: 8980948bb489dd147ac5cb43997bb92c, type: 2}
-  targetEffects: []
   cannotTargetSelf: 0
   targetsAllies: 0
   targetsEnemies: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Primal Instinct (Crit)
   m_EditorClassIdentifier: 
   name: Primal Instinct
-  icon: {fileID: 21300000, guid: 06264afa70e582c42b72adae6b088536, type: 3}
+  icon: {fileID: 21300000, guid: af4e7cead4fc7c341a04e309879d54ad, type: 3}
   hidden: 0
   description: Critical Chance increased by <1>%.
   applicationSpecialEffects: []
@@ -22,14 +22,16 @@ MonoBehaviour:
   procType: 1
   duration: 5
   permanent: 0
-  stackable: 1
-  maxStacks: 0
-  refreshes: 0
   aura: 0
   unique: 0
+  dispellable: 1
+  removeEffects: []
+  stackable: 1
+  refreshes: 0
   applyStacks: 1
   loseStacks: 0
-  removeEffects: []
+  maxStacks: 0
+  stackEffects: []
   attributeModified: 8
   isIncrease: 1
   modifierType: 0

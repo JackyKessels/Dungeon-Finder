@@ -15,8 +15,8 @@ MonoBehaviour:
   name: Stonereaver
   lastName: 
   unitType: 1
-  icon: {fileID: 21300000, guid: 9ed2ee188a00be5459ab607fdddea0de, type: 3}
-  sprite: {fileID: 21300000, guid: 416a8f5b5ae03ea43a1228631a2174f0, type: 3}
+  icon: {fileID: 21300000, guid: 010d62fc5e28aae48a74ffdc1befd5d9, type: 3}
+  sprite: {fileID: 21300000, guid: 2d3fa0fe69aa4bb448cafca8786c6212, type: 3}
   attackAnimation: {fileID: 0}
   castAnimation: {fileID: 0}
   baseHealth: 250

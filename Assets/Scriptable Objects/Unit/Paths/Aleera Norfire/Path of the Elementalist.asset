@@ -49,7 +49,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f47d62d83bbf26d41b35ffaa2b83d007, type: 2}
   attributes:
   - attributeType: 0
-    baseValue: 2
+    baseValue: 6
     bonusValue: 0
     multiplier: 0
   - attributeType: 2
@@ -57,14 +57,14 @@ MonoBehaviour:
     bonusValue: 0
     multiplier: 0
   - attributeType: 11
-    baseValue: 2
+    baseValue: 1
     bonusValue: 0
     multiplier: 0
   - attributeType: 12
-    baseValue: 2
+    baseValue: 1
     bonusValue: 0
     multiplier: 0
   - attributeType: 14
-    baseValue: 2
+    baseValue: 1
     bonusValue: 0
     multiplier: 0

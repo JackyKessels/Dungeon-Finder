@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c1da837b9c52441adc0f1b60d2b848, type: 3}
+  m_Name: Encroaching Frost
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Encroaching Frost
+  quality: 0
+  abilityType: 3
+  description: 'Every Round, all enemies take <effect2timAp> <I> damage, and gain
+    a stack of <name>.
+
+
+    <name> increases the target''s <icemultiplier> by <effect1modV>%.
+    At <effect1stackEffect1stacksToTrigger> stacks, consume the effect and Stun the
+    target for <effect1stackEffect1d> Rounds.
+
+
+    Being the target of a Protection
+    ability will remove all their stacks.'
+  icon: {fileID: 21300000, guid: cb2529dc123bd4c4480e24e920a97042, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 3382790864649819875, guid: 5d2431126dc026440b62c5f85af47bc0, type: 3}
+  missile: {fileID: 0}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  isPositive: 0
+  activationMoment: 4
+  castActiveAbilities: []
+  effects:
+  - {fileID: 11400000, guid: cc7cb52913414314fab2b1211b3c6a73, type: 2}
+  - {fileID: 11400000, guid: 88ddfa5387634374a9eaf65f48a32a5a, type: 2}
+  passives: []
+  targets: 2
+  healthPercentage: 0
+  attributeType: 0
+  attributeValue: 0
+  cooldown: 0
+  castFirstRound: 0

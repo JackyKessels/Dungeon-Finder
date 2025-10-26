@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
+  m_Name: Rite of Awakening
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Rite of Awakening
+  quality: 0
+  abilityType: 2
+  description: 
+  icon: {fileID: 21300000, guid: cb8b327823f9a3846b8a4e54582c4975, type: 3}
+  casterSpecialEffects:
+  - {fileID: 6220647152472517363, guid: 54c4a68b7224501419909b0c32d38198, type: 3}
+  targetSpecialEffects: []
+  missile: {fileID: 0}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  castTime: 0.75
+  cooldown: 0
+  initialCooldown: 0
+  endTurn: 1
+  singleUse: 0
+  resetType: 0
+  resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
+  weaponRequirement: 4
+  soundEffect: {fileID: 0}
+  animationType: 1
+  allyAbilitySources: []
+  enemyAbilitySources: []
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: 913762243686f1445a979794e3b440a0, type: 2}
+  targetEffects: []
+  abilityTargets: 0

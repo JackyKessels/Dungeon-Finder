@@ -71,7 +71,7 @@ public class Food : Consumable
             else
                 text = "Use: Restore {0} Health to all members.";
 
-            healthRestoreText = string.Format("<color={1}>\n" + text + "</color>", healthRestore, ColorDatabase.EffectColor());
+            healthRestoreText = string.Format("<color={1}>\n" + text + "</color>", healthRestore, ColorDatabase.EffectColor);
         }
 
         if (preBattleEffects.Count > 0)
@@ -85,7 +85,7 @@ public class Food : Consumable
             else
                 text = "Use: Apply {0} to all members at the start of the next battle.";
 
-            effectText = string.Format("<color={1}>\n" + text + "</color>", GeneralUtilities.JoinString(effectNames, ", ", " and ", ColorDatabase.EffectColor()), ColorDatabase.EffectColor());
+            effectText = string.Format("<color={1}>\n" + text + "</color>", GeneralUtilities.JoinString(effectNames, ", ", " and ", ColorDatabase.EffectColor), ColorDatabase.EffectColor);
 
             foreach (EffectObject effectObject in preBattleEffects)
             {

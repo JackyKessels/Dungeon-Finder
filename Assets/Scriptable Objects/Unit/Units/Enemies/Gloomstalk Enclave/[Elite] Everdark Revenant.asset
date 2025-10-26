@@ -50,7 +50,7 @@ MonoBehaviour:
     amount: 0
     weight: 1
     level: 0
-  - itemObject: {fileID: 11400000, guid: 672709d438a07224bb239ba8dbf5fe7f, type: 2}
+  - itemObject: {fileID: 11400000, guid: 950d2d6e9b7c5844f8e90409c2150b13, type: 2}
     amount: 1
     weight: 1
     level: 0

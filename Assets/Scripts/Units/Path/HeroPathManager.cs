@@ -14,6 +14,8 @@ public class HeroPathManager
 
     public bool unlocked = false;
 
+    private const int MultiPathingThreshold = 2;
+
     public HeroPathManager(Hero h)
     {
         hero = h;
@@ -160,10 +162,7 @@ public class HeroPathManager
         for (int i = 0; i < pathPassives.Count; i++)
         {
             SetPathPassives(pathPassives[i], paths[i].unlockedPassives);
-            //ActivatePathPassives(paths[i]);
         }
-
-
     }
 
     private void SetPathPassives(bool[] loadedPassives, bool[] targetPassives)
@@ -176,16 +175,6 @@ public class HeroPathManager
         }
     }
 
-    // CHANGE THIS 
-    //private void ActivatePathPassives(HeroPath path)
-    //{
-    //    for (int i = 0; i < path.path.passiveAbilities.Count; i++)
-    //    {
-    //        if (path.unlockedPassives[i])
-    //            path.path.passiveAbilities[i]    .ActivatePassive(hero);
-    //    }
-    //}
-
     public int GetPoints()
     {
         return points;
@@ -195,14 +184,32 @@ public class HeroPathManager
     {
         points = amount;
     }
+
+    public void UpdatePathBlockers()
+    {
+        var totalLevel = paths.Sum(p => p.level);
+        var unlockedMultiPathing = paths.Any(p => p.checkpointsReached >= MultiPathingThreshold);
+        foreach (var path in paths)
+        {
+            var setBlocked = false;
+
+            if (!unlockedMultiPathing && totalLevel > 0 && path.level == 0)
+            {
+                setBlocked = true;
+            }
+
+            path.pathGameObject.SetPathBlocker(setBlocked);     
+        }
+    }
 }
 
 [System.Serializable]
 public class HeroPath
 {
-    public readonly int[] checkpoints = new int[6] { 0, 2, 6, 12, 20, 30 };
+    public readonly int[] checkpoints = new int[6] { 0, 3, 6, 12, 20, 30 };
 
     public HeroPathObject path;
+    public HeroPathGameObject pathGameObject;
     public int level;
 
     public int checkpointsReached;
@@ -226,35 +233,37 @@ public class HeroPath
         }
     }
 
-    public int HighestCheckpoint()
+    public int AvailableCheckpoints()
     {
-        int highestCheckpoint = 0;
+        int availableCheckpoints = 0;
 
         for (int i = 0; i < checkpoints.Length; i++)
         {
             if (level >= checkpoints[i])
-                highestCheckpoint = i;
+            {
+                availableCheckpoints = i;
+            }
         }
 
-        return highestCheckpoint;
+        return availableCheckpoints;
     }
 
-    public int UnlockedCheckpoints()
+    public int SpentCheckpoints()
     {
-        int unlockedCheckpoints = 0;
+        int spentCheckpoints = 0;
 
         for (int i = 0; i < unlockedPassives.Length; i++)
         {
             if (unlockedPassives[i])
-                unlockedCheckpoints++;
+                spentCheckpoints++;
         }
 
-        return unlockedCheckpoints;
+        return spentCheckpoints;
     }
 
     public bool CanUnlockPassive()
     {
-        return UnlockedCheckpoints() < HighestCheckpoint();
+        return SpentCheckpoints() < AvailableCheckpoints();
     }
 }
 

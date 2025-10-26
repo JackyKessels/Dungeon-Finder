@@ -37,7 +37,7 @@ MonoBehaviour:
   attributeScaling: 0
   resetText: Reset!
   weaponRequirement: 4
-  soundEffect: {fileID: 0}
+  soundEffect: {fileID: 8300000, guid: 2a0d8c33b6300aa44b30c4322ab1ee86, type: 3}
   animationType: 0
   allyAbilitySources: []
   enemyAbilitySources:

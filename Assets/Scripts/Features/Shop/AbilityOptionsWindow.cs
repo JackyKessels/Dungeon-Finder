@@ -44,7 +44,7 @@ public class AbilityOptionsWindow : MonoBehaviour
         {
             Active active = new Active(options[i], hero.spellbook.GetAbilityLevel(options[i]) + 1);
 
-            AddAbilityOption(active);
+            AddAbilityOption(active, hero);
         }
 
         for (int i = 0; i < abilityShop.offspecOptions; i++)
@@ -55,12 +55,12 @@ public class AbilityOptionsWindow : MonoBehaviour
             {
                 Active active = new Active(activeAbility, hero.spellbook.GetAbilityLevel(activeAbility) + 1);
 
-                AddAbilityOption(active);
+                AddAbilityOption(active, hero);
             }
         }
     }
 
-    private void AddAbilityOption(Active active)
+    private void AddAbilityOption(Active active, Hero hero)
     {
         GameObject obj = ObjectUtilities.CreateSimplePrefab(abilityOptionPrefab, container);
 
@@ -70,7 +70,7 @@ public class AbilityOptionsWindow : MonoBehaviour
         obj.GetComponent<RectTransform>().sizeDelta = new Vector2(96, 96);
 
         obj.GetComponent<Image>().sprite = active.activeAbility.icon;
-        obj.GetComponent<Button>().onClick.AddListener(delegate { SelectOption(active); });
+        obj.GetComponent<Button>().onClick.AddListener(delegate { SelectOption(active, hero); });
 
         GameObject extra = ObjectUtilities.CreateSimplePrefab(extraCostPrefab, obj);
         extra.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -60);
@@ -89,7 +89,7 @@ public class AbilityOptionsWindow : MonoBehaviour
         }
     }
 
-    public void SelectOption(Active active)
+    public void SelectOption(Active active, Hero hero)
     {
         CurrencyHandler currencyHandler = GameManager.Instance.currencyHandler;
 
@@ -104,6 +104,7 @@ public class AbilityOptionsWindow : MonoBehaviour
 
                 SuccessfulPurchase(active);
 
+                AnalyticsManager.TrackAbilityPurchase(hero.name, active.activeAbility.name, cost.totalAmount, active.level);
                 //ShortMessage.SendMessage(Input.mousePosition, "Successful purchase!", 24, Color.green);
             }
             else
@@ -115,6 +116,8 @@ public class AbilityOptionsWindow : MonoBehaviour
         else
         {
             SuccessfulPurchase(active);
+
+            AnalyticsManager.TrackAbilityPurchase(hero.name, active.activeAbility.name, cost.totalAmount, 1);
         }
     }
 

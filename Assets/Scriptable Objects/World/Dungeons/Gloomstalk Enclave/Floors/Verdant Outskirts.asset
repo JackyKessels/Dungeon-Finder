@@ -30,6 +30,7 @@ MonoBehaviour:
   campfireCount: 1
   treasureCount: 1
   mysteryCount: 3
+  campfireBeforeBoss: 1
   wellRestedEffect: {fileID: 11400000, guid: 3833ea2557edd154ebabe34e16ffe3d5, type: 2}
   wellRestedChance: 100
   itemPool:
@@ -45,43 +46,50 @@ MonoBehaviour:
     amount: 1
     weight: 1
     level: 0
+  - itemObject: {fileID: 11400000, guid: 123bb9719b8e0fe4f91e297ecb0ff76c, type: 2}
+    amount: 2
+    weight: 2
+    level: 0
   trashEncounters:
   - enemyObjects:
     - {fileID: 11400000, guid: 05a055cd24796bc4aaf6d5bde34e2501, type: 2}
     - {fileID: 11400000, guid: 05a055cd24796bc4aaf6d5bde34e2501, type: 2}
     randomOrder: 1
     weight: 2
+    conversation: {fileID: 0}
   - enemyObjects:
     - {fileID: 11400000, guid: c10443ecd763161448ca55f0fdb81389, type: 2}
     randomOrder: 1
     weight: 2
+    conversation: {fileID: 0}
   - enemyObjects:
     - {fileID: 11400000, guid: 2678af8d3664a304da8b933bc259a5bf, type: 2}
     - {fileID: 11400000, guid: 2678af8d3664a304da8b933bc259a5bf, type: 2}
     - {fileID: 11400000, guid: 2678af8d3664a304da8b933bc259a5bf, type: 2}
     randomOrder: 1
     weight: 2
+    conversation: {fileID: 0}
   - enemyObjects:
     - {fileID: 11400000, guid: 2678af8d3664a304da8b933bc259a5bf, type: 2}
     - {fileID: 11400000, guid: d50a2e5ef8ea1df469b9d21b1b9653dc, type: 2}
     randomOrder: 1
     weight: 1
+    conversation: {fileID: 0}
   eliteEncounters:
   - enemyObjects:
     - {fileID: 11400000, guid: 5ae14ec0869089e47a5450ed7875927b, type: 2}
     randomOrder: 1
     weight: 3
+    conversation: {fileID: 0}
   - enemyObjects:
     - {fileID: 11400000, guid: 45d3fc0619a68b04e9e4f0baf268cf1d, type: 2}
     randomOrder: 1
     weight: 3
-  - enemyObjects:
-    - {fileID: 11400000, guid: 7e770a08fed917144b5101bb41314679, type: 2}
-    randomOrder: 1
-    weight: 1
+    conversation: {fileID: 0}
   bossEncounter:
     enemyObjects:
     - {fileID: 11400000, guid: 689bcd23c303b3f439c67e818508c117, type: 2}
     randomOrder: 1
     weight: 1
+    conversation: {fileID: 0}
   mysteryEvents: {fileID: 11400000, guid: 231c02ff732d83547ab282c7db77039b, type: 2}

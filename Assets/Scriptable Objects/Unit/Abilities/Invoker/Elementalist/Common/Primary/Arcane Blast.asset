@@ -28,7 +28,7 @@ MonoBehaviour:
   missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
-  replacesAbility: {fileID: 11400000, guid: 1922d456d223d634895aff72db33ea1e, type: 2}
+  replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 0
   initialCooldown: 0
@@ -40,7 +40,7 @@ MonoBehaviour:
   attributeScaling: 0
   resetText: Reset!
   weaponRequirement: 4
-  soundEffect: {fileID: 0}
+  soundEffect: {fileID: 8300000, guid: bffb77d055ac4414d834752a48eba904, type: 3}
   animationType: 0
   allyAbilitySources: []
   enemyAbilitySources:

@@ -21,6 +21,6 @@ public abstract class Consumable : ItemObject
 
     public string HowToUseText()
     {
-        return string.Format("<color={0}>\n\nRight-click to use item.</color>", ColorDatabase.Gray());
+        return string.Format("<color={0}>\n\nRight-click to use item.</color>", ColorDatabase.Gray);
     }
 }

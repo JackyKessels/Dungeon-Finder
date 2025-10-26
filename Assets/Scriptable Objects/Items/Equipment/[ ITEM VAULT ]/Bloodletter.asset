@@ -35,7 +35,7 @@ MonoBehaviour:
   vitality: 0
   speed: 0
   accuracy: 0
-  crit: 10
+  crit: 0
   healingMultiplier: 0
   physicalMultiplier: 10
   fireMultiplier: 0

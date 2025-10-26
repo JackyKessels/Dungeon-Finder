@@ -51,14 +51,17 @@ public class Active
         this.isDoubleCast = isDoubleCast;
     }
 
-    public void Trigger(Unit caster, Unit target, float effectiveness, bool triggerOnAbilityCastEvent = true)
+    public void Trigger(Unit caster, Unit target, float effectiveness)
+    {
+        activeAbility.TriggerAbility(caster, target, level, effectiveness);
+    }
+
+    public void TriggerCastEvent(Unit caster, List<Unit> targets, bool triggerOnAbilityCastEvent = true)
     {
         if (triggerOnAbilityCastEvent)
         {
-            caster.OnAbilityCast?.Invoke(caster, target, this);
+            caster.OnAbilityCast?.Invoke(caster, targets, this);
         }
-
-        activeAbility.TriggerAbility(caster, target, level, effectiveness);
     }
 
     public void SetReplacedAbility(Active replacedAbility)

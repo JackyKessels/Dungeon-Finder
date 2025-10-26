@@ -22,14 +22,17 @@ MonoBehaviour:
   procType: 1
   duration: 3
   permanent: 0
-  stackable: 0
-  maxStacks: 0
-  refreshes: 1
   aura: 0
   unique: 0
+  dispellable: 1
+  removeEffects: []
+  effectInteractions: []
+  stackable: 0
+  refreshes: 1
   applyStacks: 1
   loseStacks: 0
-  removeEffects: []
+  maxStacks: 0
+  stackEffects: []
   attributeModified: 0
   isIncrease: 1
   modifierType: 0
@@ -40,9 +43,9 @@ MonoBehaviour:
     ignorePassives: []
     school: 0
     attributeType: 0
-    baseValue: 20
+    baseValue: 0
     levelBase: 0
-    scaling: 0
+    scaling: 0.1
     levelScaling: 0
     reductionType: 0
     abilityModifier:

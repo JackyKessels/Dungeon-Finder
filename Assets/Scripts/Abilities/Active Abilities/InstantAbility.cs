@@ -12,7 +12,7 @@ public class InstantAbility : ActiveAbility
     {
         base.TriggerAbility(caster, target, level, effectiveness);
 
-        float abilityMultiplier = (1 + caster.effectManager.ApplyMultipliers(this, target)) * effectiveness;
+        float abilityMultiplier = (1 + caster.effectManager.AbilityModifierApplyMultipliers(this, target)) * effectiveness;
 
         AbilityActions(caster, target, level, 1, abilityMultiplier);
     }

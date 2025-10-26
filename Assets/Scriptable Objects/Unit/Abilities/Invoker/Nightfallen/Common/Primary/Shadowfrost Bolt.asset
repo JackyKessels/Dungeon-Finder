@@ -29,6 +29,7 @@ MonoBehaviour:
   casterSpecialEffects: []
   targetSpecialEffects:
   - {fileID: 6264804792839183063, guid: b3ef39841fc87ee4988051d30edf029e, type: 3}
+  - {fileID: 1997660964569855898, guid: b3937f81500a91c4bb8929225f42fdd8, type: 3}
   missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
@@ -44,7 +45,7 @@ MonoBehaviour:
   attributeScaling: 0
   resetText: Reset!
   weaponRequirement: 4
-  soundEffect: {fileID: 0}
+  soundEffect: {fileID: 8300000, guid: bffb77d055ac4414d834752a48eba904, type: 3}
   animationType: 0
   allyAbilitySources: []
   enemyAbilitySources:

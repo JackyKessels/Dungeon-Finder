@@ -12,31 +12,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af0eb2a57c0a6284399350acff28371b, type: 3}
   m_Name: Twilight Temple
   m_EditorClassIdentifier: 
-  name: 
-  level: 0
-  dungeonBackground: {fileID: 0}
-  battleBackground: {fileID: 0}
+  name: Twilight Temple
+  level: 7
+  dungeonBackground: {fileID: 21300000, guid: 4f7fd62d191eb4244ab437e9d3478466, type: 3}
+  battleBackground: {fileID: 21300000, guid: e035776a381b3d04494b640995ee3721, type: 3}
   backgroundSound: {fileID: 0}
-  columns: 0
-  rows: 0
-  startingPoints: 0
-  endPoints: 0
+  columns: 6
+  rows: 3
+  startingPoints: 2
+  endPoints: 1
   removalThreshold: 0
-  minimumLocations: 1
+  minimumLocations: 12
   maximumLocations: 30
   addOffset: 0
-  forceBossCenter: 0
+  forceBossCenter: 1
   eliteCount: 0
   campfireCount: 0
   treasureCount: 0
   mysteryCount: 0
+  campfireBeforeBoss: 1
   wellRestedEffect: {fileID: 0}
   wellRestedChance: 0
   itemPool: []
-  trashEncounters: []
+  trashEncounters:
+  - enemyObjects:
+    - {fileID: 11400000, guid: 3be636b92d65a824789b292904f06b21, type: 2}
+    randomOrder: 0
+    weight: 1
+    conversation: {fileID: 0}
+  - enemyObjects:
+    - {fileID: 11400000, guid: ce285780d4f6e6f4b9b8e9dfb5e96a6e, type: 2}
+    randomOrder: 0
+    weight: 1
+    conversation: {fileID: 0}
+  - enemyObjects:
+    - {fileID: 11400000, guid: f48cd2f4a60d7a9478c918a219a3497b, type: 2}
+    randomOrder: 0
+    weight: 1
+    conversation: {fileID: 0}
   eliteEncounters: []
   bossEncounter:
-    enemyObjects: []
+    enemyObjects:
+    - {fileID: 11400000, guid: 87670914280ec104581fc4702b64c7d7, type: 2}
     randomOrder: 1
     weight: 1
+    conversation: {fileID: 0}
   mysteryEvents: {fileID: 0}

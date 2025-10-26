@@ -18,20 +18,28 @@ MonoBehaviour:
   description: 
   applicationSpecialEffects:
   - {fileID: 2091712331739202793, guid: 4a6d5d7cc214ec24fa5785f39c5550cc, type: 3}
-  expirationSpecialEffects: []
+  expirationSpecialEffects:
+  - {fileID: 2091712331739202793, guid: 4a6d5d7cc214ec24fa5785f39c5550cc, type: 3}
   isBuff: 0
   procType: 0
   duration: 1
   permanent: 0
-  stackable: 0
-  maxStacks: 0
-  refreshes: 1
   aura: 0
   unique: 0
+  dispellable: 1
+  removeEffects: []
+  effectInteractions: []
+  stackable: 0
+  refreshes: 1
   applyStacks: 1
   loseStacks: 0
-  removeEffects: []
-  enemyObject: {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
-  level: 1
-  two: 1
-  instant: 1
+  maxStacks: 0
+  stackEffects: []
+  encounters:
+  - enemyObjects:
+    - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
+    - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
+    randomOrder: 0
+    weight: 1
+    conversation: {fileID: 0}
+  killCaster: 0

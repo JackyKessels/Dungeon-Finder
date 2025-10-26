@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5d8964ff6732a478daba8589bfd458, type: 3}
+  m_Name: KORTH'AZID DUNGEON
+  m_EditorClassIdentifier: 
+  name: KORTH'AZID DUNGEON
+  recommendedMinimumLevel: 1
+  recommendedMaximumLevel: 99
+  nameColor: {r: 0.107422575, g: 0.11628748, b: 0.3207547, a: 1}
+  floors:
+  - {fileID: 11400000, guid: 4fe77b54323c0f24ea6164b3ba913554, type: 2}

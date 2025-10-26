@@ -11,19 +11,21 @@ public enum AffectedAbility
     SpecificEffect
 }
 
-//public enum ModifierType
-//{
-//    Multiplier,
-//    Effect,
-//    AbilitySource
-//}
+public enum AbilityModifierType
+{
+    Multiplier,
+    TurnEffect, // Make Swift for now, could be more effects in the future
+    ApplyEffect
+}
 
 [CreateAssetMenu(fileName = "New Ability Modifier", menuName = "Unit/Effect Object/Ability Modifier")]
 public class EffectAbilityModifier : EffectObject
 {
     [Header("[ Ability Modifier ]")]
+    public AbilityModifierType modifierType = AbilityModifierType.Multiplier;
     public AffectedAbility affectedAbility;
     public bool getConsumed;
+    public List<ParticleSystem> targetSpecialEffects = new List<ParticleSystem>();
 
     [Header("[ Typed Ability ]")]
     public AbilityType abilityType;
@@ -31,9 +33,12 @@ public class EffectAbilityModifier : EffectObject
     [Header("[ Specific Abilities ]")]
     public List<AbilityObject> specificAbilities;
 
-    [Header("[ Modification ]")]
+    [Header("[ Multiplier ]")]
     public float bonusMultiplier;
     public float bonusPerLevel;
+
+    [Header("[ Apply Effect ]")]
+    public List<EffectObject> appliedEffects;
 
     protected override string ParseDescription(string s, TooltipObject tooltipInfo)
     {
@@ -54,16 +59,30 @@ public class EffectAbilityModifier : EffectObject
 
         temp = AbilityTooltipHandler.DetermineTypedEffect(temp, "<typed>", abilityType);
 
+        temp = AbilityTooltipHandler.ParseEffectTooltips(temp, "applied", appliedEffects, tooltipInfo);
+
         return temp;
     }
 
     public float GetBonusMultiplier(int level)
     {
+        if (modifierType != AbilityModifierType.Multiplier)
+        {
+            return 1;
+        }
+
         return bonusMultiplier + bonusPerLevel * (level - 1);
     }
 
     public bool IsValidAbility(AbilityObject castAbility)
     {
-        return specificAbilities.Contains(castAbility);
+        if (castAbility == null)
+        {
+            return false;
+        }
+
+        return affectedAbility == AffectedAbility.AnyAbility ||
+              (affectedAbility == AffectedAbility.TypedAbility && castAbility.abilityType == abilityType) ||
+              (affectedAbility == AffectedAbility.SpecificAbility && specificAbilities.Contains(castAbility));
     }
 }

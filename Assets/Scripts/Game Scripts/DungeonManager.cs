@@ -54,7 +54,7 @@ public class DungeonManager : MonoBehaviour, IUserInterface
     public GameObject nameTagContainer;
 
     public Dungeon currentDungeon;
-    public int currentFloor;
+    public int currentFloorIndex;
 
     private Vector2 initialSize;
 
@@ -106,7 +106,20 @@ public class DungeonManager : MonoBehaviour, IUserInterface
         dungeonBackground.size = new Vector2(initialSize.x + gridHandler.GetWidthIncrease(), initialSize.y);
 
         if (floor.battleBackground != null)
+        {
             EventManager.Instance.SetBackground(floor.battleBackground, true);
+        }
+
+        if (floor.backgroundSound != null)
+        {
+            gameManager.audioSourceAmbient.clip = floor.backgroundSound;
+            gameManager.audioSourceAmbient.Play();
+        }
+        else
+        {
+            gameManager.audioSourceAmbient.clip = null;
+            gameManager.audioSourceAmbient.Stop();
+        }
     }
 
     private void SetDungeonNames(Floor floor)
@@ -128,7 +141,7 @@ public class DungeonManager : MonoBehaviour, IUserInterface
         switch (gameManager.gameMode)
         {
             case GameMode.Campaign:
-                return $" ({currentFloor + 1} / {currentDungeon.floors.Count})";
+                return $" ({currentFloorIndex + 1} / {currentDungeon.floors.Count})";
             case GameMode.Endless:
                 return "";
             default:
@@ -158,16 +171,17 @@ public class DungeonManager : MonoBehaviour, IUserInterface
         locationInformationObject.SetActive(true);
         locationInformation.Setup(currentLocation);
         locationInformation.interactButton.onClick.RemoveAllListeners();
+
         if (!currentLocation.locked)
         {
-            locationInformation.interactButton.onClick.AddListener(delegate { StartEvent(currentLocation); });
+            locationInformation.interactButton.onClick.AddListener(() => StartEvent(currentLocation));
         }
     }
 
     // When the button is clicked -> trigger event depending on location
     private void StartEvent(Location location)
     {
-        location.StartEvent(currentDungeon, currentFloor);
+        location.StartEvent(currentDungeon, currentFloorIndex);
         ShowLocationInformation(false);
     }
 
@@ -202,27 +216,27 @@ public class DungeonManager : MonoBehaviour, IUserInterface
 
     public void NextFloor()
     {
-        currentFloor++;
+        currentFloorIndex++;
 
         TeamManager.Instance.heroes.FullRestoreTeam();
 
-        if (currentFloor >= currentDungeon.floors.Count)
-            currentFloor = 0;
+        if (currentFloorIndex >= currentDungeon.floors.Count)
+            currentFloorIndex = 0;
 
-        Floor floor = currentDungeon.floors[currentFloor];
+        Floor floor = currentDungeon.floors[currentFloorIndex];
 
         BuildFloor(currentDungeon, floor);
     }
 
     public bool IsLastFloor()
     {
-        if (currentFloor == currentDungeon.floors.Count - 1)
+        if (currentFloorIndex == currentDungeon.floors.Count - 1)
             return true;
         else
             return false;
     }
 
-    public bool IsLastLocation()
+    public bool IsBossLocation()
     {
         return player.currentLocation.x == gridHandler.columns - 1;
     }
@@ -237,5 +251,19 @@ public class DungeonManager : MonoBehaviour, IUserInterface
         Location currentLocation = gridHandler.GetLocation(player.currentLocation.x, player.currentLocation.y);
 
         return currentLocation.locationType == LocationType.Boss;
+    }
+
+    public void TrackBossBattle(BattleState result)
+    {
+        if (IsBossLocation())
+        {
+            var currentFloor = currentDungeon.floors[currentFloorIndex];
+
+            var boss = currentFloor.bossEncounter.enemyObjects[0];
+            if (boss != null)
+            {
+                AnalyticsManager.TrackBossBattle(boss.name, currentDungeon.name, currentFloorIndex + 1, currentFloor.level, result.ToString());
+            }
+        }
     }
 }

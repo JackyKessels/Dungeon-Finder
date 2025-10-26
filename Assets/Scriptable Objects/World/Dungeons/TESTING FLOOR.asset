@@ -36,24 +36,34 @@ MonoBehaviour:
   itemPool: []
   trashEncounters:
   - enemyObjects:
-    - {fileID: 11400000, guid: ac058a792f1ca35479ea85df3b825ad1, type: 2}
-    - {fileID: 11400000, guid: 38cacaa2ca7639b48b08d40ecde2165b, type: 2}
+    - {fileID: 11400000, guid: 4a6199770fce6e44bba84c1c14b601c4, type: 2}
+    - {fileID: 11400000, guid: 4a6199770fce6e44bba84c1c14b601c4, type: 2}
+    - {fileID: 11400000, guid: 4a6199770fce6e44bba84c1c14b601c4, type: 2}
     randomOrder: 0
     weight: 1
+    conversation: {fileID: 0}
   - enemyObjects:
     - {fileID: 11400000, guid: e43675038dff24842ba1c38e89df82a2, type: 2}
     randomOrder: 0
     weight: 1
+    conversation: {fileID: 0}
   - enemyObjects:
     - {fileID: 11400000, guid: e43675038dff24842ba1c38e89df82a2, type: 2}
     - {fileID: 11400000, guid: e43675038dff24842ba1c38e89df82a2, type: 2}
     - {fileID: 11400000, guid: e43675038dff24842ba1c38e89df82a2, type: 2}
     randomOrder: 0
     weight: 1
+    conversation: {fileID: 0}
+  - enemyObjects:
+    - {fileID: 11400000, guid: 7e770a08fed917144b5101bb41314679, type: 2}
+    randomOrder: 0
+    weight: 1
+    conversation: {fileID: 0}
   eliteEncounters: []
   bossEncounter:
     enemyObjects:
     - {fileID: 11400000, guid: e43675038dff24842ba1c38e89df82a2, type: 2}
     randomOrder: 1
     weight: 1
+    conversation: {fileID: 0}
   mysteryEvents: {fileID: 0}

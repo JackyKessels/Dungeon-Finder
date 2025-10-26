@@ -107,14 +107,6 @@ public class TooltipObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public int GetAbilityLevel()
     {
-        if ((active != null && active.activeAbility != null && passive != null && passive.passiveAbility != null && item != null && item.id != -1) ||
-            (active != null && active.activeAbility != null && passive != null && passive.passiveAbility != null) ||
-            (active != null && active.activeAbility != null && item != null && item.id != -1) ||
-            (passive != null && passive.passiveAbility != null && item != null && item.id != -1))
-        {
-            Debug.Log("Can only have one tooltip at a time.");
-        }
-
         if (active != null && active.activeAbility != null)
         {
             return active.level;

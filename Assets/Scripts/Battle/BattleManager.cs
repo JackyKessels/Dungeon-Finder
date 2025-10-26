@@ -262,6 +262,8 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
         queueManager.RemoveQueue();
 
+        DungeonManager.Instance.TrackBossBattle(state);
+
         if (state == BattleState.WON)
         {
             gameManager.BattleWon();
@@ -486,6 +488,8 @@ public class BattleManager : MonoBehaviour, IUserInterface
                 yield return StartCoroutine(targetAbility.missile.LaunchMissile(currentUnit, target));
             }
 
+            active.TriggerCastEvent(currentUnit, new List<Unit> { target });
+
             active.Trigger(currentUnit, target, 1f);
 
             targetAbility.PlaySound();
@@ -504,6 +508,8 @@ public class BattleManager : MonoBehaviour, IUserInterface
             instantAbility.TriggerPreCast(currentUnit);
 
             List<Unit> targets = AbilityUtilities.GetAbilityTargets(instantAbility.abilityTargets, currentUnit);
+
+            active.TriggerCastEvent(currentUnit, targets);
 
             foreach (Unit target in targets)
             {
@@ -658,6 +664,8 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
         currentAbility.activeAbility.TriggerPreCast(currentUnit);
 
+        currentAbility.TriggerCastEvent(currentUnit, new List<Unit> { currentUnit });
+
         currentAbility.Trigger(currentUnit, currentUnit, 1f);
 
         currentAbility.activeAbility.PlaySound();
@@ -781,6 +789,8 @@ public class BattleManager : MonoBehaviour, IUserInterface
                     yield return StartCoroutine(targetAbility.missile.LaunchMissile(currentUnit, currentTarget));
                 }
 
+                currentAbility.TriggerCastEvent(currentUnit, new List<Unit> { currentTarget });
+
                 currentAbility.Trigger(currentUnit, currentTarget, 1f);
 
                 targetAbility.PlaySound();
@@ -810,6 +820,8 @@ public class BattleManager : MonoBehaviour, IUserInterface
             instantAbility.TriggerPreCast(currentUnit);
 
             List<Unit> targets = AbilityUtilities.GetAbilityTargets(instantAbility.abilityTargets, currentUnit);
+
+            currentAbility.TriggerCastEvent(currentUnit, targets);
 
             foreach (Unit target in targets)
             {
@@ -843,12 +855,14 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
             HandleCooldown(currentAbility, currentUnit);
 
+            var turnEnded = currentAbility.activeAbility.endTurn && !currentUnit.effectManager.AbilityModifierApplySwiftness(currentAbility.activeAbility);
+
             // Wait to show damage taken
             yield return new WaitForSeconds(1.0f);
 
             //-- Turn ends --//  
             // Only end turn if the ability expends the turn.
-            if (currentAbility.activeAbility.endTurn)
+            if (turnEnded)
             {
                 EndTurn();
             }
@@ -871,7 +885,6 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
             icon.sprite = tempSprite;
         }
-
     }
 
     private void CastAbility(Active a)

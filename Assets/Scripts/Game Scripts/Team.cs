@@ -28,9 +28,13 @@ public class Team
     {
         get
         {
-            return (from Unit unit in members
-                    where unit != null
-                    select unit).ToList();
+            List<Unit> result = new List<Unit>(members.Length);
+            foreach (var unit in members)
+            {
+                if (unit != null)
+                    result.Add(unit);
+            }
+            return result;
         }
     }
 
@@ -38,9 +42,13 @@ public class Team
     {
         get
         {
-            return (from Unit unit in Members
-                    where !unit.statsManager.isDead
-                    select unit).ToList();
+            List<Unit> result = new List<Unit>(Members.Count);
+            foreach (var unit in Members)
+            {
+                if (!unit.statsManager.isDead)
+                    result.Add(unit);
+            }
+            return result;
         }
     }
 
@@ -48,9 +56,13 @@ public class Team
     {
         get
         {
-            return (from Unit unit in Members
-                    where unit.statsManager.isDead
-                    select unit).ToList();
+            List<Unit> result = new List<Unit>(Members.Count);
+            foreach (var unit in Members)
+            {
+                if (unit.statsManager.isDead)
+                    result.Add(unit);
+            }
+            return result;
         }
     }
 

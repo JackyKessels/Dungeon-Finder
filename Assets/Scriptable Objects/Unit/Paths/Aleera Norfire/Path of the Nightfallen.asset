@@ -45,9 +45,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c00f9587577ea5542aa138726148e60a, type: 2}
   - {fileID: 11400000, guid: f15678c9505710a4dad0c03cce210446, type: 2}
   - {fileID: 11400000, guid: 1a567e34042e7f4419e179c3c595f6b9, type: 2}
+  - {fileID: 11400000, guid: 275dcbd86aea11b499dbf7b5a749bab0, type: 2}
   attributes:
   - attributeType: 0
-    baseValue: 2
+    baseValue: 7
     bonusValue: 0
     multiplier: 0
   - attributeType: 2
@@ -59,10 +60,10 @@ MonoBehaviour:
     bonusValue: 0
     multiplier: 0
   - attributeType: 12
-    baseValue: 2
+    baseValue: 1
     bonusValue: 0
     multiplier: 0
   - attributeType: 16
-    baseValue: 2
+    baseValue: 1
     bonusValue: 0
     multiplier: 0

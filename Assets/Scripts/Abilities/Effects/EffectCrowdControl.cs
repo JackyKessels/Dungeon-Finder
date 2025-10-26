@@ -23,7 +23,7 @@ public class EffectCrowdControl : EffectObject
 
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.CasterColor() + ">{0}</color>");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.CasterColor + ">{0}</color>");
 
             temp = string.Format(temp, tooltipInfo.effect.caster.name);
         }

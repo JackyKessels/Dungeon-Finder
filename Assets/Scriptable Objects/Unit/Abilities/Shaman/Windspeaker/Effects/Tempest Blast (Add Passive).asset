@@ -18,16 +18,19 @@ MonoBehaviour:
   description: <passive>
   applicationSpecialEffects: []
   expirationSpecialEffects: []
-  isBuff: 1
+  isBuff: 0
   procType: 1
-  duration: 5
+  duration: 4
   permanent: 0
-  stackable: 0
-  maxStacks: 0
-  refreshes: 1
   aura: 0
   unique: 0
+  dispellable: 1
+  removeEffects:
+  - {fileID: 11400000}
+  stackable: 0
+  refreshes: 1
   applyStacks: 1
   loseStacks: 0
-  removeEffects: []
+  maxStacks: 0
+  stackEffects: []
   passiveAbility: {fileID: 11400000, guid: 5eed453bd2774f449bd48280116e1d04, type: 2}

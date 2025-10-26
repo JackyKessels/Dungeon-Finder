@@ -30,7 +30,7 @@ public abstract class ItemObject : ScriptableObject
     {
         if (description != "")
         {
-            return $"<color={ColorDatabase.Description()}>\n\n\"{description}\"</color>";
+            return $"<color={ColorDatabase.Description}>\n\n\"{description}\"</color>";
         }
         else
         {

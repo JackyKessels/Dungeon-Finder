@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9a3f5455324bb45a7d17d74416447e, type: 3}
+  m_Name: The Pale Cradle Key
+  m_EditorClassIdentifier: 
+  name: The Pale Cradle Key
+  icon: {fileID: 21300000, guid: 544f27e970eb50c459294c33c75d6bdd, type: 3}
+  value: 0
+  stackable: 0
+  maxStacks: 1
+  sellable: 1
+  unique: 0
+  item:
+    name: 
+    id: 90
+    itemObject: {fileID: 0}
+    level: 1
+  description: 
+  quality: 0
+  consumptionType: 1
+  usableOnDead: 0
+  dungeon: {fileID: 11400000, guid: 5812efa0c2929294db67c928128c1784, type: 2}

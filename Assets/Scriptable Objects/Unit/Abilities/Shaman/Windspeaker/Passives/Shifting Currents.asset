@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Shifting Currents
   quality: 0
   abilityType: 3
-  description: 'Every Round increase your <wisdom> by <effect1modP>.
+  description: 'Every Round, increase your <wisdom> by <effect1modP>.
 
 
     <effect1stacks>

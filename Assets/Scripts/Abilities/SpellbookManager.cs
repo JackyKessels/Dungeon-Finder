@@ -50,6 +50,7 @@ public class SpellbookManager : MonoBehaviour
     private readonly int itemAbilitiesTotalSlots = 4;
 
     public GameObject abilityPrefab;            // Prefab that is used to fill the container
+    public GameObject quickSlotPrefab;
 
     public Hero currentHero;
 
@@ -341,7 +342,7 @@ public class SpellbookManager : MonoBehaviour
     // Creates the draggable ability that gets added to the collection
     public void CreateAbility(Active ability, GameObject container, bool draggable = true)
     {
-        GameObject obj = ObjectUtilities.CreateSimplePrefab(abilityPrefab, container);
+        GameObject obj = ObjectUtilities.CreateSimplePrefab(quickSlotPrefab, container);
             
         TooltipObject info = obj.GetComponent<TooltipObject>();
         info.active = ability;
@@ -351,7 +352,7 @@ public class SpellbookManager : MonoBehaviour
 
         if (draggable)
         {
-            QuickSlot qs = obj.AddComponent<QuickSlot>();
+            QuickSlot qs = obj.GetComponent<QuickSlot>();
             qs.Ability = ability;
             qs.draggableContainer = draggableContainer;
 

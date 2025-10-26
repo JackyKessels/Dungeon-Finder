@@ -35,27 +35,31 @@ public class PassiveOnUse : PassiveAbility
         unit.OnAbilityCast -= TriggerUseEvent;
     }
     
-    private void TriggerUseEvent(Unit caster, Unit target, Active active)
+    private void TriggerUseEvent(Unit caster, List<Unit> targets, Active active)
     {
         if (!SuccessfulTrigger(active.activeAbility))
             return;
 
-        if (castActiveAbilities.Count > 0)
+
+        foreach (Unit target in targets)
         {
-            for (int i = 0; i < castActiveAbilities.Count; i++)
+            if (castActiveAbilities.Count > 0)
             {
-                castActiveAbilities[i].CastAbility(caster, target, false);
+                for (int i = 0; i < castActiveAbilities.Count; i++)
+                {
+                    castActiveAbilities[i].CastAbility(caster, target, false);
+                }
             }
-        }
 
-        if (doubleCastAbility.enableDoubleCast && !active.isDoubleCast && caster.GetComponent<MonoBehaviour>() != null)
-        {
-            caster.GetComponent<MonoBehaviour>().StartCoroutine(TriggerDoubleCast(caster, target, active));
-        }
+            if (doubleCastAbility.enableDoubleCast && !active.isDoubleCast && caster.GetComponent<MonoBehaviour>() != null)
+            {
+                caster.GetComponent<MonoBehaviour>().StartCoroutine(TriggerDoubleCast(caster, target, active));
+            }
 
-        foreach (ApplyEffectObject applyEffectObject in applyEffectObjects)
-        {
-            applyEffectObject.ApplyEffect(caster, active.activeAbility);
+            foreach (ApplyEffectObject applyEffectObject in applyEffectObjects)
+            {
+                applyEffectObject.ApplyEffect(caster, active.activeAbility);
+            }
         }
 
         ObjectUtilities.CreateSpecialEffects(casterSpecialEffects, caster);
@@ -66,6 +70,8 @@ public class PassiveOnUse : PassiveAbility
         yield return new WaitForSeconds(0.5f);
 
         Active doubleCastActive = new Active(active.activeAbility, active.level, isDoubleCast: true);
+
+        doubleCastActive.TriggerCastEvent(caster, new List<Unit> { target });
 
         doubleCastActive.Trigger(caster, target, doubleCastAbility.GetEffectiveness(active.level));
 
@@ -114,7 +120,7 @@ public class PassiveOnUse : PassiveAbility
 
         for (int i = 0; i < castActiveAbilities.Count; i++)
         {
-            temp = AbilityTooltipHandler.ParseCastAbility(temp, string.Format("<castInfo{0}>", i + 1), string.Format("<castTooltip{0}>", i + 1), tooltipInfo, castActiveAbilities[i].activeAbility);
+            temp = AbilityTooltipHandler.ParseCastAbility(temp, string.Format("<castInfo{0}>", i + 1), string.Format("<castTooltip{0}>", i + 1), tooltipInfo, castActiveAbilities[i]);
             temp = AbilityTooltipHandler.ParseCastAbilityEffectiveness(temp, string.Format("<castEffect{0}>", i + 1), castActiveAbilities[i]);
         }
 

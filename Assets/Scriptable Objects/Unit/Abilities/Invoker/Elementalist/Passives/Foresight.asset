@@ -18,7 +18,7 @@ MonoBehaviour:
   abilityType: 3
   description: Increase <wisdom> by <effect1modV> for the first <effect1d> Rounds
     of the Battle.
-  icon: {fileID: 21300000, guid: 99ca3f6aff4d6cb4085fef95b8c1fdce, type: 3}
+  icon: {fileID: 21300000, guid: fbc27d6e519e0ff4bb2af2f736126e1f, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
   missile: {fileID: 0}

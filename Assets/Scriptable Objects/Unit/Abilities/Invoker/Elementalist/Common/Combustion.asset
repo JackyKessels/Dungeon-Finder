@@ -23,10 +23,10 @@ MonoBehaviour:
     You are incapacitated for the
     next Round.'
   icon: {fileID: 21300000, guid: bc6e3d667d2c7fe4abd6aaee76350fe1, type: 3}
-  casterSpecialEffects: []
-  targetSpecialEffects:
+  casterSpecialEffects:
   - {fileID: 4629274988909868496, guid: e4f4efe8ac0636446a80108e4c69a441, type: 3}
   - {fileID: 9056830358022407180, guid: 6e34336b87016124b81ebde754c559e8, type: 3}
+  targetSpecialEffects: []
   missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
@@ -42,8 +42,8 @@ MonoBehaviour:
   attributeScaling: 0
   resetText: Reset!
   weaponRequirement: 4
-  soundEffect: {fileID: 0}
-  animationType: 0
+  soundEffect: {fileID: 8300000, guid: 315f074b926db8e479d2a481b95e4d49, type: 3}
+  animationType: 1
   allyAbilitySources: []
   enemyAbilitySources:
   - ignoreMultipliers: 0

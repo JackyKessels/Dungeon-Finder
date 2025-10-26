@@ -27,6 +27,6 @@ public class DungeonKey : Consumable
     {
         return $"\nLoot Level: {dungeon.recommendedMinimumLevel} - {dungeon.recommendedMaximumLevel}" +
                $"\nUse: Enter {dungeon.name}." +
-               $"\n\n<color={ColorDatabase.EffectColor()}>Can only be used in town.</color>";
+               $"\n\n<color={ColorDatabase.EffectColor}>Can only be used in town.</color>";
     }
 }

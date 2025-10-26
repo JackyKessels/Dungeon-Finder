@@ -24,12 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520931248519510897}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8613801734349828563}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &635530325980985710
 SpriteRenderer:
@@ -42,6 +43,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -96,6 +98,7 @@ GameObject:
   - component: {fileID: 7495028141555387122}
   - component: {fileID: 8014860685553042762}
   - component: {fileID: -2363563409174371590}
+  - component: {fileID: 362051431016240720}
   m_Layer: 8
   m_Name: Hero
   m_TagString: Unit
@@ -110,13 +113,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7422715694881330666}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4617716703457155431}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1613920498793435332
 MonoBehaviour:
@@ -146,6 +150,7 @@ MonoBehaviour:
   statsManager:
     currentHealth: 0
     isDead: 0
+    isInvulnerable: 0
     attributes: []
   spellbook:
     unit: {fileID: 0}
@@ -159,6 +164,7 @@ MonoBehaviour:
       level: 0
       cooldown: 0
       currentCooldown: 0
+      isDoubleCast: 0
     - owner: {fileID: 0}
       activeAbility: {fileID: 0}
       allyAbilitySources: []
@@ -166,6 +172,7 @@ MonoBehaviour:
       level: 0
       cooldown: 0
       currentCooldown: 0
+      isDoubleCast: 0
     - owner: {fileID: 0}
       activeAbility: {fileID: 0}
       allyAbilitySources: []
@@ -173,6 +180,7 @@ MonoBehaviour:
       level: 0
       cooldown: 0
       currentCooldown: 0
+      isDoubleCast: 0
     - owner: {fileID: 0}
       activeAbility: {fileID: 0}
       allyAbilitySources: []
@@ -180,6 +188,7 @@ MonoBehaviour:
       level: 0
       cooldown: 0
       currentCooldown: 0
+      isDoubleCast: 0
     flaskAbility:
       owner: {fileID: 0}
       activeAbility: {fileID: 0}
@@ -188,8 +197,8 @@ MonoBehaviour:
       level: 0
       cooldown: 0
       currentCooldown: 0
+      isDoubleCast: 0
     passives: []
-    learnedPassives: 
   fctHandler: {fileID: -2363563409174371590}
   heroObjectIndex: 0
   heroObject: {fileID: 0}
@@ -200,7 +209,6 @@ MonoBehaviour:
     points: 0
     paths: []
     unlocked: 0
-  itemIDs: 
   equippedWeapons: 
   teamNumber: 0
   newHero: 1
@@ -228,6 +236,25 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -236,7 +263,7 @@ CapsuleCollider2D:
   m_Direction: 0
 --- !u!95 &8014860685553042762
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -249,10 +276,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &-2363563409174371590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,3 +294,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0499fee7926f7a49921ce15da30db91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &362051431016240720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7422715694881330666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0306eb23ae4a5a145a673c66a0807219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  outlineMaterial: {fileID: 2100000, guid: a57c6faf41f44a9449b40bc429f1d563, type: 2}
+  outlineColor: {r: 0, g: 5.9921575, b: 0, a: 1}

@@ -12,7 +12,8 @@ public enum ActivationMoment
     RoundStart,
     BelowAttributeValue,
     AboveAttributeValue,
-    RoundCooldown
+    RoundCooldown,
+    OnCrowdControlled
 }
 
 [CreateAssetMenu(fileName = "New Passive Ability", menuName = "Unit/Ability Object/Passive Add Effect")]
@@ -40,6 +41,9 @@ public class PassiveAddEffect : PassiveAbility
     [Header("[ Round Cooldown ]")]
     public int cooldown;
     public bool castFirstRound = false;
+    
+    [Header("[ On Crowd Controlled ]")]
+    public List<CrowdControlType> controlTypes;
 
     public override void ActivatePassive(Unit unit)
     {
@@ -74,6 +78,10 @@ public class PassiveAddEffect : PassiveAbility
         {
             unit.OnRoundStart += CheckCurrentRound;
         }
+        else if (activationMoment == ActivationMoment.OnCrowdControlled)
+        {
+            unit.OnReceiveEffect += TriggerCrowdControlEvent;
+        }
     }
 
     public override void DeactivatePassive(Unit unit)
@@ -104,6 +112,10 @@ public class PassiveAddEffect : PassiveAbility
         else if (activationMoment == ActivationMoment.RoundCooldown)
         {
             unit.OnRoundStart -= CheckCurrentRound;
+        }
+        else if (activationMoment == ActivationMoment.OnCrowdControlled)
+        {
+            unit.OnReceiveEffect -= TriggerCrowdControlEvent;
         }
     }
 
@@ -191,6 +203,26 @@ public class PassiveAddEffect : PassiveAbility
             AddPassives(caster, target);
             ObjectUtilities.CreateSpecialEffects(targetSpecialEffects, target);
         }
+    }
+
+    private void TriggerCrowdControlEvent(Effect effect)
+    {
+        if (effect.effectObject is not EffectCrowdControl crowdControl)
+        {
+            return;
+        }
+
+        if (!controlTypes.Contains(crowdControl.type))
+        {
+            return;
+        }
+
+        if (effects.Contains(effect.effectObject))
+        {
+            return;
+        }
+
+        TriggerPassiveEvent(effect.target);
     }
 
     private void ApplySelfEvent(Unit caster)
@@ -325,7 +357,7 @@ public class PassiveAddEffect : PassiveAbility
 
         for (int i = 0; i < castActiveAbilities.Count; i++)
         {
-            temp = AbilityTooltipHandler.ParseCastAbility(temp, string.Format("<castInfo{0}>", i + 1), string.Format("<castTooltip{0}>", i + 1), tooltipInfo, castActiveAbilities[i].activeAbility);
+            temp = AbilityTooltipHandler.ParseCastAbility(temp, string.Format("<castInfo{0}>", i + 1), string.Format("<castTooltip{0}>", i + 1), tooltipInfo, castActiveAbilities[i]);
             temp = AbilityTooltipHandler.ParseCastAbilityEffectiveness(temp, string.Format("<castEffect{0}>", i + 1), castActiveAbilities[i]);
         }
 
@@ -342,7 +374,7 @@ public class PassiveAddEffect : PassiveAbility
 
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor + ">{0}</color>");
 
             return string.Format(temp, healthPercentage);
         }
@@ -356,7 +388,7 @@ public class PassiveAddEffect : PassiveAbility
 
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor + ">{0}</color>");
 
             return string.Format(temp, cooldown + 1);
         }

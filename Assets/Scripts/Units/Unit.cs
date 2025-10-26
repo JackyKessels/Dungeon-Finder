@@ -14,7 +14,7 @@ public enum UnitType
 
 public delegate void EffectEvent(Unit unit);
 
-public delegate void AbilityEvent(Unit caster, Unit target, Active active);
+public delegate void AbilityEvent(Unit caster, List<Unit> targets, Active active);
 
 public class Unit : MonoBehaviour
 {
@@ -50,11 +50,12 @@ public class Unit : MonoBehaviour
 
     [HideInInspector] public AbilityEvent OnAbilityCast;
 
+    [HideInInspector] public ReceiveEffectEvent OnReceiveEffect;
+
     public virtual UnitObject GetUnitObject()
     {
         return null;
     }
-
 
     private void Awake()
     {

@@ -17,7 +17,7 @@ MonoBehaviour:
   quality: 0
   abilityType: 2
   description: "Deal <e1> <H> to all enemies and afflict them with <t1name>. \n\n<t1name>
-    deals <t1timAc1> <H> damage every Round for <t1d> Rounds."
+    deals <t1timAc1> <F> damage every Round for <t1d> Rounds."
   icon: {fileID: 21300000, guid: 45918e358ac2a0646b8978fc2e7993fa, type: 3}
   casterSpecialEffects:
   - {fileID: 5793683456844857093, guid: b60fe3f6cd6655845888fb59eb34f4f0, type: 3}
@@ -37,7 +37,7 @@ MonoBehaviour:
   attributeScaling: 0
   resetText: Reset!
   weaponRequirement: 4
-  soundEffect: {fileID: 0}
+  soundEffect: {fileID: 8300000, guid: b2b207d3a2f8cf7429fb1f45682ae249, type: 3}
   animationType: 1
   allyAbilitySources: []
   enemyAbilitySources:

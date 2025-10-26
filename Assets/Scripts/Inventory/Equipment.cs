@@ -150,18 +150,19 @@ public class Equipment : Item
 
     public override string GetCompleteTooltip(TooltipObject tooltipInfo)
     {
-        string tooltip = equipmentObject.GetName() + 
+        tooltipInfo.state = CurrentState.HeroInformation;
+
+        string tooltip = AbilityTooltipHandler.GetName(name, equipmentObject.quality) +
                          string.Format("\nLevel: {0}", level) +
-                         equipmentObject.ParseSlot() + 
-                         ParseAttributes() + 
-                         equipmentObject.GetDescription();
+                         equipmentObject.ParseSlot() +
+                         ParseAttributes();
 
         if (equipmentObject.slot == EquipmentSlot.Flask)
         {
             if (equipmentObject.useAbility != null)
-                return tooltip += equipmentObject.useAbility.GetFlaskDescription(tooltipInfo);
-            else
-                return tooltip;
+            {
+                tooltip += equipmentObject.useAbility.GetFlaskDescription(tooltipInfo);
+            }
         }
         else
         {
@@ -188,9 +189,9 @@ public class Equipment : Item
             {
                 tooltip += "\n\nYou learn the following active ability: " + "\n\n" + equipmentObject.useAbility.GetCompleteTooltip(tooltipInfo);
             }
-
-
         }
+
+        tooltip += equipmentObject.GetDescription();
 
         return tooltip;
     }
@@ -243,13 +244,13 @@ public class Equipment : Item
 
         if (attributeType == AttributeType.SacrificialMultiplier)
         {
-            positive = ColorDatabase.Negative;
-            negative = ColorDatabase.Positive;
+            positive = ColorDatabase.Red;
+            negative = ColorDatabase.Green;
         }
         else
         {
-            positive = ColorDatabase.Positive;
-            negative = ColorDatabase.Negative;
+            positive = ColorDatabase.Green;
+            negative = ColorDatabase.Red;
         }
 
         string percentageSign = percentage ? "%" : "";

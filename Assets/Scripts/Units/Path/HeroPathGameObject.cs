@@ -20,6 +20,8 @@ public class HeroPathGameObject : MonoBehaviour, IHasTooltip
     [SerializeField] Image checkpoint_4;
     [SerializeField] Image checkpoint_5;
 
+    [SerializeField] Image pathBlocker;
+
     public Hero hero;
     public HeroPath heroPath = null;
 
@@ -27,6 +29,7 @@ public class HeroPathGameObject : MonoBehaviour, IHasTooltip
     {
         hero = HeroManager.Instance.CurrentHero();
         heroPath = _heroPath;
+        heroPath.pathGameObject = this;
 
         tooltipObject.state = CurrentState.HeroInformation;
 
@@ -46,6 +49,8 @@ public class HeroPathGameObject : MonoBehaviour, IHasTooltip
             heroPath.level++;
 
             UpdateInterface();
+
+            hero.heroPathManager.UpdatePathBlockers();
 
             hero.heroPathManager.IncreaseHeroStats(heroPath);
 
@@ -98,7 +103,10 @@ public class HeroPathGameObject : MonoBehaviour, IHasTooltip
 
     public void UpdateCounter()
     {
-        passiveCounter.text = string.Format("[{0}/{1}]", heroPath.UnlockedCheckpoints(), heroPath.HighestCheckpoint());
+        var spentCheckpoints = heroPath.SpentCheckpoints().ToString();
+        var availableCheckpoints = heroPath.AvailableCheckpoints().ToString();
+
+        passiveCounter.text = $"[{spentCheckpoints}/{availableCheckpoints}]";
     }
 
     private void UpdateInterface()
@@ -114,38 +122,51 @@ public class HeroPathGameObject : MonoBehaviour, IHasTooltip
     private void SetCheckpointColors()
     {
         int points = heroPath.level;
+        heroPath.checkpointsReached = 0;
 
-        SetColor(checkpoint_1, false);
-        SetColor(checkpoint_2, false);
-        SetColor(checkpoint_3, false);
-        SetColor(checkpoint_4, false);
-        SetColor(checkpoint_5, false);
+        SetCheckpoint(checkpoint_1, false);
+        SetCheckpoint(checkpoint_2, false);
+        SetCheckpoint(checkpoint_3, false);
+        SetCheckpoint(checkpoint_4, false);
+        SetCheckpoint(checkpoint_5, false);
 
         if (points >= heroPath.checkpoints[1])
-            SetColor(checkpoint_1, true);
+        {
+            SetCheckpoint(checkpoint_1, true);
+            heroPath.checkpointsReached++;
+        }
 
         if (points >= heroPath.checkpoints[2])
-            SetColor(checkpoint_2, true);
+        {
+            SetCheckpoint(checkpoint_2, true);
+            heroPath.checkpointsReached++;
+        }
 
         if (points >= heroPath.checkpoints[3])
-            SetColor(checkpoint_3, true);
+        {
+            SetCheckpoint(checkpoint_3, true);
+            heroPath.checkpointsReached++;
+        }
 
         if (points >= heroPath.checkpoints[4])
-            SetColor(checkpoint_4, true);
+        {
+            SetCheckpoint(checkpoint_4, true);
+            heroPath.checkpointsReached++;
+        }
 
         if (points >= heroPath.checkpoints[5])
-            SetColor(checkpoint_5, true);
-
+        {
+            SetCheckpoint(checkpoint_5, true);
+            heroPath.checkpointsReached++;
+        }
     }
 
-    private void SetColor(Image checkpoint, bool colored)
+    private void SetCheckpoint(Image checkpoint, bool reached)
     {
-        string color = colored ? "#00FF81" : "#444444";
+        string color = reached ? ColorDatabase.ReachedCheckpoint : ColorDatabase.UnreachedCheckpoint;
 
         checkpoint.color = GeneralUtilities.ConvertString2Color(color);
     }
-
-
 
     public string GetCompleteTooltip(TooltipObject tooltipInfo)
     {
@@ -164,6 +185,11 @@ public class HeroPathGameObject : MonoBehaviour, IHasTooltip
         }
 
         return attributesText;
+    }
+
+    public void SetPathBlocker(bool block)
+    {
+        pathBlocker.gameObject.SetActive(block);
     }
 
     private string MultiplierPercentage(Attribute attribute)

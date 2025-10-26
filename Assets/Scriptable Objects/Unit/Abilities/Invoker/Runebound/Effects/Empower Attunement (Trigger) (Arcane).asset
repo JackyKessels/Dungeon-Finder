@@ -18,18 +18,20 @@ MonoBehaviour:
   description: '<A>: Arcane Damage increased by <applied1modV>% for <applied1d> Rounds.'
   applicationSpecialEffects: []
   expirationSpecialEffects: []
-  isBuff: 0
+  isBuff: 1
   procType: 0
   duration: 1
   permanent: 0
-  stackable: 0
-  maxStacks: 0
-  refreshes: 1
   aura: 0
   unique: 0
+  dispellable: 1
+  removeEffects: []
+  stackable: 0
+  refreshes: 1
   applyStacks: 1
   loseStacks: 0
-  removeEffects: []
+  maxStacks: 0
+  stackEffects: []
   conditionalEffectType: 2
   appliedEffects:
   - {fileID: 11400000, guid: 1ad4a8046e170354c881b6ad40f5c053, type: 2}

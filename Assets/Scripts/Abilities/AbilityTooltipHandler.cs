@@ -10,7 +10,7 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.GeneralInformation() + ">{0}</color>");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.GeneralInformation + ">{0}</color>");
 
             return string.Format(temp, abilityObject.name);
         }
@@ -22,7 +22,7 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.GeneralInformation() + ">{0}</color>");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.GeneralInformation + ">{0}</color>");
 
             return string.Format(temp, effectObject.name);
         }
@@ -78,14 +78,16 @@ public static class AbilityTooltipHandler
         return temp;
     }
 
-    public static string ParseCastAbility(string s, string checkInfo, string checkTooltip, TooltipObject tooltipObject, ActiveAbility activeAbility)
+    public static string ParseCastAbility(string s, string checkInfo, string checkTooltip, TooltipObject tooltipObject, CastActiveAbility castActiveAbility)
     {
         string temp = s;
-        string color = ColorDatabase.GeneralInformation();
+        string color = ColorDatabase.GeneralInformation;
 
         Unit caster = GeneralUtilities.GetCorrectUnit(tooltipObject);
 
         int level = 1;
+
+        var activeAbility = castActiveAbility.activeAbility;
 
         if (caster != null)
         {
@@ -110,9 +112,12 @@ public static class AbilityTooltipHandler
         {
             temp = temp.Replace(checkTooltip, "{0}");
 
-            tooltipObject.active.level = level;
+            var tempActive = tooltipObject.active;
+            tooltipObject.active = new Active(activeAbility, level);
 
             temp = string.Format(temp, activeAbility.GetNameAndDescription(tooltipObject));
+
+            tooltipObject.active = tempActive;
         }
 
         return temp;
@@ -121,13 +126,13 @@ public static class AbilityTooltipHandler
     public static string ParseCastAbilityEffectiveness(string s, string check, CastActiveAbility castActiveAbility)
     {
         string temp = s;
-        string color = ColorDatabase.GeneralInformation();
+        string color = ColorDatabase.GeneralInformation;
 
         if (temp.Contains(check))
         {
             int percentage = GeneralUtilities.RoundFloat(100 * castActiveAbility.effectiveness, 0);
 
-            temp = temp.Replace(check, "<color={1}>{0}</color>% damage effectiveness");
+            temp = temp.Replace(check, "<color={1}>{0}</color>% damage/healing effectiveness");
 
             temp = string.Format(temp, percentage, color);
         }
@@ -138,7 +143,7 @@ public static class AbilityTooltipHandler
     public static string ParseDoubleCastEffectiveness(string s, string check, float effectiveness)
     {
         string temp = s;
-        string color = ColorDatabase.GeneralInformation();
+        string color = ColorDatabase.GeneralInformation;
 
         if (temp.Contains(check))
         {
@@ -165,7 +170,7 @@ public static class AbilityTooltipHandler
     {
         string pattern = @"\<g!([^>]*)\>";
 
-        string color = ColorDatabase.GeneralInformation();
+        string color = ColorDatabase.GeneralInformation;
 
         string temp = Regex.Replace(s, pattern, "<color={0}>$1</color>");
 
@@ -178,7 +183,7 @@ public static class AbilityTooltipHandler
     {
         string pattern = @"\<ns!([^>]*)\>";
 
-        string temp = Regex.Replace(s, pattern, "<color=" + ColorDatabase.NonScalingColor() + ">$1</color>");
+        string temp = Regex.Replace(s, pattern, "<color=" + ColorDatabase.NonScalingColor + ">$1</color>");
 
         return temp;
     }
@@ -213,6 +218,7 @@ public static class AbilityTooltipHandler
                         temp = DetermineBonusMultipler(temp, $"<{prefix}{i + 1}bonus>", abilityModifier.GetBonusMultiplier(tooltipInfo.GetAbilityLevel()));
                         temp = DetermineSpecificAbilities(temp, $"<{prefix}{i + 1}specific>", abilityModifier.specificAbilities);
                         temp = DetermineTypedEffect(temp, $"<{prefix}{i + 1}typed>", abilityModifier.abilityType);
+                        temp = ParseEffectTooltips(temp, $"{prefix}{i + 1}applied", abilityModifier.appliedEffects, tooltipInfo);
                     }
                     break;
                 case EffectCooldownReduction cooldownReduction:
@@ -289,7 +295,7 @@ public static class AbilityTooltipHandler
 
     public static string DoesNotEndTurn(string temp)
     {
-        string color = ColorDatabase.GeneralInformation();
+        string color = ColorDatabase.GeneralInformation;
 
         temp += string.Format("<color={0}>\n\nThis ability does not end your Turn.</color>", color);
 
@@ -298,7 +304,7 @@ public static class AbilityTooltipHandler
 
     public static string CannotBeDispelled(string temp)
     {
-        string color = ColorDatabase.Red();
+        string color = ColorDatabase.Red;
 
         temp += string.Format("<color={0}>\n\nCannot be dispelled.</color>", color);
 
@@ -307,7 +313,7 @@ public static class AbilityTooltipHandler
 
     public static string ReplacesAbility(string temp, AbilityObject abilityObject)
     {
-        string color = ColorDatabase.GeneralInformation();
+        string color = ColorDatabase.GeneralInformation;
 
         temp += string.Format("\n\nThis ability replaces <color={0}>{1}</color>.", color, abilityObject.name);
 
@@ -326,7 +332,7 @@ public static class AbilityTooltipHandler
                 case ResetType.Flat:
                     {
                         string value = $"{activeAbility.resetChance}";
-                        chance = $"<color={ColorDatabase.NonScalingColor()}>{value}</color>";
+                        chance = $"<color={ColorDatabase.NonScalingColor}>{value}</color>";
                     }
                     break;
                 case ResetType.Attribute:
@@ -355,7 +361,7 @@ public static class AbilityTooltipHandler
             }
             else
             {
-                chance = $"<color={ColorDatabase.NonScalingColor()}>{value}</color>";
+                chance = $"<color={ColorDatabase.NonScalingColor}>{value}</color>";
             }
 
         }
@@ -398,9 +404,8 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.SchoolColor(school) + ">{0}</color>");
-
-            return string.Format(temp, school);
+            var schoolString = school.ToString();
+            return temp.Replace(check, $"<color={ColorDatabase.SchoolColor(school)}>{schoolString}</color>");
         }
 
         return temp;
@@ -422,7 +427,7 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.MagicalColor() + ">Magical</color>");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.MagicalColor + ">Magical</color>");
         }
 
         return temp;
@@ -430,7 +435,7 @@ public static class AbilityTooltipHandler
 
     public static string ParseProcChance(string temp, string check, int chance)
     {
-        string color = ColorDatabase.NonScalingColor();
+        string color = ColorDatabase.NonScalingColor;
 
         if (temp.Contains(check))
         {
@@ -504,7 +509,7 @@ public static class AbilityTooltipHandler
 
     public static string CriticalHit(string temp, string check)
     {
-        string color = ColorDatabase.NonScalingColor();
+        string color = ColorDatabase.NonScalingColor;
 
         if (temp.Contains(check))
         {
@@ -518,7 +523,7 @@ public static class AbilityTooltipHandler
 
     public static string GlancingHit(string temp, string check)
     {
-        string color = ColorDatabase.NonScalingColor();
+        string color = ColorDatabase.NonScalingColor;
 
         if (temp.Contains(check))
         {
@@ -532,7 +537,7 @@ public static class AbilityTooltipHandler
 
     public static string TriggerPassive(string temp, bool triggersPassives, bool triggeredByPassives, bool triggeredByEffects)
     {
-        string color = ColorDatabase.Red();
+        string color = ColorDatabase.Red;
 
         string triggers = "This ";
 
@@ -558,7 +563,7 @@ public static class AbilityTooltipHandler
 
     public static string TriggeredByPassive(string temp)
     {
-        string color = ColorDatabase.Red();
+        string color = ColorDatabase.Red;
 
         temp += string.Format("<color={0}>\n\nThis is not triggered by passives.</color>", color);
 
@@ -567,7 +572,7 @@ public static class AbilityTooltipHandler
 
     public static string TriggeredByEffects(string temp)
     {
-        string color = ColorDatabase.Red();
+        string color = ColorDatabase.Red;
 
         temp += string.Format("<color={0}>\n\nThis is not triggered by effects.</color>", color);
 
@@ -578,7 +583,7 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor + ">{0}</color>");
 
             return string.Format(temp, cdr.roundsReduction);
         }
@@ -590,7 +595,7 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor + ">{0}</color>");
 
             return string.Format(temp, cdr.specificAbility.name);
         }
@@ -621,7 +626,7 @@ public static class AbilityTooltipHandler
             {
                 if (!source.HasAttributeScaling())
                 {
-                    temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>");
+                    temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor + ">{0}</color>");
 
                     return string.Format(temp, source.GetTooltipValue(tooltipInfo));
                 }
@@ -636,7 +641,7 @@ public static class AbilityTooltipHandler
             {
                 if (!source.HasAttributeScaling())
                 {
-                    temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>");
+                    temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor + ">{0}</color>");
 
                     return string.Format(temp, source.CalculateValue(tooltipInfo));
                 }
@@ -656,7 +661,7 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor + ">{0}</color>");
 
             return string.Format(temp, modifier.increaseValue);
         }
@@ -668,7 +673,7 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor + ">{0}</color>");
 
             return string.Format(temp, modifier.percentageIncrease);
         }
@@ -680,7 +685,7 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor + ">{0}</color>");
 
             return string.Format(temp, modifier.conditionThreshold);
         }
@@ -692,7 +697,7 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>%");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor + ">{0}</color>%");
 
             float percentage = drainModifier.fractionDrained * 100f;
 
@@ -709,7 +714,7 @@ public static class AbilityTooltipHandler
         if (temp.Contains(check))
         {
             //temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(effectAttributeModifier.attributeModified) + ">{0}</color>%");
-            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor() + ">{0}</color>%");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.NonScalingColor + ">{0}</color>%");
 
             float percentage = (effectAttributeModifier.multiplier + effectAttributeModifier.multiplierPerLevel * (tooltipInfo.GetAbilityLevel() - 1)) * 100f;
 
@@ -723,7 +728,7 @@ public static class AbilityTooltipHandler
 
     private static string DetermineEffectDuration(string temp, string check, EffectObject effectObject)
     {
-        string durationColor = ColorDatabase.Gray();
+        string durationColor = ColorDatabase.Gray;
 
         if (temp.Contains(check))
         {
@@ -741,7 +746,7 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check))
         {
-            string nameColor = ColorDatabase.GeneralInformation();
+            string nameColor = ColorDatabase.GeneralInformation;
 
             temp = temp.Replace(check, "<color=" + nameColor + ">{0}</color>");
 
@@ -755,7 +760,7 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check) && effectObject.stackable)
         {
-            string color = ColorDatabase.GeneralInformation();
+            string color = ColorDatabase.GeneralInformation;
 
             if (effectObject.maxStacks > 0)
             {
@@ -781,7 +786,7 @@ public static class AbilityTooltipHandler
             for (int i = 0; i < effectObject.stackEffects.Count; i++)
             {
                 temp = DetermineStackEffectStacksToTrigger(temp, $"<{prefix}{i + 1}stacksToTrigger>", effectObject.stackEffects[i]);
-                temp = ParseCastAbility(temp, $"<{prefix}{i + 1}castInfo>", $"<{prefix}{i + 1}castTooltip>", tooltipInfo, effectObject.stackEffects[i].castActiveAbility.activeAbility);
+                temp = ParseCastAbility(temp, $"<{prefix}{i + 1}castInfo>", $"<{prefix}{i + 1}castTooltip>", tooltipInfo, effectObject.stackEffects[i].castActiveAbility);
                 temp = ParseCastAbilityEffectiveness(temp, $"<{prefix}{i + 1}castEffect>", effectObject.stackEffects[i].castActiveAbility);
             }
 
@@ -793,7 +798,7 @@ public static class AbilityTooltipHandler
 
     private static string DetermineStackEffectStacksToTrigger(string temp, string check, StackEffect stackEffect)
     {
-        string durationColor = ColorDatabase.GeneralInformation();
+        string durationColor = ColorDatabase.GeneralInformation;
 
         if (temp.Contains(check))
         {
@@ -809,7 +814,7 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check) && !effectObject.refreshes && effectObject.stackable)
         {
-            string color = ColorDatabase.GeneralInformation();
+            string color = ColorDatabase.GeneralInformation;
 
             temp = temp.Replace(check, "The duration of " + "<color=" + color + ">{0}</color>" + " cannot be refreshed.");
 
@@ -823,7 +828,7 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check) && effectObject.unique)
         {
-            string color = ColorDatabase.GeneralInformation();
+            string color = ColorDatabase.GeneralInformation;
 
             temp = temp.Replace(check, "<color=" + color + ">{0}</color>" + " can only be active on " + "<color=" + color + ">1</color>" + " target.");
 
@@ -838,7 +843,7 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check))
         {
-            string color = ColorDatabase.NonScalingColor();
+            string color = ColorDatabase.NonScalingColor;
 
             float fullValue = Mathf.Abs(value * 100);
 
@@ -855,7 +860,7 @@ public static class AbilityTooltipHandler
 
         if (temp.Contains(check))
         {
-            string color = ColorDatabase.GeneralInformation();
+            string color = ColorDatabase.GeneralInformation;
 
             List<string> strings = specificAbilities.Select(x => x.name).ToList();
 
@@ -869,7 +874,7 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.CasterColor() + ">" + dmg.percentage * 100 + "</color>%");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.CasterColor + ">" + dmg.percentage * 100 + "</color>%");
         }
 
         return temp;
@@ -900,7 +905,7 @@ public static class AbilityTooltipHandler
 
     public static string ParseNonScalingNumber(string temp, string check, int number)
     {
-        string color = ColorDatabase.NonScalingColor();
+        string color = ColorDatabase.NonScalingColor;
 
         if (temp.Contains(check))
         {
@@ -910,5 +915,17 @@ public static class AbilityTooltipHandler
         }
 
         return temp;
+    }
+
+    public static string ParseEffectColor(bool isBuff)
+    {
+        var color = isBuff ? ColorDatabase.Positive : ColorDatabase.Negative;
+
+        return $"\n<color={color}>Effect: </color>";
+    }
+
+    public static string GetName(string name, Quality quality)
+    {
+        return $"<smallcaps><b><color={ColorDatabase.QualityColor(quality)}>{name}</color></b></smallcaps>";
     }
 }

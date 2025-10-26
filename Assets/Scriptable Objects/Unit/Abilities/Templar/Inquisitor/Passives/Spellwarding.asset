@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Spellwarding
   quality: 0
   abilityType: 3
-  description: '<Heal> a target increases their <resistance> by <t1modV> for <t1d>
+  description: 'Healing an ally increases their <resistance> by <t1modV> for <t1d>
     Rounds.
 
 

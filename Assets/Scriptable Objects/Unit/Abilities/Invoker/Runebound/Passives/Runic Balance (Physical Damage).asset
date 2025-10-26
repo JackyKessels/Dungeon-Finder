@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Runic Balance (Physical Damage)
   m_EditorClassIdentifier: 
   name: Runic Balance
-  icon: {fileID: 21300000, guid: af98a1081158c134985c359dc0a01823, type: 3}
+  icon: {fileID: 21300000, guid: 1295dc94e0af28946bfb825400f62163, type: 3}
   hidden: 0
   description: Physical Damage increased by <1>%.
   applicationSpecialEffects: []
@@ -22,14 +22,16 @@ MonoBehaviour:
   procType: 1
   duration: 8
   permanent: 0
-  stackable: 1
-  maxStacks: 0
-  refreshes: 0
   aura: 0
   unique: 0
+  dispellable: 1
+  removeEffects: []
+  stackable: 1
+  refreshes: 0
   applyStacks: 1
   loseStacks: 0
-  removeEffects: []
+  maxStacks: 0
+  stackEffects: []
   attributeModified: 10
   isIncrease: 1
   modifierType: 0

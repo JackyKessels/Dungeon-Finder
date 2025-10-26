@@ -14,14 +14,14 @@ public class EffectChargeTarget : EffectObject
 
         if (temp.Contains(caster))
         {
-            temp = temp.Replace(caster, "<color=" + ColorDatabase.CasterColor() + ">{0}</color>");
+            temp = temp.Replace(caster, "<color=" + ColorDatabase.CasterColor + ">{0}</color>");
 
             temp = string.Format(temp, tooltipInfo.effect.caster.name);
         }
 
         if (temp.Contains(ability))
         {
-            temp = temp.Replace(ability, "<color=" + ColorDatabase.CasterColor() + ">{0}</color>");
+            temp = temp.Replace(ability, "<color=" + ColorDatabase.CasterColor + ">{0}</color>");
 
             Enemy enemy = tooltipInfo.effect.caster as Enemy;
 

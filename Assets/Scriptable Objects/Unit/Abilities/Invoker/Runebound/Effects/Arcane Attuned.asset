@@ -18,21 +18,23 @@ MonoBehaviour:
   description: Arcane Damage increased by <1>%.
   applicationSpecialEffects: []
   expirationSpecialEffects: []
-  isBuff: 0
+  isBuff: 1
   procType: 0
   duration: 1
   permanent: 1
-  stackable: 0
-  maxStacks: 0
-  refreshes: 1
   aura: 0
   unique: 0
-  applyStacks: 1
-  loseStacks: 0
+  dispellable: 1
   removeEffects:
   - {fileID: 11400000, guid: ed80c80b6269ce34eb458d9dec28e254, type: 2}
   - {fileID: 11400000}
   - {fileID: 11400000, guid: fedd61971c870ce448f88acc4e4e27ab, type: 2}
+  stackable: 0
+  refreshes: 1
+  applyStacks: 1
+  loseStacks: 0
+  maxStacks: 0
+  stackEffects: []
   attributeModified: 14
   isIncrease: 1
   modifierType: 0

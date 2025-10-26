@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Tempest Blast
   quality: 0
   abilityType: 0
-  description: Dealing <N> damage reduces the cooldown of <s1cdrSpecific> by <s1cdr>.
+  description: Taking <N> damage reduces the cooldown of <t1cdrSpecific> by <t1cdr>.
   icon: {fileID: 21300000, guid: 61cbc8d6f407d6d42acfc243f38ebfed, type: 3}
   casterSpecialEffects: []
   targetSpecialEffects: []
@@ -25,7 +25,7 @@ MonoBehaviour:
   sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
-  triggerType: 1
+  triggerType: 0
   hitType: 0
   targetTrigger: 0
   abilityTypeTrigger: 0
@@ -39,6 +39,6 @@ MonoBehaviour:
   abilitySources: []
   castActiveAbilities: []
   selfEffectsPerTarget: 0
-  selfEffects:
+  selfEffects: []
+  targetEffects:
   - {fileID: 11400000, guid: fbdfbdcc3f0e81441965bc8d348dad2d, type: 2}
-  targetEffects: []

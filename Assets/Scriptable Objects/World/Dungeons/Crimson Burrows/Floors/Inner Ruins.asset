@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Inner Ruins
   level: 3
-  dungeonBackground: {fileID: 21300000, guid: 8ba0458efcf896b498ee5b03415fe5c7, type: 3}
-  battleBackground: {fileID: 21300000, guid: bdfa4d9161fe46944ac0ce31152b6d21, type: 3}
+  dungeonBackground: {fileID: 21300000, guid: 4f7fd62d191eb4244ab437e9d3478466, type: 3}
+  battleBackground: {fileID: 21300000, guid: e035776a381b3d04494b640995ee3721, type: 3}
   backgroundSound: {fileID: 0}
   columns: 6
   rows: 5

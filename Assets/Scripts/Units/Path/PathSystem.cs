@@ -22,6 +22,8 @@ public class PathSystem : MonoBehaviour
         {
             CreateHeroPath(path, pathsContainer);
         }
+
+        hero.heroPathManager.UpdatePathBlockers();
     }
 
     private void CreateHeroPath(HeroPath path, GameObject container)

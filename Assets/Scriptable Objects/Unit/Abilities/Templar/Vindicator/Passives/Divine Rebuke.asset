@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e953f64eda59a43b8649512aa4456c, type: 3}
+  m_Name: Divine Rebuke
+  m_EditorClassIdentifier: 
+  id: 208
+  name: Divine Rebuke
+  quality: 0
+  abilityType: 3
+  description: "When taking <M> damage, the attacker\u2019s <wisdom> is reduced by
+    <t1modP>% for <t1d> rounds and takes <1> <H> damage.\n\n<t1name> does not stack."
+  icon: {fileID: 21300000, guid: 6a06baff07d57d34891248f54e0ac953, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects:
+  - {fileID: 5519313682068494320, guid: 9bd4f3b9416d5f849955de44c25512c9, type: 3}
+  missile: {fileID: 0}
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  triggerType: 0
+  hitType: 0
+  targetTrigger: 0
+  abilityTypeTrigger: 0
+  typeRequirement: 0
+  specificEffect: {fileID: 0}
+  schoolTriggers: 020000000300000004000000050000000600000007000000
+  triggersPassives: 0
+  triggeredByPassives: 0
+  triggeredByEffects: 1
+  procChance: 100
+  abilitySources:
+  - ignoreMultipliers: 0
+    cannotCrit: 0
+    cannotMiss: 0
+    ignorePassives: []
+    school: 6
+    attributeType: 0
+    baseValue: 0
+    levelBase: 0
+    scaling: 0.01
+    levelScaling: 0
+    reductionType: 2
+    abilityModifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      conditionChance: 0
+      increasedAttribute: 0
+      increaseValue: 0
+      casterBased: 0
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 0
+      conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
+  castActiveAbilities: []
+  selfEffectsPerTarget: 0
+  selfEffects: []
+  targetEffects:
+  - {fileID: 11400000, guid: a2dc6fa43ff2db849b2d3a7a229ed3c8, type: 2}

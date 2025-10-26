@@ -23,15 +23,22 @@ MonoBehaviour:
   procType: 0
   duration: 1
   permanent: 0
-  stackable: 0
-  maxStacks: 0
-  refreshes: 1
   aura: 0
   unique: 0
+  dispellable: 1
+  removeEffects: []
+  effectInteractions: []
+  stackable: 0
+  refreshes: 1
   applyStacks: 1
   loseStacks: 0
-  removeEffects: []
-  enemyObject: {fileID: 11400000, guid: d32c07e303dbf2d40996dcabd344e73c, type: 2}
-  level: 0
-  two: 0
-  instant: 1
+  maxStacks: 0
+  stackEffects: []
+  encounters:
+  - enemyObjects:
+    - {fileID: 11400000, guid: d32c07e303dbf2d40996dcabd344e73c, type: 2}
+    - {fileID: 11400000, guid: d32c07e303dbf2d40996dcabd344e73c, type: 2}
+    randomOrder: 0
+    weight: 1
+    conversation: {fileID: 0}
+  killCaster: 0

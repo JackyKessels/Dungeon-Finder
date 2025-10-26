@@ -31,7 +31,7 @@ MonoBehaviour:
   missile: {fileID: 0}
   hasLevels: 1
   sellable: 1
-  replacesAbility: {fileID: 11400000, guid: 1bd033397ffa809499cf698a1d4f55a5, type: 2}
+  replacesAbility: {fileID: 0}
   castTime: 0.75
   cooldown: 0
   initialCooldown: 0

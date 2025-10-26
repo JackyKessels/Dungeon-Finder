@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
+  m_Name: Awakening Murmurs
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Awakening Murmurs
+  quality: 0
+  abilityType: 2
+  description: 
+  icon: {fileID: 21300000, guid: 03dc59888368da149846373fac9cacb0, type: 3}
+  casterSpecialEffects:
+  - {fileID: 856693512896424502, guid: 7e136d6ec41f98048afca2294d599bc5, type: 3}
+  - {fileID: 1093586278596375387, guid: 66df108ca6072f643bacc321b0a998c2, type: 3}
+  - {fileID: 1177710351603979846, guid: bcba3f1731cdea74d945ca45461f7998, type: 3}
+  targetSpecialEffects: []
+  missile: {fileID: 0}
+  hasLevels: 1
+  sellable: 1
+  replacesAbility: {fileID: 0}
+  castTime: 0.75
+  cooldown: 0
+  initialCooldown: 0
+  endTurn: 1
+  singleUse: 0
+  resetType: 0
+  resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
+  weaponRequirement: 4
+  soundEffect: {fileID: 0}
+  animationType: 1
+  allyAbilitySources: []
+  enemyAbilitySources: []
+  selfEffectsPerTarget: 0
+  selfEffects: []
+  targetEffects: []
+  abilityTargets: 0

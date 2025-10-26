@@ -14,38 +14,22 @@ public abstract class PassiveAbility : AbilityObject
 
     public override string GetCompleteTooltip(TooltipObject tooltipInfo)
     {
-        string positiveColor = "#70FF62";
-        string negativeColor = "#FF1717";
-
         string temp = base.GetCompleteTooltip(tooltipInfo);
 
-        if (isPositive)
-        {
-            temp += string.Format("<color={0}>\nPassive Effect: </color>{1}", positiveColor, ParseDescription(description, tooltipInfo));
-        }
-        else
-        {
-            temp += string.Format("<color={0}>\nPassive Effect: </color>{1}", negativeColor, ParseDescription(description, tooltipInfo));
-        }
+        var color = isPositive ? ColorDatabase.Positive : ColorDatabase.Negative;
+
+        temp += $"<color={color}>\nPassive Effect: </color>{ParseDescription(description, tooltipInfo)}";
 
         return temp;
     }
 
     public string GetEquipmentDescription(TooltipObject tooltipInfo)
     {
-        string positiveColor = "#70FF62";
-        string negativeColor = "#FF1717";
-
         string temp = DescriptionExcludeLevel();
 
-        if (isPositive)
-        {
-            temp += string.Format("<color={0}>\nPassive Effect: </color>{1}", positiveColor, ParseDescription(description, tooltipInfo));
-        }
-        else
-        {
-            temp += string.Format("<color={0}>\nPassive Effect: </color>{1}", negativeColor, ParseDescription(description, tooltipInfo));
-        }
+        var color = isPositive ? ColorDatabase.Positive : ColorDatabase.Negative;
+
+        temp += $"<color={color}>\nPassive Effect: </color>{ParseDescription(description, tooltipInfo)}";
 
         return temp;
     }

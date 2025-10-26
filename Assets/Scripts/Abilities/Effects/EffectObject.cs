@@ -28,6 +28,7 @@ public abstract class EffectObject : ScriptableObject, IHasTooltip, ITriggerSour
     public bool unique = false;
     public bool dispellable = true;
     public List<EffectObject> removeEffects;
+    public List<EffectInteraction> effectInteractions;
 
     [Header("[ Stacking ]")]
     public bool stackable = false;
@@ -42,8 +43,8 @@ public abstract class EffectObject : ScriptableObject, IHasTooltip, ITriggerSour
 
     public string GetCompleteTooltip(TooltipObject tooltipInfo)
     {
-        return name +
-               "\nEffect: " +
+        return AbilityTooltipHandler.GetName(name, Quality.Common) +
+               AbilityTooltipHandler.ParseEffectColor(isBuff) +
                ParseEffectObjectTooltip(tooltipInfo);
     }
 

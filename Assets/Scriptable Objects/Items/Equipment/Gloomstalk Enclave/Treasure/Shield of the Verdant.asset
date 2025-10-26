@@ -26,7 +26,7 @@ MonoBehaviour:
     level: 1
   description: 
   quality: 0
-  slot: 0
+  slot: 4
   healthFactor: 0.5
   powerFactor: 0
   wisdomFactor: 0

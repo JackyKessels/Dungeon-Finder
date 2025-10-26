@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef5bd38c223015c40a15debe8811563b, type: 3}
+  m_Name: Rite of Awakening (Spawn)
+  m_EditorClassIdentifier: 
+  name: Rite of Awakening
+  icon: {fileID: 21300000, guid: cb8b327823f9a3846b8a4e54582c4975, type: 3}
+  hidden: 0
+  description: 
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
+  isBuff: 0
+  procType: 0
+  duration: 1
+  permanent: 0
+  aura: 0
+  unique: 0
+  dispellable: 1
+  removeEffects: []
+  effectInteractions: []
+  stackable: 0
+  refreshes: 1
+  applyStacks: 1
+  loseStacks: 0
+  maxStacks: 0
+  stackEffects: []
+  encounters:
+  - enemyObjects:
+    - {fileID: 11400000, guid: 425f5cba64272914ebc2de2ee10f9e61, type: 2}
+    randomOrder: 0
+    weight: 1
+    conversation: {fileID: 0}
+  - enemyObjects:
+    - {fileID: 11400000, guid: 4a6199770fce6e44bba84c1c14b601c4, type: 2}
+    - {fileID: 11400000, guid: 4a6199770fce6e44bba84c1c14b601c4, type: 2}
+    - {fileID: 11400000, guid: 4a6199770fce6e44bba84c1c14b601c4, type: 2}
+    randomOrder: 0
+    weight: 4
+    conversation: {fileID: 0}
+  - enemyObjects:
+    - {fileID: 11400000, guid: 6cb605d41aa8dd24296c57ba469b3246, type: 2}
+    randomOrder: 0
+    weight: 4
+    conversation: {fileID: 0}
+  killCaster: 1

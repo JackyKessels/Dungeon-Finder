@@ -15,8 +15,8 @@ MonoBehaviour:
   name: Darkscale Ravager
   lastName: 
   unitType: 1
-  icon: {fileID: 21300000, guid: 65386c3ed13ab6041845e303377561c3, type: 3}
-  sprite: {fileID: 21300000, guid: a91337be2c3611d44ad518803319d0f7, type: 3}
+  icon: {fileID: 21300000, guid: bd4d851ee5c7b954c8e77aeff7ae264c, type: 3}
+  sprite: {fileID: 21300000, guid: 68657e49e9b1462469265f92a8a34f71, type: 3}
   attackAnimation: {fileID: 0}
   castAnimation: {fileID: 0}
   baseHealth: 450

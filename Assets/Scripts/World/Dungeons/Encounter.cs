@@ -10,8 +10,13 @@ public class Encounter
     public int weight = 1;
     public Conversation conversation;
 
-    private static Encounter WeightedEncounter(List<Encounter> encounters)
+    public static Encounter WeightedEncounter(List<Encounter> encounters)
     {
+        if (encounters == null || encounters.Count == 0)
+        {
+            return null;
+        }
+
         List<int> weights = new List<int>();
 
         foreach (Encounter encounter in encounters)

@@ -31,7 +31,7 @@ public class TargetAbility : ActiveAbility
 
         base.TriggerAbility(caster, target, level, effectiveness);
 
-        float abilityMultiplier = (1 + caster.effectManager.ApplyMultipliers(this, target)) * effectiveness;
+        float abilityMultiplier = (1 + caster.effectManager.AbilityModifierApplyMultipliers(this, target)) * effectiveness;
 
         AbilityActions(caster, target, level, 1, abilityMultiplier);
 
@@ -41,7 +41,7 @@ public class TargetAbility : ActiveAbility
 
             foreach (Unit unit in targets)
             {
-                abilityMultiplier = 1 + caster.effectManager.ApplyMultipliers(this, unit);
+                abilityMultiplier = 1 + caster.effectManager.AbilityModifierApplyMultipliers(this, unit);
 
                 AbilityActions(caster, unit, level, adjacentModifier, abilityMultiplier);
             }

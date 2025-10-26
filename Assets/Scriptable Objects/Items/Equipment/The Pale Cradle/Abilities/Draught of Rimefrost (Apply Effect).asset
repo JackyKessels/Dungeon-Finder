@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ada0ff3ca2662c64c891e6cc278c1157, type: 3}
+  m_Name: Draught of Rimefrost (Apply Effect)
+  m_EditorClassIdentifier: 
+  name: Draught of Rimefrost
+  icon: {fileID: 21300000, guid: 87d886381c4a6d54e9087a8be2221124, type: 3}
+  hidden: 0
+  description: Your next ability also Stuns all of its targets for <applied1d> Rounds.
+  applicationSpecialEffects: []
+  expirationSpecialEffects: []
+  isBuff: 1
+  procType: 0
+  duration: 1
+  permanent: 1
+  aura: 0
+  unique: 0
+  dispellable: 1
+  removeEffects: []
+  effectInteractions: []
+  stackable: 0
+  refreshes: 1
+  applyStacks: 1
+  loseStacks: 0
+  maxStacks: 0
+  stackEffects: []
+  modifierType: 2
+  affectedAbility: 0
+  getConsumed: 1
+  targetSpecialEffects: []
+  abilityType: 0
+  specificAbilities: []
+  bonusMultiplier: 0
+  bonusPerLevel: 0
+  appliedEffects:
+  - {fileID: 11400000, guid: 716aff1c0930d3243b42beb71ae0bd4a, type: 2}

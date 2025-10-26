@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+
+public delegate void ReceiveEffectEvent(Effect effect);
 
 public class EffectManager : MonoBehaviour
 {
@@ -24,6 +27,9 @@ public class EffectManager : MonoBehaviour
     {
         teamManager = TeamManager.Instance;
         unit = GetComponent<Unit>();
+        unit.OnAbilityCast += CheckEffectInteractionsOnAbilityCast;
+        unit.OnAbilityCast += AbilityModifierApplyEffects;
+        unit.statsManager.OnReceiveUnitEvent += CheckEffectInteractionsTargetOfSchool;
     }
 
     public static void ApplyEffects(List<EffectObject> effectsList, Unit caster, Unit target, int level, AbilityObject sourceAbility)
@@ -320,9 +326,9 @@ public class EffectManager : MonoBehaviour
     }
 
     // Collect all ability multipliers and expire those that need to be
-    public float ApplyMultipliers(ActiveAbility activeAbility, Unit target)
+    public float AbilityModifierApplyMultipliers(ActiveAbility activeAbility, Unit target)
     {
-        List<Effect> modifiers = GetAbilityModifiers();
+        var modifiers = GetMultiplierModifiers();
 
         if (modifiers.Count == 0)
             return 0;
@@ -333,26 +339,133 @@ public class EffectManager : MonoBehaviour
         {
             EffectAbilityModifier modifier = modifiers[i].effectObject as EffectAbilityModifier;
 
-            if (modifier.affectedAbility == AffectedAbility.AnyAbility ||
-               (modifier.affectedAbility == AffectedAbility.TypedAbility && activeAbility.abilityType == modifier.abilityType) ||
-               (modifier.affectedAbility == AffectedAbility.SpecificAbility && modifier.IsValidAbility(activeAbility)))
+            if (modifier.IsValidAbility(activeAbility))
             {
                 bonus += modifiers[i].storedModValue;
 
                 if (modifier.getConsumed)
                     OnExpiration(modifiers[i]);
 
-                ObjectUtilities.CreateSpecialEffects(modifier.applicationSpecialEffects, target);
+                ObjectUtilities.CreateSpecialEffects(modifier.targetSpecialEffects, target);
             } 
         }
 
         return bonus;
     }
 
-    private List<Effect> GetAbilityModifiers()
+    private List<Effect> GetMultiplierModifiers()
     {
-        return effectsList.Where(e => e.effectObject is EffectAbilityModifier).ToList();
+        List<Effect> effects = new List<Effect>();
+
+        foreach (var effect in effectsList)
+        {
+            if (effect.effectObject is EffectAbilityModifier modifier && modifier.modifierType == AbilityModifierType.Multiplier)
+            {
+                effects.Add(effect);
+            }
+        }
+
+        return effects;
     }
+
+    public bool AbilityModifierApplySwiftness(ActiveAbility activeAbility)
+    {
+        if (!activeAbility.endTurn)
+        {
+            return true;
+        }
+
+        var modifiers = GetSwiftnessModifiers();
+
+        if (modifiers.Count == 0)
+        {
+            return false;
+        }
+
+        for (int i = modifiers.Count; i-- > 0;)
+        {
+            EffectAbilityModifier modifier = modifiers[i].effectObject as EffectAbilityModifier;
+
+            if (modifier.IsValidAbility(activeAbility))
+            {
+                if (modifier.getConsumed)
+                {
+                    OnExpiration(modifiers[i]);
+                }
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private List<Effect> GetSwiftnessModifiers()
+    {
+        List<Effect> effects = new List<Effect>();
+
+        foreach (var effect in effectsList)
+        {
+            if (effect.effectObject is EffectAbilityModifier modifier && modifier.modifierType == AbilityModifierType.TurnEffect)
+            {
+                effects.Add(effect);
+            }
+        }
+
+        return effects;
+    }
+
+    public void AbilityModifierApplyEffects(Unit caster, List<Unit> targets, Active active)
+    {
+        var activeAbility = active.activeAbility;
+        if (activeAbility == null)
+        {
+            return;
+        }
+
+        var modifiers = GetApplyEffectsModifiers();
+
+        if (modifiers.Count == 0)
+        {
+            return;
+        }
+
+        for (int i = modifiers.Count; i-- > 0;)
+        {
+            EffectAbilityModifier modifier = modifiers[i].effectObject as EffectAbilityModifier;
+
+            if (modifier.IsValidAbility(active.activeAbility))
+            {
+                foreach (var target in targets)
+                {
+                    ApplyEffects(modifier.appliedEffects, caster, target, active.level, activeAbility);
+                }
+
+                if (modifier.getConsumed)
+                {
+                    OnExpiration(modifiers[i]);
+                }
+
+                return;
+            }
+        }
+    }
+
+    private List<Effect> GetApplyEffectsModifiers()
+    {
+        List<Effect> effects = new List<Effect>();
+
+        foreach (var effect in effectsList)
+        {
+            if (effect.effectObject is EffectAbilityModifier modifier && modifier.modifierType == AbilityModifierType.ApplyEffect)
+            {
+                effects.Add(effect);
+            }
+        }
+
+        return effects;
+    }
+
 
     public static Effect GetTransferToTarget(Unit caster, TransferType transferType)
     {
@@ -605,16 +718,9 @@ public class EffectManager : MonoBehaviour
                 }
             case EffectSpawnEnemy spawn:
                 {
-                    var spawnLevel = spawn.level == 0 ? GeneralUtilities.GetUnitLevel(e.caster) : spawn.level;
+                    spawn.SpawnEnemies(e.caster);
 
-                    TeamManager.Instance.SpawnEnemy(spawn.enemyObject, spawnLevel, spawn.instant, spawn.applicationSpecialEffects);
-
-                    if (spawn.two)
-                    {
-                        TeamManager.Instance.SpawnEnemy(spawn.enemyObject, spawnLevel, spawn.instant, spawn.applicationSpecialEffects);
-                    }
-
-                    return;
+                    break;
                 }
             case EffectActivatePassive passive:
                 {
@@ -636,13 +742,13 @@ public class EffectManager : MonoBehaviour
                 {
                     TriggerConditionalEffect(e);
 
-                    return;
+                    break;
                 }
             case EffectCooldownReduction cooldownReduction:
                 {
-                    cooldownReduction.ReduceCooldown(e.caster);
+                    cooldownReduction.ReduceCooldown(unit);
 
-                    return;
+                    break;
                 }
             case EffectSpriteChange spriteChange:
                 {
@@ -654,7 +760,7 @@ public class EffectManager : MonoBehaviour
                 {
                     dispel.DispelEffects(unit);
 
-                    return;
+                    break;
                 }
         }
 
@@ -667,6 +773,8 @@ public class EffectManager : MonoBehaviour
         {
             effectsList.Add(e);
         }
+
+        e.target.OnReceiveEffect?.Invoke(e);
     }
 
     public void OnActive(Effect e)
@@ -741,6 +849,8 @@ public class EffectManager : MonoBehaviour
                     return;
                 }
         }
+
+        BattleHUD.Instance.Refresh();
     }
 
     public void ModifyAttribute(Unit target, AttributeType type, float value, bool isIncrease, bool isApplication, ModifierType modifierType)
@@ -856,6 +966,79 @@ public class EffectManager : MonoBehaviour
         else
         {
             effectsList.Sort((e1, e2) => e2.duration.CompareTo(e1.duration));
+        }
+    }
+
+    private void CheckEffectInteractionsOnAbilityCast(Unit caster, List<Unit> targets, Active active)
+    {
+        foreach (var target in targets)
+        {
+            var targetEffectInteractions = GetOnAbilityCastEffectInteractions(target, active);
+            foreach (var effectInteraction in targetEffectInteractions)
+            {
+                TriggerEffectInteraction(target, effectInteraction.Key, effectInteraction.Value);
+            }
+        }
+    }
+
+    private Dictionary<Effect, EffectInteraction> GetOnAbilityCastEffectInteractions(Unit unit, Active active)
+    {
+        var validEffects = new Dictionary<Effect, EffectInteraction>();
+
+        foreach (var effect in unit.effectManager.effectsList)
+        {
+            foreach (var effectInteraction in effect.effectObject.effectInteractions)
+            {
+                if (effectInteraction.interactionType == EffectInteractionType.TargetOfAbility && 
+                    effectInteraction.abilityType == active.activeAbility.abilityType)
+                {
+                    validEffects[effect] = effectInteraction;
+                }
+            }
+        }
+
+        return validEffects;
+    }
+
+    private void CheckEffectInteractionsTargetOfSchool(AbilityValue abilityValue)
+    {
+        var targetEffectInteractions = GetTargetOfSchoolEffectInteractions(abilityValue);
+        foreach (var effectInteraction in targetEffectInteractions)
+        {
+            TriggerEffectInteraction(abilityValue.target, effectInteraction.Key, effectInteraction.Value);
+        }
+    }
+
+    private Dictionary<Effect, EffectInteraction> GetTargetOfSchoolEffectInteractions(AbilityValue abilityValue)
+    {
+        var unit = abilityValue.target;
+
+        var validEffects = new Dictionary<Effect, EffectInteraction>();
+
+        foreach (var effect in unit.effectManager.effectsList)
+        {
+            foreach (var effectInteraction in effect.effectObject.effectInteractions)
+            {
+                if (effectInteraction.interactionType == EffectInteractionType.TargetOfSchool &&
+                    effectInteraction.abilitySchools.Contains(abilityValue.school))
+                {
+                    validEffects[effect] = effectInteraction;
+                }
+            }
+        }
+
+        return validEffects;
+    }
+
+    private void TriggerEffectInteraction(Unit unit, Effect effect, EffectInteraction effectInteraction)
+    {
+        switch (effectInteraction.result)
+        {
+            case EffectInteractionResult.RemoveThis:
+                {
+                    unit.effectManager.RemoveEffect(effect.effectObject);
+                }
+                break;
         }
     }
 }

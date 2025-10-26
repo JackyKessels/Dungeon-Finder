@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Reaper's Reckoning
   m_EditorClassIdentifier: 
   id: 196
-  name: Unyielding Raze
+  name: Reaper's Reckoning
   quality: 0
   abilityType: 2
   description: 'Deal <e1> <S> damage to your target.

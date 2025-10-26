@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a26b23a231d47340bad7e45f2dfb390, type: 3}
+  m_Name: Inscribed Fury
+  m_EditorClassIdentifier: 
+  id: 204
+  name: Inscribed Fury
+  quality: 0
+  abilityType: 3
+  description: Using an <assault> ability causes your next <primary> attack to not
+    end your Turn.
+  icon: {fileID: 21300000, guid: 2fe111456cd48894fa27a7982287a1ac, type: 3}
+  casterSpecialEffects: []
+  targetSpecialEffects: []
+  missile: {fileID: 0}
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  isPositive: 1
+  triggerType: 1
+  typeRequirement: 2
+  specificActiveAbilityList: []
+  procChance: 100
+  castActiveAbilities: []
+  applyEffectObjects:
+  - effectObject: {fileID: 11400000, guid: 25131173b46f98041b7cbb76dfd27acf, type: 2}
+    abilityTarget: 0
+    sourceAbility: {fileID: 11400000}
+    stacksBasedOnCooldown: 0
+  doubleCastAbility:
+    enableDoubleCast: 0
+    baseEffectiveness: 0
+    effectivenessPerLevel: 0

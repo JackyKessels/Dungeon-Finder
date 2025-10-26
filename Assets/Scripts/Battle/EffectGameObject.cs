@@ -21,11 +21,11 @@ public class EffectGameObject : MonoBehaviour
 
         if (effect.effectObject.isBuff)
         {
-            duration.color = new Color(0f, 1f, 0f);
+            duration.color = ColorDatabase.ConvertStringToColor(ColorDatabase.Green);
         }
         else
         {
-            duration.color = new Color(1f, 0f, 0f);
+            duration.color = ColorDatabase.ConvertStringToColor(ColorDatabase.Red);
         }
 
         if (effect.effectObject.permanent)

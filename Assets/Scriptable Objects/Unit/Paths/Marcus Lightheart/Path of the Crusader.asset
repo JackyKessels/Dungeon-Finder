@@ -42,21 +42,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d795472484c845e4387bc31d6885a9b5, type: 2}
   - {fileID: 11400000, guid: 5774c92d5037c0f42a9ef8a5cdb2f9df, type: 2}
   - {fileID: 11400000, guid: 720008b881b770c4a8e43766fc83e776, type: 2}
+  - {fileID: 11400000, guid: 65327107c068293408f224b9950de210, type: 2}
   attributes:
   - attributeType: 0
-    baseValue: 2
+    baseValue: 7
     bonusValue: 0
     multiplier: 0
   - attributeType: 1
     baseValue: 1
     bonusValue: 0
     multiplier: 0
-  - attributeType: 8
-    baseValue: 1
+  - attributeType: 17
+    baseValue: 2
     bonusValue: 0
     multiplier: 0
   - attributeType: 10
-    baseValue: 3
+    baseValue: 1
     bonusValue: 0
     multiplier: 0
   - attributeType: 15

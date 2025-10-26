@@ -115,7 +115,6 @@ public class TownManager : MonoBehaviour, IUserInterface
         townName.text = town.name;
         townBackground.sprite = town.background;
 
-
         currencyHandler.UpdateCurrencies();
 
         gameManager.mapButton.UpdateButton(GameState.TOWN);
@@ -163,17 +162,7 @@ public class TownManager : MonoBehaviour, IUserInterface
             return;
         }
 
-        if (floor.backgroundSound != null)
-        {
-            gameManager.audioSourceAmbient.clip = dungeon.floors[0].backgroundSound;
-            gameManager.audioSourceAmbient.Play();
-        }
-        else
-        {
-            gameManager.audioSourceAmbient.Stop();
-        }
-
-        dungeonManager.currentFloor = 0;
+        dungeonManager.currentFloorIndex = 0;
         dungeonManager.BuildFloor(dungeon, floor);
 
         gameManager.GoToRun();

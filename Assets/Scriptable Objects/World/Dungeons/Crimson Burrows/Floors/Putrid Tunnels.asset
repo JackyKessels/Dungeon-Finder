@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Putrid Tunnels
   level: 2
-  dungeonBackground: {fileID: 21300000, guid: b67a70a02fd84bf4eaa90010212129a8, type: 3}
-  battleBackground: {fileID: 21300000, guid: bb8ff09c2f651e34b864cee375f7e6a5, type: 3}
+  dungeonBackground: {fileID: 21300000, guid: aabd240f7c817444eb859f0b959678dd, type: 3}
+  battleBackground: {fileID: 21300000, guid: 524a79e2909151447a85f4bea4ea50c3, type: 3}
   backgroundSound: {fileID: 0}
   columns: 6
   rows: 4
@@ -30,6 +30,7 @@ MonoBehaviour:
   campfireCount: 1
   treasureCount: 1
   mysteryCount: 2
+  campfireBeforeBoss: 1
   wellRestedEffect: {fileID: 0}
   wellRestedChance: 0
   itemPool:
@@ -60,44 +61,53 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
     randomOrder: 1
     weight: 1
+    conversation: {fileID: 0}
   - enemyObjects:
     - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
     - {fileID: 11400000, guid: 5472e9578154d854dbf47930bb343224, type: 2}
     randomOrder: 1
     weight: 1
+    conversation: {fileID: 0}
   - enemyObjects:
     - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
     - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
     randomOrder: 1
     weight: 1
+    conversation: {fileID: 0}
   - enemyObjects:
     - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
     - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
     randomOrder: 1
     weight: 1
+    conversation: {fileID: 0}
   - enemyObjects:
+    - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
     - {fileID: 11400000, guid: 9f72ea53cd34c4f4e9f3c59bfa5652ad, type: 2}
-    - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
     randomOrder: 1
     weight: 1
+    conversation: {fileID: 0}
   eliteEncounters:
   - enemyObjects:
     - {fileID: 11400000, guid: 685ad876308ddb84abc8e5287b8bc86b, type: 2}
     randomOrder: 0
     weight: 1
+    conversation: {fileID: 0}
   - enemyObjects:
     - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
     - {fileID: 11400000, guid: 4ea0468a2e1668c4faf097a9cdda25e2, type: 2}
     - {fileID: 11400000, guid: 4d1effd61f401084390e2f80e280ce94, type: 2}
     randomOrder: 0
     weight: 1
+    conversation: {fileID: 0}
   - enemyObjects:
     - {fileID: 11400000, guid: f2568653406671c48bea9b9ef4c74572, type: 2}
     randomOrder: 0
     weight: 1
+    conversation: {fileID: 0}
   bossEncounter:
     enemyObjects:
     - {fileID: 11400000, guid: 81af47cd6e032b74d92ab8ef6860fe49, type: 2}
     randomOrder: 0
     weight: 1
+    conversation: {fileID: 0}
   mysteryEvents: {fileID: 11400000, guid: 8de4c1806266c774f8e36f9432196a49, type: 2}

@@ -102,12 +102,13 @@ public class ProgressionManager : MonoBehaviour
 
         firstDeath = true;
 
-        // Reward first death stuff
-        // Give each hero 1 option out of 3 random abilities
-        // Give ability currency for now
-        GameManager.Instance.currencyHandler.IncreaseCurrency(new Currency(CurrencyType.Spirit, 30));
+        var spiritAmount = 10;
 
-        NotificationObject.CreateNotification("Failure is just a stepping stone to success! Take these 30 Spirit Fragments and conquer the next attempt!", 500, 350, new List<Reward>() { new Reward(new Currency(CurrencyType.Spirit, 30)) });
+        // Reward first death stuff
+        // Allow the player to buy an ability for 1 of their heroes
+        GameManager.Instance.currencyHandler.IncreaseCurrency(new Currency(CurrencyType.Spirit, spiritAmount));
+
+        NotificationObject.CreateNotification($"Failure is just a stepping stone to success! Take these {spiritAmount} Spirit Fragments and conquer the next attempt!", 500, 350, new List<Reward>() { new Reward(new Currency(CurrencyType.Spirit, spiritAmount)) });
 
         Debug.Log("This is your first death.");   
     }
@@ -143,7 +144,7 @@ public class ProgressionManager : MonoBehaviour
         {
             unlockedPaths_Button.interactable = false;
 
-            string color = ColorDatabase.GeneralInformation();
+            string color = ColorDatabase.GeneralInformation;
 
             tooltip.useGenericTooltip = true;
             tooltip.genericTooltip = string.Format("Unlocks when <color={0}>Si'keth Bloodclaw</color> has been defeated.\n\nHe can be found in the <color={0}>Crimson Burrows</color>.", color);

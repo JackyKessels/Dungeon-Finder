@@ -54,34 +54,39 @@ public abstract class InventoryInterface : MonoBehaviour
 
     protected void OnSlotUpdate(InventorySlot _slot)
     {
+        var imageComponent = _slot.slotDisplay.GetComponent<Image>();
+        var tooltipComponent = _slot.slotDisplay.GetComponent<TooltipObject>();
+        var textComponent = _slot.slotDisplay.GetComponentInChildren<TextMeshProUGUI>();
+        var equipmentComponent = _slot.slotDisplay.GetComponent<EquipmentSlotIcon>();
+
         if (_slot.item.id >= 0)
         {
-            _slot.slotDisplay.GetComponent<Image>().sprite = _slot.ItemObject.icon;
-            _slot.slotDisplay.GetComponent<TooltipObject>().item = _slot.item;
+            imageComponent.sprite = _slot.ItemObject.icon;
+            tooltipComponent.item = _slot.item;
 
-            if (_slot.slotDisplay.GetComponent<EquipmentSlotIcon>() == null)
-                _slot.slotDisplay.GetComponentInChildren<TextMeshProUGUI>().text = _slot.amount == 1 ? "" : _slot.amount.ToString("n0");
+            if (equipmentComponent == null)
+                textComponent.text = _slot.amount == 1 ? "" : _slot.amount.ToString("n0");
         }
         else
         {
-            if (_slot.slotDisplay.GetComponent<EquipmentSlotIcon>() != null)
+            if (equipmentComponent != null)
             {
                 if (_slot.restricted)
                 {
-                    _slot.slotDisplay.GetComponent<Image>().sprite = GameAssets.i.restrictedSlot;
-                    _slot.slotDisplay.GetComponent<TooltipObject>().item = null;
+                    imageComponent.sprite = GameAssets.i.restrictedSlot;
+                    tooltipComponent.item = null;
                 }
                 else
                 {
-                    _slot.slotDisplay.GetComponent<Image>().sprite = _slot.slotDisplay.GetComponent<EquipmentSlotIcon>().icon;
-                    _slot.slotDisplay.GetComponent<TooltipObject>().item = null;
+                    imageComponent.sprite = equipmentComponent.icon;
+                    tooltipComponent.item = null;
                 }
             }
             else
             {
-                _slot.slotDisplay.GetComponent<Image>().sprite = GameAssets.i.emptySlot;
-                _slot.slotDisplay.GetComponent<TooltipObject>().item = null;
-                _slot.slotDisplay.GetComponentInChildren<TextMeshProUGUI>().text = "";
+                imageComponent.sprite = GameAssets.i.emptySlot;
+                tooltipComponent.item = null;
+                textComponent.text = "";
             }
         }
     }
@@ -180,4 +185,12 @@ public static class MouseData
     public static InventoryInterface interfaceMouseIsOver;
     public static GameObject tempObjectBeingDragged;
     public static GameObject slotHoveredOver;
+
+    [RuntimeInitializeOnLoadMethod]
+    static void Initialize()
+    {
+        interfaceMouseIsOver = null;
+        tempObjectBeingDragged = null;
+        slotHoveredOver = null;
+    }
 }

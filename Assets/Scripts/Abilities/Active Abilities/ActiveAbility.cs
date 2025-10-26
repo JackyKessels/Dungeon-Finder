@@ -307,9 +307,11 @@ public class CastActiveAbility
 
             targetAbility.TriggerPreCast(caster);
 
+            abilityToCast.TriggerCastEvent(caster, targets, triggerOnAbilityCastEvent);
+
             foreach (Unit u in targets)
             {
-                abilityToCast.Trigger(caster, u, effectiveness, triggerOnAbilityCastEvent);
+                abilityToCast.Trigger(caster, u, effectiveness);
             }
 
             targetAbility.PlaySound();
@@ -329,9 +331,11 @@ public class CastActiveAbility
 
             instantAbility.TriggerPreCast(caster);
 
+            abilityToCast.TriggerCastEvent(caster, targets, triggerOnAbilityCastEvent);
+
             foreach (Unit t in targets)
             {
-                abilityToCast.Trigger(caster, t, effectiveness, triggerOnAbilityCastEvent);
+                abilityToCast.Trigger(caster, t, effectiveness);
             }
 
             instantAbility.PlaySound();
