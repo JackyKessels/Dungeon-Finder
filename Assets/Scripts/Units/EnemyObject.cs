@@ -17,4 +17,6 @@ public class EnemyObject : UnitObject
     public bool randomAbility = true;
     public List<AbilityBehavior> abilities;
     public List<PassiveAbility> passiveAbilities;
+
+    public List<BattlePhase> phases;
 }

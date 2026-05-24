@@ -55,7 +55,7 @@ public static class ObjectUtilities
             return;
         }
 
-        if (specialEffects.Count > 0)
+        if (specialEffects != null && specialEffects.Count > 0)
         {
             SpriteRenderer sprite = target.GetComponentInChildren<SpriteRenderer>();
 
@@ -70,7 +70,7 @@ public static class ObjectUtilities
 
     public static void LaunchSpecialEffects(List<ParticleSystem> specialEffects, Unit caster, Unit target, float travelTime, bool trailing)
     {
-        if (specialEffects.Count > 0)
+        if (specialEffects != null && specialEffects.Count > 0)
         {
             SpriteRenderer sprite = target.GetComponentInChildren<SpriteRenderer>();
 
@@ -117,5 +117,13 @@ public static class ObjectUtilities
         }
 
         return childObjects;
+    }
+
+    public static void ChangeSprite(Unit target, Sprite newSprite)
+    {
+        SpriteRenderer unitRenderer = target.GetComponentInChildren<SpriteRenderer>();
+        unitRenderer.sprite = newSprite;
+        target.sprite = newSprite;
+        target.PositionUnit(target.battleNumber);
     }
 }

@@ -162,6 +162,11 @@ public class TownManager : MonoBehaviour, IUserInterface
             return;
         }
 
+        StartFloor(dungeon, floor);
+    }
+
+    public void StartFloor(Dungeon dungeon, Floor floor)
+    {
         dungeonManager.currentFloorIndex = 0;
         dungeonManager.BuildFloor(dungeon, floor);
 
@@ -273,6 +278,9 @@ public class TownManager : MonoBehaviour, IUserInterface
                 break;
             case GameMode.Endless:
                 endlessInterface.SetActive(show);
+                break;
+            case GameMode.Sandbox:
+                campaignInterface.SetActive(show);
                 break;
             default:
                 break;

@@ -11,11 +11,7 @@ public class EffectSpriteChange : EffectObject
 
     public void ChangeSprite(Unit target)
     {
-        SpriteRenderer unitRenderer = target.GetComponentInChildren<SpriteRenderer>();
-        unitRenderer.sprite = newSprite;
-        target.sprite = newSprite;
-
-        target.PositionUnit(target.battleNumber);
+        ObjectUtilities.ChangeSprite(target, newSprite);
         ObjectUtilities.CreateSpecialEffects(applicationSpecialEffects, target);
 
         target.icon = newIcon;

@@ -99,6 +99,9 @@ public class AbilitySource
 
         float totalScaling = scaling + levelScaling * Mathf.Max(tooltipInfo.GetAbilityLevel() - 1, 0);
 
+        totalBase = Mathf.RoundToInt(totalBase * tooltipInfo.effectiveness);
+        totalScaling = totalScaling * tooltipInfo.effectiveness;
+
         if (totalBase > 0 && totalScaling > 0)
         {
             return totalBase.ToString() + " + " + Mathf.RoundToInt(totalScaling * 100).ToString() + "%";
@@ -112,7 +115,9 @@ public class AbilitySource
             return (totalScaling * 100).ToString() + "%";
         }
         else
+        {
             return "";
+        }
     }
 
     // Calculates the value of the source using ability info from the TooltipIcon
@@ -132,6 +137,8 @@ public class AbilitySource
 
         if (totalValue <= 0)
             totalValue = 0;
+
+        totalValue = totalValue * tooltipInfo.effectiveness;
 
         return (int)System.Math.Round(totalValue, System.MidpointRounding.AwayFromZero);
     }

@@ -19,6 +19,7 @@ public delegate void AbilityEvent(Unit caster, List<Unit> targets, Active active
 public class Unit : MonoBehaviour
 {
     [HideInInspector] public EffectManager effectManager;
+    [HideInInspector] public BattlePhaseController battlePhaseController;
 
     // General
     [HideInInspector] public new string name;
@@ -60,6 +61,7 @@ public class Unit : MonoBehaviour
     private void Awake()
     {
         effectManager = GetComponent<EffectManager>();
+        battlePhaseController = GetComponent<BattlePhaseController>();
         unitRenderer = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponent<Animator>();
         sprite = unitRenderer.sprite;

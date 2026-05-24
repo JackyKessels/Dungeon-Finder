@@ -9,7 +9,11 @@ public class Dungeon : ScriptableObject
     public new string name;
     public int recommendedMinimumLevel;
     public int recommendedMaximumLevel;
-    public Color nameColor;
+    public Color nameColor = Color.white;
+
+    public bool useGradient;
+    public Color gradientTop;
+    public Color gradientBottom;
 
     [Header("[ Dungeon Floors ]")]
     public List<Floor> floors;

@@ -84,7 +84,7 @@ public class ExperienceManager
         {
             if (DungeonManager.Instance.IsCurrentLocationBoss())
             {
-                float healthPercentage = 1f - enemy.statsManager.GetHealthPercentage();
+                float healthPercentage = 1f - enemy.statsManager.GetNormalizedHealth();
                 totalExperience = GeneralUtilities.RoundFloat(totalExperience * healthPercentage, 0);
                 Debug.Log(totalExperience);
                 return totalExperience;

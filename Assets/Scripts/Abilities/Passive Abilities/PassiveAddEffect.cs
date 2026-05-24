@@ -87,7 +87,9 @@ public class PassiveAddEffect : PassiveAbility
     public override void DeactivatePassive(Unit unit)
     {
         if (activationMoment == ActivationMoment.StartBattle)
+        {
             unit.OnStartBattle -= TriggerPassiveEvent;
+        }
         else if (activationMoment == ActivationMoment.BelowHealthThreshold || activationMoment == ActivationMoment.AboveHealthThreshold)
         {
             unit.OnStartBattle -= CheckHealthThreshold;
@@ -117,6 +119,8 @@ public class PassiveAddEffect : PassiveAbility
         {
             unit.OnReceiveEffect -= TriggerCrowdControlEvent;
         }
+
+        ReverseSelfEvent(unit);
     }
 
     private void CastActiveAbility(Unit caster, Unit target)
@@ -273,24 +277,24 @@ public class PassiveAddEffect : PassiveAbility
     {
         if (activationMoment == ActivationMoment.BelowHealthThreshold)
         {
-            if (unit.statsManager.GetHealthPercentage() <= (healthPercentage / 100) && !unit.effectManager.HasEffect(effects[0]))
+            if (unit.statsManager.GetNormalizedHealth() <= (healthPercentage / 100) && !unit.effectManager.HasEffect(effects[0]))
             {
                 ApplySelfEvent(unit);
             }
 
-            if (unit.statsManager.GetHealthPercentage() > (healthPercentage / 100) && unit.effectManager.HasEffect(effects[0]))
+            if (unit.statsManager.GetNormalizedHealth() > (healthPercentage / 100) && unit.effectManager.HasEffect(effects[0]))
             {
                 ReverseSelfEvent(unit);
             }
         }
         else if (activationMoment == ActivationMoment.AboveHealthThreshold) 
         {
-            if (unit.statsManager.GetHealthPercentage() >= (healthPercentage / 100) && !unit.effectManager.HasEffect(effects[0]))
+            if (unit.statsManager.GetNormalizedHealth() >= (healthPercentage / 100) && !unit.effectManager.HasEffect(effects[0]))
             {
                 TriggerPassiveEvent(unit);
             }
 
-            if (unit.statsManager.GetHealthPercentage() < (healthPercentage / 100) && unit.effectManager.HasEffect(effects[0]))
+            if (unit.statsManager.GetNormalizedHealth() < (healthPercentage / 100) && unit.effectManager.HasEffect(effects[0]))
             {
                 ReverseSelfEvent(unit);
             }

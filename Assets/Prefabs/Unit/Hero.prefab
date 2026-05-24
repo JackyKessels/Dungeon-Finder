@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 8014860685553042762}
   - component: {fileID: -2363563409174371590}
   - component: {fileID: 362051431016240720}
+  - component: {fileID: -8190670439933581813}
   m_Layer: 8
   m_Name: Hero
   m_TagString: Unit
@@ -309,3 +310,15 @@ MonoBehaviour:
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   outlineMaterial: {fileID: 2100000, guid: a57c6faf41f44a9449b40bc429f1d563, type: 2}
   outlineColor: {r: 0, g: 5.9921575, b: 0, a: 1}
+--- !u!114 &-8190670439933581813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7422715694881330666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08a2cb4f80fd88e4fa539f92892b8e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

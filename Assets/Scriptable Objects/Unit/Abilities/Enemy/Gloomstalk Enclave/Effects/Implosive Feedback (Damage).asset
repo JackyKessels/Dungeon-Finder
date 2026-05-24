@@ -46,7 +46,7 @@ MonoBehaviour:
       attributeType: 2
       baseValue: 0
       levelBase: 0
-      scaling: 0.1
+      scaling: 0.15
       levelScaling: 0
       reductionType: 2
       abilityModifier:

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.PerformanceData;
 using UnityEngine;
 
 public class GridHandler : MonoBehaviour
@@ -662,19 +663,62 @@ public class GridHandler : MonoBehaviour
         {
             if (location != null)
             {
+                (int min, int max) = GetLevelIncrease(GameManager.Instance.gameMode, location.locationType);
+
                 if (location.locationType == LocationType.Battle)
                 {
-                    Encounter.SetupUnitObjects(location, floor.trashEncounters, level, level + 1);
+                    Encounter.SetupUnitObjects(location, floor.trashEncounters, level + min, level + max);
                 }
                 else if (location.locationType == LocationType.Elite)
                 {
-                    Encounter.SetupUnitObjects(location, floor.eliteEncounters, level + 1, level + 1);
+                    Encounter.SetupUnitObjects(location, floor.eliteEncounters, level + min, level + max);
                 }
                 else if (location.locationType == LocationType.Boss)
                 {
-                    Encounter.SetupUnitObjects(location, floor.bossEncounter, level + 2, level + 2);
+                    Encounter.SetupUnitObjects(location, floor.bossEncounter, level + min, level + max);
                 }
             }
+        }
+    }
+
+    private static readonly Dictionary<GameMode, Dictionary<LocationType, (int Min, int Max)>> LevelRanges =
+        new()
+        {
+            {
+                GameMode.Campaign, new()
+                {
+                    { LocationType.Battle, (0, 1) },
+                    { LocationType.Elite,  (1, 1) },
+                    { LocationType.Boss,   (2, 2) }
+                }
+            },
+            {
+                GameMode.Endless, new()
+                {
+                    { LocationType.Battle, (0, 0) },
+                    { LocationType.Elite,  (0, 0) },
+                    { LocationType.Boss,   (0, 0) }
+                }
+            },
+            {
+                GameMode.Sandbox, new()
+                {
+                    { LocationType.Battle, (0, 0) },
+                    { LocationType.Elite,  (0, 0) },
+                    { LocationType.Boss,   (0, 0) }
+                }
+            }
+        };
+
+    public static (int Min, int Max) GetLevelIncrease(GameMode mode, LocationType type)
+    {
+        if (type == LocationType.Battle ||  type == LocationType.Elite || type == LocationType.Boss)
+        {
+            return LevelRanges[mode][type];
+        }
+        else
+        {
+            return (0, 0);
         }
     }
 

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5d8964ff6732a478daba8589bfd458, type: 3}
+  m_Name: Frostfire Crucible
+  m_EditorClassIdentifier: 
+  name: Frostfire Crucible
+  recommendedMinimumLevel: 1
+  recommendedMaximumLevel: 3
+  nameColor: {r: 0, g: 0.84743667, b: 1, a: 1}
+  useGradient: 1
+  gradientTop: {r: 0, g: 0.9011409, b: 1, a: 1}
+  gradientBottom: {r: 1, g: 0.4768409, b: 0, a: 1}
+  floors:
+  - {fileID: 11400000, guid: 7c348bf33ae32154eb5f4422ae15b073, type: 2}
+  - {fileID: 11400000, guid: e9d963d040890864c973dc794db96ced, type: 2}
+  - {fileID: 11400000, guid: ad798b641c692e445a7f29b693cc4387, type: 2}

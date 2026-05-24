@@ -33,7 +33,9 @@ public class BestiaryPanel : MonoBehaviour
 
     private void CreateActiveAbilities(Enemy enemy)
     {
-        foreach (var abilityBehavior in enemy.enemyObject.abilities)
+        var abilityBehaviors = enemy.battlePhaseController.GetCurrentActiveAbilities();
+
+        foreach (var abilityBehavior in abilityBehaviors)
         {
             var obj = ObjectUtilities.CreateSimplePrefab(bestiaryAbilityPrefab, activeAbilityContainer);
             var bestiaryAbility = obj.GetComponent<BestiaryAbility>();
@@ -43,7 +45,9 @@ public class BestiaryPanel : MonoBehaviour
 
     private void CreatePassiveAbilities(Enemy enemy)
     {
-        foreach (var passive in enemy.enemyObject.passiveAbilities)
+        var passiveAbilities = enemy.battlePhaseController.GetCurrentPassiveAbilities();
+
+        foreach (var passive in passiveAbilities)
         {
             var tooltip = ObjectUtilities.CreateTooltipIcon(passiveAbilityContainer);
             tooltip.Setup(passive, enemy.Level);

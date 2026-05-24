@@ -33,6 +33,8 @@ public class Enemy : Unit
 
         chargedAbility = new List<Active>();
         chargeTarget = -1;
+
+        battlePhaseController?.Initialize(this);
     }
 
     public override UnitObject GetUnitObject()
@@ -115,7 +117,9 @@ public class Enemy : Unit
 
     private AbilityBehavior GetAbilityBehavior(Active active)
     {
-        foreach (AbilityBehavior abilityBehavior in enemyObject.abilities)
+        var abilityBehaviors = battlePhaseController.GetCurrentActiveAbilities();
+
+        foreach (AbilityBehavior abilityBehavior in abilityBehaviors)
         {
             if (abilityBehavior.ability == active.activeAbility)
                 return abilityBehavior;
@@ -314,7 +318,9 @@ public class Enemy : Unit
 
     private (TargetCondition, TargetAttribute) GetTargetCondition(TargetAbility ability)
     {
-        foreach (AbilityBehavior abilityBehavior in enemyObject.abilities)
+        var abilityBehaviors = battlePhaseController.GetCurrentActiveAbilities();
+
+        foreach (AbilityBehavior abilityBehavior in abilityBehaviors)
         {
             if (abilityBehavior.ability == ability)
             {
@@ -327,7 +333,9 @@ public class Enemy : Unit
 
     private (CastCondition, int) GetCastCondition(ActiveAbility ability)
     {
-        foreach (AbilityBehavior abilityBehavior in enemyObject.abilities)
+        var abilityBehaviors = battlePhaseController.GetCurrentActiveAbilities();
+
+        foreach (AbilityBehavior abilityBehavior in abilityBehaviors)
         {
             if (abilityBehavior.ability == ability)
             {
@@ -340,7 +348,9 @@ public class Enemy : Unit
 
     public void SetStartCooldowns()
     {
-        foreach (AbilityBehavior abilityBehavior in enemyObject.abilities)
+        var abilityBehaviors = battlePhaseController.GetCurrentActiveAbilities();
+
+        foreach (AbilityBehavior abilityBehavior in abilityBehaviors)
         {
             Active active = spellbook.FindCollectionAbility(abilityBehavior.ability);
 

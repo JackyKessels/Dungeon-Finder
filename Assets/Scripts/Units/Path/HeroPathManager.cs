@@ -206,7 +206,7 @@ public class HeroPathManager
 [System.Serializable]
 public class HeroPath
 {
-    public readonly int[] checkpoints = new int[6] { 0, 3, 6, 12, 20, 30 };
+    public readonly int[] checkpoints = new int[6] { 0, 2, 6, 12, 20, 30 };
 
     public HeroPathObject path;
     public HeroPathGameObject pathGameObject;

@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class DamageMeterRecord : MonoBehaviour
 {
     public Image abilityIcon;
+    public TooltipObject tooltipObject;
 
     public TextMeshProUGUI damageTotalText;
     public TextMeshProUGUI damagePercentageText;
@@ -31,6 +32,17 @@ public class DamageMeterRecord : MonoBehaviour
         abilityObject = abilityValue.sourceAbility;
 
         abilityIcon.sprite = abilityObject.icon;
+
+        if (abilityObject is PassiveAbility passive)
+        {
+            tooltipObject.passive = new Passive(passive, 1);
+        }
+        else if (abilityObject is ActiveAbility active)
+        {
+            tooltipObject.active = new Active(active, 1);
+        }
+
+        tooltipObject.state = CurrentState.Values;
 
         if (abilityValue.school != AbilitySchool.Healing)
         {

@@ -50,6 +50,21 @@ public class Spellbook
         }
     }
 
+    public void SetPhaseAbilities(BattlePhase phase)
+    {
+        foreach (AbilityBehavior a in phase.abilityBehaviors)
+        {
+            LearnAbility(new Active(a.ability, 1));
+        }
+
+        foreach (PassiveAbility p in phase.passiveAbilities)
+        {
+            Passive passive = new Passive(p, 1);
+
+            LearnPassive(passive);
+        }
+    }
+
     public void LearnAbility(Active active, bool isItemAbility = false)
     {
         List<Active> targetCollection = isItemAbility ? itemAbilities : abilityCollection;

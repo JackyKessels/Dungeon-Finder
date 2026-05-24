@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TESTING FLOOR
   m_EditorClassIdentifier: 
   name: TESTING FLOOR
-  level: 3
+  level: 5
   dungeonBackground: {fileID: 21300000, guid: 911aa93669d9cf04cba48c4ba6d63a4f, type: 3}
   battleBackground: {fileID: 21300000, guid: 041bd19ad39bae34c85ee9ed415b6913, type: 3}
   backgroundSound: {fileID: 0}
@@ -36,26 +36,27 @@ MonoBehaviour:
   itemPool: []
   trashEncounters:
   - enemyObjects:
-    - {fileID: 11400000, guid: 4a6199770fce6e44bba84c1c14b601c4, type: 2}
-    - {fileID: 11400000, guid: 4a6199770fce6e44bba84c1c14b601c4, type: 2}
-    - {fileID: 11400000, guid: 4a6199770fce6e44bba84c1c14b601c4, type: 2}
+    - {fileID: 11400000, guid: 689bcd23c303b3f439c67e818508c117, type: 2}
     randomOrder: 0
     weight: 1
     conversation: {fileID: 0}
   - enemyObjects:
-    - {fileID: 11400000, guid: e43675038dff24842ba1c38e89df82a2, type: 2}
+    - {fileID: 11400000, guid: 5ae14ec0869089e47a5450ed7875927b, type: 2}
     randomOrder: 0
     weight: 1
     conversation: {fileID: 0}
   - enemyObjects:
-    - {fileID: 11400000, guid: e43675038dff24842ba1c38e89df82a2, type: 2}
-    - {fileID: 11400000, guid: e43675038dff24842ba1c38e89df82a2, type: 2}
-    - {fileID: 11400000, guid: e43675038dff24842ba1c38e89df82a2, type: 2}
+    - {fileID: 11400000, guid: 45d3fc0619a68b04e9e4f0baf268cf1d, type: 2}
     randomOrder: 0
     weight: 1
     conversation: {fileID: 0}
   - enemyObjects:
-    - {fileID: 11400000, guid: 7e770a08fed917144b5101bb41314679, type: 2}
+    - {fileID: 11400000, guid: 8e50941a311df844290bd09dd429cadf, type: 2}
+    randomOrder: 0
+    weight: 1
+    conversation: {fileID: 0}
+  - enemyObjects:
+    - {fileID: 11400000, guid: 35ded2727524ebb49b5d50b55d969292, type: 2}
     randomOrder: 0
     weight: 1
     conversation: {fileID: 0}

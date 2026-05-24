@@ -36,7 +36,7 @@ MonoBehaviour:
   triggersPassives: 1
   triggeredByPassives: 1
   triggeredByEffects: 1
-  procChance: 5
+  procChance: 10
   abilitySources:
   - ignoreMultipliers: 0
     cannotCrit: 0
@@ -44,9 +44,9 @@ MonoBehaviour:
     ignorePassives: []
     school: 7
     attributeType: 1
-    baseValue: 8
-    levelBase: 3
-    scaling: 0
+    baseValue: 0
+    levelBase: 0
+    scaling: 0.5
     levelScaling: 0
     reductionType: 2
     abilityModifier:

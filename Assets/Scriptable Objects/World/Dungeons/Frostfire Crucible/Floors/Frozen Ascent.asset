@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af0eb2a57c0a6284399350acff28371b, type: 3}
+  m_Name: Frozen Ascent
+  m_EditorClassIdentifier: 
+  name: Frozen Ascent
+  level: 1
+  dungeonBackground: {fileID: 21300000, guid: 3018b0bd78c29c7429ce2b4a9628b4f5, type: 3}
+  battleBackground: {fileID: 21300000, guid: 43950716d921f0945ac6d4f573279f2b, type: 3}
+  backgroundSound: {fileID: 0}
+  backgroundParticleSystem: {fileID: 3741353293622596971, guid: 04c619d318a9c844497d733339e554f6,
+    type: 3}
+  columns: 7
+  rows: 5
+  startingPoints: 2
+  endPoints: 1
+  removalThreshold: 2
+  minimumLocations: 14
+  maximumLocations: 18
+  addOffset: 0
+  forceBossCenter: 1
+  eliteCount: 2
+  campfireCount: 1
+  treasureCount: 1
+  mysteryCount: 3
+  campfireBeforeBoss: 1
+  wellRestedEffect: {fileID: 0}
+  wellRestedChance: 100
+  floorEffectTarget: 0
+  floorEffect: {fileID: 11400000, guid: 1dd49afd807047349a10073e5e0c11f1, type: 2}
+  itemPool:
+  - itemObject: {fileID: 11400000, guid: e7de7b2a7a37de943b9e9b64a190d5a4, type: 2}
+    amount: 1
+    weight: 1
+    level: 0
+  - itemObject: {fileID: 11400000, guid: 35cdd114b3c66a64ab38f10ac5c884b9, type: 2}
+    amount: 1
+    weight: 1
+    level: 0
+  - itemObject: {fileID: 11400000, guid: 296e7d66c6cd359418a792a1c2c1669f, type: 2}
+    amount: 1
+    weight: 1
+    level: 0
+  - itemObject: {fileID: 11400000, guid: 123bb9719b8e0fe4f91e297ecb0ff76c, type: 2}
+    amount: 2
+    weight: 2
+    level: 0
+  trashEncounters:
+  - enemyObjects:
+    - {fileID: 11400000, guid: 05a055cd24796bc4aaf6d5bde34e2501, type: 2}
+    - {fileID: 11400000, guid: 05a055cd24796bc4aaf6d5bde34e2501, type: 2}
+    randomOrder: 1
+    weight: 2
+    conversation: {fileID: 0}
+  - enemyObjects:
+    - {fileID: 11400000, guid: c10443ecd763161448ca55f0fdb81389, type: 2}
+    randomOrder: 1
+    weight: 2
+    conversation: {fileID: 0}
+  - enemyObjects:
+    - {fileID: 11400000, guid: 2678af8d3664a304da8b933bc259a5bf, type: 2}
+    - {fileID: 11400000, guid: 2678af8d3664a304da8b933bc259a5bf, type: 2}
+    - {fileID: 11400000, guid: 2678af8d3664a304da8b933bc259a5bf, type: 2}
+    randomOrder: 1
+    weight: 2
+    conversation: {fileID: 0}
+  - enemyObjects:
+    - {fileID: 11400000, guid: d50a2e5ef8ea1df469b9d21b1b9653dc, type: 2}
+    - {fileID: 11400000, guid: 2678af8d3664a304da8b933bc259a5bf, type: 2}
+    randomOrder: 1
+    weight: 1
+    conversation: {fileID: 0}
+  eliteEncounters:
+  - enemyObjects:
+    - {fileID: 11400000, guid: 5ae14ec0869089e47a5450ed7875927b, type: 2}
+    randomOrder: 1
+    weight: 3
+    conversation: {fileID: 0}
+  - enemyObjects:
+    - {fileID: 11400000, guid: 45d3fc0619a68b04e9e4f0baf268cf1d, type: 2}
+    randomOrder: 1
+    weight: 3
+    conversation: {fileID: 0}
+  bossEncounter:
+    enemyObjects:
+    - {fileID: 11400000, guid: 8e50941a311df844290bd09dd429cadf, type: 2}
+    randomOrder: 1
+    weight: 1
+    conversation: {fileID: 0}
+  mysteryEvents: {fileID: 11400000, guid: e4e50a8f932c5ec448eb8fa9750c0be0, type: 2}

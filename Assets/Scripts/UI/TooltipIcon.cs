@@ -45,6 +45,7 @@ public class TooltipIcon : MonoBehaviour
     {
         icon.sprite = itemObject.icon;
         tooltipObject.item = Item.CreateItem(itemObject, level);
+        tooltipObject.state = CurrentState.Values;
     }
 
     public void Setup(Currency currency)

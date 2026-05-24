@@ -27,6 +27,7 @@ MonoBehaviour:
   unique: 0
   dispellable: 1
   removeEffects: []
+  effectInteractions: []
   stackable: 1
   refreshes: 1
   applyStacks: 1

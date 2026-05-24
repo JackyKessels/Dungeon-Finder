@@ -20,7 +20,7 @@ public class HeroSelectionObject : MonoBehaviour
 
     private int heroObjectIndex;
     private int currentSpec = 0;
-    private int specLimit;
+    private int specLimit = 0;
 
     public void Setup(int _heroObjectIndex)
     {
@@ -108,5 +108,10 @@ public class HeroSelectionObject : MonoBehaviour
     private HeroObject GetHeroObject(int index)
     {
         return TeamManager.Instance.heroObjects[heroObjectIndex];
+    }
+
+    public int GetRandomSpec()
+    {
+        return Random.Range(0, specLimit);
     }
 }

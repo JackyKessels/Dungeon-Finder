@@ -24,5 +24,4 @@ public class Passive
     {
         passiveAbility.DeactivatePassive(unit);
     }
-
 }

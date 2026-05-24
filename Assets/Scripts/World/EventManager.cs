@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.ParticleSystem;
 
 public class EventManager : MonoBehaviour
 {
@@ -82,8 +83,20 @@ public class EventManager : MonoBehaviour
                 eventBackgroundRenderer.sprite = sprite;
             }
         }
+    }
 
+    public ParticleSystem PlayBackgroundParticleSystem()
+    {
+        var particleSystem = DungeonManager.Instance.CurrentFloor.backgroundParticleSystem;
+        if (particleSystem == null)
+        {
+            return null;
+        }
 
-
+        var particle = Instantiate(particleSystem, battleBackgroundRenderer.transform.position, Quaternion.identity);
+        DungeonManager.Instance.currentParticleSystem = particle;
+        particle.transform.SetParent(battleBackgroundRenderer.transform);
+        particle.transform.localScale = Vector3.one;
+        return particle;
     }
 }

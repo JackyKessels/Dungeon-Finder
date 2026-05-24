@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class FloatingCombatText : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class FloatingCombatText : MonoBehaviour
     private float speed;
     private float randomDirectionVector;
     private float sizeTarget;
+    private Vector3 moveDirection;
 
     private Color textColor;
 
@@ -42,55 +44,67 @@ public class FloatingCombatText : MonoBehaviour
     public void Setup(FCTData fctData)
     {
         textMesh.SetText(fctData.text);
-        
+
+        float baseFontSize;
         if (fctData.combatValue)
         {
             if (fctData.isGlancing)
-            {
-                // Glancing Hit
-                textMesh.fontSize = 6f;
-                sizeTarget = 1.5f;
-                textColor = fctData.color;
-            }
+                baseFontSize = 6f;
             else if (!fctData.isCriticalHit)
-            {
-                // Normal Hit
-                textMesh.fontSize = 9f;
-                sizeTarget = 2.25f;
-                textColor = fctData.color;
-            }
+                baseFontSize = 9f;
             else
-            {
-                // Critical Hit
-                textMesh.fontSize = 12f;
-                sizeTarget = 3f;
-                textColor = fctData.criticalColor;
-            }
-
-            fade = 2f;
-            fadeTimer = 0.35f;
-            speed = 2.5f;
+                baseFontSize = 12f;
         }
         else
-        {
-            textMesh.fontSize = 6;
-            sizeTarget = textMesh.fontSize;
-            textColor = fctData.color;
+            baseFontSize = 6f;
 
-            fade = 2f;
-            fadeTimer = 0.5f;
-            speed = 1f;
-        }
+        var initialSize = fctData.combatValue 
+            ? (fctData.isCriticalHit ? 2.2f : 2.0f) 
+            : 1f;
+        textMesh.fontSize = baseFontSize * initialSize;
+        sizeTarget = baseFontSize;
 
+        textColor = fctData.isCriticalHit ? fctData.criticalColor : fctData.color;
         textMesh.color = textColor;
+
+        fade = fctData.combatValue ? 2f : 2f;
+        fadeTimer = fctData.combatValue ? 0.35f : 0.5f;
+        speed = fctData.combatValue ? 2.5f : 1f;
 
         sortingOrder++;
         textMesh.sortingOrder = sortingOrder;
+
+        if (fctData.combatValue)
+        {
+            Vector3 center = Vector3.zero;
+            float maxAngle = 30f;
+            float angle;
+
+            if (fctData.unit.transform.position.x < center.x)
+            {
+                angle = Random.Range(0f, -maxAngle);
+            }
+            else
+            {
+                angle = Random.Range(0f, maxAngle);
+            }
+
+            float rad = angle * Mathf.Deg2Rad;
+            float speed = 2.5f;
+            moveDirection = new Vector3(Mathf.Sin(rad), Mathf.Cos(rad), 0) * speed;
+        }
+        else
+        {
+            moveDirection = Vector3.up * 1f;
+        }
     }
 
     private void Update()
     {
-        transform.position += new Vector3(randomDirectionVector, speed) * Time.deltaTime;
+        transform.position += moveDirection * Time.deltaTime;
+
+        float scaleSpeed = 6f;
+        textMesh.fontSize = Mathf.Lerp(textMesh.fontSize, sizeTarget, Time.deltaTime * scaleSpeed);
 
         fadeTimer -= Time.deltaTime;
         if (fadeTimer < 0)
@@ -98,11 +112,10 @@ public class FloatingCombatText : MonoBehaviour
             textColor.a -= fade * Time.deltaTime;
             textMesh.color = textColor;
 
-            float sizeDif = textMesh.fontSize - sizeTarget;
-            textMesh.fontSize -= sizeDif * Time.deltaTime;
-
-            if (textColor.a < 0)
+            if (textColor.a <= 0f)
+            {
                 Destroy(gameObject);
+            }
         }
     }
 }

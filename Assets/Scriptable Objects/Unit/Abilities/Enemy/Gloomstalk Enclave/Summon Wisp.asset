@@ -25,7 +25,7 @@ MonoBehaviour:
   sellable: 0
   replacesAbility: {fileID: 0}
   castTime: 0.75
-  cooldown: 1
+  cooldown: 4
   initialCooldown: 0
   endTurn: 1
   singleUse: 0
@@ -35,7 +35,7 @@ MonoBehaviour:
   attributeScaling: 0
   resetText: Reset!
   weaponRequirement: 4
-  soundEffect: {fileID: 0}
+  soundEffect: {fileID: 8300000, guid: 34bf02f0e0923604183a671ec5b0db15, type: 3}
   animationType: 1
   allyAbilitySources: []
   enemyAbilitySources: []

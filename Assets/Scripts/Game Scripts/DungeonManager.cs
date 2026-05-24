@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public class DungeonManager : MonoBehaviour, IUserInterface
 {
@@ -55,8 +56,11 @@ public class DungeonManager : MonoBehaviour, IUserInterface
 
     public Dungeon currentDungeon;
     public int currentFloorIndex;
+    public ParticleSystem currentParticleSystem;
 
     private Vector2 initialSize;
+
+    public Floor CurrentFloor => currentDungeon.floors[currentFloorIndex];
 
     private void Start()
     {
@@ -75,7 +79,9 @@ public class DungeonManager : MonoBehaviour, IUserInterface
             case GameMode.Campaign:
                 return floor.level;
             case GameMode.Endless:
-                return ProgressionManager.Instance.endlessLevel;
+                return ProgressionManager.Instance.endlessManager.endlessLevel;
+            case GameMode.Sandbox:
+                return 1;
             default:
                 return 1;
         }
@@ -120,15 +126,14 @@ public class DungeonManager : MonoBehaviour, IUserInterface
             gameManager.audioSourceAmbient.clip = null;
             gameManager.audioSourceAmbient.Stop();
         }
+
+        EventManager.Instance.PlayBackgroundParticleSystem();
     }
 
     private void SetDungeonNames(Floor floor)
     {
-        dungeonTitle.text = currentDungeon.name;
-        dungeonTitle.color = currentDungeon.nameColor;
-
-        floorName.text = $"{floor.name}{GetFloorString()}";
-        floorName.color = currentDungeon.nameColor;
+        GeneralUtilities.SetText(dungeonTitle, currentDungeon);
+        GeneralUtilities.SetText(floorName, currentDungeon, $"{floor.name}{GetFloorString()}");
 
         if (floor.name == "")
             floorBackground.SetActive(false);
@@ -223,9 +228,7 @@ public class DungeonManager : MonoBehaviour, IUserInterface
         if (currentFloorIndex >= currentDungeon.floors.Count)
             currentFloorIndex = 0;
 
-        Floor floor = currentDungeon.floors[currentFloorIndex];
-
-        BuildFloor(currentDungeon, floor);
+        BuildFloor(currentDungeon, CurrentFloor);
     }
 
     public bool IsLastFloor()
@@ -264,6 +267,60 @@ public class DungeonManager : MonoBehaviour, IUserInterface
             {
                 AnalyticsManager.TrackBossBattle(boss.name, currentDungeon.name, currentFloorIndex + 1, currentFloor.level, result.ToString());
             }
+        }
+    }
+
+    public void ApplyFloorEffects()
+    {
+        var floorEffect = CurrentFloor.floorEffect;
+        if (floorEffect == null)
+        {
+            return;
+        }
+
+        switch (CurrentFloor.floorEffectTarget)
+        {
+            case FloorEffectTarget.Heroes:
+                {
+                    foreach (Unit unit in TeamManager.Instance.heroes.LivingMembers)
+                    {
+                        unit.effectManager.PreparePreBattleEffect(floorEffect);
+                    }
+                }
+                break;
+            case FloorEffectTarget.Enemies:
+                {
+                    foreach (Unit unit in TeamManager.Instance.enemies.LivingMembers)
+                    {
+                        unit.effectManager.PreparePreBattleEffect(floorEffect);
+                    }
+                }
+                break;
+            case FloorEffectTarget.HeroesAndEnemies:
+                {
+                    foreach (Unit unit in TeamManager.Instance.heroes.LivingMembers)
+                    {
+                        unit.effectManager.PreparePreBattleEffect(floorEffect);
+                    }
+
+                    foreach (Unit unit in TeamManager.Instance.enemies.LivingMembers)
+                    {
+                        unit.effectManager.PreparePreBattleEffect(floorEffect);
+                    }
+                }
+                break;
+            case FloorEffectTarget.RandomHero:
+                {
+                    // Do random hero
+                }
+                break;
+            case FloorEffectTarget.RandomEnemy:
+                {
+                    // Do random enemy
+                }
+                break;
+            default:
+                break;
         }
     }
 }

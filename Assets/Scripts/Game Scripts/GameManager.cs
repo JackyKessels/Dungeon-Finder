@@ -19,7 +19,8 @@ public enum GameState
 public enum GameMode
 {
     Campaign,
-    Endless
+    Endless,
+    Sandbox
 }
 
 public class GameManager : MonoBehaviour
@@ -62,6 +63,8 @@ public class GameManager : MonoBehaviour
     public Canvas TEST;
     public GameObject SKIP_BUTTON;
     public Unit SFX_TARGET;
+    public Canvas FLOOR_SANDBOX;
+    public Dungeon FLOOR_SANDBOX_DUNGEON;
 
     [Header("[ Start & End Screen ]")]
     public Canvas startUI;
@@ -316,6 +319,17 @@ public class GameManager : MonoBehaviour
         hero_2.heroPathManager.SelectStarterPath(heroSelectionObject_2.GetData()[1]);
     }
 
+    private void CreateRandomTeam()
+    {
+        Hero hero_0 = teamManager.CreateHero(heroSelectionObject_0.GetData()[0], 0);
+        Hero hero_1 = teamManager.CreateHero(heroSelectionObject_1.GetData()[0], 1);
+        Hero hero_2 = teamManager.CreateHero(heroSelectionObject_2.GetData()[0], 2);
+
+        hero_0.heroPathManager.SelectStarterPath(heroSelectionObject_0.GetRandomSpec());
+        hero_1.heroPathManager.SelectStarterPath(heroSelectionObject_1.GetRandomSpec());
+        hero_2.heroPathManager.SelectStarterPath(heroSelectionObject_2.GetRandomSpec());
+    }
+
     public void SetupTown()
     {
         gameState = GameState.TOWN;
@@ -360,6 +374,57 @@ public class GameManager : MonoBehaviour
         CreateTeam();     
 
         townManager.SetupTown(campaignTown);
+    }
+
+    public void TestFloorSandbox()
+    {
+        SaveManager.Instance.currentId = "3";
+
+        gameState = GameState.TOWN;
+        gameMode = GameMode.Sandbox;
+
+        TEST_MODE = true;
+
+        TEST.gameObject.SetActive(true);
+        SKIP_BUTTON.SetActive(true);
+        FLOOR_SANDBOX.gameObject.SetActive(true);
+
+        progressionManager.campaignManager.SetDungeonList(true);
+
+        progressionManager.firstDeath = true;
+        progressionManager.unlockedPaths = true;
+        progressionManager.SetPathButtonState();
+        progressionManager.SetFourthAbilityStatus(true);
+        progressionManager.SetEnchantUpgradeStatus(true);
+
+        progressionManager.discoveredItems = new List<int>();
+
+        tutorialManager.SkipTutorials = true;
+
+        titleElements.gameObject.SetActive(false);
+
+        cameraScript.GoToCamera(townManager.cameraObject, false);
+
+        heroManager.EnableUI(true);
+
+        SetupTeamSelection();
+        CreateRandomTeam();
+
+        townManager.SetupTown(campaignTown);
+
+        currencyHandler.IncreaseCurrency(new Currency(CurrencyType.Spirit, 30));
+
+        foreach (Hero hero in TeamManager.Instance.heroes.Members)
+        {
+            hero.heroPathManager.points += 1;
+        }
+    }
+
+    public void StartFloor(Floor floor)
+    {
+        townManager.StartFloor(FLOOR_SANDBOX_DUNGEON, floor);
+
+        FLOOR_SANDBOX.gameObject.SetActive(false);
     }
 
     public void BackToTitle()
@@ -421,6 +486,17 @@ public class GameManager : MonoBehaviour
                         progressionManager.endlessManager.endlessLevel++;
                     }
                     break;
+                case GameMode.Sandbox:
+                    {
+                        RewardManager.Instance.SetupBattleResult();
+
+                        GoToTown();
+
+                        dungeonManager.EnableUI(false);
+
+                        teamManager.heroes.FullRestoreTeam();
+                    }
+                    break;
             }
         }
         else
@@ -471,6 +547,8 @@ public class GameManager : MonoBehaviour
 
         gameState = GameState.TOWN;
 
+        Destroy(DungeonManager.Instance.currentParticleSystem.gameObject);
+
         currencyHandler.SetState(false);
         currencyHandler.UpdateCurrencies();
 
@@ -507,6 +585,16 @@ public class GameManager : MonoBehaviour
             case GameMode.Endless:
                 {
 
+                }
+                break;
+            case GameMode.Sandbox:
+                {
+                    currencyHandler.SetState(true);
+                    currencyHandler.UpdateCurrencies();
+
+                    mapButton.UpdateButton(gameState);
+
+                    townManager.ShopButtonsState(false);
                 }
                 break;
         }

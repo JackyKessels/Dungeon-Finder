@@ -19,6 +19,8 @@ public class TooltipObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private BattleManager battleManager;
     private TooltipHandler tooltipHandler;
 
+    public float effectiveness = 1f;
+
     [Header("[ Generic Tooltip ]")]
     public bool useGenericTooltip = false;
     [TextArea(3,3)]
@@ -32,7 +34,7 @@ public class TooltipObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public Item item = null;
     public Attribute attribute = null;
     public Currency currency = null;
-    public CurrentState state = CurrentState.Default;
+    public CurrentState state = CurrentState.Values;
     public bool experience = false;
 
     private void Start()
@@ -54,6 +56,8 @@ public class TooltipObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         currency = tooltipObject.currency;
         state = tooltipObject.state;
         experience = tooltipObject.experience;
+
+        effectiveness = tooltipObject.effectiveness;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

@@ -17,6 +17,7 @@ MonoBehaviour:
   dungeonBackground: {fileID: 21300000, guid: 1fa0130be285616419f7b0d2f082fee1, type: 3}
   battleBackground: {fileID: 21300000, guid: bdfa4d9161fe46944ac0ce31152b6d21, type: 3}
   backgroundSound: {fileID: 0}
+  backgroundParticleSystem: {fileID: 0}
   columns: 1
   rows: 1
   startingPoints: 1
@@ -33,17 +34,15 @@ MonoBehaviour:
   campfireBeforeBoss: 0
   wellRestedEffect: {fileID: 0}
   wellRestedChance: 0
+  floorEffectTarget: 0
+  floorEffect: {fileID: 0}
   itemPool: []
-  trashEncounters:
-  - enemyObjects:
-    - {fileID: 11400000, guid: 0dd4bbfde238be6479975b797d721ea4, type: 2}
-    randomOrder: 0
-    weight: 1
+  trashEncounters: []
   eliteEncounters: []
   bossEncounter:
     enemyObjects:
-    - {fileID: 11400000, guid: a401d806e596eaf4bb79f1af9ae6b10f, type: 2}
-    - {fileID: 11400000, guid: 6ce95a10a91101946b85ad2553a6e54b, type: 2}
+    - {fileID: 11400000, guid: eeb5d58fabe462743bad9180bf9536d0, type: 2}
     randomOrder: 1
     weight: 1
+    conversation: {fileID: 0}
   mysteryEvents: {fileID: 0}

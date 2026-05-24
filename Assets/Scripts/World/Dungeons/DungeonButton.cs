@@ -18,8 +18,7 @@ public class DungeonButton : MonoBehaviour
     {
         dungeon = _dungeon.dungeon;
 
-        title.text = dungeon.name;
-        title.color = dungeon.nameColor;
+        GeneralUtilities.SetText(title, dungeon);
 
         var recommendedMinimumLevel = dungeon.recommendedMinimumLevel.ToString();
         var recommendedMaximumLevel = dungeon.recommendedMaximumLevel.ToString();

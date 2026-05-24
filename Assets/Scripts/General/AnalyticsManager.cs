@@ -17,7 +17,6 @@ public static class AnalyticsManager
         };
 
         AnalyticsService.Instance.RecordEvent(myEvent);
-        Debug.Log(myEvent);
     }
 
     public static void TrackBossBattle(string bossName, string dungeonName, int floor, int level, string result)
@@ -32,7 +31,6 @@ public static class AnalyticsManager
         };
 
         AnalyticsService.Instance.RecordEvent(myEvent);
-        Debug.Log(myEvent);
     }
 }
 

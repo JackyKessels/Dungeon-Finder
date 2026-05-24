@@ -27,7 +27,7 @@ MonoBehaviour:
   sellable: 0
   replacesAbility: {fileID: 0}
   castTime: 0.75
-  cooldown: 6
+  cooldown: 0
   initialCooldown: 0
   endTurn: 1
   singleUse: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
     attributeType: 2
     baseValue: 0
     levelBase: 0
-    scaling: 1.5
+    scaling: 1
     levelScaling: 0
     reductionType: 2
     abilityModifier:

@@ -50,9 +50,6 @@ public class ProgressionManager : MonoBehaviour
     public bool unlockedEnchanterUpgrade = false;
     public Dungeon unlockedEnchanterUpgrade_Dungeon;
 
-    [Header("[-- Endless --]")]
-    public int endlessLevel;
-
     [Header("[-- Codex --]")]
     public List<int> discoveredItems = new List<int>();
 
@@ -80,7 +77,7 @@ public class ProgressionManager : MonoBehaviour
                 break;
             case GameMode.Endless:
                 {
-                    endlessLevel = 1;
+                    endlessManager.endlessLevel = 1;
 
                     firstDeath = true;
 

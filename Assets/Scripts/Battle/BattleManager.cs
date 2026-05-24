@@ -191,7 +191,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
         EnableUI(true);
         HeroManager.Instance.EnableUI(false);
         DungeonManager.Instance.EnableUI(false);
-
+        
         if (location.encounter != null && location.encounter.conversation != null)
         {
             DialogueManager.Instance.StartConversation(location.encounter.conversation);
@@ -207,9 +207,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
         round = 1;
 
-        //teamManager.heroes.SetInvulnerable(true);
-        //teamManager.heroes.ExpireEffects();
-        //teamManager.heroes.SetInvulnerable(false);
+        DungeonManager.Instance.ApplyFloorEffects();
 
         teamManager.ApplyPreBattleEffects();
         teamManager.TriggerRoundStartPassives();

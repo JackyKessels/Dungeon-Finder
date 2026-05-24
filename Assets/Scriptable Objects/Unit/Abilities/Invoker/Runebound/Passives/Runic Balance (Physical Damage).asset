@@ -20,12 +20,13 @@ MonoBehaviour:
   expirationSpecialEffects: []
   isBuff: 1
   procType: 1
-  duration: 8
+  duration: 5
   permanent: 0
   aura: 0
   unique: 0
   dispellable: 1
   removeEffects: []
+  effectInteractions: []
   stackable: 1
   refreshes: 0
   applyStacks: 1

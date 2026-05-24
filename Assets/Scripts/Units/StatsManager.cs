@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public enum AttributeType
@@ -148,7 +147,7 @@ public class StatsManager
 
     public void ModifyAttribute(AttributeType attributeType, AttributeValue attributeValue, float value)
     {
-        float percentage = GetHealthPercentage();      
+        float percentage = GetNormalizedHealth();      
 
         switch (attributeValue)
         {
@@ -268,16 +267,34 @@ public class StatsManager
         {
             ApplyTransferDamageEffect(abilityValue, allowDamageTransfer);
 
-            currentHealth -= abilityValue.Rounded();
+            var roundedValue = abilityValue.Rounded();
+
+            currentHealth -= roundedValue;
+
+            CheckPhaseTransition();
 
             // Show damage dealt
-            FCTData fctData = new FCTData(true, unit, abilityValue.Rounded().ToString(), abilityValue.isGlancing, abilityValue.isCritical, abilityValue.color, abilityValue.color);
+            FCTData fctData = new FCTData(true, unit, roundedValue.ToString(), abilityValue.isGlancing, abilityValue.isCritical, abilityValue.color, abilityValue.color);
             unit.fctHandler.AddToFCTQueue(fctData);
+
+            HandleImpact(abilityValue);
 
             OnReceiveUnitEvent?.Invoke(abilityValue);
 
             CheckHealthStatus(abilityValue);
         }
+    }
+
+    private void CheckPhaseTransition()
+    {
+        unit.battlePhaseController?.OnHealthChanged();
+    }
+
+    private void HandleImpact(AbilityValue abilityValue)
+    {
+        float normalizedDamage = abilityValue.value / GetAttribute(AttributeType.Health).GetTotalValue();
+        var unitVisual = unit.GetComponent<UnitVisual>();
+        unitVisual.PlayImpact(unit.isEnemy, normalizedDamage, abilityValue.isCritical);
     }
 
     public void TakeDamage(AbilitySchool school, int amount)
@@ -474,9 +491,15 @@ public class StatsManager
         }
     }
 
-    public float GetHealthPercentage()
+    public float GetNormalizedHealth()
     {
-        return (float)currentHealth / (float)GetAttributeValue(AttributeType.Health);
+        var maxHealth = GetAttributeValue(AttributeType.Health);
+        if (maxHealth <= 0)
+        {
+            return 0f;
+        }
+
+        return (float)currentHealth / (float)maxHealth;
     }
 
     public void SetHealthPercentage(float percentage)

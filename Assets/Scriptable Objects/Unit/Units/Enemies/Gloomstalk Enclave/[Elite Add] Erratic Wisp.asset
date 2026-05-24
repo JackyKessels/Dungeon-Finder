@@ -51,6 +51,13 @@ MonoBehaviour:
     targetAttribute: 0
     condition: 0
     healthThreshold: 100
-    startCooldown: 3
+    startCooldown: 4
+    charged: 0
+  - ability: {fileID: 11400000, guid: 3ad6bc5342f824f4ba064008cccd2d02, type: 2}
+    target: 0
+    targetAttribute: 0
+    condition: 0
+    healthThreshold: 100
+    startCooldown: 0
     charged: 0
   passiveAbilities: []

@@ -34,7 +34,7 @@ MonoBehaviour:
   maxStacks: 0
   stackEffects: []
   attributeModified: 4
-  isIncrease: 0
+  isIncrease: 1
   modifierType: 0
   modifierSource:
     ignoreMultipliers: 0

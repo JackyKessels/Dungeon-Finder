@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public static class GeneralUtilities
@@ -386,5 +387,28 @@ public static class GeneralUtilities
         }
 
         return fullString;
+    }
+
+    public static void SetText(TextMeshProUGUI text, Dungeon dungeon, string textOverride = null)
+    {
+        text.text = string.IsNullOrEmpty(textOverride) ? dungeon.name : textOverride;
+
+        if (dungeon.useGradient)
+        {
+            text.enableVertexGradient = true;
+            text.color = Color.white;
+
+            text.colorGradient = new VertexGradient(
+                dungeon.gradientTop,
+                dungeon.gradientTop,
+                dungeon.gradientBottom,
+                dungeon.gradientBottom
+            );
+        }
+        else
+        {
+            text.enableVertexGradient = false;
+            text.color = dungeon.nameColor;
+        }
     }
 }

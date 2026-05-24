@@ -2,6 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum FloorEffectTarget
+{
+    Heroes,
+    Enemies,
+    HeroesAndEnemies,
+    RandomHero,
+    RandomEnemy
+}
+
 [CreateAssetMenu(fileName = "New Floor", menuName = "World/Floor")]
 public class Floor : ScriptableObject
 {
@@ -10,6 +19,7 @@ public class Floor : ScriptableObject
     public Sprite dungeonBackground;
     public Sprite battleBackground;
     public AudioClip backgroundSound;
+    public ParticleSystem backgroundParticleSystem;
 
     [Header("[ Floor Dimensions ]")]
     public int columns;
@@ -22,7 +32,7 @@ public class Floor : ScriptableObject
     public bool addOffset;
     public bool forceBossCenter = false;
 
-    [Header("[ Location Specifications ]")]
+    [Header("[ Floor Specifications ]")]
     public int eliteCount = 0;
     public int campfireCount = 0;
     public int treasureCount = 0;
@@ -34,6 +44,10 @@ public class Floor : ScriptableObject
     [Range(0, 100)]
     [Tooltip("Value in percentages (integer)")]
     public int wellRestedChance;
+
+    [Header("[ Floor Effects ]")]
+    public FloorEffectTarget floorEffectTarget;
+    public EffectObject floorEffect;
 
     [Header("[ Treasure Contents ]")]
     public List<ItemDrop> itemPool = new List<ItemDrop>();

@@ -114,6 +114,7 @@ public static class AbilityTooltipHandler
 
             var tempActive = tooltipObject.active;
             tooltipObject.active = new Active(activeAbility, level);
+            tooltipObject.effectiveness = castActiveAbility.effectiveness;
 
             temp = string.Format(temp, activeAbility.GetNameAndDescription(tooltipObject));
 
@@ -882,10 +883,10 @@ public static class AbilityTooltipHandler
 
     public static string CurrentArmor(string temp, string check, TooltipObject tooltipObject)
     {
-        Unit caster = GeneralUtilities.GetCorrectUnit(tooltipObject);
-
         if (temp.Contains(check))
         {
+            Unit caster = GeneralUtilities.GetCorrectUnit(tooltipObject);
+
             if (caster == null)
             {
                 temp = temp.Replace(check, "Current Armor: -");
@@ -905,16 +906,16 @@ public static class AbilityTooltipHandler
 
     public static string ParseNonScalingNumber(string temp, string check, int number)
     {
-        string color = ColorDatabase.NonScalingColor;
-
-        if (temp.Contains(check))
+        if (!temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color={1}>{0}</color>");
-
-            return string.Format(temp, number, color);
+            return temp;
         }
 
-        return temp;
+        string color = ColorDatabase.NonScalingColor;
+
+        temp = temp.Replace(check, "<color={1}>{0}</color>");
+
+        return string.Format(temp, number, color);
     }
 
     public static string ParseEffectColor(bool isBuff)
