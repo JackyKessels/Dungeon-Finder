@@ -27,6 +27,8 @@ public abstract class EffectObject : ScriptableObject, IHasTooltip, ITriggerSour
     [Tooltip("True = This effect can only be active on 1 target.\nFalse = No limitations.")]
     public bool unique = false;
     public bool dispellable = true;
+    [Tooltip("True = If this effect is attached to a passive, it will not be removed when the passive is unlearned.")]
+    public bool persistThroughPassiveUnlearn = false;
     public List<EffectObject> removeEffects;
     public List<EffectInteraction> effectInteractions;
 

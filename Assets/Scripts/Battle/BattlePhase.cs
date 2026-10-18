@@ -12,6 +12,7 @@ public class BattlePhase
     public float healthTransition;
 
     [Header("Abilities")]
+    public bool randomAbility = false;
     public List<AbilityBehavior> abilityBehaviors;
     public List<PassiveAbility> passiveAbilities;
 

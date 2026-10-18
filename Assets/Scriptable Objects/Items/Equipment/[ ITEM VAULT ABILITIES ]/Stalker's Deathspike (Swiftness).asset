@@ -10,22 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ada0ff3ca2662c64c891e6cc278c1157, type: 3}
-  m_Name: Make Swift
+  m_Name: Stalker's Deathspike (Swiftness)
   m_EditorClassIdentifier: 
-  name: Make Swift
-  icon: {fileID: 21300000, guid: cd997a14e03004e4ab884435f9105936, type: 3}
+  name: Stalker's Agility
+  icon: {fileID: 21300000, guid: 610c753f77c391b4b920273d01692f20, type: 3}
   hidden: 0
-  description: shiet make swift boie
+  description: Your next Primary ability does not end your Turn.
   applicationSpecialEffects: []
   expirationSpecialEffects: []
   isBuff: 1
-  procType: 0
+  procType: 1
   duration: 1
   permanent: 1
   aura: 0
   unique: 1
   dispellable: 1
   removeEffects: []
+  effectInteractions: []
   stackable: 0
   refreshes: 1
   applyStacks: 1
@@ -33,9 +34,11 @@ MonoBehaviour:
   maxStacks: 0
   stackEffects: []
   modifierType: 1
-  affectedAbility: 0
+  affectedAbility: 1
   getConsumed: 1
+  targetSpecialEffects: []
   abilityType: 0
   specificAbilities: []
   bonusMultiplier: 0
   bonusPerLevel: 0
+  appliedEffects: []

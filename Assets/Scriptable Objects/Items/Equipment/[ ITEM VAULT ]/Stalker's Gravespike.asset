@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d318b60c43bbff540adf2168b0cccf9c, type: 3}
+  m_Name: Stalker's Gravespike
+  m_EditorClassIdentifier: 
+  name: Stalker's Gravespike
+  icon: {fileID: 21300000, guid: 610c753f77c391b4b920273d01692f20, type: 3}
+  value: 0
+  stackable: 0
+  maxStacks: 1
+  sellable: 1
+  unique: 0
+  item:
+    name: 
+    id: 109
+    itemObject: {fileID: 0}
+    level: 1
+  description: 
+  quality: 0
+  slot: 2
+  healthFactor: -0.3
+  powerFactor: 0.3
+  wisdomFactor: 0.3
+  armor: 0
+  resistance: 0
+  vitality: 0
+  speed: 0
+  accuracy: 0
+  crit: 15
+  healingMultiplier: 0
+  physicalMultiplier: 0
+  fireMultiplier: 0
+  iceMultiplier: 0
+  natureMultiplier: 0
+  arcaneMultiplier: 0
+  holyMultiplier: 0
+  shadowMultiplier: 0
+  critMultiplier: 25
+  sacrificialMultiplier: 0
+  passives: []
+  useAbility: {fileID: 11400000, guid: c61ab91d0d34d7140af24a6356e43aa4, type: 2}

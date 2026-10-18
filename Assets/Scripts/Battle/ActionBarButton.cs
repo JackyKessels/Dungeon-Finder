@@ -68,9 +68,16 @@ public class ActionBarButton : MonoBehaviour
             CurrentState.Battle);
     }
 
-    public void SetButtonCooldown(Active active)
+    public void SetButtonCooldown(Active active, List<AbilityType> suppressions = null)
     {
-        if (active.IsOnCooldown())
+        if (AbilityUtilities.IsSuppressed(active, suppressions))
+        {
+            SetInteractable(false);
+
+            CrossButton(true);
+            cooldownText.SetText("");
+        }
+        else if (active.IsOnCooldown())
         {
             SetInteractable(false);
 
@@ -98,7 +105,7 @@ public class ActionBarButton : MonoBehaviour
             cooldownText.SetText("");
         }
     }
-
+   
     private void DisableButton()
     {
         Image buttonImage = GetComponent<Image>();

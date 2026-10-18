@@ -180,4 +180,19 @@ public static class AbilityUtilities
             return team.LivingMembers;
         }
     }
+
+    public static bool IsSuppressed(Active active, List<AbilityType> suppressions)
+    {
+        if (suppressions == null || suppressions.Count == 0)
+        {
+            return false;
+        }
+
+        if (active == null || active.activeAbility == null)
+        {
+            return false;
+        }
+
+        return suppressions.Contains(active.activeAbility.abilityType);
+    }
 }

@@ -162,6 +162,11 @@ public class GameManager : MonoBehaviour
                 Debug.Log($"Loaded: {specialEffect.name}");
             }
         }
+
+        for (int i = SFX_TARGET.transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(SFX_TARGET.transform.GetChild(i).gameObject);
+        }
 #endif
     }
 
@@ -355,6 +360,8 @@ public class GameManager : MonoBehaviour
         progressionManager.campaignManager.SetDungeonList(true);
 
         progressionManager.firstDeath = true;
+        progressionManager.unlockedEnchanter = true;
+        progressionManager.SetEnchanterButtonState();
         progressionManager.unlockedPaths = true;
         progressionManager.SetPathButtonState();
         progressionManager.SetFourthAbilityStatus(true);
@@ -392,7 +399,9 @@ public class GameManager : MonoBehaviour
         progressionManager.campaignManager.SetDungeonList(true);
 
         progressionManager.firstDeath = true;
+        progressionManager.unlockedEnchanter = true;
         progressionManager.unlockedPaths = true;
+        progressionManager.SetEnchanterButtonState();
         progressionManager.SetPathButtonState();
         progressionManager.SetFourthAbilityStatus(true);
         progressionManager.SetEnchantUpgradeStatus(true);
@@ -547,7 +556,10 @@ public class GameManager : MonoBehaviour
 
         gameState = GameState.TOWN;
 
-        Destroy(DungeonManager.Instance.currentParticleSystem.gameObject);
+        if (DungeonManager.Instance.currentParticleSystem != null)
+        {
+            Destroy(DungeonManager.Instance.currentParticleSystem.gameObject);
+        }
 
         currencyHandler.SetState(false);
         currencyHandler.UpdateCurrencies();

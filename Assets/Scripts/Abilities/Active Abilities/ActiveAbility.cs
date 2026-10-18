@@ -22,7 +22,8 @@ public abstract class ActiveAbility : AbilityObject
     public float castTime = .75f;
     public int cooldown = 0;
     public int initialCooldown = 0;
-    public bool endTurn = true;
+    [Tooltip("Swift")]
+    public bool endTurn = true; 
     public bool singleUse = false;
     public readonly static int SINGLE_USE_COOLDOWN = 999;
 
@@ -74,6 +75,8 @@ public abstract class ActiveAbility : AbilityObject
                InitialCooldownTooltip() + // Initial Cooldown
                "\nEffect: " + ParseDescription(description, tooltipObject); // Effect
     }
+
+    public abstract EffectObject GetChargeEffectObject();
 
     private string FormatWeaponRequirement()
     {

@@ -191,4 +191,36 @@ public class Unit : MonoBehaviour
             yield return null;
         }
     }
+
+    public void TriggerReceiveEffect(Effect effect)
+    {
+        OnReceiveEffect?.Invoke(effect);
+
+        HandleCoreEffectRules(effect);
+    }
+
+    private void HandleCoreEffectRules(Effect effect)
+    {
+        if (effect.effectObject is EffectCrowdControl crowdControl)
+        {
+            if (this is Enemy enemy)
+            {
+                switch (crowdControl.type)
+                {
+                    case CrowdControlType.Taunt:
+                        {
+                            EffectManager.RemoveChargeEffects();
+                            enemy.ApplyChargeEffect(enemy, effect.caster);
+                        }
+                        break;
+                    case CrowdControlType.Stun:
+                    case CrowdControlType.Incapacitate:
+                        {
+                            enemy.CancelChargedAbility(true);
+                        }
+                        break;
+                }
+            }
+        }
+    }
 }

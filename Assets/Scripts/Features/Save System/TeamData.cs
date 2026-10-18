@@ -13,6 +13,7 @@ public class TeamData
 
     // Progression
     public bool firstDeath;
+    public bool unlockedEnchanter;
     public bool unlockedPaths;
     public bool unlockedFourthAbility;
     public bool unlockedEnchanterUpgrade;
@@ -100,6 +101,7 @@ public class TeamData
         gameMode = (int)gameManager.gameMode;
 
         firstDeath = progressionManager.firstDeath;
+        unlockedEnchanter = progressionManager.unlockedEnchanter;
         unlockedPaths = progressionManager.unlockedPaths;
         unlockedFourthAbility = progressionManager.unlockedFourthAbility;
         unlockedEnchanterUpgrade = progressionManager.unlockedEnchanterUpgrade;

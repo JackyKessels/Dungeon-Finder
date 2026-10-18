@@ -21,6 +21,11 @@ public class TargetAbility : ActiveAbility
     [Range(0, 1)]
     public float adjacentModifier = 0;
 
+    public override EffectObject GetChargeEffectObject()
+    {
+        return GameAssets.i.chargeTargetEffect;
+    }
+
     public override void TriggerAbility(Unit caster, Unit target, int level, float effectiveness)
     {
         if (target == null)

@@ -125,41 +125,35 @@ public class InventoryManager : MonoBehaviour
         UpdateCharacterAttributes(HeroManager.Instance.CurrentHero(), attributeMenuIndex);
     }
 
-    public bool AddItemToInventory(Item item, int amount = 1)
+    public InventoryAddResult AddItemToInventory(Item item, int amount = 1)
     {
-        if (item == null)
+        var result = new InventoryAddResult
         {
-            return false;
+            requested = Mathf.Max(0, amount),
+            added = 0
+        };
+
+        if (item == null || item.itemObject == null || amount <= 0)
+        {
+            return result;
         }
 
-        bool added = false;
-
-        if (item.itemObject != null && item.itemObject.unique && 
-            (inventoryObject.ContainsItemObject(item.itemObject) || 
-            consumablesObject.ContainsItemObject(item.itemObject)))
+        if (item.itemObject.unique && (inventoryObject.ContainsItemObject(item.itemObject) || consumablesObject.ContainsItemObject(item.itemObject)))
         {
             Debug.Log($"{item.itemObject.name} is unique and already in your inventory.");
-            return false;
+            return result;
         }
 
-        for (int i = 0; i < amount; i++)
+        var targetInventory = item.itemObject is Food ? consumablesObject : inventoryObject;
+
+        result = targetInventory.AddItem(item, amount);
+
+        for (int i = 0; i < result.added; i++)
         {
-            if (item.itemObject is Food)
-            {
-                added = consumablesObject.AddItem(item, 1);
-            }
-            else
-            {
-                added = inventoryObject.AddItem(item, 1);
-            }
-
-            if (added)
-            {
-                OnItemObtained?.Invoke(item.itemObject);
-            }
+            OnItemObtained?.Invoke(item.itemObject);
         }
 
-        return added;
+        return result;
     }
 
     public void RemoveItemFromInventory(ItemObject itemObject, int amount = 1)

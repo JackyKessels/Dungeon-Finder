@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public delegate void ReceiveEffectEvent(Effect effect);
 
@@ -67,6 +68,12 @@ public class EffectManager : MonoBehaviour
         {
             Effect stackedEffect = Effect.ApplyStacks(sameEffect, applyEffect);
 
+            if (sameEffect.effectObject is EffectAbilityModifier mod)
+            {
+                ApplyAndStackAbilityModifierEffect(sameEffect, stackedEffect, target, mod);
+                return;
+            }
+
             int index = target.effectManager.effectsList.IndexOf(sameEffect);
             if (index != -1)
             {
@@ -83,6 +90,18 @@ public class EffectManager : MonoBehaviour
         {
             target.effectManager.OnApplication(applyEffect);
         }
+    }
+
+    private static void ApplyAndStackAbilityModifierEffect(Effect sameEffect, Effect stackedEffect, Unit target, EffectAbilityModifier mod)
+    {
+        int index = target.effectManager.effectsList.IndexOf(sameEffect);
+
+        if (index != -1)
+        {
+            target.effectManager.effectsList[index] = stackedEffect;
+        }
+
+        TriggerStackEffect(stackedEffect);
     }
 
     private static void TriggerStackEffect(Effect effect)
@@ -159,6 +178,19 @@ public class EffectManager : MonoBehaviour
             {
                 OnExpiration(effectsList[i]);
             }
+        }
+    }
+
+    public static void RemoveChargeEffects()
+    {
+        foreach (Unit unit in TeamManager.Instance.heroes.LivingMembers)
+        {
+            unit.effectManager.RemoveChargeEffect();
+        }
+
+        foreach (Unit unit in TeamManager.Instance.enemies.LivingMembers)
+        {
+            unit.effectManager.RemoveChargeEffect();
         }
     }
 
@@ -302,6 +334,24 @@ public class EffectManager : MonoBehaviour
         return null;
     }
 
+    public List<AbilityType> GetAbilitySuppressions()
+    {
+        var suppressions = new HashSet<AbilityType>();
+
+        for (int i = effectsList.Count; i-- > 0;)
+        {
+            if (effectsList[i].effectObject is EffectAbilitySuppression suppression)
+            {
+                foreach (var type in suppression.types)
+                {
+                    suppressions.Add(type);
+                }
+            }
+        }
+
+        return suppressions.ToList();
+    }
+
     // Used from outside the EffectManager
     public void RemoveEffect(EffectObject removeEffect)
     {
@@ -314,7 +364,7 @@ public class EffectManager : MonoBehaviour
         }
     }
 
-    public void RemoveCharging()
+    public void RemoveChargeEffect()
     {
         for (int i = effectsList.Count; i-- > 0;)
         {
@@ -406,7 +456,7 @@ public class EffectManager : MonoBehaviour
 
         foreach (var effect in effectsList)
         {
-            if (effect.effectObject is EffectAbilityModifier modifier && modifier.modifierType == AbilityModifierType.TurnEffect)
+            if (effect.effectObject is EffectAbilityModifier modifier && modifier.modifierType == AbilityModifierType.ApplySwiftness)
             {
                 effects.Add(effect);
             }
@@ -774,7 +824,7 @@ public class EffectManager : MonoBehaviour
             effectsList.Add(e);
         }
 
-        e.target.OnReceiveEffect?.Invoke(e);
+        e.target.TriggerReceiveEffect(e);
     }
 
     public void OnActive(Effect e)

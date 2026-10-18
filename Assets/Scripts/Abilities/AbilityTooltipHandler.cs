@@ -298,7 +298,7 @@ public static class AbilityTooltipHandler
     {
         string color = ColorDatabase.GeneralInformation;
 
-        temp += string.Format("<color={0}>\n\nThis ability does not end your Turn.</color>", color);
+        temp += string.Format("<color={0}>\n\nSwift: This ability does not end your Turn.</color>", color);
 
         return temp;
     }

@@ -150,8 +150,6 @@ public class Equipment : Item
 
     public override string GetCompleteTooltip(TooltipObject tooltipInfo)
     {
-        tooltipInfo.state = CurrentState.HeroInformation;
-
         string tooltip = AbilityTooltipHandler.GetName(name, equipmentObject.quality) +
                          string.Format("\nLevel: {0}", level) +
                          equipmentObject.ParseSlot() +
@@ -292,13 +290,13 @@ public class Equipment : Item
         {
             int slotIndex = GeneralUtilities.GetCorrectEquipmentslot(equipmentObject.slot);
 
-            HeroManager.Instance.CurrentHero().equipmentObject.AddEquipment(slotIndex, interactableItem.inventorySlot.item);
+            bool equipped = HeroManager.Instance.CurrentHero().equipmentObject.AddEquipment(slotIndex, interactableItem.inventorySlot);
 
-            interactableItem.inventorySlot.RemoveItem();
-
-            Debug.Log("Equipping: " + name);
-
-            TooltipHandler.Instance.HideTooltip();
+            if (equipped)
+            {
+                Debug.Log("Equipping: " + name);
+                TooltipHandler.Instance.HideTooltip();
+            }
         }
     }
 }

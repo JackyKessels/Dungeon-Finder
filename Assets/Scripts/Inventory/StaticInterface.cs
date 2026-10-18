@@ -17,7 +17,6 @@ public class StaticInterface : InventoryInterface
         {
             var obj = slots[i];
 
-            obj.GetComponent<TooltipObject>().state = CurrentState.Values;
             obj.GetComponent<InteractableItem>().Setup(inventoryObject.GetSlots[i], true);
 
             if (!hasBeenCreated)

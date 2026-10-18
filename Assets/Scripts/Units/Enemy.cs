@@ -9,8 +9,9 @@ public class Enemy : Unit
 
     public int Level { get; set; }
 
-    public List<Active> chargedAbility;
-    private int chargeTarget;
+    public List<Active> chargedAbility = new();
+    private int chargeTarget = -1;
+    private bool isCharging => chargedAbility.Count > 0;
 
     public void Setup(EnemyObject unitObject, int level)
     {
@@ -31,7 +32,7 @@ public class Enemy : Unit
         isEnemy = true;
         unitRenderer.flipX = true;
 
-        chargedAbility = new List<Active>();
+        chargedAbility = new();
         chargeTarget = -1;
 
         battlePhaseController?.Initialize(this);
@@ -72,12 +73,12 @@ public class Enemy : Unit
         }
     }
 
-    public bool IsCharging(Active active)
+    public bool CanStartCharging(Active active)
     {
-        return IsChargedAbility(active) && chargedAbility.Count == 0;
+        return IsChargedAbility(active) && !isCharging;
     }
 
-    public void ChargeTarget(Active active)
+    public void StartCharging(Active active)
     {
         chargedAbility.Add(active);
 
@@ -85,34 +86,43 @@ public class Enemy : Unit
         {
             chargeTarget = GetTarget(t);
 
-            Effect effect = new Effect(GameAssets.i.chargeTargetEffect, 1, this, TeamManager.Instance.heroes.LivingMembers[chargeTarget], 1, active.activeAbility);
-            effect.IconOverride = active.activeAbility.icon;
-            effect.target.effectManager.OnApplication(effect);
+            ApplyChargeEffect(this, TeamManager.Instance.heroes.LivingMembers[chargeTarget]);
         }
         else
         {
-            Effect effect = new Effect(GameAssets.i.chargeInstantEffect, 1, this, this, 1, active.activeAbility);
-            effect.IconOverride = active.activeAbility.icon;
-            effect.target.effectManager.OnApplication(effect);
+            ApplyChargeEffect(this, this);
         }
+    }
+
+    public void ApplyChargeEffect(Unit caster, Unit target)
+    {
+        var activeAbility = chargedAbility[0].activeAbility;
+
+        Effect effect = new Effect(activeAbility.GetChargeEffectObject(), 1, caster, target, 1, activeAbility);
+        effect.IconOverride = activeAbility.icon;
+        effect.target.effectManager.OnApplication(effect);
     }
 
     public int CheckTarget(TargetAbility t)
     {
-        // If there is no target or if the target is dead, change target
+        if (effectManager.TauntedBy() != null)
+        {
+            return effectManager.TauntedBy().battleNumber;
+        }
+
         if (chargeTarget == -1 || TeamManager.Instance.heroes.GetUnitAlive(chargeTarget) == null)
-            // Rerolled charge
+        {
             return GetTarget(t);
-        else
-            // Successful charge
-            return chargeTarget;
+        }
+
+        return chargeTarget;
     }
 
-    public void ResetChargedAbility(Unit target)
+    public void ResetChargedAbility()
     {
         chargedAbility.Clear();
         chargeTarget = -1;
-        target.effectManager.RemoveCharging();
+        EffectManager.RemoveChargeEffects();
     }
 
     private AbilityBehavior GetAbilityBehavior(Active active)
@@ -128,18 +138,24 @@ public class Enemy : Unit
         return null;
     }
 
+    private bool UseRandomAbilities()
+    {
+        return battlePhaseController.UseRandomAbilities();
+    }
+
     public Active ChooseValidAbility()
     {
-        // If no ability is being currently charged
-        if (chargedAbility.Count == 0)
+        if (!isCharging)
         {
-            if (enemyObject.randomAbility)
+            if (UseRandomAbilities())
             {
+                var suppressions = effectManager.GetAbilitySuppressions();
+
                 List<Active> validAbilities = new List<Active>();
 
                 foreach (Active active in spellbook.abilityCollection)
                 {
-                    if (!active.IsOnCooldown())
+                    if (!active.IsOnCooldown() && !AbilityUtilities.IsSuppressed(active, suppressions))
                     {
                         validAbilities.Add(active);
                     }
@@ -168,7 +184,7 @@ public class Enemy : Unit
             return chargedAbility[0];
         }
 
-        return new Active();
+        return null;
     }
 
     public Active GetOffCooldownSwiftAbility()
@@ -191,9 +207,11 @@ public class Enemy : Unit
 
         List<Active> offCooldown = new List<Active>();
 
+        var suppressions = effectManager.GetAbilitySuppressions();
+
         foreach (Active active in swiftAbilities)
         {
-            if (!active.IsOnCooldown() && MeetsCastCondition(active.activeAbility))
+            if (!active.IsOnCooldown() && MeetsCastCondition(active.activeAbility) && !AbilityUtilities.IsSuppressed(active, suppressions))
             {
                 offCooldown.Add(active);
             }    
@@ -356,6 +374,23 @@ public class Enemy : Unit
 
             active.cooldown = active.activeAbility.cooldown;
             active.SetCurrentCooldown(abilityBehavior.startCooldown);
+        }
+    }
+
+    public void CancelChargedAbility(bool putOnCooldown)
+    {
+        if (!isCharging)
+        {
+            return;
+        }
+
+        Active active = chargedAbility[0];
+
+        ResetChargedAbility();
+
+        if (putOnCooldown)
+        {
+            active.PutOnCooldown();
         }
     }
 }

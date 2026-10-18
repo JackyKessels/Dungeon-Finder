@@ -27,7 +27,7 @@ MonoBehaviour:
   description: 
   quality: 0
   slot: 2
-  healthFactor: 0.2
+  healthFactor: 0.4
   powerFactor: 0.5
   wisdomFactor: 0
   armor: 0
@@ -37,7 +37,7 @@ MonoBehaviour:
   accuracy: 0
   crit: 0
   healingMultiplier: 0
-  physicalMultiplier: 10
+  physicalMultiplier: 15
   fireMultiplier: 0
   iceMultiplier: 0
   natureMultiplier: 0

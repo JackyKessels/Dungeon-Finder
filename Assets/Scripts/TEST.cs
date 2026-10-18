@@ -173,7 +173,9 @@ public class TEST : MonoBehaviour
         //
 
         ProgressionManager.Instance.FirstDeath();
+        ProgressionManager.Instance.unlockedEnchanter = true;
         ProgressionManager.Instance.unlockedPaths = true;
+        ProgressionManager.Instance.SetEnchanterButtonState();
         ProgressionManager.Instance.SetPathButtonState();
         ProgressionManager.Instance.SetFourthAbilityStatus(true);
         ProgressionManager.Instance.SetEnchantUpgradeStatus(true);

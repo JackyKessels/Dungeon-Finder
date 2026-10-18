@@ -421,12 +421,12 @@ public class BattleManager : MonoBehaviour, IUserInterface
             Active currentAbility = currentEnemy.ChooseValidAbility();
 
             // Pass turn if there is no valid ability or if there are no targets
-            if (currentAbility.activeAbility != null && teamManager.heroes.LivingMembers.Count() != 0)
+            if (currentAbility != null && teamManager.heroes.LivingMembers.Count() != 0)
             {
                 // If the chosen ability is a charged ability and nothing is being charged then charge this Turn
-                if (currentEnemy.IsCharging(currentAbility))
+                if (currentEnemy.CanStartCharging(currentAbility))
                 {
-                    currentEnemy.ChargeTarget(currentAbility);
+                    currentEnemy.StartCharging(currentAbility);
 
                     Color passColor = new Color(1f, 0, 0);
 
@@ -498,7 +498,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
             if (!swift)
             {
-                castingEnemy.ResetChargedAbility(target);
+                castingEnemy.ResetChargedAbility();
             }
         }
         else if (active.activeAbility is InstantAbility instantAbility)
@@ -527,7 +527,7 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
             if (!swift)
             {
-                castingEnemy.ResetChargedAbility(castingEnemy);
+                castingEnemy.ResetChargedAbility();
             }
         }
 
@@ -693,6 +693,11 @@ public class BattleManager : MonoBehaviour, IUserInterface
 
     public void RemoveUnitFromBattle(Unit u)
     {
+        if (u is Enemy enemy)
+        {
+            enemy.CancelChargedAbility(false);
+        }
+
         // Set invisible
         StartCoroutine(u.FadeInAndOut(false, true, 1f));
 

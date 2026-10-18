@@ -45,7 +45,11 @@ MonoBehaviour:
   - currencyType: 1
     totalAmount: 10
   dropEverything: 0
-  itemDrops: []
+  itemDrops:
+  - itemObject: {fileID: 11400000, guid: 85f6f2b7c99bf55428a0033f14755e9b, type: 2}
+    amount: 80
+    weight: 1
+    level: 6
   randomAbility: 0
   abilities:
   - ability: {fileID: 11400000, guid: 3c025eee828113240a4a35b9a04ac57c, type: 2}
@@ -78,3 +82,4 @@ MonoBehaviour:
     charged: 0
   passiveAbilities:
   - {fileID: 11400000, guid: 91d5cd0b898405c4eb033cf55201d012, type: 2}
+  phases: []

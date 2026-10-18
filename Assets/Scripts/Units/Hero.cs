@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -319,7 +320,18 @@ public class Hero : Unit
             }
             else
             {
-                spellbook.UnlearnAbility(spellbook.FindItemAbility(equipment.equipmentObject.useAbility), true);
+                bool abilityStillProvided = equipmentObject.GetSlots
+                    .Where(equippedSlot =>
+                        equippedSlot != slot &&
+                        equippedSlot.item is Equipment otherEquipment &&
+                        otherEquipment.equipmentObject.useAbility ==
+                            equipment.equipmentObject.useAbility)
+                    .Any();
+
+                if (!abilityStillProvided)
+                {
+                    spellbook.UnlearnAbility(spellbook.FindItemAbility(equipment.equipmentObject.useAbility), true);
+                }
             }
         }
 

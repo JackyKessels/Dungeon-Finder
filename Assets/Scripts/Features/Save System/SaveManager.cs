@@ -138,6 +138,7 @@ public class SaveManager : MonoBehaviour
         gameManager.currencyHandler.IncreaseCurrency(new Currency(CurrencyType.Spirit, data.currency_1));
 
         progressionManager.firstDeath = data.firstDeath;
+        progressionManager.unlockedEnchanter = data.unlockedEnchanter;
         progressionManager.unlockedPaths = data.unlockedPaths;
         progressionManager.SetFourthAbilityStatus(data.unlockedFourthAbility);
         progressionManager.SetEnchantUpgradeStatus(data.unlockedEnchanterUpgrade);

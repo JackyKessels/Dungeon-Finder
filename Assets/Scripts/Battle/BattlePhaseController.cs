@@ -33,6 +33,16 @@ public class BattlePhaseController : MonoBehaviour
         EnterPhase(phases[currentPhase]);
     }
 
+    public bool UseRandomAbilities()
+    {
+        if (phases == null || phases.Count == 0)
+        {
+            return enemy.enemyObject.randomAbility;
+        }
+
+        return phases[currentPhase].randomAbility;
+    }
+
     public List<AbilityBehavior> GetCurrentActiveAbilities()
     {
         if (phases == null || phases.Count == 0)
@@ -96,6 +106,7 @@ public class BattlePhaseController : MonoBehaviour
     {
         ClearAbilities();
         enemy.spellbook.SetPhaseAbilities(phase);
+        enemy.SetStartCooldowns();
 
         if (currentPhase == 0)
         {

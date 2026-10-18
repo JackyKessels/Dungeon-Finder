@@ -152,7 +152,7 @@ public class PassiveAddEffect : PassiveAbility
         }
     }
 
-    private void RemoveEffects(Unit caster, bool checkHasEffect = false)
+    private void RemoveEffects(Unit caster)
     {
         if (effects.Count == 0)
         {
@@ -161,7 +161,7 @@ public class PassiveAddEffect : PassiveAbility
 
         foreach (EffectObject effectObject in effects)
         {
-            if (!checkHasEffect || caster.effectManager.HasEffect(effectObject))
+            if (!effectObject.persistThroughPassiveUnlearn)
             {
                 caster.effectManager.RemoveEffect(effectObject);
             }
@@ -238,7 +238,7 @@ public class PassiveAddEffect : PassiveAbility
 
     private void ReverseSelfEvent(Unit caster)
     {
-        RemoveEffects(caster, true);
+        RemoveEffects(caster);
         RemovePassives(caster, true);
     }
 

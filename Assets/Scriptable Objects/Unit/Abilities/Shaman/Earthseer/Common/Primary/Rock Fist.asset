@@ -27,7 +27,7 @@ MonoBehaviour:
   - {fileID: 2753320956279644232, guid: 6243bfc337aab524aa77a0dc19b26c2b, type: 3}
   - {fileID: 2977591347156237868, guid: 4ba9c413e76264f4392893dc5137ad4a, type: 3}
   missile: {fileID: 0}
-  hasLevels: 0
+  hasLevels: 1
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 0.75

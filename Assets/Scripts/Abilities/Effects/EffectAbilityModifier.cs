@@ -14,7 +14,7 @@ public enum AffectedAbility
 public enum AbilityModifierType
 {
     Multiplier,
-    TurnEffect, // Make Swift for now, could be more effects in the future
+    ApplySwiftness,
     ApplyEffect
 }
 

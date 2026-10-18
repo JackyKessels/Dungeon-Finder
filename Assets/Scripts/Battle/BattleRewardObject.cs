@@ -24,10 +24,21 @@ public class BattleRewardObject : MonoBehaviour
         amount.text = currency.totalAmount.ToString();
     }
 
-    public void Setup(ItemDrop itemDrop)
+    public void Setup(ItemDrop itemDrop, int amountAdded)
     {
         tooltipObject.item = itemDrop.GetItem();
         tooltipObject.GetComponent<Image>().sprite = itemDrop.itemObject.icon;
-        amount.text = itemDrop.amount.ToString();
+        amount.text = amountAdded.ToString();
+    }
+
+    public void Setup(RemainingLoot loot, System.Action onClick)
+    {
+        tooltipObject.item = loot.item;
+        tooltipObject.GetComponent<Image>().sprite = loot.itemObject.icon;
+        amount.text = loot.amount.ToString();
+
+        Button button = GetComponent<Button>();
+        button.onClick.RemoveAllListeners();
+        button.onClick.AddListener(() => onClick?.Invoke());
     }
 }

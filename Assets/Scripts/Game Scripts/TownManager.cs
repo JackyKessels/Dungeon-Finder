@@ -27,6 +27,7 @@ public class TownManager : MonoBehaviour, IUserInterface
     private DungeonManager dungeonManager;
     private TeamManager teamManager;
     private CurrencyHandler currencyHandler;
+    private ProgressionManager progressionManager;
 
     [Header("[ Sound ]")]
     public AudioClip stratfordAmbient;
@@ -68,6 +69,7 @@ public class TownManager : MonoBehaviour, IUserInterface
         dungeonManager = DungeonManager.Instance;
         teamManager = TeamManager.Instance;
         currencyHandler = gameManager.currencyHandler;
+        progressionManager = ProgressionManager.Instance;
     }
 
     private void Update()
@@ -79,7 +81,7 @@ public class TownManager : MonoBehaviour, IUserInterface
 
         if (KeyboardHandler.OpenAbilityShop() && 
             gameManager.gameState == GameState.TOWN &&
-            //gameManager.gameMode == GameMode.Campaign &&
+            progressionManager.unlockedEnchanter &&
             enchanter.ActiveButton())
         {
             OpenAbilityShop();
@@ -108,6 +110,7 @@ public class TownManager : MonoBehaviour, IUserInterface
 
         EnableUI(true);
 
+        ProgressionManager.Instance.SetEnchanterButtonState();
         ProgressionManager.Instance.SetPathButtonState();
 
         GlyphManager.Instance.UnlockStarterGlyphs();

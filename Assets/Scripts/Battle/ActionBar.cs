@@ -165,19 +165,21 @@ public class ActionBar : MonoBehaviour
             SetInteractable(true);
         }
 
+        var suppressions = currentHero.effectManager.GetAbilitySuppressions();
+
         for (int i = 0; i < currentHero.spellbook.activeSpellbook.Length; i++)
         {
-            heroAbilities[i].SetButtonCooldown(currentHero.spellbook.activeSpellbook[i]);
+            heroAbilities[i].SetButtonCooldown(currentHero.spellbook.activeSpellbook[i], suppressions);
         }
 
         for (int i = 0; i < currentHero.spellbook.itemAbilities.Count; i++)
         {
-            itemAbilities[i].SetButtonCooldown(currentHero.spellbook.itemAbilities[i]);
+            itemAbilities[i].SetButtonCooldown(currentHero.spellbook.itemAbilities[i], suppressions);
         }
 
         if (currentHero.GetFlask() != null)
         {
-            flask.SetButtonCooldown(currentHero.spellbook.flaskAbility);
+            flask.SetButtonCooldown(currentHero.spellbook.flaskAbility, suppressions);
         }
     }
 }

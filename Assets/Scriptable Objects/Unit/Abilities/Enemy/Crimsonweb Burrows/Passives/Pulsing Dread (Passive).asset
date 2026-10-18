@@ -25,7 +25,7 @@ MonoBehaviour:
   sellable: 0
   replacesAbility: {fileID: 0}
   isPositive: 1
-  activationMoment: 0
+  activationMoment: 1
   castActiveAbilities: []
   effects:
   - {fileID: 11400000, guid: 177a537576216f74d9cfed6996800a9c, type: 2}
@@ -36,3 +36,4 @@ MonoBehaviour:
   attributeValue: 0
   cooldown: 0
   castFirstRound: 0
+  controlTypes: 

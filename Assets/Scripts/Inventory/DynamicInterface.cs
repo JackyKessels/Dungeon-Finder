@@ -12,7 +12,6 @@ public class DynamicInterface : InventoryInterface
         {
             var obj = Instantiate(GameAssets.i.inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
             obj.GetComponent<TooltipObject>().item = null;
-            obj.GetComponent<TooltipObject>().state = CurrentState.Values;
             obj.GetComponent<InteractableItem>().Setup(inventoryObject.GetSlots[i], false);
 
             AddEvent(obj, EventTriggerType.PointerEnter, delegate { OnEnter(obj); });

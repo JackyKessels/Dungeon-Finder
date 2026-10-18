@@ -18743,6 +18743,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9f4149e4c3bd2b44290931c380ad66f4, type: 2}
   - {fileID: 11400000, guid: 5b1e4c36e529fc5428777cfc10688d47, type: 2}
   - {fileID: 11400000, guid: 63c73ad800b44e24fbb47019e1a66c1a, type: 2}
+  - {fileID: 11400000, guid: b44d403c3be56ee4ea08e7e51d9ddeb3, type: 2}
   level: 3
 --- !u!114 &662710071
 MonoBehaviour:
@@ -29045,7 +29046,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6516001982608085755, guid: 4b1d55659468c5548a28959800c50604,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2020992690}
   m_SourcePrefab: {fileID: 100100000, guid: 4b1d55659468c5548a28959800c50604, type: 3}
 --- !u!1 &994472401
 GameObject:
@@ -39071,6 +39076,8 @@ MonoBehaviour:
   unlockedFourthAbility: 0
   unlockedFourthAbility_Dungeon: {fileID: 11400000, guid: 6b5fe543dc302914a9dce4e18be8c28f,
     type: 2}
+  unlockedEnchanter: 0
+  unlockedEnchanter_Button: {fileID: 1767919236}
   unlockedEnchanterUpgrade: 0
   unlockedEnchanterUpgrade_Dungeon: {fileID: 0}
   discoveredItems: 
@@ -44189,6 +44196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectManager: {fileID: 0}
+  battlePhaseController: {fileID: 0}
   name: 
   unitType: 0
   icon: {fileID: 0}
@@ -50941,7 +50949,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 993915156}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2020992687}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -57946,6 +57954,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2017546923}
   m_CullTransparentMesh: 0
+--- !u!1 &2020992687 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6516001982608085755, guid: 4b1d55659468c5548a28959800c50604,
+    type: 3}
+  m_PrefabInstance: {fileID: 993915156}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2020992690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020992687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 069ce13c125975b4babbad7280439e91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectiveness: 1
+  useGenericTooltip: 0
+  genericTooltip: 
+  source: {fileID: 0}
+  active:
+    owner: {fileID: 0}
+    activeAbility: {fileID: 0}
+    allyAbilitySources: []
+    enemyAbilitySources: []
+    level: 0
+    cooldown: 0
+    currentCooldown: 0
+    isDoubleCast: 0
+  passive:
+    passiveAbility: {fileID: 0}
+    level: 0
+  effect:
+    effectObject: {fileID: 0}
+    sourceAbility: {fileID: 0}
+    name: 
+    level: 0
+    procType: 0
+    duration: 0
+    caster: {fileID: 0}
+    target: {fileID: 0}
+    stacks: 0
+    storedModValue: 0
+    timedActions: []
+    storedPassive:
+      passiveAbility: {fileID: 0}
+      level: 0
+  item:
+    name: 
+    id: -1
+    itemObject: {fileID: 0}
+    level: 1
+  attribute:
+    attributeType: 0
+    baseValue: 0
+    bonusValue: 0
+    multiplier: 0
+  currency:
+    currencyType: 0
+    totalAmount: 0
+  state: 5
+  experience: 0
 --- !u!1 &2026706458
 GameObject:
   m_ObjectHideFlags: 0
@@ -61817,7 +61889,7 @@ MonoBehaviour:
   currency:
     currencyType: 0
     totalAmount: 0
-  state: 5
+  state: 1
   experience: 0
 --- !u!114 &3575737134728759083
 MonoBehaviour:
@@ -61875,7 +61947,7 @@ MonoBehaviour:
   currency:
     currencyType: 0
     totalAmount: 0
-  state: 5
+  state: 1
   experience: 0
 --- !u!114 &3575737134867787494
 MonoBehaviour:
@@ -61933,7 +62005,7 @@ MonoBehaviour:
   currency:
     currencyType: 0
     totalAmount: 0
-  state: 5
+  state: 1
   experience: 0
 --- !u!114 &3575737135167674233
 MonoBehaviour:
@@ -61991,7 +62063,7 @@ MonoBehaviour:
   currency:
     currencyType: 0
     totalAmount: 0
-  state: 5
+  state: 1
   experience: 0
 --- !u!114 &3575737135663326542
 MonoBehaviour:
@@ -62049,7 +62121,7 @@ MonoBehaviour:
   currency:
     currencyType: 0
     totalAmount: 0
-  state: 5
+  state: 1
   experience: 0
 --- !u!114 &3575737135691661679
 MonoBehaviour:
@@ -62107,7 +62179,7 @@ MonoBehaviour:
   currency:
     currencyType: 0
     totalAmount: 0
-  state: 5
+  state: 1
   experience: 0
 --- !u!114 &3575737136063769516
 MonoBehaviour:
@@ -62165,7 +62237,7 @@ MonoBehaviour:
   currency:
     currencyType: 0
     totalAmount: 0
-  state: 5
+  state: 1
   experience: 0
 --- !u!114 &3575737136114178120
 MonoBehaviour:
@@ -62223,7 +62295,7 @@ MonoBehaviour:
   currency:
     currencyType: 0
     totalAmount: 0
-  state: 5
+  state: 1
   experience: 0
 --- !u!114 &3691211693969142327
 MonoBehaviour:

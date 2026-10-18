@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Security.Policy;
+using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 public enum InterfaceType
 {
@@ -31,161 +32,225 @@ public class InventoryObject : ScriptableObject
         return EmptySlotCount <= 0;
     }
 
-    public bool AddItem(Item _item, int _amount)
+    public InventoryAddResult AddItem(Item _item, int _amount)
     {
-        if (_item.id == -1)
+        var result = new InventoryAddResult
         {
-            Debug.Log("The item you are trying to add has not yet been added to the item database.");
-            return false;
+            requested = Mathf.Max(0, _amount),
+            added = 0
+        };
+
+        if (_item == null || _item.itemObject == null || _item.id == -1 || _amount <= 0) {
+            return result;
         }
 
-        if (_item == null)
-        {
-            return false;
-        }
+        var itemObject = _item.itemObject;
+        var remaining = _amount;
 
-        // Find all items that are the same in the inventory
-        List<InventorySlot> sameItems = FindAllItems(_item);
-
-        // Full
-        if (IsFull())
+        if (itemObject.stackable)
         {
-            // Not stackable
-            if (!_item.itemObject.stackable)
+            foreach (var slot in GetSlots)
             {
-                Debug.Log("Inventory is full");
-                return false;
-            }
-            // Stackable
-            else
-            {
-                // For every item that is the same
-                foreach (InventorySlot slot in sameItems)
+                if (slot.ItemObject != itemObject)
                 {
-                    // Slot contains less items than the maximum allowed stacks then add 1
-                    if (slot.amount < _item.itemObject.maxStacks)
-                    {
-                        slot.AddAmount(_amount);
-                        return true;
-                    }
+                    continue;
                 }
 
-                // Every stackable slot was full and there is no slot left
-                Debug.Log("Inventory is full");
-                return false;
-            }
-        }
-        // Not full
-        else
-        {
-            // Not stackable
-            if (!_item.itemObject.stackable)
-            {
-                // Get first empty slot and put it in there
-                SetFirstEmpty(_item, _amount);
-                return true;
-            }
-            // Stackable
-            else
-            {
-                // For every item that is the same
-                foreach (InventorySlot slot in sameItems)
+                var slotsAvailable = itemObject.maxStacks - slot.amount;
+                if (slotsAvailable <= 0)
                 {
-                    // Slot contains less items than the maximum allowed stacks then add 1
-                    if (slot.amount < _item.itemObject.maxStacks)
-                    {
-                        slot.AddAmount(_amount);
-                        return true;
-                    }
+                    continue;
                 }
 
-                // If every stackable item is full, then add it to next empty slot
-                SetFirstEmpty(_item, _amount);
-                return true;
+                var amountToAdd = Mathf.Min(remaining, slotsAvailable);
+
+                slot.AddAmount(amountToAdd);
+                remaining -= amountToAdd;
+
+                if (remaining == 0)
+                {
+                    break;
+                }
             }
         }
+        
+        if (remaining > 0)
+        {
+            foreach (var slot in GetSlots)
+            {
+                if (slot.ItemObject != null)
+                {
+                    continue;
+                }
+
+                var amountToAdd = itemObject.stackable ? Mathf.Min(remaining, itemObject.maxStacks) : 1;
+               
+                slot.UpdateSlot(_item, amountToAdd);
+                remaining -= amountToAdd;
+
+                if (remaining == 0)
+                {
+                    break;
+                }
+            }
+        }
+
+        result.added = _amount - remaining;
+        return result;
     }
 
-    public void AddEquipment(int _slot, Item _item)
+    public bool AddEquipment(int slot, Item item)
     {
-        EquipmentObject equipment = _item.itemObject as EquipmentObject;
+        return AddEquipmentBase(slot, item, null);
+    }
+
+    public bool AddEquipment(int slot, InventorySlot sourceSlot)
+    {
+        if (sourceSlot == null || sourceSlot.item == null)
+            return false;
+
+        return AddEquipmentBase(slot, sourceSlot.item, sourceSlot);
+    }
+
+    private bool AddEquipmentBase(int slot, Item item, InventorySlot sourceSlot)
+    {
+        if (item == null || item.itemObject is not EquipmentObject equipment)
+        {
+            return false;
+        }
 
         int mainHandSlot = GeneralUtilities.GetCorrectEquipmentslot(EquipmentSlot.TwoHand);
         int offHandSlot = GeneralUtilities.GetCorrectEquipmentslot(EquipmentSlot.Shield);
 
-        if (GeneralUtilities.GetCorrectEquipmentslot(equipment.slot) == _slot)
+        int targetSlot = slot;
+        var displacedSlots = new List<int>();
+
+        // Resolve the target slot and equipment that must be displaced.
+        if (GeneralUtilities.GetCorrectEquipmentslot(equipment.slot) == slot)
         {
-            // If target slot is empty
-            if (GetSlots[_slot].item.id == -1)
+            if (!GetSlots[slot].IsEmpty)
             {
-                if (equipment.slot == EquipmentSlot.Shield || equipment.slot == EquipmentSlot.Relic)
-                {
-                    // If main-hand slot blocks the shield, then unequip main-hand
-                    if (!GetSlots[_slot].SlotAllows(EquipmentSlot.Shield))
-                    {
-                        GetSlots[mainHandSlot].UnequipSlot();
-                    }
-
-                    GetSlots[_slot].EquipSlot(_item);
-                }
-                // If equipping a two-hand, then unequip off-hand if there is one
-                else if (equipment.slot == EquipmentSlot.TwoHand)
-                {
-                    // If off-hand is filled
-                    if (GetSlots[offHandSlot].item.id != -1)
-                        GetSlots[offHandSlot].UnequipSlot();
-
-                    GetSlots[_slot].EquipSlot(_item);
-                }
-                else
-                {
-                    GetSlots[_slot].EquipSlot(_item);
-                }
-            }
-            // If target slot is filled
-            else
-            {
-                // If equipping a two-hand, then unequip off-hand if there is one
                 if (equipment.slot == EquipmentSlot.TwoHand)
                 {
-                    GetSlots[_slot].UnequipSlot();
+                    displacedSlots.Add(slot);
 
-                    // If off-hand is filled
-                    if (GetSlots[offHandSlot].item.id != -1)
-                        GetSlots[offHandSlot].UnequipSlot();
-
-                    GetSlots[_slot].EquipSlot(_item);
+                    if (!GetSlots[offHandSlot].IsEmpty &&
+                        !displacedSlots.Contains(offHandSlot))
+                    {
+                        displacedSlots.Add(offHandSlot);
+                    }
                 }
-                else if (equipment.slot == EquipmentSlot.OneHand)
+                else if (equipment.slot == EquipmentSlot.OneHand &&
+                         dualWield &&
+                         GetSlots[offHandSlot].IsEmpty &&
+                         GetSlots[offHandSlot].SlotAllows(EquipmentSlot.OneHand))
                 {
-                    // If we can dual wield and the off-hand is empty
-                    if (dualWield && GetSlots[offHandSlot].item.id == -1 && GetSlots[offHandSlot].SlotAllows(EquipmentSlot.OneHand))
-                    {
-                        GetSlots[offHandSlot].EquipSlot(_item);
-                    }
-                    else
-                    {
-                        GetSlots[_slot].UnequipSlot();
-                        GetSlots[_slot].EquipSlot(_item);
-                    }
+                    targetSlot = offHandSlot;
                 }
                 else
                 {
-                    GetSlots[_slot].UnequipSlot();
-                    GetSlots[_slot].EquipSlot(_item);
+                    displacedSlots.Add(slot);
+                }
+            }
+            else
+            {
+                if (equipment.slot == EquipmentSlot.TwoHand &&
+                    !GetSlots[offHandSlot].IsEmpty)
+                {
+                    displacedSlots.Add(offHandSlot);
+                }
+                else if ((equipment.slot == EquipmentSlot.Shield ||
+                          equipment.slot == EquipmentSlot.Relic) &&
+                         !GetSlots[slot].SlotAllows(EquipmentSlot.Shield))
+                {
+                    if (!GetSlots[mainHandSlot].IsEmpty)
+                    {
+                        displacedSlots.Add(mainHandSlot);
+                    }
                 }
             }
         }
-        // Load dual wielded weapons
-        else if (dualWield && GetSlots[offHandSlot].item.id == -1 && GetSlots[offHandSlot].SlotAllows(EquipmentSlot.OneHand))
+        // Preserve the existing dual-wield fallback.
+        else if (dualWield &&
+                 GetSlots[offHandSlot].IsEmpty &&
+                 GetSlots[offHandSlot].SlotAllows(EquipmentSlot.OneHand))
         {
-            GetSlots[offHandSlot].EquipSlot(_item);
+            targetSlot = offHandSlot;
         }
         else
         {
-            Debug.Log("BAD SLOT");
-            InventoryManager.Instance.inventoryObject.AddItem(_item, 1);
+            return false;
         }
+
+        // Legacy callers: preserve the existing unequip/equip flow.
+        if (sourceSlot == null)
+        {
+            foreach (int displacedSlot in displacedSlots)
+            {
+                if (!GetSlots[displacedSlot].UnequipSlot())
+                {
+                    return false;
+                }
+            }
+
+            GetSlots[targetSlot].EquipSlot(item);
+            return true;
+        }
+
+        // Check inventory capacity before making changes.
+        var inventory = InventoryManager.Instance.inventoryObject;
+        var freeSlots = new List<InventorySlot>();
+
+        foreach (var inventorySlot in inventory.GetSlots)
+        {
+            if (inventorySlot != sourceSlot && inventorySlot.IsEmpty)
+            {
+                freeSlots.Add(inventorySlot);
+            }
+        }
+
+        // The source slot receives one displaced item.
+        int extraSlotsNeeded = Mathf.Max(0, displacedSlots.Count - 1);
+
+        if (freeSlots.Count < extraSlotsNeeded)
+        {
+            return false;
+        }
+
+        // Snapshot both incoming and displaced items before updating slots.
+        Item incomingItem = sourceSlot.item;
+        var displacedItems = new List<Item>();
+
+        foreach (int displacedSlot in displacedSlots)
+        {
+            displacedItems.Add(GetSlots[displacedSlot].item);
+        }
+
+        // Clear displaced equipment, triggering removal of its effects.
+        foreach (int displacedSlot in displacedSlots)
+        {
+            GetSlots[displacedSlot].UpdateSlot(new Item(), 0);
+        }
+
+        // Equip incoming item, triggering application of its effects.
+        GetSlots[targetSlot].UpdateSlot(incomingItem, 1);
+
+        // Put displaced equipment into the inventory.
+        if (displacedItems.Count > 0)
+        {
+            sourceSlot.UpdateSlot(displacedItems[0], 1);
+
+            for (int i = 1; i < displacedItems.Count; i++)
+            {
+                freeSlots[i - 1].UpdateSlot(displacedItems[i], 1);
+            }
+        }
+        else
+        {
+            sourceSlot.UpdateSlot(new Item(), 0);
+        }
+
+        return true;
     }
 
     public int EmptySlotCount
@@ -218,52 +283,25 @@ public class InventoryObject : ScriptableObject
         return contains;
     }
 
-    private List<InventorySlot> FindAllItems(Item _item)
-    {
-        List<InventorySlot> slots = new List<InventorySlot>();
-
-        for (int i = 0; i < GetSlots.Length; i++)
-        {
-            if (GetSlots[i].item.id == _item.id)
-            {
-                slots.Add(GetSlots[i]);
-            }
-        }
-
-        return slots;
-    }
-
-    private InventorySlot SetFirstEmpty(Item _item, int _amount)
-    {
-        for (int i = 0; i < GetSlots.Length; i++)
-        {
-            // Get first empty slot and add item to it
-            if (GetSlots[i].item.id <= -1)
-            {
-                GetSlots[i].UpdateSlot(_item, _amount);
-                return GetSlots[i];
-            }
-        }
-
-        return null;
-    }
-
     public void RemoveItem(ItemObject itemObject, int amount)
     {
-        for (int i = 0; i < GetSlots.Length; i++)
+        if (itemObject == null || amount <= 0)
         {
-            if (GetSlots[i].item.itemObject == itemObject)
+            return;
+        }
+
+        for (int i = 0; i < GetSlots.Length && amount > 0; i++)
+        {
+            var slot = GetSlots[i];
+
+            if (slot.ItemObject != itemObject)
             {
-                int resultingAmount = GetSlots[i].amount - amount;
-                if (resultingAmount <= 0)
-                {
-                    GetSlots[i].RemoveItem();
-                }
-                else
-                {
-                    GetSlots[i].UpdateSlot(null, resultingAmount);
-                }
+                continue;
             }
+
+            var amountToRemove = Mathf.Min(slot.amount, amount);
+            slot.ReduceAmount(amountToRemove);
+            amount -= amountToRemove;
         }
     }
 
@@ -396,7 +434,7 @@ public class InventoryObject : ScriptableObject
 [System.Serializable]
 public class Inventory
 {
-    public InventorySlot[] slots = new InventorySlot[24];
+    public InventorySlot[] slots = new InventorySlot[25];
 
     public void Clear()
     {
@@ -422,6 +460,8 @@ public class InventorySlot
     public int amount;
 
     public bool foodOnly = false;
+
+    public bool IsEmpty => item.id == -1;
 
     public ItemObject ItemObject
     {
@@ -463,11 +503,17 @@ public class InventorySlot
         OnAfterUpdate?.Invoke(this);
     }
 
-    public void UnequipSlot()
+    public bool UnequipSlot()
     {
-        InventoryManager.Instance.inventoryObject.AddItem(item, 1);
+        InventoryAddResult result = InventoryManager.Instance.inventoryObject.AddItem(item, 1);
+
+        if (!result.Complete)
+        {
+            return false;
+        }
 
         UpdateSlot(new Item(), 0);
+        return true;
     }
 
     public void RemoveItem()

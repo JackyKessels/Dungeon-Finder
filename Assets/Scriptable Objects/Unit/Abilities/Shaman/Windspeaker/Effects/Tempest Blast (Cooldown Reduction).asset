@@ -26,14 +26,15 @@ MonoBehaviour:
   unique: 0
   dispellable: 1
   removeEffects: []
+  effectInteractions: []
   stackable: 0
   refreshes: 1
   applyStacks: 1
   loseStacks: 0
   maxStacks: 0
   stackEffects: []
-  type: 1
+  type: 2
   roundsReduction: 1
   casterSpecialEffects: []
-  specificAbility: {fileID: 11400000, guid: 242c067c4eb1ce343807ea803d026447, type: 2}
+  specificAbility: {fileID: 0}
   abilityType: 0

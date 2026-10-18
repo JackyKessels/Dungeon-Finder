@@ -46,7 +46,9 @@ public class ProgressionManager : MonoBehaviour
     public bool unlockedFourthAbility = false;
     public Dungeon unlockedFourthAbility_Dungeon;
 
-    [Header("Enchanter Upgrade")]
+    [Header("Enchanter")]
+    public bool unlockedEnchanter = false;
+    public Button unlockedEnchanter_Button;
     public bool unlockedEnchanterUpgrade = false;
     public Dungeon unlockedEnchanterUpgrade_Dungeon;
 
@@ -70,6 +72,7 @@ public class ProgressionManager : MonoBehaviour
                 {
                     firstDeath = false;
 
+                    unlockedEnchanter = false;
                     unlockedPaths = false;
                     unlockedFourthAbility = false;
                     unlockedEnchanterUpgrade = false;
@@ -81,6 +84,7 @@ public class ProgressionManager : MonoBehaviour
 
                     firstDeath = true;
 
+                    unlockedEnchanter = true;
                     unlockedPaths = true;
 
                     SetFourthAbilityStatus(true);
@@ -95,9 +99,13 @@ public class ProgressionManager : MonoBehaviour
     public void FirstDeath()
     {
         if (firstDeath)
+        {
             return;
+        }
 
         firstDeath = true;
+
+        UnlockEnchanter();
 
         var spiritAmount = 10;
 
@@ -110,10 +118,47 @@ public class ProgressionManager : MonoBehaviour
         Debug.Log("This is your first death.");   
     }
 
+    public void UnlockEnchanter()
+    {
+        if (unlockedEnchanter)
+        {
+            return;
+        }
+
+        unlockedEnchanter = true;
+
+        SetEnchanterButtonState();
+
+        NotificationObject.CreateNotification("The Enchanter has been unlocked.", 500, 200);
+    }
+
+    public void SetEnchanterButtonState()
+    {
+        TooltipObject tooltip = unlockedEnchanter_Button.GetComponent<TooltipObject>();
+
+        if (unlockedEnchanter)
+        {
+            unlockedEnchanter_Button.interactable = true;
+
+            Destroy(tooltip);
+
+            Debug.Log("Unlocked Enchanter");
+        }
+        else
+        {
+            unlockedEnchanter_Button.interactable = false;
+
+            tooltip.useGenericTooltip = true;
+            tooltip.genericTooltip = "Unlocks after exploring a dungeon.";
+        }
+    }
+
     public void UnlockPaths(Dungeon dungeon, int floor)
     {
         if (unlockedPaths)
+        {
             return;
+        }
 
         if (unlockedPaths_Dungeon == dungeon && unlockedPaths_Floor == floor)
         {

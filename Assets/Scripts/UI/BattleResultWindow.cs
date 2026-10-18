@@ -8,12 +8,19 @@ public class BattleResultWindow : MonoBehaviour
 {
     public GameObject title;
     public GameObject container;
+    public GameObject remainingLootContainer;
     public GameObject rewardPrefab;
+    public GameObject remainingLootPrefab;
     public GameObject experiencePrefab;
     public GameObject continueButtonPrefab;
+    public GameObject discardButtonPrefab;
+    public GameObject unlootedItemsTitle;
 
     private Button activeButton;
+
+    private int experienceReward;
     private int rewardCount = 0;
+    private List<RemainingLoot> remainingLoot = new List<RemainingLoot>();
 
     public void Update()
     {
@@ -26,7 +33,9 @@ public class BattleResultWindow : MonoBehaviour
 
     public void Setup(int experience, List<Currency> currencies, List<ItemDrop> itemDrops)
     {
+        experienceReward = experience;
         rewardCount = 0;
+        remainingLoot.Clear();
 
         if (experience > 0)
         {
@@ -54,27 +63,102 @@ public class BattleResultWindow : MonoBehaviour
         {
             foreach (ItemDrop itemDrop in itemDrops)
             {
-                bool addedSuccessfully = InventoryManager.Instance.AddItemToInventory(itemDrop.GetItem(), itemDrop.amount);
+                var result = InventoryManager.Instance.AddItemToInventory(itemDrop.GetItem(), itemDrop.amount);
 
-                if (addedSuccessfully)
+                if (result.added > 0)
                 {
-                    AddBattleReward(itemDrop);
-
+                    AddBattleReward(itemDrop, result.added);
                     rewardCount++;
+                }
+
+                if (result.remaining > 0)
+                {
+                    remainingLoot.Add(new RemainingLoot(itemDrop, result.remaining));
                 }
             }
         }
 
-        Button continueButton = AddContinueButton();
-
-        if (experience > 0)
-            continueButton.onClick.AddListener(delegate { NextWindow(experience); });
+        if (remainingLoot.Count > 0)
+        {
+            ShowRemainingLoot();
+        }
         else
-            continueButton.onClick.AddListener(delegate { CloseWindow(); });
-
-        activeButton = continueButton;
+        {
+            ShowContinueButton();
+        }
 
         MoveBattleResult();
+    }
+
+    private void ShowRemainingLoot()
+    {
+        unlootedItemsTitle.SetActive(true);
+
+        ObjectUtilities.ClearContainer(remainingLootContainer);
+
+        foreach (RemainingLoot loot in remainingLoot)
+        {
+            AddRemainingLoot(loot);
+        }
+
+        GameObject obj = ObjectUtilities.CreateSimplePrefab(discardButtonPrefab, remainingLootContainer);
+
+        Button discardButton = obj.GetComponent<Button>();
+        discardButton.onClick.AddListener(DiscardRemainingLoot);
+
+        activeButton = discardButton;
+    }
+
+    private void AddRemainingLoot(RemainingLoot loot)
+    {
+        GameObject obj = ObjectUtilities.CreateSimplePrefab(remainingLootPrefab, remainingLootContainer);
+
+        BattleRewardObject battleReward = obj.GetComponent<BattleRewardObject>();
+        battleReward.Setup(loot, () => CollectRemainingLoot(loot));
+    }
+
+    private void CollectRemainingLoot(RemainingLoot loot)
+    {
+        var result = InventoryManager.Instance.AddItemToInventory(loot.item, loot.amount);
+
+        loot.amount = result.remaining;
+
+        if (loot.amount <= 0)
+        {
+            remainingLoot.Remove(loot);
+        }
+
+        if (remainingLoot.Count == 0)
+        {
+            ObjectUtilities.ClearContainer(remainingLootContainer);
+            ShowContinueButton();
+        }
+        else
+        {
+            ShowRemainingLoot();
+        }
+    }
+
+    private void DiscardRemainingLoot()
+    {
+        remainingLoot.Clear();
+        ObjectUtilities.ClearContainer(remainingLootContainer);
+
+        ShowContinueButton();
+    }
+
+    private void ShowContinueButton()
+    {
+        unlootedItemsTitle.SetActive(false);
+
+        Button continueButton = AddContinueButton();
+
+        if (experienceReward > 0)
+            continueButton.onClick.AddListener(() => NextWindow(experienceReward));
+        else
+            continueButton.onClick.AddListener(CloseWindow);
+
+        activeButton = continueButton;
     }
 
     public static void SendBattleResult(int experience, List<Currency> currencies, List<ItemDrop> itemDrops)
@@ -125,12 +209,12 @@ public class BattleResultWindow : MonoBehaviour
         battleReward.Setup(currency);
     }
 
-    private void AddBattleReward(ItemDrop itemDrop)
+    private void AddBattleReward(ItemDrop itemDrop, int amount)
     {
         GameObject obj = ObjectUtilities.CreateSimplePrefab(rewardPrefab, container);
 
         BattleRewardObject battleReward = obj.GetComponent<BattleRewardObject>();
-        battleReward.Setup(itemDrop);
+        battleReward.Setup(itemDrop, amount);
     }
 
     private void AddBattleExperienceBar(int experienceReward)
