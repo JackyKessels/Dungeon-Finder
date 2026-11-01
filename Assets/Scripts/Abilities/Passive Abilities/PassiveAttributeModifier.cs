@@ -65,7 +65,7 @@ public class PassiveAttributeModifier : PassiveAbility
     {
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(modifications[i].attributeModified) + ">{0}</color>");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.AttributeColor(modifications[i].attributeModified) + ">{0}</color>");
 
             return string.Format(temp, modifications[i].flatValue);
         }
@@ -77,7 +77,7 @@ public class PassiveAttributeModifier : PassiveAbility
     {
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(modifications[i].attributeModified) + ">{0}</color>%");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.AttributeColor(modifications[i].attributeModified) + ">{0}</color>%");
 
             return string.Format(temp, modifications[i].multiplierValue * 100);
         }

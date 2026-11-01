@@ -28,5 +28,5 @@ MonoBehaviour:
   quality: 0
   consumptionType: 0
   usableOnDead: 0
-  healthRestore: 60
+  healthRestore: 75
   preBattleEffects: []

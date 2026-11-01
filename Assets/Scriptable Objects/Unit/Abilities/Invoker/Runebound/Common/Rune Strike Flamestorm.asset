@@ -32,7 +32,7 @@ MonoBehaviour:
   sellable: 1
   replacesAbility: {fileID: 0}
   castTime: 1
-  cooldown: 6
+  cooldown: 5
   initialCooldown: 0
   endTurn: 1
   singleUse: 0

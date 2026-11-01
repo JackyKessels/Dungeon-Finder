@@ -64,7 +64,7 @@ public static class ColorDatabase
         }
     }
 
-    public static string ScalingColor(AttributeType attributeType)
+    public static string AttributeColor(AttributeType attributeType)
     {
         switch (attributeType)
         {
@@ -106,7 +106,7 @@ public static class ColorDatabase
             case AttributeType.ShadowMultiplier:
                 return SchoolColor(AbilitySchool.Shadow);
             case AttributeType.CritMultiplier:
-                return ScalingColor(AttributeType.Crit);
+                return AttributeColor(AttributeType.Crit);
             case AttributeType.SacrificialMultiplier:
                 return SchoolColor(AbilitySchool.Sacrificial);
             default:
@@ -119,13 +119,13 @@ public static class ColorDatabase
         switch (attributeBase)
         {
             case AttributeBase.CurrentHealthPercentage:
-                return ScalingColor(AttributeType.Health);
+                return AttributeColor(AttributeType.Health);
             case AttributeBase.MissingHealthPercentage:
-                return ScalingColor(AttributeType.Health);
+                return AttributeColor(AttributeType.Health);
             case AttributeBase.Armor:
-                return ScalingColor(AttributeType.Armor);
+                return AttributeColor(AttributeType.Armor);
             case AttributeBase.Resistance:
-                return ScalingColor(AttributeType.Resistance);
+                return AttributeColor(AttributeType.Resistance);
             default:
                 return "#FFFFFF";
         }
@@ -136,13 +136,13 @@ public static class ColorDatabase
         switch (attributeBase)
         {
             case ThresholdType.CurrentHealthPercentage:
-                return ScalingColor(AttributeType.Health);
+                return AttributeColor(AttributeType.Health);
             case ThresholdType.Armor:
-                return ScalingColor(AttributeType.Armor);
+                return AttributeColor(AttributeType.Armor);
             case ThresholdType.Resistance:
-                return ScalingColor(AttributeType.Resistance);
+                return AttributeColor(AttributeType.Resistance);
             case ThresholdType.Speed:
-                return ScalingColor(AttributeType.Speed);
+                return AttributeColor(AttributeType.Speed);
             default:
                 return "#FFFFFF";
         }
@@ -153,13 +153,13 @@ public static class ColorDatabase
         switch (attributeIncrease)
         {
             case AttributeIncrease.Accuracy:
-                return ScalingColor(AttributeType.Accuracy);
+                return AttributeColor(AttributeType.Accuracy);
             case AttributeIncrease.CritChance:
-                return ScalingColor(AttributeType.Crit);
+                return AttributeColor(AttributeType.Crit);
             case AttributeIncrease.CritDamage:
-                return ScalingColor(AttributeType.Crit);
+                return AttributeColor(AttributeType.Crit);
             case AttributeIncrease.TotalDamagePercentage:
-                return ScalingColor(AttributeType.Health);
+                return AttributeColor(AttributeType.Health);
             default:
                 return "#FFFFFF";
         }

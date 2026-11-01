@@ -22,15 +22,19 @@ MonoBehaviour:
   procType: 1
   duration: 3
   permanent: 0
-  stackable: 0
-  maxStacks: 0
-  refreshes: 1
   aura: 0
   unique: 0
-  applyStacks: 1
-  loseStacks: 0
+  dispellable: 1
+  persistThroughPassiveUnlearn: 0
   removeEffects:
   - {fileID: 11400000}
+  effectInteractions: []
+  stackable: 0
+  refreshes: 1
+  applyStacks: 1
+  loseStacks: 0
+  maxStacks: 0
+  stackEffects: []
   attributeModified: 4
   isIncrease: 0
   modifierType: 0
@@ -43,7 +47,7 @@ MonoBehaviour:
     attributeType: 4
     baseValue: 0
     levelBase: 0
-    scaling: 1
+    scaling: 2
     levelScaling: 0
     reductionType: 0
     abilityModifier:

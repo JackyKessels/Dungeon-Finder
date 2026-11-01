@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d318b60c43bbff540adf2168b0cccf9c, type: 3}
-  m_Name: Bloodcrystal Hammer
+  m_Name: Gaze of the Fallen
   m_EditorClassIdentifier: 
-  name: Bloodcrystal Hammer
-  icon: {fileID: 21300000, guid: 73a262567f6359147943f1bee83d1288, type: 3}
+  name: Gaze of the Fallen
+  icon: {fileID: 21300000, guid: 67bf755c902ecab48a8905665a6a6e5e, type: 3}
   value: 0
   stackable: 0
   maxStacks: 1
@@ -21,20 +21,20 @@ MonoBehaviour:
   unique: 0
   item:
     name: 
-    id: 41
+    id: 114
     itemObject: {fileID: 0}
     level: 1
   description: 
   quality: 0
-  slot: 3
-  healthFactor: 0.3
+  slot: 0
+  healthFactor: 0.59
   powerFactor: 0
-  wisdomFactor: 0.55
-  armor: 0
-  resistance: 0
+  wisdomFactor: 0
+  armor: 12
+  resistance: -5
   vitality: 0
   speed: 0
-  accuracy: 0
+  accuracy: 5
   crit: 5
   healingMultiplier: 0
   physicalMultiplier: 0
@@ -47,4 +47,4 @@ MonoBehaviour:
   critMultiplier: 0
   sacrificialMultiplier: 0
   passives: []
-  useAbility: {fileID: 11400000, guid: cc24038f5f325d94ba4bb962f8eb9056, type: 2}
+  useAbility: {fileID: 0}

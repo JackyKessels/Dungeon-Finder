@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d318b60c43bbff540adf2168b0cccf9c, type: 3}
-  m_Name: Cracked Iron Helmet
+  m_Name: Steel Skullbasher tank 1h
   m_EditorClassIdentifier: 
-  name: Cracked Iron Helmet
-  icon: {fileID: 21300000, guid: 6155715af42bf2e468c4d36a97050d0d, type: 3}
+  name: Steel Skullbasher
+  icon: {fileID: 21300000, guid: f65514662b66bfa40b8983f268810e83, type: 3}
   value: 0
   stackable: 0
   maxStacks: 1
@@ -21,21 +21,21 @@ MonoBehaviour:
   unique: 0
   item:
     name: 
-    id: 30
+    id: 113
     itemObject: {fileID: 0}
     level: 1
   description: 
   quality: 0
-  slot: 0
-  healthFactor: 1.11
+  slot: 3
+  healthFactor: 0.5
   powerFactor: 0
   wisdomFactor: 0
-  armor: 8
+  armor: 0
   resistance: 0
   vitality: 0
-  speed: -1
-  accuracy: 0
-  crit: 0
+  speed: 1
+  accuracy: 5
+  crit: 10
   healingMultiplier: 0
   physicalMultiplier: 0
   fireMultiplier: 0

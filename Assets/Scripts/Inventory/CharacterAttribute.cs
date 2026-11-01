@@ -20,7 +20,7 @@ public class CharacterAttribute : MonoBehaviour, IHasTooltip
         attribute = a;
         name = GeneralUtilities.GetCorrectAttributeName(a.attributeType);
         image.sprite = GeneralUtilities.GetAttributeIcon(a.attributeType);
-        typeText.text = name;
+        typeText.text = $"<color={ColorDatabase.AttributeColor(a.attributeType)}>{name}</color>";
         value = a.GetTotalValue();
 
         if (a.attributeType == AttributeType.Health)
@@ -86,45 +86,45 @@ public class CharacterAttribute : MonoBehaviour, IHasTooltip
         {
             // General Attributes
             case AttributeType.Health:
-                return "Health: Increases maximum Health Points.";
+                return "Increases maximum Health Points.";
             case AttributeType.Power:
-                return "Power: Increases the effectiveness of physical abilities.";
+                return "Increases the effectiveness of abilities that scale with Power.";
             case AttributeType.Wisdom:
-                return "Wisdom: Increases the effectiveness of magical abilities.";
+                return "Increases the effectiveness of abilities that scale with Wisdom.";
             case AttributeType.Armor:
-                return "Armor: Decreases damage taken from Physical damage.";
+                return "Decreases damage taken from Physical damage.";
             case AttributeType.Resistance:
-                return "Resistance: Decreases damage taken from Magical damage.";
+                return "Decreases damage taken from Magical damage.";
             case AttributeType.Vitality:
-                return "Vitality: Increases healing taken by 1% per point.";
+                return "Increases healing taken by 1% per point.";
             case AttributeType.Speed:
-                return "Speed: Determines order in queue.";
+                return "Determines order in queue.";
             case AttributeType.Accuracy:
-                return "Accuracy: Increases the chance to hit your enemy with full force.\n\nCannot be higher than 100%.";
+                return "Increases the chance to hit your enemy with full force.\n\nCannot be higher than 100%.";
             case AttributeType.Crit:
-                return "Crit: Increases chance to do additional damage or healing.\n\nCannot be higher than 100%.";
+                return "Increases chance to do additional damage or healing.\n\nCannot be higher than 100%.";
 
             // School Multipliers
             case AttributeType.HealingMultiplier:
-                return "Healing: Determines healing done.";
+                return "Determines healing done.";
             case AttributeType.PhysicalMultiplier:
-                return "Physical Damage: Determines damage done by this school.";
+                return "Determines damage done by this school.";
             case AttributeType.FireMultiplier:
-                return "Fire Damage: Determines damage done by this school.";
+                return "Determines damage done by this school.";
             case AttributeType.IceMultiplier:
-                return "Ice Damage: Determines damage done by this school.";
+                return "Determines damage done by this school.";
             case AttributeType.NatureMultiplier:
-                return "Nature Damage: Determines damage done by this school.";
+                return "Determines damage done by this school.";
             case AttributeType.ArcaneMultiplier:
-                return "Arcane Damage: Determines damage done by this school.";
+                return "Determines damage done by this school.";
             case AttributeType.HolyMultiplier:
-                return "Holy Damage: Determines damage done by this school.";
+                return "Determines damage done by this school.";
             case AttributeType.ShadowMultiplier:
-                return "Shadow Damage: Determines damage done by this school.";
+                return "Determines damage done by this school.";
             case AttributeType.CritMultiplier:
                 return "Determines the power of a critical hit.";
             case AttributeType.SacrificialMultiplier:
-                return "Sacrificial Damage: Determines the damage done by this school.";
+                return "Determines damage done by this school.";
             default:
                 return "No tooltip.";
         }       

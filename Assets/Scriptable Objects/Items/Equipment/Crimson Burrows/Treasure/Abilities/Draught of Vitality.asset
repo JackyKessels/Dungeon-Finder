@@ -16,14 +16,14 @@ MonoBehaviour:
   name: Draught of Vitality
   quality: 0
   abilityType: 1
-  description: 'Heal for <a1> and increase your Health by <s1modV> for <s1d> Rounds. '
+  description: 'Heal for <a1> and increase your <health> by <s1modV> for <s1d> Rounds. '
   icon: {fileID: 21300000, guid: af503a204be959541990713c8ee44e7a, type: 3}
   casterSpecialEffects:
   - {fileID: 5136397075103941328, guid: ee6fe307c16ead74f9e1ae1d04583d5c, type: 3}
   targetSpecialEffects: []
   missile: {fileID: 0}
   hasLevels: 0
-  sellable: 1
+  sellable: 0
   replacesAbility: {fileID: 0}
   castTime: 0.5
   cooldown: 5
@@ -45,9 +45,9 @@ MonoBehaviour:
     ignorePassives: []
     school: 0
     attributeType: 0
-    baseValue: 20
-    levelBase: 5
-    scaling: 0
+    baseValue: 0
+    levelBase: 0
+    scaling: 0.15
     levelScaling: 0
     reductionType: 0
     abilityModifier:

@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb12a167fa788a2449b205b03c31a880, type: 3}
+  m_Name: Bottled Essence
+  m_EditorClassIdentifier: 
+  id: -1
+  name: Bottled Essence
+  quality: 0
+  abilityType: 1
+  description: 'Heal for <a1> and increase your <wisdom> by <s1modP> for this Turn. '
+  icon: {fileID: 21300000, guid: 86c428b1e48d9f54981fe2f5900cbbcb, type: 3}
+  casterSpecialEffects:
+  - {fileID: 5746989558538642758, guid: 3b876326d98a5774892e3f881d3b835e, type: 3}
+  targetSpecialEffects: []
+  missile: {fileID: 0}
+  hasLevels: 0
+  sellable: 0
+  replacesAbility: {fileID: 0}
+  castTime: 0.5
+  cooldown: 4
+  initialCooldown: 1
+  endTurn: 0
+  singleUse: 0
+  resetType: 0
+  resetChance: 0
+  resetAttribute: 8
+  attributeScaling: 0
+  resetText: Reset!
+  weaponRequirement: 4
+  soundEffect: {fileID: 8300000, guid: ab1687b534a7b2e42b72d76abc8e90b7, type: 3}
+  animationType: 1
+  allyAbilitySources:
+  - ignoreMultipliers: 1
+    cannotCrit: 1
+    cannotMiss: 1
+    ignorePassives: []
+    school: 0
+    attributeType: 0
+    baseValue: 0
+    levelBase: 0
+    scaling: 0.125
+    levelScaling: 0
+    reductionType: 0
+    abilityModifier:
+      hasModifier: 0
+      modification: 0
+      condition: 0
+      thresholdType: 0
+      conditionThreshold: 0
+      conditionChance: 0
+      increasedAttribute: 0
+      increaseValue: 0
+      casterBased: 1
+      attributeBase: 0
+      percentageIncrease: 0
+      bonusAbilitySource:
+        ignoreMultipliers: 0
+        cannotCrit: 0
+        cannotMiss: 0
+        ignorePassive: []
+        school: 0
+        attributeType: 0
+        baseValue: 0
+        levelBase: 0
+        scaling: 0
+        levelScaling: 0
+        reductionType: 0
+      effectOnTarget: 1
+      conditionalEffect: {fileID: 0}
+    drainModifier:
+      hasModifier: 0
+      fractionDrained: 0
+  enemyAbilitySources: []
+  selfEffectsPerTarget: 0
+  selfEffects:
+  - {fileID: 11400000, guid: d000cae360e63d8429e7dcdac4e76707, type: 2}
+  targetEffects: []
+  abilityTargets: 0

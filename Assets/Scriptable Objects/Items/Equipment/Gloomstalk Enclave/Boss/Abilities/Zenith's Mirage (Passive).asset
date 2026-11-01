@@ -30,10 +30,10 @@ MonoBehaviour:
   triggerType: 1
   typeRequirement: 0
   specificActiveAbilityList: []
-  procChance: 25
+  procChance: 50
   castActiveAbilities: []
   applyEffectObjects: []
   doubleCastAbility:
     enableDoubleCast: 1
-    baseEffectiveness: 0.4
-    effectivenessPerLevel: 0.02
+    baseEffectiveness: 0.5
+    effectivenessPerLevel: 0

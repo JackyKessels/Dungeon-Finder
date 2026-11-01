@@ -24,6 +24,9 @@ public class InventoryObject : ScriptableObject
     public Inventory container;
     public InventorySlot[] GetSlots { get { return container.slots; } }
 
+    [NonSerialized]
+    public bool IsSwappingEquipment = false;
+
     // Equipment
     public bool dualWield = false;
 
@@ -226,28 +229,39 @@ public class InventoryObject : ScriptableObject
             displacedItems.Add(GetSlots[displacedSlot].item);
         }
 
-        // Clear displaced equipment, triggering removal of its effects.
-        foreach (int displacedSlot in displacedSlots)
+        // Update all equipment slots before refreshing the spellbook.
+        IsSwappingEquipment = true;
+
+        try
         {
-            GetSlots[displacedSlot].UpdateSlot(new Item(), 0);
-        }
-
-        // Equip incoming item, triggering application of its effects.
-        GetSlots[targetSlot].UpdateSlot(incomingItem, 1);
-
-        // Put displaced equipment into the inventory.
-        if (displacedItems.Count > 0)
-        {
-            sourceSlot.UpdateSlot(displacedItems[0], 1);
-
-            for (int i = 1; i < displacedItems.Count; i++)
+            // Remove displaced equipment and its effects.
+            foreach (int displacedSlot in displacedSlots)
             {
-                freeSlots[i - 1].UpdateSlot(displacedItems[i], 1);
+                GetSlots[displacedSlot].UpdateSlot(new Item(), 0);
+            }
+
+            // Equip incoming item and apply its effects.
+            GetSlots[targetSlot].UpdateSlot(incomingItem, 1);
+
+            // Move displaced equipment into the inventory.
+            if (displacedItems.Count > 0)
+            {
+                sourceSlot.UpdateSlot(displacedItems[0], 1);
+
+                for (int i = 1; i < displacedItems.Count; i++)
+                {
+                    freeSlots[i - 1].UpdateSlot(displacedItems[i], 1);
+                }
+            }
+            else
+            {
+                sourceSlot.UpdateSlot(new Item(), 0);
             }
         }
-        else
+        finally
         {
-            sourceSlot.UpdateSlot(new Item(), 0);
+            IsSwappingEquipment = false;
+            SpellbookManager.Instance.Setup(HeroManager.Instance.CurrentHero());
         }
 
         return true;

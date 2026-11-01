@@ -28,7 +28,7 @@ public class EffectAttributeModifier : EffectObject
         string checkPercentage = "<1%>";
         if (temp.Contains(checkPercentage))
         {
-            temp = temp.Replace(checkPercentage, "<color=" + ColorDatabase.ScalingColor(modifierSource.attributeType) + ">{0}</color>");
+            temp = temp.Replace(checkPercentage, "<color=" + ColorDatabase.AttributeColor(modifierSource.attributeType) + ">{0}</color>");
 
             temp = string.Format(temp, GeneralUtilities.RoundFloat(modifierSource.scaling * 100, 1));
         }
@@ -55,13 +55,13 @@ public class EffectAttributeModifier : EffectObject
         {
             if (modifierType == ModifierType.Flat)
             {
-                temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(modifierSource.attributeType) + ">{0}</color>");
+                temp = temp.Replace(check, "<color=" + ColorDatabase.AttributeColor(modifierSource.attributeType) + ">{0}</color>");
 
                 temp = string.Format(temp, GeneralUtilities.RoundFloat(value, 0));
             }
             else
             {
-                temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(attributeModified) + ">{0}</color>%");
+                temp = temp.Replace(check, "<color=" + ColorDatabase.AttributeColor(attributeModified) + ">{0}</color>%");
 
                 temp = string.Format(temp, GeneralUtilities.RoundFloat(value * 100f, 1));
             }

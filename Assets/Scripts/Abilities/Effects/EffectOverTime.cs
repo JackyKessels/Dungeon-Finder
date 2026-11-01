@@ -42,7 +42,7 @@ public class EffectOverTime : EffectObject
 
             if (temp.Contains(check))
             {
-                temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(source.attributeType) + ">{0}</color>");
+                temp = temp.Replace(check, "<color=" + ColorDatabase.AttributeColor(source.attributeType) + ">{0}</color>");
 
                 temp = string.Format(temp, GeneralUtilities.RoundFloat(tooltipInfo.effect.timedActions[i].storedValue, 0));
             }

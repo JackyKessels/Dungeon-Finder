@@ -7,7 +7,7 @@ public class FCTHandler : MonoBehaviour
     private Queue<FCTData> queueFCT = new Queue<FCTData>();
     private Queue<FCTDataSprite> queueFCTSprite = new Queue<FCTDataSprite>();
 
-    private readonly float cooldownFCT = 0.25f;
+    private readonly float cooldownFCT = 0.2f;
     private readonly float cooldownSprite = 0.5f;
 
     private bool active = false;

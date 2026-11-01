@@ -20,7 +20,7 @@ MonoBehaviour:
   expirationSpecialEffects: []
   isBuff: 1
   procType: 1
-  duration: 2
+  duration: 3
   permanent: 0
   aura: 0
   unique: 0
@@ -44,8 +44,8 @@ MonoBehaviour:
     ignorePassives: []
     school: 0
     attributeType: 4
-    baseValue: 50
-    levelBase: 1
+    baseValue: 100
+    levelBase: 0
     scaling: 0
     levelScaling: 0
     reductionType: 0

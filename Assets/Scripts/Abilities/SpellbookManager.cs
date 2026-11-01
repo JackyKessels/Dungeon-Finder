@@ -61,6 +61,11 @@ public class SpellbookManager : MonoBehaviour
 
     public void Setup(Hero hero)
     {
+        if (hero.equipmentObject.IsSwappingEquipment)
+        {
+            return;
+        }
+
         currentHero = hero;
 
         ObjectUtilities.ClearContainer(draggableContainer);

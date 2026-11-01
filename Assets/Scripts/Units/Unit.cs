@@ -209,8 +209,11 @@ public class Unit : MonoBehaviour
                 {
                     case CrowdControlType.Taunt:
                         {
-                            EffectManager.RemoveChargeEffects();
-                            enemy.ApplyChargeEffect(enemy, effect.caster);
+                            if (enemy.chargedAbility.Count > 0)
+                            { 
+                                EffectManager.RemoveChargeEffects();
+                                enemy.ApplyChargeEffect(enemy, effect.caster);
+                            }
                         }
                         break;
                     case CrowdControlType.Stun:

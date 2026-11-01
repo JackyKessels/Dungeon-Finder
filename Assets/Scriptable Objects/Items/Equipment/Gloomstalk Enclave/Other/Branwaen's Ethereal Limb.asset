@@ -29,7 +29,7 @@ MonoBehaviour:
   slot: 2
   healthFactor: 0
   powerFactor: 0
-  wisdomFactor: 0.8
+  wisdomFactor: 0.6
   armor: 0
   resistance: 0
   vitality: 0

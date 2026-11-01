@@ -45,9 +45,9 @@ MonoBehaviour:
     ignorePassives: []
     school: 0
     attributeType: 0
-    baseValue: 10
+    baseValue: 0
     levelBase: 0
-    scaling: 0
+    scaling: 0.1
     levelScaling: 0
     reductionType: 0
     abilityModifier:

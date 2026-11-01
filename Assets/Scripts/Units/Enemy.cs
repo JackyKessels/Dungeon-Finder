@@ -96,6 +96,11 @@ public class Enemy : Unit
 
     public void ApplyChargeEffect(Unit caster, Unit target)
     {
+        if (chargedAbility.Count == 0)
+        {
+            return;
+        }
+
         var activeAbility = chargedAbility[0].activeAbility;
 
         Effect effect = new Effect(activeAbility.GetChargeEffectObject(), 1, caster, target, 1, activeAbility);

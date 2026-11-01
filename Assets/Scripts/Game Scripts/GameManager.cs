@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+using System.Threading.Tasks;
 using TMPro;
-using UnityEditor;
 using Unity.Services.Analytics;
 using Unity.Services.Core;
+using Unity.Services.Core.Environments;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.UI;
 
 public enum GameState
 {
@@ -141,11 +143,24 @@ public class GameManager : MonoBehaviour
         titleElements = startUI.transform.GetChild(0);
         newGameElements = startUI.transform.GetChild(1);
 
-        await UnityServices.InitializeAsync();
-        Debug.Log("Unity Services Initialized");
-        AnalyticsService.Instance.StartDataCollection();
+        await SetupAnalytics();
 
         Application.targetFrameRate = 60;
+    }
+
+    private async Task SetupAnalytics()
+    {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        const string environment = "development";
+#else
+        const string environment = "production";
+#endif
+
+        var options = new InitializationOptions().SetEnvironmentName(environment);
+
+        await UnityServices.InitializeAsync(options);
+
+        Debug.Log($"Unity Services Initialized: {environment}");
     }
 
     public void LoadParticleSystems()

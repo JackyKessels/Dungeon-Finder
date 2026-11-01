@@ -339,13 +339,13 @@ public static class AbilityTooltipHandler
                 case ResetType.Attribute:
                     {
                         string value = $"({Mathf.RoundToInt(activeAbility.attributeScaling * 100)}% {GeneralUtilities.GetCorrectAttributeName(activeAbility.resetAttribute)})";
-                        chance = $"<color={ColorDatabase.ScalingColor(activeAbility.resetAttribute)}>{value}</color>";
+                        chance = $"<color={ColorDatabase.AttributeColor(activeAbility.resetAttribute)}>{value}</color>";
                     }
                     break;
                 case ResetType.FlatPlusAttribute:
                     {
                         string value = $"({activeAbility.resetChance} + {Mathf.RoundToInt(activeAbility.attributeScaling * 100)}% {GeneralUtilities.GetCorrectAttributeName(activeAbility.resetAttribute)})";
-                        chance = $"<color={ColorDatabase.ScalingColor(activeAbility.resetAttribute)}>{value}</color>";
+                        chance = $"<color={ColorDatabase.AttributeColor(activeAbility.resetAttribute)}>{value}</color>";
                     }
                     break;
                 default:
@@ -358,7 +358,7 @@ public static class AbilityTooltipHandler
 
             if (activeAbility.resetType == ResetType.Attribute || activeAbility.resetType == ResetType.FlatPlusAttribute)
             {
-                chance = $"<color={ColorDatabase.ScalingColor(activeAbility.resetAttribute)}>{value}</color>";
+                chance = $"<color={ColorDatabase.AttributeColor(activeAbility.resetAttribute)}>{value}</color>";
             }
             else
             {
@@ -416,7 +416,7 @@ public static class AbilityTooltipHandler
     {
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(attributeType) + ">{0}</color>");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.AttributeColor(attributeType) + ">{0}</color>");
 
             return string.Format(temp, GeneralUtilities.GetCorrectAttributeName(attributeType));
         }
@@ -514,7 +514,7 @@ public static class AbilityTooltipHandler
 
         if (temp.Contains(check))
         {
-            temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(AttributeType.Crit) + ">Critical</color>");
+            temp = temp.Replace(check, "<color=" + ColorDatabase.AttributeColor(AttributeType.Crit) + ">Critical</color>");
 
             return string.Format(temp, color);
         }
@@ -633,7 +633,7 @@ public static class AbilityTooltipHandler
                 }
                 else
                 {
-                    temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(source.attributeType) + ">({0} {1})</color>");
+                    temp = temp.Replace(check, "<color=" + ColorDatabase.AttributeColor(source.attributeType) + ">({0} {1})</color>");
 
                     return string.Format(temp, source.GetTooltipValue(tooltipInfo), GeneralUtilities.GetCorrectAttributeName(source.attributeType));
                 }
@@ -648,7 +648,7 @@ public static class AbilityTooltipHandler
                 }
                 else
                 {
-                    temp = temp.Replace(check, "<color=" + ColorDatabase.ScalingColor(source.attributeType) + ">{0}</color>");
+                    temp = temp.Replace(check, "<color=" + ColorDatabase.AttributeColor(source.attributeType) + ">{0}</color>");
 
                     return string.Format(temp, source.CalculateValue(tooltipInfo));
                 }
@@ -893,7 +893,7 @@ public static class AbilityTooltipHandler
             }
             else
             {
-                string color = ColorDatabase.ScalingColor(AttributeType.Armor);
+                string color = ColorDatabase.AttributeColor(AttributeType.Armor);
 
                 temp = temp.Replace(check, "Current Armor: <color={0}>{1}</color>");
 

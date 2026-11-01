@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d318b60c43bbff540adf2168b0cccf9c, type: 3}
-  m_Name: Crux, Breaker of Faith
+  m_Name: Golden Nightmare
   m_EditorClassIdentifier: 
-  name: Crux, Breaker of Faith
-  icon: {fileID: 21300000, guid: d778297a5df465441b293a4db1833d48, type: 3}
+  name: Golden Nightmare
+  icon: {fileID: 21300000, guid: b1edd79f28f99a14082dc8bbcecaadfc, type: 3}
   value: 0
   stackable: 0
   maxStacks: 1
@@ -21,31 +21,32 @@ MonoBehaviour:
   unique: 0
   item:
     name: 
-    id: 40
+    id: 112
     itemObject: {fileID: 0}
     level: 1
   description: 
   quality: 0
   slot: 2
-  healthFactor: 0.5
-  powerFactor: 0
+  healthFactor: 0.3
+  powerFactor: 0.3
   wisdomFactor: 0
   armor: 0
   resistance: 0
   vitality: 0
   speed: 0
-  accuracy: 4
+  accuracy: 0
   crit: 0
   healingMultiplier: 0
-  physicalMultiplier: 15
+  physicalMultiplier: 0
   fireMultiplier: 0
   iceMultiplier: 0
   natureMultiplier: 0
   arcaneMultiplier: 0
-  holyMultiplier: 0
-  shadowMultiplier: 0
+  holyMultiplier: 10
+  shadowMultiplier: 10
   critMultiplier: 0
   sacrificialMultiplier: 0
   passives:
-  - {fileID: 11400000, guid: 86ef26d5a7518a14db748758aa6b8ade, type: 2}
+  - {fileID: 11400000, guid: 39e90e051fbdb73469dd9dc50e3c01c9, type: 2}
+  - {fileID: 11400000, guid: 1024b7ff56f661f4cb7cc7b00cd4bd22, type: 2}
   useAbility: {fileID: 0}
